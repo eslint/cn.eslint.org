@@ -1,2 +1,84 @@
-<h1>cn.eslint.org</h1>
-<p>Coming soon...</p>
+---
+title: ESLint - Pluggable JavaScript linter
+layout: default
+redirect_from: "/docs/"
+homepage: true
+disablePreview: true
+---
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>欢迎</h3>
+
+        <p class="lead">ESLint最初是由<a href="http://nczonline.net">Nicholas
+            C. Zakas</a> 于2013年6月创建的开源项目。它的目标是提供一个插件化的javascript代码检测工具。</p>
+
+        <h3>最新新闻</h3>
+        {% assign post = site.posts.first %}
+        <ul>
+            <li class="{{ post.popular }} {{ post.new }}">
+                <a href="{{ post.url }}">{{ post.title }}</a>
+                <span class="date">{{ post.date | date: "%-d %B %Y" }}</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<hr class="hr-near-above">
+
+<div class="row">
+    <div class="col-sm-6 col-md-6">
+        <h3>关于</h3>
+
+        <p>了解更多关于 ESLint 以及 它为什么会出现和它背后的原理</p>
+
+        <p><a class="btn btn-default" href="/docs/about/" role="button">了解更多 »</a></p>
+    </div>
+    <div class="col-sm-6 col-md-6">
+        <h3>规则</h3>
+
+        <p>ESLint附带了一些默认规则帮你起步。 这里是完整的列表。 </p>
+
+        <p><a class="btn btn-default" href="/docs/rules/" role="button">查看完整列表 »</a></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-md-6">
+        <h3>命令行界面</h3>
+
+        <p>ESLint 主要在命令行中使用。在这里了解它的用法。 </p>
+
+        <p><a class="btn btn-default" href="/docs/user-guide/command-line-interface" role="button">CLI 详情 »</a></p>
+    </div>
+    <div class="col-sm-6 col-md-6">
+        <h3>开发指南</h3>
+
+        <p>喜欢 ESLint、想要帮助它变得更棒吗? 我们有让你开始的所有细节。</p>
+
+        <p><a class="btn btn-default" href="/docs/developer-guide/" role="button">深入学习 »</a></p>
+    </div>
+</div>
+
+<hr class="hr-near-below">
+
+<div class="row">
+  <div class="col-sm-12">
+    <h2 class="text-center">谁在使用 ESLint?</h2>
+    <div class="logos row">
+    </div>
+    <div class="expender row text-center">
+      查看更多 <span class="caret"></span>
+    </div>
+  </div>
+</div>
+
+<hr class="hr-near-below">
+
+<div class="row">
+    <div class="col-sm-12">
+        ESLint requires <a href="http://nodejs.org">Node.js</a> or <a href="http://iojs.org">io.js</a> and works
+        on <span itemprop="operatingSystem">Windows</span>,
+        <span itemprop="operatingSystem">Mac</span> and <span itemprop="operatingSystem">Linux</span>
+    </div>
+</div>
