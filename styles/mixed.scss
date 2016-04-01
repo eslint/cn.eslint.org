@@ -1,0 +1,72 @@
+---
+---
+
+@mixin mixed-default {
+    color: rgba(51,51,51,.5);
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+.navbar-left {
+    display: none;
+}
+.lang-chooser {
+    font-size: 14px;
+}
+
+h1, h2, h3 {
+    &:nth-of-type(odd) {
+        @include mixed-default;
+    }
+}
+p:nth-of-type(odd),
+li:nth-of-type(odd),
+li:nth-of-type(odd) p:only-of-type {
+    @include mixed-default;
+}
+
+h1:nth-of-type(odd):only-of-type,
+h1:nth-of-type(odd):hover,
+h2:nth-of-type(odd):only-of-type,
+h2:nth-of-type(odd):hover,
+h3:nth-of-type(odd):only-of-type,
+h3:nth-of-type(odd):hover,
+p:nth-of-type(odd):hover,
+p:only-of-type,
+li:nth-of-type(odd):hover {
+    color: #333;
+}
+
+.lang-zh {
+    h1, h2, h3 {
+        &:nth-of-type(odd):not(:only-of-type) {
+            display: none;
+        }
+    }
+    p:nth-of-type(odd):not(:only-of-type),
+    li:nth-of-type(odd) {
+        display: none;
+    } 
+}
+
+.lang-en {
+    h1, h2, h3 {
+        &:nth-of-type(even) {
+            display: none;
+        }
+
+        &:nth-of-type(odd) {
+            color: #333;
+        }
+    }
+    p:nth-of-type(even),
+    li:nth-of-type(even) {
+        display: none;
+    }
+
+    p:nth-of-type(odd),
+    li:nth-of-type(odd),
+    li:nth-of-type(odd) p:only-of-type {
+        color: #333;
+    }
+    
+}

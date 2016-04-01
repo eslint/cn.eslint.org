@@ -1,0 +1,30 @@
+{
+  "name": "cn.eslint.org",
+  "version": "1.0.0",
+  "private": true,
+  "description": "This contains the code running on eslint.org.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "browserify -x espree js/app/parser/index.js > js/app/parser/index.built.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eslint/cn.eslint.org.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eslint/cn.eslint.org/issues"
+  },
+  "homepage": "https://github.com/eslint/cn.eslint.org#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "json-loader": "^0.5.2",
+    "node-libs-browser": "^0.5.2"
+  }
+}
