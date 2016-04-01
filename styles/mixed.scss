@@ -6,6 +6,12 @@
     -webkit-transition: all 300ms ease;
     transition: all 300ms ease;
 }
+.glyphicon-ok:before {
+    color: #37ab00;
+}
+.glyphicon-wrench:before {
+    color: #f29900;
+}
 .navbar-left {
     display: none;
 }
