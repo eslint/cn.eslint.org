@@ -100,10 +100,17 @@ Because of this this line, all of the rules marked "(recommended)" on the [rules
 ## 下一步
 
 * Learn about [advanced configuration](http://eslint.org/docs/user-guide/configuring) of ESLint.
-* 学习 ESLint 的[高级配置](http://eslint.org/docs/user-guide/configuring) of ESLint.
+
+* 学习 ESLint 的[高级配置](http://eslint.org/docs/user-guide/configuring)。
+
 * Explore [ESLint integrations](http://eslint.org/docs/user-guide/integrations) into other tools like editors, build systems, and more.
-* 探索将 [ESLint 集成] (http://eslint.org/docs/user-guide/integrations) 到其它工具，比如 编辑器，构建工具等等。
+
+* 探索将 [ESLint 集成](http://eslint.org/docs/user-guide/integrations) 到其它工具，比如 编辑器，构建工具等等。
+
 * Can't find just the right rule?  Make your own [custom rule](http://eslint.org/docs/developer-guide/working-with-rules).
+
 * 没有找到适合的规则？创建[自定义规则](http://eslint.org/docs/developer-guide/working-with-rules)。
+
 * Make ESLint even better by [contributing](http://eslint.org/docs/developer-guide/contributing).
+
 * 通过 [贡献代码](http://eslint.org/docs/developer-guide/contributing) 让 ESLint 变得更好。
