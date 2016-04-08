@@ -52,30 +52,34 @@ After that, you can run ESLint on any JavaScript file:
 
 **Note:** 如果你之前使用的版本低于 1.0.0，请查看 [迁移指南](http://eslint.org/docs/user-guide/migrating-to-1.0.0)。
 
-After running `eslint --init`, you'll have a `.eslintrc` file in your directory. In it, you'll see some rules configured like this:
+After running `eslint --init`, you'll have a `.eslintrc.*` file in your directory. In it, you'll see some rules configured like this:
 
-运行 `eslint --init` 之后，`.eslintrc` 文件会在你的文件夹中自动创建。你可以在 `.eslintrc` 文件中看到许多像这样的规则：
+运行 `eslint --init` 之后，`.eslintrc.*` 文件会在你的文件夹中自动创建。你可以在 `.eslintrc` 文件中看到许多像这样的规则：
 
 ```json
 {
     "rules": {
-        "semi": [2, "always"],
-        "quotes": [2, "double"]
+        "semi": ["error", "always"],
+        "quotes": ["error", "double"]
     }
 }
 ```
 
-The names `"semi"` and `"quotes"` are the names of [rules](http://eslint.org/docs/rules) in ESLint. The number is the error level of the rule and can be one of the three values:
+The names `"semi"` and `"quotes"` are the names of [rules](http://eslint.org/docs/rules) in ESLint. The number is the error level of the rule and can be one of the following values:
 
 `"semi"` 和 `"quotes"` 是 ESLint 中 [规则](http://eslint.org/docs/rules) 的名称。数字是规则的错误级别，它有 3 个取值：
 
+* `"off"` or `0` - turn the rule off
 
-* `0` - turn the rule off
-* `0` - 关闭规则
-* `1` - turn the rule on as a warning (doesn't affect exit code)
-* `1` - 将规则视为一个警告 （不会退出程序）
-* `2` - turn the rule on as an error (exit code will be 1)
-* `2` - 将规则视为一个错误 (退出程序并返回错误码1)
+* `"off"` or `0` - 关闭规则
+
+* `"warn"` or `1` - turn the rule on as a warning (doesn't affect exit code)
+
+* `"warn"` or `1` - 将规则视为一个警告（不会影响退出码）
+
+* `"error"` or `2` - turn the rule on as an error (exit code will be 1)
+
+* `"error"` or `2` - 将规则视为一个错误 (退出码为1)
 
 The three error levels allow you fine-grained control over how ESLint applies rules (for more configuration options and details, see the [configuration docs](http://eslint.org/docs/user-guide/configuring)).
 
@@ -102,6 +106,10 @@ Because of this this line, all of the rules marked "(recommended)" on the [rules
 * Learn about [advanced configuration](http://eslint.org/docs/user-guide/configuring) of ESLint.
 
 * 学习 ESLint 的[高级配置](http://eslint.org/docs/user-guide/configuring)。
+
+* Get familiar with the [command line options](/docs/user-guide/command-line-interface).
+
+* 熟悉 [命令行选项](/docs/user-guide/command-line-interface)。
 
 * Explore [ESLint integrations](http://eslint.org/docs/user-guide/integrations) into other tools like editors, build systems, and more.
 

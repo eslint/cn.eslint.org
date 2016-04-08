@@ -8,9 +8,13 @@ proofreader: molee1905
 
 # 新建规则
 
-ESLint is all about rules. For most of the project's lifetime, we've had over 100 rules, and that list continues to grow. However, we can't just accept any proposed rule because all rules need to work cohesively together. As such, we have some guidelines around which rules can be part of the ESLint core and which are better off as custom rules and plugins.
+ESLint is all about rules. For most of the project's lifetime, we've had over 200 rules, and that list continues to grow. However, we can't just accept any proposed rule because all rules need to work cohesively together. As such, we have some guidelines around which rules can be part of the ESLint core and which are better off as custom rules and plugins.
 
 ESLint 的核心就是规则。在该项目的生命周期的大部分时间里，我们已经创建了超过100条规则，而且数量还在持续增加。然而，我们不能一味地接受这些提出的规则，我们需要这些规则在一起能协同工作。因此，对于哪些规则可以成为 ESLint 核心的一部分，哪些规则更适合作为自定义的规则和插件，我们制定了一些准则。
+
+**Note:** As of 2016, we accept only rules that are deemed extremely important for inclusion. We prefer that new rules be implemented in plugins.
+
+**注意：** 在2016年，我们只接受被认为是极其重要的规则。我们希望新的规则以插件的形式实现的。
 
 ## Core Rule Guidelines
 
@@ -56,7 +60,6 @@ If you want to propose a new rule, [create an issue](https://github.com/eslint/e
 
 如果你想提出一条新规则，[新建一个议题（issue）](https://github.com/eslint/eslint/issues/new?body=**When%20does%20this%20rule%20warn%3F%20Please%20describe%20and%20show%20example%20code%3A**%0A%0A**Is%20this%20rule%20preventing%20an%20error%20or%20is%20it%20stylistic%3F**%0A%0A**Why%20is%20this%20rule%20a%20candidate%20for%20inclusion%20instead%20of%20creating%20a%20custom%20rule%3F**%0A%0A**Are%20you%20willing%20to%20create%20the%20rule%20yourself%3F**%0A%0A) 请确保包含以下几点：
 
-
 1. When the rule will warn. Include a description as well as sample code.
 1. 该规则在什么时候发出警告。请包含示例代码及相关描述。
 1. Whether the rule prevents an error or is stylistic.
@@ -69,16 +72,22 @@ If you want to propose a new rule, [create an issue](https://github.com/eslint/e
 We need all of this information in order to determine whether or not the rule is a good core rule candidate.
 
 我们需要所有这些信息来判断它是否满足核心规则的候选要求。
+ 
+## Accepting a Rule
 
-## Resource Limitations
+In order for a rule to be accepted in the ESLint core, it must:
 
-## 资源限制
+1. Fulfill all the criteria listed in the "Core Rule Guidelines" section
+1. Have an ESLint team member champion inclusion of the rule
+1. Be very important for ESLint users because it either catches a serious problem or allows styling of code in accordance with a popular style guide
 
-Please keep in mind that we receive a lot of rule proposals and the ESLint team is completely a volunteer team that works in its free time to maintain ESLint. As a result, even if we like the idea for a rule, we may not have the resources to implement it. You greatly increase the likelihood of getting a new core rule into ESLint if you are willing to implement it yourself. The team is very good at guiding first-time contributors through the rule creation process.
+Keep in mind that we have over 200 rules, and that is daunting both for end users and the ESLint team (who has to maintain them). As such, any new rules must be deemed of high importance to be considered for inclusion in ESLint.
 
-我们收到了许多规则提案，而且ESLint 团队是一支完全由志愿者组成的团队，我们只能利用业余时间维护 ESLint。因此，即使我们喜欢某条规则的想法，我们可能没有人力去实现它。如果你愿意自己实现这条规则，这将会大大增加它成为 ESLint 核心规则的可能性。这个团队非常善于指导新的参与者完成规则的创建。
+## Implementation is Your Responsibility
 
-## Creating Your Own Rules
+The ESLint team doesn't implement new rules that are suggested by users because we have a limited number of people and need to focus on the overall roadmap. Once a rule is accepted, you are responsible for implementing and documenting the rule. You may, alternately, recruit another person to help you implement the rule. The ESLint team member who championed the rule is your resource to help guide you through the rest of this process.
+
+## Alternative: Creating Your Own Rules
 
 ## 创建你自己的规则
 

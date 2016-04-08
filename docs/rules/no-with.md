@@ -20,12 +20,12 @@ This rule is aimed at eliminating `with` statements.
 
 此规则目的在于排除 `with` 语句。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-with: 2*/
+/*eslint no-with: "error"*/
 with (foo) {
     // ...
 }

@@ -43,13 +43,13 @@ The second argument can be used to configure this rule:
 
 ### max
 
-In the following example, the first 2 is the code for an error
-and the second 2 is the maximum number of empty lines:
+In the following example, the `error` is the severity of the rule, and the
+`max` property is the maximum number of empty lines (2 in this example).
 
-例如：设置规则为错误级别 2，最大空行数为 2：
+在下面的示例中，`error`是该规则的等级，`max`属性是最大空行数(本例中是 2)。
 
 ```json
-"no-multiple-empty-lines": [2, {"max": 2}]
+"no-multiple-empty-lines": ["error", {"max": 2}]
 ```
 
 The following patterns are considered problems:
@@ -57,7 +57,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-multiple-empty-lines: [2, {max: 2}]*/
+/*eslint no-multiple-empty-lines: ["error", {max: 2}]*/
 
 
 var foo = 5;
@@ -74,7 +74,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-multiple-empty-lines: [2, {max: 2}]*/
+/*eslint no-multiple-empty-lines: ["error", {max: 2}]*/
 
 
 var foo = 5;
@@ -88,7 +88,7 @@ var bar = 3;
 ### maxEOF
 
 ```json
-"no-multiple-empty-lines": [2, {"max": 2, "maxEOF": 1}]
+"no-multiple-empty-lines": ["error", {"max": 2, "maxEOF": 1}]
 ```
 
 The following patterns are considered problems:
@@ -96,7 +96,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-multiple-empty-lines: [2, {max: 2, maxEOF: 1}]*/
+/*eslint no-multiple-empty-lines: ["error", {max: 2, maxEOF: 1}]*/
 
 
 var foo = 5;
@@ -112,7 +112,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-multiple-empty-lines: [2, {max: 2, maxEOF: 1}]*/
+/*eslint no-multiple-empty-lines: ["error", {max: 2, maxEOF: 1}]*/
 
 
 var foo = 5;
@@ -125,7 +125,7 @@ var bar = 3;
 ### maxBOF
 
 ```json
-"no-multiple-empty-lines": [2, {"max": 2, "maxBOF": 0}]
+"no-multiple-empty-lines": ["error", {"max": 2, "maxBOF": 0}]
 ```
 
 The following patterns are considered problems:
@@ -133,7 +133,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-multiple-empty-lines: [2, {max: 2, maxBOF: 0}]*/
+/*eslint no-multiple-empty-lines: ["error", {max: 2, maxBOF: 0}]*/
 
 
 var foo = 5;
@@ -149,7 +149,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-multiple-empty-lines: [2, {max: 2, maxBOF: 0}]*/
+/*eslint no-multiple-empty-lines: ["error", {max: 2, maxBOF: 0}]*/
 var foo = 5;
 
 

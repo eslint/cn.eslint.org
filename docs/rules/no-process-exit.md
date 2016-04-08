@@ -8,7 +8,7 @@ proofreader: yanggao40
 
 # Disallow process.exit() (no-process-exit)
 
-# 禁止process.exit() (no-process-exit)
+# 禁用 process.exit() (no-process-exit)
 
 The `process.exit()` method in Node.js is used to immediately stop the Node.js process and exit. This is a dangerous operation because it can occur in any method at any point in time, potentially stopping a Node.js application completely when an error occurs. For example:
 
@@ -41,23 +41,23 @@ This rule aims to prevent the use of `process.exit()` in Node.js JavaScript. As 
 
 此规则旨在阻止在Node.js中使用`process.exit()`。当在代码中发现`process.exit()`会报警告。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为有问题：
+**错误**代码示例：
 
 ```js
-/*eslint no-process-exit: 2*/
+/*eslint no-process-exit: "error"*/
 
 process.exit(1);
 process.exit(0);
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为没问题：
+**正确**代码示例：
 
 ```js
-/*eslint no-process-exit: 2*/
+/*eslint no-process-exit: "error"*/
 
 Process.exit();
 var exit = process.exit;
@@ -67,13 +67,13 @@ var exit = process.exit;
 
 There may be a part of a Node.js application that is responsible for determining the correct exit code to return upon exiting. In that case, you should turn this rule off to allow proper handling of the exit code.
 
-这可能是Node.js应用的一部分，负责正确的退出码并回退的决策。在这种情况下，你应该关闭规则来允许适当处理退出码。
+这可能是 Node.js 应用的一部分，负责正确的退出码并回退的决策。在这种情况下，你应该关闭规则来允许适当处理退出码。
 
 ## Version
 
 This rule was introduced in ESLint 0.4.0.
 
-此规则在ESLint 0.4.0中被引入。
+此规则在 ESLint 0.4.0 中被引入。
 
 ## Resources
 

@@ -54,20 +54,19 @@ By activating the option `getWithoutSet` it enforces the presence of a setter fo
 
 ## Options
 
-`getWithoutSet` set to `true` will warn for getters without setters (Default `false`).
-
-当 `getWithoutSet` 设置为`true`时，如果只定义 getter 而不定义 setter，该规则将发出警告（默认为 `false`）。
-
-`setWithoutGet` set to `true` will warn for setters without getters (Default `true`).
-
-当 `setWithoutGet ` 设置为`true`时，如果只定义 setter 而不定义 getter，该规则将发出警告（默认为 `true`）。
+* `setWithoutGet` set to `true` will warn for setters without getters (Default `true`).
+* 当 `setWithoutGet ` 设置为`true`时，如果只定义 setter 而不定义 getter，该规则将发出警告（默认为 `true`）。
+* `getWithoutSet` set to `true` will warn for getters without setters (Default `false`).
+* 当 `getWithoutSet` 设置为`true`时，如果只定义 getter 而不定义 setter，该规则将发出警告（默认为 `false`）。
 
 ### setWithoutGet
- 
-默认选项`{ "setWithoutGet": true }` **不正确**的代码示例
+
+Examples of **incorrect** code for the default `{ "setWithoutGet": true }` option:
+
+默认选项`{ "setWithoutGet": true }`的 **错误**代码示例：
 
 ```js
-/*eslint accessor-pairs: 2*/
+/*eslint accessor-pairs: "error"*/
 
 var o = {
     set a(value) {
@@ -85,10 +84,10 @@ Object.defineProperty(o, 'c', {
 
 Examples of **correct** code for the default `{ "setWithoutGet": true }` option:
 
-默认选项`{ "setWithoutGet": true }` **正确**的代码示例
+默认选项`{ "setWithoutGet": true }`的 **正确**代码示例：
 
 ```js
-/*eslint accessor-pairs: 2*/
+/*eslint accessor-pairs: "error"*/
 
 var o = {
     set a(value) {
@@ -111,14 +110,14 @@ Object.defineProperty(o, 'c', {
 
 ```
 
-### `getWithoutSet`
+### getWithoutSet
 
 Examples of **incorrect** code for the `{ "getWithoutSet": true }` option:
 
-`{ "getWithoutSet": true }`选项，**不正确**的代码示例：
+`{ "getWithoutSet": true }`选项的 **错误**代码示例：
 
 ```js
-/*eslint accessor-pairs: [2, { getWithoutSet: true }]*/
+/*eslint accessor-pairs: ["error", { "getWithoutSet": true }]*/
 
 var o = {
     set a(value) {
@@ -149,10 +148,10 @@ Object.defineProperty(o, 'c', {
 
 Examples of **correct** code for the `{ "getWithoutSet": true }` option:
 
-`{ "getWithoutSet": true }`选项，**正确**的代码示例：
+`{ "getWithoutSet": true }`选项的 **正确**代码示例：
 
 ```js
-/*eslint accessor-pairs: [2, { getWithoutSet: true }]*/
+/*eslint accessor-pairs: ["error", { "getWithoutSet": true }]*/
 var o = {
     set a(value) {
         this.val = value;

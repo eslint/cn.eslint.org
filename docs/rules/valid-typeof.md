@@ -1,6 +1,8 @@
 ---
 title: Rule valid-typeof
 layout: doc
+translator: molee1905
+proofreader: qifeigit
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,23 +10,22 @@ layout: doc
 
 # 确保typeof的结果和一个有效的字符串相比较 (valid-typeof)
 
- 
 For a vast majority of use-cases, the only valid results of the `typeof` operator will be one of the following: `"undefined"`, `"object"`, `"boolean"`, `"number"`, `"string"`, `"function"` and `"symbol"`. When the result of a `typeof` operation is compared against a string that is not one of these strings, it is usually a typo. This rule ensures that when the result of a `typeof` operation is compared against a string, that string is in the aforementioned set.
 
-对于大多数用例，`typeof`操作唯一有效的结果将是下列之一：`"undefined"`， `"object"`， `"boolean"`， `"number"`， `"string"`， `"function"`和`"symbol"`。当`typeof`操作结果不是这些字符串中的一个相比较，通常是个书写错误。该规则确保当`typeof`操作的结果与一个字符串比较，这个字符串是在前面提及的字符串之一。
+对于大多数用例，`typeof`操作唯一有效的结果将是下列之一：`"undefined"`， `"object"`， `"boolean"`，`"number"`，`"string"`，`"function"`和`"symbol"`。当`typeof`操作结果不是这些字符串中的一个相比较，通常是个书写错误。该规则确保`typeof`操作的结果是与一个字符串比较，这个字符串是在前面提及的字符串之一。
 
 ## Rule Details
 
 This rule aims to prevent errors from likely typos by ensuring that when the result of a `typeof` operation is compared against a string, that the string is a valid value.
 
-这条规则旨在通过确保当typeof的操作结果是与一个有效的字符串相比较，防止可能的书写错误。
+这条规则旨在通过确保typeof的操作结果是与一个有效的字符串相比较，防止可能的书写错误。
 
 Examples of **incorrect** code for this rule:
 
 **错误**代码示例：
 
 ```js
-/*eslint valid-typeof: 2*/
+/*eslint valid-typeof: "error"*/
 
 typeof foo === "strnig"
 typeof foo == "undefimed"
@@ -37,7 +38,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint valid-typeof: 2*/
+/*eslint valid-typeof: "error"*/
 
 typeof foo === "string"
 typeof bar == "undefined"
@@ -55,7 +56,7 @@ You may want to turn this rule off if you will be using the `typeof` operator on
 
 This rule was introduced in ESLint 0.5.0.
 
-该规则在ESLint 0.5.0中被引入。
+该规则在 ESLint 0.5.0 中被引入。
 
 ## Resources
 

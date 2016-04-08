@@ -38,12 +38,12 @@ This rule aims to eliminate the use of labeled statements in JavaScript. It will
 
 此规则旨在消除 JavaScript 中标签的使用。当遇到标签语句时，该规则将发出警告。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-labels: 2*/
+/*eslint no-labels: "error"*/
 
 label:
     while(true) {
@@ -77,12 +77,12 @@ label:
     }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-labels: 2*/
+/*eslint no-labels: "error"*/
 
 var f = {
     label: "foo"
@@ -99,18 +99,13 @@ while (true) {
 
 ## Options
 
-```json
-{
-    "no-labels": [2, {"allowLoop": false, "allowSwitch": false}]
-}
-```
+The options allow labels with loop or switch statements:
+
+以下选项允许在循环和 switch 语句中使用标签。
 
 * `"allowLoop"` (`boolean`, default is `false`) - If this option was set `true`, this rule ignores labels which are sticking to loop statements.
-
 * `"allowLoop"` (`boolean`，默认是 `false`) - 如果这个选项被设置为 `true`，该规则忽略循环语句中的标签。
-
 * `"allowSwitch"` (`boolean`, default is `false`) - If this option was set `true`, this rule ignores labels which are sticking to switch statements.
-
 * `"allowSwitch"` (`boolean`，默认是`false`) - 如果这个选项被设置为 `true`，该规则忽略 switch 语句中的标签。
 
 Actually labeled statements in JavaScript can be used with other than loop and switch statements.
@@ -118,35 +113,29 @@ However, this way is ultra rare, not well-known, so this would be confusing deve
 
 事实上，在 JavaScript 中，标签不仅仅被用于循环语句和 switch 语句中。然而，这非常罕见，会给开发者造成困惑。
 
-Those options allow us to use labels only with loop or switch statements.
+### allowLoop
 
-这些选项允许我们只在循环语句和 switch 语句中使用标签。
+Examples of **correct** code for the `{ "allowLoop": true }` option:
 
-The following patterns are considered problems when configured `{"allowLoop": true, "allowSwitch": true}`:
-
-当设置`{"allowLoop": true, "allowSwitch": true}`，以下模式被认为是有问题的：
+`{ "allowLoop": true }`选项的 **正确**代码示例：
 
 ```js
-label:
-    {
-        break label;
-    }
+/*eslint no-labels: ["error", { "allowLoop": true }]*/
 
-label:
-    if (a) {
-        break label;
-    }
-```
-
-The following patterns are not considered problems when configured `{"allowLoop": true, "allowSwitch": true}`:
-
-当设置`{"allowLoop": true, "allowSwitch": true}`，以下模式被认为是没有问题的：
-
-```js
 label:
     while (true) {
         break label;
     }
+```
+
+### allowSwitch
+
+Examples of **correct** code for the `{ "allowSwitch": true }` option:
+
+`{ "allowSwitch": true }`选项的 **错误**代码示例：
+
+```js
+/*eslint no-labels: ["error", { "allowSwitch": true }]*/
 
 label:
     switch (a) {

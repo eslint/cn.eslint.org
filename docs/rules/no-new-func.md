@@ -18,29 +18,33 @@ It's possible to create functions in JavaScript using the `Function` constructor
 var x = new Function("a", "b", "return a + b");
 ```
 
-This is considered by many to be a bad practice due to the difficult in debugging and reading these types of functions.
+This is considered by many to be a bad practice due to the difficulty in debugging and reading these types of functions.
 
 由于在调试和阅读这种类型函数上的困难，许多人认为这并不是一个好的做法，
 
 ## Rule Details
 
-This error is raised to highlight the use of a bad practice. By passing a string to the Function constructor, you are requiring the engine to parse that string much in the way it has to when you call the eval function.
+This rule is raised to highlight the use of a bad practice. By passing a string to the Function constructor, you are requiring the engine to parse that string much in the way it has to when you call the `eval` function.
 
-该规则用来标记`Function`构造函数的使用。把一个字符串传给 Function 构造函数，你需要引擎解析该字符串大致同调用eval函数一样。
+该规则用来标记`Function`构造函数的使用。把一个字符串传给 Function 构造函数，你需要引擎解析该字符串大致同调用`eval`函数一样。
+
+Examples of **incorrect** code for this rule:
+
+**错误**代码示例：
 
 ```js
-/*eslint no-new-func: 2*/
+/*eslint no-new-func: "error"*/
 
 var x = new Function("a", "b", "return a + b");
 var x = Function("a", "b", "return a + b");
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-new-func: 2*/
+/*eslint no-new-func: "error"*/
 
 var x = function (a, b) {
     return a + b;
@@ -51,7 +55,7 @@ var x = function (a, b) {
 
 In more advanced cases where you really need to use the `Function` constructor.
 
-在一些更高级的情况下，你真的需要使用`Function`构造函数。
+在一些更高级的情况下，你确实需要使用`Function`构造函数。
 
 ## Further Reading
 

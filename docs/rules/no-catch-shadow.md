@@ -30,8 +30,6 @@ console.log(err)    // err is 'problem', not 'x'
 
 This rule is aimed at preventing unexpected behavior in your program that may arise from a bug in IE 8 and earlier, in which the catch clause parameter can leak into outer scopes. This rule will warn whenever it encounters a catch clause parameter that has the same name as a variable in an outer scope.
 
-该规则旨在避免可能由 IE 8 及更早版本中的 bug 导致的意外
-
 在 IE 8 及更早版本中，catch 子句的参数会泄露到外部范围，该规则的目的就是避免这种 bug 导致的意外行为。但 catch 子句中的参数与外部范围的变量同名时，该规则将发出警告。
 
 Examples of **incorrect** code for this rule:
@@ -39,7 +37,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-catch-shadow: 2*/
+/*eslint no-catch-shadow: "error"*/
 
 var err = "x";
 
@@ -65,7 +63,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-catch-shadow: 2*/
+/*eslint no-catch-shadow: "error"*/
 
 var err = "x";
 

@@ -21,7 +21,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-label-var: 2*/
+/*eslint no-label-var: "error"*/
 
 var x = foo;
 function bar() {
@@ -37,7 +37,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-label-var: 2*/
+/*eslint no-label-var: "error"*/
 
 // The variable that has the same name as the label is not in scope.
 

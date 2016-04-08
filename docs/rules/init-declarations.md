@@ -66,7 +66,7 @@ Variables must be initialized at declaration (default)
 
 ```json
 {
-    "init-declarations": [2, "always"],
+    "init-declarations": ["error", "always"],
 }
 ```
 
@@ -76,7 +76,7 @@ Variables must not be initialized at declaration
 
 ```json
 {
-    "init-declarations": [2, "never"]
+    "init-declarations": ["error", "never"]
 }
 ```
 
@@ -86,7 +86,7 @@ Variables must not be initialized at declaration, except in for loops, where it 
 
 ```json
 {
-    "init-declarations": [2, "never", { "ignoreForLoopInit": true }]
+    "init-declarations": ["error", "never", { "ignoreForLoopInit": true }]
 }
 ```
 
@@ -97,7 +97,7 @@ Examples of **incorrect** code for the default `"always"` option:
 默认选项`"always"`的 **错误**代码示例：
 
 ```js
-/*eslint init-declarations: [2, "always"]*/
+/*eslint init-declarations: ["error", "always"]*/
 /*eslint-env es6*/
 
 function foo() {
@@ -111,7 +111,7 @@ Examples of **correct** code for the default `"always"` option:
 默认选项`"always"`的 **正确**代码示例：
 
 ```js
-/*eslint init-declarations: [2, "always"]*/
+/*eslint init-declarations: ["error", "always"]*/
 /*eslint-env es6*/
 
 function foo() {
@@ -128,7 +128,7 @@ Examples of **incorrect** code for the `"never"` option:
 选项`"never"`的 **错误**代码示例：
 
 ```js
-/*eslint init-declarations: [2, "never"]*/
+/*eslint init-declarations: ["error", "never"]*/
 /*eslint-env es6*/
 
 function foo() {
@@ -144,7 +144,7 @@ Examples of **correct** code for the `"never"` option:
 选项`"never"`的 **正确**代码示例：
 
 ```js
-/*eslint init-declarations: [2, "never"]*/
+/*eslint init-declarations: ["error", "never"]*/
 /*eslint-env es6*/
 
 function foo() {
@@ -165,7 +165,7 @@ Examples of **correct** code for the `"never", { "ignoreForLoopInit": true }` op
 `"never", { "ignoreForLoopInit": true }`的 **正确**代码示例：
 
 ```js
-/*eslint init-declarations: [2, "never", { "ignoreForLoopInit": true }]*/
+/*eslint init-declarations: ["error", "never", { "ignoreForLoopInit": true }]*/
 for (var i = 0; i < 1; i++) {}
 ```
 

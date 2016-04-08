@@ -82,7 +82,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-irregular-whitespace: 2*/
+/*eslint no-irregular-whitespace: "error"*/
 
 function thing() /*<NBSP>*/{
   return 'test';
@@ -114,7 +114,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-irregular-whitespace: 2*/
+/*eslint no-irregular-whitespace: "error"*/
 
 function thing() {
   return ' <NBSP>thing';
@@ -150,7 +150,7 @@ For example, to specify that you want to skip checking for irregular whitespace 
 例如，你想跳过对注释中的不规则的空格的检查，使用下面的配置进行：
 
 ```json
-"no-irregular-whitespace": [2, { "skipComments": true }]
+"no-irregular-whitespace": ["error", { "skipComments": true }]
 ```
 
 ## When Not To Use It

@@ -8,11 +8,13 @@ proofreader: molee1905
 
 # Command Line Interface
 
+# Command Line Interface
+
 # 命令行界面
 
 To run ESLint on Node.js, you must have npm installed. If npm is not installed, follow the instructions here: [https://www.npmjs.com/](https://www.npmjs.com/).
 
-为了在 Node.js 上运行 ESLint ，你必须先安装 npm。如果还没有安装 npm ，按照这里的说明进行安装: [https://www.npmjs.com/](https://www.npmjs.com/)。
+为了在 Node.js 上运行 ESLint，你必须先安装 npm。如果还没有安装 npm ，按照这里的说明进行安装：[https://www.npmjs.com/](https://www.npmjs.com/)。
 
 Once npm is installed, run the following:
 
@@ -55,6 +57,7 @@ Basic configuration:
   --ext [String]             Specify JavaScript file extensions - default: .js
   --global [String]          Define global variables
   --parser String            Specify the parser to be used - default: espree
+  --parser-options Object    Specify parser options
 
 Caching:
   --cache                    Only check changed files - default: false
@@ -116,8 +119,6 @@ Example:
 
 #### `-c`, `--config`
 
-#### `-c`, `--config`
-
 This option allows you to specify an additional configuration file for ESLint (see [Configuring ESLint](configuring) for more).
 
 该选项允许你为 ESLint (查看 [Configuring ESLint](configuring) 了解更多)指定一个额外的配置文件。
@@ -148,8 +149,6 @@ This example directly uses the sharable config `eslint-config-myconfig`.
 
 #### `--no-eslintrc`
 
-#### `--no-eslintrc`
-
 Disables use of configuration from `.eslintrc` and `package.json` files.
 
 禁用`.eslintrc`和`package.json`文件中的配置。
@@ -159,8 +158,6 @@ Example:
 示例：
 
     eslint --no-eslintrc file.js
-
-#### `--env`
 
 #### `--env`
 
@@ -177,26 +174,31 @@ Examples:
 
 #### `--ext`
 
-#### `--ext`
+This option allows you to specify which file extensions ESLint will use when searching for JavaScript files in the directories you specify.
+By default, it uses `.js` as the only file extension.
 
-This option allows you to specify which file extensions ESLint will use when searching for JavaScript files. By default, it uses `.js` as the only file extension.
-
-这个选项允许你指定 ESLint 查找 JavaScript 文件是要使用的文件扩展名。默认情况下，它使用`.js`作为唯一性文件扩展名。
+这个选项允许你指定 ESLint 在指定的目录下查找 JavaScript 文件时要使用的文件扩展名。默认情况下，它使用`.js`作为唯一性文件扩展名。
 
 Examples:
 
 示例：
 
     # Use only .js2 extension
-    eslint --ext .js2
+    eslint . --ext .js2
 
     # Use both .js and .js2
-    eslint --ext .js --ext .js2
+    eslint . --ext .js --ext .js2
 
     # Also use both .js and .js2
-    eslint --ext .js,.js2
+    eslint . --ext .js,.js2
 
-#### `--global`
+**Note:** If you use a glob pattern, then `--ext` is ignored.
+
+**注意：**如果你使用了 glob 模式，则`--ext`被忽略。
+
+For example, `eslint lib/* --ext .js` will match all files within the `lib/` directory, regardless of extension.
+
+例如，`eslint lib/* --ext .js`将匹配`lib/`下的所有文件，忽略扩展名。
 
 #### `--global`
 
@@ -213,11 +215,22 @@ Examples:
 
 #### `--parser`
 
-#### `--parser`
-
 This option allows you to specify a parser to be used by ESLint. By default, `espree` will be used.
 
 该选项允许你为 ESLint 指定一个解析器。默认情况下，使用`espree`。
+
+#### `--parser-options`
+
+This option allows you to specify parser options to be used by eslint.
+
+该选项允许你指定 ESLint 要使用的解析器选项。
+
+Examples:
+
+示例：
+
+    echo '3 ** 4' | eslint --stdin --parser-options=ecmaVersion:6 # will fail with a parsing error
+    echo '3 ** 4' | eslint --stdin --parser-options=ecmaVersion:7 # succeeds, yay!
 
 ### Caching
 
@@ -231,10 +244,13 @@ Store the info about processed files in order to only operate on the changed one
 
 #### `--cache-file`
 
-Path to the cache file. If none specified `.eslintcache` will be used. The file will be created in the directory where the `eslint` command is executed. **Deprecated：** Use `--cache-location` instead.
+Path to the cache file. If none specified `.eslintcache` will be used. The file will be created in the directory where the `eslint` command is executed. 
 
 缓存文件的路径。如果没有指定，则使用`.eslintcache`。这个文件会在 `eslint` 命令行被执行的文件目录中被创建。
-**弃用：**: 使用`--cache-location`代替。
+
+**Deprecated：** Use `--cache-location` instead.
+
+**弃用：**使用`--cache-location`代替。
 
 #### `--cache-location`
 
@@ -422,7 +438,7 @@ When specified, the given format is output into the provided file name.
 This option specifies the output format for the console. Possible formats are:
 
 这个选项指定了控制台的输出格式。可用的格式是：
-
+ 
 * [checkstyle](formatters/#checkstyle)
 * [compact](formatters/#compact)
 * [html](formatters/#html)
@@ -569,5 +585,3 @@ ESLint supports `.eslintignore` files to exclude files from the linting process 
 A more detailed breakdown of supported patterns and directories ESLint ignores by default can be found in [Configuring ESLint](http://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories).
 
 ESLint 默认忽略的模式分解和目录的更多详细信息可以在[Configuring ESLint](http://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories)中找到。
-
-

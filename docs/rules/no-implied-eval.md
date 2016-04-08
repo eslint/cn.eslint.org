@@ -43,12 +43,12 @@ This rule aims to eliminate implied `eval()` through the use of `setTimeout()`, 
 
 此规则目的在于消除使用`setTimeout()`，`setInterval()`或`execScript()`时隐式的`eval()`。因此，当它们中的任何一个使用字符串作为第一个参数时，该规则将发出警告。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-implied-eval: 2*/
+/*eslint no-implied-eval: "error"*/
 
 setTimeout("alert('Hi!');", 100);
 
@@ -61,12 +61,12 @@ window.setTimeout("count = 5", 10);
 window.setInterval("foo = bar", 10);
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-implied-eval: 2*/
+/*eslint no-implied-eval: "error"*/
 
 setTimeout(function() {
     alert("Hi!");

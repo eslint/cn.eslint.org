@@ -47,7 +47,7 @@ You can set the style in configuration like this:
 你可以在配置中像这样设置：
 
 ```json
-"operator-linebreak": [2, "before", { "overrides": { "?": "after" } }]
+"operator-linebreak": ["error", "before", { "overrides": { "?": "after" } }]
 ```
 
 The default configuration is to enforce line breaks _after_ the operator except for the ternary operator `?` and `:` following that.
@@ -65,7 +65,7 @@ While using this setting, the following patterns are considered problems:
 当这样设置时，以下模式被认为是有问题的：
 
 ```js
-/*eslint operator-linebreak: [2, "after"]*/
+/*eslint operator-linebreak: ["error", "after"]*/
 
 foo = 1
 +
@@ -91,7 +91,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint operator-linebreak: [2, "after"]*/
+/*eslint operator-linebreak: ["error", "after"]*/
 
 foo = 1 + 2;
 
@@ -121,7 +121,7 @@ While using this setting, the following patterns are considered problems:
 当这样设置时，以下模式被认为是有问题的：
 
 ```js
-/*eslint operator-linebreak: [2, "before"]*/
+/*eslint operator-linebreak: ["error", "before"]*/
 
 foo = 1 +
       2;
@@ -143,7 +143,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint operator-linebreak: [2, "before"]*/
+/*eslint operator-linebreak: ["error", "before"]*/
 
 foo = 1 + 2;
 
@@ -173,7 +173,7 @@ While using this setting, the following patterns are considered problems:
 当这样设置时，以下模式被认为是有问题的：
 
 ```js
-/*eslint operator-linebreak: [2, "none"]*/
+/*eslint operator-linebreak: ["error", "none"]*/
 
 foo = 1 +
       2;
@@ -203,7 +203,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint operator-linebreak: [2, "none"]*/
+/*eslint operator-linebreak: ["error", "none"]*/
 
 foo = 1 + 2;
 
@@ -222,7 +222,7 @@ The rule allows you to have even finer-grained control over individual operators
 该规则允许你通过指定一个`overrides`字典来覆盖个别的操作符，以实现更细粒度的控制。
 
 ```json
-"operator-linebreak": [2, "before", { "overrides": { "?": "after", "+=": "none" } }]
+"operator-linebreak": ["error", "before", { "overrides": { "?": "after", "+=": "none" } }]
 ```
 
 This would override the global setting for that specific operator.
@@ -240,7 +240,7 @@ While using this setting, the following patterns are not considered problems:
 当使用这个选项时，以下模式被认为是没有问题的：
 
 ```js
-/*eslint operator-linebreak: [2, "after", { "overrides": { "?": "ignore", ":": "ignore"} }]*/
+/*eslint operator-linebreak: ["error", "after", { "overrides": { "?": "ignore", ":": "ignore"} }]*/
 
 answer = everything ?
   42

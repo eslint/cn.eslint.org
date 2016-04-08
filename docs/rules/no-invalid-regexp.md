@@ -21,7 +21,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-invalid-regexp: 2*/
+/*eslint no-invalid-regexp: "error"*/
 
 RegExp('[')
 
@@ -35,7 +35,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-invalid-regexp: 2*/
+/*eslint no-invalid-regexp: "error"*/
 
 RegExp('.')
 
@@ -56,20 +56,19 @@ If you want to allow additional constructor flags for any reason, you can specif
 
 如果想允许额外的构造函数标记，你可以在`.eslintrc`中使用`allowConstructorFlags`选项来指定它们。这些标记将被规则忽略，不管是否有`ecmaVersion`设置。
 
-### `allowConstructorFlags`
+### allowConstructorFlags
 
 This takes in an array of flags. With this option, the following patterns aren't considered problems:
 
 该选项是个标记的数组。这样设置后，以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-invalid-regexp: [2, {"allowConstructorFlags": ["u", "y"]}]*/
+/*eslint no-invalid-regexp: ["error", {"allowConstructorFlags": ["u", "y"]}]*/
 
 new RegExp('.', 'y')
 
 new RegExp('.', 'yu')
 ```
-
 
 ## Further Reading
 

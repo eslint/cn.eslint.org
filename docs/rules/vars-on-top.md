@@ -1,6 +1,8 @@
 ---
 title: Rule vars-on-top
 layout: doc
+translator: fengnana
+proofreader: qifeigit
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -21,12 +23,12 @@ Allowing multiple declarations helps promote maintainability and is thus allowed
 
 此规则目的在于保持所有的变量声明在一系列的语句中处于前导地位。允许多行声明有助于提高可维护性因此是被允许的。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint vars-on-top: 2*/
+/*eslint vars-on-top: "error"*/
 
 // Variable declarations in a block:
 function doSomething() {
@@ -41,18 +43,22 @@ function doSomething() {
 function doSomething() {
     for (var i=0; i<10; i++) {}
 }
+```
+
+```js
+/*eslint vars-on-top: "error"*/
 
 // Variables after other statements:
 f();
 var a;
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint vars-on-top: 2*/
+/*eslint vars-on-top: "error"*/
 
 function doSomething() {
     var first;
@@ -69,14 +75,14 @@ function doSomething() {
 ```
 
 ```js
-/*eslint vars-on-top: 2*/
+/*eslint vars-on-top: "error"*/
 
 var a;
 f();
 ```
 
 ```js
-/*eslint vars-on-top: 2*/
+/*eslint vars-on-top: "error"*/
 
 // Directives may precede variable declarations.
 "use strict";
@@ -103,7 +109,7 @@ function doSomething() {
 
 This rule was introduced in ESLint 0.8.0.
 
-此规则在ESLint 0.8.0中被引入。
+此规则在 ESLint 0.8.0 中被引入。
 
 ## Resources
 

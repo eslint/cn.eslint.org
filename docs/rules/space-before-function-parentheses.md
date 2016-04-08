@@ -12,7 +12,7 @@ proofreader: molee1905
 
 **Replacement notice**: This rule was removed in ESLint v1.0 and has been renamed to [space-before-function-paren](space-before-function-paren) for consistency with other rules' names, which used "parens" instead of "parentheses". The new rule is identical in everything except name.
 
-**替换声明**: 该规则在 ESLint v1.0 中移除，为了与其他规则保持一致被重命名为[space-before-function-paren](space-before-function-paren) , 使用 "parens" 代替 "parentheses"。新规则除了名称其他的都一样。
+**替换声明：**该规则在 ESLint v1.0 中移除，为了与其他规则保持一致被重命名为[space-before-function-paren](space-before-function-paren) , 使用 "parens" 代替 "parentheses"。新规则除了名称其他的都一样。
 
 When formatting a function, whitespace is allowed between the function name or `function` keyword and the opening paren. Named functions also require a space between the `function` keyword and the function name, but anonymous functions require no whitespace. For example:
 

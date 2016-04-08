@@ -10,15 +10,19 @@ proofreader: molee1905
 
 # 严格模式 (strict)
  
-A strict mode directive at the beginning of a script or function body enables strict mode semantics:
+A strict mode directive at the beginning of a script or function body enables strict mode semantics.
 
-在脚本或方法体的开始位置使用严格模式指令开启严格模式语义：
+在脚本或方法体的开始位置使用严格模式指令开启严格模式语义。ß
+
+When used globally, the entire script, including all contained functions, are strict mode code:
+
+当在全局使用时，整个脚本包括所有的函数，都处于严格模式之下：
 
 ```js
 "use strict";
 ```
 
-When used globally, as in the preceding example, the entire script, including all contained functions, are strict mode code. It is also possible to specify function-level strict mode, such that strict mode applies only to the function in which the directive occurs:
+It is also possible to specify function-level strict mode, such that strict mode applies only to the function in which the directive occurs:
 
 当上面的示例代码被用在全局，整个脚本，包括脚本内包含的方法是严格模式代码。也可以指定函数级别的严格模式，这样的严格模式仅适用于有严格模式指令的函数。
 
@@ -50,38 +54,37 @@ There are four options for this rule:
 
 这个规则有四个选项：
 
-* `"never"` - don't use `"use strict"` at all
-
-* `"never"` - 不使用`"use strict"`
-
-* `"global"` - require `"use strict"` in the global scope
-
+* `"safe"` - require `"use strict"` globally when inside a module wrapper and in function scopes everywhere else. This is the default.
+* `"safe"` - 在模块内部或函数作用域的任何地方要求使用全局`"use strict"`。这是默认选项。
+* `"never"` - disallow `"use strict"`.
+* `"never"` - 禁用 `"use strict"`。
+* `"global"` - require `"use strict"` in the global scope.
 * `"global"` - 在全局作用域使用 `"use strict"`
-
-* `"function"` - require `"use strict"` in function scopes only
-
+* `"function"` - require `"use strict"` in function scopes only.
 * `"function"` - 在函数作用域使用 `"use strict"`
-
-* `"safe"` - require `"use strict"` globally when inside a module wrapper and in function scopes everywhere else.
-
-* `"safe"` - 在模块内部或函数作用域的任何地方要求使用全局`"use strict"`
  
 All strict mode directives are flagged as unnecessary if ECMAScript modules or implied strict mode are enabled (see [Specifying Parser Options](../user-guide/configuring#specifying-parser-options)). This behaviour does not depend on the rule options, but can be silenced by disabling this rule.
 
 在 ECMAScript 模块或隐式严格模式下，所有的严格模式指令被标记为不必要的(查看 [Specifying Parser Options](../user-guide/configuring#specifying-parser-options))。这种行为并不取决于规则选项，但可以禁用这个规则使其不报告问题。
 
-### "never"
+### safe
+
+Node.js and the CommonJS module system wrap modules inside a hidden function wrapper that defines each module's scope. The wrapper makes it safe to concatenate strict mode modules while maintaining their original strict mode directives. When the `node` or `commonjs` environments are enabled or `globalReturn` is enabled in `ecmaFeatures`, ESLint considers code to be inside the module wrapper, and `"safe"` mode corresponds to `"global"` mode and enforces global strict mode directives. Everywhere else, `"safe"` mode corresponds to `"function"` mode and enforces strict mode directives inside top-level functions.
+
+Node.js 和 CommonJS 模块系统将模块包在匿名函数中来定义每个模块的作用域。这种包裹使它安全地连接严格模式模块，同时包在自己原有的严格模式指令。当启用了`node`或`commonjs`环境，或在`ecmaFeatures`中启用了`globalReturn`，ESLint 认为代码处于模块包裹中，`"safe"`模式对应`"global"`模式，强制使用全局的严格模式指令。在其它地方，`"safe"`模式对应`"function"`模式，强制在函数顶部使用严格模式指令。
+
+### never
 
 This mode forbids any occurrence of a strict mode directive.
 
 这个模式禁止任何严格模式指令出现。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for the `"never"` option:
 
-以下模式被认为是有问题的：
+`"never"`选项的 **错误**代码示例：
 
 ```js
-/*eslint strict: [2, "never"]*/
+/*eslint strict: ["error", "never"]*/
 
 "use strict";
 
@@ -99,12 +102,12 @@ foo();
 bar();
 ```
 
-The following patterns are considered valid:
+Examples of **correct** code for the `"never"` option:
 
-以下模式被认为是有效的：
+`"never"`选项的 **正确**代码示例：
 
 ```js
-/*eslint strict: [2, "never"]*/
+/*eslint strict: ["error", "never"]*/
 
 function foo() {
     return;
@@ -118,18 +121,18 @@ foo();
 bar();
 ```
 
-### "global"
+### global
 
 This mode ensures that all code is in strict mode and that there are no extraneous strict mode directives at the top level or in nested functions, which are themselves already strict by virtue of being contained in strict global code. It requires that global code contains exactly one strict mode directive. Strict mode directives inside functions are considered unnecessary. Multiple strict mode directives at any level also trigger warnings.
 
 这个模式可以确保所有代码是在严格模式下，在函数顶部或嵌套的函数内没有多余的严格模式指令。要求全局代码只包含一个严格模式指令。函数里的严格模式指令被认为是没有必要的。在任何地方使用多个严格模式指令也会触发警告。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for the `"global"` option:
 
-以下模式被认为是有问题的：
+`"global"`选项的 **错误**代码示例：
 
-```
-/*eslint strict: [2, "global"]*/
+```js
+/*eslint strict: ["error", "global"]*/
 
 "use strict";
 "use strict";
@@ -148,12 +151,12 @@ function foo() {
 foo();
 ```
 
-The following patterns are considered valid:
+Examples of **correct** code for the `"global"` option:
 
-以下模式被认为是有效的：
+`"global"`选项的 **正确**代码示例：
 
-```
-/*eslint strict: [2, "global"]*/
+```js
+/*eslint strict: ["error", "global"]*/
 
 "use strict";
 
@@ -166,18 +169,18 @@ function foo() {
 foo();
 ```
 
-### "function"
+### function
 
 This mode ensures that all function bodies are strict mode code, while global code is not. Particularly if a build step concatenates multiple scripts, a strict mode directive in global code of one script could unintentionally enable strict mode in another script that was not intended to be strict code. It forbids any occurrence of a strict mode directive in global code. It requires exactly one strict mode directive in each function declaration or expression whose parent is global code. Strict mode directives inside nested functions are considered unnecessary. Multiple strict mode directives at any level also trigger warnings.
 
 这个模式确保所有函数体都是严格模式代码，全局代码除外。特别是如果一次构建过程包含过个脚本，某个脚本使用了全局的严格模式可能会无意中就启用另一个脚本中的严格模式，而那个脚本并不想使用严格模式。这个选项禁止全局代码中出现严格模式指令。它要求在每个最外层的函数声明或函数表达式中只有一个严格模式指令。嵌套的函数里的严格模式指令被认为是没有必要的。在任何地方使用多个严格模式指令也会触发警告。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for the `"function"` option:
 
-以下模式被认为有问题：
-
-```
-/*eslint strict: [2, "function"]*/
+`"function"`选项的 **错误**代码示例：
+ 
+```js
+/*eslint strict: ["error", "function"]*/
 
 "use strict";
 
@@ -195,12 +198,12 @@ function foo() {
 foo();
 ```
 
-The following patterns are considered valid:
+Examples of **correct** code for the `"function"` option:
 
-以下模式被认为合法：
+`"function"`选项的 **正确**代码示例：
 
-```
-/*eslint strict: [2, "function"]*/
+```js
+/*eslint strict: ["error", "function"]*/
 
 function foo() {
     "use strict";
@@ -219,13 +222,7 @@ function foo() {
 foo();
 ```
 
-### "safe" (default)
-
-Node.js and the CommonJS module system wrap modules inside a hidden function wrapper that defines each module's scope. The wrapper makes it safe to concatenate strict mode modules while maintaining their original strict mode directives. When the `node` or `commonjs` environments are enabled or `globalReturn` is enabled in `ecmaFeatures`, ESLint considers code to be inside the module wrapper, and `"safe"` mode corresponds to `"global"` mode and enforces global strict mode directives. Everywhere else, `"safe"` mode corresponds to `"function"` mode and enforces strict mode directives inside top-level functions.
-
-Node.js 和 CommonJS 模块系统将模块包在匿名函数中来定义每个模块的作用域。这种包裹使它安全地连接严格模式模块，同时包在自己原有的严格模式指令。当启用了`node`或`commonjs`环境，或在`ecmaFeatures`中启用了`globalReturn`，ESLint 认为代码处于模块包裹中，`"safe"`模式对应`"global"`模式，强制使用全局的严格模式指令。在其它地方，`"safe"`模式对应`"function"`模式，强制在函数顶部使用严格模式指令。
-
-### "deprecated" (Removed)
+### earlier default (removed)
 
 **Replacement notice**: This mode, previously enabled by turning on the rule without specifying a mode, has been removed in ESLint v1.0. `"function"` mode is most similar to the deprecated behavior.
 
@@ -235,32 +232,34 @@ This mode ensures that all functions are executed in strict mode. A strict mode 
 
 这个模式确保所有的函数在严格模式下执行。一个严格模式指令必须出现在全局代码里或在每个函数声明或函数表达式顶部。它本身并不关心在已经是严格模式的嵌套函数里使用不必要的严格模式指令，或在同一层级里使用多个严格模式指令。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for an earlier default option which has been removed:
 
-以下模式被认为有问题：
+之前的默认选项（已被移除）的 **错误**代码示例：
 
 ```js
-// "strict": 2
+// "strict": "error"
 
 function foo() {
     return true;
 }
 ```
 
-The following patterns do not cause a warning:
+Examples of **correct** code for an earlier default option which has been removed:
 
-以下模式不会引起警告：
+之前的默认选项（已被移除）的 **正确**代码示例：
 
 ```js
-// "strict": 2
+// "strict": "error"
 
 "use strict";
 
 function foo() {
     return true;
 }
+```
 
-// ----------------
+```js
+// "strict": "error"
 
 function foo() {
 
@@ -268,8 +267,10 @@ function foo() {
 
     return true;
 }
+```
 
-// ----------------
+```js
+// "strict": "error"
 
 (function() {
     "use strict";

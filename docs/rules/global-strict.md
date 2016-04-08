@@ -12,7 +12,7 @@ proofreader: sunshiner
 
 **Replacement notice**: This rule was removed in ESLint v1.0 and replaced by the [strict](strict) rule. `"global"` mode in the strict rule is most similar to this rule.
 
-**替换通知**: 该规则在ESLint v1.0 中被移除并被[strict](strict)规则代替. `"global"`模式在严格规则中与该规则最相似。
+**替换通知：**该规则在ESLint v1.0 中被移除并被[strict](strict)规则代替。`"global"`模式在严格规则中与该规则最相似。
 
 Strict mode is enabled by using the following pragma in your code:
 
@@ -69,7 +69,7 @@ function foo() {
 ## Options
 
 ```json
-"global-strict": [2, "always"]
+"global-strict": ["error", "always"]
 ```
 
 Requires that every file have a top-level `"use strict"` statement.
@@ -77,7 +77,7 @@ Requires that every file have a top-level `"use strict"` statement.
 要求每个文件有一个顶层的`"use strict"`语句。
 
 ```json
-"global-strict": [2, "never"]
+"global-strict": ["error", "never"]
 ```
 
 Warns whenever `"use strict"` is used in the global scope such that it could contaminate concatenated files.
@@ -93,7 +93,6 @@ When a project may use non-strict-mode code side by side with strict-mode code a
 ## Version
 
 This rule was introduced in ESLint 0.8.0 and removed in 1.0.0-rc-1.
-
 
 该规则在 ESLint 0.8.0 中被引入，在 1.0.0-rc-1 中被移除。
 

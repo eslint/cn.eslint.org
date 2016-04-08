@@ -22,16 +22,14 @@ alert("here!");
 
 This rule is aimed at catching debugging code that should be removed and popup UI elements that should be replaced with less obtrusive, custom UIs. As such, it will warn when it encounters `alert`, `prompt`, and `confirm` function calls which are not shadowed.
 
-此规则目的在于捕获本应被移除的调试代码和应该被替换为不突兀的、自定义用户界面的弹出式UI元素。因此，它会给出警告，当意外碰到`alert`， `prompt`，和 `confirm`不会被追踪的函数调用。
-
 该规则旨在捕获本应移除的调试代码和应该被替换为不那么突兀的 UI 元素。因此，当遇到`alert`，`prompt`和`confirm`时，该规则将发出警告。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-alert: 2*/
+/*eslint no-alert: "error"*/
 
 alert("here!");
 
@@ -40,12 +38,12 @@ confirm("Are you sure?");
 prompt("What's your name?", "John Doe");
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-alert: 2*/
+/*eslint no-alert: "error"*/
 
 customAlert("Something happened!");
 

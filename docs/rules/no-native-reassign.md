@@ -26,12 +26,12 @@ The native objects reported by this rule are the `builtin` variables from [globa
 
 此规则报告的原生对象是来自[globals](https://github.com/sindresorhus/globals/)的`内置`变量。 
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-native-reassign: 2*/
+/*eslint no-native-reassign: "error"*/
 
 String = new Object();
 ```
@@ -45,7 +45,7 @@ This rule accepts an `exceptions` option, which can be used to specify a list of
 ```json
 {
     "rules": {
-        "no-native-reassign": [2, {"exceptions": ["Object"]}]
+        "no-native-reassign": ["error", {"exceptions": ["Object"]}]
     }
 }
 ```

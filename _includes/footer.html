@@ -65,9 +65,9 @@
 
       {% endif %}
 
-      {% if page.disablePreview != true %}
+      {% if include.multi == "true" and page.exceptMulti != true %}
         var langs = {mixed: '中英文',zh: '中文',en: '英文'};
-        var last = localStorage.getItem('lang');
+        var last = localStorage.getItem('lang') || 'mixed';
 
         if (last in langs) {
           $('.lang-chooser').html(langs[last]); 
@@ -93,9 +93,13 @@
       {% endif %}
     });
   </script>
-  <style type="text/css">
-  #cnzz_stat_icon_1258344395 {opacity: 0;}
-  </style>
+  <style type="text/css">#cnzz_stat_icon_1258344395 {opacity: 0;}</style>
   <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258344395'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258344395'%3E%3C/script%3E"));</script>
+</body>
+</html>
+
+</body>
+</html>
+
 </body>
 </html>

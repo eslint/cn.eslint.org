@@ -25,7 +25,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint use-isnan: 2*/
+/*eslint use-isnan: "error"*/
 
 if (foo == NaN) {
     // ...
@@ -41,7 +41,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint use-isnan: 2*/
+/*eslint use-isnan: "error"*/
 
 if (isNaN(foo)) {
     // ...

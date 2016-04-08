@@ -39,7 +39,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-dupe-class-members: 2*/
+/*eslint no-dupe-class-members: "error"*/
 /*eslint-env es6*/
 
 class Foo {
@@ -63,7 +63,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-dupe-class-members: 2*/
+/*eslint no-dupe-class-members: "error"*/
 /*eslint-env es6*/
 
 class Foo {

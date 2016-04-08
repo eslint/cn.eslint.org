@@ -12,7 +12,7 @@ proofreader: summart
 
 In ES2015 (ES6), we can use template literals instead of string concatenation.
 
-在ES2015 (ES6)中，我们可以使用模板而非字符串连接。
+在 ES2015 (ES6) 中，我们可以使用模板而非字符串连接。
 
 ```js
 var str = "Hello, " + name + "!";
@@ -35,7 +35,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint prefer-template: 2*/
+/*eslint prefer-template: "error"*/
 
 var str = "Hello, " + name + "!";
 var str = "Time: " + (12 * 60 * 60 * 1000);
@@ -46,12 +46,12 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint prefer-template: 2*/
+/*eslint prefer-template: "error"*/
 /*eslint-env es6*/
 
 var str = "Hello World!";
 var str = `Hello, ${name}!`;
-var str = `Time: ${12 * 60 * 60}`;
+var str = `Time: ${12 * 60 * 60 * 1000}`;
 
 // This is reported by `no-useless-concat`.
 var str = "Hello, " + "World!";
@@ -65,7 +65,7 @@ This rule should not be used in ES3/5 environments.
 
 In ES2015 (ES6) or later, if you don't want to be notified about string concatenation, you can safely disable this rule.
 
-在ES2015 (ES6)或以后的版本，如果你不希望收到关于字符串连接的通知，关闭此规则即可。
+在 ES2015 (ES6) 或以后的版本，如果你不希望收到关于字符串连接的通知，关闭此规则即可。
 
 ## Related Rules
 
@@ -75,7 +75,7 @@ In ES2015 (ES6) or later, if you don't want to be notified about string concaten
 
 This rule was introduced in ESLint 1.2.0.
 
-该规则在ESLint 1.2.0 中被引入。
+该规则在 ESLint 1.2.0 中被引入。
 
 ## Resources
 

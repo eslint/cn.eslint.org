@@ -59,22 +59,14 @@ There are two options for this rule:
 
 * `"as-needed"`禁止提供基数`10`
 
-Depending on your coding conventions, you can choose either option by specifying it in your configuration:
+### always
 
-根据你的编码习惯，你可以在你的配置中指定其中任一选项：
+Examples of **incorrect** code for the default `"always"` option:
 
-```json
-"radix": [2, "always"]
-```
-
-### "always"
-
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+`"always"`选项的 **错误**代码示例：
 
 ```js
-/*eslint radix: 2*/
+/*eslint radix: "error"*/
 
 var num = parseInt("071");
 
@@ -85,12 +77,12 @@ var num = parseInt("071", "abc");
 var num = parseInt();
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for the default `"always"` option:
 
-以下模式被认为是没有问题的：
+`"always"`选项的 **正确**代码示例：
 
 ```js
-/*eslint radix: 2*/
+/*eslint radix: "error"*/
 
 var num = parseInt("071", 10);
 
@@ -98,15 +90,15 @@ var num = parseInt("071", 8);
 
 var num = parseFloat(someValue);
 ```
+ 
+### as-needed
 
-### "as-needed"
+Examples of **incorrect** code for the `"as-needed"` option:
 
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+`"as-needed"`选项的 **错误**代码示例：
 
 ```js
-/*eslint radix: [2. "as-needed"] */
+/*eslint radix: ["error", "as-needed"]*/
 
 var num = parseInt("071", 10);
 
@@ -115,12 +107,12 @@ var num = parseInt("071", "abc");
 var num = parseInt();
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for the `"as-needed"` option:
 
-以下模式被认为是没有问题的：
+`"as-needed"`选项的 **正确**代码示例：
 
 ```js
-/*eslint radix: [2. "as-needed"] */
+/*eslint radix: ["error", "as-needed"]*/
 
 var num = parseInt("071");
 

@@ -6,9 +6,13 @@ proofreader: sunshiner
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow or enforce spaces inside of computed properties. (computed-property-spacing)
+# Disallow or enforce spaces inside of computed properties (computed-property-spacing)
 
-# 禁止或强制在计算属性中使用空格。(computed-property-spacing)
+# 禁止或强制在计算属性中使用空格 (computed-property-spacing)
+
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
 
 While formatting preferences are very personal, a number of style guides require
 or disallow spaces between computed properties in the following situations:
@@ -27,10 +31,6 @@ var x = obj[a];
 var a = "prop";
 var obj = { [a]: "value" };
 ```
-
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
 
 ## Rule Details
 
@@ -62,7 +62,7 @@ Depending on your coding conventions, you can choose either option by specifying
 根据您的编码约定，您可以在您的配置中选择使用任一选项：
 
 ```json
-"computed-property-spacing": [2, "never"]
+"computed-property-spacing": ["error", "never"]
 ```
 
 ### "never"
@@ -72,7 +72,7 @@ When `"never"` is set, the following patterns will give a warning:
 当`"never"`被设置，以下模式将给出一个警告：
 
 ```js
-/*eslint computed-property-spacing: [2, "never"]*/
+/*eslint computed-property-spacing: ["error", "never"]*/
 /*eslint-env es6*/
 
 obj[foo ]
@@ -86,7 +86,7 @@ The following patterns are considered correct:
 以下模式被认为是正确的：
 
 ```js
-/*eslint computed-property-spacing: [2, "never"]*/
+/*eslint computed-property-spacing: ["error", "never"]*/
 /*eslint-env es6*/
 
 obj[foo]
@@ -102,7 +102,7 @@ When `"always"` is used, the following patterns will give a warning:
 当`"always"`被设置，以下模式将给出一个警告：
 
 ```js
-/*eslint computed-property-spacing: [2, "always"]*/
+/*eslint computed-property-spacing: ["error", "always"]*/
 /*eslint-env es6*/
 
 obj[foo]
@@ -119,7 +119,7 @@ The following patterns are considered correct:
 以下模式被认为是正确的：
 
 ```js
-/*eslint computed-property-spacing: [2, "always"]*/
+/*eslint computed-property-spacing: ["error", "always"]*/
 /*eslint-env es6*/
 
 obj[ foo ]
@@ -147,7 +147,7 @@ You can turn this rule off if you are not concerned with the consistency of comp
 
 This rule was introduced in ESLint 0.23.0.
 
-该规则在ESLint 0.23.0 被引入。
+该规则在 ESLint 0.23.0 被引入。
 
 ## Resources
 

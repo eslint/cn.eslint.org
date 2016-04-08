@@ -22,10 +22,6 @@ This rule will warn when spacing in properties does not match the specified opti
 
 ## Options
 
-There are three modes:
-
-该规则有三种模式：
-
 Use the `beforeColon`, `afterColon` and `mode` options to enforce having one space or zero spaces on each side, using `true` or `false`, respectively. The default is no whitespace between the key and the colon and one space between the colon and the value.
 
 使用`beforeColon`，`afterColon` 和 `mode`选项确保没冒号每一边有一个或零个空格，对应的值为`true` 或 `false`。默认情况下，在属性和冒号之间没有空白，在冒号和属性值之间有一个空格。
@@ -40,7 +36,7 @@ The following patterns are considered valid:
 
 ```js
 // DEFAULT
-/*eslint key-spacing: [2, {"beforeColon": false, "afterColon": true}]*/
+/*eslint key-spacing: ["error", {"beforeColon": false, "afterColon": true}]*/
 
 var obj = { "foo": (42) };
 
@@ -49,7 +45,7 @@ foo = { thisLineWouldBeTooLong:
 ```
 
 ```js
-/*eslint key-spacing: [2, {"beforeColon": true, "afterColon": false}]*/
+/*eslint key-spacing: ["error", {"beforeColon": true, "afterColon": false}]*/
 
 call({
     foobar :42,
@@ -58,7 +54,7 @@ call({
 ```
 
 ```js
-/*eslint key-spacing: [2, {"beforeColon": true, "afterColon": false, "mode": "minimum"}]*/
+/*eslint key-spacing: ["error", {"beforeColon": true, "afterColon": false, "mode": "minimum"}]*/
 
 call({
     foobar   :42,
@@ -71,7 +67,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint key-spacing: [2, {"beforeColon": false, "afterColon": false}]*/
+/*eslint key-spacing: ["error", {"beforeColon": false, "afterColon": false}]*/
 
 var obj = { foo: 42 };
 var bar = { baz :52 };
@@ -81,7 +77,7 @@ foo = { thisLineWouldBeTooLong:
 ```
 
 ```js
-/*eslint key-spacing: [2, {"beforeColon": true, "afterColon": true}]*/
+/*eslint key-spacing: ["error", {"beforeColon": true, "afterColon": true}]*/
 
 function foo() {
     return {
@@ -92,7 +88,7 @@ function foo() {
 ```
 
 ```js
-/*eslint key-spacing: [2, {"beforeColon": true, "afterColon": true}]*/
+/*eslint key-spacing: ["error", {"beforeColon": true, "afterColon": true}]*/
 
 function foo() {
     return {
@@ -113,7 +109,7 @@ The following patterns are considered valid:
 以下模式被认为是有效的：
 
 ```js
-/*eslint key-spacing: [2, { "align": "value" }]*/
+/*eslint key-spacing: ["error", { "align": "value" }]*/
 // beforeColon and afterColon default to false and true, respectively
 
 var obj = {
@@ -131,7 +127,7 @@ var obj = { a: "foo", longPropertyName: "bar" };
 ```
 
 ```js
-/*eslint key-spacing: [2, { "align": "value", "beforeColon": true, "afterColon": false }]*/
+/*eslint key-spacing: ["error", { "align": "value", "beforeColon": true, "afterColon": false }]*/
 
 call({
     'a' :[],
@@ -144,7 +140,7 @@ The following patterns are considered problems:
 以下模式被认为是问题的：
 
 ```js
-/*eslint key-spacing: [2, { "align": "value" }]*/
+/*eslint key-spacing: ["error", { "align": "value" }]*/
 
 var obj = {
     a: value,
@@ -164,7 +160,7 @@ The following patterns are considered valid:
 以下模式被认为是有效的：
 
 ```js
-/*eslint key-spacing: [2, { "align": "colon" }]*/
+/*eslint key-spacing: ["error", { "align": "colon" }]*/
 
 var obj = {
     foobar   : 42,
@@ -177,7 +173,7 @@ var obj = {
 ```
 
 ```js
-/*eslint key-spacing: [2, { "align": "colon", "beforeColon": true, "afterColon": false }]*/
+/*eslint key-spacing: ["error", { "align": "colon", "beforeColon": true, "afterColon": false }]*/
 
 obj = {
     first  :1,
@@ -191,7 +187,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint key-spacing: [2, { "align": "colon" }]*/
+/*eslint key-spacing: ["error", { "align": "colon" }]*/
 
 var obj = {
     one:   1,

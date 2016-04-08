@@ -41,6 +41,14 @@ We get a lot of proposals for new rules in ESLint. This section explains how we 
 
 我们收到了许多新的 ESLint 规则的建议。本节解释了我们如何决定哪些规则是可以被采纳的，以及你应该提供什么信息来给帮助我们评估你的建议。
 
+## Proposing a [Rule Change](rule-changes)
+
+## 提议一个[规则变更](rule-changes)
+
+Want to make a change to an existing rule? This section explains the process and how we evaluate such proposals.
+
+想对现有的规则作出改变？本节解释了规则变更的过程以及我们如何评估这些提议。
+
 ## Requesting a [Change](changes)
 
 ## 请求[变更](changes)

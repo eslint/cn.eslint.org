@@ -29,22 +29,22 @@ This rule is aimed at preventing the use of multiline strings.
 
 该规则是为了防止多行字符串的使用。
 
-The following generates a warning:
+Examples of **incorrect** code for this rule:
 
-下面的模式会发出一个警告：
+**错误**代码示例：
 
 ```js
-/*eslint no-multi-str: 2*/ 
+/*eslint no-multi-str: "error"*/
 var x = "Line 1 \
          Line 2";
 ```
 
-The following does not generate a warning:
+Examples of **correct** code for this rule:
 
-下面的模式不会发出警告：
+**正确**代码示例：
 
 ```js
-/*eslint no-multi-str: 2*/
+/*eslint no-multi-str: "error"*/
 
 var x = "Line 1\n" +
         "Line 2";

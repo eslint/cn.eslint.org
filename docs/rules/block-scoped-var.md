@@ -1,6 +1,8 @@
 ---
 title: Rule block-scoped-var
 layout: doc
+translator: fengnana
+proofreader: qifeigit
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -13,54 +15,36 @@ The `block-scoped-var` rule generates warnings when variables are used outside o
 当变量在其被定义的范围之外被使用时，会违反block-scoped-var规则，从而被警告。
 这种解析方式模拟了c语言中的块级作用域。
  
-```js
-function doSomething() {
-    if (true) {
-        var build = true;
-    }
-
-    console.log(build);
-}
-```
-
 ## Rule Details
 
 This rule aims to reduce the usage of variables outside of their binding context and emulate traditional block scope from other languages. This is to help newcomers to the language avoid difficult bugs with variable hoisting.
 
-此规则借鉴其他语言的块级作用域概念，用来减少变量跨作用域使用情况的发生。
+此规则借鉴其他语言的块级作用域概念，旨在用来减少变量跨作用域使用情况的发生。此规则可帮助语言初学者避免因变量声明提升而产生的bugs。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint block-scoped-var: 2*/
+/*eslint block-scoped-var: "error"*/
 
-function doSomething() {
+function doIf() {
     if (true) {
         var build = true;
     }
 
     console.log(build);
 }
-```
 
-```js
-/*eslint block-scoped-var: 2*/
-
-function doSomething() {
+function doIfElse() {
     if (true) {
         var build = true;
     } else {
         var build = false;
     }
 }
-```
 
-```js
-/*eslint block-scoped-var: 2*/
-
-function doAnother() {
+function doTryCatch() {
     try {
         var build = 1;
     } catch (e) {
@@ -69,14 +53,14 @@ function doAnother() {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint block-scoped-var: 2*/
+/*eslint block-scoped-var: "error"*/
 
-function doSomething() {
+function doIf() {
     var build;
 
     if (true) {
@@ -85,18 +69,25 @@ function doSomething() {
 
     console.log(build);
 }
-```
 
-```js
-/*eslint block-scoped-var: 2*/
-
-function doSomething() {
+function doIfElse() {
     var build;
 
     if (true) {
         build = true;
     } else {
         build = false;
+    }
+}
+
+function doTryCatch() {
+    var build;
+    var f;
+
+    try {
+        build = 1;
+    } catch (e) {
+        f = build;
     }
 }
 ```
@@ -110,7 +101,7 @@ function doSomething() {
 
 This rule was introduced in ESLint 0.1.0.
 
-该规则在ESLint 0.1.0 中被引入。
+该规则在 ESLint 0.1.0 中被引入。
 
 ## Resources
 

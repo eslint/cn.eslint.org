@@ -6,7 +6,11 @@ layout: doc
 
 # Disallow or enforce spaces inside of brackets. (array-bracket-spacing)
 
-# 禁止或强制在括号内使用空格。 (array-bracket-spacing)
+# 禁止或强制在括号内使用空格 (array-bracket-spacing)
+
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
 
 A number of style guides require or disallow spaces between array brackets. This rule
 applies to both array literals and destructuring assignment (EcmaScript 6) using arrays.
@@ -22,10 +26,6 @@ var [ x, y ] = z;
 var arr = ['foo', 'bar'];
 var [x,y] = z;
 ```
-
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
 
 ## Rule Details
 
@@ -52,7 +52,7 @@ Depending on your coding conventions, you can choose either option by specifying
 根据你的编码约定，你可以在你的配置中选择任一选项：
 
 ```json
-"array-bracket-spacing": [2, "always"]
+"array-bracket-spacing": ["error", "always"]
 ```
 
 ### "never"
@@ -62,14 +62,14 @@ When `"never"` is set, the following patterns are considered problems:
 当设置了`"never"`，以下模式被认为是有问题的：
 
 ```js
-/*eslint array-bracket-spacing: [2, "never"]*/
+/*eslint array-bracket-spacing: ["error", "never"]*/
 /*eslint-env es6*/
 
 var arr = [ 'foo', 'bar' ];
 var arr = ['foo', 'bar' ];
 var arr = [ ['foo'], 'bar'];
 var arr = [[ 'foo' ], 'bar'];
-var arr = ['foo',
+var arr = [ 'foo',
   'bar'
 ];
 var [ x, y ] = z;
@@ -83,7 +83,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint array-bracket-spacing: [2, "never"]*/
+/*eslint array-bracket-spacing: ["error", "never"]*/
 /*eslint-env es6*/
 
 var arr = [];
@@ -93,6 +93,9 @@ var arr = [
   'foo',
   'bar',
   'baz'
+];
+var arr = ['foo',
+  'bar'
 ];
 var arr = [
   'foo',
@@ -111,7 +114,7 @@ When `"always"` is used, the following patterns are considered problems:
 当设置了 `"always"`, 以下模式被认为是有问题的:
 
 ```js
-/*eslint array-bracket-spacing: [2, "always"]*/
+/*eslint array-bracket-spacing: ["error", "always"]*/
 /*eslint-env es6*/
 
 var arr = ['foo', 'bar'];
@@ -135,12 +138,18 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint array-bracket-spacing: [2, "always"]*/
+/*eslint array-bracket-spacing: ["error", "always"]*/
 /*eslint-env es6*/
 
 var arr = [];
 var arr = [ 'foo', 'bar', 'baz' ];
 var arr = [ [ 'foo' ], 'bar', 'baz' ];
+var arr = [ 'foo',
+  'bar'
+];
+var arr = [
+  'foo',
+  'bar' ];
 var arr = [
   'foo',
   'bar',
@@ -170,7 +179,7 @@ In case of `"always"` option, set an exception to `false` to enable it:
 在`"always"`选项的情况下，设置例外为`false`来启用该规则：
 
 ```json
-"array-bracket-spacing": [2, "always", {
+"array-bracket-spacing": ["error", "always", {
   "singleValue": false,
   "objectsInArrays": false,
   "arraysInArrays": false
@@ -182,7 +191,7 @@ In case of `"never"` option, set an exception to `true` to enable it:
 在`"never"`选项的情况下，设置例外为`true`来启用该规则：
 
 ```json
-"array-bracket-spacing": [2, "never", {
+"array-bracket-spacing": ["error", "never", {
   "singleValue": true,
   "objectsInArrays": true,
   "arraysInArrays": true
@@ -215,7 +224,7 @@ When `"singleValue"` is set to `false`, the following patterns are considered pr
 当`"singleValue"`被设置为`false`，以下模式被认为是有问题的：
 
 ```js
-/*eslint array-bracket-spacing: [2, "always", { singleValue: false }]*/
+/*eslint array-bracket-spacing: ["error", "always", { singleValue: false }]*/
 
 var foo = [ 'foo' ];
 var foo = [ 'foo'];
@@ -232,7 +241,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint array-bracket-spacing: [2, "always", { singleValue: false }]*/
+/*eslint array-bracket-spacing: ["error", "always", { singleValue: false }]*/
 
 var foo = ['foo'];
 var foo = [1];
@@ -245,7 +254,7 @@ When `"objectsInArrays"` is set to `false`, the following patterns are considere
 当`"objectsInArrays"`被设置为`false`时，以下模式被认为是有问题的：
 
 ```js
-/*eslint array-bracket-spacing: [2, "always", { objectsInArrays: false }]*/
+/*eslint array-bracket-spacing: ["error", "always", { objectsInArrays: false }]*/
 
 var arr = [ { 'foo': 'bar' } ];
 var arr = [ {
@@ -258,7 +267,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint array-bracket-spacing: [2, "always", { objectsInArrays: false }]*/
+/*eslint array-bracket-spacing: ["error", "always", { objectsInArrays: false }]*/
 
 var arr = [{ 'foo': 'bar' }];
 var arr = [{
@@ -271,7 +280,7 @@ When `"arraysInArrays"` is set to `false`, the following patterns are considered
 当设置`"arraysInArrays"`为`false`时，以下模式被认为是有问题的：
 
 ```js
-/*eslint array-bracket-spacing: [2, "always", { arraysInArrays: false }]*/
+/*eslint array-bracket-spacing: ["error", "always", { arraysInArrays: false }]*/
 
 var arr = [ [ 1, 2 ], 2, 3, 4 ];
 var arr = [ [ 1, 2 ], 2, [ 3, 4 ] ];
@@ -282,7 +291,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint array-bracket-spacing: [2, "always", { arraysInArrays: false }]*/
+/*eslint array-bracket-spacing: ["error", "always", { arraysInArrays: false }]*/
 
 var arr = [[ 1, 2 ], 2, 3, 4 ];
 var arr = [[ 1, 2 ], 2, [ 3, 4 ]];
@@ -304,7 +313,7 @@ You can turn this rule off if you are not concerned with the consistency of spac
 
 This rule was introduced in ESLint 0.24.0.
 
-该规则在ESLint 0.24.0 被引入。
+该规则在 ESLint 0.24.0 被引入。
 
 ## Resources
 

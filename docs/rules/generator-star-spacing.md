@@ -10,14 +10,18 @@ proofreader: molee1905
 
 # 强制generator函数中 * 号周围有空格 (generator-star-spacing)
 
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+
 Generators are a new type of function in ECMAScript 6 that can return multiple values over time.
 These special functions are indicated by placing an `*` after the `function` keyword.
 
-在 ECMAScript 6 中，Generators是一个新的函数类型，随着时间的推移可以返回多个值。这些特殊的函数是在`function`关键字后放置一个`*`。
+在 ECMAScript 6 中，Generators 是一个新的函数类型，随着时间的推移可以返回多个值。这些特殊的函数是在`function`关键字后放置一个`*`。
 
 Here is an example of a generator function:
 
-以下是个generator函数的示例：
+以下是个 generator 函数的示例：
 
 ```js
 /*eslint-env es6*/
@@ -58,10 +62,6 @@ To keep a sense of consistency when using generators this rule enforces a single
 
 为了保持使用 generators 函数的一致性，该规则对`*`强制设置一个单独的位置。
 
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
-
 ## Rule Details
 
 This rule aims to enforce spacing around the `*` of generator functions.
@@ -70,7 +70,7 @@ This rule aims to enforce spacing around the `*` of generator functions.
 
 The rule takes one option, an object, which has two keys `before` and `after` having boolean values `true` or `false`.
 
-该规则只有一个可选项，是个对象，有两个键`before` 和 `after`对应的值可以为`true` 或 `false`。
+该规则只有一个可选项，是个对象，有两个键`before` 和 `after`对应的值可以为`true`或`false`。
 
 * `before` enforces spacing between the `*` and the `function` keyword.
   If it is `true`, a space is required, otherwise spaces are disallowed.
@@ -85,13 +85,13 @@ The rule takes one option, an object, which has two keys `before` and `after` ha
   If it is `true`, a space is required, otherwise spaces are disallowed.
 
 * `after`强制在`*`和函数名之间有空格 (或匿名 generator 函数的左括号)。如果设置为`true`，要求有空格，否则不允许有空格。
-
+ 
 The default is `{"before": true, "after": false}`.
 
 默认为`{"before": true, "after": false}`。
 
 ```json
-"generator-star-spacing": [2, {"before": false, "after": true}]
+"generator-star-spacing": ["error", {"before": false, "after": true}]
 ```
 
 And the option has shorthand as a string keyword:
@@ -104,7 +104,7 @@ And the option has shorthand as a string keyword:
 * `{"before": false, "after": false}` → `"neither"`
 
 ```json
-"generator-star-spacing": [2, "after"]
+"generator-star-spacing": ["error", "after"]
 ```
 
 When using `{"before": true, "after": false}` this placement will be enforced:
@@ -112,7 +112,7 @@ When using `{"before": true, "after": false}` this placement will be enforced:
 当使用`{"before": true, "after": false}`时：
 
 ```js
-/*eslint generator-star-spacing: [2, {"before": true, "after": false}]*/
+/*eslint generator-star-spacing: ["error", {"before": true, "after": false}]*/
 /*eslint-env es6*/
 
 function *generator() {}
@@ -127,7 +127,7 @@ When using `{"before": false, "after": true}` this placement will be enforced:
 当使用`{"before": false, "after": true}`时：
 
 ```js
-/*eslint generator-star-spacing: [2, {"before": false, "after": true}]*/
+/*eslint generator-star-spacing: ["error", {"before": false, "after": true}]*/
 /*eslint-env es6*/
 
 function* generator() {}
@@ -142,7 +142,7 @@ When using `{"before": true, "after": true}` this placement will be enforced:
 当使用`{"before": true, "after": true}`时：
 
 ```js
-/*eslint generator-star-spacing: [2, {"before": true, "after": true}]*/
+/*eslint generator-star-spacing: ["error", {"before": true, "after": true}]*/
 /*eslint-env es6*/
 
 function * generator() {}
@@ -157,7 +157,7 @@ When using `{"before": false, "after": false}` this placement will be enforced:
 当使用`{"before": false, "after": false}`时：
 
 ```js
-/*eslint generator-star-spacing: [2, {"before": false, "after": false}]*/
+/*eslint generator-star-spacing: ["error", {"before": false, "after": false}]*/
 /*eslint-env es6*/
 
 function*generator() {}
@@ -166,10 +166,6 @@ var anonymous = function*() {};
 
 var shorthand = { *generator() {} };
 ```
-
-To use this rule you must set the `generators` flag to `true` in the `ecmaFeatures` configuration object.
-
-如果使用此规则，你必须在`ecmaFeatures`配置对象中设置`generators`标记为`true`。
 
 ## When Not To Use It
 

@@ -26,12 +26,12 @@ This rule is aimed at discouraging the use of deprecated and sub-optimal code, b
 
 此规则目的在于阻止使用已弃用的代码和次优的代码，而且禁止使用`arguments.caller` 和 `arguments.callee`。因此，当`arguments.caller` 和 `arguments.callee`被使用时，该规则将会发出警告。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-caller: 2*/
+/*eslint no-caller: "error"*/
 
 function foo(n) {
     if (n <= 0) {
@@ -46,12 +46,12 @@ function foo(n) {
 });
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-caller: 2*/
+/*eslint no-caller: "error"*/
 
 function foo(n) {
     if (n <= 0) {

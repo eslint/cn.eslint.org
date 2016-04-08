@@ -31,7 +31,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint max-params: [2, 3]*/
+/*eslint max-params: ["error", 3]*/
 
 function foo (bar, baz, qux, qxx) {
     doSomething();
@@ -43,27 +43,32 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint max-params: [2, 3]*/
+/*eslint max-params: ["error", 3]*/
 
 function foo (bar, baz, qux) {
     doSomething();
 }
 ```
 
-Optionally, you may specify a `maximum` object property:
+Optionally, you may specify a `max` object property:
 
-你可以指定一个`maximum`属性：
+你可以指定一个`max`属性：
 
 ```json
-"max-params": [2, 2]
+"max-params": ["error", 2]
 ```
 
 is equivalent to
 
+等效于
+
 ```json
-"max-params": [2, {"maximum": 2}]
+"max-params": ["error", {"max": 2}]
 ```
 
+**Deprecated:** the object property `maximum` is deprecated. Please use the property `max` instead.
+
+**弃用：**属性`maximum`已弃用。请使用`max`属性。
 
 ## Related Rules
 

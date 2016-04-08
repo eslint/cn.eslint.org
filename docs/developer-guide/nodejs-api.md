@@ -14,7 +14,7 @@ ESLint 被设计为在命令行中运行，所以通过 Node.js API 使用ESLint
 
 **Note:** Use undocumented parts of the API at your own risk. Only those parts that are specifically mentioned in this document are approved for use and will remain stable and reliable. Anything left undocumented is unstable and may change or be removed at any point.
 
-**注意:** 使用文档中没有的API的风险需自己承担。只有文档中声明的部分是赞成使用且可保持稳定可靠。文档中未声明的部分是不稳定的且可能随时被移除。
+**注意：**使用文档中没有的API的风险需自己承担。只有文档中声明的部分是赞成使用且可保持稳定可靠。文档中未声明的部分是不稳定的且可能随时被移除。
 
 ## SourceCode
 
@@ -38,7 +38,7 @@ The `SourceCode` constructor strips Unicode BOM.
 Please note the AST also should be parsed from stripped text.
 
 `SourceCode`构造函数剥离Unicode BOM。请注意，AST也应该从剥离后的文本进行解析。
-
+ 
 ```js
 var SourceCode = require("eslint").SourceCode;
 
@@ -51,7 +51,6 @@ assert(code.text === "var foo = bar;");
 ### splitLines()
 
 This is a static function on `SourceCode` that is used to split the source code text into an array of lines.
-
 
 ```js
 var SourceCode = require("eslint").SourceCode;
@@ -70,7 +69,6 @@ var codeLines = SourceCode.splitLines(code);
  */
 ```
 
-
 ## linter
 
 The `linter` object does the actual evaluation of the JavaScript code. It doesn't do any filesystem operations, it simply parses and reports on the code. You can retrieve `linter` like this:
@@ -86,11 +84,11 @@ The most important method on `linter` is `verify()`, which initiates linting of 
 `linter`最重要的方法为`verify()`，它对给的的文本的lint进行初始化。这个方法接受4个参数：
 
 * `code` - the source code to lint (a string or instance of `SourceCode`).
-* `code`- 要lint的源代码（字符串或者`SourceCode`的实例）。
+* `code`- 要检测的源代码（字符串或者`SourceCode`的实例）。
 * `config` - a configuration object that is equivalent to an eslintrc file.
 * `config` - 一个配置对象，相当于一个eslintrc文件。
 * `optionsOrFilename` - (optional) Additional options for this run or a string representing the filename to associate with the code being linted.
-* `options` - (可选的)运行的额外选项或与要检查的代码有关的文件名。
+* `optionsOrFilename` - (可选的)运行的额外选项或与要检查的代码有关的文件名。
     * `filename` - (optional) the filename to associate with the source code.
     * `filename` - (可选的)与源代码关联的文件名。
     * `saveState` - (optional) see below. This will override any value passed as the fourth argument if an options object is used here instead of the filename.
@@ -98,7 +96,7 @@ The most important method on `linter` is `verify()`, which initiates linting of 
     * `allowInlineConfig` - (optional) set to `false` to disable inline comments from changing eslint rules.
     * `allowInLinrConfig` - (可选的)设置为`false`来从改变 eslint 规则禁用行内注释。
 * `saveState` - (optional) set to true to maintain the internal state of `linter` after linting (mostly used for testing purposes)
-* `saveState` - (可选的)设置为true来保持lint后`linter`的内部状态（主要用来测试）。
+* `saveState` - (可选的)设置为 true 来保持检测后`linter`的内部状态（主要用来测试）。
 
 You can call `verify()` like this:
 
@@ -242,7 +240,7 @@ The `CLIEngine` is a constructor, and you can create a new instance by passing i
 * `cacheLocation` - Name of the file or directory where the cache will be stored (default: `.eslintcache`). Correspond to `--cache-location`
 * `cacheLocation` - 存放缓存的文件或者目录名。（默认为`.eslintcache`）。 对应于--cache-location`。
 * `cwd` - Path to a directory that should be considered as the current working directory.
-
+* `cwd` - Path to a directory that should be considered as the current working directory.
 
 For example:
 
@@ -454,19 +452,28 @@ var isIgnored = cli.isPathIgnored("foo/bar.js");
 ### getFormatter()
 
 Retrieves a formatter, which you can then use to format a report object. The argument is either the name of a built-in formatter:
-
+ 
 获取一个格式化工具，可以用它格式报告对象。参数或者是内建格式化工具的名字：
 
 * "[checkstyle](./user-guide/formatters#checkstyle)"
+* "[checkstyle](../user-guide/formatters#checkstyle)"
+* "[compact](../user-guide/formatters#compact)"
 * "[compact](../user-guide/formatters#compact)"
 * "[html](../user-guide/formatters#html)"
+* "[html](../user-guide/formatters#html)"
+* "[jslint-xml](../user-guide/formatters#jslint-xml)"
 * "[jslint-xml](../user-guide/formatters#jslint-xml)"
 * "[json](../user-guide/formatters#json)"
+* "[json](../user-guide/formatters#json)"
+* "[junit](../user-guide/formatters#junit)"
 * "[junit](../user-guide/formatters#junit)"
 * "[stylish](../user-guide/formatters#stylish)" (the default)
 * "[stylish](../user-guide/formatters#stylish)" (默认)
 * "[table](../user-guide/formatters#table)"
+* "[table](../user-guide/formatters#table)"
 * "[tap](../user-guide/formatters#tap)"
+* "[tap](../user-guide/formatters#tap)"
+* "[unix](../user-guide/formatters#unix)"
 * "[unix](../user-guide/formatters#unix)"
 
 or the full path to a JavaScript file containing a custom formatter. You can also omit the argument to retrieve the default formatter.
@@ -500,7 +507,7 @@ console.log(formatter(report.results));
 
 **Note:** Also available as a static function on `CLIEngine`.
 
-**注意:** `CLIEngine`的静态方法也是适用的。
+**注意：**`CLIEngine`的静态方法也是适用的。
 
 ```js
 // get the default formatter by calling the static function
@@ -509,7 +516,7 @@ var formatter = CLIEngine.getFormatter();
 
 **Important:** You must pass in the `results` property of the report. Passing in `report` directly will result in an error.
 
-**重要:** 你必须传递报告的 `results`。直接传递 `report` 会引起错误。
+**重要：**你必须传递报告的 `results`。直接传递 `report` 会引起错误。
 
 ### getErrorResults()
 
@@ -565,7 +572,7 @@ CLIEngine.outputFixes(report);
 
 ## Deprecated APIs
 
-## 启用的API
+## 弃用的API
 
 * `cli` - the `cli` object has been deprecated in favor of `CLIEngine`. As of v1.0.0, `cli` is no longer exported and should not be used by external tools.
 

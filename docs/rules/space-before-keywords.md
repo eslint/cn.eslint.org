@@ -12,7 +12,12 @@ proofreader: freeyiyi1993
 # 要求或禁止关键字之前的空格 (space-before-keywords)
 
 **Replacement notice**: This rule was removed in ESLint v2.0 and replaced by [keyword-spacing](keyword-spacing) rule.
+
 **替代通知**: 该规则在 ESLint v2.0 中被移除，被[keyword-spacing](keyword-spacing) 替代。
+
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixed problems reported by this rule.
+
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
 
 Keywords are syntax elements of JavaScript, such as `function` and `if`. These identifiers have special meaning to the language and so often appear in a different color in code editors. As an important part of the language, style guides often refer to the spacing that should be used around keywords. For example, you might have a style guide that says keywords should be always be preceded by spaces, which would mean `if-else` statements must look like this:
 
@@ -30,10 +35,6 @@ if (foo) {
 Of course, you could also have a style guide that disallows spaces before keywords.
 
 当然，你也可以有一个风格指南禁止关键字之前有空格。
-
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
 
 ## Rule Details
 
@@ -60,7 +61,7 @@ The following patterns are considered errors when configured `"never"`:
 当配置为`"never"`，以下模式被认为是有错误的：
 
 ```js
-/*eslint space-before-keywords: [2, "never"]*/
+/*eslint space-before-keywords: ["error", "never"]*/
 
 if (foo) {
     // ...
@@ -81,7 +82,7 @@ The following patterns are not considered errors when configured `"never"`:
 当配置为`"never"`，以下模式被认为是没有错误的：
 
 ```js
-/*eslint space-before-keywords: [2, "never"]*/
+/*eslint space-before-keywords: ["error", "never"]*/
 
 if (foo) {
     // ...
@@ -99,7 +100,7 @@ The following patterns are considered errors when configured `"always"`:
 当配置为`"always"`，以下模式被认为是有错误的：
 
 ```js
-/*eslint space-before-keywords: [2, "always"]*/
+/*eslint space-before-keywords: ["error", "always"]*/
 /*eslint-env es6*/
 
 if (foo) {
@@ -120,7 +121,7 @@ The following patterns are not considered errors when configured `"always"`:
 当配置为`"always"`，以下模式被认为是没有错误的：
 
 ```js
-/*eslint space-before-keywords: [2, "always"]*/
+/*eslint space-before-keywords: ["error", "always"]*/
 /*eslint-env es6*/
 
 if (foo) {
@@ -152,7 +153,7 @@ If you do not wish to enforce consistency on keyword spacing.
 
 This rule was introduced in ESLint 1.4.0 and removed in 2.0.0-beta.3.
 
-该规则在ESLint 1.4.0 中被引入，在 2.0.0-beta.3 被移除。
+该规则在 ESLint 1.4.0 中被引入，在 2.0.0-beta.3 被移除。
 
 ## Resources
 

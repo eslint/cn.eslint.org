@@ -51,7 +51,7 @@ Depending on your coding conventions, you can choose either option by specifying
 根据你的编码习惯，可以选择任何一个指定你的配置：
 
 ```json
-"space-in-brackets": [2, "always"]
+"space-in-brackets": ["error", "always"]
 ```
 
 ### "never"
@@ -85,7 +85,7 @@ The following patterns are not considered problems:
 下面的模式被认为是正确的：
 
 ```js
-// When options are [2, "never"]
+// When options are ["error", "never"]
 
 foo['bar'];
 foo[
@@ -204,7 +204,7 @@ In case of `"always"` option, set an exception to `false` to enable it:
 在`"always"`选项时，设置例外为`false`来启用它:
 
 ```json
-"space-in-brackets": [2, "always", {
+"space-in-brackets": ["error", "always", {
   "singleValue": false,
   "objectsInArrays": false,
   "arraysInArrays": false,
@@ -219,7 +219,7 @@ In case of `"never"` option, set an exception to `true` to enable it:
 在`"never"`选项时，设置例外为`true`来启用它:
 
 ```json
-"space-in-brackets": [2, "never", {
+"space-in-brackets": ["error", "never", {
   "singleValue": true,
   "objectsInArrays": true,
   "arraysInArrays": true,
@@ -234,17 +234,16 @@ The following exceptions are available:
 下面的这些例外是可用的：
 
 * `singleValue` sets the spacing of a single value inside of square brackets of an array.
-* `objectsInArrays` sets the spacings between the curly braces and square brackets of object literals that are the first or last element in an array.
-* `arraysInArrays` sets the spacing between the square brackets of array literals that are the first or last element in an array.
-* `arraysInObjects` sets the spacing between the square bracket and the curly brace of an array literal that is the last element in an object.
-* `objectsInObjects` sets the spacing between the curly brace of an object literal that is the last element in an object and the curly brace of the containing object.
-* `propertyName` sets the spacing in square brackets of computed member expressions.
-
 * `singleValue` 设置数组的方括号中单个值的空格。
-* `objectsInArrays`设置对象字面量的花括号和数组的方括号与其中第一个或最后一个元素之间的空格。
-* `arraysInArrays`设置作为数组中第一个或最后一个元素的数组字面量方括号间的空格。
+* `objectsInArrays` sets the spacings between the curly braces and square brackets of object literals that are the first or last element in an array.
+* `objectsInArrays` 设置对象字面量的花括号和数组的方括号与其中第一个或最后一个元素之间的空格。
+* `arraysInArrays` sets the spacing between the square brackets of array literals that are the first or last element in an array.
+* `arraysInArrays` 设置作为数组中第一个或最后一个元素的数组字面量方括号间的空格。
+* `arraysInObjects` sets the spacing between the square bracket and the curly brace of an array literal that is the last element in an object.
 * `arraysInObjects` 设置方括号和作为一个对象最后一个元素的数组字面量的大括号间的空格
-* `objectsInObjects`设置一个对象中最后一个对象的大括号和包含对象大括号间的空格。
+* `objectsInObjects` sets the spacing between the curly brace of an object literal that is the last element in an object and the curly brace of the containing object.
+* `objectsInObjects` 设置一个对象中最后一个对象的大括号和包含对象大括号间的空格。
+* `propertyName` sets the spacing in square brackets of computed member expressions.
 * `propertyName`设置方括号中计算表达式成员的间距。
 
 In each of the following examples, the `"always"` option is assumed.
@@ -388,7 +387,7 @@ You can turn this rule off if you are not concerned with the consistency of spac
 
 This rule was introduced in ESLint 0.4.1 and removed in 1.0.0-rc-1.
 
-该规则在  ESLint 0.4.1 中引入， 在 1.0.0-rc-1 中移除。
+该规则在 ESLint 0.4.1 中被引入，在 1.0.0-rc-1 中被移除。
 
 ## Resources
 

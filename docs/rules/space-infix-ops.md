@@ -10,6 +10,10 @@ proofreader: maomaoking
 
 # 要求中缀操作符周围有空格 (space-infix-ops)
 
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+
 While formatting preferences are very personal, a number of style guides require spaces around operators, such as:
 
 虽然格式化首选项都非常个人化，但大量的风格指南要求运算符周围有空格，例如：
@@ -30,10 +34,6 @@ While this is valid JavaScript syntax, it is hard to determine what the author i
 
 虽然这是有效的Javascript语法，但很难确定作者的意图。
 
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
-
 ## Rule Details
 
 This rule is aimed at ensuring there are spaces around infix operators.
@@ -47,7 +47,7 @@ This rule accepts a single options argument with the following defaults:
 该规则接收唯一一个可选项参数，具有以下默认值：
 
 ```json
-"space-infix-ops": [2, {"int32Hint": false}]
+"space-infix-ops": ["error", {"int32Hint": false}]
 ```
 
 ### `int32Hint`
@@ -65,7 +65,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint space-infix-ops: 2*/
+/*eslint space-infix-ops: "error"*/
 /*eslint-env es6*/
 
 a+b
@@ -88,7 +88,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint space-infix-ops: 2*/
+/*eslint space-infix-ops: "error"*/
 /*eslint-env es6*/
 
 a + b

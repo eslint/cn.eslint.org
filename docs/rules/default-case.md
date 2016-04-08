@@ -12,7 +12,7 @@ proofreader: sunshiner
 
 Some code conventions require that all `switch` statements have a `default` case, even if the default case is empty, such as:
 
-一些编码规范中，要求所有的`switch` 语句中必须包含`default`分支，即使default分支中没有任何代码，如下所示：
+一些编码规范中，要求所有的`switch`语句中必须包含`default`分支，即使 default 分支中没有任何代码，如下所示：
 
 ```js
 switch (foo) {
@@ -61,12 +61,12 @@ This rule aims to require `default` case in `switch` statements. You may optiona
 
 此规则的目的是在`switch`语句中强制声明`default`分支。或者也可以在最后一个`case`分支下，使用`// no default`来表明此处不需要`default`分支。
 
-The following pattern is considered a warning:
+Examples of **incorrect** code for this rule:
 
-错误示例如下：
+**错误**代码示例：
 
 ```js
-/*eslint default-case: 2*/
+/*eslint default-case: "error"*/
 
 switch (a) {
     case 1:
@@ -76,12 +76,12 @@ switch (a) {
 
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint default-case: 2*/
+/*eslint default-case: "error"*/
 
 switch (a) {
     case 1:
@@ -119,7 +119,7 @@ If you don't want to enforce a `default` case for `switch` statements, you can s
 
 This rule was introduced in ESLint 0.6.0.
 
-该规则在ESLint 0.6.0 中被引入。
+该规则在 ESLint 0.6.0 中被引入。
 
 ## Resources
 

@@ -38,28 +38,29 @@ For this reason, it is usually best to disallow this particular expression.
 
 ## Rule Details
 
-This rule aims to eliminate use of the `new require` expression. As such, it warns whenever `new require` is found in code.
+This rule aims to eliminate use of the `new require` expression.
 
 此规则旨在消除使用`new require`的表达方式。正因为此，当在代码里发现`new require`即警告。
 
-The following pattern is considered a warning:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为警告：
+**错误**代码示例：
 
 ```js
-/*eslint no-new-require: 2*/
+/*eslint no-new-require: "error"*/
 
 var appHeader = new require('app-header');
 ```
 
-The following pattern is not a warning:
+Examples of **correct** code for this rule:
 
-以下模式被认为没警告：
+**正确**代码示例：
 
 ```js
-/*eslint no-new-require: 2*/
+/*eslint no-new-require: "error"*/
 
 var AppHeader = require('app-header');
+var appHeader = new AppHeader();
 ```
 
 ## When Not To Use It
@@ -72,7 +73,7 @@ If you are using a custom implementation of `require` and your code will never b
 
 This rule was introduced in ESLint 0.6.0.
 
-此规则在ESLint 0.6.0被引入。
+此规则在 ESLint 0.6.0 被引入。
 
 ## Resources
 

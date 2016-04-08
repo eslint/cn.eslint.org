@@ -29,7 +29,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-dupe-args: 2*/
+/*eslint no-dupe-args: "error"*/
 
 function foo(a, b, a) {
     console.log("which a is it?", a);
@@ -41,7 +41,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-dupe-args: 2*/
+/*eslint no-dupe-args: "error"*/
 
 function foo(a, b, c) {
     console.log(a, b, c);

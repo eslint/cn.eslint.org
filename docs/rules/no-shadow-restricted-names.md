@@ -8,7 +8,7 @@ proofreader: xkf521
 
 # Disallow Shadowing of Restricted Names (no-shadow-restricted-names)
 
-# 关键字不能被遮蔽
+# 关键字不能被遮蔽 (no-shadow-restricted-names)
 
 ES5 §15.1.1 Value Properties of the Global Object (`NaN`, `Infinity`, `undefined`) as well as strict mode restricted identifiers `eval` and `arguments` are considered to be restricted names in JavaScript. Defining them to mean something else can have unintended consequences and confuse others reading the code. For example, there's nothing prevent you from writing:
 
@@ -26,10 +26,10 @@ Then any code used within the same scope would not get the global `undefined`, b
 
 Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-shadow-restricted-names: 2*/
+/*eslint no-shadow-restricted-names: "error"*/
 
 function NaN(){}
 
@@ -42,10 +42,10 @@ try {} catch(eval){}
 
 Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-shadow-restricted-names: 2*/
+/*eslint no-shadow-restricted-names: "error"*/
 
 var Object;
 
@@ -65,7 +65,7 @@ function f(a, b){}
 
 This rule was introduced in ESLint 0.1.4.
 
-此规则在ESLint 0.1.4中被引入。
+此规则在 ESLint 0.1.4 中被引入。
 
 ## Resources
 

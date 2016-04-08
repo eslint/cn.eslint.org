@@ -39,7 +39,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-continue: 2*/
+/*eslint no-continue: "error"*/
 
 var sum = 0,
     i;
@@ -54,7 +54,7 @@ for(i = 0; i < 10; i++) {
 ```
 
 ```js
-/*eslint no-continue: 2*/
+/*eslint no-continue: "error"*/
 
 var sum = 0,
     i;
@@ -73,7 +73,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-continue: 2*/
+/*eslint no-continue: "error"*/
 
 var sum = 0,
     i;

@@ -51,7 +51,7 @@ The following patterns are considered warnings:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-negated-condition: 2*/
+/*eslint no-negated-condition: "error"*/
 
 if (!a) {
     doSomething();
@@ -81,7 +81,7 @@ The following patterns are not warnings:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-negated-condition: 2*/
+/*eslint no-negated-condition: "error"*/
 
 if (!a) {
     doSomething();

@@ -26,7 +26,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-empty: 2*/
+/*eslint no-empty: "error"*/
 
 if (foo) {
 }
@@ -51,7 +51,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-empty: 2*/
+/*eslint no-empty: "error"*/
 
 if (foo) {
     // empty

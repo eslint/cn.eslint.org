@@ -26,12 +26,12 @@ The `no-eq-null` rule aims reduce potential bug and unwanted behavior by ensurin
 
 该规则目的在于通过确保与`null`的比较只匹配`null`，而不是匹配值`undefined`来减少潜在的 bug 和不想要的行为。它将标记使用`==` 和 `!=`对 `null`的比较。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-eq-null: 2*/
+/*eslint no-eq-null: "error"*/
 
 if (foo == null) {
   bar();
@@ -42,12 +42,12 @@ while (qux != null) {
 }
 ```
 
-The following patterns are considered okay:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-eq-null: 2*/
+/*eslint no-eq-null: "error"*/
 
 if (foo === null) {
   bar();

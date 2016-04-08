@@ -71,12 +71,12 @@ This rule aims to eliminate use of void operator.
 
 此规则目的在于排除使用 void 操作符。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-void: 2*/
+/*eslint no-void: "error"*/
 
 void foo
 

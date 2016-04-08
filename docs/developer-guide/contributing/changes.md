@@ -7,7 +7,7 @@ proofreader: molee1905
 
 # Change Requests
 
-#变更请求
+# 变更请求
 
 If you'd like to request a change to ESLint, please [create a new issue](https://github.com/eslint/eslint/issues/new?body=**What%20version%20are%20you%20using%3F**%0A%0A**What%20did%20you%20do%3F**%0A%0A**What%20happened%3F**%0A%0A**What%20did%20you%20expect%20to%20happen%3F**%0A%0A) on GitHub. Be sure to include the following information:
 
@@ -38,5 +38,3 @@ Please include as much detail as possible to help us properly address your issue
 **Note:** If you just have a question that won't necessarily result in a change to ESLint, such as asking how something works or how to contribute, please use the [mailing list](https://groups.google.com/group/eslint) or [chat](https://gitter.im/eslint/eslint) instead of filing an issue.
 
 **注意：** 如果你只是有一个问题，且该问题并不一定会导致 ESLint 发生改变，比如询问一些工作原理或者如何做出贡献，那么请使用 [邮件列表（mailing list）](https://groups.google.com/group/eslint) 或[聊天室（chat）](https://gitter.im/eslint/eslint) 而不是提交一个议题（issue）。
-
-

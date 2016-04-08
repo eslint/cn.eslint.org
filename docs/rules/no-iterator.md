@@ -30,12 +30,12 @@ This rule is aimed at preventing errors that may arise from using the `__iterato
 
 此规则目的在于防止因使用`__iterator__`属性而出现的错误，并不是所有浏览器都实现了这个属性。因此，当遇到`__iterator__`属性时，该规则将会发出警告。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-iterator: 2*/
+/*eslint no-iterator: "error"*/
 
 Foo.prototype.__iterator__ = function() {
     return new FooIterator(this);
@@ -47,12 +47,12 @@ foo["__iterator__"] = function () {};
 
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-iterator: 2*/
+/*eslint no-iterator: "error"*/
 
 var __iterator__ = foo; // Not using the `__iterator__` property.
 ```

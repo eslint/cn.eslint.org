@@ -19,17 +19,13 @@ This rule allows you to specify global variable names that you don't want to use
 
 ## Options
 
-This rule takes a list of strings where strings denote the global variable names:
+This rule takes a list of strings which are the global variable names.
 
-```json
-"no-restricted-globals": [2, "event", "fdescribe"]
-```
-
-The following patterns are considered problems:
+Examples of **incorrect** code for sample `"event", "fdescribe"` global variable names:
 
 ```js
 /*global event, fdescribe*/
-/*eslint no-restricted-globals: [2, "event", "fdescribe"]*/
+/*eslint no-restricted-globals: ["error", "event", "fdescribe"]*/
 
 function onClick() {
     console.log(event);
@@ -39,18 +35,18 @@ fdescribe("foo", function() {
 });
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for a sample `"event"` global variable name:
 
 ```js
 /*global event*/
-/*eslint no-restricted-globals: [2, "event"]*/
+/*eslint no-restricted-globals: ["error", "event"]*/
 
 import event from "event-module";
 ```
 
 ```js
 /*global event*/
-/*eslint no-restricted-globals: [2, "event"]*/
+/*eslint no-restricted-globals: ["error", "event"]*/
 
 var event = 1;
 ```

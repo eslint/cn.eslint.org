@@ -28,7 +28,6 @@ Because of this ambiguity, it's considered a best practice to not use assignment
 
 由于这种模棱两可,在返回语句中不使用赋值，被认为是一个最佳实践。
 
-
 ## Rule Details
 
 This rule aims to eliminate assignments from `return` statements. As such, it will warn whenever an assignment is found as part of `return`.
@@ -46,19 +45,19 @@ The rule takes one option, a string, which must contain one of the following val
 * `always`: Disallow all assignments.
 * `always`：禁止所有赋值
 
-### "except-parens"
+### except-parens
 
 This is the default option.
 It disallows assignments unless they are enclosed in parentheses.
 
 这是默认的选项。除非赋值语句放在圆括号中，否则不允许在返回语句中赋值。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for the default `"except-parens"` option:
 
-以下模式被认为是有问题的：
+默认选项`"except-parens"`的 **错误**代码示例：
 
 ```js
-/*eslint no-return-assign: 2*/
+/*eslint no-return-assign: "error"*/
 
 function doSomething() {
     return foo = bar + 2;
@@ -69,12 +68,12 @@ function doSomething() {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for the default `"except-parens"` option:
 
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-return-assign: 2*/
+/*eslint no-return-assign: "error"*/
 
 function doSomething() {
     return foo == bar + 2;
@@ -89,19 +88,19 @@ function doSomething() {
 }
 ```
 
-### "always"
+### always
 
 This option disallows all assignments in `return` statements.
 All assignments are treated as problems.
 
 此选项禁止`return`中所有的赋值。所有的赋值均被认为是有问题的。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for the `"always"` option:
 
-以下模式被认为是有问题的：
+`"always"`选项的 **错误**代码示例：
 
 ```js
-/*eslint no-return-assign: [2, "always"]*/
+/*eslint no-return-assign: ["error", "always"]*/
 
 function doSomething() {
     return foo = bar + 2;
@@ -116,12 +115,12 @@ function doSomething() {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for the `"always"` option:
 
-以下模式被认为是没有问题的：
+`"always"`选项的 **正确**代码示例：
 
 ```js
-/*eslint no-return-assign: [2, "always"]*/
+/*eslint no-return-assign: ["error", "always"]*/
 
 function doSomething() {
     return foo == bar + 2;
@@ -142,7 +141,7 @@ If you want to allow the use of assignment operators in a `return` statement, th
 
 This rule was introduced in ESLint 0.0.9.
 
-此规则在ESLint 0.0.9中被引入。
+此规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

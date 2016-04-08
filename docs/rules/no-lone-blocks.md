@@ -30,12 +30,12 @@ This rule aims to eliminate unnecessary and potentially confusing blocks at the 
 
 该规则旨在消除脚本顶部或其它块中不必要的和潜在的令人困惑的代码块。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下默认被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-lone-blocks: 2*/
+/*eslint no-lone-blocks: "error"*/
 
 {}
 
@@ -55,15 +55,20 @@ function bar() {
 {
     function foo() {}
 }
+
+{
+    aLabel: {
+    }
+}
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with es6 environment:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
+/*eslint no-lone-blocks: "error"*/
 /*eslint-env es6*/
-/*eslint no-lone-blocks: 2*/
 
 while (foo) {
     bar();
@@ -90,15 +95,19 @@ function bar() {
 {
     class Foo {}
 }
+
+aLabel: {
+}
 ```
 
-In strict mode, with `ecmaFeatures: { blockBindings: true }`, the following will not warn:
+Examples of **correct** code for this rule with es6 environment and strict mode via `"parserOptions": { "sourceType": "module" }` in the ESLint configuration or `"use strict"` directive in the code:
 
 在严格模式下，设置 `ecmaFeatures: { blockBindings: true }`，以下的模式不会发出警告：
 
 ```js
+/*eslint no-lone-blocks: "error"*/
 /*eslint-env es6*/
-/*eslint no-lone-blocks: 2*/
+
 "use strict";
 
 {

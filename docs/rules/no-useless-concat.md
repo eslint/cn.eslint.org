@@ -5,6 +5,7 @@ translator: fengnana
 proofreader: coocon 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
 # Disallow unnecessary concatenation of strings (no-useless-concat)
 
 # 禁止没有必要的字符拼接 (no-useless-concat)
@@ -31,12 +32,12 @@ This rule aims to flag the concatenation of 2 literals when they could be combin
 
 此规则目的在于标记2个字面量的拼接，当他们可以组合成一个单一的文本时。字面量可以是字符串或者模板字面量。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-useless-concat: 2*/
+/*eslint no-useless-concat: "error"*/
 /*eslint-env es6*/
 
 // these are the same as "10"
@@ -47,12 +48,12 @@ var a = `1` + '0';
 var a = `1` + `0`;
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-此规则被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-useless-concat: 2*/
+/*eslint no-useless-concat: "error"*/
 
 // when a non string is included
 var c = a + b;

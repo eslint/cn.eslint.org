@@ -53,19 +53,6 @@ This rule has three main options and one override option to allow some coercions
 
 该规则有三个主要选项和一个覆盖选项，覆盖选项允许一些强制要求。
 
-```js
-{
-    "rules": {
-        "no-implicit-coercion": [2, {
-            "boolean": true,
-            "number": true,
-            "string": true,
-            "allow": [/* "!!", "~", "*", "+" */]
-        }]
-    }
-}
-```
-
 * `"boolean"` (`true` by default) - When this is `true`, this rule warns shorter type conversions for `boolean` type.
 
 * `"boolean"`(默认是`true`)－当为`true`时，规则会对简短的`boolean`类型转换发出警告。
@@ -86,114 +73,96 @@ Note that operator `+` in `allow` list would allow `+foo` (number coercion) as w
 
 注意，在`allow`列表中，操作符`+`同时允许`+foo`（数字）和`"" + foo`(字符串)
 
-### `boolean`
+### boolean
 
-The following patterns are considered problems:
+Examples of **incorrect** code for the default `{ "boolean": true }` option:
 
-以下模式被认为是有问题的：
+默认选项`{ "boolean": true }`的 **错误**代码示例：
 
 ```js
-/*eslint no-implicit-coercion: 2*/
+/*eslint no-implicit-coercion: "error"*/
 
 var b = !!foo;
 var b = ~foo.indexOf(".");
-// only with `indexOf`/`lastIndexOf` method calling.
-
+// bitwise not is incorrect only with `indexOf`/`lastIndexOf` method calling.
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for the default `{ "boolean": true }` option:
 
-以下模式被认为是没有问题的：
+默认选项`{ "boolean": true }`的 **正确**代码示例：
 
 ```js
-/*eslint no-implicit-coercion: 2*/
+/*eslint no-implicit-coercion: "error"*/
 
 var b = Boolean(foo);
 var b = foo.indexOf(".") !== -1;
 
-var n = ~foo; // This is a just binary negating.
+var n = ~foo; // This is a just bitwise not.
 ```
 
-### `number`
+### number
 
-The following patterns are considered problems:
+Examples of **incorrect** code for the default `{ "number": true }` option:
 
-以下模式被认为是有问题的：
+默认选项`{ "number": true }`的 **错误**代码示例：
 
 ```js
-/*eslint no-implicit-coercion: 2*/
+/*eslint no-implicit-coercion: "error"*/
 
 var n = +foo;
 var n = 1 * foo;
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for the default `{ "number": true }` option:
 
-以下模式被认为是没有问题的
+默认选项`{ "number": true }`的 **正确**代码示例：
 
 ```js
-/*eslint no-implicit-coercion: 2*/
+/*eslint no-implicit-coercion: "error"*/
 
-var b = Number(foo);
-var b = parseFloat(foo);
-var b = parseInt(foo, 10);
+var n = Number(foo);
+var n = parseFloat(foo);
+var n = parseInt(foo, 10);
 ```
 
-### `string`
+### string
 
-The following patterns are considered problems:
+Examples of **incorrect** code for the default `{ "string": true }` option:
 
-以下模式被认为是有问题的：
-
+默认选项`{ "string": true }`的 **错误**代码示例：
 
 ```js
-/*eslint no-implicit-coercion: 2*/
+/*eslint no-implicit-coercion: "error"*/
 
-var n = "" + foo;
-
+var s = "" + foo;
 foo += "";
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for the default `{ "string": true }` option:
 
-以下模式被认为是没有问题的：
+默认选项`{ "string": true }`的 **正确**代码示例：
 
 ```js
-/*eslint no-implicit-coercion: 2*/
+/*eslint no-implicit-coercion: "error"*/
 
-var b = String(foo);
+var s = String(foo);
 ```
 
-### Fine-grained control
+### allow
 
 Using `allow` list, we can override and allow specific operators.
 
-当时使用`allow`列表，我们可以覆盖和允许指定的操作符。
+使用`allow`列表，我们可以覆盖和允许特定的操作符。
 
-For example, when the configuration is like this:
+Examples of **correct** code for the sample `{ "allow": ["!!", "~"] }` option:
 
-例如，当这样配置时：
-
-```json
-{
-    "rules": {
-        "no-implicit-coercion": [2, {
-            "boolean": true,
-            "number": true,
-            "string": true,
-            "allow": ["!!", "~"]
-        }]
-    }
-}
-```
-
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
+`{ "allow": ["!!", "~"] }`选项的 **正确**代码示例：
 
 ```js
+/*eslint no-implicit-coercion: [2, { "allow": ["!!", "~"] } ]*/
+
 var b = !!foo;
-var c = ~foo.indexOf(".");
+var b = ~foo.indexOf(".");
 ```
 
 ## When Not To Use It

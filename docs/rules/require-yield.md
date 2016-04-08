@@ -21,7 +21,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint require-yield: 2*/
+/*eslint require-yield: "error"*/
 /*eslint-env es6*/
 
 function* foo() {
@@ -34,7 +34,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint require-yield: 2*/
+/*eslint require-yield: "error"*/
 /*eslint-env es6*/
 
 function* foo() {

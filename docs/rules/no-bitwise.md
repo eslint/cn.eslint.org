@@ -29,7 +29,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-bitwise: 2*/
+/*eslint no-bitwise: "error"*/
 
 var x = y | z;
 
@@ -63,7 +63,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-bitwise: 2*/
+/*eslint no-bitwise: "error"*/
 
 var x = y || z;
 
@@ -87,7 +87,7 @@ This rule supports the following options:
 `allow`: 允许使用的按位操作符列表。例如：
 
 ```js
-/*eslint no-bitwise: [2, { allow: ["~"] }] */
+/*eslint no-bitwise: ["error", { allow: ["~"] }] */
 
 ~[1,2,3].indexOf(1) === -1;
 ```
@@ -97,7 +97,7 @@ This rule supports the following options:
 `int32Hint`: 允许在`|0`模式中使用按位或进行类型转换：
 
 ```js
-/*eslint no-bitwise: [2, { int32Hint: true }] */
+/*eslint no-bitwise: ["error", { int32Hint: true }] */
 
 var b = a|0;
 ```

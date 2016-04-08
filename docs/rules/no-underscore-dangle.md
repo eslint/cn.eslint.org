@@ -12,7 +12,7 @@ proofreader: coocon
 
 As far as naming conventions for identifiers go, dangling underscores may be the most polarizing in JavaScript. Dangling underscores are underscores at either the beginning or end of an identifier, such as:
 
-在Javascript中，就标识符命名规范而言，悬空下划线可能是最两极分化的了。悬空下划线是在标识符的开头或末尾的下划线，例如:
+在 Javascript 中，就标识符命名规范而言，悬空下划线可能是最两极分化的了。悬空下划线是在标识符的开头或末尾的下划线，例如:
 
 ```js
 var _foo;
@@ -20,7 +20,7 @@ var _foo;
 
 There is actually a long history of using dangling underscores to indicate "private" members of objects in JavaScript (though JavaScript doesn't have truly private members, this convention served as a warning). This began with SpiderMonkey adding nonstandard methods such as `__defineGetter__()`. The intent with the underscores was to make it obvious that this method was special in some way. Since that time, using a single underscore prefix has become popular as a way to indicate "private" members of objects.
 
-事实上，在Javascript中有很长一段历史使用悬空下划线来表示对象中的“私有”成员(虽然 Javascript 并没有正真的私有成员，这个约定起警示作用)。这始于 SpiderMonkey 添加的非标准方法，比如 `__defineGetter__()`。下划线的意图是让它很明显的看出这个方法在某种程度上很特别。从那时起，使用单个下划线作为前缀来表示对象的“私有”成员变得流行起来。
+事实上，在 Javascript 中有很长一段历史使用悬空下划线来表示对象中的“私有”成员(虽然 Javascript 并没有正真的私有成员，这个约定起警示作用)。这始于 SpiderMonkey 添加的非标准方法，比如 `__defineGetter__()`。下划线的意图是让它很明显的看出这个方法在某种程度上很特别。从那时起，使用单个下划线作为前缀来表示对象的“私有”成员变得流行起来。
 
 Whether or not you choose to allow dangling underscores in identifiers is purely a convention and has no effect on performance, readability, or complexity. It's purely a preference.
 
@@ -37,7 +37,7 @@ This rule aims to eliminate the use of dangling underscores in identifiers.
 ### `allow`
 
 ```json
-"no-underscore-dangle": [2, { "allow": [] }]
+"no-underscore-dangle": ["error", { "allow": [] }]
 ```
 
 Array of variable names that are permitted to be used with underscore. If provided, it must be an `Array`.
@@ -47,7 +47,7 @@ Array of variable names that are permitted to be used with underscore. If provid
 ### `allowAfterThis`
 
 ```json
-"no-underscore-dangle": [2, { "allowAfterThis": true }]
+"no-underscore-dangle": ["error", { "allowAfterThis": true }]
 ```
 
 This option allows usage of dangled variables as members of `this`.
@@ -59,7 +59,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-underscore-dangle: 2*/
+/*eslint no-underscore-dangle: "error"*/
 
 var foo_;
 var __proto__ = {};
@@ -71,7 +71,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-underscore-dangle: 2*/
+/*eslint no-underscore-dangle: "error"*/
 
 var _ = require('underscore');
 var obj = _.contains(items, item);
@@ -81,14 +81,14 @@ var file = __filename;
 
 
 ```js
-/*eslint no-underscore-dangle: [2, { "allow": ["foo_", "_bar"] }]*/
+/*eslint no-underscore-dangle: ["error", { "allow": ["foo_", "_bar"] }]*/
 
 var foo_;
 foo._bar();
 ```
 
 ```js
-/*eslint no-underscore-dangle: [2, { "allowAfterThis": true }]*/
+/*eslint no-underscore-dangle: ["error", { "allowAfterThis": true }]*/
 
 var a = this.foo_;
 this._bar();

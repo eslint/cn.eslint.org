@@ -32,7 +32,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-dupe-keys: 2*/
+/*eslint no-dupe-keys: "error"*/
 
 var foo = {
     bar: "baz",
@@ -55,7 +55,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-dupe-keys: 2*/
+/*eslint no-dupe-keys: "error"*/
 
 var foo = {
     bar: "baz",

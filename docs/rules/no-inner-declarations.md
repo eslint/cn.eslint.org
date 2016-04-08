@@ -95,7 +95,7 @@ Examples of **incorrect** code for the default `"functions"` option:
 默认选项`"functions"`的 **错误**代码示例：
 
 ```js
-/*eslint no-inner-declarations: 2*/
+/*eslint no-inner-declarations: "error"*/
 
 if (test) {
     function doSomething() { }
@@ -113,7 +113,7 @@ Examples of **correct** code for the default `"functions"` option:
 默认选项`"functions"`的 **正确**代码示例：
 
 ```js
-/*eslint no-inner-declarations: 2*/
+/*eslint no-inner-declarations: "error"*/
 
 function doSomething() { }
 
@@ -138,7 +138,7 @@ Examples of **incorrect** code for the `"both"` option:
 选项`"both"`的 **错误**代码示例：
 
 ```js
-/*eslint no-inner-declarations: [2, "both"]*/
+/*eslint no-inner-declarations: ["error", "both"]*/
 
 if (test) {
     var foo = 42;
@@ -156,7 +156,7 @@ Examples of **correct** code for the `"both"` option:
 选项`"both"`的 **错误**代码示例：
 
 ```js
-/*eslint no-inner-declarations: 2*/
+/*eslint no-inner-declarations: "error"*/
 /*eslint-env es6*/
 
 var bar = 42;

@@ -14,7 +14,23 @@ This rule disallows lexical declarations (`let`, `const`, `function` and `class`
 
 此规则禁止`case`/`default`分句中的声明语法（`let`, `const`, `function` and `class`）。原因是语法声明在整个 switch 块中是可见的，但只在被定义的位置进行初始化。
 
+To ensure that the lexical declaration only applies to the current case clause
+wrap your clauses in blocks.
+
+## Rule Details
+
+This rule aims to prevent access to uninitialized lexical bindings as well as accessing hoisted functions across case clauses.
+
+此规则旨在防止访问 case 语句中未初始化的声明和函数提升。
+
+Examples of **incorrect** code for this rule:
+
+**错误**代码示例：
+
 ```js
+/*eslint no-case-declarations: "error"*/
+/*eslint-env es6*/
+
 switch (foo) {
     case 1:
         let x = 1;
@@ -30,12 +46,14 @@ switch (foo) {
 }
 ```
 
-To ensure that the lexical declaration only applies to the current case clause
-wrap your clauses in blocks.
+Examples of **correct** code for this rule:
 
-为了确保语法声明只适用于当前情况，将你的声明语句包在块中。
+**正确**代码示例：
 
 ```js
+/*eslint no-case-declarations: "error"*/
+/*eslint-env es6*/
+
 switch (foo) {
     case 1: {
         let x = 1;
@@ -52,30 +70,6 @@ switch (foo) {
     default: {
         class C {}
     }
-}
-```
-
-## Rule Details
-
-This rule aims to prevent access to uninitialized lexical bindings as well as accessing hoisted functions across case clauses.
-
-此规则旨在防止访问 case 语句中未初始化的声明和函数提升。
-
-```js
-/*eslint no-case-declarations: 2*/
-
-switch (foo) {
-    case 1:
-        let x = 1;
-        break;
-    case 2:
-        const y = 2;
-        break;
-    case 3:
-        function f() {}
-        break;
-    default:
-        class C {}
 }
 ```
 

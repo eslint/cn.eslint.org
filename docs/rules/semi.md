@@ -10,6 +10,10 @@ proofreader: molee1905
 
 # 强制或禁止分号 (semi)
 
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+
 JavaScript is unique amongst the C-like languages in that it doesn't require semicolons at the end of each statement. In many cases, the JavaScript engine can determine that a semicolon should be in a certain spot and will automatically add it. This feature is known as **automatic semicolon insertion (ASI)** and is considered one of the more controversial features of JavaScript. For example, the following lines are both valid:
 
 Javascript 在所有类C语言中是比较独特的，它不需要在每个语句的末尾有分号。在很多情况下，Javascript 引擎可以确定一个分号应该在什么位置然后自动添加它。此特征被称为**自动分号插入 (ASI)**，被认为是 Javascript 中较为有争议的特征。例如，以下各行均有效：
@@ -119,7 +123,7 @@ By using the default option, semicolons must be used any place where they are va
 使用默认设置，分号将被用到任何合适的位置。
 
 ```json
-semi: [2, "always"]
+semi: ["error", "always"]
 ```
 
 The following patterns are considered problems:
@@ -127,7 +131,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint semi: 2*/
+/*eslint semi: "error"*/
 
 var name = "ESLint"
 
@@ -141,7 +145,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint semi: 2*/
+/*eslint semi: "error"*/
 
 var name = "ESLint";
 
@@ -157,15 +161,15 @@ When setting the first option as `"always"`, an additional option can be added t
 当设置第一个选项为`"always"`时，可以添加一个额外的选项以省略单行块中最后的分号，也就是括号（内容也是）都在同一行的块。
 
 ```json
-semi: [2, "always", { "omitLastInOneLineBlock": true}]
+semi: ["error", "always", { "omitLastInOneLineBlock": true}]
 ```
 
 The following patterns are considered problems:
 
 以下模式被认为是有问题的：
-
+ 
 ```js
-/*eslint semi: [2, "always", { "omitLastInOneLineBlock": true}] */
+/*eslint semi: ["error", "always", { "omitLastInOneLineBlock": true}] */
 
 if (foo) {
     bar()
@@ -179,7 +183,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint semi: [2, "always", { "omitLastInOneLineBlock": true}] */
+/*eslint semi: ["error", "always", { "omitLastInOneLineBlock": true}] */
 
 if (foo) { bar() }
 
@@ -201,7 +205,7 @@ Then, the following patterns are considered problems:
 这时，以下模式被认为是有问题的：
 
 ```js
-/*eslint semi: [2, "never"]*/
+/*eslint semi: ["error", "never"]*/
 
 var name = "ESLint";
 
@@ -215,7 +219,7 @@ And the following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint semi: [2, "never"]*/
+/*eslint semi: ["error", "never"]*/
 
 var name = "ESLint"
 
@@ -229,7 +233,7 @@ Even in `"never"` mode, semicolons are still allowed to disambiguate statements 
 即使是在`"never"`方式下，分号仍然是被允许的，用来消除以`[`，`(`，`/`，`+`或`-`开头的语句的歧义：
 
 ```js
-/*eslint semi: [2, "never"]*/
+/*eslint semi: ["error", "never"]*/
 
 var name = "ESLint"
 

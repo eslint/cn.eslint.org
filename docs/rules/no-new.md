@@ -7,7 +7,8 @@ proofreader: yanggao40
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow new For Side Effects (no-new)
-#禁止使用new产生副作用
+
+# 禁止使用new产生副作用 (no-new)
 
 The goal of using `new` with a constructor is typically to create an object of a particular type and store that object in a variable, such as:
 
@@ -35,22 +36,22 @@ This rule is aimed at maintaining consistency and convention by disallowing cons
 
 此规则旨在通过禁止使用`new`关键字调用构造函数但确不将结果分配给一个变量来维持一致性和公约。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-new: 2*/
+/*eslint no-new: "error"*/
 
 new Thing();
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-new: 2*/
+/*eslint no-new: "error"*/
 
 var thing = new Thing();
 
@@ -61,7 +62,7 @@ Thing();
 
 This rule was introduced in ESLint 0.0.7.
 
-此规则在ESLint 0.0.7中被引入。
+此规则在 ESLint 0.0.7 中被引入。
 
 ## Resources
 

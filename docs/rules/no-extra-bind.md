@@ -53,12 +53,12 @@ This rule is aimed at avoiding the unnecessary use of `bind()` and as such will 
 
 **注意:** 箭头函数不能通过使用`bind()`设置它们的自己`this`值。此规则把所有使用`bind()`的箭头函数标记为是有问题的。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-extra-bind: 2*/
+/*eslint no-extra-bind: "error"*/
 /*eslint-env es6*/
 
 var x = function () {
@@ -86,12 +86,12 @@ var x = function () {
 }.bind(baz);
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-extra-bind: 2*/
+/*eslint no-extra-bind: "error"*/
 
 var x = function () {
     this.foo();

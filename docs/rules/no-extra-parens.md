@@ -48,7 +48,7 @@ Examples of **incorrect** code for the default `"all"` option:
 默认选项`"all"`的 **错误**代码示例：
 
 ```js
-/*eslint no-extra-parens: 2*/
+/*eslint no-extra-parens: "error"*/
 
 a = (b * c);
 
@@ -64,7 +64,7 @@ Examples of **correct** code for the default `"all"` option:
 默认选项`"all"`的 **正确**代码示例：
 
 ```js
-/*eslint no-extra-parens: 2*/
+/*eslint no-extra-parens: "error"*/
 
 (0).toString();
 
@@ -86,7 +86,7 @@ Examples of **correct** code for the `"all"` and `{ "conditionalAssign": true }`
 当选项为`"all"` 和 `{ "conditionalAssign": true }`时的 **正确**代码示例：
 
 ```js
-/*eslint no-extra-parens: [2, "all", { "conditionalAssign": false }]*/
+/*eslint no-extra-parens: ["error", "all", { "conditionalAssign": false }]*/
 
 while ((foo = bar())) {}
 
@@ -104,7 +104,7 @@ Examples of **incorrect** code for the `"functions"` option:
 选项`"functions"`的 **错误**代码示例：
 
 ```js
-/*eslint no-extra-parens: [2, "functions"]*/
+/*eslint no-extra-parens: ["error", "functions"]*/
 
 ((function foo() {}))();
 
@@ -116,7 +116,7 @@ Examples of **correct** code for the `"functions"` option:
 选项`"functions"`的 **正确**代码示例：
 
 ```js
-/*eslint no-extra-parens: [2, "functions"]*/
+/*eslint no-extra-parens: ["error", "functions"]*/
 
 (0).toString();
 

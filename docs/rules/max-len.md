@@ -15,7 +15,7 @@ Very long lines of code in any language can be difficult to read. In order to ai
 代码中非常长的行在任何语言中都很难阅读。为了提高可读性和可维护性，许多程序员制定了一项约定，来限制一行代码的字符数量(按照惯例80个字符)。
 
 ```js
-// max-len: [1, 80, 4]; // maximum length of 80 characters
+// max-len: ["error", 80, 4]; // maximum length of 80 characters
 var foo = { "bar": "This is a bar.", "baz": { "qux": "This is a qux" }, "difficult": "to read" }; // too long
 ```
 
@@ -35,7 +35,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint max-len: [2, 80, 4]*/ // maximum length of 80 characters
+/*eslint max-len: ["error", 80, 4]*/ // maximum length of 80 characters
 
 var foo = { "bar": "This is a bar.", "baz": { "qux": "This is a qux" }, "difficult": "to read" };
 ```
@@ -45,7 +45,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint max-len: [2, 80, 4]*/ // maximum length of 80 characters
+/*eslint max-len: ["error", 80, 4]*/ // maximum length of 80 characters
 
 var foo = {
     "bar": "This is a bar.",
@@ -95,7 +95,7 @@ Optionally, you may specify `code` and `tabWidth` as integers before the options
 你可以在可选项对象之前以整数形式指定`code` 和 `tabWidth`：
 
 ```json
-"max-len": [2, 80, 4, {"ignoreUrls": true}]
+"max-len": ["error", 80, 4, {"ignoreUrls": true}]
 ```
 
 is equivalent to
@@ -103,7 +103,7 @@ is equivalent to
 等效于
 
 ```json
-"max-len": [2, {"code": 80, "tabWidth": 4, "ignoreUrls": true}]
+"max-len": ["error", {"code": 80, "tabWidth": 4, "ignoreUrls": true}]
 ```
 
 

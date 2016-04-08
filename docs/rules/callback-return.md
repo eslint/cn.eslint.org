@@ -1,6 +1,8 @@
 ---
 title: Rule callback-return
 layout: doc
+translator: ILFront-End
+proofreader: qifeigit
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -9,9 +11,9 @@ layout: doc
 # 强制返回callback函数 (callback-return)
 
 The callback pattern is at the heart of most I/O and event-driven programming
- in JavaScript.
+in JavaScript.
  
- 回调函数是大多数I/O和JavaScript事件驱动函数的心脏。
+在 JavaScript 中，回调函数是大多数 I/O 和事件驱动函数的核心。
 
 ```js
 function doSomething(err, callback) {
@@ -22,27 +24,24 @@ function doSomething(err, callback) {
 }
 ```
 
-To prevent calling the callback multiple times it is important to `return` anytime the callback is triggered outside
- of the main function body. Neglecting this technique often leads to issues where you do something more than once.
- For example, in the case of an HTTP request, you may try to send HTTP headers more than once leading node.js to `throw`
- a `Can't render headers after they are sent to the client.` error.
+To prevent calling the callback multiple times it is important to `return` anytime the callback is triggered outside of the main function body. Neglecting this technique often leads to issues where you do something more than once. For example, in the case of an HTTP request, you may try to send HTTP headers more than once leading Node.js to `throw` a `Can't render headers after they are sent to the client.` error.
  
- 为了防止多次调用回调函数，在主函数体外触发回调函数达到随时`return`是很重要的。忽略返回回调函数在多次执行操作的时常常出错。比如：在HTTP请求中，多次发送http请求导致node.js抛出异常：`Can't render headers after they are sent to the client.`
+为了防止多次调用回调函数，在主函数体外触发回调函数达到随时`return`是很重要的。忽略返回回调函数在多次执行操作的时常常出错。比如：在 HTTP 请求中，多次发送 HTTP 请求导致 Node.js 抛出异常：`Can't render headers after they are sent to the client.`
 
 ## Rule Details
 
-This rule is aimed at ensuring that callbacks used outside of the main function block are always part-of or immediately
-preceding a `return` statement. This rules decides what is a callback based on the name of the function being called.
-By default the rule treats `cb`, `callback`, and `next` as callbacks.
+This rule is aimed at ensuring that callbacks used outside of the main function block are always part-of or immediately preceding a `return` statement. This rule decides what is a callback based on the name of the function being called.
 
-此规则旨在确保在主函数体外使用的回调函数总是能立即返回状态。此规则决定基于函数名被调用的函数是回调函数。默认情况下,把`cb`,`callback`,和`next`作为回调函数。
+## Options
 
-The following patterns are considered problems:
+The rule takes a single option, which is an array of possible callback names. The default callback names are `callback`, `cb`, `next`.
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule with the default `["callback", "cb", "next"]` option:
+
+默认选项`["callback", "cb", "next"]`的 **错误**代码示例：
 
 ```js
-/*eslint callback-return: 2*/
+/*eslint callback-return: "error"*/
 
 function foo() {
     if (err) {
@@ -52,12 +51,12 @@ function foo() {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `["callback", "cb", "next"]` option:
 
-以下模式被认为是没有问题的：
+默认选项`["callback", "cb", "next"]`的 **正确**代码示例：
 
 ```js
-/*eslint callback-return: 2*/
+/*eslint callback-return: "error"*/
 
 function foo() {
     if (err) {
@@ -67,33 +66,25 @@ function foo() {
 }
 ```
 
-## Options
-
-The rule takes a single option, which is an array of possible callback names.
-
-此规则只接收一个配置项，是一个数组，包含可能的回调函数名。
-
-```json
-callback-return: [2, ["callback", "cb", "next"]]
-```
-
 ## Known Limitations
 
-There are several cases of bad behavior that this rule will not catch and even a few cases where
-the rule will warn even though you are handling your callbacks correctly. Most of these issues arise
-in areas where it is difficult to understand the meaning of the code through static analysis.
+Because it is difficult to understand the meaning of a program through static analysis, this rule has limitations:
+
+此规则只接收一个配置项，该配置项是一个由可能的回调函数名组成的数组。
+
+* *false negatives* when this rule reports correct code, but the program calls the callback more than one time (which is incorrect behavior)
+* *false positives* when this rule reports incorrect code, but the program calls the callback only one time (which is correct behavior)
+
+### Passing the callback by reference
+
+The static analysis of this rule does not detect that the program calls the callback if it is an argument of a function (for example,  `setTimeout`).
 
 有一些不好的情况是此规则不起作用，甚至有些情况是即使你正确的使用了回调函数，但还是报警告。这些问题多数出现在很难通过静态分析就能理解代码含义的地方。
 
-### Passing the Callback by Reference
-
-Here is a case where we pass the callback to the `setTimeout` function. Our rule does not detect this pattern, but
-it is likely a mistake.
-
-这有一种情况，我们在`setTimeout`上执行回调。我们的规则没有检测到这种模式，但它可能是一个错误。
+Example of a *false negative* when this rule reports correct code:
 
 ```js
-/*eslint callback-return: 2*/
+/*eslint callback-return: "error"*/
 
 function foo(callback) {
     if (err) {
@@ -103,16 +94,14 @@ function foo(callback) {
 }
 ```
 
-### Triggering the Callback within a Nested Function
+### Triggering the callback within a nested function
 
-If you are calling the callback from within a nested function or an immediately invoked
-function expression, we won't be able to detect that you're calling the callback and so
-we won't warn.
+The static analysis of this rule does not detect that the program calls the callback from within a nested function or an immediately-invoked function expression (IIFE).
 
-如果你在函数嵌套里或者是立即执行函数表达式中调用回调函数，规则察觉不到你调用了回调函数，所以会报警告。
+Example of a *false negative* when this rule reports correct code:
 
 ```js
-/*eslint callback-return: 2*/
+/*eslint callback-return: "error"*/
 
 function foo(callback) {
     if (err) {
@@ -124,15 +113,14 @@ function foo(callback) {
 }
 ```
 
-### If/Else Statements
+### If/else statements
 
-Here is a case where you're doing the right thing in making sure to only `callback()` once, but because of the
-difficulty in determining what you're doing, this rule does not allow for this pattern.
+The static analysis of this rule does not detect that the program calls the callback only one time in each branch of an `if` statement.
 
-有这样一种情况，你正在做正确的事情确保`callback()`执行一次，但是确定你做什么是有有难度的，此规则不允许这种形式。
+Example of a *false positive* when this rule reports incorrect code:
 
 ```js
-/*eslint callback-return: 2*/
+/*eslint callback-return: "error"*/
 
 function foo(callback) {
     if (err) {
@@ -145,11 +133,9 @@ function foo(callback) {
 
 ## When Not To Use It
 
-There are some cases where you might want to call a callback function more than once. In those cases this rule
- may lead to incorrect behavior. In those cases you may want to reserve a special name for those callbacks and
- not include that in the list of callbacks that trigger warnings.
+There are some cases where you might want to call a callback function more than once. In those cases this rule may lead to incorrect behavior. In those cases you may want to reserve a special name for those callbacks and not include that in the list of callbacks that trigger warnings.
  
-在某些情况下可能需要调用多次回调函数。在这些情况下，此规则可能会导致不正确的行为。在这种情况下，你可能想保留一个特别的名字对于那些回调，并没有包括触发警告的回调函数名单。
+在某些情况下可能需要多次调用回调函数。在这些情况下，此规则可能会导致不正确的行为。在这些情况下，你可能想给那些回调保留一个特别的名字，并且不包含在触发警告的回调函数名单里。
 
 ## Further Reading
 
@@ -164,7 +150,7 @@ There are some cases where you might want to call a callback function more than 
 
 This rule was introduced in ESLint 1.0.0-rc-1.
 
-此规则在1.0.0-rc-1被引入。
+此规则在 ESLint 1.0.0-rc-1 被引入。
 
 ## Resources
 

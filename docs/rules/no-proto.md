@@ -8,7 +8,7 @@ proofreader: yanggao40
 
 # Disallow Use of `__proto__` (no-proto)
 
-# 禁止使用`__proto__`（no-proto）
+# 禁用`__proto__`（no-proto）
 
 `__proto__` property has been deprecated as of ECMAScript 3.1 and shouldn't be used in the code.Use `getPrototypeOf` method instead.
 
@@ -20,24 +20,24 @@ When an object is created `__proto__` is set to the original prototype property 
 
 当一个对象被创建，`__proto__`被设置为对象构造方法的原始原型属性。`getPrototypeOf`是获取"the prototype"的首选方法。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-proto: 2*/
+/*eslint no-proto: "error"*/
 
 var a = obj.__proto__;
 
 var a = obj["__proto__"];
 ```
 
-The following patterns are considered okay and could be used alternatively:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的，并且可以做为备选方案：
+**正确**代码示例：
 
 ```js
-/*eslint no-proto: 2*/
+/*eslint no-proto: "error"*/
 
 var a = Object.getPrototypeOf(obj);
 ```
@@ -56,7 +56,7 @@ If you need to support legacy browsers, you might want to turn this rule off, si
 
 This rule was introduced in ESLint 0.0.9.
 
-此规则在ESLint 0.0.9中被引入。
+此规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

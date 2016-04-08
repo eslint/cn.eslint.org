@@ -81,7 +81,7 @@ When the rule is set to `"always"` the following patterns are considered problem
 当设置为`"always"`，以下模式被认为是有问题的：
 
 ```js
-/*eslint arrow-parens: [2, "always"]*/
+/*eslint arrow-parens: ["error", "always"]*/
 /*eslint-env es6*/
 
 a => {};
@@ -97,7 +97,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint arrow-parens: [2, "always"]*/
+/*eslint arrow-parens: ["error", "always"]*/
 /*eslint-env es6*/
 
 () => {};
@@ -182,7 +182,7 @@ When the rule is set to `"as-needed"` the following patterns are considered prob
 当设置为`"as-needed"`，以下模式被认为是有问题的：
 
 ```js
-/*eslint arrow-parens: [2, "as-needed"]*/
+/*eslint arrow-parens: ["error", "as-needed"]*/
 /*eslint-env es6*/
 
 (a) => {};
@@ -198,7 +198,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint arrow-parens: [2, "as-needed"]*/
+/*eslint arrow-parens: ["error", "as-needed"]*/
 /*eslint-env es6*/
 
 () => {};

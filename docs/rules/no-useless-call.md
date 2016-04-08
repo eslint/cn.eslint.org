@@ -21,12 +21,12 @@ This rule is aimed to flag usage of `Function.prototype.call()` and `Function.pr
 
 此规则的目的在于标记出可以被正常函数调用所替代的`Function.prototype.call()` 和 `Function.prototype.apply()`的使用。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-useless-call: 2*/
+/*eslint no-useless-call: "error"*/
 
 // These are same as `foo(1, 2, 3);`
 foo.call(undefined, 1, 2, 3);
@@ -39,12 +39,12 @@ obj.foo.call(obj, 1, 2, 3);
 obj.foo.apply(obj, [1, 2, 3]);
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下问题被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-useless-call: 2*/
+/*eslint no-useless-call: "error"*/
 
 // The `this` binding is different.
 foo.call(obj, 1, 2, 3);
@@ -60,22 +60,30 @@ foo.apply(null, args);
 obj.foo.apply(obj, args);
 ```
 
-Known limitations:
+## Known Limitations
 
 This rule compares code statically to check whether or not `thisArg` is changed.
 So if the code about `thisArg` is a dynamic expression, this rule cannot judge correctly.
 
-已知的限制：
-
 此规则通过静态的对比代码检测 `thisArg` 是否被改变。所以如果 `thisArg` 是动态表达式，此规则不能正确的判断。
 
+Examples of **incorrect** code for this rule:
+
+**错误**代码示例：
+
 ```js
-/*eslint no-useless-call: 2*/
+/*eslint no-useless-call: "error"*/
 
-// This is warned.
 a[i++].foo.call(a[i++], 1, 2, 3);
+```
 
-// This is not warned.
+Examples of **correct** code for this rule:
+
+**正确**代码示例：
+ 
+```js
+/*eslint no-useless-call: "error"*/
+
 a[++i].foo.call(a[i], 1, 2, 3);
 ```
 

@@ -41,7 +41,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-regex-spaces: 2*/
+/*eslint no-regex-spaces: "error"*/
 
 var re = /foo   bar/;
 ```
@@ -51,7 +51,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-regex-spaces: 2*/
+/*eslint no-regex-spaces: "error"*/
 
 var re = /foo {3}bar/;
 
@@ -77,7 +77,7 @@ If you want to allow multiple spaces in a regular expression, then you can safel
 
 This rule was introduced in ESLint 0.4.0.
 
-该规则在ESLint 0.4.0中被引入。
+该规则在 ESLint 0.4.0 中被引入。
 
 ## Resources
 

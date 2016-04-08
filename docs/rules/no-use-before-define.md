@@ -29,7 +29,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-use-before-define: 2*/
+/*eslint no-use-before-define: "error"*/
 /*eslint-env es6*/
 
 alert(a);
@@ -55,7 +55,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-use-before-define: 2*/
+/*eslint no-use-before-define: "error"*/
 /*eslint-env es6*/
 
 var a;
@@ -81,7 +81,7 @@ function g() {
 
 ```json
 {
-    "no-use-before-define": [2, { "functions": true, "classes": true }]
+    "no-use-before-define": ["error", { "functions": true, "classes": true }]
 }
 ```
 
@@ -124,7 +124,7 @@ Examples of **correct** code for the `{ "functions": false }` option:
 选项`{ "functions": false }`的 **正确**代码示例：
 
 ```js
-/*eslint no-use-before-define: [2, { "functions": false }]*/
+/*eslint no-use-before-define: ["error", { "functions": false }]*/
 
 f();
 function f() {}
@@ -137,7 +137,7 @@ Examples of **incorrect** code for the `{ "classes": false }` option:
 选项`{ "classes": false }`的 **错误**代码示例：
 
 ```js
-/*eslint no-use-before-define: [2, { "classes": false }]*/
+/*eslint no-use-before-define: ["error", { "classes": false }]*/
 /*eslint-env es6*/
 
 new A();
@@ -150,7 +150,7 @@ Examples of **correct** code for the `{ "classes": false }` option:
 选项`{ "classes": false }`的 **正确**代码示例：
 
 ```js
-/*eslint no-use-before-define: [2, { "classes": false }]*/
+/*eslint no-use-before-define: ["error", { "classes": false }]*/
 /*eslint-env es6*/
 
 function foo() {

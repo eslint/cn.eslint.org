@@ -1,0 +1,38 @@
+  <script src="/js/vendor/jquery-1.10.2.min.js"></script>
+  <script src="/js/vendor/bootstrap.min.js"></script>
+  <script src="/js/vendor/anchor.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      anchors.add('.doc h2, .doc h3, .doc h4, .blog h2, .blog h3, .blog h4');
+      {% if page.disablePreview != true %}
+        var langs = {mixed: '中英文',zh: '中文',en: '英文'};
+        var last = localStorage.getItem('lang')||'mixed';
+
+        if (last in langs) {
+          $('.lang-chooser').html(langs[last]); 
+          $('.doc').removeClass(function(index,clz){
+              return clz.slice(3);
+          }).addClass('lang-' + last);
+        }
+
+        $('.navbar-left').show();
+
+        $('.lang-type').on('click', function() {
+            var $this = $(this),
+                type = $this.data('lang'),
+                lang = $this.html();
+
+            localStorage.setItem('lang', type);
+
+            $('.lang-chooser').html(lang); 
+            $('.doc').removeClass(function(index,clz){
+                return clz.slice(3);
+            }).addClass('lang-' + type);
+        });
+      {% endif %}
+    });
+  </script>
+  <style type="text/css">#cnzz_stat_icon_1258344395 {opacity: 0;}</style>
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258344395'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258344395'%3E%3C/script%3E"));</script>
+</body>
+</html>

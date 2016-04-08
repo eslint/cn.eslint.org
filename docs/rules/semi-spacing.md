@@ -10,6 +10,10 @@ proofreader: molee1905
 
 # 强制分号之前和之后有空格 (semi-spacing)
 
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+
 JavaScript allows you to place unnecessary spaces before or after a semicolon.
 
 Javascript 允许你在分号之前或之后放置不必要的空格。
@@ -23,10 +27,6 @@ var a = "b" ;
 
 var c = "d";var e = "f";
 ```
-
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
 
 ## Rule Details
 
@@ -67,7 +67,7 @@ The default is `{"before": false, "after": true}`.
 默认为 `{"before": false, "after": true}`。
 
 ```json
-    "semi-spacing": [2, {"before": false, "after": true}]
+    "semi-spacing": ["error", {"before": false, "after": true}]
 ```
 
 ### `{"before": false, "after": true}`
@@ -81,7 +81,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint semi-spacing: 2*/
+/*eslint semi-spacing: "error"*/
 
 var foo ;
 var foo;var bar;
@@ -96,7 +96,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint semi-spacing: 2*/
+/*eslint semi-spacing: "error"*/
 
 var foo;
 var foo; var bar;
@@ -119,7 +119,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint semi-spacing: [2, { "before": true, "after": false }]*/
+/*eslint semi-spacing: ["error", { "before": true, "after": false }]*/
 
 var foo;
 var foo ; var bar;
@@ -134,7 +134,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint semi-spacing: [2, { "before": true, "after": false }]*/
+/*eslint semi-spacing: ["error", { "before": true, "after": false }]*/
 
 var foo ;
 var foo ;var bar ;

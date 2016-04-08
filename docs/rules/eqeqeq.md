@@ -38,7 +38,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/* eslint eqeqeq: 2 */
+/*eslint eqeqeq: "error"*/
 
 if (x == 42) { }
 
@@ -49,9 +49,9 @@ if (obj.getStuff() != undefined) { }
 
 ## Options
 
-### "smart"
+### smart
 
-This option enforces the use of `===` and `!==` except for these cases:
+The `"smart"` option enforces the use of `===` and `!==` except for these cases:
 
 该选项强制使用`===` 和 `!==`，以下情况除外：
 
@@ -67,34 +67,12 @@ This option enforces the use of `===` and `!==` except for these cases:
 
 * 与`null`进行比较
 
-You can specify this option using the following configuration:
+Examples of **incorrect** code for the `"smart"` option:
 
-你可以通过下面的配置指定该选项：
-
-```json
-"eqeqeq": [2, "smart"]
-```
-
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
+`"smart"`选项的 **错误**代码示例：
 
 ```js
-/* eslint eqeqeq: [2, "smart"] */
-
-typeof foo == 'undefined'
-'hello' != 'world'
-0 == 0
-true == true
-foo == null
-```
-
-The following patterns are considered problems with "smart":
-
-以下模式在"smart"下被认为是有问题的：
-
-```js
-/* eslint eqeqeq: [2, "smart"] */
+/*eslint eqeqeq: ["error", "smart"]*/
 
 // comparing two variables requires ===
 a == b
@@ -107,42 +85,48 @@ bananas != 1
 value == undefined
 ```
 
-### "allow-null"
+Examples of **correct** code for the `"smart"` option:
 
-This option will enforce `===` and `!==` in your code with one exception - it permits comparing to `null` to check for `null` or `undefined` in a single expression.
-
-该选项会强制要求在你的代码中使用`===` 和 `!==`，有一个例外，它允许`null`和`null`或者`undefined`在表达式中做比较。
-
-You can specify this option using the following configuration:
-
-你可以通过下面的配置指定该选项：
-
-```json
-"eqeqeq": [2, "allow-null"]
-```
-
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
+`"smart"`选项的 **正确**代码示例：
 
 ```js
-/* eslint eqeqeq: [2, "allow-null"] */
+/*eslint eqeqeq: ["error", "smart"]*/
 
+typeof foo == 'undefined'
+'hello' != 'world'
+0 == 0
+true == true
 foo == null
 ```
 
-The following patterns are considered problems with "allow-null":
+### allow-null
 
-以下模式在"allow-null"下被认为是有问题的：
+The `"allow-null"` option will enforce `===` and `!==` in your code with one exception - it permits comparing to `null` to check for `null` or `undefined` in a single expression.
+
+该选项会强制要求在你的代码中使用`===` 和 `!==`，有一个例外，它允许`null`和`null`或者`undefined`在表达式中做比较。
+
+Examples of **incorrect** code for the `"allow-null"` option:
+
+`"allow-null"`选项的 **错误**代码示例：
 
 ```js
-/* eslint eqeqeq: [2, "allow-null"] */
+/*eslint eqeqeq: ["error", "allow-null"]*/
 
 bananas != 1
 typeof foo == 'undefined'
 'hello' != 'world'
 0 == 0
 foo == undefined
+```
+
+Examples of **correct** code for the `"allow-null"` option:
+
+`"allow-null"`选项的 **正确**代码示例：
+
+```js
+/*eslint eqeqeq: ["error", "allow-null"]*/
+
+foo == null
 ```
 
 ## When Not To Use It

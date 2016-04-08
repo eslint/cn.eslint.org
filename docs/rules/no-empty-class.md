@@ -12,7 +12,7 @@ proofreader: molee1905
 
 **Replacement notice**: This rule was removed in ESLint v1.0 and replaced by the [no-empty-character-class](no-empty-character-class) rule.
 
-**替换声明**:  该规则在 ESLint v1.0 中被移除，被[no-empty-character-class](no-empty-character-class)规则代替。
+**替换声明：**该规则在 ESLint v1.0 中被移除，被[no-empty-character-class](no-empty-character-class)规则代替。
 
 Empty character classes in regular expressions do not match anything and can result in code that may not work as intended.
 

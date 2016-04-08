@@ -32,9 +32,9 @@ This rule takes a list of strings where strings denote the node types:
 
 ```json
 {
-"rules": {
-"no-restricted-syntax": [2, "FunctionExpression", "WithStatement"]
-}
+    "rules": {
+        "no-restricted-syntax": ["error", "FunctionExpression", "WithStatement"]
+    }
 }
 ```
 
@@ -43,10 +43,10 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/* eslint no-restricted-syntax: [2, "FunctionExpression", "WithStatement"] */
+/* eslint no-restricted-syntax: ["error", "FunctionExpression", "WithStatement"] */
 
 with (me) {
-dontMess();
+    dontMess();
 }
 
 var doSomething = function () {};
@@ -57,7 +57,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/* eslint no-restricted-syntax: [2, "FunctionExpression", "WithStatement"] */
+/* eslint no-restricted-syntax: ["error", "FunctionExpression", "WithStatement"] */
 
 me.dontMess();
 
@@ -68,7 +68,7 @@ function doSomething() {};
 
 If you don't want to restrict your code from using any JavaScript features or syntax, you should not use this rule.
 
-如果你不想限制你的代码使用任何Javascript的特征或语法，不应使用此规则。
+如果你不想限制你的代码使用 Javascript 任何的特征或语法，不应使用此规则。
 
 ## Related Rules
 
@@ -80,7 +80,7 @@ If you don't want to restrict your code from using any JavaScript features or sy
 
 This rule was introduced in ESLint 1.4.0.
 
-该规则在ESLint 1.4.0 中被引入。
+该规则在 ESLint 1.4.0 中被引入。
 
 ## Resources
 

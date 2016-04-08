@@ -29,7 +29,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-ternary: 2*/
+/*eslint no-ternary: "error"*/
 
 var foo = isBar ? baz : qux;
 
@@ -45,7 +45,7 @@ The following patterns are considered okay and could be used alternatively:
 以下模式被认为是可以的，可替代使用：
 
 ```js
-/*eslint no-ternary: 2*/
+/*eslint no-ternary: "error"*/
 
 var foo;
 

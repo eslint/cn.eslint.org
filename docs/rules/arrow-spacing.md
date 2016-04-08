@@ -10,6 +10,10 @@ proofreader: molee1905
 
 # 要求箭头函数的箭头之前或之后有空格 (arrow-spacing)
 
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+
 This rule normalize style of spacing before/after an arrow function's arrow(`=>`).
 
 该该规则规范化箭头函数的箭头(`=>`)之前或之后的空格风格。
@@ -23,10 +27,6 @@ This rule normalize style of spacing before/after an arrow function's arrow(`=>`
 // { "before": false, "after": false }
 (a)=>{}
 ```
-
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
 
 ## Rule Details
 
@@ -47,7 +47,7 @@ The following patterns are considered problems if `{ "before": true, "after": tr
 如果设置为`{ "before": true, "after": true }`，以下模式被认为是有问题的：
 
 ```js
-/*eslint arrow-spacing: 2*/
+/*eslint arrow-spacing: "error"*/
 /*eslint-env es6*/
 
 ()=> {};
@@ -65,7 +65,7 @@ The following patterns are not considered problems if `{ "before": true, "after"
 如果设置为`{ "before": true, "after": true }`，以下模式被认为是没有问题的：
 
 ```js
-/*eslint arrow-spacing: 2*/
+/*eslint arrow-spacing: "error"*/
 /*eslint-env es6*/
 
 () => {};
@@ -79,7 +79,7 @@ The following patterns are not considered problems if `{ "before": false, "after
 如果设置为`{ "before": false, "after": false }`，以下模式被认为是没有问题的：
 
 ```js
-/*eslint arrow-spacing: [2, { "before": false, "after": false }]*/
+/*eslint arrow-spacing: ["error", { "before": false, "after": false }]*/
 /*eslint-env es6*/
 
 ()=>{};
@@ -93,7 +93,7 @@ The following patterns are not considered problems if `{ "before": true, "after"
 如果设置为`{ "before": true, "after": false }`，以下模式被认为是没有问题的：
 
 ```js
-/*eslint arrow-spacing: [2, { "before": true, "after": false }]*/
+/*eslint arrow-spacing: ["error", { "before": true, "after": false }]*/
 /*eslint-env es6*/
 
 () =>{};
@@ -107,7 +107,7 @@ The following patterns are not considered problems if `{ "before": false, "after
 如果设置为`{ "before": false, "after": true }`，以下模式被认为是没有问题的：
 
 ```js
-/*eslint arrow-spacing: [2, { "before": false, "after": true }]*/
+/*eslint arrow-spacing: ["error", { "before": false, "after": true }]*/
 /*eslint-env es6*/
 
 ()=> {};

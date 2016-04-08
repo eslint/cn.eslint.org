@@ -31,7 +31,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-inline-comments: 2*/
+/*eslint no-inline-comments: "error"*/
 
 var a = 1; // declaring a to 1
 
@@ -50,7 +50,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-inline-comments: 2*/
+/*eslint no-inline-comments: "error"*/
 
 // This is a comment above a line of code
 var foo = 5;

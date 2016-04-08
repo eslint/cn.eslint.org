@@ -47,7 +47,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-lonely-if: 2*/
+/*eslint no-lonely-if: "error"*/
 
 if (condition) {
     // ...
@@ -73,7 +73,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-lonely-if: 2*/
+/*eslint no-lonely-if: "error"*/
 
 if (condition) {
     // ...

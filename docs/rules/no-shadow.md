@@ -34,7 +34,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-shadow: 2*/
+/*eslint no-shadow: "error"*/
 /*eslint-env es6*/
 
 var a = 3;
@@ -64,7 +64,7 @@ This rule takes one option, an object, with properties `"builtinGlobals"`, `"hoi
 
 ```json
 {
-    "no-shadow": [2, { "builtinGlobals": false, "hoist": "functions", "allow": [] }]
+    "no-shadow": ["error", { "builtinGlobals": false, "hoist": "functions", "allow": [] }]
 }
 ```
 
@@ -73,14 +73,14 @@ This rule takes one option, an object, with properties `"builtinGlobals"`, `"hoi
 The `builtinGlobals` option is `false` by default.
 If it is `true`, the rule prevents shadowing of built-in global variables: `Object`, `Array`, `Number`, and so on.
 
-默认值是`false`，如果builtinGlobals是`true`，会检测内置对象如`Object`,`Array`,`Number`, ...
+默认值是`false`，如果builtinGlobals是`true`，会检测内置对象如`Object`，`Array`，`Number`等等。
 
 Examples of **incorrect** code for the `{ "builtinGlobals": true }` option:
 
 选项`{"builtinGlobals": true}`的 **错误**代码示例：
 
 ```js
-/*eslint no-shadow: [2, { "builtinGlobals": true }]*/
+/*eslint no-shadow: ["error", { "builtinGlobals": true }]*/
 
 function foo() {
     var Object = 0;
@@ -100,7 +100,6 @@ The `hoist` option has three settings:
 * `never` - never report shadowing before the outer variables/functions are defined.
 * `never`-不呈报覆盖错误。
 
-
 #### hoist: functions
 
 Examples of **incorrect** code for the default `{ "hoist": "functions" }` option:
@@ -108,7 +107,7 @@ Examples of **incorrect** code for the default `{ "hoist": "functions" }` option
 当`"hoist"`配置项为`"all"`，在条件语句中`let a`和`let b`是不恰当的。
 
 ```js
-/*eslint no-shadow: [2, { "hoist": "functions" }]*/
+/*eslint no-shadow: ["error", { "hoist": "functions" }]*/
 /*eslint-env es6*/
 
 if (true) {
@@ -120,13 +119,14 @@ function b() {}
 
 Although `let b` in the `if` statement is before the *function* declaration in the outer scope, it is incorrect.
 
+虽然`if`语句中的`let b`在 *function*声明之前，该示例是正确的。
+
 Examples of **correct** code for the default `{ "hoist": "functions" }` option:
 
-当`"hoist"`配置项为`"functions"`，在条件语句中有`let a`和`let b`会报警告。
-
+默认选项`{ "hoist": "functions" }`的 **正确**代码示例：
 
 ```js
-/*eslint no-shadow: [2, { "hoist": "functions" }]*/
+/*eslint no-shadow: ["error", { "hoist": "functions" }]*/
 /*eslint-env es6*/
 
 if (true) {
@@ -142,10 +142,10 @@ Because `let a` in the `if` statement is before the *variable* declaration in th
 
 Examples of **incorrect** code for the `{ "hoist": "all" }` option:
 
-当`"hoist"`设置为`"never"`,条件语句中有`let a`和`let b`不会报警告，因为他们在外面声明了。
+`{ "hoist": "all" }`选项的 **错误**代码示例：
 
 ```js
-/*eslint no-shadow: [2, { "hoist": "all" }]*/
+/*eslint no-shadow: ["error", { "hoist": "all" }]*/
 /*eslint-env es6*/
 
 if (true) {
@@ -164,7 +164,7 @@ Examples of **correct** code for the `{ "hoist": "never" }` option:
 此配置项是一个数组,数组里的标示被允许覆盖
 
 ```js
-/*eslint no-shadow: [2, { "hoist": "never" }]*/
+/*eslint no-shadow: ["error", { "hoist": "never" }]*/
 /*eslint-env es6*/
 
 if (true) {
@@ -180,7 +180,6 @@ Because `let a` and `let b` in the `if` statement are before the declarations in
 
 因为在`if`语句中`let a` 和 `let b` 在外层作用域声明语句之前，所以是正确的。
 
-
 ### allow
 
 The `allow` option is an array of identifier names for which shadowing is allowed. For example, `"resolve"`, `"reject"`, `"done"`, `"cb"`.
@@ -192,7 +191,7 @@ Examples of **correct** code for the `{ "allow": ["done"] }` option:
 选项`{ "allow": ["done"] }`的 **正确**代码示例：
 
 ```js
-/*eslint no-shadow: [2, { "allow": ["done"] }]*/
+/*eslint no-shadow: ["error", { "allow": ["done"] }]*/
 /*eslint-env es6*/
 
 import async from 'async';
@@ -220,7 +219,7 @@ foo(function (err, result) {
 
 This rule was introduced in ESLint 0.0.9.
 
-此规则在ESLint 0.0.9中被引入。
+此规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

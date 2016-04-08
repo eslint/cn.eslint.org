@@ -49,7 +49,7 @@ The following patterns are considered warnings:
 以下模式被认为是警告：
 
 ```js
-/*eslint no-arrow-condition: 2*/
+/*eslint no-arrow-condition: "error"*/
 /*eslint-env es6*/
 
 if (a => 1) {}

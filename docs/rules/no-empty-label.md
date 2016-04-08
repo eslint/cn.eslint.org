@@ -12,7 +12,7 @@ proofreader: molee1905
 
 **Replacement notice**: This rule was removed in ESLint v2.0 and replaced by [no-labels](no-labels) rule.
 
-**替换声明**: 该规则在 ESLint v2.0 中移除并被[no-labels](no-labels)规则代替。
+**替换声明：**该规则在 ESLint v2.0 中移除并被[no-labels](no-labels)规则代替。
 
 Labeled statements are only used in conjunction with labeled break and continue statements. ECMAScript has no goto statement.
 
@@ -29,7 +29,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-empty-label: 2*/
+/*eslint no-empty-label: "error"*/
 
 labeled:
 var x = 10;
@@ -40,7 +40,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-empty-label: 2*/
+/*eslint no-empty-label: "error"*/
 
 labeled:
 for (var i=10; i; i--) {

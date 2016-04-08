@@ -10,6 +10,10 @@ proofreader: molee1905
 
 # 强制引号风格 (quotes)
 
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+
 JavaScript allows you to define strings in one of three ways: double quotes, single quotes, and backticks (as of ECMAScript 6). For example:
 
 Javascript 允许你用三种方式定义字符串：双引号，单引号和反勾号(在 ECMAScript 6 中)。例如：
@@ -29,10 +33,6 @@ Each of these lines creates a string and, in some cases, can be used interchange
 Many codebases require strings to be defined in a consistent manner.
 
 许多代码库要求以一致的方式定义字符串。
-
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
 
 ## Rule Details
 
@@ -69,35 +69,35 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint quotes: [2, "double"]*/
+/*eslint quotes: ["error", "double"]*/
 
 var single = 'single';
 var unescaped = 'a string containing "double" quotes';
 ```
 
 ```js
-/*eslint quotes: [2, "single"]*/
+/*eslint quotes: ["error", "single"]*/
 
 var double = "double";
 var unescaped = "a string containing 'single' quotes";
 ```
 
 ```js
-/*eslint quotes: [2, "double", "avoid-escape"]*/
+/*eslint quotes: ["error", "double", "avoid-escape"]*/
 
 var single = 'single';
 var single = `single`;
 ```
 
 ```js
-/*eslint quotes: [2, "single", "avoid-escape"]*/
+/*eslint quotes: ["error", "single", "avoid-escape"]*/
 
 var double = "double";
 var double = `double`;
 ```
 
 ```js
-/*eslint quotes: [2, "backtick"]*/
+/*eslint quotes: ["error", "backtick"]*/
 
 var single = 'single';
 var double = "double";
@@ -105,7 +105,7 @@ var unescaped = 'a string containing `backticks`';
 ```
 
 ```js
-/*eslint quotes: [2, "backtick", "avoid-escape"]*/
+/*eslint quotes: ["error", "backtick", "avoid-escape"]*/
 
 var single = 'single';
 var double = "double";
@@ -116,7 +116,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint quotes: [2, "double"]*/
+/*eslint quotes: ["error", "double"]*/
 /*eslint-env es6*/
 
 var double = "double";
@@ -125,7 +125,7 @@ var backtick = tag`backtick`; // backticks are allowed due to tag
 ```
 
 ```js
-/*eslint quotes: [2, "single"]*/
+/*eslint quotes: ["error", "single"]*/
 /*eslint-env es6*/
 
 var single = 'single';
@@ -133,26 +133,26 @@ var backtick = `back${x}tick`; // backticks are allowed due to substitution
 ```
 
 ```js
-/*eslint quotes: [2, "double", "avoid-escape"]*/
+/*eslint quotes: ["error", "double", "avoid-escape"]*/
 
 var single = 'a string containing "double" quotes';
 ```
 
 ```js
-/*eslint quotes: [2, "single", "avoid-escape"]*/
+/*eslint quotes: ["error", "single", "avoid-escape"]*/
 
 var double = "a string containing 'single' quotes";
 ```
 
 ```js
-/*eslint quotes: [2, "backtick"]*/
+/*eslint quotes: ["error", "backtick"]*/
 /*eslint-env es6*/
 
 var backtick = `backtick`;
 ```
 
 ```js
-/*eslint quotes: [2, "backtick", "avoid-escape"]*/
+/*eslint quotes: ["error", "backtick", "avoid-escape"]*/
 
 var double = "a string containing `backtick` quotes"
 ```

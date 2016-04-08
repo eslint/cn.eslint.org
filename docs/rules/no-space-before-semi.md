@@ -12,7 +12,7 @@ proofreader: xkf521
 
 **Replacement notice**: This rule was removed in ESLint v1.0 and replaced by the [semi-spacing](semi-spacing) rule.
 
-**替换声明**: 该规则在 ESLint v1.0 中移除，被[semi-spacing](semi-spacing) 规则替代。
+**替换声明：**该规则在 ESLint v1.0 中移除，被[semi-spacing](semi-spacing)规则替代。
 
 JavaScript allows for placing unnecessary spaces between an expression and the closing semicolon.
 
@@ -36,7 +36,7 @@ This rule prevents the use of spaces before a semicolon in expressions.
 
 The following patterns are considered problems:
 
-下面的模式被认为是有问题的：
+以下模式被认为是有问题的：
 
 ```js
 var foo = "bar" ;
@@ -51,7 +51,7 @@ var foo = 1 + 2 ;
 
 The following patterns are not considered problems:
 
-下面的模式认为是正确的：
+以下模式被认为是正确的：
 
 ```js
 ;(function(){}());

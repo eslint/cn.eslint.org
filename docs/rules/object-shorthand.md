@@ -64,7 +64,7 @@ Each of the following properties would warn:
 以下的每个属性都将发出警告：
 
 ```js
-/*eslint object-shorthand: 2*/
+/*eslint object-shorthand: "error"*/
 /*eslint-env es6*/
 
 var foo = {
@@ -79,7 +79,7 @@ In that case the expected syntax would have been:
 这种情况下，期望的语法应该是这样：
 
 ```js
-/*eslint object-shorthand: 2*/
+/*eslint object-shorthand: "error"*/
 /*eslint-env es6*/
 
 var foo = {
@@ -95,7 +95,7 @@ The following will *not* warn:
 该规则不标记对象字面量中的箭头函数。下面的示例将**不**发出警告：
 
 ```js
-/*eslint object-shorthand: 2*/
+/*eslint object-shorthand: "error"*/
 /*eslint-env es6*/
 
 var foo = {
@@ -110,21 +110,14 @@ The rule takes an option which specifies when it should be applied. It can be se
 
 该规则有一个选项。可以设置为`"always"`，`"properties"`，`"methods"`或`"never"`。 默认为`"always"`。
 
-1. `"always"` expects that the shorthand will be used whenever possible.
-
-1. `"always"` 只要有可能，简写就应该被使用。
-
-2. `"methods"` ensures the method shorthand is used (also applies to generators).
-
-2. `"methods"` 保证方法简写被使用（同样适用于 generators ）。
-
-3. `"properties` ensures the property shorthand is used (where the key and variable name match).
-
-3. `"properties` 保证属性简写被使用 (键和变量名称相匹配的情况).
-
-4. `"never"` ensures that no property or method shorthand is used in any object literal。
-
-4. `"never"` 保证对象字面量中的任何属性和方法都不使用简写。
+* `"always"` expects that the shorthand will be used whenever possible.
+* `"always"` 只要有可能，简写就应该被使用。
+* `"methods"` ensures the method shorthand is used (also applies to generators).
+* `"methods"` 保证方法简写被使用（同样适用于 generators ）。
+* `"properties` ensures the property shorthand is used (where the key and variable name match).
+* `"properties` 保证属性简写被使用 (键和变量名称相匹配的情况).
+* `"never"` ensures that no property or method shorthand is used in any object literal.
+* `"never"` 保证对象字面量中的任何属性和方法都不使用简写。
 
 You can set the option in configuration like this:
 
@@ -132,7 +125,7 @@ You can set the option in configuration like this:
 
 ```json
 {
-    "object-shorthand": [2, "always"]
+    "object-shorthand": ["error", "always"]
 }
 ```
 
@@ -142,7 +135,7 @@ While set to `"always"` or `"methods"`, constructor functions can be ignored wit
 
 ```json
 {
-    "object-shorthand": [2, "always", { "ignoreConstructors": true }]
+    "object-shorthand": ["error", "always", { "ignoreConstructors": true }]
 }
 ```
 
@@ -151,7 +144,7 @@ The following will *not* warn when `"ignoreConstructors"` is enabled:
 当启用`"ignoreConstructors"`时，下面的示例将**不**发出警告：
 
 ```js
-/*eslint object-shorthand: [2, "always", { "ignoreConstructors": true }]*/
+/*eslint object-shorthand: ["error", "always", { "ignoreConstructors": true }]*/
 /*eslint-env es6*/
 
 var foo = {

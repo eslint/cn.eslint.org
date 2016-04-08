@@ -76,12 +76,12 @@ This rule is aimed at enforcing a particular type of function style throughout a
 
 ### "expression"
 
-This is the default configuration. It reports an error when function declarations are used instead of function expressions.
+This is the default configuration.  It reports an error when function declarations are used instead of function expressions.
 
 这是默认配置。当应使用函数表达式却使用了函数声明时，它将报告一个错误。
 
 ```json
-"func-style": [2, "expression"]
+"func-style": ["error", "expression"]
 ```
 
 The following patterns are considered problems:
@@ -89,7 +89,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint func-style: [2, "expression"]*/
+/*eslint func-style: ["error", "expression"]*/
 
 function foo() {
     // ...
@@ -101,7 +101,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint func-style: [2, "expression"]*/
+/*eslint func-style: ["error", "expression"]*/
 
 var foo = function() {
     // ...
@@ -115,7 +115,7 @@ This reports an error if any function expressions are used where function declar
 在应使用函数声明的地方使用了函数表达式，它将会报告一个错误。你可以指定函数表达式来代替：
 
 ```json
-"func-style": [2, "declaration"]
+"func-style": ["error", "declaration"]
 ```
 
 An additional option object can be added with a property `"allowArrowFunctions"`.  Setting this to `true` will allow arrow functions.
@@ -123,7 +123,7 @@ An additional option object can be added with a property `"allowArrowFunctions"`
 可以添加一个额外的选项对象，属性值为`"allowArrowFunctions"`。当设置为`true`时，将允许使用箭头函数。
 
 ```json
-"func-style": [2, "declaration", { "allowArrowFunctions": true }]
+"func-style": ["error", "declaration", { "allowArrowFunctions": true }]
 ```
 
 The following patterns are considered problems:
@@ -131,7 +131,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint func-style: [2, "declaration"]*/
+/*eslint func-style: ["error", "declaration"]*/
 
 var foo = function() {
     // ...
@@ -139,7 +139,7 @@ var foo = function() {
 ```
 
 ```js
-/*eslint func-style: [2, "declaration"]*/
+/*eslint func-style: ["error", "declaration"]*/
 
 var foo = () => {};
 ```
@@ -149,7 +149,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint func-style: [2, "declaration"]*/
+/*eslint func-style: ["error", "declaration"]*/
 
 function foo() {
     // ...
@@ -162,7 +162,7 @@ SomeObject.foo = function() {
 ```
 
 ```js
-/*eslint func-style: [2, "declaration", { "allowArrowFunctions": true }]*/
+/*eslint func-style: ["error", "declaration", { "allowArrowFunctions": true }]*/
 
 var foo = () => {};
 ```

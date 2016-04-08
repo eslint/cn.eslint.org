@@ -59,7 +59,7 @@ The following would be acceptable:
 以下是可接受的：
 
 ```js
-/*eslint lines-around-comment: 2*/
+/*eslint lines-around-comment: "error"*/
 
 var x = 0;
 var y = 10; /* the vertical position */
@@ -82,21 +82,32 @@ This rule has 10 options.
 * `beforeBlockComment` (enabled by default)
 * `beforeBlockComment` (默认启用)
 * `afterBlockComment`
+* `afterBlockComment`
 
 2 options for line comments:
+
 单行注释2个选项：
 
 * `beforeLineComment`
+* `beforeLineComment`
+* `afterLineComment`
 * `afterLineComment`
 
 6 options for exceptions:
+
 例外情况6个选项：
 
 * `allowBlockStart`
+* `allowBlockStart`
+* `allowBlockEnd`
 * `allowBlockEnd`
 * `allowObjectStart`
+* `allowObjectStart`
+* `allowObjectEnd`
 * `allowObjectEnd`
 * `allowArrayStart`
+* `allowArrayStart`
+* `allowArrayEnd`
 * `allowArrayEnd`
 
 Any combination of these options may be applied at the same time.
@@ -105,7 +116,7 @@ Any combination of these options may be applied at the same time.
 
 ```json
 {
-    "lines-around-comment": [2, { "beforeBlockComment": true, "beforeLineComment": true }]
+    "lines-around-comment": ["error", { "beforeBlockComment": true, "beforeLineComment": true }]
 }
 ```
 
@@ -124,7 +135,7 @@ With both `beforeBlockComment` and `afterBlockComment` set to `true` the followi
 `beforeBlockComment` 和 `afterBlockComment`设置为 `true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "beforeBlockComment": true, "afterBlockComment": true }]*/
+/*eslint lines-around-comment: ["error", { "beforeBlockComment": true, "afterBlockComment": true }]*/
 
 var night = "long";
 
@@ -138,7 +149,7 @@ This however would provide 2 warnings:
 然而，下面的示例将发出 2 个警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "beforeBlockComment": true, "afterBlockComment": true }]*/
+/*eslint lines-around-comment: ["error", { "beforeBlockComment": true, "afterBlockComment": true }]*/
 
 var night = "long";
 /* what a great and wonderful day */
@@ -151,7 +162,7 @@ would not warn:
 只设置`beforeBlockComment`为`true`的话，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "beforeBlockComment": true }]*/
+/*eslint lines-around-comment: ["error", { "beforeBlockComment": true }]*/
 
 var night = "long";
 
@@ -164,7 +175,7 @@ But this would cause 1 warning:
 但下面这个示例将会发出 1 个警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "beforeBlockComment": true }]*/
+/*eslint lines-around-comment: ["error", { "beforeBlockComment": true }]*/
 
 var night = "long";
 /* what a great and wonderful day */
@@ -182,7 +193,7 @@ With both `beforeLineComment` and `afterLineComment` set to `true` the following
 `beforeLineComment` 和 `afterLineComment`设置为 `true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "beforeLineComment": true, "afterLineComment": true }]*/
+/*eslint lines-around-comment: ["error", { "beforeLineComment": true, "afterLineComment": true }]*/
 
 var night = "long";
 
@@ -197,7 +208,7 @@ would not warn:
 只设置`beforeLineComment`为`true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "beforeLineComment": true }]*/
+/*eslint lines-around-comment: ["error", { "beforeLineComment": true }]*/
 
 var night = "long";
 
@@ -217,7 +228,7 @@ would not warn:
 `beforeLineComment` 和 `allowBlockStart`设置为 `true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "beforeLineComment": true, "allowBlockStart": true }]*/
+/*eslint lines-around-comment: ["error", { "beforeLineComment": true, "allowBlockStart": true }]*/
 
 function foo(){
     // what a great and wonderful day
@@ -231,7 +242,7 @@ With both `beforeBlockComment` and `allowBlockStart` set to `true` the following
 `beforeBlockComment` 和 `allowBlockStart`同时设置为 `true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "beforeBlockComment": true, "allowBlockStart": true }]*/
+/*eslint lines-around-comment: ["error", { "beforeBlockComment": true, "allowBlockStart": true }]*/
 
 function foo(){
     /* what a great and wonderful day */
@@ -251,7 +262,7 @@ With both `afterLineComment` and `allowBlockEnd` set to `true` the following cod
 `afterLineComment` 和 `allowBlockEnd`同时设置为`true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "afterLineComment": true, "allowBlockEnd": true }]*/
+/*eslint lines-around-comment: ["error", { "afterLineComment": true, "allowBlockEnd": true }]*/
 
 function foo(){
     var day = "great"
@@ -266,7 +277,7 @@ would not warn:
 `afterBlockComment` 和 `allowBlockEnd`同时设置为`true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "afterBlockComment": true, "allowBlockEnd": true }]*/
+/*eslint lines-around-comment: ["error", { "afterBlockComment": true, "allowBlockEnd": true }]*/
 
 function foo(){
     var day = "great"
@@ -287,7 +298,7 @@ With both `beforeLineComment` and `allowObjectStart` set to `true` the following
 `beforeLineComment` 和 `allowObjectStart`同时设置为`true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "beforeLineComment": true, "allowObjectStart": true }]*/
+/*eslint lines-around-comment: ["error", { "beforeLineComment": true, "allowObjectStart": true }]*/
 
 var foo = {
     // what a great and wonderful day
@@ -310,7 +321,7 @@ With both `beforeBlockComment` and `allowObjectStart` set to `true` the followin
 `beforeBlockComment` 和 `allowObjectStart`同时设置为`true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "beforeBlockComment": true, "allowObjectStart": true }]*/
+/*eslint lines-around-comment: ["error", { "beforeBlockComment": true, "allowObjectStart": true }]*/
 
 var foo = {
     /* what a great and wonderful day */
@@ -339,7 +350,7 @@ With both `afterLineComment` and `allowObjectEnd` set to `true` the following co
 `afterLineComment` 和 `allowObjectEnd`同时设置为`true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "afterLineComment": true, "allowObjectEnd": true }]*/
+/*eslint lines-around-comment: ["error", { "afterLineComment": true, "allowObjectEnd": true }]*/
 
 var foo = {
     day: "great"
@@ -362,7 +373,7 @@ With both `afterBlockComment` and `allowObjectEnd` set to `true` the following c
 `afterBlockComment` 和 `allowObjectEnd`同时设置为`true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "afterBlockComment": true, "allowObjectEnd": true }]*/
+/*eslint lines-around-comment: ["error", { "afterBlockComment": true, "allowObjectEnd": true }]*/
 
 var foo = {
     day: "great"
@@ -394,7 +405,7 @@ With both `beforeLineComment` and `allowArrayStart` set to `true` the following 
 `beforeLineComment` 和 `allowArrayStart`同时设置为`true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "beforeLineComment": true, "allowArrayStart": true }]*/
+/*eslint lines-around-comment: ["error", { "beforeLineComment": true, "allowArrayStart": true }]*/
 
 var day = [
     // what a great and wonderful day
@@ -413,7 +424,7 @@ With both `beforeBlockComment` and `allowArrayStart` set to `true` the following
 `beforeBlockComment` 和 `allowArrayStart`同时设置为`true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "beforeBlockComment": true, "allowArrayStart": true }]*/
+/*eslint lines-around-comment: ["error", { "beforeBlockComment": true, "allowArrayStart": true }]*/
 
 var day = [
     /* what a great and wonderful day */
@@ -438,7 +449,7 @@ With both `afterLineComment` and `allowArrayEnd` set to `true` the following cod
 `afterLineComment` 和 `allowArrayEnd`同时设置为`true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "afterLineComment": true, "allowArrayEnd": true }]*/
+/*eslint lines-around-comment: ["error", { "afterLineComment": true, "allowArrayEnd": true }]*/
 
 var day = [
     "great",
@@ -457,7 +468,7 @@ With both `afterBlockComment` and `allowArrayEnd` set to `true` the following co
 `afterBlockComment` 和 `allowArrayEnd`同时设置为`true`时，以下代码不会发出警告：
 
 ```js
-/*eslint lines-around-comment: [2, { "afterBlockComment": true, "allowArrayEnd": true }]*/
+/*eslint lines-around-comment: ["error", { "afterBlockComment": true, "allowArrayEnd": true }]*/
 
 var day = [
     "great",
@@ -472,7 +483,7 @@ const [
     /* what a great and wonderful day */
 ] = ["great", "not great"];
 ```
- 
+
 ## When Not To Use It
 
 Many people enjoy a terser code style and don't mind comments bumping up against code. If you fall into that category this rule is not for you.

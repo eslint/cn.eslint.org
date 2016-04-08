@@ -39,7 +39,7 @@ switch(foo) {
 }
 ```
 
-That works fine when you don't want a fallthrough, but what if the fallthrough is intentional, there is no way to indicate that in the language. It's considered a best practice to always indicate when a fallthrough is intentional using a comment:
+That works fine when you don't want a fallthrough, but what if the fallthrough is intentional, there is no way to indicate that in the language. It's considered a best practice to always indicate when a fallthrough is intentional using a comment which matches the `/falls?\s?through/i` regular expression:
 
 当你不想要 case 语句落空时，以上代码允许正常，但是没有办法表明落空功能是有意为之。使用注释表明这一点被认为是个很好的实践。
 
@@ -82,12 +82,12 @@ This rule is aimed at eliminating unintentional fallthrough of one case to the o
 
 该规则旨在消除无意的从一个 case 落到另一个 case 的行为。因此，它会标记处没有使用注释标明的落空情况。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-fallthrough: 2*/
+/*eslint no-fallthrough: "error"*/
 
 switch(foo) {
     case 1:
@@ -98,12 +98,12 @@ switch(foo) {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-fallthrough: 2*/
+/*eslint no-fallthrough: "error"*/
 
 switch(foo) {
     case 1:

@@ -12,7 +12,7 @@ proofreader: yanggao40
 
 There are three primitive types in JavaScript that have wrapper objects: string, number, and boolean. These are represented by the constructors `String`, `Number`, and `Boolean`, respectively. The primitive wrapper types are used whenever one of these primitive values is read, providing them with object-like capabilities such as methods. Behind the scenes, an object of the associated wrapper type is created and then destroyed, which is why you can call methods on primitive values, such as:
 
-在JavaScript中有3种原始类型包装对象：字符串，数字，和布尔值。它们所代表的构造器分别为`String`, `Number`, and `Boolean`。当读取原始类型的值或者为它们提供如方法等类似对象的功能时，原始包装类型将被使用。在幕后,相关包装器类型的一个对象被创建,然后销毁,这就是为什么你可以在原始值上调用方法,例如：
+在 JavaScript 中有3种原始类型包装对象：字符串，数字，和布尔值。它们所代表的构造器分别为`String`, `Number`, and `Boolean`。当读取原始类型的值或者为它们提供如方法等类似对象的功能时，原始包装类型将被使用。在幕后,相关包装器类型的一个对象被创建,然后销毁,这就是为什么你可以在原始值上调用方法,例如：
 
 ```js
 var text = "Hello world".substring(2);
@@ -63,12 +63,12 @@ This rule aims to eliminate the use of `String`, `Number`, and `Boolean` with th
 
 此规则目的在于消除通过`new`操作符使用`String`, `Number`, 和 `Boolean`。因此,每当它遇到`new String`, `new Number`, 或者 `new Boolean`都会给出警告。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-new-wrappers: 2*/
+/*eslint no-new-wrappers: "error"*/
 
 var stringObject = new String("Hello world");
 var numberObject = new Number(33);
@@ -79,12 +79,12 @@ var numberObject = new Number;
 var booleanObject = new Boolean;
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-new-wrappers: 2*/
+/*eslint no-new-wrappers: "error"*/
 
 var text = String(someValue);
 var num = Number(someValue);
@@ -111,7 +111,7 @@ If you want to allow the use of primitive wrapper objects, then you can safely d
 
 This rule was introduced in ESLint 0.0.6.
 
-此规则在ESLint 0.0.6中被引入。
+此规则在 ESLint 0.0.6 中被引入。
 
 ## Resources
 

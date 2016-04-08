@@ -84,7 +84,7 @@ Examples of **incorrect** code for this rule with the default `{ "grouping": fal
 默认选项`{ "grouping": false, "allowCall": false }`的 **错误**代码示例：
 
 ```js
-/*eslint no-mixed-requires: 2*/
+/*eslint no-mixed-requires: "error"*/
 
 var fs = require('fs'),
     i = 0;
@@ -99,7 +99,7 @@ Examples of **correct** code for this rule with the default `{ "grouping": false
 默认选项`{ "grouping": false, "allowCall": false }`的 **正确**代码示例：
 
 ```js
-/*eslint no-mixed-requires: 2*/
+/*eslint no-mixed-requires: "error"*/
 
 // only require declarations (grouping off)
 var eventEmitter = require('events').EventEmitter,
@@ -124,7 +124,7 @@ Examples of **incorrect** code for this rule with the `{ "grouping": true }` opt
 `{ "grouping": true }`选项的 **错误**代码示例：
 
 ```js
-/*eslint no-mixed-requires: [2, { "grouping": true }]*/
+/*eslint no-mixed-requires: ["error", { "grouping": true }]*/
 
 // invalid because of mixed types "core" and "file"
 var fs = require('fs'),
@@ -142,7 +142,7 @@ Examples of **incorrect** code for this rule with the `{ "allowCall": true }` op
 `{ "allowCall": true }`选项的 **错误**代码示例：
 
 ```js
-/*eslint no-mixed-requires: [2, { "allowCall": true }]*/
+/*eslint no-mixed-requires: ["error", { "allowCall": true }]*/
 
 var async = require('async'),
     debug = require('diagnostics').someFunction('my-module'), /* allowCall doesn't allow calling any function */
@@ -154,7 +154,7 @@ Examples of **correct** code for this rule with the `{ "allowCall": true }` opti
 `{ "allowCall": true }`选项的 **正确**代码示例：
 
 ```js
-/*eslint no-mixed-requires: [2, { "allowCall": true }]*/
+/*eslint no-mixed-requires: ["error", { "allowCall": true }]*/
 
 var async = require('async'),
     debug = require('diagnostics')('my-module'),
@@ -163,9 +163,9 @@ var async = require('async'),
 
 ## Known Limitations
 
-* The implementation is not aware of any local functions with the name `require` that may shadow Node.js global `require`.
+* The implementation is not aware of any local functions with the name `require` that may shadow Node.js' global `require`.
 
-* 该规则的实现不考虑本地名为`require`的函数可能会遮蔽 Node.js 的全局的`require`
+* 该规则的实现不考虑本地名为`require`的函数可能会遮蔽 Node.js 的全局的`require`。
 
 * Internally, the list of core modules is retrieved via `require("repl")._builtinLibs`. If you use different versions of Node.js for ESLint and your application, the list of core modules for each version may be different.The above mentioned `_builtinLibs` property became available in 0.8, for earlier versions a hardcoded list of module names is used as a fallback. If your version of Node.js is older than 0.6 that list may be inaccurate.
 

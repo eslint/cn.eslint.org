@@ -19,7 +19,6 @@ In case linting is turned off, missing commas in variable declarations lead to l
 
 使用逗号优先的理由之一是它可以帮助跟踪漏写和多余的逗号。如果检测被关闭，在旧版的IE浏览器中，变量声明时，缺失逗号可能导致全局变量泄露，尾部的逗号将导致错误。
 
-
 ## Rule Details
 
 This rule is aimed at enforcing a particular comma style in JavaScript. As such, it warns whenever it sees a variable declaration, object property and array element that does not adhere to a particular comma style. It doesn't support cases where there are line breaks before and after comma (lone commas) with in declarations, properties and elements. It also avoids single line declaration cases.
@@ -38,10 +37,10 @@ You can set the style in configuration like this:
 你可以在配置文件中这样设置：
 
 ```json
-"comma-style": [2, "first"]
+"comma-style": ["error", "first"]
 ```
 
-### "last"
+### last
 
 This is the default setting for this rule. This option requires that the comma be placed after and be in the same line as the variable declaration, object property and array element.
 
@@ -52,7 +51,7 @@ While using this setting, the following patterns are considered problems:
 当使用此设置时，以下模式被认为是有问题的：
 
 ```js
-/*eslint comma-style: [2, "last"]*/
+/*eslint comma-style: ["error", "last"]*/
 
 var foo = 1
 ,
@@ -80,7 +79,7 @@ The following patterns are not considered problems:
 当使用此设置时，以下模式被认为是没有问题的：
 
 ```js
-/*eslint comma-style: [2, "last"]*/
+/*eslint comma-style: ["error", "last"]*/
 
 var foo = 1, bar = 2;
 
@@ -101,7 +100,7 @@ function bar() {
 
 ```
 
-### "first"
+### first
 
 This option requires that the comma be placed before and be in the same line as the variable declaration, object property and array element.
 
@@ -112,7 +111,7 @@ While using this setting, the following patterns are considered problems:
 当使用此设置时，以下模式被认为是有问题的：
 
 ```js
-/*eslint comma-style: [2, "first"]*/
+/*eslint comma-style: ["error", "first"]*/
 
 var foo = 1,
     bar = 2;
@@ -136,7 +135,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint comma-style: [2, "first"]*/
+/*eslint comma-style: ["error", "first"]*/
 
 var foo = 1, bar = 2;
 
@@ -178,7 +177,7 @@ The following is considered a warning:
 以下被认为是一个警告：
 
 ```js
-/*eslint comma-style: [2, "first", {exceptions: {ArrayExpression: true, ObjectExpression: true} }]*/
+/*eslint comma-style: ["error", "first", {exceptions: {ArrayExpression: true, ObjectExpression: true} }]*/
 
 var o = {},
     a = [];
@@ -189,7 +188,7 @@ But the following would not be a warning:
 但下面不会发出警告：
 
 ```js
-/*eslint comma-style: [2, "first", {exceptions: {ArrayExpression: true, ObjectExpression: true} }]*/
+/*eslint comma-style: ["error", "first", {exceptions: {ArrayExpression: true, ObjectExpression: true} }]*/
 
 var o = {fst:1,
          snd: [1,
@@ -221,7 +220,7 @@ For the first option in comma-style rule:
 
 This rule was introduced in ESLint 0.9.0.
 
-该规则在ESLint 0.9.0 被引入。
+该规则在 ESLint 0.9.0 被引入。
 
 ## Resources
 

@@ -24,22 +24,22 @@ This is used to disambiguate the division operator to not confuse users.
 
 此规则用来消除除法操作符的歧义。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-div-regex: 2*/
+/*eslint no-div-regex: "error"*/
 
 function bar() { return /=foo/; }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-div-regex: 2*/
+/*eslint no-div-regex: "error"*/
 
 function bar() { return /\=foo/; }
 ```

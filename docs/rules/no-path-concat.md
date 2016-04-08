@@ -5,6 +5,7 @@ translator: ILFront-End
 proofreader: yanggao40
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
 # Disallow string concatenation when using `__dirname` and `__filename` (no-path-concat)
 
 # 当使用 `_dirname` 和 `_filename` 时不允许字符串拼接 (no-path-concat)
@@ -24,7 +25,6 @@ However, there are a few problems with this. First, you can't be sure what type 
 In order to avoid any confusion as to how to create the correct path, Node.js provides the `path` module. This module uses system-specific information to always return the correct value. So you can rewrite the previous example as:
 
 为了避免混淆并且创建正确的路径，Node.js提供了`path`模块。这个模块使用特殊的系统信息来返回正确的值。可以修改下面的例子，例如:
-
 
 ```js
 var fullPath = path.join(__dirname, "foo.js");
@@ -48,12 +48,12 @@ This rule aims to prevent string concatenation of directory paths in Node.js
 
 这条规则旨在阻止在Node.js中使用字符串拼接路径。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下的模式被认为是有问题的:
+**错误**代码示例：
 
 ```js
-/*eslint no-path-concat: 2*/
+/*eslint no-path-concat: "error"*/
 
 var fullPath = __dirname + "/foo.js";
 
@@ -61,12 +61,12 @@ var fullPath = __filename + "/foo.js";
 
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式是被认为是没问题的:
+**正确**代码示例：
 
 ```js
-/*eslint no-path-concat: 2*/
+/*eslint no-path-concat: "error"*/
 
 var fullPath = dirname + "/foo.js";
 ```
@@ -81,7 +81,7 @@ If you want to allow string concatenation of path names.
 
 This rule was introduced in ESLint 0.4.0.
 
-这条规则在ESLint 0.4.0中引入。
+这条规则在 ESLint 0.4.0 中引入。
 
 ## Resources
 

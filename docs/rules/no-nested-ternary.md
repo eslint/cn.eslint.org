@@ -8,7 +8,7 @@ proofreader: molee1905
 
 # Disallow Nested Ternaries (no-nested-ternary)
 
-# 禁用嵌套的三元表达式  (no-nested-ternary)
+# 禁用嵌套的三元表达式 (no-nested-ternary)
 
 Nesting ternary expressions makes code unclear. The `no-nested-ternary` rule disallows the use of nested ternary expressions.
 
@@ -29,7 +29,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-nested-ternary: 2*/
+/*eslint no-nested-ternary: "error"*/
 
 var thing = foo ? bar : baz === qux ? quxx : foobar;
 
@@ -41,7 +41,7 @@ The following patterns are considered okay and could be used alternatively:
 以下模式被认为是可以的，可以替代使用：
 
 ```js
-/*eslint no-nested-ternary: 2*/
+/*eslint no-nested-ternary: "error"*/
 
 var thing;
 

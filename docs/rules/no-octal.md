@@ -8,7 +8,7 @@ proofreader: yanggao40
 
 # Disallow Octal Literals (no-octal)
 
-# 禁止八进制字面量 (no-octal)
+# 禁用八进制字面量 (no-octal)
 
 Octal literals are numerals that begin with a leading zero, such as:
 
@@ -32,23 +32,23 @@ The rule is aimed at preventing the use of a deprecated JavaScript feature, the 
 
 此规则目旨在防止使用弃用的JavaScript特性，使用八进制字面量。因此当发现八进制字面量时会发出警告。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-octal: 2*/
+/*eslint no-octal: "error"*/
 
 var num = 071;
 var result = 5 + 07;
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-octal: 2*/
+/*eslint no-octal: "error"*/
 
 var num  = "071";
 ```
@@ -65,7 +65,7 @@ var num  = "071";
 
 This rule was introduced in ESLint 0.0.6.
 
-此规则在ESLint 0.0.6中被引入。
+此规则在 ESLint 0.0.6 中被引入。
 
 ## Resources
 

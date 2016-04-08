@@ -38,14 +38,13 @@ module.exports.schema = [
 
 **Important:** Rule submissions will not be accepted unless they are in this format.
 
-**重要的:** 非此格式的规则的提交，将不会被接受。
+**重要的：**非此格式的规则的提交，将不会被接受。
 
 ## Rule Basics
 
 ## 规则概要
 
 Each rule is represented by a single object with several properties. The properties are equivalent to AST node types from [ESTree](https://github.com/estree/estree). For example, if your rule wants to know when an identifier is found in the AST, then add a method called "Identifier", such as:
-
 
 每个规则都表现为一个非空对象。它的属性相当于ESTree中的AST节点类型。例如，如果你的规则想知道一个标识符什么时候在AST中被发现，添加一个叫做"Identifier"的方法，比如：
 
@@ -102,6 +101,7 @@ The `context` object contains additional functionality that is helpful for rules
 * `settings` - the `settings` from configuration.
 * `settings` - 配置中的 `settings`。
 * `parserPath` - the full path to the `parser` from configuration.
+* `parserPath` - 配置中的`parser`的绝对路径。
 
 Additionally, the `context` object has the following methods:
 
@@ -373,6 +373,7 @@ There are also some properties you can access:
 
 也有一些属性可供你访问：
 
+* `hasBOM` - the flag to indicate whether or not the source code has Unicode BOM.
 * `hasBOM` - the flag to indicate whether or not the source code has Unicode BOM.
 * `text` - the full text of the code being linted. Unicode BOM has been stripped from this text.
 * `text` - 被检查的代码全文，Unicode BOM已经从该文本中剥离。

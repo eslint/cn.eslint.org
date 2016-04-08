@@ -56,7 +56,7 @@ Default option settings are
 
 ```json
 {
-    "require-jsdoc": [2, {
+    "require-jsdoc": ["error", {
         "require": {
             "FunctionDeclaration": true,
             "MethodDefinition": false,
@@ -71,7 +71,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint "require-jsdoc": [2, {
+/*eslint "require-jsdoc": ["error", {
     "require": {
         "FunctionDeclaration": true,
         "MethodDefinition": true,
@@ -93,7 +93,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint "require-jsdoc": [2, {
+/*eslint "require-jsdoc": ["error", {
     "require": {
         "FunctionDeclaration": true,
         "MethodDefinition": true,

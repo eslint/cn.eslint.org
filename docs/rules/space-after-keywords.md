@@ -14,6 +14,10 @@ proofreader: maomaoking
 
 **替代通知**: 该规则在 ESLint v2.0 中被移除，被[keyword-spacing](keyword-spacing) 代替。
 
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixed problems reported by this rule.
+
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+
 Some style guides will require or disallow spaces following the certain keywords.
 
 一些风格指南在特定的关键字后要求或禁止存在空格。
@@ -32,10 +36,6 @@ if(condition) {
 }
 ```
 
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
-
 ## Rule Details
 
 This rule will enforce consistency of spacing after the keywords `if`, `else`, `for`, `while`, `do`, `switch`, `try`, `catch`, `finally`, and `with`.
@@ -52,7 +52,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint space-after-keywords: 2*/
+/*eslint space-after-keywords: "error"*/
 
 if(a) {}
 
@@ -62,7 +62,7 @@ do{} while (a);
 ```
 
 ```js
-/*eslint space-after-keywords: [2, "never"]*/
+/*eslint space-after-keywords: ["error", "never"]*/
 
 if (a) {}
 ```
@@ -72,7 +72,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint space-after-keywords: 2*/
+/*eslint space-after-keywords: "error"*/
 
 if (a) {}
 
@@ -80,7 +80,7 @@ if (a) {} else {}
 ```
 
 ```js
-/*eslint space-after-keywords: [2, "never"]*/
+/*eslint space-after-keywords: ["error", "never"]*/
 
 if(a) {}
 ```
@@ -89,7 +89,7 @@ if(a) {}
 
 This rule was introduced in ESLint 0.6.0 and removed in 2.0.0-beta.3.
 
-该规则在ESLint 0.6.0 中被引入。
+该规则在 ESLint 0.6.0 中被引入。
 
 ## Resources
 

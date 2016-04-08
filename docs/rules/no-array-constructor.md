@@ -25,13 +25,13 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-array-constructor: 2*/
+/*eslint no-array-constructor: "error"*/
 
 Array(0, 1, 2)
 ```
 
 ```js
-/*eslint no-array-constructor: 2*/
+/*eslint no-array-constructor: "error"*/
 
 new Array(0, 1, 2)
 ```
@@ -41,13 +41,13 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-array-constructor: 2*/
+/*eslint no-array-constructor: "error"*/
 
 Array(500)
 ```
 
 ```js
-/*eslint no-array-constructor: 2*/
+/*eslint no-array-constructor: "error"*/
 
 new Array(someOtherArray.length)
 ```

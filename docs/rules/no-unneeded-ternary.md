@@ -64,7 +64,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-unneeded-ternary: 2*/
+/*eslint no-unneeded-ternary: "error"*/
 
 var a = x === 2 ? true : false;
 
@@ -84,7 +84,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-unneeded-ternary: 2*/
+/*eslint no-unneeded-ternary: "error"*/
 
 var a = x === 2 ? "Yes" : "No";
 

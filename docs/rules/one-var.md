@@ -95,7 +95,7 @@ Exactly one declarator per declaration per function (var) or block (let or const
 每个函数 (var) 或块 (let 或 const) 中的每个声明都一个声明符
 
 ```json
-"one-var": [2, "never"]
+"one-var": ["error", "never"]
 ```
 
 Configure each declaration type individually. Defaults to `"always"` if key not present.
@@ -103,7 +103,7 @@ Configure each declaration type individually. Defaults to `"always"` if key not 
 单独配置每个声明类型。如果键不存在，默认为`"always"`。
 
 ```json
-"one-var": [2, {
+"one-var": ["error", {
     "var": "always", // Exactly one var declaration per function
     "let": "always", // Exactly one let declaration per block
     "const": "never" // Exactly one declarator per const declaration per block
@@ -126,7 +126,7 @@ When configured with `"always"` as the first option (the default), the following
 当配置`"always"`作为第一个选项时(默认)，以下模式被认为是有问题的：
 
 ```js
-/*eslint one-var: [2, "always"]*/
+/*eslint one-var: ["error", "always"]*/
 /*eslint-env es6*/
 
 function foo() {
@@ -157,7 +157,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint one-var: [2, "always"]*/
+/*eslint one-var: ["error", "always"]*/
 /*eslint-env es6*/
 
 function foo() {
@@ -197,7 +197,7 @@ When configured with `"never"` as the first option, the following patterns are c
 当配置`"never"`做为第一个选项时，以下模式被认为是有问题的：
 
 ```js
-/*eslint one-var: [2, "never"]*/
+/*eslint one-var: ["error", "never"]*/
 /*eslint-env es6*/
 
 function foo() {
@@ -227,7 +227,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint one-var: [2, "never"]*/
+/*eslint one-var: ["error", "never"]*/
 /*eslint-env es6*/
 
 function foo() {
@@ -261,7 +261,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint one-var: [2, { var: "always", let: "never", const: "never" }]*/
+/*eslint one-var: ["error", { var: "always", let: "never", const: "never" }]*/
 /*eslint-env es6*/
 
 function foo() {
@@ -284,7 +284,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint one-var: [2, { uninitialized: "always", initialized: "never" }]*/
+/*eslint one-var: ["error", { uninitialized: "always", initialized: "never" }]*/
 
 function foo() {
     var a, b, c;
@@ -298,7 +298,7 @@ If you are configuring the rule with an object, by default, if you didn't specif
 如果你正在使用一个对象进行配置规则，默认情况下，如果你不指定声明类型，它将不会被检查。所以，当选项设置为 `{ var: "always", let: "always" }`，以下模式不被认为是一个警告。
 
 ```js
-/*eslint one-var: [2, { var: "always", let: "always" }]*/
+/*eslint one-var: ["error", { var: "always", let: "always" }]*/
 /*eslint-env es6*/
 
 function foo() {

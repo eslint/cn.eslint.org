@@ -29,7 +29,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint sort-vars: 2*/
+/*eslint sort-vars: "error"*/
 
 var b, a;
 
@@ -43,7 +43,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint sort-vars: 2*/
+/*eslint sort-vars: "error"*/
 
 var a, b, c, d;
 
@@ -60,7 +60,7 @@ Alphabetical list is maintained starting from the first variable and excluding a
 按字母顺序排序是指从第一个变量开始，排除任何被认为有问题的变量。所以下面的代码会产生两个问题：
 
 ```js
-/*eslint sort-vars: 2*/
+/*eslint sort-vars: "error"*/
 
 var c, d, a, b;
 ```
@@ -70,7 +70,7 @@ But this one, will only produce one:
 但这个，只会产生一个问题：
 
 ```js
-/*eslint sort-vars: 2*/
+/*eslint sort-vars: "error"*/
 
 var c, d, a, e;
 ```
@@ -92,7 +92,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint sort-vars: [2, { "ignoreCase": true }]*/
+/*eslint sort-vars: ["error", { "ignoreCase": true }]*/
 
 var a, A;
 

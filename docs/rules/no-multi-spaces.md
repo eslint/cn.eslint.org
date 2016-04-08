@@ -10,6 +10,10 @@ proofreader: molee1905
 
 # 禁止出现多个空格 (no-multi-spaces)
 
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+
 Multiple spaces in a row that are not used for indentation are typically mistakes. For example:
 
 在某行中，出现多个空格而且不是用来作缩进的，通常是个错误。例如：
@@ -30,22 +34,18 @@ if(foo === "bar") {}
 
 ```
 
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
-
 ## Rule Details
 
 This rule aims to disallow multiple whitespace around logical expressions, conditional expressions, declarations, array elements, object properties, sequences and function parameters.
 
-此规则目的在于禁止在逻辑表达式、 条件表达式、 声明、 数组元素、 对象属性、 序列和函数参数周围使用多个空格。
+此规则目的在于禁止在逻辑表达式、条件表达式、声明、数组元素、对象属性、序列和函数参数周围使用多个空格。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-multi-spaces: 2*/
+/*eslint no-multi-spaces: "error"*/
 
 var a =  1;
 
@@ -58,12 +58,12 @@ var arr = [1,  2];
 a ?  b: c
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-multi-spaces: 2*/
+/*eslint no-multi-spaces: "error"*/
 
 var a = 1;
 
@@ -78,23 +78,27 @@ a ? b: c
 
 ## Options
 
-Some rules, like `key-spacing` in one of its alignment modes, might require multiple spaces in some instances. To support this case, this rule accepts an options object with a property named `exceptions`. The `exceptions` object expects property names to be AST node types as defined by [ESTree](https://github.com/estree/estree). The easiest way to determine the node types for `exceptions` is to use the [online demo](http://eslint.org/parser).
+To avoid contradictions if some other rules require multiple spaces, this rule has an option to ignore certain node types in the abstract syntax tree (AST) of JavaScript code.
 
-有些规则，像`key-spacing`在它的一个对齐模式中，在某些情况下也许会需要多个空格。为了支持这种情况，此规则接受一个属性名为`exceptions`的选项对象。`exceptions`对象期望的属性名是[ESTree](https://github.com/estree/estree) 定义的AST节点类型。为`exceptions`确定节点类型的最简单的方法是使用[online demo](http://eslint.org/parser)。
-
-You can ignore certain parts of your code by setting node types as properties on the `exceptions` object with a value of `true`. By default, all node types are `false` except for `Property`, which is `true` by default in order to skip properties.
-
-你可以通过在`exceptions`对象中设置节点类型的值为`true`来忽略某部分的代码。默认情况下，所有的节点类型除了`Property`都为`false`，`Property`默认为`true`是为了跳过属性检测。
+为了避免与有些需要多个空格的规则冲突，该规则有一个选项可以忽略 JavaScript 代码的语法抽象树 (AST) 中特定的节点类型。
 
 ### exceptions
 
-With this option, The following patterns are not considered problems:
+The `exceptions` object expects property names to be AST node types as defined by [ESTree](https://github.com/estree/estree). The easiest way to determine the node types for `exceptions` is to use the [online demo](http://eslint.org/parser).
 
-在此选项下，以下模式被认为是没有问题的：
+`exceptions`对象属性名是 AST 节点类型，这些类型被定义在[ESTree](https://github.com/estree/estree)。确定节点类型的最简单的方法是使用[online demo](http://eslint.org/parser)。
+
+Only the `Property` node type is ignored by default, because for the [key-spacing](key-spacing) rule some alignment options require multiple spaces in properties of object literals.
+
+默认情况下，只忽略`Property`节点类型，因为[key-spacing](key-spacing)规则的对其选项要求对象中的属性有多个空格。
+
+Examples of **correct** code for the default `"exceptions": { "Property": true }` option:
+
+默认选项`"exceptions": { "Property": true }`的 **正确**代码示例：
 
 ```js
-/* eslint no-multi-spaces: 2 */
-/* eslint key-spacing: [2, { align: "value" }] */
+/*eslint no-multi-spaces: "error"*/
+/*eslint key-spacing: ["error", { align: "value" }]*/
 
 var obj = {
     first:  "first",
@@ -102,38 +106,47 @@ var obj = {
 };
 ```
 
+Examples of **incorrect** code for the `"exceptions": { "Property": false }` option:
+
+`"exceptions": { "Property": false }` 选项的 **错误**代码示例：
+
 ```js
-/* eslint no-multi-spaces: [2, { exceptions: { "BinaryExpression": true } }] */
+/*eslint no-multi-spaces: ["error", { exceptions: { "Property": false } }]*/
+/*eslint key-spacing: ["error", { align: "value" }]*/
+
+var obj = {
+    first:  "first",
+    second: "second"
+};
+```
+
+Examples of **correct** code for the `"exceptions": { "BinaryExpression": true }` option:
+
+`"exceptions": { "BinaryExpression": true }`选项的 **正确**代码示例：
+
+```js
+/*eslint no-multi-spaces: ["error", { exceptions: { "BinaryExpression": true } }]*/
+
 var a = 1  *  2;
 ```
 
-The default `Property` exception can be disabled by setting it to `false`, so the following pattern is considered a warning:
+Examples of **correct** code for the `"exceptions": { "VariableDeclarator": true }` option:
 
-默认的`Property`例外可以通过设置为`false`被禁用，所以以下模式被认为是一个警告：
-
-```js
-/* eslint no-multi-spaces: [2, { exceptions: { "Property": false } }] */
-/* eslint key-spacing: [2, { align: "value" }] */
-
-var obj = {
-    first:  "first",
-    second: "second"
-};
-```
-
-You may wish to align variable declarations or import declarations with spaces. You can add exceptions for these cases:
-
-你可能希望使用空格对齐变量声明或者导入声明。你可以添加为这些情况添加例外：
+`"exceptions": { "VariableDeclarator": true }`选项的 **正确**代码示例：
 
 ```js
-/* eslint no-multi-spaces: [2, { exceptions: { "VariableDeclarator": true } }] */
+/*eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }]*/
 
 var someVar      = 'foo';
 var someOtherVar = 'barBaz';
 ```
 
-```
-/* eslint no-multi-spaces: [2, { exceptions: { "ImportDeclaration": true } }] */
+Examples of **correct** code for the `"exceptions": { "ImportDeclaration": true }` option:
+
+`"exceptions": { "ImportDeclaration": true }`选项的 **正确**代码示例：
+
+```js
+/*eslint no-multi-spaces: ["error", { exceptions: { "ImportDeclaration": true } }]*/
 
 import mod          from 'mod';
 import someOtherMod from 'some-other-mod';

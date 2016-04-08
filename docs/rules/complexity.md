@@ -10,7 +10,6 @@ proofreader: sunshiner
 
 # 限制圈复杂度 (complexity)
 
-
 Cyclomatic complexity measures the number of linearly independent paths through a program's source code. This rule allows setting a cyclomatic complexity threshold (default is `20`).
 
 圈复杂度(Cyclomatic Complexity)数量上表现为覆盖所有代码的独立现行路径条数。此规则允许设置圈复杂度阈值 (默认是 `20`)。
@@ -34,12 +33,12 @@ This rule is aimed at reducing code complexity by capping the amount of cyclomat
 此规则目的在于通过在项目中设置圈复杂度阈值来控制代码的复杂度，
 因此，它会在圈复杂度越过配置的阈值时给出警告 (默认是 `20`)。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for a maximum of 2:
 
-以下模式被认为是有问题的：
+最大阈值为 2 的 **错误**代码示例：
 
 ```js
-/*eslint complexity: [2, 2]*/
+/*eslint complexity: ["error", 2]*/
 
 function a(x) {
     if (true) {
@@ -52,12 +51,12 @@ function a(x) {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for a maximum of 2:
 
-以下模式被认为是没有问题的：
+最大阈值为 2 的 **正确**代码示例：
 
 ```js
-/*eslint complexity: [2, 2]*/
+/*eslint complexity: ["error", 2]*/
 
 function a(x) {
     if (true) {
@@ -68,12 +67,14 @@ function a(x) {
 }
 ```
 
-Optionally, you may specify a `maximum` object property:
+## Options
 
-你可以指定一个 `maximum` 属性：
+Optionally, you may specify a `max` object property:
+
+你可以指定一个 `max` 属性：
 
 ```json
-"complexity": [2, 2]
+"complexity": ["error", 2]
 ```
 
 is equivalent to
@@ -81,8 +82,12 @@ is equivalent to
 等同于：
 
 ```json
-"complexity": [2, {"maximum": 2}]
+"complexity": ["error", { "max": 2 }]
 ```
+
+**Deprecated:** the object property `maximum` is deprecated. Please use the property `max` instead.
+
+**弃用：**属性`maximum`已弃用。请使用`max`属性。
 
 ## When Not To Use It
 

@@ -31,7 +31,6 @@ This rule enforces consistent use of trailing commas in object and array literal
 
 这个规则强制在对象和数组字面量中使用一致的拖尾逗号。
 
-
 ## Options
 
 This rule takes one argument, which can be one of the following options:
@@ -58,10 +57,10 @@ This rule takes one argument, which can be one of the following options:
 
 Examples of **incorrect** code for the default `"never"` option:
 
-默认选项`"never"`的**错误**代码示例：
+默认选项`"never"`的 **错误**代码示例：
 
 ```js
-/*eslint comma-dangle: [2, "never"]*/
+/*eslint comma-dangle: ["error", "never"]*/
 
 var foo = {
     bar: "baz",
@@ -78,10 +77,10 @@ foo({
 
 Examples of **correct** code for the default `"never"` option:
 
-默认选项`"never"`的**正确**代码示例：
+默认选项`"never"`的 **正确**代码示例：
 
 ```js
-/*eslint comma-dangle: [2, "never"]*/
+/*eslint comma-dangle: ["error", "never"]*/
 
 var foo = {
     bar: "baz",
@@ -100,10 +99,10 @@ foo({
 
 Examples of **incorrect** code for the `"always"` option:
 
-选项`"always"`的**错误**代码示例：
+选项`"always"`的 **错误**代码示例：
 
 ```js
-/*eslint comma-dangle: [2, "always"]*/
+/*eslint comma-dangle: ["error", "always"]*/
 
 var foo = {
     bar: "baz",
@@ -120,10 +119,10 @@ foo({
 
 Examples of **correct** code for the `"always"` option:
 
-选项`"always"`的**正确**代码示例：
+选项`"always"`的 **正确**代码示例：
 
 ```js
-/*eslint comma-dangle: [2, "always"]*/
+/*eslint comma-dangle: ["error", "always"]*/
 
 var foo = {
     bar: "baz",
@@ -142,10 +141,10 @@ foo({
 
 Examples of **incorrect** code for the `"always-multiline"` option:
 
-选项`"always-multiline"`的**错误**代码示例：
+选项`"always-multiline"`的 **错误**代码示例：
 
 ```js
-/*eslint comma-dangle: [2, "always-multiline"]*/
+/*eslint comma-dangle: ["error", "always-multiline"]*/
 
 var foo = {
     bar: "baz",
@@ -172,10 +171,10 @@ foo({
 
 Examples of **correct** code for the `"always-multiline"` option:
 
-选项`"always-multiline"`的**正确**代码示例：
+选项`"always-multiline"`的 **正确**代码示例：
 
 ```js
-/*eslint comma-dangle: [2, "always-multiline"]*/
+/*eslint comma-dangle: ["error", "always-multiline"]*/
 
 var foo = {
     bar: "baz",
@@ -203,10 +202,10 @@ foo({
 
 Examples of **incorrect** code for the `"only-multiline"` option:
 
-选项`"only-multiline"`的**错误**代码示例：
+选项`"only-multiline"`的 **错误**代码示例：
 
 ```js
-/*eslint comma-dangle: [2, "only-multiline"]*/
+/*eslint comma-dangle: ["error", "only-multiline"]*/
 
 var foo = { bar: "baz", qux: "quux", };
 
@@ -219,10 +218,10 @@ var arr = [1,
 
 Examples of **correct** code for the `"only-multiline"` option:
 
-选项`"only-multiline"`的**正确**代码示例：
+选项`"only-multiline"`的 **正确**代码示例：
 
 ```js
-/*eslint comma-dangle: [2, "only-multiline"]*/
+/*eslint comma-dangle: ["error", "only-multiline"]*/
 
 var foo = {
     bar: "baz",

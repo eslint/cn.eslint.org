@@ -25,7 +25,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-delete-var: 2*/
+/*eslint no-delete-var: "error"*/
 
 var x;
 delete x;

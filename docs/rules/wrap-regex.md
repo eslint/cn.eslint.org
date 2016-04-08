@@ -1,6 +1,8 @@
 ---
 title: Rule wrap-regex
 layout: doc
+translator: molee1905
+proofreader: qifeigit
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,7 +12,7 @@ layout: doc
 
 When a regular expression is used in certain situations, it can end up looking like a division operator. For example:
 
-在某些情况下，使用正则表达式时，看起来像一个除法运算符。例如：
+在某些情况下，使用正则表达式时，它看起来会像一个除法运算符。例如：
 
 ```js
 function a() {
@@ -29,7 +31,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint wrap-regex: 2*/
+/*eslint wrap-regex: "error"*/
 
 function a() {
     return /foo/.test("bar");
@@ -41,7 +43,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint wrap-regex: 2*/
+/*eslint wrap-regex: "error"*/
 
 function a() {
     return (/foo/).test("bar");

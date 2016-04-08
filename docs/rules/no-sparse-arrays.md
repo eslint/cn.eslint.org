@@ -45,7 +45,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-sparse-arrays: 2*/
+/*eslint no-sparse-arrays: "error"*/
 
 var items = [,];
 var colors = [ "red",, "blue" ];
@@ -56,7 +56,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-sparse-arrays: 2*/
+/*eslint no-sparse-arrays: "error"*/
 
 var items = [];
 var items = new Array(23);
@@ -79,7 +79,7 @@ If you want to use sparse arrays, then it is safe to disable this rule.
 
 This rule was introduced in ESLint 0.4.0.
 
-该规则在ESLint 0.4.0中被引入。
+该规则在 ESLint 0.4.0 中被引入。
 
 ## Resources
 

@@ -10,9 +10,9 @@ proofreader: xkf521
 
 # 不允许使用逗号操作符 (no-sequences)
 
-The comma operator includes multiple expressions where only one is expected. It evaluates each operand from left to right and returns the value of the last operand. However, this frequently obscures side effects, and its use is often an accident. Here are some examples of its use:
+The comma operator includes multiple expressions where only one is expected. It evaluates each operand from left to right and returns the value of the last operand. However, this frequently obscures side effects, and its use is often an accident. Here are some examples of sequences:
 
-逗号操作符包含多个表达式，其中只有一个是可使用的。它从左到右计算每一个操作数并且返回最后一个操作数的值。然而，这往往掩盖了它的副作用，它的使用经常会发生事故。这里是其使用的一些例子：
+逗号操作符包含多个表达式，其中只有一个是可使用的。它从左到右计算每一个操作数并且返回最后一个操作数的值。然而，这往往掩盖了它的副作用，它的使用经常会发生事故。例如：
 
 ```js
 var a = (3, 5); // a = 5
@@ -21,7 +21,7 @@ a = b += 5, a + b;
 
 while (a = next(), a && a.length);
 
-(0,eval)("doSomething();");
+(0, eval)("doSomething();");
 ```
 
 ## Rule Details
@@ -38,14 +38,16 @@ This rule forbids the use of the comma operator, with the following exceptions:
 
 如果表达式序列被明确包裹在括号中。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-sequences: 2*/
+/*eslint no-sequences: "error"*/
 
-foo = doSomething, val;
+foo = doSomething(), val;
+
+0, eval("doSomething();");
 
 do {} while (doSomething(), !!test);
 
@@ -60,16 +62,16 @@ while (val = foo(), val < 42);
 with (doSomething(), val) {}
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下问题被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-sequences: 2*/
+/*eslint no-sequences: "error"*/
 
 foo = (doSomething(), val);
 
-(0,eval)("doSomething();");
+(0, eval)("doSomething();");
 
 do {} while ((doSomething(), !!test));
 
@@ -94,7 +96,7 @@ Disable this rule if sequence expressions with the comma operator are acceptable
 
 This rule was introduced in ESLint 0.5.1.
 
-此规则在ESLint 0.5.1中被引入。
+此规则在 ESLint 0.5.1 中被引入。
 
 ## Resources
 

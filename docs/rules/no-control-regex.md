@@ -22,10 +22,10 @@ This rule is aimed at ensuring all regular expressions don't use control charact
 
 Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-control-regex: 2*/
+/*eslint no-control-regex: "error"*/
 
 var pattern1 = /\\x1f/;
 var pattern2 = new RegExp("\x1f");
@@ -33,10 +33,10 @@ var pattern2 = new RegExp("\x1f");
 
 Examples of **correct** code for this rule:
 
-以下模式不会引发警告：
+**正确**代码示例：
 
 ```js
-/*eslint no-control-regex: 2*/
+/*eslint no-control-regex: "error"*/
 
 var pattern1 = /\\x20/;
 var pattern2 = new RegExp("\x20");

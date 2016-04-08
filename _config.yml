@@ -3,7 +3,8 @@ exclude: [
   'node_modules',
   'vendor'
 ]
-description: "ESLint中文官网,ESLint中英文对照,JavaScript代码检测,JavaScript代码风格检测,JavaScript代码自动格式化"
+keywords: "ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality"
+description: "ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease."
 url: http://cn.eslint.org
 permalink: /blog/:year/:month/:title
 gems:

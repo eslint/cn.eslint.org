@@ -12,7 +12,7 @@ proofreader: coocon
 
 **Replacement notice**: This rule was removed in ESLint v1.0 and replaced by the [no-extra-parens](no-extra-parens) rule, when configured in the `"functions"` mode.
 
-**替换声明**: 该规则在 ESLint v1.0 中移除, 当在 `"functions"` 模式下配置时，被 [no-extra-parens](no-extra-parens) 替代。
+**替换声明：**该规则在 ESLint v1.0 中移除，当在 `"functions"` 模式下配置时，被 [no-extra-parens](no-extra-parens) 替代。
 
 
 Although it's possible to wrap functions in parentheses, this can be confusing when the code also contains immediately-invoked function expressions (IIFEs) since parentheses are often used to make this distinction. For example:
@@ -61,7 +61,7 @@ var a = function() {/*...*/};
 
 This rule was introduced in ESLint 0.0.9 and removed in 1.0.0-rc-1.
 
-该规则在 ESLint 0.0.9 中引入， 在 1.0.0-rc-1 中移除。
+该规则在 ESLint 0.0.9 中引入，在 1.0.0-rc-1 中移除。
 
 ## Resources
 

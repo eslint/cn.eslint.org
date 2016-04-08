@@ -10,13 +10,13 @@ proofreader: coocon
 
 # 禁用行尾空格 (no-trailing-spaces)
 
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+
 Sometimes in the course of editing files, you can end up with extra whitespace at the end of lines. These whitespace differences can be picked up by source control systems and flagged as diffs, causing frustration for developers. While this extra whitespace causes no functional issues, many code conventions require that trailing spaces be removed before checkin.
 
 有时在编辑文件的过程中，你可以在行的末尾以额外的空格作为结束。这些空格差异可以被源码控制系统识别出并被标记为差异，给开发人员带来挫败感。虽然这种额外的空格并不会造成功能性的问题，许多编码规范要求在检入之前删除尾部空格。
-
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
 
 ## Rule Details
 
@@ -25,7 +25,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-trailing-spaces: 2*/
+/*eslint no-trailing-spaces: "error"*/
 
 // spaces, tabs and unicode whitespaces
 // are not allowed at the end of lines
@@ -38,7 +38,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-trailing-spaces: 2*/
+/*eslint no-trailing-spaces: "error"*/
 
 var foo = 0;
 
@@ -57,7 +57,7 @@ You can enable this option in your config like this:
 
 ```json
 {
-    "no-trailing-spaces": [2, { "skipBlankLines": true }]
+    "no-trailing-spaces": ["error", { "skipBlankLines": true }]
 }
 ```
 
@@ -66,7 +66,7 @@ With this option enabled, The following patterns are not considered problems:
 当该选项启用后，以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-trailing-spaces: [2, { "skipBlankLines": true }]*/
+/*eslint no-trailing-spaces: ["error", { "skipBlankLines": true }]*/
 
 var foo = 0;
 //••••

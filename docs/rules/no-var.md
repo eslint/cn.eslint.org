@@ -40,7 +40,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-var: 2*/
+/*eslint no-var: "error"*/
 
 var x = "y";
 var CONFIG = {};
@@ -51,17 +51,12 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-var: 2*/
+/*eslint no-var: "error"*/
 /*eslint-env es6*/
 
 let x = "y";
 const CONFIG = {};
 ```
-
-If you intend to use this rule, you must set `blockBindings` to `true` in the `ecmaFeatures` configuration object,
-which will give ESLint the ability to read `let` and `const` variables.
-
-如果你想使用该规则，你必须在 `ecmaFeatures` 配置对象中设置 `blockBindings` 标记为 `true`，这将意味着 ESLint 能够读取`let`和`const`变量。
 
 ## When Not To Use It
 

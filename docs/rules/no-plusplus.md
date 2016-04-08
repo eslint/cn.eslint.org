@@ -8,7 +8,7 @@ proofreader: yanggao40
 
 # Disallow ++ and -- (no-plusplus)
 
-# 不允许使用 ++ 和 -- (no-plusplus)
+# 禁用 ++ 和 -- (no-plusplus)
 
 The `no-plusplus` rule flags the use of unary operators, `++` and `--`.
 
@@ -53,7 +53,7 @@ This rule is aimed at flagging the use of `++` and `--`. Some believe that the u
 This rule, in its default state, does not require any arguments. If you would like to enable one or more of the following you may pass an object with the options set as follows:
 
 该规则，默认情况下，不需要任何参数。如果你想启用下面的一个或多个，你可以传递一个对象，作为可选项，按如下所示进行设置：
-
+ 
 * `allowForLoopAfterthoughts` set to `true` will allow you to use the unary operators `++` and `--` in the afterthought (final expression) of a `for` loop.
 
 * `allowForLoopAfterthoughts` 设置为 `true` 将允许你在`for`循环的中(最后面的表达式)使用一元操作符 `++` 和 `--`。
@@ -63,7 +63,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-plusplus: 2*/
+/*eslint no-plusplus: "error"*/
 
 var foo = 0;
 foo++;
@@ -81,7 +81,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-plusplus: 2*/
+/*eslint no-plusplus: "error"*/
 
 var foo = 0;
 foo += 1;
@@ -99,7 +99,7 @@ The following patterns are not considered problems if `allowForLoopAfterthoughts
 如果 `allowForLoopAfterthoughts` 设置为true, 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-plusplus: [2, { allowForLoopAfterthoughts: true }]*/
+/*eslint no-plusplus: ["error", { allowForLoopAfterthoughts: true }]*/
 
 for (i = 0; i < l; i++) {
     return;
@@ -114,7 +114,7 @@ for (i = 0; i < l; i--) {
 
 This rule was introduced in ESLint 0.0.9.
 
-该规则在ESLint 0.0.9 中被引入。
+该规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

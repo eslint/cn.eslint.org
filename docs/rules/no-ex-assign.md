@@ -37,7 +37,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-ex-assign: 2*/
+/*eslint no-ex-assign: "error"*/
 
 try {
     // code
@@ -51,7 +51,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-ex-assign: 2*/
+/*eslint no-ex-assign: "error"*/
 
 try {
     // code

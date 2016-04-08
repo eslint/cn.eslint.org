@@ -30,27 +30,28 @@ This rule is aimed at eliminating floating decimal points and will warn whenever
 
 此规则目的在于消除浮动小数点，且当数值的小数点前面或者后面缺少数字时，将给出警告。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-floating-decimal: 2*/
+/*eslint no-floating-decimal: "error"*/
 
 var num = .5;
 var num = 2.;
 var num = -.7;
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-floating-decimal: 2*/
+/*eslint no-floating-decimal: "error"*/
 
 var num = 0.5;
 var num = 2.0;
+var num = -0.7;
 ```
 
 ## When Not To Use It

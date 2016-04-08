@@ -14,7 +14,6 @@ In JavaScript, a variable that is declared and not initialized to any value auto
 
 在 JavaScript 中，声明一个变量但未初始化，变量会自动获得 `undefined` 作为初始值。比如：
 
-
 ```js
 var foo;
 
@@ -36,7 +35,6 @@ It's considered a best practice to avoid initializing variables to `undefined`.
 ## Rule Details
 
 This rule aims to eliminate variable declarations that initialize to `undefined`.
-
 此规则旨在限制变量声明后被初始化为 `undefined`。
 
 Examples of **incorrect** code for this rule:
@@ -44,7 +42,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-undef-init: 2*/
+/*eslint no-undef-init: "error"*/
 /*eslint-env es6*/
 
 var foo = undefined;
@@ -56,7 +54,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-undef-init: 2*/
+/*eslint no-undef-init: "error"*/
 /*eslint-env es6*/
 
 var foo;
@@ -69,6 +67,10 @@ const baz = undefined;
 There is one situation where initializing to `undefined` behaves differently than omitting the initialization, and that's when a `var` declaration occurs inside of a loop. For example:
 
 当在一个循环中用 `var` 声明一个变量的时候，这种情况下给变量赋值为 `undefined` 与省略初始化的结果不同。比如：
+
+Example of **incorrect** code for this rule:
+
+**错误**代码示例：
 
 ```js
 for (i = 0; i < 10; i++) {
@@ -124,6 +126,20 @@ This produces a different outcome than defining `var x = undefined` in the loop,
 If you're using such an initialization inside of a loop, then you should disable this rule.
 
 如果你有在循环语句中初始化变量，你应该禁用此规则。
+
+Example of **correct** code for this rule, because it is disabled on a specific line:
+
+**正确**代码示例，因为它在特定的行上被禁用。
+
+```js
+/*eslint no-undef-init: "error"*/
+
+for (i = 0; i < 10; i++) {
+    var x = undefined; // eslint-disable-line no-undef-init
+    console.log(x);
+    x = i;
+}
+```
 
 ## Related Rules
 

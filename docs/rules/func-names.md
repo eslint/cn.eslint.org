@@ -29,7 +29,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/* eslint func-names: 2*/
+/*eslint func-names: "error"*/
 
 Foo.prototype.bar = function() {};
 
@@ -43,7 +43,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/* eslint func-names: 2*/
+/*eslint func-names: "error"*/
 
 Foo.prototype.bar = function bar() {};
 

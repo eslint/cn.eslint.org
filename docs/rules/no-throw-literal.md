@@ -25,12 +25,12 @@ This rule is aimed at maintaining consistency when throwing exception by disallo
 
 此规则目的在于保持异常抛出的一致性，通过禁止抛出字面量和那些不可能是 `Error` 对象的表达式。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-throw-literal: 2*/
+/*eslint no-throw-literal: "error"*/
 /*eslint-env es6*/
 
 throw "error";
@@ -50,12 +50,12 @@ throw `${err}`
 
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-throw-literal: 2*/
+/*eslint no-throw-literal: "error"*/
 
 throw new Error();
 
@@ -73,12 +73,16 @@ try {
 
 ## Known Limitations
 
-Due to the limits of static analysis, this rule cannot guarantee that you will only throw `Error` objects.  For instance, the following cases do not throw an `Error` object, but they will not be considered problems:
+Due to the limits of static analysis, this rule cannot guarantee that you will only throw `Error` objects.
 
-由于静态分析的局限性，此规则不能保证你只会抛出 `Error` 对象。例如，以下情况不会抛出 `Error` 对象，但是它们被认为是没有问题的：
+由于静态分析的局限性，此规则不能保证你只会抛出 `Error` 对象。
+
+Examples of **correct** code for this rule, but which do not throw an `Error` object:
+
+**正确**代码示例如下，该示例不会抛出`Error` 对象：
 
 ```js
-/*eslint no-throw-literal: 2*/
+/*eslint no-throw-literal: "error"*/
 
 var err = "error";
 throw err;
@@ -100,7 +104,7 @@ throw foo.bar;
 
 This rule was introduced in ESLint 0.15.0.
 
-此规则在 ESLint 0.15.0中被引入。
+此规则在 ESLint 0.15.0 中被引入。
 
 ## Resources
 

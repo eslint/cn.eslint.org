@@ -12,11 +12,11 @@ proofreader: molee1905
 
 **Replacement notice**: This rule was removed in ESLint v1.0 and replaced by the [comma-dangle](comma-dangle) rule.
 
-**替换声明**: 该规则在 ESLint v1.0 中被移除，被[comma-dangle](comma-dangle)规则替换。
+**替换声明：**该规则在 ESLint v1.0 中被移除，被[comma-dangle](comma-dangle)规则替换。
 
 Trailing commas in object literals are valid according to the ECMAScript 5 (and ECMAScript 3!) spec, however IE8 (when not in IE8 document mode) and below will throw an error when it encounters trailing commas in JavaScript.
 
-根据 ECMAScript 5 (和 ECMAScript 3!)规范，对象字面量中的尾部逗号是有效的，但是IE8（非 IE8 文档模式）及以下版本，在 JavaScript 中遇到尾部逗号会抛出错误。
+根据 ECMAScript 5 (和 ECMAScript 3!)规范，对象字面量中的尾部逗号是有效的，但是 IE8（非 IE8 文档模式）及以下版本，在 JavaScript 中遇到尾部逗号会抛出错误。
 
 ```js
 var foo = {
@@ -69,15 +69,15 @@ foo({
 
 ## When Not To Use It
 
-If your code will not be run in IE8 or below (a NodeJS application, for example) and you'd prefer to allow trailing commas, turn this rule off.
+If your code will not be run in IE8 or below (a Node.js application, for example) and you'd prefer to allow trailing commas, turn this rule off.
 
-如果你的代码不会在 IE8 及以下版本中（例如Node.js应用）运行，并且你倾向于允许尾部逗号，关闭此规则即可。
+如果你的代码不会在 IE8 及以下版本中（例如 Node.js 应用）运行，并且你倾向于允许尾部逗号，关闭此规则即可。
 
 ## Version
 
 This rule was introduced in ESLint 0.0.9 and removed in 1.0.0-rc-1.
 
-该规则在 ESLint 0.0.9 中被引入，在  1.0.0-rc-1 中被移除。
+该规则在 ESLint 0.0.9 中被引入，在 1.0.0-rc-1 中被移除。
 
 ## Resources
 

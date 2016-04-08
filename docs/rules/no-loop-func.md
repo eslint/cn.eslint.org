@@ -51,12 +51,12 @@ This error is raised to highlight a piece of code that may not work as you expec
 这个错误的出现会导致代码不能如你期望的那样运行，也表明你对 JavaScript 这门语言存在误解。
 如果你不修复这个错误，你的代码可能会正常运行，带在某些情况下，可能会出现意想不到的行为。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-loop-func: 2*/
+/*eslint no-loop-func: "error"*/
 /*eslint-env es6*/
 
 for (var i=10; i; i--) {
@@ -81,12 +81,12 @@ for (let i=10; i; i--) {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-loop-func: 2*/
+/*eslint no-loop-func: "error"*/
 /*eslint-env es6*/
 
 var a = function() {};

@@ -10,11 +10,7 @@ Pull requests are submitted frequently and represent our best opportunity to int
 ## Who Can Review Pull Requests?
 
 Anyone, both team members and the public, may leave comments on pull requests.
-
-## Who Can Approve Pull Requests?
-
-Only project reviewers or admins may use the "Merge" button to merge in changes.
-
+ 
 ## Reviewing a Pull Request
 
 When a pull request is opened, the bot will check the following:

@@ -26,24 +26,24 @@ This rule is aimed at preventing unexpected behavior that could arise from using
 
 此规则目的在于，阻止在`for in`遍历过程中，由于不对结果进行筛选而导致意想不到的行为发生。因此，当`for in`循环中，没有使用`if` 语句对结果进行筛选时，该规则将会发出警告。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint guard-for-in: 2*/
+/*eslint guard-for-in: "error"*/
 
 for (key in foo) {
     doSomething(key);
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint guard-for-in: 2*/
+/*eslint guard-for-in: "error"*/
 
 for (key in foo) {
     if ({}.hasOwnProperty.call(foo, key)) {

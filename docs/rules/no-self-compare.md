@@ -24,10 +24,12 @@ This error is raised to highlight a potentially confusing and potentially pointl
 
 这个错误是为了突出一个潜在的混淆和潜在的无意义的代码。几乎没有任何情况下，你需要比较变量本身。
 
+Examples of **incorrect** code for this rule:
 
+**错误**代码示例：
 
 ```js
-/*eslint no-self-compare: 2*/
+/*eslint no-self-compare: "error"*/
 
 var x = 10;
 if (x === x) {
@@ -43,7 +45,7 @@ if (x === x) {
 
 This rule was introduced in ESLint 0.0.9.
 
-此规则在ESLint 0.0.9中被引入。
+此规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

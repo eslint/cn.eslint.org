@@ -13,7 +13,7 @@ proofreader: molee1905
 **Replacement notice**: This rule was removed in ESLint v1.0 and replaced by the [strict](strict) rule. Both `"global"` and `"function"` mode in the strict rule implement this rule's behavior.
 
 
-**替换声明：** 该规则在 ESLint v1.0 中移除，被 [strict](strict)规则代替。 `"global"` 和 `"function"`模式在严格规则中都实现了本规则的行为。 
+**替换声明：**该规则在 ESLint v1.0 中移除，被 [strict](strict)规则代替。 `"global"` 和 `"function"`模式在严格规则中都实现了本规则的行为。 
 
 The `"use strict";` directive applies to the scope in which it appears and all inner scopes contained within that scope. Therefore, using the `"use strict";` directive in one of these inner scopes is unnecessary.
 

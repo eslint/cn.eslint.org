@@ -10,6 +10,10 @@ proofreader: molee1905
 
 # 要求文件末尾保留一行空行 (eol-last)
 
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+
 Trailing newlines in non-empty files are a common UNIX idiom. Benefits of
 trailing newlines include the ability to concatenate or append to files as well
 as output files to the terminal without interfering with shell prompts. This
@@ -25,10 +29,6 @@ the end of the file. If you still want this behaviour, consider enabling
 在 v0.16.0 之前此规则还强制在文件末尾只有一行空行。如果你仍然想要这样，可以考虑开启[no-multiple-empty-lines](no-multiple-empty-lines) 使用 `maxEOF` 和/或
 [no-trailing-spaces](no-trailing-spaces)。
 
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
-
 ## Rule Details
 
 The following patterns are considered problems:
@@ -36,7 +36,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint eol-last: 2*/
+/*eslint eol-last: "error"*/
 
 function doSmth() {
   var foo = 2;
@@ -48,7 +48,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint eol-last: 2*/
+/*eslint eol-last: "error"*/
 
 function doSmth() {
   var foo = 2;

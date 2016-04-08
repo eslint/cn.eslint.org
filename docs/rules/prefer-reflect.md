@@ -40,7 +40,7 @@ ES6的Reflect API 提供了若干的方法，在一定程度上不再支持一�
 
 The prefer-reflect rule will flag usage of any older method, suggesting to instead use the newer Reflect version.
 
-该规则将标记任何旧方法的使用，建议使用较新的Reflect版本代替。
+该规则将标记任何旧方法的使用，建议使用较新的 Reflect 版本代替。
 
 ## Rule Details
 
@@ -76,7 +76,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 foo.apply(undefined, args);
 foo.apply(null, args);
@@ -94,7 +94,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Reflect.apply(undefined, args);
 Reflect.apply(null, args);
@@ -107,7 +107,7 @@ Reflect.apply(obj.foo, other, [arg]);
 ```
 
 ```js
-/*eslint prefer-reflect: [2, { exceptions: ["apply"] }]*/
+/*eslint prefer-reflect: ["error", { exceptions: ["apply"] }]*/
 
 foo.apply(undefined, args);
 foo.apply(null, args);
@@ -120,7 +120,7 @@ Reflect.apply(obj.foo, other, args);
 ```
 
 ```js
-/*eslint prefer-reflect: [2, { exceptions: ["call"] }]*/
+/*eslint prefer-reflect: ["error", { exceptions: ["call"] }]*/
 
 foo.call(undefined, arg);
 foo.call(null, arg);
@@ -139,7 +139,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Object.defineProperty({}, 'foo', {value: 1})
 ```
@@ -149,13 +149,13 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Reflect.defineProperty({}, 'foo', {value: 1})
 ```
 
 ```js
-/*eslint prefer-reflect: [2, { exceptions: ["defineProperty"] }]*/
+/*eslint prefer-reflect: ["error", { exceptions: ["defineProperty"] }]*/
 
 Object.defineProperty({}, 'foo', {value: 1})
 Reflect.defineProperty({}, 'foo', {value: 1})
@@ -168,7 +168,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Object.getOwnPropertyDescriptor({}, 'foo')
 ```
@@ -178,15 +178,15 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Reflect.getOwnPropertyDescriptor({}, 'foo')
 ```
 
-__config:__ `prefer-reflect: [2, { exceptions: ["getOwnPropertyDescriptor"] }]`
+__config:__ `prefer-reflect: ["error", { exceptions: ["getOwnPropertyDescriptor"] }]`
 
 ```js
-/*eslint prefer-reflect: [2, { exceptions: ["getOwnPropertyDescriptor"] }]*/
+/*eslint prefer-reflect: ["error", { exceptions: ["getOwnPropertyDescriptor"] }]*/
 
 Object.getOwnPropertyDescriptor({}, 'foo')
 Reflect.getOwnPropertyDescriptor({}, 'foo')
@@ -199,7 +199,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Object.getPrototypeOf({}, 'foo')
 ```
@@ -209,13 +209,13 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Reflect.getPrototypeOf({}, 'foo')
 ```
 
 ```js
-/*eslint prefer-reflect: [2, { exceptions: ["getPrototypeOf"] }]*/
+/*eslint prefer-reflect: ["error", { exceptions: ["getPrototypeOf"] }]*/
 
 Object.getPrototypeOf({}, 'foo')
 Reflect.getPrototypeOf({}, 'foo')
@@ -228,7 +228,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Object.setPrototypeOf({}, Object.prototype)
 ```
@@ -238,15 +238,15 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Reflect.setPrototypeOf({}, Object.prototype)
 ```
 
-__config:__ `prefer-reflect: [2, { exceptions: ["setPrototypeOf"] }]`
+__config:__ `prefer-reflect: ["error", { exceptions: ["setPrototypeOf"] }]`
 
 ```js
-/*eslint prefer-reflect: [2, { exceptions: ["setPrototypeOf"] }]*/
+/*eslint prefer-reflect: ["error", { exceptions: ["setPrototypeOf"] }]*/
 
 Object.setPrototypeOf({}, Object.prototype)
 Reflect.setPrototypeOf({}, Object.prototype)
@@ -259,7 +259,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Object.isExtensible({})
 ```
@@ -269,13 +269,13 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Reflect.isExtensible({})
 ```
 
 ```js
-/*eslint prefer-reflect: [2, { exceptions: ["isExtensible"] }]*/
+/*eslint prefer-reflect: ["error", { exceptions: ["isExtensible"] }]*/
 
 Object.isExtensible({})
 Reflect.isExtensible({})
@@ -288,7 +288,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Object.getOwnPropertyNames({})
 ```
@@ -298,13 +298,13 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Reflect.getOwnPropertyNames({})
 ```
 
 ```js
-/*eslint prefer-reflect: [2, { exceptions: ["getOwnPropertyNames"] }]*/
+/*eslint prefer-reflect: ["error", { exceptions: ["getOwnPropertyNames"] }]*/
 
 Object.getOwnPropertyNames({})
 Reflect.getOwnPropertyNames({})
@@ -317,7 +317,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Object.preventExtensions({})
 ```
@@ -327,13 +327,13 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 Reflect.preventExtensions({})
 ```
 
 ```js
-/*eslint prefer-reflect: [2, { exceptions: ["preventExtensions"] }]*/
+/*eslint prefer-reflect: ["error", { exceptions: ["preventExtensions"] }]*/
 
 Object.preventExtensions({})
 Reflect.preventExtensions({})
@@ -346,7 +346,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 delete foo.bar;
 ```
@@ -356,7 +356,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint prefer-reflect: 2*/
+/*eslint prefer-reflect: "error"*/
 
 delete bar; // Does not reference an object, just a var
 Reflect.deleteProperty(foo, 'bar');
@@ -365,7 +365,7 @@ Reflect.deleteProperty(foo, 'bar');
 (Note: For a rule preventing deletion of variables, see [no-delete-var instead](no-delete-var))
 
 ```js
-/*eslint prefer-reflect: [2, { exceptions: ["delete"] }]*/
+/*eslint prefer-reflect: ["error", { exceptions: ["delete"] }]*/
 
 delete bar
 delete foo.bar
@@ -381,7 +381,7 @@ This rule should not be used in ES3/5 environments.
 
 In ES2015 (ES6) or later, if you don't want to be notified about places where Reflect could be used, you can safely disable this rule.
 
-在ES2015 (ES6)或以后的版本中，如果你不想收到哪里应该使用Reflect的通知，你可以关闭此规则。
+在 ES2015 (ES6) 或以后的版本中，如果你不想收到哪里应该使用 Reflect 的通知，你可以关闭此规则。
 
 ## Related Rules
 
@@ -393,7 +393,7 @@ In ES2015 (ES6) or later, if you don't want to be notified about places where Re
 
 This rule was introduced in ESLint 1.0.0-rc-2.
 
-该规则在ESLint 1.0.0-rc-2 中被引入。
+该规则在 ESLint 1.0.0-rc-2 中被引入。
 
 ## Resources
 

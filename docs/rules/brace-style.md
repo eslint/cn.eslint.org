@@ -85,18 +85,17 @@ You can set the style in configuration like this:
 你可以在配置中这样设置：
 
 ```json
-"brace-style": [2, "stroustrup", { "allowSingleLine": true }]
+"brace-style": ["error", "stroustrup", { "allowSingleLine": true }]
 ```
 
-### "1tbs"
+### 1tbs
 
 This is the default setting for this rule and enforces one true brace style. While using this setting, the following patterns are considered problems:
 
 该选项是此默认设置，强制使用 *one true brace style*。当使用此设置时，以下模式被认为是有问题的：
 
-
 ```js
-/*eslint brace-style: 2*/
+/*eslint brace-style: "error"*/
 function foo()
 {
   return true;
@@ -128,7 +127,7 @@ The following patterns use the one true brace style and are not considered probl
 以下模式使用 *one true brace style*，被认为是没有问题的：
 
 ```js
-/*eslint brace-style: 2*/
+/*eslint brace-style: "error"*/
 
 function foo() {
   return true;
@@ -160,7 +159,7 @@ With one-line form enabled, the following is also valid:
 one-line 形式启用的情况下，以下模式也是有效的：
 
 ```js
-/*eslint brace-style: [2, "1tbs", { "allowSingleLine": true }]*/
+/*eslint brace-style: ["error", "1tbs", { "allowSingleLine": true }]*/
 
 function nop() { return; }
 
@@ -171,14 +170,14 @@ if (foo) { bar(); } else { baz(); }
 try { somethingRisky(); } catch(e) { handleError(); }
 ```
 
-### "stroustrup"
+### stroustrup
 
 This enforces Stroustrup style. While using this setting, the following patterns are considered problems:
 
 该选项强制使用 *Stroustrup*风格。当使用此设置时，以下模式被认为是有问题的：
 
 ```js
-/*eslint brace-style: [2, "stroustrup"]*/
+/*eslint brace-style: ["error", "stroustrup"]*/
 
 function foo()
 {
@@ -210,7 +209,7 @@ The following patterns use the Stroustrup style and are not considered problems:
 以下模式使用 *Stroustrup*风格，被认为是没有问题的：
 
 ```js
-/*eslint brace-style: [2, "stroustrup"]*/
+/*eslint brace-style: ["error", "stroustrup"]*/
 
 function foo() {
   return true;
@@ -244,7 +243,7 @@ With one-line form enabled, the following is also valid:
 one-line 形式启用的情况下，以下模式也是有效的：
 
 ```js
-/*eslint brace-style: [2, "stroustrup", { "allowSingleLine": true }]*/
+/*eslint brace-style: ["error", "stroustrup", { "allowSingleLine": true }]*/
 
 function nop() { return; }
 
@@ -257,15 +256,14 @@ try { somethingRisky(); }
 catch(e) { handleError(); }
 ```
 
-### "allman"
-
+### allman
 
 This enforces Allman style. While using this setting, the following patterns are considered problems:
 
 该选项强制使用 *Allman*风格。当使用此设置时，以下模式被认为是有问题的：
 
 ```js
-/*eslint brace-style: [2, "allman"]*/
+/*eslint brace-style: ["error", "allman"]*/
 
 function foo() {
   return true;
@@ -295,7 +293,7 @@ The following patterns use the Allman style and are not considered problems:
 以下模式使用 *Allman*风格，被认为是没有问题的：
 
 ```js
-/*eslint brace-style: [2, "allman"]*/
+/*eslint brace-style: ["error", "allman"]*/
 
 function foo()
 {
@@ -335,7 +333,7 @@ With one-line form enabled, the following is also valid:
 one-line 形式启用的情况下，以下模式也是有效的：
 
 ```js
-/*eslint brace-style: [2, "allman", { "allowSingleLine": true }]*/
+/*eslint brace-style: ["error", "allman", { "allowSingleLine": true }]*/
 
 function nop() { return; }
 

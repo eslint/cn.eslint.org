@@ -5,6 +5,7 @@ translator: ybbjegj
 proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
 # Rule to disallow a duplicate case label (no-duplicate-case)
 
 # 禁止重复 case 标签（no-duplicate-case）
@@ -24,7 +25,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-duplicate-case: 2*/
+/*eslint no-duplicate-case: "error"*/
 
 var a = 1,
     one = 1;
@@ -68,7 +69,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-duplicate-case: 2*/
+/*eslint no-duplicate-case: "error"*/
 
 var a = 1,
     one = 1;

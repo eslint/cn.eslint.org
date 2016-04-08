@@ -72,18 +72,20 @@ Otherwise are considered problems.
 
 其他情况被认为是有问题的。
 
-This rule warns below **only** under the strict mode.
-Please note your code in ES2015 Modules/Classes is always the strict mode.
+This rule applies **only** in strict mode.
+With `"parserOptions": { "sourceType": "module" }` in the ESLint configuration, your code is in strict mode even without a `"use strict"` directive.
 
-此规则**只**在严格模式下给出警告。请注意你的代码在 ES2015 模块/类 中总是处于严格的模式下。
+该规则 **只**在严格模式下生效。如果在 ESLint 配置中设置了`"parserOptions": { "sourceType": "module" }`，你的代码即使没有使用`"use strict"`指令，也是处于严格模式下的。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule in strict mode:
 
-以下模式被认为是有问题的：
+在严格模式下，**错误**代码示例：
 
 ```js
-/*eslint no-invalid-this: 2*/
+/*eslint no-invalid-this: "error"*/
 /*eslint-env es6*/
+
+"use strict";
 
 this.a = 0;
 baz(() => this);
@@ -129,13 +131,15 @@ foo.forEach(function() {
 });
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule in strict mode:
 
-以下模式被认为是没有问题的：
+在严格模式下，**正确**代码示例：
 
 ```js
-/*eslint no-invalid-this: 2*/
+/*eslint no-invalid-this: "error"*/
 /*eslint-env es6*/
+
+"use strict";
 
 function Foo() {
     // OK, this is in a legacy style constructor.
@@ -253,7 +257,7 @@ If you don't want to be notified about usage of `this` keyword outside of classe
 
 This rule was introduced in ESLint 1.0.0-rc-2.
 
-此规则在 ESLint 1.0.0-rc-2中被引入。
+此规则在 ESLint 1.0.0-rc-2 中被引入。
 
 ## Resources
 

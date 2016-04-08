@@ -10,14 +10,13 @@ proofreader: sunshiner
 
 # 强制在逗号周围使用空格 (comma-spacing)
 
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
+(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
+(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
 
 Spacing around commas improve readability of a list of items. Although most of the style guidelines for languages prescribe adding a space after a comma and not before it, it is subjective to the preferences of a project.
 
 逗号前后的空格可以提高列表项的可读性。对于大多数语言的代码风格来说一般是在逗号之后而不是之前添加一个空格，当然你也可以在项目中按照自己的偏好决定在哪里添加空格。
-
 
 ```js
 var foo = 1, bar = 2;
@@ -37,7 +36,7 @@ The rule takes one option, an object, which has two keys `before` and `after` ha
 该规则唯一的可选项是一个包含`before` 和 `after`两个属性的对象，这两个属性对应的属性值是`true` 或 `false`。如果`before` 设置为 `true`，逗号前必须有空格；如果为`false`，逗号前禁止有空格。如果`after` 设置为 `true`，逗号后必须有空格；如果为`false`，逗号后禁止有空格。默认值为`{"before": false, "after": true}`。
 
 ```json
-    "comma-spacing": [2, {"before": false, "after": true}]
+    "comma-spacing": ["error", {"before": false, "after": true}]
 ```
 
 The following examples show two primary usages of this option.
@@ -55,7 +54,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint comma-spacing: [2, {"before": false, "after": true}]*/
+/*eslint comma-spacing: ["error", {"before": false, "after": true}]*/
 
 var foo = 1 ,bar = 2;
 var arr = [1 , 2];
@@ -71,7 +70,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint comma-spacing: [2, {"before": false, "after": true}]*/
+/*eslint comma-spacing: ["error", {"before": false, "after": true}]*/
 
 var foo = 1, bar = 2
     , baz = 3;
@@ -94,7 +93,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint comma-spacing: [2, {"before": true, "after": false}]*/
+/*eslint comma-spacing: ["error", {"before": true, "after": false}]*/
 
 var foo = 1, bar = 2;
 var arr = [1 , 2];
@@ -109,7 +108,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint comma-spacing: [2, {"before": true, "after": false}]*/
+/*eslint comma-spacing: ["error", {"before": true, "after": false}]*/
 
 var foo = 1 ,bar = 2 ,
     baz = true;
@@ -153,7 +152,6 @@ If your project will not be following a consistent comma-spacing pattern, turn t
 * [Javascript](http://javascript.crockford.com/code.html)
 * [Dojo Style Guide](https://dojotoolkit.org/reference-guide/1.9/developer/styleguide.html)
 
-
 ## Related Rules
 
 * [array-bracket-spacing](array-bracket-spacing)
@@ -169,7 +167,7 @@ If your project will not be following a consistent comma-spacing pattern, turn t
 
 This rule was introduced in ESLint 0.9.0.
 
-该规则是在ESLint 0.9.0 被引入的。
+该规则是在 ESLint 0.9.0 被引入的。
 
 ## Resources
 

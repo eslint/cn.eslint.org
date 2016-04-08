@@ -12,7 +12,7 @@ proofreader: molee1905
 
 **Replacement notice**: This rule was removed in ESLint v1.0 and replaced by the [spaced-comment](spaced-comment) rule.
 
-**替换声明**: 该规则在 ESLint v1.0 中移除，被[spaced-comment](spaced-comment) 规则替代。
+**替换声明：**该规则在 ESLint v1.0 中移除，被[spaced-comment](spaced-comment) 规则替代。
 
 Some style guides require or disallow a whitespace immediately after the initial `//` of a line comment.
 
@@ -49,7 +49,7 @@ Exceptions cannot be mixed.
 
 The following patterns are considered problems:
 
-下面的模式被认为是有问题的：
+以下模式被认为是有问题的：
 
 ```js
 // When ["never"]
@@ -71,7 +71,7 @@ var foo = 5;
 
 The following patterns are not considered problems:
 
-下面的模式被认为是没有问题的：
+以下模式被认为是没有问题的：
 
 ```js
 // When ["always"]

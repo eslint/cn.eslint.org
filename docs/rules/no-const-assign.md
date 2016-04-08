@@ -11,12 +11,12 @@ layout: doc
 We cannot modify variables that are declared using `const` keyword.
 It will raise a runtime error.
 
-我们不能修改使用 const 关键字声明的变量。
+我们不能修改使用`const`关键字声明的变量。
 它会引发一个运行时错误。
 
 Under non ES2015 environment, it might be ignored merely.
 
-非ES2015环境下，它只是可能被忽略。
+非 ES2015 环境下，它只是可能被忽略。
 
 ## Rule Details
 
@@ -29,7 +29,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-const-assign: 2*/
+/*eslint no-const-assign: "error"*/
 /*eslint-env es6*/
 
 const a = 0;
@@ -37,7 +37,7 @@ a = 1;
 ```
 
 ```js
-/*eslint no-const-assign: 2*/
+/*eslint no-const-assign: "error"*/
 /*eslint-env es6*/
 
 const a = 0;
@@ -45,7 +45,7 @@ a += 1;
 ```
 
 ```js
-/*eslint no-const-assign: 2*/
+/*eslint no-const-assign: "error"*/
 /*eslint-env es6*/
 
 const a = 0;
@@ -57,7 +57,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-const-assign: 2*/
+/*eslint no-const-assign: "error"*/
 /*eslint-env es6*/
 
 const a = 0;
@@ -65,7 +65,7 @@ console.log(a);
 ```
 
 ```js
-/*eslint no-const-assign: 2*/
+/*eslint no-const-assign: "error"*/
 /*eslint-env es6*/
 
 for (const a in [1, 2, 3]) { // `a` is re-defined (not modified) on each loop step.
@@ -74,7 +74,7 @@ for (const a in [1, 2, 3]) { // `a` is re-defined (not modified) on each loop st
 ```
 
 ```js
-/*eslint no-const-assign: 2*/
+/*eslint no-const-assign: "error"*/
 /*eslint-env es6*/
 
 for (const a of [1, 2, 3]) { // `a` is re-defined (not modified) on each loop step.
@@ -86,13 +86,13 @@ for (const a of [1, 2, 3]) { // `a` is re-defined (not modified) on each loop st
 
 If you don't want to be notified about modifying variables that are declared using `const` keyword, you can safely disable this rule.
 
-如果你不想收到有关修改用 const 关键字声明的变量的通知，你可以禁用此规则。
+如果你不想收到有关修改用`const`关键字声明的变量的通知，你可以禁用此规则。
 
 ## Version
 
 This rule was introduced in ESLint 1.0.0-rc-1.
 
-该规则在ESLint 1.0.0-rc-1 中被引入。
+该规则在 ESLint 1.0.0-rc-1 中被引入。
 
 ## Resources
 

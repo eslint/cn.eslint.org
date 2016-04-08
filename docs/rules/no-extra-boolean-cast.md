@@ -39,7 +39,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-extra-boolean-cast: 2*/
+/*eslint no-extra-boolean-cast: "error"*/
 
 var foo = !!!bar;
 
@@ -75,7 +75,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-extra-boolean-cast: 2*/
+/*eslint no-extra-boolean-cast: "error"*/
 
 var foo = !!bar;
 var foo = Boolean(bar);

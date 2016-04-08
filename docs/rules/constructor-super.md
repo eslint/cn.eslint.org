@@ -14,7 +14,7 @@ Constructors of derived classes must call `super()`.
 Constructors of non derived classes must not call `super()`.
 If this is not observed, the javascript engine will raise a runtime error.
 
-派生类中的构造函数必须调用`super()`。非派生类的构造函数不能调用`super()`。如果没有监视到，javascript引擎将引发一个运行时错误
+派生类中的构造函数必须调用`super()`。非派生类的构造函数不能调用`super()`。如果没有监视到，javascript 引擎将引发一个运行时错误
 
 This rule checks whether or not there is a valid `super()` call.
 
@@ -31,7 +31,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint constructor-super: 2*/
+/*eslint constructor-super: "error"*/
 /*eslint-env es6*/
 
 class A {
@@ -56,7 +56,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint constructor-super: 2*/
+/*eslint constructor-super: "error"*/
 /*eslint-env es6*/
 
 class A {
@@ -84,7 +84,7 @@ If you don't want to be notified about invalid/missing `super()` callings in con
 
 This rule was introduced in ESLint 0.24.0.
 
-该规则在ESLint 0.24.0 中被引入。
+该规则在 ESLint 0.24.0 中被引入。
 
 ## Resources
 

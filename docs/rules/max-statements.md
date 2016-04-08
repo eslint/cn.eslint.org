@@ -24,7 +24,7 @@ function foo() {
 
 ## Rule Details
 
-This rule allows you to configure the maximum number of statements allowed in a function.  The default is 10.
+This rule allows you to configure the maximum number of statements allowed in a function. The default is 10.
 
 该规则允许配置函数中允许的最大语句数量。默认为10。
 
@@ -35,19 +35,23 @@ There is an additional optional argument to ignore top level functions.
 有一个额外的可选参数可以忽略顶层函数。
 
 ```json
-"max-statements": [2, 10, {"ignoreTopLevelFunctions": true}]
+"max-statements": ["error", 10, {"ignoreTopLevelFunctions": true}]
 
 // or you can use an object property to set the maximum
 
-"max-statements": [2, {"maximum": 10}, {"ignoreTopLevelFunctions": true}]
+"max-statements": ["error", {"max": 10}, {"ignoreTopLevelFunctions": true}]
 ```
+
+**Deprecated:** the object property `maximum` is deprecated. Please use the property `max` instead.
+
+**弃用：**属性`maximum`已弃用。请使用`max`属性。
 
 The following patterns are considered problems:
 
 以下模式被认为是有问题的：
 
 ```js
-/*eslint max-statements: [2, 2]*/  // Maximum of 2 statements.
+/*eslint max-statements: ["error", 2]*/  // Maximum of 2 statements.
 function foo() {
   var bar = 1;
   var baz = 2;
@@ -61,7 +65,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint max-statements: [2, 2]*/  // Maximum of 2 statements.
+/*eslint max-statements: ["error", 2]*/  // Maximum of 2 statements.
 function foo() {
   var bar = 1;
   return function () {
@@ -75,7 +79,7 @@ function foo() {
 ```
 
 ```js
-/*eslint max-statements: [2, 1, {ignoreTopLevelFunctions: true}]*/  // Maximum of 1 statement.
+/*eslint max-statements: ["error", 1, {ignoreTopLevelFunctions: true}]*/  // Maximum of 1 statement.
 (function() {
   var bar = 1;
   return function () {

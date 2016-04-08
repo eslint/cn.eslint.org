@@ -58,7 +58,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint newline-after-var: [2, "always"]*/
+/*eslint newline-after-var: ["error", "always"]*/
 
 var greet = "hello,",
     name = "world";
@@ -66,7 +66,7 @@ console.log(greet, name);
 ```
 
 ```js
-/*eslint newline-after-var: [2, "never"]*/
+/*eslint newline-after-var: ["error", "never"]*/
 /*eslint-env es6*/
 
 let greet = "hello,",
@@ -76,7 +76,7 @@ console.log(greet, name);
 ```
 
 ```js
-/*eslint newline-after-var: 2*/  // defaults to always
+/*eslint newline-after-var: "error"*/  // defaults to always
 /*eslint-env es6*/
 
 var greet = "hello,";
@@ -89,7 +89,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint newline-after-var: [2, "always"]*/
+/*eslint newline-after-var: ["error", "always"]*/
 
 var greet = "hello,",
     name = "world";
@@ -98,7 +98,7 @@ console.log(greet, name);
 ```
 
 ```js
-/*eslint newline-after-var: [2, "never"]*/
+/*eslint newline-after-var: ["error", "never"]*/
 /*eslint-env es6*/
 
 let greet = "hello,",
@@ -107,7 +107,7 @@ console.log(greet, name);
 ```
 
 ```js
-/*eslint newline-after-var: 2*/  // defaults to always
+/*eslint newline-after-var: "error"*/  // defaults to always
 /*eslint-env es6*/
 
 var greet = "hello,";
@@ -127,7 +127,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint newline-after-var: [2, "always"]*/
+/*eslint newline-after-var: ["error", "always"]*/
 
 var greet = "hello,";
 var name = "world";
@@ -147,7 +147,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint newline-after-var: [2, "always"]*/
+/*eslint newline-after-var: ["error", "always"]*/
 
 var greet = "hello,";
 var name = "world";

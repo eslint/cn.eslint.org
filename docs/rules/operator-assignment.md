@@ -44,7 +44,7 @@ This rule has two options: `always` and `never`. The default is `always`.
 
 ### "always"
 
-`"operator-assignment": [2, "always"]`
+`"operator-assignment": ["error", "always"]`
 
 This mode enforces use of operator assignment shorthand where possible.
 
@@ -55,7 +55,7 @@ The following are examples of valid patterns:
 以下示例为有效模式：
 
 ```js
-/*eslint operator-assignment: [2, "always"]*/
+/*eslint operator-assignment: ["error", "always"]*/
 
 x = y;
 x += y;
@@ -71,7 +71,7 @@ The following patterns are considered problems and should be replaced by their s
 以下模式被认为是有问题的，应该使用它们的简化版：
 
 ```js
-/*eslint operator-assignment: [2, "always"]*/
+/*eslint operator-assignment: ["error", "always"]*/
 
 x = x + y;
 x = y * x;
@@ -81,7 +81,7 @@ x.y = x.y << z;
 
 ### "never"
 
-`"operator-assignment": [2, "never"]`
+`"operator-assignment": ["error", "never"]`
 
 This mode warns on any use of operator assignment shorthand.
 
@@ -92,7 +92,7 @@ The following are examples of valid patterns:
 以下示例为有效模式：
 
 ```js
-/*eslint operator-assignment: [2, "never"]*/
+/*eslint operator-assignment: ["error", "never"]*/
 
 x = x + y;
 x.y = x.y / a.b;
@@ -103,7 +103,7 @@ The following patterns are considered problems and should be written out fully w
 以下模式被认为是有问题的，不应该使用它们的简写：
 
 ```js
-/*eslint operator-assignment: [2, "never"]*/
+/*eslint operator-assignment: ["error", "never"]*/
 
 x *= y;
 x ^= (y + z) / foo();

@@ -5,6 +5,7 @@ translator: fengnana
 proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
 # Disallow return before else (no-else-return)
 
 # 禁止在else前有return (no-else-return)
@@ -29,12 +30,12 @@ This rule is aimed at highlighting an unnecessary block of code following an `if
 
 该规则旨在突出含有 return 语句的的`if`语句后的不必要的代码。因此，`else`语句出现在含有 return 语句的的`if`语句之后，该规则将发出警告。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误**代码示例：
 
 ```js
-/*eslint no-else-return: 2*/
+/*eslint no-else-return: "error"*/
 
 function foo() {
     if (x) {
@@ -78,12 +79,12 @@ function foo() {
 }
 ```
 
-The follow patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确**代码示例：
 
 ```js
-/*eslint no-else-return: 2*/
+/*eslint no-else-return: "error"*/
 
 function foo() {
     if (x) {

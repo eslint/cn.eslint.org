@@ -8,7 +8,7 @@ proofreader: sunshiner
 
 # Require Consistent This (consistent-this)
 
-# 要求一致的This (consistent-this)
+# 要求一致的 This (consistent-this)
 
 It is often necessary to capture the current execution context in order to make it available subsequently. A prominent example of this are jQuery callbacks:
 
@@ -24,7 +24,7 @@ jQuery('li').click(function (event) {
 
 There are many commonly used aliases for `this` such as `that`, `self` or `me`. It is desirable to ensure that whichever alias the team agrees upon is used consistently throughout the application.
 
-`this`有多常用的别名例如`self`, `that` 或 `me`。所以在整个项目中确保团队成员使用同样的别名是一个很有必要的事情。
+`this`有多常用的别名例如`self`，`that`或`me`。所以在整个项目中确保团队成员使用同样的别名是一个很有必要的事情。
 
 ## Rule Details
 
@@ -47,15 +47,15 @@ This rule takes one option, a string, which is the designated `this` variable. T
 该规则有一个可选项，是个字符串，用来指定`this`的别名。
 
 ```json
-"consistent-this": [2, "that"]
+"consistent-this": ["error", "that"]
 ```
 
 Additionally, you may configure extra aliases for cases where there are more than one supported alias for `this`.
 
-你可以在配置文件中这样设置：
+另外，针对多个地方支持`this`别名的，你可以配置额外的别名。
 
 ```js
-{ "consistent-this": [ 2, "self",  "vm" ] }
+{ "consistent-this": [ "error", "self",  "vm" ] }
 ```
 
 The following patterns are considered problems:
@@ -63,7 +63,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint consistent-this: [2, "that"]*/
+/*eslint consistent-this: ["error", "that"]*/
 
 var that = 42;
 
@@ -79,7 +79,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint consistent-this: [2, "that"]*/
+/*eslint consistent-this: ["error", "that"]*/
 
 var that = this;
 
@@ -97,7 +97,7 @@ A declaration of an alias does not need to assign `this` in the declaration, but
 别名没有必要在声明时就赋值为`this`，但必须在和声明时同样的作用域下完成赋值。以下模式被认为是可以的：
 
 ```js
-/*eslint consistent-this: [2, "that"]*/
+/*eslint consistent-this: ["error", "that"]*/
 
 var that;
 that = this;
@@ -112,7 +112,7 @@ But the following pattern is considered a warning:
 但以下模式被认为是个警告：
 
 ```js
-/*eslint consistent-this: [2, "that"]*/
+/*eslint consistent-this: ["error", "that"]*/
 
 var that;
 function f() {
@@ -130,7 +130,7 @@ If you need to capture nested context, `consistent-this` is going to be problema
 
 This rule was introduced in ESLint 0.0.9.
 
-该规则在ESLint 0.0.9 被引入。
+该规则在 ESLint 0.0.9 被引入。
 
 ## Resources
 

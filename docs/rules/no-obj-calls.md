@@ -8,11 +8,11 @@ proofreader: yanggao40
 
 # Disallow Global Object Function Calls (no-obj-calls)
 
-# 禁止全局对象函数调用
+# 禁止全局对象函数调用 (no-obj-calls)
 
 ECMAScript provides several global objects that are intended to be used as-is. Some of these objects look as if they could be constructors due their capitalization (such as `Math` and `JSON`) but will throw an error if you try to execute them as functions.
 
-ECMAScript提供了几个全局对象，旨在直接调用。这些对象由于是大写的（比如`Math` 和 `JSON`）看起来好像是构造函数，但是如果你尝试像函数一致执行它们，将会抛出错误。
+ECMAScript 提供了几个全局对象，旨在直接调用。这些对象由于是大写的（比如`Math` 和 `JSON`）看起来好像是构造函数，但是如果你尝试像函数一致执行它们，将会抛出错误。
 
 The [ECMAScript 5 specification](http://es5.github.io/#x15.8) makes it clear that both `Math` and `JSON` cannot be invoked:
 
@@ -34,7 +34,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-obj-calls: 2*/
+/*eslint no-obj-calls: "error"*/
 
 var x = Math();
 var y = JSON();
@@ -45,7 +45,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-obj-calls: 2*/
+/*eslint no-obj-calls: "error"*/
 
 var x = math();
 var y = json();
@@ -60,7 +60,7 @@ var y = json();
 
 This rule was introduced in ESLint 0.0.9.
 
-该规则在ESLint 0.0.9中被引入。
+该规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

@@ -12,7 +12,7 @@ proofreader: molee1905
 
 JavaScript functions can be written as a FunctionDeclaration `function foo() { ... }` or as a FunctionExpression `var foo = function() { ... };`. While a JavaScript interpreter might tolerate it, overwriting/reassigning a function written as a FunctionDeclaration is often indicative of a mistake or issue.
 
-Javascript函数能以函数声明 `function foo() { ... }` 或者函数表达式 `var foo = function() { ... }`的形式书写。对一个函数进行覆盖或再指定，尽管Javascript解释器可以接受，但通常是个错误或问题。
+Javascript 函数能以函数声明 `function foo() { ... }` 或者函数表达式 `var foo = function() { ... }`的形式书写。对一个函数进行覆盖或再指定，尽管Javascript解释器可以接受，但通常是个错误或问题。
 
 ```js
 function foo() {}
@@ -30,7 +30,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-func-assign: 2*/
+/*eslint no-func-assign: "error"*/
 
 function foo() {}
 foo = bar;
@@ -42,10 +42,10 @@ function foo() {
 
 Examples of **incorrect** code for this rule, unlike the corresponding rule in JSHint:
 
-**错误**代码示例，与JSHint中的规则不同：
+**错误**代码示例，与 JSHint 中的规则不同：
 
 ```js
-/*eslint no-func-assign: 2*/
+/*eslint no-func-assign: "error"*/
 
 foo = bar;
 function foo() {}
@@ -56,7 +56,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-func-assign: 2*/
+/*eslint no-func-assign: "error"*/
 
 var foo = function () {}
 foo = bar;

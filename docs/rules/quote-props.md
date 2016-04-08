@@ -67,7 +67,7 @@ There are four behaviors for this rule: `"always"` (default), `"as-needed"`, `"c
 
 ```json
 {
-    "quote-props": [2, "as-needed"]
+    "quote-props": ["error", "as-needed"]
 }
 ```
 
@@ -114,7 +114,7 @@ When configured with `"always"` as the first option (the default), quoting for a
 当第一个选项配置为`"always"`时(默认的)，所有的属性将被强制使用引号。以下模式被认为是有问题的：
 
 ```js
-/*eslint quote-props: [2, "always"]*/
+/*eslint quote-props: ["error", "always"]*/
 
 var object = {
     foo: "bar",
@@ -128,7 +128,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint quote-props: [2, "always"]*/
+/*eslint quote-props: ["error", "always"]*/
 /*eslint-env es6*/
 
 var object1 = {
@@ -157,7 +157,7 @@ When configured with `"as-needed"` as the first option, quotes will be enforced 
 当第一个选项配置为`"as-needed"`时，严格要求带引号的属性将被强制带引号，不必要的引号将发出警告。以下模式被认为是有问题的：
 
 ```js
-/*eslint quote-props: [2, "as-needed"]*/
+/*eslint quote-props: ["error", "as-needed"]*/
 
 var object = {
     "a": 0,
@@ -172,7 +172,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint quote-props: [2, "as-needed"]*/
+/*eslint quote-props: ["error", "as-needed"]*/
 /*eslint-env es6*/
 
 var object1 = {
@@ -202,7 +202,7 @@ When the `"as-needed"` mode is selected, an additional `keywords` option can be 
 
 ```json
 {
-    "quote-props": [2, "as-needed", { "keywords": true }]
+    "quote-props": ["error", "as-needed", { "keywords": true }]
 }
 ```
 
@@ -211,7 +211,7 @@ When `keywords` is set to `true`, the following patterns become problems:
 当`keywords`被设置为`true`时，以下模式是有问题的：
 
 ```js
-/*eslint quote-props: [2, "as-needed", { "keywords": true }]*/
+/*eslint quote-props: ["error", "as-needed", { "keywords": true }]*/
 
 var x = {
     while: 1,
@@ -225,7 +225,7 @@ Another modifier for this rule is the `unnecessary` option which defaults to `tr
 
 ```json
 {
-    "quote-props": [2, "as-needed", { "keywords": true, "unnecessary": false }]
+    "quote-props": ["error", "as-needed", { "keywords": true, "unnecessary": false }]
 }
 ```
 
@@ -234,7 +234,7 @@ When `unnecessary` is set to `false`, the following patterns _stop_ being proble
 当设置`unnecessary`为`false`时，以下模式是没有问题的：
 
 ```js
-/*eslint quote-props: [2, "as-needed", { "keywords": true, "unnecessary": false }]*/
+/*eslint quote-props: ["error", "as-needed", { "keywords": true, "unnecessary": false }]*/
 
 var x = {
     "while": 1,
@@ -248,7 +248,7 @@ A `numbers` flag, with default value `false`, can also be used as a modifier for
 
 ```json
 {
-    "quote-props": [2, "as-needed", {"numbers": true}]
+    "quote-props": ["error", "as-needed", {"numbers": true}]
 }
 ```
 
@@ -257,7 +257,7 @@ When `numbers` is set to `true`, the following patterns become problems:
 当`numbers`设置为`true`时，以下模式是有问题的：
 
 ```js
-/*eslint quote-props: [2, "as-needed", { "numbers": true }]*/
+/*eslint quote-props: ["error", "as-needed", { "numbers": true }]*/
 
 var x = {
     100: 1
@@ -281,7 +281,7 @@ When configured with `"consistent"`, the patterns below are considered problems.
 当配置为`"consistent"`，以下模式被认为是有问题的。从根本上来说`"consistent"`意味着所有属性或没有属性要求被引号包裹起来，换句话说，在同一个对象中不能混合使用不同的引号风格。请注意后一种情况(没有引号)，并不总是不需要引号，可能因为某些属性名需要用引号包裹起来。
 
 ```js
-/*eslint quote-props: [2, "consistent"]*/
+/*eslint quote-props: ["error", "consistent"]*/
 
 var object1 = {
     foo: "bar",
@@ -300,7 +300,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint quote-props: [2, "consistent"]*/
+/*eslint quote-props: ["error", "consistent"]*/
 
 var object1 = {
     "foo": "bar",
@@ -326,7 +326,7 @@ When configured with `"consistent-as-needed"`, the behavior is similar to `"cons
 当配置了`"consistent-as-needed"`，它的行为类似于`"consistent"`，仅有一个区别。即，除了所有的引号都是多余的时候引起了警告，属性的引号应该是一致的(同在 `"consistent"`中一样)。换句话说，如果有一个属性名不得不被被引号包裹起来(像`qux-lorem`)，其他的属性也名必须也被引号包裹起来，否则，任何属性都不能被包裹起来。以下模式被认为是有问题的：
 
 ```js
-/*eslint quote-props: [2, "consistent-as-needed"]*/
+/*eslint quote-props: ["error", "consistent-as-needed"]*/
 
 var object1 = {
     foo: "bar",
@@ -345,7 +345,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint quote-props: [2, "consistent-as-needed"]*/
+/*eslint quote-props: ["error", "consistent-as-needed"]*/
 
 var object1 = {
     "foo": "bar",
@@ -365,7 +365,7 @@ When the `"consistent-as-needed"` mode is selected, an additional `keywords` opt
 
 ```json
 {
-    "quote-props": [2, "consistent-as-needed", { "keywords": true }]
+    "quote-props": ["error", "consistent-as-needed", { "keywords": true }]
 }
 ```
 
@@ -374,7 +374,7 @@ When `keywords` is set to `true`, the following patterns are considered problems
 当`keywords`被设置为`true`，以下模式被认为是有问题的：
 
 ```js
-/*eslint quote-props: [2, "consistent-as-needed", { "keywords": true }]*/
+/*eslint quote-props: ["error", "consistent-as-needed", { "keywords": true }]*/
 
 var x = {
     while: 1,

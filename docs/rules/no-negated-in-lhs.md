@@ -8,7 +8,7 @@ proofreader: molee1905
 
 # Disallow negated left operand of `in` operator (no-negated-in-lhs)
 
-# 禁止`in`操作符的否定的左操作数
+# 禁止`in`操作符的否定的左操作数 (no-negated-in-lhs)
 
 ## Rule Details
 
@@ -47,7 +47,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-negated-in-lhs: 2*/
+/*eslint no-negated-in-lhs: "error"*/
 
 if(!a in b) {
     // do something
@@ -59,7 +59,7 @@ Examples of **correct** code for this rule:
 **正确**代码示例：
 
 ```js
-/*eslint no-negated-in-lhs: 2*/
+/*eslint no-negated-in-lhs: "error"*/
 
 if(!(a in b)) {
     // do something

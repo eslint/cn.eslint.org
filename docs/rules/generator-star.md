@@ -8,15 +8,15 @@ proofreader: sunshiner
 
 # Enforce the position of the * in generators (generator-star)
 
-# 强制*在generator函数中的位置(generator-star)
+# 强制 * 在 generator 函数中的位置 (generator-star)
 
 **Replacement notice**: This rule was removed in ESLint v1.0 and replaced by the [generator-star-spacing](generator-star-spacing) rule.
 
-**替换声明**: 该规则在ESLint v1.0 中移除并被[generator-star-spacing](generator-star-spacing)规则代替。
+**替换声明：**该规则在 ESLint v1.0 中移除并被[generator-star-spacing](generator-star-spacing)规则代替。
 
 Generators are a new type of function in ECMAScript 6 that can return multiple values over time.
 
-generator函数在ECMAScript 6中是一种新类型的函数，随着时间的推移它可以返回多个值。
+generator 函数在 ECMAScript 6 中是一种新类型的函数，随着时间的推移它可以返回多个值。
 
 These special functions are indicated by placing an `*` after the `function` keyword.
 
@@ -24,7 +24,7 @@ These special functions are indicated by placing an `*` after the `function` key
 
 Here is an example of a generator function:
 
-下面是generator函数的的一个例子：
+下面是 generator 函数的的一个例子：
 
 ```js
 /*eslint-env es6*/
@@ -63,7 +63,7 @@ function * generator() {
 
 To keep a sense of consistency when using generators this rule enforces a single position for the `*`.
 
-为了保持使用generator函数时的一致性，该规则强制`*`的位置。
+为了保持使用 generator 函数时的一致性，该规则强制`*`的位置。
 
 ## Rule Details
 
@@ -78,7 +78,7 @@ You can set the style in configuration like this:
 你可以像下面这样在配置中设置样式:
 
 ```json
-"generator-star": [2, "start"]
+"generator-star": ["error", "start"]
 ```
 
 When using `"start"` this placement will be enforced:
@@ -158,19 +158,15 @@ var generator = function*() {
 }
 ```
 
-To use this rule you must set the `generators` flag to `true` in the `ecmaFeatures` configuration object.
+The shortened object literal syntax for generators is not affected by this rule.
 
-要使用该规则必须在`ecmaFeatures` 配置对象中将设置`generators`标记为`true` 。
-
-Also note, that shortened object literal syntax for generators is not affected by this rule.
-
-需要注意的是，对于generator函数缩短的对象字面量语法不会被此规则影响。
+对于 generator 函数缩短的对象字面量语法不会被此规则影响。
 
 ## When Not To Use It
 
 If your project will not be using generators you do not need this rule.
 
-如果你的项目中不会使用generator函数就不必使用该规则。
+如果你的项目中不会使用 generator 函数就不必使用该规则。
 
 ## Further Reading
 
@@ -180,7 +176,7 @@ If your project will not be using generators you do not need this rule.
 
 This rule was introduced in ESLint 0.12.0 and removed in 1.0.0-rc-1.
 
-该规则在ESLint 0.12.0 中被引入，在 1.0.0-rc-1 版本中移除。
+该规则在 ESLint 0.12.0 中被引入，在 1.0.0-rc-1 版本中被移除。
 
 ## Resources
 

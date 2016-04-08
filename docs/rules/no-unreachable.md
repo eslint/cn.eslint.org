@@ -33,7 +33,7 @@ Examples of **incorrect** code for this rule:
 **错误**代码示例：
 
 ```js
-/*eslint no-unreachable: 2*/
+/*eslint no-unreachable: "error"*/
 
 function foo() {
     return true;
@@ -68,10 +68,10 @@ console.log("done");
 
 Examples of **correct** code for this rule, because of JavaScript function and variable hoisting:
 
-**正确**代码示例，由于Javascript函数和变量提升：
+**正确**代码示例，由于 Javascript 函数和变量提升：
 
 ```js
-/*eslint no-unreachable: 2*/
+/*eslint no-unreachable: "error"*/
 
 function foo() {
     return bar();

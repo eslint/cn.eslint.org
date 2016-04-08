@@ -159,7 +159,7 @@ The plugin support was introduced in ESLint version `0.8.0`. Ensure the `peerDep
 
 You can test the rules of your plugin [the same way as bundled ESLint rules](working-with-rules) using [`ESLintTester`](https://github.com/eslint/eslint-tester).
 
-你可以使用[`ESLintTester`](https://github.com/eslint/eslint-tester)测试你插件中的规则[同测试ESLint规则一样](working-with-rules)。
+你可以使用[`ESLintTester`](https://github.com/eslint/eslint-tester)测试你插件中的规则[同测试 ESLint 规则一样](working-with-rules)。
 
 Example:
 

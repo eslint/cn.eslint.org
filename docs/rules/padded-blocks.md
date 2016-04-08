@@ -47,7 +47,7 @@ The following patterns are considered problems when set to `"always"`:
 当设置为`"always"`时，以下模式被认为是有问题的：
 
 ```js
-/*eslint padded-blocks: [2, "always"]*/
+/*eslint padded-blocks: ["error", "always"]*/
 
 if (a) {
     b();
@@ -82,7 +82,7 @@ The following patterns are not considered problems when set to `"always"`:
 当设置为`"always"`时，以下模式被认为是没有问题的：
 
 ```js
-/*eslint padded-blocks: [2, "always"]*/
+/*eslint padded-blocks: ["error", "always"]*/
 
 if (a) {
 
@@ -110,7 +110,7 @@ The following patterns are considered problems when set to `"never"`:
 当设置为`"never"`时，以下模式被认为是有问题的：
 
 ```js
-/*eslint padded-blocks: [2, "never"]*/
+/*eslint padded-blocks: ["error", "never"]*/
 
 if (a) {
 
@@ -141,7 +141,7 @@ The following patterns are not considered problems when set to `"never"`:
 当设置为`"never"`时，以下模式被认为是没有问题的：
 
 ```js
-/*eslint padded-blocks: [2, "never"]*/
+/*eslint padded-blocks: ["error", "never"]*/
 
 if (a) {
     b();
@@ -158,7 +158,7 @@ The following patterns are considered problems when configured `{ "switches": "a
 当配置为`{ "switches": "always" }`，以下模式被认为是有问题的：
 
 ```js
-/*eslint padded-blocks: [2, { "switches": "always" }]*/
+/*eslint padded-blocks: ["error", { "switches": "always" }]*/
 
 switch (a) {
     case 0: foo();
@@ -170,7 +170,7 @@ The following patterns are not considered problems when configured `{ "switches"
 当配置为`{ "switches": "always" }`，以下模式被认为是没有问题的：
 
 ```js
-/*eslint padded-blocks: [2, { "switches": "always" }]*/
+/*eslint padded-blocks: ["error", { "switches": "always" }]*/
 
 switch (a) {
 
@@ -188,7 +188,7 @@ The following patterns are considered problems when configured `{ "switches": "n
 当配置为`{ "switches": "never" }`，以下模式被认为是有问题的：
 
 ```js
-/*eslint padded-blocks: [2, { "switches": "never" }]*/
+/*eslint padded-blocks: ["error", { "switches": "never" }]*/
 
 switch (a) {
 
@@ -202,7 +202,7 @@ The following patterns are not considered problems when configured `{ "switches"
 当配置为`{ "switches": "never" }`，以下模式被认为是没有问题的：
 
 ```js
-/*eslint padded-blocks: [2, { "switches": "never" }]*/
+/*eslint padded-blocks: ["error", { "switches": "never" }]*/
 
 switch (a) {
     case 0: foo();
@@ -220,7 +220,7 @@ The following patterns are considered problems when configured `{ "classes": "al
 当配置为`{ "classes": "always" }`，以下模式被认为是有问题的：
 
 ```js
-/*eslint padded-blocks: [2, { "classes": "always" }]*/
+/*eslint padded-blocks: ["error", { "classes": "always" }]*/
 
 class  A {
     constructor(){
@@ -233,7 +233,7 @@ The following patterns are not considered problems when configured `{ "classes":
 当配置为`{ "classes": "always" }`，以下模式被认为是没有问题的：
 
 ```js
-/*eslint padded-blocks: [2, { "classes": "always" }]*/
+/*eslint padded-blocks: ["error", { "classes": "always" }]*/
 
 class  A {
 
@@ -248,7 +248,7 @@ The following patterns are considered problems when configured `{ "classes": "ne
 当配置为`{ "classes": "never" }`，以下模式被认为是有问题的：
 
 ```js
-/*eslint padded-blocks: [2, { "classes": "never" }]*/
+/*eslint padded-blocks: ["error", { "classes": "never" }]*/
 
 class  A {
 
@@ -263,7 +263,7 @@ The following patterns are not considered problems when configured `{ "classes":
 当配置为`{ "classes": "never" }`，以下模式被认为是没有问题的：
 
 ```js
-/*eslint padded-blocks: [2, { "classes": "never" }]*/
+/*eslint padded-blocks: ["error", { "classes": "never" }]*/
 
 class  A {
     constructor(){

@@ -33,7 +33,7 @@ You can enable this option by using the following configuration:
 你可以通过以下配置开启此选项：
 
 ```json
-"no-mixed-spaces-and-tabs": [2, "smart-tabs"]
+"no-mixed-spaces-and-tabs": ["error", "smart-tabs"]
 ```
 
 The following patterns are considered problems:
@@ -41,7 +41,7 @@ The following patterns are considered problems:
 以下模式被认为是有问题的：
 
 ```js
-/*eslint no-mixed-spaces-and-tabs: 2*/
+/*eslint no-mixed-spaces-and-tabs: "error"*/
 
 function add(x, y) {
 // --->..return x + y;
@@ -63,7 +63,7 @@ The following patterns are not considered problems:
 以下模式被认为是没有问题的：
 
 ```js
-/*eslint no-mixed-spaces-and-tabs: 2*/
+/*eslint no-mixed-spaces-and-tabs: "error"*/
 
 function add(x, y) {
 // --->return x + y;
@@ -76,7 +76,7 @@ When the SmartTabs option is enabled the following does not produce a warning:
 当 SmartTabs 选项启用时，以下模式不会发出警告：
 
 ```js
-/*eslint no-mixed-spaces-and-tabs: [2, "smart-tabs"]*/
+/*eslint no-mixed-spaces-and-tabs: ["error", "smart-tabs"]*/
 
 function main() {
 // --->var x = 5,
