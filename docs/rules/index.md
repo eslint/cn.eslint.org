@@ -29,7 +29,7 @@ The following rules point out areas where you might have made mistakes.
 * [no-cond-assign](no-cond-assign): disallow assignment in conditional expressions (recommended)
 * [no-cond-assign](no-cond-assign): 禁止条件表示中赋值(recommended)
 * [no-console](no-console): disallow use of `console` (recommended)
-* [no-console](no-console): 禁用 `console`(recommended)
+* [no-console](no-console): 禁用 `console` (recommended)
 * [no-constant-condition](no-constant-condition): disallow use of constant expressions in conditions (recommended)
 * [no-constant-condition](no-constant-condition): 禁止在条件中使用常量表达式 (recommended)
 * [no-control-regex](no-control-regex): disallow control characters in regular expressions (recommended)
@@ -77,9 +77,9 @@ The following rules point out areas where you might have made mistakes.
 * [use-isnan](use-isnan): disallow comparisons with the value `NaN` (recommended)
 * [use-isnan](use-isnan): 禁止与 `NaN`进行比较 (recommended)
 * [valid-jsdoc](valid-jsdoc): ensure JSDoc comments are valid
-* [valid-jsdoc](valid-jsdoc): 确保JSDoc注释是有效的
+* [valid-jsdoc](valid-jsdoc): 确保 JSDoc 注释是有效的
 * [valid-typeof](valid-typeof): ensure results of typeof are compared against a valid string (recommended)
-* [valid-typeof](valid-typeof): 确保typeof结果与一个有效的字符串相比较 (recommended)
+* [valid-typeof](valid-typeof): 确保 typeof 结果与一个有效的字符串相比较 (recommended)
 
 ## Best Practices
 
@@ -364,11 +364,11 @@ These rules are purely matters of style and are quite subjective.
 * [newline-per-chained-call](newline-per-chained-call): enforce newline after each call when chaining the calls
 * [newline-per-chained-call](newline-per-chained-call): enforce newline after each call when chaining the calls
 * [no-array-constructor](no-array-constructor): disallow use of the `Array` constructor
-* [no-array-constructor](no-array-constructor): 要求或禁止变量声明语句后有空行
+* [no-array-constructor](no-array-constructor): 禁用`Array`构造函数
 * [no-bitwise](no-bitwise): disallow use of bitwise operators
-* [no-bitwise](no-bitwise): 不允许使用按位运算符 
+* [no-bitwise](no-bitwise): 禁用按位运算符
 * [no-continue](no-continue): disallow use of the `continue` statement
-* [no-continue](no-continue): 不允许使用 `continue` 语句
+* [no-continue](no-continue): 禁用 `continue` 语句
 * [no-inline-comments](no-inline-comments): disallow comments inline after code
 * [no-inline-comments](no-inline-comments): 不允许代码行后有注释
 * [no-lonely-if](no-lonely-if): disallow `if` as the only statement in an `else` block
@@ -382,15 +382,15 @@ These rules are purely matters of style and are quite subjective.
 * [no-nested-ternary](no-nested-ternary): disallow nested ternary expressions
 * [no-nested-ternary](no-nested-ternary): 不允许使用嵌套的三元表达式
 * [no-new-object](no-new-object): disallow the use of the `Object` constructor
-* [no-new-object](no-new-object): 不允许使用`Object`的构造函数
+* [no-new-object](no-new-object): 禁用 `Object` 的构造函数
 * [no-plusplus](no-plusplus): disallow use of unary operators, `++` and `--`
-* [no-plusplus](no-plusplus): 不允许使用`++` 和 `--`
+* [no-plusplus](no-plusplus): 禁用 `++` 和 `--`
 * [no-restricted-syntax](no-restricted-syntax): disallow use of certain syntax in code
 * [no-restricted-syntax](no-restricted-syntax): 不允许在代码中使用特定的语法
 * [no-spaced-func](no-spaced-func): disallow space between function identifier and application (fixable)
-* [no-spaced-func](no-spaced-func): 不允许函数调用时，function标识符和括号之间有空格 (fixable)
+* [no-spaced-func](no-spaced-func): 不允许 function 标识符和括号之间有空格 (fixable)
 * [no-ternary](no-ternary): disallow the use of ternary operators
-* [no-ternary](no-ternary): 不允许使用三元操作符
+* [no-ternary](no-ternary): 禁用三元操作符
 * [no-trailing-spaces](no-trailing-spaces): disallow trailing whitespace at the end of lines (fixable)
 * [no-trailing-spaces](no-trailing-spaces): 禁用行尾空格 (fixable)
 * [no-underscore-dangle](no-underscore-dangle): disallow dangling underscores in identifiers
@@ -463,7 +463,7 @@ These rules are only relevant to ES6 environments.
 * [no-confusing-arrow](no-confusing-arrow): disallow arrow functions where they could be confused with comparisons
 * [no-confusing-arrow](no-confusing-arrow): disallow arrow functions where they could be confused with comparisons
 * [no-const-assign](no-const-assign): disallow modifying variables that are declared using `const` (recommended)
-* [no-const-assign](no-const-assign): 不允许改变用`const`声明的变量 (recommended)
+* [no-const-assign](no-const-assign): 不允许改变`const`声明的变量 (recommended)
 * [no-dupe-class-members](no-dupe-class-members): disallow duplicate name in class members (recommended)
 * [no-dupe-class-members](no-dupe-class-members): 不允许类成员中有重复的名称 (recommended)
 * [no-duplicate-imports](no-duplicate-imports): disallow duplicate module imports
@@ -526,7 +526,7 @@ These rules existed in a previous version of ESLint but have since been replaced
 * [no-space-before-semi](no-space-before-semi): disallow space before semicolon (replaced by [semi-spacing](semi-spacing))
 * [no-space-before-semi](no-space-before-semi): 禁用分号前空格 (替换为 [semi-spacing](semi-spacing))
 * [no-wrap-func](no-wrap-func): disallow wrapping of non-IIFE statements in parens (replaced by [no-extra-parens](no-extra-parens))
-* [no-wrap-func](no-wrap-func): 禁止非IIFE语句括在括号中 (替换为 [no-extra-parens](no-extra-parens))
+* [no-wrap-func](no-wrap-func): 禁止非 IIFE 语句括在括号中 (替换为 [no-extra-parens](no-extra-parens))
 * [space-after-function-name](space-after-function-name): require a space after function names (replaced by [space-before-function-paren](space-before-function-paren))
 * [space-after-function-name](space-after-function-name): 要求函数名后有一个空格 (替换为 [space-before-function-paren](space-before-function-paren))
 * [space-after-keywords](space-after-keywords): require a space after certain keywords (fixable) (replaced by [keyword-spacing](keyword-spacing))
