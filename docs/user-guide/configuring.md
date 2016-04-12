@@ -53,7 +53,7 @@ ESLint 允许你指定你想要支持的 JavaScript 语言选项。默认情况�
 
 Parser options are set in your `.eslintrc.*` file by using the `parserOptions` property. The available options are:
 
-在`.eslintrc`文件使用`parserOptions`属性设置解析器选项。可用的选项有：
+在`.eslintrc.*`文件使用`parserOptions`属性设置解析器选项。可用的选项有：
 
 * `ecmaVersion` - set to 3, 5 (default), 6, or 7 to specify the version of ECMAScript you want to use.
 
@@ -687,7 +687,7 @@ There are two ways to use configuration files. The first is to save the file whe
 
 The second way to use configuration files is via `.eslintrc.*` and `package.json` files. ESLint will automatically look for them in the directory of the file to be linted, and in successive parent directories all the way up to the root directory of the filesystem. This option is useful when you want different configurations for different parts of a project or when you want others to be able to use ESLint directly without needing to remember to pass in the configuration file.
 
-第二种方式是通过`.eslintrc`和`package.json`。ESLint将自动在要检测的文件目录里寻找它们，紧接着是父级目录，一直到文件系统的根目录。当你想对一个项目的不同部分的使用不同配置，或当你希望别人能够直接使用ESLint，而无需记住要在配置文件中传递什么，这种方式就很有用。
+第二种方式是通过`.eslintrc.*`和`package.json`。ESLint将自动在要检测的文件目录里寻找它们，紧接着是父级目录，一直到文件系统的根目录。当你想对一个项目的不同部分的使用不同配置，或当你希望别人能够直接使用ESLint，而无需记住要在配置文件中传递什么，这种方式就很有用。
 
 In each case, the settings in the configuration file override default settings.
 
@@ -739,7 +739,7 @@ If there are multiple configuration files in the same directory, ESLint will onl
 
 When using `.eslintrc.*` and `package.json` files for configuration, you can take advantage of configuration cascading. For instance, suppose you have the following structure:
 
-当使用`.eslintrc` 和 `package.json`文件的配置时，你可以利用配置级联。例如，假如你有以下结构：
+当使用`.eslintrc.*` 和 `package.json`文件的配置时，你可以利用配置级联。例如，假如你有以下结构：
 
 ```text
 your-project
