@@ -414,7 +414,7 @@ These rules are purely matters of style and are quite subjective.
 * [quote-props](quote-props): require quotes around object literal property names
 * [quote-props](quote-props): 要求对象字面量属性名称用引号括起来
 * [quotes](quotes): specify whether backticks, double or single quotes should be used (fixable)
-* [quotes](quotes): 指定是否应使用反勾号、双引号互殴单引号(fixable)
+* [quotes](quotes): 指定是否应使用反勾号、双引号或单引号(fixable)
 * [require-jsdoc](require-jsdoc): Require JSDoc comment
 * [require-jsdoc](require-jsdoc): 要求使用 JSDoc 注释
 * [semi](semi): require or disallow use of semicolons instead of ASI (fixable)
