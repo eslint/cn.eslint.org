@@ -96,10 +96,6 @@ Although ASI allows for more freedom over your coding style, it can also make yo
 
 4. 下一行以`[`，`(`，`+`，`*`，`/`，`-`，`,`，`.`或一些其他在单个表达式中两个标记之间的二元操作符
 
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
-
 ## Rule Details
 
 This rule is aimed at ensuring consistent use of semicolons. You can decide whether or not to require semicolons at the end of statements.
