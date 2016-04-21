@@ -1,4 +1,4 @@
----
+ƒ---
 title: Documentation
 layout: doc
 translator: molee1905
@@ -12,7 +12,7 @@ proofreader: fengnana
 
 Each plugin is an npm module with a name in the format of `eslint-plugin-<plugin-name>`, such as `eslint-plugin-jquery`. You can also use scoped packages in the format of `@<scope>/eslint-plugin-<plugin-name>` such as `@jquery/eslint-plugin-jquery`.
 
-每个插件是一个命名格式为`eslint-plugin-<plugin-name>`的npm模块，比如`eslint-plugin-jquery`。你也可以用这样的格式`@<scope>/eslint-plugin-<plugin-name>` 限定在包作用域下，比如`@jquery/eslint-plugin-jquery`。
+每个插件是一个命名格式为`eslint-plugin-<plugin-name>`的 npm 模块，比如`eslint-plugin-jquery`。你也可以用这样的格式`@<scope>/eslint-plugin-<plugin-name>` 限定在包作用域下，比如`@jquery/eslint-plugin-jquery`。
 
 ## Create a Plugin
 
@@ -28,7 +28,7 @@ The easiest way to start creating a plugin is to use the [Yeoman generator](http
 
 Plugins can expose additional rules for use in ESLint. To do so, the plugin must export a `rules` object containing a key-value mapping of rule ID to rule. The rule ID does not have to follow any naming convention (so it can just be `dollar-sign`, for instance).
 
-在ESLint中，插件可以暴露额外的规则以供使用。为此，插件必须输出一个`rules`对象，包含规则ID和对应规则的一个键值对。这个规则ID不需要遵循任何命名规范（所以，比如，它可以是`dollar-sign`）。
+在 ESLint 中，插件可以暴露额外的规则以供使用。为此，插件必须输出一个`rules`对象，包含规则ID和对应规则的一个键值对。这个规则 ID 不需要遵循任何命名规范（所以，比如，它可以是`dollar-sign`）。
 
 ```js
 module.exports = {
@@ -71,7 +71,7 @@ Plugin environments can define the following objects:
 
 You can also create plugins that would tell ESLint how to process files other than JavaScript. In order to create a processor, object that is exported from your module has to conform to the following interface:
 
-你也可以创建插件告诉ESLint如何处理JavaScript之外的文件。为了创建一个处理器，从你的模块中输出的对象必须符合以下接口：
+你也可以创建插件告诉 ESLint 如何处理 JavaScript 之外的文件。为了创建一个处理器，从你的模块中输出的对象必须符合以下接口：
 
 ```js
 processors: {
@@ -101,7 +101,7 @@ processors: {
 
 The `preprocess` method takes the file contents and filename as arguments, and returns an array of strings to lint. The strings will be linted separately but still be registered to the filename. It's up to the plugin to decide if it needs to return just one part, or multiple pieces. For example in the case of processing `.html` files, you might want to return just one item in the array by combining all scripts, but for `.md` file where each JavaScript block might be independent, you can return multiple items.
 
-`preprocess`将文件内容和文件名称作为参数，返回一个要检查的字符串数组。这些字符串将被分别检查，但仍要注册到文件名。决定它需要返回的只是一部分还是多个块，取决于这个插件。例如，在处理`.html`文件时，通过合并所有的脚本，你可能想要返回数组中的一项，但是对于`.md`文件，每个javascript块可能是独立的，你可以返回多个项。
+`preprocess`将文件内容和文件名称作为参数，返回一个要检查的字符串数组。这些字符串将被分别检查，但仍要注册到文件名。决定它需要返回的只是一部分还是多个块，取决于这个插件。例如，在处理`.html`文件时，通过合并所有的脚本，你可能想要返回数组中的一项，但是对于`.md`文件，每个 JavaScript 块可能是独立的，你可以返回多个项。
 
 
 The `postprocess` method takes a two-dimensional array of arrays of lint messages and the filename. Each item in the input
@@ -143,7 +143,7 @@ configs: {
 To make clear that the plugin requires ESLint to work correctly you have to declare ESLint as a `peerDependency` in your `package.json`.
 The plugin support was introduced in ESLint version `0.8.0`. Ensure the `peerDependency` points to ESLint `0.8.0` or later.
 
-为了明确插件需要ESLint才能正常运行，你必须在你的`package.json`中声明将ESLint作为一个`peerDependency`。对插件的支持在ESLint`0.8.0`版本中被引入。要确保`peerDependency`指向ESLint `0.8.0`或之后的版本。
+为了明确插件需要 ESLint 才能正常运行，你必须在你的`package.json`中声明将 ESLint 作为一个`peerDependency`。对插件的支持在 ESLint `0.8.0`版本中被引入。要确保`peerDependency`指向 ESLint `0.8.0`或之后的版本。
 
 ```json
 {
@@ -190,7 +190,7 @@ ruleTester.run("custom-plugin-rule", rule, {
 
 In order to make your plugin available to the community you have to publish it on npm.
 
-为了让你的插件在社区中可用，你需要将它发布到npm。
+为了让你的插件在社区中可用，你需要将它发布到 npm。
 
 Recommended keywords:
 

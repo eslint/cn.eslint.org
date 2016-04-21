@@ -727,10 +727,16 @@ If there are multiple configuration files in the same directory, ESLint will onl
 如果同一个目录下有多个配置文件，ESLint 只会使用一个。优先级顺序如下：
 
 1. `.eslintrc.js`
+1. `.eslintrc.js`
+1. `.eslintrc.yaml`
 1. `.eslintrc.yaml`
 1. `.eslintrc.yml`
+1. `.eslintrc.yml`
+1. `.eslintrc.json`
 1. `.eslintrc.json`
 1. `.eslintrc`
+1. `.eslintrc`
+1. `package.json`
 1. `package.json`
 
 ## Configuration Cascading and Hierarchy

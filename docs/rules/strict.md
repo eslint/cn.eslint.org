@@ -8,11 +8,11 @@ proofreader: molee1905
 
 # Strict Mode Directives (strict)
 
-# 严格模式 (strict)
+# 严格模式指令 (strict)
  
 A strict mode directive at the beginning of a script or function body enables strict mode semantics.
 
-在脚本或方法体的开始位置使用严格模式指令开启严格模式语义。ß
+在脚本或方法体的开始位置使用严格模式指令开启严格模式语义。
 
 When used globally, the entire script, including all contained functions, are strict mode code:
 
@@ -281,9 +281,9 @@ function foo() {
 
 ## When Not To Use It
 
-In a codebase that has both strict and non-strict code, either turn this rule off, or [selectively disable it](http://eslint.org/docs/user-guide/configuring) where necessary. For example, functions referencing `arguments.callee` are invalid in strict mode. A [full list of strict mode differences](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode/Transitioning_to_strict_mode#Differences_from_non-strict_to_strict) is available on MDN.
+In a codebase that has both strict and non-strict code, either turn this rule off, or [selectively disable it](/docs/user-guide/configuring) where necessary. For example, functions referencing `arguments.callee` are invalid in strict mode. A [full list of strict mode differences](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode/Transitioning_to_strict_mode#Differences_from_non-strict_to_strict) is available on MDN.
 
-在一个基本代码库里，既有严格模式也有非严格模式，可以关闭此规则，或必要时[选择性地禁用严格模式](http://eslint.org/docs/user-guide/configuring)。例如，函数引用`arguments.callee`在严格模式下是无效的。可以看一下 MDN 上的一篇文章[严格模式的区别](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode/Transitioning_to_strict_mode#Differences_from_non-strict_to_strict)。
+在既有严格模式也有非严格模式的代码库中，可以关闭此规则，或必要时[选择性地禁用严格模式](/docs/user-guide/configuring)。例如，函数引用`arguments.callee`在严格模式下是无效的。可以看一下 MDN 上的这篇文章[《严格模式的区别》](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode/Transitioning_to_strict_mode#Differences_from_non-strict_to_strict)。
 
 ## Version
 

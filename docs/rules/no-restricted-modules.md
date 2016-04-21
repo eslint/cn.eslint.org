@@ -12,15 +12,13 @@ proofreader: yanggao40
 
 Disallowing usage of specific Node.js modules can be useful if you want to control the available methods, a developer can use, to implement a feature.
 
-如果你想控制可用的放大，禁止使用特定的 Node.js 模块是有用的，开发者可以使用实现一个特征。
-
-如果你想控制可以的方法，限制开发者的使用范围，或者实现一个特性，可以通过禁用指定的 Node.js 模块来实现。 
+如果你想控制可用的方法，限制开发者的使用范围，或者实现一个特性，可以通过禁用指定的 Node.js 模块来实现。 
 
 This way you can block usage of the `fs` module if you want disallow file system access.
 Blocking the `os` module can be useful if you don't want to allow any operating system specific code.
 
-如果您想禁止访问文件系统，可以禁用`fs`模块的使用。
-如果您想禁止一些特殊的系统操作，禁用`os`模块将会起作用。
+如果你想禁止访问文件系统，可以禁用`fs`模块的使用。
+如果你想禁止一些特殊的系统操作，禁用`os`模块将会起作用。
 
 ## Rule Details
 

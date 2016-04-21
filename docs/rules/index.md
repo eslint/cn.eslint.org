@@ -10,7 +10,7 @@ layout: doc
 
 Rules in ESLint are divided into several categories to help you better understand their value. All rules are disabled by default. ESLint recommends some rules to catch common problems, and you can use these recommended rules by including `extends: "eslint:recommended"` in your configuration file. The rules that will be enabled when you inherit from `eslint:recommended` are indicated below as "(recommended)". For more information on how to configure rules and use `extends`, please see the [configuration documentation](../user-guide/configuring).
 
-为了让你有个更好的理解，ESLint对其规则分门别类。所有的规则默认都是禁用的。针对一些常见的问题，ESLint 给出了一些推荐规则，你可以在你的配置文件中通过添加`extends: "eslint:recommended"`来使用它们。当你的规则继承自`eslint:recommended`时，以下被标记为 "(recommended)" 的规则将被启用。有关如何配置规则和使用`extends`的更多信息，请参见[configuration documentation](../user-guide/configuring)。
+为了让你有个更好的理解，ESLint 对其规则分门别类。所有的规则默认都是禁用的。针对一些常见的问题，ESLint 给出了一些推荐规则，你可以在你的配置文件中通过添加`extends: "eslint:recommended"`来使用它们。当你的规则继承自`eslint:recommended`时，以下被标记为 "(recommended)" 的规则将被启用。有关如何配置规则和使用`extends`的更多信息，请参见[configuration documentation](../user-guide/configuring)。
 
 Some rules are fixable using the `--fix` command line flag. Those rules are marked as "(fixable)" below. Currently these fixes are mostly limited only to whitespace fixes.
 
@@ -29,7 +29,7 @@ The following rules point out areas where you might have made mistakes.
 * [no-cond-assign](no-cond-assign): disallow assignment in conditional expressions (recommended)
 * [no-cond-assign](no-cond-assign): 禁止条件表示中赋值(recommended)
 * [no-console](no-console): disallow use of `console` (recommended)
-* [no-console](no-console): 禁用 `console` (recommended)
+* [no-console](no-console): 禁用 `console`(recommended)
 * [no-constant-condition](no-constant-condition): disallow use of constant expressions in conditions (recommended)
 * [no-constant-condition](no-constant-condition): 禁止在条件中使用常量表达式 (recommended)
 * [no-control-regex](no-control-regex): disallow control characters in regular expressions (recommended)
@@ -41,7 +41,7 @@ The following rules point out areas where you might have made mistakes.
 * [no-dupe-keys](no-dupe-keys): disallow duplicate keys when creating object literals (recommended)
 * [no-dupe-keys](no-dupe-keys): 创建对象字面量时，禁止重复的键 (recommended)
 * [no-duplicate-case](no-duplicate-case): disallow a duplicate case label. (recommended)
-* [no-duplicate-case](no-duplicate-case): 禁止重复的case标签 (recommended)
+* [no-duplicate-case](no-duplicate-case): 禁止重复的 case 标签 (recommended)
 * [no-empty](no-empty): disallow empty block statements (recommended)
 * [no-empty](no-empty): 禁止空语句块 (recommended)
 * [no-empty-character-class](no-empty-character-class): disallow the use of empty character classes in regular expressions (recommended)
@@ -90,7 +90,7 @@ These are rules designed to prevent you from making mistakes. They either prescr
 这些规则是为了阻止你犯错误。它们要么为你指明了更好的做事方法，要么可以帮助你绕开雷区。
 
 * [accessor-pairs](accessor-pairs): enforce getter/setter pairs in objects
-* [accessor-pairs](accessor-pairs): 强制 getter/setter成对出现在对象中
+* [accessor-pairs](accessor-pairs): 强制 getter/setter 成对出现在对象中
 * [array-callback-return](array-callback-return): enforce return statements in callbacks of array's methods
 * [array-callback-return](array-callback-return): enforce return statements in callbacks of array's methods
 * [block-scoped-var](block-scoped-var): treat `var` statements as if they were block scoped
@@ -116,7 +116,7 @@ These are rules designed to prevent you from making mistakes. They either prescr
 * [no-caller](no-caller): disallow use of `arguments.caller` or `arguments.callee`
 * [no-caller](no-caller): 禁用 `arguments.caller` 或 `arguments.callee`
 * [no-case-declarations](no-case-declarations): disallow lexical declarations in case clauses (recommended)
-* [no-case-declarations](no-case-declarations): 不允许在case子句中使用词法声明 (recommended)
+* [no-case-declarations](no-case-declarations): 不允许在 case 子句中使用词法声明 (recommended)
 * [no-div-regex](no-div-regex): disallow division operators explicitly at beginning of regular expression
 * [no-div-regex](no-div-regex): 禁止除法操作符显式的出现在正则表达式开始的位置
 * [no-else-return](no-else-return): disallow `else` after a `return` in an `if`
@@ -126,7 +126,7 @@ These are rules designed to prevent you from making mistakes. They either prescr
 * [no-empty-pattern](no-empty-pattern): disallow use of empty destructuring patterns (recommended)
 * [no-empty-pattern](no-empty-pattern): 禁止使用空解构模式 (recommended)
 * [no-eq-null](no-eq-null): disallow comparisons to null without a type-checking operator
-* [no-eq-null](no-eq-null): 禁止在没有类型检查操作符情况下与null进行比较
+* [no-eq-null](no-eq-null): 禁止在没有类型检查操作符情况下与 null 进行比较
 * [no-eval](no-eval): disallow use of `eval()`
 * [no-eval](no-eval): 禁用 `eval()`
 * [no-extend-native](no-extend-native): disallow adding to native types
@@ -165,8 +165,8 @@ These are rules designed to prevent you from making mistakes. They either prescr
 * [no-native-reassign](no-native-reassign): 禁止对原生对象赋值
 * [no-new](no-new): disallow use of the `new` operator when not part of an assignment or comparison
 * [no-new](no-new): 非赋值或条件语句禁止使用`new`操作符
-* [no-new-func](no-new-func): disallow use of new operator for `Function` object
-* [no-new-func](no-new-func): 禁止对`Function`对象使用new操作符
+* [no-new-func](no-new-func): disallow use of `new` operator for `Function` object
+* [no-new-func](no-new-func): 禁止对`Function`对象使用`new`操作符
 * [no-new-wrappers](no-new-wrappers): disallow creating new instances of `String`,`Number`, and `Boolean`
 * [no-new-wrappers](no-new-wrappers): 禁止创建`String`，`Number`和 `Boolean`的新实例
 * [no-octal](no-octal): disallow use of octal literals (recommended)
@@ -184,7 +184,7 @@ These are rules designed to prevent you from making mistakes. They either prescr
 * [no-return-assign](no-return-assign): disallow use of assignment in `return` statement
 * [no-return-assign](no-return-assign): 禁止在`return`语句中使用赋值语句
 * [no-script-url](no-script-url): disallow use of `javascript:` urls.
-* [no-script-url](no-script-url): 禁止使用`javascript:`url.
+* [no-script-url](no-script-url): 禁止使用`javascript:` url.
 * [no-self-assign](no-self-assign): disallow assignments where both sides are exactly the same (recommended)
 * [no-self-assign](no-self-assign): disallow assignments where both sides are exactly the same (recommended)
 * [no-self-compare](no-self-compare): disallow comparisons where both sides are exactly the same
@@ -214,11 +214,11 @@ These are rules designed to prevent you from making mistakes. They either prescr
 * [radix](radix): require use of the second argument for `parseInt()`
 * [radix](radix): 要求使用`parseInt()`的第二个参数
 * [vars-on-top](vars-on-top): require declaration of all vars at the top of their containing scope
-* [vars-on-top](vars-on-top): 要求所有的var声明在它们所在的作用域顶部
+* [vars-on-top](vars-on-top): 要求所有的 var 声明在它们所在的作用域顶部
 * [wrap-iife](wrap-iife): require immediate function invocation to be wrapped in parentheses
-* [wrap-iife](wrap-iife): 要求IIFE使用括号括起来
+* [wrap-iife](wrap-iife): 要求 IIFE 使用括号括起来
 * [yoda](yoda): require or disallow Yoda conditions
-* [yoda](yoda): 要求或禁止Yoda条件
+* [yoda](yoda): 要求或禁止 Yoda 条件
 
 ## Strict Mode
 
@@ -226,7 +226,7 @@ These are rules designed to prevent you from making mistakes. They either prescr
 
 These rules relate to using strict mode and strict mode directives.
 
-该规则与使用strict模式有关。
+该规则与使用严格模式有关。
 
 * [strict](strict): require effective use of strict mode directives
 * [strict](strict): 要求有效地使用严格模式指令
@@ -242,7 +242,7 @@ These rules have to do with variable declarations.
 * [init-declarations](init-declarations): enforce or disallow variable initializations at definition
 * [init-declarations](init-declarations): 强制或禁止在变量声明时进行初始化
 * [no-catch-shadow](no-catch-shadow): disallow the catch clause parameter name being the same as a variable in the outer scope
-* [no-catch-shadow](no-catch-shadow): 不允许catch子句的参数名与外层作用域中的变量同名
+* [no-catch-shadow](no-catch-shadow): 不允许 catch 子句的参数名与外层作用域中的变量同名
 * [no-delete-var](no-delete-var): disallow deletion of variables (recommended)
 * [no-delete-var](no-delete-var): 不允许删除变量 (recommended)
 * [no-label-var](no-label-var): disallow labels that share a name with a variable
@@ -256,7 +256,7 @@ These rules have to do with variable declarations.
 * [no-undef](no-undef): disallow use of undeclared variables unless mentioned in a `/*global */` block (recommended)
 * [no-undef](no-undef): 禁用未声明的变量，除非它们在`/*global */`块中被提到(recommended)
 * [no-undef-init](no-undef-init): disallow use of undefined when initializing variables
-* [no-undef-init](no-undef-init): 不允许变量初始化为undefined
+* [no-undef-init](no-undef-init): 不允许变量初始化为 undefined
 * [no-undefined](no-undefined): disallow use of `undefined` variable
 * [no-undefined](no-undefined): 不允许使用 `undefined` 变量
 * [no-unused-vars](no-unused-vars): disallow declaration of variables that are not used in the code (recommended)
@@ -279,17 +279,17 @@ These rules are specific to JavaScript running on Node.js or using CommonJS in t
 * [handle-callback-err](handle-callback-err): enforce error handling in callbacks
 * [handle-callback-err](handle-callback-err): 强制回调函数中有容错处理
 * [no-mixed-requires](no-mixed-requires): disallow mixing regular variable and require declarations
-* [no-mixed-requires](no-mixed-requires): 禁止混合常规变量和require声明
+* [no-mixed-requires](no-mixed-requires): 禁止混合常规变量和 require 声明
 * [no-new-require](no-new-require): disallow use of `new` operator with the `require` function
 * [no-new-require](no-new-require): 禁止对`require`函数使用`new` 操作符
 * [no-path-concat](no-path-concat): disallow string concatenation with `__dirname` and `__filename`
-* [no-path-concat](no-path-concat): 禁止同`__dirname` 和 `__filename`进行字符串明教
+* [no-path-concat](no-path-concat): 禁止对`__dirname` 和 `__filename`进行字符串连接
 * [no-process-exit](no-process-exit): disallow `process.exit()`
 * [no-process-exit](no-process-exit): 禁用 `process.exit()`
 * [no-restricted-imports](no-restricted-imports): restrict usage of specified node imports
 * [no-restricted-modules](no-restricted-modules): restrict usage of specified modules when loaded by `require` function
 * [no-restricted-modules](no-restricted-modules): restrict usage of specified modules when loaded by `require` function
-* [no-restricted-modules](no-restricted-modules): 限制指定的node模块的使用
+* [no-restricted-modules](no-restricted-modules): 限制指定的 node 模块的使用
 * [no-sync](no-sync): disallow use of synchronous methods
 * [no-sync](no-sync): 禁用同步方法
 
@@ -330,9 +330,9 @@ These rules are purely matters of style and are quite subjective.
 * [id-match](id-match): require identifiers to match the provided regular expression
 * [id-match](id-match): 要求标识符匹配所提供的正则表达式
 * [indent](indent): specify tab or space width for your code (fixable)
-* [indent](indent): 为你的代码指定tab或空格缩进宽度 (fixable)
+* [indent](indent): 为你的代码指定 tab 或空格缩进宽度 (fixable)
 * [jsx-quotes](jsx-quotes): specify whether double or single quotes should be used in JSX attributes (fixable)
-* [jsx-quotes](jsx-quotes): 指定应该在JSX属性中使用双引号还是单引号 (fixable)
+* [jsx-quotes](jsx-quotes): 指定应该在 JSX 属性中使用双引号还是单引号 (fixable)
 * [key-spacing](key-spacing): enforce spacing between keys and values in object literal properties
 * [key-spacing](key-spacing): 强制对象字面量属性中键和值之间的间距
 * [keyword-spacing](keyword-spacing): enforce spacing before and after keywords (fixable)
@@ -364,17 +364,17 @@ These rules are purely matters of style and are quite subjective.
 * [newline-per-chained-call](newline-per-chained-call): enforce newline after each call when chaining the calls
 * [newline-per-chained-call](newline-per-chained-call): enforce newline after each call when chaining the calls
 * [no-array-constructor](no-array-constructor): disallow use of the `Array` constructor
-* [no-array-constructor](no-array-constructor): 禁用`Array`构造函数
+* [no-array-constructor](no-array-constructor): 要求或禁止变量声明语句后有空行
 * [no-bitwise](no-bitwise): disallow use of bitwise operators
-* [no-bitwise](no-bitwise): 禁用按位运算符
+* [no-bitwise](no-bitwise): 不允许使用按位运算符 
 * [no-continue](no-continue): disallow use of the `continue` statement
-* [no-continue](no-continue): 禁用 `continue` 语句
+* [no-continue](no-continue): 不允许使用 `continue` 语句
 * [no-inline-comments](no-inline-comments): disallow comments inline after code
 * [no-inline-comments](no-inline-comments): 不允许代码行后有注释
 * [no-lonely-if](no-lonely-if): disallow `if` as the only statement in an `else` block
 * [no-lonely-if](no-lonely-if): 禁止`if`作为唯一的语句出现在`else`语句中
 * [no-mixed-spaces-and-tabs](no-mixed-spaces-and-tabs): disallow mixed spaces and tabs for indentation (recommended)
-* [no-mixed-spaces-and-tabs](no-mixed-spaces-and-tabs): 不允许空格和tab混合缩进 (recommended)
+* [no-mixed-spaces-and-tabs](no-mixed-spaces-and-tabs): 不允许空格和 tab 混合缩进 (recommended)
 * [no-multiple-empty-lines](no-multiple-empty-lines): disallow multiple empty lines
 * [no-multiple-empty-lines](no-multiple-empty-lines): 不允许多个空行
 * [no-negated-condition](no-negated-condition): disallow negated conditions
@@ -382,15 +382,15 @@ These rules are purely matters of style and are quite subjective.
 * [no-nested-ternary](no-nested-ternary): disallow nested ternary expressions
 * [no-nested-ternary](no-nested-ternary): 不允许使用嵌套的三元表达式
 * [no-new-object](no-new-object): disallow the use of the `Object` constructor
-* [no-new-object](no-new-object): 禁用 `Object` 的构造函数
+* [no-new-object](no-new-object): 不允许使用`Object`的构造函数
 * [no-plusplus](no-plusplus): disallow use of unary operators, `++` and `--`
-* [no-plusplus](no-plusplus): 禁用 `++` 和 `--`
+* [no-plusplus](no-plusplus): 不允许使用`++` 和 `--`
 * [no-restricted-syntax](no-restricted-syntax): disallow use of certain syntax in code
 * [no-restricted-syntax](no-restricted-syntax): 不允许在代码中使用特定的语法
 * [no-spaced-func](no-spaced-func): disallow space between function identifier and application (fixable)
-* [no-spaced-func](no-spaced-func): 不允许 function 标识符和括号之间有空格 (fixable)
+* [no-spaced-func](no-spaced-func): 不允许函数调用时，function 标识符和括号之间有空格 (fixable)
 * [no-ternary](no-ternary): disallow the use of ternary operators
-* [no-ternary](no-ternary): 禁用三元操作符
+* [no-ternary](no-ternary): 不允许使用三元操作符
 * [no-trailing-spaces](no-trailing-spaces): disallow trailing whitespace at the end of lines (fixable)
 * [no-trailing-spaces](no-trailing-spaces): 禁用行尾空格 (fixable)
 * [no-underscore-dangle](no-underscore-dangle): disallow dangling underscores in identifiers
@@ -414,11 +414,11 @@ These rules are purely matters of style and are quite subjective.
 * [quote-props](quote-props): require quotes around object literal property names
 * [quote-props](quote-props): 要求对象字面量属性名称用引号括起来
 * [quotes](quotes): specify whether backticks, double or single quotes should be used (fixable)
-* [quotes](quotes): 指定是否应使用反勾号、双引号或单引号(fixable)
+* [quotes](quotes): 指定是否应使用反勾号、双引号互殴单引号(fixable)
 * [require-jsdoc](require-jsdoc): Require JSDoc comment
 * [require-jsdoc](require-jsdoc): 要求使用 JSDoc 注释
 * [semi](semi): require or disallow use of semicolons instead of ASI (fixable)
-* [semi](semi): 要求或禁止使用分号而不是ASI (fixable)
+* [semi](semi): 要求或禁止使用分号而不是 ASI (fixable)
 * [semi-spacing](semi-spacing): enforce spacing before and after semicolons (fixable)
 * [semi-spacing](semi-spacing): 强制分号之前和之后有空格 (fixable)
 * [sort-imports](sort-imports): enforce sorting import declarations within module
@@ -446,7 +446,7 @@ These rules are purely matters of style and are quite subjective.
 
 These rules are only relevant to ES6 environments.
 
-这些规则只与ES6环境有关。
+这些规则只与 ES6 环境有关。
 
 * [arrow-body-style](arrow-body-style): require braces in arrow function body
 * [arrow-body-style](arrow-body-style): 要求箭头函数体使用大括号
@@ -463,7 +463,7 @@ These rules are only relevant to ES6 environments.
 * [no-confusing-arrow](no-confusing-arrow): disallow arrow functions where they could be confused with comparisons
 * [no-confusing-arrow](no-confusing-arrow): disallow arrow functions where they could be confused with comparisons
 * [no-const-assign](no-const-assign): disallow modifying variables that are declared using `const` (recommended)
-* [no-const-assign](no-const-assign): 不允许改变`const`声明的变量 (recommended)
+* [no-const-assign](no-const-assign): 不允许改变用`const`声明的变量 (recommended)
 * [no-dupe-class-members](no-dupe-class-members): disallow duplicate name in class members (recommended)
 * [no-dupe-class-members](no-dupe-class-members): 不允许类成员中有重复的名称 (recommended)
 * [no-duplicate-imports](no-duplicate-imports): disallow duplicate module imports
@@ -493,7 +493,7 @@ These rules are only relevant to ES6 environments.
 * [prefer-template](prefer-template): suggest using template literals instead of strings concatenation
 * [prefer-template](prefer-template): 建议使用模板而非字符串连接
 * [require-yield](require-yield): disallow generator functions that do not have `yield`
-* [require-yield](require-yield): 禁用函数内没有`yield`的generator函数
+* [require-yield](require-yield): 禁用函数内没有`yield`的 generator 函数
 * [template-curly-spacing](template-curly-spacing): enforce spacing around embedded expressions of template strings (fixable)
 * [template-curly-spacing](template-curly-spacing): enforce spacing around embedded expressions of template strings (fixable)
 * [yield-star-spacing](yield-star-spacing): enforce spacing around the `*` in `yield*` expressions (fixable)
@@ -508,11 +508,11 @@ These rules existed in a previous version of ESLint but have since been replaced
 以下规则只存在于旧版的 ESLint 中，并已被新规则所取代。
 
 * [generator-star](generator-star): enforce the position of the `*` in generator functions (replaced by [generator-star-spacing](generator-star-spacing))
-* [generator-star](generator-star): 强制`*`在generator函数中的位置 (替换为 [generator-star-spacing](generator-star-spacing))
+* [generator-star](generator-star): 强制`*`在 generator 函数中的位置 (替换为 [generator-star-spacing](generator-star-spacing))
 * [global-strict](global-strict): require or disallow the `"use strict"` pragma in the global scope (replaced by [strict](strict))
 * [global-strict](global-strict): 要求或禁止全局作用域下的`"use strict"` (替换为 [strict](strict))
 * [no-arrow-condition](no-arrow-condition): disallow arrow functions where a condition is expected (replaced by [no-confusing-arrow](no-confusing-arrow) and [no-constant-condition](no-constant-condition))
-* [no-arrow-condition](no-arrow-condition): 禁止在本应使用条件语句的地方使用箭头函数 (替换为 [no-confusing-arrow](no-confusing-arrow) and [no-constant-condition](no-constant-condition))
+* [no-arrow-condition](no-arrow-condition): 禁止在本应使用条件语句的地方使用箭头函数 (替换为 [no-confusing-arrow](no-confusing-arrow) 和 [no-constant-condition](no-constant-condition))
 * [no-comma-dangle](no-comma-dangle): disallow trailing commas in object literals (replaced by [comma-dangle](comma-dangle))
 * [no-comma-dangle](no-comma-dangle): 禁用对象字面量中尾部逗号 (替换为 [comma-dangle](comma-dangle))
 * [no-empty-class](no-empty-class): disallow the use of empty character classes in regular expressions (replaced by [no-empty-character-class](no-empty-character-class))
@@ -520,13 +520,13 @@ These rules existed in a previous version of ESLint but have since been replaced
 * [no-empty-label](no-empty-label): disallow use of labels for anything other than loops and switches (replaced by [no-labels](no-labels))
 * [no-empty-label](no-empty-label): 禁用标签，除了循环和switch外(替换为 [no-labels](no-labels))
 * [no-extra-strict](no-extra-strict): disallow unnecessary use of `"use strict";` when already in strict mode (replaced by [strict](strict))
-* [no-extra-strict](no-extra-strict): 当已经处于严格模式下，禁用不必要的`"use strict";`编译指示 (替换为 [strict](strict))
+* [no-extra-strict](no-extra-strict): 当已经处于严格模式下，禁用不必要的`"use strict";` (替换为 [strict](strict))
 * [no-reserved-keys](no-reserved-keys): disallow reserved words being used as object literal keys (replaced by [quote-props](quote-props))
 * [no-reserved-keys](no-reserved-keys): 禁止使用保留字作为对象字面量的键(替换为 [quote-props](quote-props))
 * [no-space-before-semi](no-space-before-semi): disallow space before semicolon (replaced by [semi-spacing](semi-spacing))
 * [no-space-before-semi](no-space-before-semi): 禁用分号前空格 (替换为 [semi-spacing](semi-spacing))
 * [no-wrap-func](no-wrap-func): disallow wrapping of non-IIFE statements in parens (replaced by [no-extra-parens](no-extra-parens))
-* [no-wrap-func](no-wrap-func): 禁止非 IIFE 语句括在括号中 (替换为 [no-extra-parens](no-extra-parens))
+* [no-wrap-func](no-wrap-func): 禁止非IIFE语句括在括号中 (替换为 [no-extra-parens](no-extra-parens))
 * [space-after-function-name](space-after-function-name): require a space after function names (replaced by [space-before-function-paren](space-before-function-paren))
 * [space-after-function-name](space-after-function-name): 要求函数名后有一个空格 (替换为 [space-before-function-paren](space-before-function-paren))
 * [space-after-keywords](space-after-keywords): require a space after certain keywords (fixable) (replaced by [keyword-spacing](keyword-spacing))
