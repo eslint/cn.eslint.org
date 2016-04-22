@@ -1,4 +1,4 @@
-ƒ---
+---
 title: Documentation
 layout: doc
 translator: molee1905

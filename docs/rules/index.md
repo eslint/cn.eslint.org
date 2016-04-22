@@ -156,7 +156,7 @@ These are rules designed to prevent you from making mistakes. They either prescr
 * [no-loop-func](no-loop-func): disallow creation of functions within loops
 * [no-loop-func](no-loop-func): 禁止在循环中创建函数
 * [no-magic-numbers](no-magic-numbers): disallow the use of magic numbers
-* [no-magic-numbers](no-magic-numbers): 禁用幻数
+* [no-magic-numbers](no-magic-numbers): 禁用魔术数字
 * [no-multi-spaces](no-multi-spaces): disallow use of multiple spaces (fixable)
 * [no-multi-spaces](no-multi-spaces): 禁止使用多个空格 (fixable)
 * [no-multi-str](no-multi-str): disallow use of multiline strings

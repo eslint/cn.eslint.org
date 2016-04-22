@@ -12,7 +12,7 @@ proofreader: yanggao40
 
 Octal literals are numerals that begin with a leading zero, such as:
 
-八进制自面量是指那些以0开始的数字，比如：
+八进制自面量是指那些以 0 开始的数字，比如：
 
 ```js
 var num = 071;      // 57
@@ -20,17 +20,17 @@ var num = 071;      // 57
 
 The leading zero to identify an octal literal has been a source of confusion and error in JavaScript. ECMAScript 5 deprecates the use of octal numeric literals in JavaScript and octal literals cause syntax errors in strict mode.
 
-在JavaScript中，前导数字0来识别八进制字面量已经成为困惑和错误。ECMAScript 5弃用了在JavaScript中使用八进制字面量，并且八进制字面量在严格模式下会导致语法错误。
+在 JavaScript 中，前导数字 0 来识别八进制字面量已经成为困惑和错误。ECMAScript 5 弃用了在 JavaScript 中使用八进制字面量，并且八进制字面量在严格模式下会导致语法错误。
 
 It's therefore recommended to avoid using octal literals in JavaScript code.
 
-因此建议避免在JavaScript代码中使用八进制字面量。
+因此建议避免在 JavaScript 代码中使用八进制字面量。
 
 ## Rule Details
 
 The rule is aimed at preventing the use of a deprecated JavaScript feature, the use of octal literals. As such it will warn whenever an octal literal is found.
 
-此规则目旨在防止使用弃用的JavaScript特性，使用八进制字面量。因此当发现八进制字面量时会发出警告。
+此规则目旨在防止使用弃用的 JavaScript 特性，使用八进制字面量。因此当发现八进制字面量时会发出警告。
 
 Examples of **incorrect** code for this rule:
 
