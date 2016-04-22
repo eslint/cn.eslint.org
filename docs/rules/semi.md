@@ -16,7 +16,7 @@ proofreader: molee1905
 
 JavaScript is unique amongst the C-like languages in that it doesn't require semicolons at the end of each statement. In many cases, the JavaScript engine can determine that a semicolon should be in a certain spot and will automatically add it. This feature is known as **automatic semicolon insertion (ASI)** and is considered one of the more controversial features of JavaScript. For example, the following lines are both valid:
 
-Javascript 在所有类C语言中是比较独特的，它不需要在每个语句的末尾有分号。在很多情况下，Javascript 引擎可以确定一个分号应该在什么位置然后自动添加它。此特征被称为**自动分号插入 (ASI)**，被认为是 Javascript 中较为有争议的特征。例如，以下各行均有效：
+JavaScript 在所有类 C 语言中是比较独特的，它不需要在每个语句的末尾有分号。在很多情况下，JavaScript 引擎可以确定一个分号应该在什么位置然后自动添加它。此特征被称为**自动分号插入 (ASI)**，被认为是 JavaScript 中较为有争议的特征。例如，以下各行均有效：
 
 ```js
 var name = "ESLint"
@@ -25,7 +25,7 @@ var website = "eslint.org";
 
 On the first line, the JavaScript engine will automatically insert a semicolon, so this is not considered a syntax error. The JavaScript engine still knows how to interpret the line and knows that the line end indicates the end of the statement.
 
-第一行，Javascript 引擎会自动插入分号，所以不会被认为是个语法错误。Javascript 引擎还知道如何解释这一行，也知道行尾意味着语句的结束。
+第一行，JavaScript 引擎会自动插入分号，所以不会被认为是个语法错误。JavaScript 引擎还知道如何解释这一行，也知道行尾意味着语句的结束。
 
 In the debate over ASI, there are generally two schools of thought. The first is that we should treat ASI as if it didn't exist and always include semicolons manually. The rationale is that it's easier to always include semicolons than to try to remember when they are or are not required, and thus decreases the possibility of introducing an error.
 
@@ -44,7 +44,7 @@ return
 
 This may look like a `return` statement that returns an object literal, however, the JavaScript engine will interpret this code as:
 
-这个看起来像是个`return`语句返回一个对象文本。然而，Javascript 引擎将代码解释成：
+这个看起来像是个`return`语句返回一个对象文本。然而，JavaScript 引擎将代码解释成：
 
 ```js
 return;
@@ -95,6 +95,10 @@ Although ASI allows for more freedom over your coding style, it can also make yo
 4. The next line starts with `[`, `(`, `+`, `*`, `/`, `-`, `,`, `.`, or some other binary operator that can only be found between two tokens in a single expression.
 
 4. 下一行以`[`，`(`，`+`，`*`，`/`，`-`，`,`，`.`或一些其他在单个表达式中两个标记之间的二元操作符
+
+**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
+
+**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
 
 ## Rule Details
 

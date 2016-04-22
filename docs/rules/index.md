@@ -134,15 +134,15 @@ These are rules designed to prevent you from making mistakes. They either prescr
 * [no-extra-bind](no-extra-bind): disallow unnecessary function binding
 * [no-extra-bind](no-extra-bind): 禁止不必要的函数绑定
 * [no-extra-label](no-extra-label): disallow unnecessary labels
-* [no-extra-label](no-extra-label): disallow unnecessary labels
+* [no-extra-label](no-extra-label): 禁用不必要的标签
 * [no-fallthrough](no-fallthrough): disallow fallthrough of `case` statements (recommended)
-* [no-fallthrough](no-fallthrough): disallow fallthrough of `case` statements (recommended)
+* [no-fallthrough](no-fallthrough): 禁止`case`语句落空 (recommended)
 * [no-floating-decimal](no-floating-decimal): disallow the use of leading or trailing decimal points in numeric literals
 * [no-floating-decimal](no-floating-decimal): 禁止数字字面量中使用前导和末尾小数点
 * [no-implicit-coercion](no-implicit-coercion): disallow the type conversions with shorter notations
 * [no-implicit-coercion](no-implicit-coercion): 禁止是用短符号进行类型转换
 * [no-implicit-globals](no-implicit-globals): disallow `var` and named functions in global scope
-* [no-implicit-globals](no-implicit-globals): disallow `var` and named functions in global scope
+* [no-implicit-globals](no-implicit-globals): 禁止在全局范围内使用`var`和命名函数
 * [no-implied-eval](no-implied-eval): disallow use of `eval()`-like methods
 * [no-implied-eval](no-implied-eval): 禁止使用隐式`eval()`
 * [no-invalid-this](no-invalid-this): disallow `this` keywords outside of classes or class-like objects
@@ -183,10 +183,10 @@ These are rules designed to prevent you from making mistakes. They either prescr
 * [no-redeclare](no-redeclare): 禁止多次声明同一变量 (recommended)
 * [no-return-assign](no-return-assign): disallow use of assignment in `return` statement
 * [no-return-assign](no-return-assign): 禁止在`return`语句中使用赋值语句
-* [no-script-url](no-script-url): disallow use of `javascript:` urls.
-* [no-script-url](no-script-url): 禁止使用`javascript:` url.
+* [no-script-url](no-script-url): disallow use of `javascript:` urls
+* [no-script-url](no-script-url): 禁止使用`javascript:` url
 * [no-self-assign](no-self-assign): disallow assignments where both sides are exactly the same (recommended)
-* [no-self-assign](no-self-assign): disallow assignments where both sides are exactly the same (recommended)
+* [no-self-assign](no-self-assign): 禁止自我赋值 (recommended)
 * [no-self-compare](no-self-compare): disallow comparisons where both sides are exactly the same
 * [no-self-compare](no-self-compare): 禁止自身比较
 * [no-sequences](no-sequences): disallow use of the comma operator
@@ -204,7 +204,7 @@ These are rules designed to prevent you from making mistakes. They either prescr
 * [no-useless-concat](no-useless-concat): disallow unnecessary concatenation of literals or template literals
 * [no-useless-concat](no-useless-concat): 禁止不必要的字符串字面量或模板字面量的连接
 * [no-useless-escape](no-useless-escape): disallow unnecessary usage of escape character
-* [no-useless-escape](no-useless-escape): disallow unnecessary usage of escape character
+* [no-useless-escape](no-useless-escape): 禁用不必要的转义字符
 * [no-void](no-void): disallow use of the `void` operator
 * [no-void](no-void): 禁用`void`操作符
 * [no-warning-comments](no-warning-comments): disallow usage of configurable warning terms in comments: e.g. `TODO` or `FIXME`

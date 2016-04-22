@@ -39,7 +39,7 @@ export { foo };
 This rule aims to maintain consistency around the spacing inside of object literals. It also
 applies to EcmaScript 6 destructured assignment and import/export specifiers.
 
-该规则旨在维持对象文本中空格的一致性。它同样适用于 EcmaScript 6 的解构赋值和import/export 说明符。
+该规则旨在维持对象文本中空格的一致性。它同样适用于 EcmaScript 6 的解构赋值和 import/export 说明符。
 
 It either requires or disallows spaces between those braces and the values inside of them.
 
@@ -56,11 +56,8 @@ There are two main options for the rule:
 该规则有两个主要的选项：
 
 * `"always"` enforces a space inside of curly braces
-
 * `"always"` 强制在花括号中有空格
-
 * `"never"` disallows spaces inside of curly braces (default)
-
 * `"never"` 不允许花括号中有空格 (默认)
 
 Depending on your coding conventions, you can choose either option by specifying it in your configuration:

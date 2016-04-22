@@ -22,7 +22,7 @@ JavaScript 中，任何语句后有无分号都不会出错。书写错误和对
 
 This rule is aimed at eliminating extra unnecessary semicolons. While not technically an error, extra semicolons can be a source of confusion when reading code.
 
-该规则旨在消除冗余的分号。尽管不是技术错误,但冗余分号是阅读代码时困惑的根源
+该规则旨在消除冗余的分号。尽管不是技术错误，但冗余分号是阅读代码时困惑的根源。
 
 Examples of **incorrect** code for this rule:
 
@@ -69,7 +69,7 @@ If you intentionally use extra semicolons then you can disable this rule.
 
 This rule was introduced in ESLint 0.0.9.
 
-该规则是在 ESLint 0.0.9 中被引入的。
+该规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

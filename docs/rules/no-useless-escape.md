@@ -1,12 +1,17 @@
 ---
 title: Rule no-useless-escape
 layout: doc
+translator: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow unnecessary escape usage (no-useless-escape)
 
+# 禁用不必要的转义 (no-useless-escape)
+
 Escaping non-special characters in strings and regular expressions doesn't have any effects on results, as in the following example:
+
+对字符串和正则表达式中的常规字符进行转义，不会对结果产生任何影响，例如：
 
 ```js
 let foo = "hol\a"; // > foo = "hola"
@@ -17,7 +22,11 @@ let bar = /\:/ // same functionality with /:/
 
 This rule flags escapes that can be safely removed without changing behavior.
 
+该规则标记在不改变代码行为的情况下可以安全移除的转义。
+
 The following patterns are considered problems:
+
+以下模式被认为是有问题的：
 
 ```js
 /*eslint no-useless-escape: "error"*/
@@ -32,6 +41,8 @@ The following patterns are considered problems:
 ```
 
 The following patterns are not considered problems:
+
+以下模式被认为是没有问题的：
 
 ```js
 /*eslint no-useless-escape: "error"*/
@@ -52,9 +63,13 @@ The following patterns are not considered problems:
 
 If you don't want to be notified about unnecessary escapes, you can safely disable this rule.
 
+如果你不想收到关于不必要的转义字符的通知，可以关闭此规则。
+
 ## Version
 
 This rule was introduced in ESLint 2.5.0.
+
+该规则在 ESLint 2.5.0 中被引入。
 
 ## Resources
 

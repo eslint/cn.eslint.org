@@ -28,7 +28,7 @@ The easiest way to start creating a plugin is to use the [Yeoman generator](http
 
 Plugins can expose additional rules for use in ESLint. To do so, the plugin must export a `rules` object containing a key-value mapping of rule ID to rule. The rule ID does not have to follow any naming convention (so it can just be `dollar-sign`, for instance).
 
-在 ESLint 中，插件可以暴露额外的规则以供使用。为此，插件必须输出一个`rules`对象，包含规则ID和对应规则的一个键值对。这个规则 ID 不需要遵循任何命名规范（所以，比如，它可以是`dollar-sign`）。
+在 ESLint 中，插件可以暴露额外的规则以供使用。为此，插件必须输出一个`rules`对象，包含规则 ID 和对应规则的一个键值对。这个规则 ID 不需要遵循任何命名规范（所以，比如，它可以是`dollar-sign`）。
 
 ```js
 module.exports = {
