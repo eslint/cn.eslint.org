@@ -92,7 +92,7 @@ These are rules designed to prevent you from making mistakes. They either prescr
 * [accessor-pairs](accessor-pairs): enforce getter/setter pairs in objects
 * [accessor-pairs](accessor-pairs): 强制 getter/setter 成对出现在对象中
 * [array-callback-return](array-callback-return): enforce return statements in callbacks of array's methods
-* [array-callback-return](array-callback-return): enforce return statements in callbacks of array's methods
+* [array-callback-return](array-callback-return): 强制数组方法的回调函数中有 return 语句
 * [block-scoped-var](block-scoped-var): treat `var` statements as if they were block scoped
 * [block-scoped-var](block-scoped-var): 把 `var` 语句看作是在块级作用域范围之内
 * [complexity](complexity): specify the maximum cyclomatic complexity allowed in a program
@@ -194,11 +194,11 @@ These are rules designed to prevent you from making mistakes. They either prescr
 * [no-throw-literal](no-throw-literal): restrict what can be thrown as an exception
 * [no-throw-literal](no-throw-literal): 限制可被抛出的异常
 * [no-unmodified-loop-condition](no-unmodified-loop-condition): disallow unmodified conditions of loops
-* [no-unmodified-loop-condition](no-unmodified-loop-condition): disallow unmodified conditions of loops
+* [no-unmodified-loop-condition](no-unmodified-loop-condition): 禁用一成不变的循环条件
 * [no-unused-expressions](no-unused-expressions): disallow usage of expressions in statement position
 * [no-unused-expressions](no-unused-expressions): 禁止在语句的位置使用表达式
 * [no-unused-labels](no-unused-labels): disallow unused labels (recommended)
-* [no-unused-labels](no-unused-labels): disallow unused labels (recommended)
+* [no-unused-labels](no-unused-labels): 禁用未使用过的标签 (recommended)
 * [no-useless-call](no-useless-call): disallow unnecessary `.call()` and `.apply()`
 * [no-useless-call](no-useless-call): 禁止不必要的 `.call()` 和 `.apply()`
 * [no-useless-concat](no-useless-concat): disallow unnecessary concatenation of literals or template literals
@@ -248,7 +248,7 @@ These rules have to do with variable declarations.
 * [no-label-var](no-label-var): disallow labels that share a name with a variable
 * [no-label-var](no-label-var): 不允许标签与变量同名
 * [no-restricted-globals](no-restricted-globals): restrict usage of specified global variables
-* [no-restricted-globals](no-restricted-globals): restrict usage of specified global variables
+* [no-restricted-globals](no-restricted-globals): 限制指定的全局变量的使用
 * [no-shadow](no-shadow): disallow declaration of variables already declared in the outer scope
 * [no-shadow](no-shadow): 不允许声明在外层作用域下已声明过的变量
 * [no-shadow-restricted-names](no-shadow-restricted-names): disallow shadowing of names such as `arguments`
@@ -398,7 +398,7 @@ These rules are purely matters of style and are quite subjective.
 * [no-unneeded-ternary](no-unneeded-ternary): disallow the use of ternary operators when a simpler alternative exists
 * [no-unneeded-ternary](no-unneeded-ternary): 在有更简单的可替代的表达式存在时，禁止使用三元操作符
 * [no-whitespace-before-property](no-whitespace-before-property): disallow whitespace before properties
-* [no-whitespace-before-property](no-whitespace-before-property): disallow whitespace before properties
+* [no-whitespace-before-property](no-whitespace-before-property): 禁止属性前有空白
 * [object-curly-spacing](object-curly-spacing): require or disallow padding inside curly braces (fixable)
 * [object-curly-spacing](object-curly-spacing): 禁止或强制对象的花括号中有空格 (fixable)
 * [one-var](one-var): require or disallow one variable declaration per function
@@ -475,7 +475,7 @@ These rules are only relevant to ES6 environments.
 * [no-this-before-super](no-this-before-super): disallow use of `this`/`super` before calling `super()` in constructors (recommended)
 * [no-this-before-super](no-this-before-super): 在构造函数中禁止在调用`super()`之前使用`this`或`super` (recommended)
 * [no-useless-constructor](no-useless-constructor): disallow unnecessary constructor
-* [no-useless-constructor](no-useless-constructor): disallow unnecessary constructor
+* [no-useless-constructor](no-useless-constructor): 禁用不必要的构造函数
 * [no-var](no-var): require `let` or `const` instead of `var`
 * [no-var](no-var): 要求使用 `let` 或 `const` 而不是 `var`
 * [object-shorthand](object-shorthand): require method and property shorthand syntax for object literals
