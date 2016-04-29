@@ -23,7 +23,7 @@ ESLint 有几个关键部分：
 
 * `lib/eslint.js` - this is the core `eslint` object that does code verifying based on configuration options. This file does no file I/O and does not interact with the `console` at all. For other Node.js programs that have JavaScript text to verify, they would be able to use this interface directly.
 
-* `lib/eslint.js` - 这个是核心的`eslint`对象，负责根据配置选项进行代码验证。这个文件没有文件I/O操作，也不与`console`打交道。对于其他需要验证 Javascript 文本的 Node.js 程序而已，它们可以直接使用这个接口。
+* `lib/eslint.js` - 这个是核心的`eslint`对象，负责根据配置选项进行代码验证。这个文件没有文件 I/O 操作，也不与`console`打交道。对于其他需要验证 JavaScript 文本的 Node.js 程序而已，它们可以直接使用这个接口。
 
 ## The `cli` object
 
@@ -111,16 +111,16 @@ The main method of the `eslint` object is `verify()` and accepts two arguments: 
 
 Once the AST is available, `estraverse` is used to traverse the AST from top to bottom. At each node, the `eslint` object emits an event that has the same name as the node type (i.e., "Identifier", "WithStatement", etc.). On the way back up the subtree, an event is emitted with the AST type name and suffixed with ":after", such as "Identifier:after" - this allows rules to take action both on the way down and on the way up in the traversal. Each event is emitted with the appropriate AST node available.
 
-一旦AST是可用的，`estraverse`被用来从上到下遍历AST。在每个节点，`eslint`对象触发与该节点类型同名的一个事件（即 "Identifier"，"WithStatement" 等等）。在回退到子树上时，一个带有AST类型名称和":after"后缀的事件被触发，比如"Identifier:after" - 这允许规则在正向和逆向遍历开始起作用。每个事件在恰当的AST节点可用时触发。
+一旦AST是可用的，`estraverse`被用来从上到下遍历 AST。在每个节点，`eslint`对象触发与该节点类型同名的一个事件（即 "Identifier"， "WithStatement" 等等）。在回退到子树上时，一个带有 AST 类型名称和 ":after" 后缀的事件被触发，比如 "Identifier:after" - 这允许规则在正向和逆向遍历开始起作用。每个事件在恰当的 AST 节点可用时触发。
 
 This object's responsibilities include:
 
 这个对象的职责包括：
 
 * Inspecting JavaScript code strings
-* 检查Javascript 代码字符串
+* 检查 JavaScript 代码字符串
 * Creating an AST for the code
-* 为代码创建AST
+* 为代码创建 AST
 * Executing rules on the AST
 * 在AST上执行规则
 * Reporting back the results of the execution
@@ -135,7 +135,7 @@ This object may not:
 * Perform any asynchronous operations
 * 执行任何异步操作
 * Use Node.js-specific features
-* 使用 Node.js特定的功能
+* 使用 Node.js 特定的功能
 * Access the file system
 * 访问文件系统
 * Call `console.log()` or any other similar method

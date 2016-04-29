@@ -104,7 +104,7 @@ Here's an example `.eslintrc.json` file:
 
 Setting parser options helps ESLint determine what is a parsing error. All language options are `false` by default.
 
-设置解析器选项帮助ESLint确定什么是解析错误，所有语言选项默认都是`false`。
+设置解析器选项帮助 ESLint 确定什么是解析错误，所有语言选项默认都是`false`。
 
 ## Specifying Parser
 
@@ -128,7 +128,7 @@ ESLint 默认使用[Espree](https://github.com/eslint/espree)作为其解析器�
 
 Note that even with these compatibilities, there are no guarantees that an external parser will work correctly with ESLint and ESLint will not fix bugs related to incompatibilities with other parsers.
 
-注意，即使满足这些兼容性，也不能保证一个外部解析器可以与ESLint正常工作，ESLint也不会修复与其它解析器不兼容的相关 bug。
+注意，即使满足这些兼容性，也不能保证一个外部解析器可以与 ESLint 正常工作，ESLint 也不会修复与其它解析器不兼容的相关 bug。
 
 To indicate the npm module to use as your parser, specify it using the `parser` option in your `.eslintrc` file. For example, the following specifies to use Esprima instead of Espree:
 
@@ -198,7 +198,7 @@ An environment defines global variables that are predefined. The available envir
 
 * `jasmine` - adds all of the Jasmine testing global variables for version 1.3 and 2.0.
 
-* `jasmine` - 添加所有的 Jasmine版本 1.3 和 2.0 的测试全局变量。
+* `jasmine` - 添加所有的 Jasmine 版本 1.3 和 2.0 的测试全局变量。
 
 * `jest` - Jest global variables.
 
@@ -373,11 +373,11 @@ And in YAML:
 
 The [no-undef](../rules/no-undef) rule will warn on variables that are accessed but not defined within the same file. If you are using global variables inside of a file then it's worthwhile to define those globals so that ESLint will not warn about their usage. You can define global variables either using comments inside of a file or in the configuration file.
 
-当变量被访问，但没有定义在同一文件里时，[no-undef](../rules/no-undef) 规则会发出警告。如果你想在一个文件里使用全局变量，推荐你定义这些全局变量，这样ESLint就不会发出警告了。你可以使用注释或在配置文件中定义全局变量。
+当访问未定义的变量时，[no-undef](../rules/no-undef) 规则将发出警告。如果你想在一个文件里使用全局变量，推荐你定义这些全局变量，这样 ESLint 就不会发出警告了。你可以使用注释或在配置文件中定义全局变量。
 
 To specify globals using a comment inside of your JavaScript file, use the following format:
 
-在你的 JavaScript 文件中用注释指定全局变量，使用如下格式：
+在你的 JavaScript 文件中，用注释指定全局变量，格式如下：
 
 ```js
 /*global var1, var2*/
@@ -385,7 +385,7 @@ To specify globals using a comment inside of your JavaScript file, use the follo
 
 This defines two global variables, `var1` and `var2`. If you want to optionally specify that these global variables should never be written to (only read), then you can set each with a `false` flag:
 
-这里定义了两个全局变量：`var1` 和 `var2`。如果你想指定这些变量为只读的，你可以将它们设置为`false`：
+这里定义了两个全局变量：`var1` 和 `var2`。如果你想指定这些变量不应被重写（只读），你可以将它们设置为`false`：
 
 ```js
 /*global var1:false, var2:false*/
@@ -393,7 +393,7 @@ This defines two global variables, `var1` and `var2`. If you want to optionally 
 
 To configure global variables inside of a configuration file, use the `globals` key and indicate the global variables you want to use. Set each global variable name equal to `true` to allow the variable to be overwritten or `false` to disallow overwriting. For example:
 
-在配置文件里配置全局变量时，使用关键字`globals`键表示你要使用的全局变量。设置每个变量等于`true`允许变量被重写，或`false`不允许被重写。比如：
+在配置文件里配置全局变量时，使用键`globals`指出你要使用的全局变量。设置每个变量等于`true`允许变量被重写，或`false`不允许被重写。比如：
 
 ```json
 {
@@ -580,7 +580,7 @@ In these configuration files, the rule `plugin1/rule1` comes from the plugin nam
 
 **Note:** When specifying rules from plugins, make sure to omit `eslint-plugin-`. ESLint uses only the unprefixed name internally to locate rules.
 
-**注意：** 当指定从插件来的规则时，确保删除`eslint-plugin-`前缀。ESLint 在内部只使用没有前缀的名称去定位规则。
+**注意：**当指定从插件来的规则时，确保删除`eslint-plugin-`前缀。ESLint 在内部只使用没有前缀的名称去定位规则。
 
 To temporarily disable rule warnings in your file use the following format:
 
@@ -643,7 +643,7 @@ alert('foo');
 
 **Note:** Comments that disable warnings for a portion of a file tell ESLint not to report rule violations for the disabled code. ESLint parses the entire file, so disabled code still needs to be syntactically valid JavaScript.
 
-**注意：** 为文件的某部分禁用警告的注释，告诉 ESLint 不要对禁用的代码报告规则的冲突。ESLint 解析整个文件，所以禁用的代码仍需要是有效的 JavaScript语法。
+**注意：**为文件的某部分禁用警告的注释，告诉 ESLint 不要对禁用的代码报告规则的冲突。ESLint 解析整个文件，所以禁用的代码仍需要是有效的 JavaScript语法。
 
 ## Adding Shared Settings
 
@@ -651,7 +651,7 @@ alert('foo');
 
 ESLint supports adding shared settings into configuration file. You can add `settings` object to ESLint configuration file and it will be supplied to every rule that will be executed. This may be useful if you are adding custom rules and want them to have access to the same information and be easily configurable.
 
-ESLint支持在配置文件添加共享设置。你可以添加`settings`对象到配置文件，它将提供给每一个将被执行的规则。如果你想添加的自定义规则而且使它们可以访问到相同的信息，这将会很有用，并且很容易配置。
+ESLint 支持在配置文件添加共享设置。你可以添加`settings`对象到配置文件，它将提供给每一个将被执行的规则。如果你想添加的自定义规则而且使它们可以访问到相同的信息，这将会很有用，并且很容易配置。
 
 In JSON:
 
@@ -687,7 +687,7 @@ There are two ways to use configuration files. The first is to save the file whe
 
 The second way to use configuration files is via `.eslintrc.*` and `package.json` files. ESLint will automatically look for them in the directory of the file to be linted, and in successive parent directories all the way up to the root directory of the filesystem. This option is useful when you want different configurations for different parts of a project or when you want others to be able to use ESLint directly without needing to remember to pass in the configuration file.
 
-第二种方式是通过`.eslintrc.*`和`package.json`。ESLint将自动在要检测的文件目录里寻找它们，紧接着是父级目录，一直到文件系统的根目录。当你想对一个项目的不同部分的使用不同配置，或当你希望别人能够直接使用ESLint，而无需记住要在配置文件中传递什么，这种方式就很有用。
+第二种方式是通过`.eslintrc.*`和`package.json`。ESLint 将自动在要检测的文件目录里寻找它们，紧接着是父级目录，一直到文件系统的根目录。当你想对一个项目的不同部分的使用不同配置，或当你希望别人能够直接使用 ESLint，而无需记住要在配置文件中传递什么，这种方式就很有用。
 
 In each case, the settings in the configuration file override default settings.
 
@@ -781,7 +781,7 @@ If there is an `.eslintrc` and a `package.json` file found in the same directory
 
 **Note:** If you have a personal configuration file in your home directory (`~/.eslintrc`), it will only be used if no other configuration files are found. Since a personal configuration would apply to everything inside of a user's directory, including third-party code, this could cause problems when running ESLint.
 
-**注意：** 如果在你的主目录下有一个自定义的配置文件(`~/.eslintrc`)，如果没有其它配置文件时它才会被使用。因为个人配置将适用于用户目录下的所有目录和文件，包括第三方的代码，当ESLint运行时肯能会导致问题。
+**注意：**如果在你的主目录下有一个自定义的配置文件(`~/.eslintrc`)，如果没有其它配置文件时它才会被使用。因为个人配置将适用于用户目录下的所有目录和文件，包括第三方的代码，当 ESLint 运行时肯能会导致问题。
 
 By default, ESLint will look for configuration files in all parent folders up to the root directory. This can be useful if you want all of your projects to follow a certain convention, but can sometimes lead to unexpected results. To limit ESLint to a specific project, place `"root": true` inside the `eslintConfig` field of the `package.json` file or in the `.eslintrc.*` file at your project's root level.  ESLint will stop looking in parent folders once it finds a configuration with `"root": true`.
 
@@ -967,11 +967,11 @@ In this example, the `eslint-plugin-myplugin` package contains configuration nam
 
 **Important:** When you are extending from the configuration bundled with plugins, you need to start with `plugin:` prefix as well as specify configuration name after the slash. You may optionally omit the `eslint-plugin-` prefix.
 
-**重要：** 当你从配置的插件中进行扩展是，你需要以`plugin:`前缀开头，在斜线后指定配置名称。你可以选择忽略`eslint-plugin-`前缀。
+**重要：**当你从配置的插件中进行扩展是，你需要以`plugin:`前缀开头，在斜线后指定配置名称。你可以选择忽略`eslint-plugin-`前缀。
 
 **Note:** For configuration files in your home directory, or in any path that isn't an ancestor to the location of ESLint (either globally or locally), `extends` is resolved from the path of the project using ESLint (typically the current working directory) rather than relative to the file itself.
 
-**注意：** 对于在你的主目录或其他任何非 ESLint 父级路径中的配置文件，`extends`是使用的是项目的路径（通常是当前工作目录）而不是相对于要检测的文件本身。
+**注意：**对于在你的主目录或其他任何非 ESLint 父级路径中的配置文件，`extends`是使用的是项目的路径（通常是当前工作目录）而不是相对于要检测的文件本身。
 
 ## Comments in Configuration Files
 
@@ -1008,7 +1008,7 @@ Currently the sole method for telling ESLint which file extensions to lint is by
 
 You can tell ESLint to ignore specific files and directories by creating an `.eslintignore` file in your project's root directory. The `.eslintignore` file is a plain text file where each line is a glob pattern indicating which paths should be omitted from linting. For example, the following will omit all JavaScript files:
 
-你可以通过在项目根目录创建一个`.eslintignore`文件告诉 ESLint 去忽略特定的文件和目录。`.eslintignore`文件是一个纯文本文件，其中的每一行都是一个glob模式表明哪些路径应该忽略检测。例如，以下将忽略所有的 JavaScript 文件：
+你可以通过在项目根目录创建一个`.eslintignore`文件告诉 ESLint 去忽略特定的文件和目录。`.eslintignore`文件是一个纯文本文件，其中的每一行都是一个 glob 模式表明哪些路径应该忽略检测。例如，以下将忽略所有的 JavaScript 文件：
 
 ```text
 **/*.js

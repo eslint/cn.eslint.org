@@ -23,7 +23,7 @@ ESLint 的初衷是为了让程序员可以创建自己的检测规则。ESLint 
 
 ESLint is written using Node.js to provide a fast runtime environment and easy installation via [npm][].
 
-ESLint使用Node.js编写，这样既可以有一个快速的运行环境的同时也便于安装。
+ESLint 使用 Node.js 编写，这样既可以有一个快速的运行环境的同时也便于安装。
 
 [linting]: http://en.wikipedia.org/wiki/Lint_(software)
 [npm]: http://npmjs.org/
@@ -35,9 +35,9 @@ Everything is pluggable:
 所有都是可拔插的
 
 * Rule API is used both by bundled and custom rules
-* 内置规则和自定义规则共用一套规则API
+* 内置规则和自定义规则共用一套规则 API
 * Formatter API is used both by bundled and custom formatters
-* 内置的格式化方法和自定义的格式化方法共用一套格式化API
+* 内置的格式化方法和自定义的格式化方法共用一套格式化 API
 * Additional rules and formatters can be specified at runtime
 * 额外的规则和格式化方法能够在运行时指定
 * Rules and formatters don't have to be bundled to be used

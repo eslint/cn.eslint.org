@@ -12,7 +12,7 @@ proofreader: molee1905
 
 Trailing commas in object literals are valid according to the ECMAScript 5 (and ECMAScript 3!) spec. However, IE8 (when not in IE8 document mode) and below will throw an error when it encounters trailing commas in JavaScript.
 
-根据 ECMAScript5(和 ECMAScript3!)规范，对象字面量中的拖尾逗号是合法的。然而，在IE8（非IE8文档模式）下，当在 JavaScript 出现拖尾逗号，以下情况下将抛出错误。
+根据 ECMAScript5 (和 ECMAScript3!)规范，对象字面量中的拖尾逗号是合法的。然而，在 IE8（非 IE8 文档模式）下，当在 JavaScript 出现拖尾逗号，以下情况下将抛出错误。
 
 ```js
 var foo = {

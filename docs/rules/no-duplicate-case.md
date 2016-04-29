@@ -12,13 +12,13 @@ proofreader: molee1905
 
 If a switch statement has duplicate case labels, it is likely that a programmer copied a case but forgot to change the label.
 
-如果在 switch 语句中出现重复 case 标签，很有可能是开发者拷贝了一个case语句，并且忘了改标签。
+如果在 switch 语句中出现重复 case 标签，很有可能是开发者拷贝了一个 case 语句，并且忘了改标签。
 
 ## Rule Details
 
 This rule is aimed at eliminating duplicate case labels in switch statements
 
-该检查报告 JavaScript switch 语句中出现重复 case 标签的情况。
+该规则旨在消除重复 switch 语句中的重复 case 标签。
  
 Examples of **incorrect** code for this rule:
 

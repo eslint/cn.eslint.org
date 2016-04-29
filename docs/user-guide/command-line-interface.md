@@ -135,7 +135,7 @@ This example uses the configuration file at `~/my-eslint.json`.
 
 It also accepts a module ID of [sharable config](../developer-guide/shareable-configs).
 
-它还接受[sharable config](../developer-guide/shareable-configs)的一个模块的ID。
+它还接受[sharable config](../developer-guide/shareable-configs)的一个模块的 ID。
 
 Example:
 
@@ -317,7 +317,7 @@ This option specifies rules to be used. These rules will be merged with any rule
 
 If the rule is defined within a plugin you have to prefix the rule ID with the plugin name and a `/`.
 
-如果这个规则定义在插件内，你必须在规则ID前使用插件名和`/`，即`插件名/规则ID`。
+如果这个规则定义在插件内，你必须在规则 ID 前使用插件名和`/`，即`插件名/规则ID`。
 
 Examples:
 
@@ -507,7 +507,7 @@ This option instructs ESLint to try to fix as many issues as possible. The fixes
 
 1. This option throws an error when code is piped to ESLint.
 
-1. 当代码传递给 ESLint时，这个选项抛出一个错误。
+1. 当代码传递给 ESLint 时，这个选项抛出一个错误。
 
 1. This option has no effect on code that uses processors.
 

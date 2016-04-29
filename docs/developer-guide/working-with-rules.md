@@ -46,7 +46,7 @@ module.exports.schema = [
 
 Each rule is represented by a single object with several properties. The properties are equivalent to AST node types from [ESTree](https://github.com/estree/estree). For example, if your rule wants to know when an identifier is found in the AST, then add a method called "Identifier", such as:
 
-每个规则都表现为一个非空对象。它的属性相当于 ESTree 中的 AST 节点类型。例如，如果你的规则想知道一个标识符什么时候在 AST 中被发现，添加一个叫做 "Identifier" 的方法，比如：
+每个规则都表现为一个非空对象。它的属性相当于 [ESTree](https://github.com/estree/estree) 中的 AST 节点类型。例如，如果你的规则想知道一个标识符什么时候在 AST 中被发现，添加一个叫做 "Identifier" 的方法，比如：
 
 ```js
 module.exports = function(context) {

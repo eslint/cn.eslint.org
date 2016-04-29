@@ -12,14 +12,13 @@ proofreader: qifeigit
 
 The `block-scoped-var` rule generates warnings when variables are used outside of the block in which they were defined. This emulates C-style block scope.
 
-当变量在其被定义的范围之外被使用时，会违反block-scoped-var规则，从而被警告。
-这种解析方式模拟了c语言中的块级作用域。
+当变量在其被定义的范围之外被使用时，该规则会发出警告。这种解析方式模拟了 C 语言中的块级作用域。
  
 ## Rule Details
 
 This rule aims to reduce the usage of variables outside of their binding context and emulate traditional block scope from other languages. This is to help newcomers to the language avoid difficult bugs with variable hoisting.
 
-此规则借鉴其他语言的块级作用域概念，旨在用来减少变量跨作用域使用情况的发生。此规则可帮助语言初学者避免因变量声明提升而产生的bugs。
+此规则借鉴其他语言的块级作用域概念，旨在用来减少变量跨作用域使用情况的发生。此规则可帮助语言初学者避免因变量声明提升而产生的 bug。
 
 Examples of **incorrect** code for this rule:
 

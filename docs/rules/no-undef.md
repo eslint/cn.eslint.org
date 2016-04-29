@@ -8,7 +8,7 @@ proofreader: coocon
 
 # Disallow Undeclared Variables (no-undef)
 
-# 不允许使用未申明变量 (no-undef)
+# 禁用未声明的变量 (no-undef)
 
 This rule can help you locate potential ReferenceErrors resulting from misspellings of variable and parameter names, or accidental implicit globals (for example, from forgetting the `var` keyword in a `for` loop initializer).
 
@@ -44,6 +44,8 @@ b = 10;
 ```
 
 The `b:true` syntax in `/*global */` indicates that assignment to `b` is correct.
+
+`/*global */`中的`b:true`表示可以对`b`进行赋值。
 
 Examples of **incorrect** code for this rule with `global` declaration:
 
