@@ -1,7 +1,6 @@
 ---
 title: Rule array-callback-return
 layout: doc
-translator: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -56,7 +55,8 @@ This rule finds callback functions of the following methods, then checks usage o
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
+
 
 ```js
 /*eslint array-callback-return: "error"*/
@@ -82,7 +82,7 @@ var bar = foo.filter(function(x) {
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint array-callback-return: "error"*/
@@ -124,3 +124,4 @@ This rule was introduced in ESLint 2.0.0-alpha-1.
 
 * [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/array-callback-return.js)
 * [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/array-callback-return.md)
+

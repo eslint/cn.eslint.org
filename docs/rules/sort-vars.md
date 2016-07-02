@@ -1,8 +1,6 @@
 ---
 title: Rule sort-vars
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -24,9 +22,9 @@ The default configuration of the rule is case-sensitive.
 
 该规则的默认配置是区分大小写的。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误** 代码示例：
 
 ```js
 /*eslint sort-vars: "error"*/
@@ -38,9 +36,9 @@ var a, B, c;
 var a, A;
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint sort-vars: "error"*/
@@ -87,9 +85,9 @@ When `true` the rule ignores the case-sensitivity of the variables order.
 
 当设置为`true`时，该规则忽略变量的大小写进行排序。
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint sort-vars: ["error", { "ignoreCase": true }]*/

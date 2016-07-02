@@ -1,8 +1,6 @@
 ---
 title: Rule no-var
 layout: doc
-translator: molee1905
-proofreader: coocon 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 

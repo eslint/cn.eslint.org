@@ -1,8 +1,6 @@
 ---
 title: ESLint Contributor License Agreement
 layout: doc
-translator: molee1905
-proofreader: maomaoking
 ---
 
 # Contributor License Agreement (CLA)

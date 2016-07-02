@@ -1,46 +1,35 @@
 ---
 title: Rule no-irregular-whitespace
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# No irregular whitespace (no-irregular-whitespace)
+# disallow irregular whitespace (no-irregular-whitespace)
 
 # 禁止不规则的空白 (no-irregular-whitespace)
 
 Invalid or irregular whitespace causes issues with ECMAScript 5 parsers and also makes code harder to debug in a similar nature to mixed tabs and spaces.
 
-无效的或不规则的空白导致 ECMAScript 5 解析问题，也会使代码更难调试，类似于混合 tab 和空格的情况。
+无效的或不规则的空白会导致 ECMAScript 5 解析问题，也会使代码难以调试（类似于混合 tab 和空格的情况）。
 
 Various whitespace characters can be inputted by programmers by mistake for example from copying or keyboard shortcuts. Pressing Alt + Space on OS X adds in a non breaking space character for example.
 
-各种空白字符是由程序员误输入的，比如拷贝或键盘快捷键。例如，在OS X系统按下 Alt + Space，增加了一个不间断空格。
+各种空白字符可能是由程序员误输入的，比如拷贝或键盘快捷键。例如，在 OS X 系统按下 Alt + Space，增加了一个不间断空格。
 
 Known issues these spaces cause:
 
 这些空格引起的已知的问题:
 
 * Zero Width Space
-
-* 零宽度空格
-
+* 零宽空格
     * Is NOT considered a separator for tokens and is often parsed as an `Unexpected token ILLEGAL`
-
-    * 不被认为是分隔符，经常被解析为`Unexpected token ILLEGAL`
-
+    * 不被认为是分隔符，经常被解析为 `Unexpected token ILLEGAL`
     * Is NOT shown in modern browsers making code repository software expected to resolve the visualisation
-
-    * 不在现代浏览器中显示，期待使用代码存储软件解决其可视化问题。
-
+    * 不在现代浏览器中显示，期待使用代码存储软件解决其可视化问题
 * Line Separator
-
 * 行分隔符
-
     * Is NOT a valid character within JSON which would cause parse errors
-
-    * 在JSON中不是一个有效的字符，会引起解析错误
+    * 在 JSON 中不是一个有效的字符，会引起解析错误
 
 ## Rule Details
 
@@ -48,9 +37,9 @@ This rule is aimed at catching invalid whitespace that is not a normal tab and s
 
 该规则旨在捕获无效的不是正常的tab和空格的空白。这些字符有的会在现代浏览器中引发问题，其它的会引起调试问题。
 
-With this rule enabled the following characters will cause warnings outside of strings and comments:
+This rule disallows the following characters except where the options allow:
 
-启用了此规则，以下字符将会在字符串和注释之外引起警告：
+该规则禁止出现以下字符，除非该规则选项允许：
 
     \u000B - Line Tabulation (\v) - <VT>
     \u000C - Form Feed (\f) - <FF>
@@ -77,87 +66,144 @@ With this rule enabled the following characters will cause warnings outside of s
     \u205f - Medium Mathematical Space
     \u3000 - Ideographic Space
 
-Examples of **incorrect** code for this rule:
+## Options
 
-**错误**代码示例：
+This rule has an object option for exceptions:
+
+该规则有例外情况，是个对象：
+
+* `"skipStrings": true` (default) allows any whitespace characters in string literals
+* `"skipStrings": true` (默认) 允许在字符串字面量中出现任何空白字符
+* `"skipComments": true` allows any whitespace characters in comments
+* `"skipComments": true` 允许在注释中出现任何空白字符
+* `"skipRegExps": true` allows any whitespace characters in regular expression literals
+* `"skipRegExps": true` 允许在正则表达式中出现任何空白字符
+* `"skipTemplates": true` allows any whitespace characters in template literals
+* `"skipTemplates": true` 允许在模板字面量中出现任何空白字符
+
+### skipStrings
+
+Examples of **incorrect** code for this rule with the default `{ "skipStrings": true }` option:
+
+默认选项 `{ "skipStrings": true }` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-irregular-whitespace: "error"*/
 
 function thing() /*<NBSP>*/{
-  return 'test';
+    return 'test';
 }
 
 function thing( /*<NBSP>*/){
-  return 'test';
+    return 'test';
 }
 
 function thing /*<NBSP>*/(){
-  return 'test';
+    return 'test';
 }
 
 function thing᠎/*<MVS>*/(){
-  return 'test';
+    return 'test';
 }
 
 function thing() {
-  return 'test'; /*<ENSP>*/
+    return 'test'; /*<ENSP>*/
 }
 
 function thing() {
-  return 'test'; /*<NBSP>*/
+    return 'test'; /*<NBSP>*/
+}
+
+function thing() {
+    // Description <NBSP>: some descriptive text
+}
+
+/*
+Description <NBSP>: some descriptive text
+*/
+
+function thing() {
+    return / <NBSP>regexp/;
+}
+
+/*eslint-env es6*/
+function thing() {
+    return `template <NBSP>string`;
 }
 ```
 
-Examples of **correct** code for this rule:
+Examples of **correct** code for this rule with the default `{ "skipStrings": true }` option:
 
-**正确**代码示例：
+默认选项 `{ "skipStrings": true }` **正确** 代码示例：
 
 ```js
 /*eslint no-irregular-whitespace: "error"*/
 
 function thing() {
-  return ' <NBSP>thing';
+    return ' <NBSP>thing';
 }
 
 function thing() {
-  return '​<ZWSP>thing';
+    return '​<ZWSP>thing';
 }
 
 function thing() {
-  return 'th <NBSP>ing';
+    return 'th <NBSP>ing';
 }
+```
 
-// Description<NBSP>: some descriptive text
+### skipComments
+
+Examples of additional **correct** code for this rule with the `{ "skipComments": true }` option:
+
+选项 `{ "skipComments": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint no-irregular-whitespace: ["error", { "skipComments": true }]*/
+
+function thing() {
+    // Description <NBSP>: some descriptive text
+}
 
 /*
-Description<NBSP>: some descriptive text
+Description <NBSP>: some descriptive text
 */
 ```
 
-## Options
+### skipRegExps
 
-The `no-irregular-whitespace` rule has no required option and has one optional one that needs to be passed in a single options object:
+Examples of additional **correct** code for this rule with the `{ "skipRegExps": true }` option:
 
-该规则没有必选项，只有一个可选项是个对象。
+选项 `{ "skipRegExps": true }` 的 **正确** 代码示例：
 
-* **skipComments** *(default: `false`)*: whether to ignore irregular whitespace within comments (`true`) or whether to check for them in there, too (`false`).
+```js
+/*eslint no-irregular-whitespace: ["error", { "skipRegExps": true }]*/
 
-* **skipComments** *(默认: `false`)*: 是否忽略注释中不规则的空格(`true`) 或 非法对它们进行检查 (`false`)
+function thing() {
+    return / <NBSP>regexp/;
+}
+```
 
-For example, to specify that you want to skip checking for irregular whitespace within comments, use the following configuration:
+### skipTemplates
 
-例如，你想跳过对注释中的不规则的空格的检查，使用下面的配置进行：
+Examples of additional **correct** code for this rule with the `{ "skipTemplates": true }` option:
 
-```json
-"no-irregular-whitespace": ["error", { "skipComments": true }]
+选项 `{ "skipTemplates": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint no-irregular-whitespace: ["error", { "skipTemplates": true }]*/
+/*eslint-env es6*/
+
+function thing() {
+    return `template <NBSP>string`;
+}
 ```
 
 ## When Not To Use It
 
 If you decide that you wish to use whitespace other than tabs and spaces outside of strings in your application.
 
-如果你想在你的应用中使用 tab 和空格之外的空白，可以关闭此规则。
+如果你想在你的应用中使用 tab 和空格之外的空白字符，可以关闭此规则。
 
 ## Further Reading
 

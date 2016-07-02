@@ -1,14 +1,16 @@
 ---
 title: Rule comma-dangle
 layout: doc
-translator: coocon
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow or Enforce Dangling Commas (comma-dangle)
+# require or disallow trailing commas (comma-dangle)
 
-# 禁止或强制拖尾逗号（comma-dangle）
+# 要求或禁止使用拖尾逗号 (comma-dangle)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 Trailing commas in object literals are valid according to the ECMAScript 5 (and ECMAScript 3!) spec. However, IE8 (when not in IE8 document mode) and below will throw an error when it encounters trailing commas in JavaScript.
 
@@ -21,9 +23,33 @@ var foo = {
 };
 ```
 
-On the other hand, trailing commas simplify adding and removing items to objects and arrays, since only the lines you are modifying must be touched.
+Trailing commas simplify adding and removing items to objects and arrays, since only the lines you are modifying must be touched.
+Another argument in favor of trailing commas is that it improves the clarity of diffs when an item is added or removed from an object or array:
 
-另外，拖尾逗号简化对象和数组元素的添加和删除，因为仅仅涉及到你修改的行。
+拖尾逗号简化了对象和数组增加或删除元素，因为你只需接触你要修改的行。另一个支持拖尾逗号的观点是，当对象或数组添加或删除元素时，它提高了代码差异的清晰度。
+
+Less clear:
+
+不太清晰：
+
+```diff
+ var foo = {
+-    bar: "baz",
+-    qux: "quux"
++    bar: "baz"
+ };
+```
+
+More clear:
+
+更清晰：
+
+```diff
+ var foo = {
+     bar: "baz",
+-    qux: "quux",
+ };
+```
 
 ## Rule Details
 
@@ -33,31 +59,24 @@ This rule enforces consistent use of trailing commas in object and array literal
 
 ## Options
 
-This rule takes one argument, which can be one of the following options:
+This rule has a string option:
 
-这个规则接受一个参数，可以是如下选项之一：
+该规则有一个字符串选项：
 
-- `"never"` - warn whenever a trailing comma is detected. The default value of this option is `"never"`.
-
-- `"never"` - 只要检测到尾逗号，就发出警告。这个选项默认值为 `"never"`
-
-- `"always"` - warn whenever a missing comma is detected.
-
-- `"always"` - 只要检测到缺失逗号，就发出警告。
-
-- `"always-multiline"` - warn if there is a missing trailing comma on arrays or objects that span multiple lines, and warns if there is a trailing comma present on single line arrays or objects.
-
-- `"always-multiline"` - 在跨行的数组和对象中缺失拖尾逗号，或者在单行数组和对象中出现尾逗号，都将发出警告。
-
-- `"only-multiline"` - warn whenever a trailing comma is detected on single line nodes.
-
-- `"only-multiline"` - 在单行节点上检测到拖尾逗号将发出警告。
+* `"never"` (default) disallows trailing commas
+* `"never"` (默认) 禁用拖尾逗号
+* `"always"` requires trailing commas
+* `"always"` 要求使用拖尾逗号
+* `"always-multiline"` requires trailing commas when the last element or property is in a *different* line than the closing `]` or `}` and disallows trailing commas when the last element or property is on the *same* line as the closing `]` or `}`
+* `"always-multiline"` 当最后一个元素或属性与闭括号 `]` 或 `}` 在 *不同的行*时，要求使用拖尾逗号；当在 *同一行*时，禁止使用拖尾逗号。
+* `"only-multiline"` allows (but does not require) trailing commas when the last element or property is in a *different* line than the closing `]` or `}` and disallows trailing commas when the last element or property is on the *same* line as the closing `]` or `}`
+* `"only-multiline"` 当最后一个元素或属性与闭括号 `]` 或 `}` 在 *不同的行*时，允许（但不要求）使用拖尾逗号；当在 *同一行*时，禁止使用拖尾逗号。
 
 ### never
 
-Examples of **incorrect** code for the default `"never"` option:
+Examples of **incorrect** code for this rule with the default `"never"` option:
 
-默认选项`"never"`的 **错误**代码示例：
+默认选项 `"never"` 的 **错误** 代码示例：
 
 ```js
 /*eslint comma-dangle: ["error", "never"]*/
@@ -75,9 +94,9 @@ foo({
 });
 ```
 
-Examples of **correct** code for the default `"never"` option:
+Examples of **correct** code for this rule with the default `"never"` option:
 
-默认选项`"never"`的 **正确**代码示例：
+默认选项 `"never"` 的 **正确** 代码示例：
 
 ```js
 /*eslint comma-dangle: ["error", "never"]*/
@@ -97,9 +116,9 @@ foo({
 
 ### always
 
-Examples of **incorrect** code for the `"always"` option:
+Examples of **incorrect** code for this rule with the `"always"` option:
 
-选项`"always"`的 **错误**代码示例：
+选项 `"always"` 的 **错误** 代码示例：
 
 ```js
 /*eslint comma-dangle: ["error", "always"]*/
@@ -117,9 +136,9 @@ foo({
 });
 ```
 
-Examples of **correct** code for the `"always"` option:
+Examples of **correct** code for this rule with the `"always"` option:
 
-选项`"always"`的 **正确**代码示例：
+选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 /*eslint comma-dangle: ["error", "always"]*/
@@ -139,9 +158,9 @@ foo({
 
 ### always-multiline
 
-Examples of **incorrect** code for the `"always-multiline"` option:
+Examples of **incorrect** code for this rule with the `"always-multiline"` option:
 
-选项`"always-multiline"`的 **错误**代码示例：
+选项 `"always-multiline"` 的 **错误** 代码示例：
 
 ```js
 /*eslint comma-dangle: ["error", "always-multiline"]*/
@@ -169,9 +188,9 @@ foo({
 });
 ```
 
-Examples of **correct** code for the `"always-multiline"` option:
+Examples of **correct** code for this rule with the `"always-multiline"` option:
 
-选项`"always-multiline"`的 **正确**代码示例：
+选项 `"always-multiline"` 的 **正确** 代码示例：
 
 ```js
 /*eslint comma-dangle: ["error", "always-multiline"]*/
@@ -200,9 +219,9 @@ foo({
 
 ### only-multiline
 
-Examples of **incorrect** code for the `"only-multiline"` option:
+Examples of **incorrect** code for this rule with the `"only-multiline"` option:
 
-选项`"only-multiline"`的 **错误**代码示例：
+选项 `"only-multiline"` 的 **错误** 代码示例：
 
 ```js
 /*eslint comma-dangle: ["error", "only-multiline"]*/
@@ -216,9 +235,9 @@ var arr = [1,
 
 ```
 
-Examples of **correct** code for the `"only-multiline"` option:
+Examples of **correct** code for this rule with the `"only-multiline"` option:
 
-选项`"only-multiline"`的 **正确**代码示例：
+选项 `"only-multiline"` 的 **正确** 代码示例：
 
 ```js
 /*eslint comma-dangle: ["error", "only-multiline"]*/

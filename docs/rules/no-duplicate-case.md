@@ -1,8 +1,6 @@
 ---
 title: Rule no-duplicate-case
 layout: doc
-translator: ybbjegj
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,19 +8,19 @@ proofreader: molee1905
 
 # 禁止重复 case 标签（no-duplicate-case）
 
-If a switch statement has duplicate case labels, it is likely that a programmer copied a case but forgot to change the label.
+If a `switch` statement has duplicate test expressions in `case` clauses, it is likely that a programmer copied a `case` clause but forgot to change the test expression.
 
-如果在 switch 语句中出现重复 case 标签，很有可能是开发者拷贝了一个 case 语句，并且忘了改标签。
+如果一个 `switch` 语句中的 `case` 子句中出现重复的测试表达式，那么很有可能是某个程序员拷贝了一个 `case` 子句但忘记了修改测试表达式。
 
 ## Rule Details
 
-This rule is aimed at eliminating duplicate case labels in switch statements
+This rule disallows duplicate test expressions in `case` clauses of `switch` statements.
 
-该规则旨在消除重复 switch 语句中的重复 case 标签。
- 
+该规则禁止在 `switch` 语句中的 `case` 子句中出现重复的测试表达式。
+
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-duplicate-case: "error"*/
@@ -35,7 +33,7 @@ switch (a) {
         break;
     case 2:
         break;
-    case 1:         // duplicate case label
+    case 1:         // duplicate test expression
         break;
     default:
         break;
@@ -46,7 +44,7 @@ switch (a) {
         break;
     case 2:
         break;
-    case one:         // duplicate case label
+    case one:         // duplicate test expression
         break;
     default:
         break;
@@ -57,7 +55,7 @@ switch (a) {
         break;
     case "2":
         break;
-    case "1":         // duplicate case label
+    case "1":         // duplicate test expression
         break;
     default:
         break;
@@ -66,7 +64,7 @@ switch (a) {
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-duplicate-case: "error"*/

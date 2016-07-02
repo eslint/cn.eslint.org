@@ -1,18 +1,16 @@
 ---
 title: Rule max-nested-callbacks
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Set Maximum Depth of Nested Callbacks (max-nested-callbacks)
+# enforce a maximum depth that callbacks can be nested (max-nested-callbacks)
 
-# 设置回调函数最大嵌套深度 (max-nested-callbacks)
+# 强制回调函数最大嵌套深度 (max-nested-callbacks)
 
 Many JavaScript libraries use the callback pattern to manage asynchronous operations. A program of any complexity will most likely need to manage several asynchronous operations at various levels of concurrency. A common pitfall that is easy to fall into is nesting callbacks, which makes code more difficult to read the deeper the callbacks are nested.
 
-很多 Javascript 类库是使用回调模式处理异步操作。任何复杂的程序都将最有可能在不同级别的并发性下处理多个异步回调操作。一个最长见的隐患就是嵌套的回调，使得代码嵌套层级越深越难以阅读。
+很多 JavaScript 类库是使用回调模式处理异步操作。任何复杂的程序都将最有可能在不同级别的并发性下处理多个异步回调操作。一个最长见的隐患就是嵌套的回调，使得代码嵌套层级越深越难以阅读。
 
 ```js
 foo(function () {
@@ -28,69 +26,66 @@ foo(function () {
 
 ## Rule Details
 
-This rule is aimed at increasing code clarity by discouraging deeply nesting callbacks. As such, it will warn when callbacks are nested deeper than the specified limit.
+This rule enforces a maximum depth that callbacks can be nested to increase code clarity.
 
-该规则旨在通过阻止深层次的嵌套回调，来提高代码的清晰度。因此，如果回调函数嵌套的深度超过指定的限制，该规则将发出警告。
+该规则旨在强制回调函数最大可嵌套深度，以提高代码的清晰度。
 
 ## Options
 
-The default max depth for this rule is 10. You can define the depth as an option by using the second argument in your configuration. For example, this sets the rule as an error (code is 2) with a maximum depth of 3:
+This rule has a number or object option:
 
-该规则默认的最大深度是10。你可以通过在你的配置中使用第二个参数作为一个选项定义这个深度值。例如，以下将设置规则为错误级别(代码为2)，最大深度为3：     
+该规则有一个数字或对象选项：
 
-```json
-"max-nested-callbacks": ["error", 3]
+* `"max"` (default `10`) enforces a maximum depth that callbacks can be nested
+* `"max"` (默认 `10`) 强制回调函数最大可嵌套深度
 
-// or you can use an object property
+**Deprecated:** The object property `maximum` is deprecated; please use the object property `max` instead.
 
-"max-nested-callbacks": ["error", {"max": 3}]
-```
+**已弃用：** `maximum` 属性已弃用；请使用 `max` 属性。
 
-**Deprecated:** the object property `maximum` is deprecated. Please use the property `max` instead.
+### max
 
-**弃用：**属性`maximum`已弃用。请使用`max`属性。
+Examples of **incorrect** code for this rule with the `{ "max": 3 }` option:
 
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+选项 `{ "max": 3 }` 的 **错误** 代码示例：
 
 ```js
 /*eslint max-nested-callbacks: ["error", 3]*/
 
-foo(function () {
-    bar(function () {
-        baz(function() {
-            qux(function () {
-
+foo1(function() {
+    foo2(function() {
+        foo3(function() {
+            foo4(function() {
+                // Do something
             });
         });
     });
 });
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `{ "max": 3 }` option:
 
-以下模式被认为是没有问题的
+选项 `{ "max": 3 }` 的 **正确** 代码示例：
 
 ```js
 /*eslint max-nested-callbacks: ["error", 3]*/
 
-foo(handleFoo);
+foo1(handleFoo1);
 
-function handleFoo (){
-    bar(handleBar);
+function handleFoo1() {
+    foo2(handleFoo2);
 }
 
-function handleBar() {
-    baz(handleBaz);
+function handleFoo2() {
+    foo3(handleFoo3);
 }
 
-function handleBaz() {
-    qux(handleQux);
+function handleFoo3() {
+    foo4(handleFoo4);
 }
 
-function handleQux() {
-
+function handleFoo4() {
+    foo5();
 }
 ```
 

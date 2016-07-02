@@ -1,34 +1,27 @@
 ---
 title: Rule no-inline-comments
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallows comments after code. Comments must come on their own lines (no-inline-comments)
+# disallow inline comments after code (no-inline-comments)
 
-# 代码后面不允许有注释。注释必须单独成行 (no-inline-comments)
+# 禁止使用内联注释 (no-inline-comments)
 
-Some style guides disallow a comments on the same line as code.
-If there are comments immediately following code, it can make it harder to read the code.
+Some style guides disallow comments on the same line as code. Code can become difficult to read if comments immediately follow the code on the same line.
 On the other hand, it is sometimes faster and more obvious to put comments immediately following code.
 
-一些风格指南禁止注释和代码在同一行。如果注释紧随代码，会造成代码难以阅读。在另一方面，将注释放在代码后面，有时会很快和更明显。
+一些风格指南禁止注释和代码出现在同一行。如果注释紧随代码，会使代码是变得难以阅读。另一方面，将注释放在代码后面会快更明显。
 
 ## Rule Details
 
-This rule will disallow comments on the same line as code.
+This rule disallows comments on the same line as code.
 
-该规则不允许注释和代码在同一行。
+该规则禁止注释和代码出现在同一行。
 
-This rule takes no arguments.
+Examples of **incorrect** code for this rule:
 
-该规则没有任何参数。
-
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+**错误** 代码示例：
 
 ```js
 /*eslint no-inline-comments: "error"*/
@@ -45,9 +38,9 @@ function getRandomNumber(){
 var c = 3; /* A block comment after code */
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint no-inline-comments: "error"*/

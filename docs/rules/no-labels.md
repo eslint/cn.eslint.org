@@ -1,8 +1,6 @@
 ---
 title: Rule no-labels
 layout: doc
-translator: fengnana
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -12,7 +10,7 @@ proofreader: molee1905
 
 Labeled statements in JavaScript are used in conjunction with `break` and `continue` to control flow around multiple loops. For example:
 
-JavaScript 中的标签语句连同`break`和`continue`一样用来控制循环流程。例如：
+JavaScript 中的标签语句连同 `break` 和 `continue` 一样用来控制循环流程。例如：
 
 ```js
 outer:
@@ -26,7 +24,7 @@ outer:
 
 The `break outer` statement ensures that this code will not result in an infinite loop because control is returned to the next statement after the `outer` label was applied. If this statement was changed to be just `break`, control would flow back to the outer `while` statement and an infinite loop would result.
 
-`break outer`语句确保代码不会无限循环，因为应用`outer`标签之后，将会进入下一条语句。如果这个语句变为`break`，控制流程会回到外层`while`语句，并会导致无限循环。
+`break outer` 语句确保代码不会无限循环，因为应用 `outer` 标签之后，将会进入下一条语句。如果这个语句变为 `break`，控制流程会回到外层 `while` 语句，并会导致无限循环。
 
 While convenient in some cases, labels tend to be used only rarely and are frowned upon by some as a remedial form of flow control that is more error prone and harder to understand.
 
@@ -40,7 +38,7 @@ This rule aims to eliminate the use of labeled statements in JavaScript. It will
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-labels: "error"*/
@@ -79,7 +77,7 @@ label:
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-labels: "error"*/
@@ -106,18 +104,18 @@ The options allow labels with loop or switch statements:
 * `"allowLoop"` (`boolean`, default is `false`) - If this option was set `true`, this rule ignores labels which are sticking to loop statements.
 * `"allowLoop"` (`boolean`，默认是 `false`) - 如果这个选项被设置为 `true`，该规则忽略循环语句中的标签。
 * `"allowSwitch"` (`boolean`, default is `false`) - If this option was set `true`, this rule ignores labels which are sticking to switch statements.
-* `"allowSwitch"` (`boolean`，默认是`false`) - 如果这个选项被设置为 `true`，该规则忽略 switch 语句中的标签。
+* `"allowSwitch"` (`boolean`，默认是 `false`) - 如果这个选项被设置为 `true`，该规则忽略 switch 语句中的标签。
 
 Actually labeled statements in JavaScript can be used with other than loop and switch statements.
 However, this way is ultra rare, not well-known, so this would be confusing developers.
 
-事实上，在 JavaScript 中，标签不仅仅被用于循环语句和 switch 语句中。然而，这非常罕见，会给开发者造成困惑。
+实际上，在 JavaScript 中，标签语句可以用在除循环和 switch语句之外的地方。然而，这种方式是非常罕见的，所以会令开发中感到困惑。
 
 ### allowLoop
 
 Examples of **correct** code for the `{ "allowLoop": true }` option:
 
-`{ "allowLoop": true }`选项的 **正确**代码示例：
+选项 `{ "allowLoop": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-labels: ["error", { "allowLoop": true }]*/
@@ -132,7 +130,7 @@ label:
 
 Examples of **correct** code for the `{ "allowSwitch": true }` option:
 
-`{ "allowSwitch": true }`选项的 **错误**代码示例：
+选项 `{ "allowSwitch": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-labels: ["error", { "allowSwitch": true }]*/
@@ -160,7 +158,7 @@ If you need to use labeled statements everywhere, then you can safely disable th
 
 This rule was introduced in ESLint 0.4.0.
 
-此规则在 ESLint 0.4.0 中被引入。
+该规则在 ESLint 0.4.0 中被引入。
 
 ## Resources
 

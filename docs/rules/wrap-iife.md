@@ -1,8 +1,6 @@
 ---
 title: Rule wrap-iife
 layout: doc
-translator: fengnana
-proofreader: qifeigit
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -13,6 +11,7 @@ proofreader: qifeigit
 You can immediately invoke function expressions, but not function declarations. A common technique to create an immediately-invoked function expression (IIFE) is to wrap a function declaration in parentheses. The opening parentheses causes the contained function to be parsed as an expression, rather than a declaration.
 
 你可以立即调用函数表达式，而不是函数声明。创建一个立即执行函数 (IIFE) 的一个通用技术是用括号包裹一个函数声明。括号内的函数被解析为一个表达式，而不是一个声明。
+
 
 ```js
 // function expression could be unwrapped
@@ -45,7 +44,7 @@ The rule takes one option which can enforce a consistent wrapping style:
 
 Examples of **incorrect** code for the default `"outside"` option:
 
-默认选项`"outside"`的 **错误**代码示例：
+默认选项 `"outside"` 的 **错误** 代码示例：
 
 ```js
 /*eslint wrap-iife: ["error", "outside"]*/
@@ -56,7 +55,7 @@ var x = (function () { return { y: 1 };})(); // wrapped function expression
 
 Examples of **correct** code for the default `"outside"` option:
 
-默认选项`"outside"`的 **正确**代码示例：
+默认选项 `"outside"` 的 **正确** 代码示例：
 
 ```js
 /*eslint wrap-iife: ["error", "outside"]*/
@@ -68,7 +67,7 @@ var x = (function () { return { y: 1 };}()); // wrapped call expression
 
 Examples of **incorrect** code for the `"inside"` option:
 
-`"inside"`选项的 **错误**代码示例：
+选项 `"inside"` 的 **错误** 代码示例：
 
 ```js
 /*eslint wrap-iife: ["error", "inside"]*/
@@ -79,7 +78,7 @@ var x = (function () { return { y: 1 };}()); // wrapped call expression
 
 Examples of **correct** code for the `"inside"` option:
 
-`"inside"`选项的 **正确**代码示例：
+选项 `"inside"` 的 **正确** 代码示例：
 
 ```js
 /*eslint wrap-iife: ["error", "inside"]*/
@@ -91,7 +90,7 @@ var x = (function () { return { y: 1 };})(); // wrapped function expression
 
 Examples of **incorrect** code for the `"any"` option:
 
-`"any"`选项的 **错误**代码示例：
+选项 `"any"` 的 **错误** 代码示例：
 
 ```js
 /*eslint wrap-iife: ["error", "any"]*/
@@ -101,7 +100,7 @@ var x = function () { return { y: 1 };}(); // unwrapped
 
 Examples of **correct** code for the `"any"` option:
 
-`"any"`选项的 **正确**代码示例：
+选项 `"any"` 的 **正确** 代码示例：
 
 ```js
 /*eslint wrap-iife: ["error", "any"]*/

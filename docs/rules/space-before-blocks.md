@@ -1,18 +1,16 @@
 ---
 title: Rule space-before-blocks
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Require Or Disallow Space Before Blocks (space-before-blocks)
 
-# 要求或禁止块之前的空格 (space-before-blocks)
+# 要求或禁止语句块之前的空格 (space-before-blocks)
 
-(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
-(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 Consistency is an important part of any style guide.
 While it is a personal preference where to put the opening brace of blocks,
@@ -28,19 +26,19 @@ This rule will enforce consistency of spacing before blocks. It is only applied 
 该规则将强制块之前的空格的一致性。它只在非行首的块上起作用。
 
 * This rule ignores spacing which is between `=>` and a block. The spacing is handled by the `arrow-spacing` rule.
-
-* 该规则忽略`=>`和块之间的空格。`arrow-spacing`规则处理这些空格。
-
+* 该规则忽略 `=>` 和块之间的空格。`arrow-spacing` 规则处理这些空格。
 * This rule ignores spacing which is between a keyword and a block. The spacing is handled by the `keyword-spacing` rule.
-
-* 该规则忽略关键字和块之间的空格。`keyword-spacing`规则处理这些空格。
+* 该规则忽略关键字和块之间的空格。`keyword-spacing` 规则处理这些空格。
 
 ## Options
 
-This rule takes one argument. If it is `"always"` then blocks must always have at least one preceding space. If `"never"` then all blocks should never have any preceding space. If different spacing is desired for function blocks, keyword blocks and classes, an optional configuration object can be passed as the rule argument to configure the cases separately.
+This rule takes one argument. If it is `"always"` then blocks must always have at least one preceding space. If `"never"`
+then all blocks should never have any preceding space. If different spacing is desired for function
+blocks, keyword blocks and classes, an optional configuration object can be passed as the rule argument to
+configure the cases separately.
 ( e.g. `{ "functions": "never", "keywords": "always", classes: "always" }` )
 
-该规则有一个参数。如果为`"always"`，块语句必须总是至少有一个前置空格。如果为`"never"`，所有的块永远不会有前置空格。如果函数块和关键字块要求不同的空格类型，可以单独传递一个可选配置的对象作为该规则的参数来配置这种情况。(比如：`{ "functions": "never", "keywords": "always", classes: "always" } `)
+该规则有一个参数。如果为 `"always"`，块语句必须总是至少有一个前置空格。如果为`"never"`，所有的块永远不会有前置空格。如果函数块和关键字块要求不同的空格类型，可以单独传递一个可选配置的对象作为该规则的参数来配置这种情况。(比如：`{ "functions": "never", "keywords": "always", classes: "always" } `)
 
 The default is `"always"`.
 
@@ -147,7 +145,7 @@ class Foo{
 
 The following patterns are considered problems when configured `{ "functions": "never", "keywords": "always", classes: "never" }`:
 
-当配置为`{ "functions": "never", "keywords": "always", classes: "never" }`，以下模式被认为是有问题的：
+当配置为 `{ "functions": "never", "keywords": "always", classes: "never" }`，以下模式被认为是有问题的：
 
 ```js
 /*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "always", classes: "never" }]*/
@@ -162,10 +160,9 @@ class Foo{
 }
 ```
 
-
 The following patterns are not considered problems when configured `{ "functions": "never", "keywords": "always", classes: "never" }`:
 
-当配置为`{ "functions": "never", "keywords": "always", classes: "never" }`，以下模式被认为是没有问题的：
+当配置为 `{ "functions": "never", "keywords": "always", classes: "never" }`，以下模式被认为是没有问题的：
 
 ```js
 /*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "always", classes: "never" }]*/
@@ -186,7 +183,7 @@ class Foo {
 
 The following patterns are considered problems when configured `{ "functions": "always", "keywords": "never", classes: "never" }`:
 
-当配置为`{ "functions": "always", "keywords": "never", classes: "never" }`，以下模式被认为是有问题的：
+当配置为 `{ "functions": "always", "keywords": "never", classes: "never" }` ，以下模式被认为是有问题的：
 
 ```js
 /*eslint space-before-blocks: ["error", { "functions": "always", "keywords": "never", classes: "never" }]*/
@@ -203,7 +200,7 @@ class Foo {
 
 The following patterns are not considered problems when configured `{ "functions": "always", "keywords": "never", classes: "never" }`:
 
-当配置为`{ "functions": "always", "keywords": "never", classes: "never" }`，以下模式被认为是没有问题的：
+当配置为 `{ "functions": "always", "keywords": "never", classes: "never" }`，以下模式被认为是没有问题的：
 
 ```js
 /*eslint space-before-blocks: ["error", { "functions": "always", "keywords": "never", classes: "never" }]*/
@@ -222,7 +219,7 @@ class Foo{
 
 The following patterns are considered problems when configured `{ "functions": "never", "keywords": "never", classes: "always" }`:
 
-当配置为`{ "functions": "never", "keywords": "never", classes: "always" }`， 以下模式被认为是有问题的：
+当配置为 `{ "functions": "never", "keywords": "never", classes: "always" }`， 以下模式被认为是有问题的：
 
 ```js
 /*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "never", classes: "always" }]*/
@@ -250,7 +247,7 @@ class Foo {
 
 You can turn this rule off if you are not concerned with the consistency of spacing before blocks or if you are using the `space-after-keywords` rule set to `"never"`.
 
-如果你不关心块之前的空格的一致性或者你在使用`space-after-keywords`规则，而且设置了`"never"`，你可以关闭此规则。
+如果你不关心块之前的空格的一致性或者你在使用 `space-after-keywords` 规则，而且设置了 `"never"`，你可以关闭此规则。
 
 ## Related Rules
 

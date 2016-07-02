@@ -1,12 +1,10 @@
 ---
 title: Rule max-params
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Limit Maximum Number of Parameters (max-params)
+# enforce a maximum number of parameters in `function` definitions (max-params)
 
 # 限制最大参数个数(max-params)
 
@@ -22,53 +20,58 @@ function foo (bar, baz, qux, qxx) { // four parameters, may be too many
 
 ## Rule Details
 
-This rule is aimed at making functions easier to read and write by capping the number of formal arguments a function can accept. As such it will warn when it encounters a function that accepts more than the configured maximum number of parameters.
+This rule enforces a maximum number of parameters allowed in function definitions.
 
-该规则旨在通过限制函数中可接受的形参个数来使函数更容易阅读和书写。因此，如果一个函数接收了超过配置的最大参数个数，该规则将发出警告。
+该规则强制函数定义中所允许的最大参数个数。
 
-The following patterns are considered problems:
+## Options
 
-以下模式被认为是有问题的：
+This rule has a number or object option:
+
+该规则有一个数字或对象选项：
+
+* `"max"` (default `3`) enforces a maximum number of parameters in function definitions
+* `"max"` (默认 `3`) 强制函数定义中最大参数个数
+
+**Deprecated:** The object property `maximum` is deprecated; please use the object property `max` instead.
+
+**已弃用：** `maximum` 属性已弃用；请使用 `max` 属性。
+
+### max
+
+Examples of **incorrect** code for this rule with the default `{ "max": 3 }` option:
+
+默认选 `{ "max": 3 }` 的 **错误** 代码示例：
 
 ```js
 /*eslint max-params: ["error", 3]*/
+/*eslint-env es6*/
 
 function foo (bar, baz, qux, qxx) {
     doSomething();
 }
+
+let foo = (bar, baz, qux, qxx) => {
+    doSomething();
+};
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `{ "max": 3 }` option:
 
-以下模式被认为是没有问题的：
+默认选项 `{ "max": 3 }` 的 **正确** 代码示例：
 
 ```js
 /*eslint max-params: ["error", 3]*/
+/*eslint-env es6*/
 
 function foo (bar, baz, qux) {
     doSomething();
 }
+
+let foo = (bar, baz, qux) => {
+    doSomething();
+};
 ```
-
-Optionally, you may specify a `max` object property:
-
-你可以指定一个`max`属性：
-
-```json
-"max-params": ["error", 2]
-```
-
-is equivalent to
-
-等效于
-
-```json
-"max-params": ["error", {"max": 2}]
-```
-
-**Deprecated:** the object property `maximum` is deprecated. Please use the property `max` instead.
-
-**弃用：**属性`maximum`已弃用。请使用`max`属性。
 
 ## Related Rules
 

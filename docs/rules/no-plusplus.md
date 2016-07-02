@@ -1,27 +1,16 @@
 ---
 title: Rule no-plusplus
 layout: doc
-translator: molee1905
-proofreader: yanggao40
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow ++ and -- (no-plusplus)
+# disallow the unary operators `++` and `--` (no-plusplus)
 
-# 禁用 ++ 和 -- (no-plusplus)
+# 禁止使用一元操作符 `++` 和 `--` (no-plusplus)
 
-The `no-plusplus` rule flags the use of unary operators, `++` and `--`.
+Because the unary `++` and `--` operators are subject to automatic semicolon insertion, differences in whitespace can change semantics of source code.
 
-该规则标记一元操作符 ++ 和 -- 的使用。
-
-```js
-var foo = 0;
-foo++;
-```
-
-The `++` and `--` operators are subject to automatic semicolon insertion. When their use is allowed, introducing whitespace may change semantics of source code. Enabling the rule may prevent this kind of errors.
-
-`++` 和 `--`操作符会自动添加分号。当允许使用它们时，引入空格可能会改变源代码的语义。启用该规则, 可以防止类此错误的出现。
+因为一元操作符 `++` 和 `--` 会自动添加分号，不同的空白可能会改变源代码的语义。
 
 ```js
 var i = 10;
@@ -44,23 +33,13 @@ j
 
 ## Rule Details
 
-This rule is aimed at flagging the use of `++` and `--`. Some believe that the use of these unary operators reduces code quality and clarity. There are some programming languages that completely exclude these operators.
+This rule disallows the unary operators `++` and `--`.
 
-该规则旨在标记一元操作符`++` 和 `--`的使用。有些人认为这些一元操作符降低了代码的质量和清晰度。也有一些编程语言完全排除这些操作符。
+该规则禁止使用一元操作符 `++` 和 `--`。
 
-## Options
+Examples of **incorrect** code for this rule:
 
-This rule, in its default state, does not require any arguments. If you would like to enable one or more of the following you may pass an object with the options set as follows:
-
-该规则，默认情况下，不需要任何参数。如果你想启用下面的一个或多个，你可以传递一个对象，作为可选项，按如下所示进行设置：
- 
-* `allowForLoopAfterthoughts` set to `true` will allow you to use the unary operators `++` and `--` in the afterthought (final expression) of a `for` loop.
-
-* `allowForLoopAfterthoughts` 设置为 `true` 将允许你在`for`循环的中(最后面的表达式)使用一元操作符 `++` 和 `--`。
-
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+**错误** 代码示例：
 
 ```js
 /*eslint no-plusplus: "error"*/
@@ -76,9 +55,9 @@ for (i = 0; i < l; i++) {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint no-plusplus: "error"*/
@@ -94,12 +73,23 @@ for (i = 0; i < l; i += 1) {
 }
 ```
 
-The following patterns are not considered problems if `allowForLoopAfterthoughts` is set to true:
+## Options
 
-如果 `allowForLoopAfterthoughts` 设置为true, 以下模式被认为是没有问题的：
+This rule has an object option.
+
+该规则有一个对象选项。
+
+* `"allowForLoopAfterthoughts": true` allows unary operators `++` and `--` in the afterthought (final expression) of a `for` loop.
+* `"allowForLoopAfterthoughts": true` 允许在 `for` 循环的最后一个表达式中使用 `++` 和 `--` 。
+
+### allowForLoopAfterthoughts
+
+Examples of **correct** code for this rule with the `{ "allowForLoopAfterthoughts": true }` option:
+
+选项 `{ "allowForLoopAfterthoughts": true }` 的 **正确** 代码示例：
 
 ```js
-/*eslint no-plusplus: ["error", { allowForLoopAfterthoughts: true }]*/
+/*eslint no-plusplus: ["error", { "allowForLoopAfterthoughts": true }]*/
 
 for (i = 0; i < l; i++) {
     return;

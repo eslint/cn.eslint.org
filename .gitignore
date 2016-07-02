@@ -4,4 +4,3 @@ _algolia_api_key
 Gemfile.lock
 .jekyll-metadata
 .DS_Store
-styles/.sass-cache/

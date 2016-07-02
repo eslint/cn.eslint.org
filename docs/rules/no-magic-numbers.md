@@ -1,8 +1,6 @@
 ---
 title: Rule no-magic-numbers
 layout: doc
-translator: fengnana
-proofreader: maoshuyu
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -13,7 +11,7 @@ proofreader: maoshuyu
 'Magic numbers' are numbers that occur multiple time in code without an explicit meaning.
 They should preferably be replaced by named constants.
 
-['魔术数字'](https://zh.wikipedia.org/zh-cn/%E9%AD%94%E8%A1%93%E6%95%B8%E5%AD%97)是在代码中多次出现的没有明确含义的数字。它最好由命名常量取代。
+[魔术数字](https://zh.wikipedia.org/zh-cn/%E9%AD%94%E8%A1%93%E6%95%B8%E5%AD%97)是在代码中多次出现的没有明确含义的数字。它最好由命名常量取代。
 
 ```js
 var now = Date.now(),
@@ -25,11 +23,11 @@ var now = Date.now(),
 The `no-magic-numbers` rule aims to make code more readable and refactoring easier by ensuring that special numbers
 are declared as constants to make their meaning explicit.
 
-`no-magic-numbers`规则旨在确保将具体的数字声明为意义明确的常量从而使代码更加可读并且易于重构。
+该规则旨在确保将具体的数字声明为意义明确的常量，从而使代码更加可读并且易于重构。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-magic-numbers: "error"*/
@@ -48,7 +46,7 @@ var dataLast = data[2];
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-magic-numbers: "error"*/
@@ -66,11 +64,11 @@ var dutyFreePrice = 100,
 An array of numbers to ignore. It's set to `[]` by default.
 If provided, it must be an `Array`.
 
-一个数字数组，指定检测中可以忽略的数字。默认为 `[]`。如果设置该选项，它必须是`Array`。
+一个数字数组，指定检测中可以忽略的数字。默认为 `[]`。如果设置该选项，它必须是 `Array`。
 
 Examples of **correct** code for the sample `{ "ignore": [1] }` option:
 
-`{ "ignore": [1] }`选项的 **错误**代码示例：
+选项 `{ "ignore": [1] }` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-magic-numbers: ["error", { "ignore": [1] }]*/
@@ -87,7 +85,7 @@ A boolean to specify if numbers used as array indexes are considered okay. `fals
 
 Examples of **correct** code for the `{ "ignoreArrayIndexes": true }` option:
 
-`{ "ignoreArrayIndexes": true }`选项的 **正确**代码示例：
+选项 `{ "ignoreArrayIndexes": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-magic-numbers: ["error", { "ignoreArrayIndexes": true }]*/
@@ -104,7 +102,7 @@ A boolean to specify if we should check for the const keyword in variable declar
 
 Examples of **incorrect** code for the `{ "enforceConst": true }` option:
 
-`{ "enforceConst": true }`选项的 **错误**代码示例：
+选项 `{ "enforceConst": true }` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-magic-numbers: ["error", { "enforceConst": true }]*/
@@ -123,7 +121,7 @@ A boolean to specify if we should detect numbers when setting object properties 
 
 Examples of **incorrect** code for the `{ "detectObjects": true }` option:
 
-`{ "detectObjects": true }`选项的 **错误**代码示例：
+选项 `{ "detectObjects": true }` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-magic-numbers: ["error", { "detectObjects": true }]*/
@@ -136,9 +134,9 @@ var dutyFreePrice = 100,
     finalPrice = dutyFreePrice + (dutyFreePrice * magic.tax);
 ```
 
-Examples of **correct** code for the { "detectObjects": true } option:
+Examples of **correct** code for the `{ "detectObjects": true }` option:
 
-`{ "detectObjects": true }`选项的 **正确**代码示例：
+选项 `{ "detectObjects": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-magic-numbers: ["error", { "detectObjects": true }]*/

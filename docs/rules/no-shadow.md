@@ -6,7 +6,7 @@ layout: doc
 
 # Disallow Shadowing (no-shadow)
 
-# 不允许覆盖 (no-shadow)
+# 禁止覆盖 (no-shadow)
 
 Shadowing is the process by which a local variable shares the same name as a variable in its containing scope. For example:
 
@@ -21,7 +21,7 @@ function b() {
 
 In this case, the variable `a` inside of `b()` is shadowing the variable `a` in the global scope. This can cause confusion while reading the code and it's impossible to access the global variable.
 
-在这种情况中，`b()`作用域中的`a`覆盖了全局环境中的`a`。这会混淆读者并且在`b`中不能获取全局变量。
+在这种情况中，`b()` 作用域中的 `a` 覆盖了全局环境中的 `a`。这会混淆读者并且在 `b`中不能获取全局变量。
 
 ## Rule Details
 
@@ -31,7 +31,7 @@ This rule aims to eliminate shadowed variable declarations.
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-shadow: "error"*/
@@ -60,7 +60,7 @@ if (true) {
 
 This rule takes one option, an object, with properties `"builtinGlobals"`, `"hoist"` and `"allow"`.
 
-对象配置项，包含属性`"builtinGlobals"`,`"hoist"` 和`"allow"`.
+对象配置项，包含属性 `"builtinGlobals"`、`"hoist"` 和 `"allow"`.
 
 ```json
 {
@@ -73,11 +73,11 @@ This rule takes one option, an object, with properties `"builtinGlobals"`, `"hoi
 The `builtinGlobals` option is `false` by default.
 If it is `true`, the rule prevents shadowing of built-in global variables: `Object`, `Array`, `Number`, and so on.
 
-默认值是`false`，如果builtinGlobals是`true`，会检测内置对象如`Object`，`Array`，`Number`等等。
+默认值是 `false`，如果 `builtinGlobals` 是 `true`，会检测内置对象如 `Object`，`Array`、`Number` 等等。
 
 Examples of **incorrect** code for the `{ "builtinGlobals": true }` option:
 
-选项`{"builtinGlobals": true}`的 **错误**代码示例：
+选项 `{"builtinGlobals": true}` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-shadow: ["error", { "builtinGlobals": true }]*/
@@ -94,7 +94,7 @@ The `hoist` option has three settings:
 此配置项有三个值：
 
 * `functions` (by default) - reports shadowing before the outer functions are defined.
-* `functions`(默认值)-在被覆盖前呈报函数覆盖错误。
+* `functions` (默认值)-在被覆盖前呈报函数覆盖错误。
 * `all` - reports all shadowing before the outer variables/functions are defined.
 * `all`-在被覆盖之前呈报函数和变量的覆盖错误。
 * `never` - never report shadowing before the outer variables/functions are defined.
@@ -104,7 +104,7 @@ The `hoist` option has three settings:
 
 Examples of **incorrect** code for the default `{ "hoist": "functions" }` option:
 
-当`"hoist"`配置项为`"all"`，在条件语句中`let a`和`let b`是不恰当的。
+默认选项  `{ "hoist": "functions" }` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-shadow: ["error", { "hoist": "functions" }]*/
@@ -119,11 +119,11 @@ function b() {}
 
 Although `let b` in the `if` statement is before the *function* declaration in the outer scope, it is incorrect.
 
-虽然`if`语句中的`let b`在 *function*声明之前，该示例是正确的。
+虽然 `if` 语句中的 `let b` 在 *function*声明之前，该示例是正确的。
 
 Examples of **correct** code for the default `{ "hoist": "functions" }` option:
 
-默认选项`{ "hoist": "functions" }`的 **正确**代码示例：
+默认选项 `{ "hoist": "functions" }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-shadow: ["error", { "hoist": "functions" }]*/
@@ -138,11 +138,13 @@ let a = 5;
 
 Because `let a` in the `if` statement is before the *variable* declaration in the outer scope, it is correct.
 
+因为在 `if` 语句中 `let a` 在外层作用域声明语句之前，所以是正确的。
+
 #### hoist: all
 
 Examples of **incorrect** code for the `{ "hoist": "all" }` option:
 
-`{ "hoist": "all" }`选项的 **错误**代码示例：
+选项 `{ "hoist": "all" }` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-shadow: ["error", { "hoist": "all" }]*/
@@ -161,7 +163,7 @@ function b() {}
 
 Examples of **correct** code for the `{ "hoist": "never" }` option:
 
-此配置项是一个数组,数组里的标示被允许覆盖
+选项 `{ "hoist": "never" }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-shadow: ["error", { "hoist": "never" }]*/
@@ -178,17 +180,17 @@ function b() {}
 
 Because `let a` and `let b` in the `if` statement are before the declarations in the outer scope, they are correct.
 
-因为在`if`语句中`let a` 和 `let b` 在外层作用域声明语句之前，所以是正确的。
+因为在 `if` 语句中 `let a` 和 `let b` 在外层作用域声明语句之前，所以是正确的。
 
 ### allow
 
 The `allow` option is an array of identifier names for which shadowing is allowed. For example, `"resolve"`, `"reject"`, `"done"`, `"cb"`.
 
-`allow`选项是个标识符名称的数组，以允许他们被重写。例如：`"resolve"`， `"reject"`， `"done"`， `"cb"`。
+`allow` 选项是个标识符名称的数组，以允许他们被重写。例如：`"resolve"`， `"reject"`， `"done"`， `"cb"`。
 
 Examples of **correct** code for the `{ "allow": ["done"] }` option:
 
-选项`{ "allow": ["done"] }`的 **正确**代码示例：
+选项 `{ "allow": ["done"] }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-shadow: ["error", { "allow": ["done"] }]*/
@@ -219,7 +221,7 @@ foo(function (err, result) {
 
 This rule was introduced in ESLint 0.0.9.
 
-此规则在 ESLint 0.0.9 中被引入。
+该规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

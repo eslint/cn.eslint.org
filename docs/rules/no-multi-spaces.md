@@ -1,8 +1,6 @@
 ---
 title: Rule no-multi-spaces
 layout: doc
-translator: fengnana
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,9 +8,9 @@ proofreader: molee1905
 
 # 禁止出现多个空格 (no-multi-spaces)
 
-(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
-(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 Multiple spaces in a row that are not used for indentation are typically mistakes. For example:
 
@@ -24,9 +22,9 @@ if(foo  === "bar") {}
 
 ```
 
-It's hard to tell, but there are two spaces between `foo` and `===`. Multiple spaces such as this are generally frowned upon in favor of single space:
+It's hard to tell, but there are two spaces between `foo` and `===`. Multiple spaces such as this are generally frowned upon in favor of single spaces:
 
-很难说，但是在`foo`和`===`之间有两个空格。支持使用单一空格的，是不赞成使用像这样的多个空格的。
+很难说，但是在 `foo` 和 `===` 之间有两个空格。支持使用单一空格的，是不赞成使用像这样的多个空格的。
 
 ```js
 
@@ -42,7 +40,8 @@ This rule aims to disallow multiple whitespace around logical expressions, condi
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
+
 
 ```js
 /*eslint no-multi-spaces: "error"*/
@@ -60,7 +59,7 @@ a ?  b: c
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-multi-spaces: "error"*/
@@ -86,15 +85,15 @@ To avoid contradictions if some other rules require multiple spaces, this rule h
 
 The `exceptions` object expects property names to be AST node types as defined by [ESTree](https://github.com/estree/estree). The easiest way to determine the node types for `exceptions` is to use the [online demo](http://eslint.org/parser).
 
-`exceptions`对象属性名是 AST 节点类型，这些类型被定义在[ESTree](https://github.com/estree/estree)。确定节点类型的最简单的方法是使用[online demo](http://eslint.org/parser)。
+`exceptions` 对象属性名是 AST 节点类型，这些类型被定义在 [ESTree](https://github.com/estree/estree)。确定节点类型的最简单的方法是使用 [online demo](http://eslint.org/parser)。
 
 Only the `Property` node type is ignored by default, because for the [key-spacing](key-spacing) rule some alignment options require multiple spaces in properties of object literals.
 
-默认情况下，只忽略`Property`节点类型，因为[key-spacing](key-spacing)规则的对其选项要求对象中的属性有多个空格。
+默认情况下，只忽略 `Property` 节点类型，因为 [key-spacing](key-spacing) 规则的对其选项要求对象中的属性有多个空格。
 
 Examples of **correct** code for the default `"exceptions": { "Property": true }` option:
 
-默认选项`"exceptions": { "Property": true }`的 **正确**代码示例：
+默认选项 `"exceptions": { "Property": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-multi-spaces: "error"*/
@@ -108,7 +107,7 @@ var obj = {
 
 Examples of **incorrect** code for the `"exceptions": { "Property": false }` option:
 
-`"exceptions": { "Property": false }` 选项的 **错误**代码示例：
+选项 `"exceptions": { "Property": false }` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-multi-spaces: ["error", { exceptions: { "Property": false } }]*/
@@ -122,7 +121,7 @@ var obj = {
 
 Examples of **correct** code for the `"exceptions": { "BinaryExpression": true }` option:
 
-`"exceptions": { "BinaryExpression": true }`选项的 **正确**代码示例：
+选项 `"exceptions": { "BinaryExpression": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-multi-spaces: ["error", { exceptions: { "BinaryExpression": true } }]*/
@@ -132,7 +131,7 @@ var a = 1  *  2;
 
 Examples of **correct** code for the `"exceptions": { "VariableDeclarator": true }` option:
 
-`"exceptions": { "VariableDeclarator": true }`选项的 **正确**代码示例：
+选项 `"exceptions": { "VariableDeclarator": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }]*/
@@ -143,7 +142,7 @@ var someOtherVar = 'barBaz';
 
 Examples of **correct** code for the `"exceptions": { "ImportDeclaration": true }` option:
 
-`"exceptions": { "ImportDeclaration": true }`选项的 **正确**代码示例：
+选项 `"exceptions": { "ImportDeclaration": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-multi-spaces: ["error", { exceptions: { "ImportDeclaration": true } }]*/
@@ -172,7 +171,7 @@ If you don't want to check and disallow multiple spaces, then you should turn th
 
 This rule was introduced in ESLint 0.9.0.
 
-此规则在 ESLint 0.9.0 中被引入。
+该规则在 ESLint 0.9.0 中被引入。
 
 ## Resources
 

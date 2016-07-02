@@ -1,13 +1,16 @@
 ---
 title: Rule no-whitespace-before-property
 layout: doc
-translator: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow whitespace before properties (no-whitespace-before-property)
 
 # 禁止属性前有空白 (no-whitespace-before-property)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 JavaScript allows whitespace between objects and their properties. However, inconsistent spacing can make code harder to read and can lead to errors.
 
@@ -82,6 +85,8 @@ foo.
 ## When Not To Use It
 
 Turn this rule off if you do not care about allowing whitespace around the dot or before the opening bracket before properties of objects if they are on the same line.
+
+如果你并不关心点号操作符周围的空白或者在与对象属性在同一行的左括号之前的空白，你可以关闭此规则。
 
 ## Version
 

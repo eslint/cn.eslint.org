@@ -1,8 +1,6 @@
 ---
 title: Rule quotes
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,9 +8,9 @@ proofreader: molee1905
 
 # 强制引号风格 (quotes)
 
-(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
-(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 JavaScript allows you to define strings in one of three ways: double quotes, single quotes, and backticks (as of ECMAScript 6). For example:
 
@@ -45,24 +43,27 @@ The rule configuration takes up to two options:
 该规则配置有两个可选项。
 
 1. The first option is `"double"`, `"single"` or `"backtick"` for double-quotes, single-quotes or backticks respectively. The default is `"double"`.
+1. 第一个选项是 `"double"`、`"single"` 或 `"backtick"`分别对应双引号，单引号或反勾号。默认是 `"double"`。
+1. The second option takes two options:
+1. 第二个选项有两个选项：
+    1. `"avoidEscape"`: When using `"avoidEscape"`, this rule will not report a problem when a string is using single-quotes or double-quotes so long as the string contains a quote that would have to be escaped otherwise. For example, if you specify `"double"` and `"avoidEscape"`, the string `'He said, "hi!"'` is not considered a problem because using double quotes for that string would require escaping the double quotes inside of the string. This option is off by default.
+    1. `"avoidEscape"`: 当使用 `"avoidEscape"` 时，如果一个字符串使用了单引号或双引号，只要这个字符串包含需要转义的引号，该规则就不会报告问题。例如，如果你指定`"double"` 和 `"avoid-escape"`，字符串 `'He said, "hi!"'` 不被认为是个问题，因为，该字符串使用双引号要求将该字符串内的双引号进行转义。该选项默认是关闭的。
+    1. `"allowTemplateLiterals"`: when using `"allowTemplateLiterals"`, this rule will not report a problem when a string is using backticks and option one is either `"double"` or `"single"`.
+    1. `"allowTemplateLiterals"`: 当使用 `"allowTemplateLiterals"`时，如果一字符串使用了反勾号，另一选项是 `"double"` 或 `"single"`，该规则就不会报告问题。
 
-1. 第一个选项是`"double"`，`"single"` 或 `"backtick"`分别对应双引号，单引号或反勾号。默认是`"double"`。
+When using `"single"` or `"double"`, template literals that don't contain a substitution, don't contain a line break and aren't tagged templates, are flagged as problems, even with the `"avoidEscape"` option. However they are not problems when `"allowTemplateLiterals"` is used.
 
-2. The second option is the `"avoid-escape"` flag. When using `"avoid-escape"`, this rule will not report a problem when a string is using single-quotes or double-quotes so long as the string contains a quote that would have to be escaped otherwise. For example, if you specify `"double"` and `"avoid-escape"`, the string `'He said, "hi!"'` is not considered a problem because using double quotes for that string would require escaping the double quotes inside of the string. This option is off by default.
-
-2. 第二个选项是`"avoid-escape"`。当使用`"avoid-escape"`时，如果一个字符串使用了单引号或双引号，只要这个字符串包含需要转义的引号，该规则就不会报告问题。例如，如果你指定`"double"` 和 `"avoid-escape"`，字符串`'He said, "hi!"'`不被认为是个问题，因为，该字符串使用双引号要求将该字符串内的双引号进行转义。该选项默认是关闭的。
-
-When using `"single"` or `"double"`, template literals that don't contain a substitution, don't contain a line break and aren't tagged templates, are flagged as problems, even with the `"avoid-escape"` option.
-
-当使用`"single"` 或 `"double"`，不包含一个替代文本、换行符和不被标记的模板的模板字面量，都被认为是问题，即使有`"avoid-escape"`选项。
+当使用 `"single"` 或 `"double"`，不包含一个替代文本、换行符和不被标记的模板的模板字面量，都被认为是问题，即使有 `"avoid-escape"` 选项。
 
 Configuration looks like this:
 
 配置看起来像这样：
 
 ```js
-[2, "single", "avoid-escape"]
+[2, "single", {"avoidEscape": true, "allowTemplateLiterals": true}]
 ```
+
+**Deprecation notice**: The `avoid-escape` option is a deprecated syntax and you should use the object form instead.
 
 The following patterns are considered problems:
 
@@ -83,14 +84,14 @@ var unescaped = "a string containing 'single' quotes";
 ```
 
 ```js
-/*eslint quotes: ["error", "double", "avoid-escape"]*/
+/*eslint quotes: ["error", "double", {"avoidEscape": true}]*/
 
 var single = 'single';
 var single = `single`;
 ```
 
 ```js
-/*eslint quotes: ["error", "single", "avoid-escape"]*/
+/*eslint quotes: ["error", "single", {"avoidEscape": true}]*/
 
 var double = "double";
 var double = `double`;
@@ -105,7 +106,7 @@ var unescaped = 'a string containing `backticks`';
 ```
 
 ```js
-/*eslint quotes: ["error", "backtick", "avoid-escape"]*/
+/*eslint quotes: ["error", "backtick", {"avoidEscape": true}]*/
 
 var single = 'single';
 var double = "double";
@@ -133,15 +134,29 @@ var backtick = `back${x}tick`; // backticks are allowed due to substitution
 ```
 
 ```js
-/*eslint quotes: ["error", "double", "avoid-escape"]*/
+/*eslint quotes: ["error", "double", {"avoidEscape": true}]*/
 
 var single = 'a string containing "double" quotes';
 ```
 
 ```js
-/*eslint quotes: ["error", "single", "avoid-escape"]*/
+/*eslint quotes: ["error", "single", {"avoidEscape": true}]*/
 
 var double = "a string containing 'single' quotes";
+```
+
+```js
+/*eslint quotes: ["error", "double", {"allowTemplateLiterals": true}]*/
+
+var single = 'single';
+var single = `single`;
+```
+
+```js
+/*eslint quotes: ["error", "single", {"allowTemplateLiterals": true}]*/
+
+var double = "double";
+var double = `double`;
 ```
 
 ```js
@@ -152,7 +167,7 @@ var backtick = `backtick`;
 ```
 
 ```js
-/*eslint quotes: ["error", "backtick", "avoid-escape"]*/
+/*eslint quotes: ["error", "backtick", {"avoidEscape": true}]*/
 
 var double = "a string containing `backtick` quotes"
 ```

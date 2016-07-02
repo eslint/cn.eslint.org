@@ -1,8 +1,6 @@
 ---
 title: Rule comma-spacing
 layout: doc
-translator: molee1905
-proofreader: sunshiner
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,9 +8,9 @@ proofreader: sunshiner
 
 # 强制在逗号周围使用空格 (comma-spacing)
 
-(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
-(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 Spacing around commas improve readability of a list of items. Although most of the style guidelines for languages prescribe adding a space after a comma and not before it, it is subjective to the preferences of a project.
 
@@ -25,36 +23,42 @@ var foo = 1 ,bar = 2;
 
 ## Rule Details
 
-This rule aims to enforce spacing around a comma. As such, it warns whenever it sees a missing or unwanted space in commas of variable declaration, object property, function parameter, sequence and array element.
+This rule enforces consistent spacing before and after commas in variable declarations, array literals, object literals, function parameters, and sequences.
 
-该规则旨在强制要求在逗号周围使用空格。因此，在变量的声明，对象的属性，方法的参数，序列和数组元素中的逗号周围缺少空格或有多余的空格，该规则将发出警告。
+该规则强制在变量声明、数组字面量、对象字面量、函数参数 和 序列中的逗号左右的空格的一致性。
+
+This rule does not apply in an `ArrayExpression` or `ArrayPattern` in either of the following cases:
+
+该规则在 `ArrayExpression` 或 `ArrayPattern` 中以下两种情况下不适用：
+
+* adjacent null elements
+* 相邻的空元素
+* an initial null element, to avoid conflicts with the [`array-bracket-spacing`](array-bracket-spacing) rule
+* 初始化的空元素，以避免与 [`array-bracket-spacing`](array-bracket-spacing) 规则冲突
 
 ## Options
 
-The rule takes one option, an object, which has two keys `before` and `after` having boolean values `true` or `false`. If `before` is `true`, space is enforced before commas and if it's `false`, space is disallowed before commas. If `after` is `true`, space is enforced after commas and if it's `false`, space is disallowed after commas. The default is `{"before": false, "after": true}`.
+This rule has an object option:
 
-该规则唯一的可选项是一个包含`before` 和 `after`两个属性的对象，这两个属性对应的属性值是`true` 或 `false`。如果`before` 设置为 `true`，逗号前必须有空格；如果为`false`，逗号前禁止有空格。如果`after` 设置为 `true`，逗号后必须有空格；如果为`false`，逗号后禁止有空格。默认值为`{"before": false, "after": true}`。
+该规则有一个对象选项：
 
-```json
-    "comma-spacing": ["error", {"before": false, "after": true}]
-```
+* `"before": false` (default) disallows spaces before commas
+* `"before": false` (默认) 禁止在逗号前使用空格
+* `"before": true` requires one or more spaces before commas
+* `"before": true` 要求在逗号前使用一个或多个空格
+* `"after": true` (default) requires one or more spaces after commas
+* `"after": true` (默认) 要求在逗号后使用一个或多个空格
+* `"after": false` disallows spaces after commas
+* `"after": false` 禁止在逗号后使用空格
 
-The following examples show two primary usages of this option.
+### after
 
-下面的示例演示这个可选项的两种基本用法。
+Examples of **incorrect** code for this rule with the default `{ "before": false, "after": true }` options:
 
-### `{"before": false, "after": true}`
-
-This is the default option. It enforces spacing after commas and disallows spacing before commas.
-
-这个是默认选项。它强制在逗号后面有空格，在逗号之前禁止有空格。
-
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+默认选项 `{ "before": false, "after": true }` 的 **错误** 代码示例：
 
 ```js
-/*eslint comma-spacing: ["error", {"before": false, "after": true}]*/
+/*eslint comma-spacing: ["error", { "before": false, "after": true }]*/
 
 var foo = 1 ,bar = 2;
 var arr = [1 , 2];
@@ -65,16 +69,17 @@ function foo(a ,b){}
 a ,b
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `{ "before": false, "after": true }` options:
 
-以下模式被认为是没有问题的：
+默认选项 `{ "before": false, "after": true }` 的 **正确** 代码示例：
 
 ```js
-/*eslint comma-spacing: ["error", {"before": false, "after": true}]*/
+/*eslint comma-spacing: ["error", { "before": false, "after": true }]*/
 
 var foo = 1, bar = 2
     , baz = 3;
 var arr = [1, 2];
+var arr = [1,, 3]
 var obj = {"foo": "bar", "baz": "qur"};
 foo(a, b);
 new Foo(a, b);
@@ -82,18 +87,25 @@ function foo(a, b){}
 a, b
 ```
 
-### `{"before": true, "after": false}`
+Example of **correct** code for this rule with initial null element for the default `{ "before": false, "after": true }` options:
 
-This option enforces spacing before commas and disallows spacing after commas.
-
-该选项强制逗号前有空格，禁止逗号后有空格。
-
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+当用空元素进行初始化时，默认选项  `{ "before": false, "after": true }` 的 **正确** 代码示例：
 
 ```js
-/*eslint comma-spacing: ["error", {"before": true, "after": false}]*/
+/*eslint comma-spacing: ["error", { "before": false, "after": true }]*/
+/*eslint array-bracket-spacing: ["error", "always"]*/
+
+var arr = [ , 2, 3 ]
+```
+
+### before
+
+Examples of **incorrect** code for this rule with the `{ "before": true, "after": false }` options:
+
+选项 `{ "before": true, "after": false }` 的 **错误** 代码示例：
+
+```js
+/*eslint comma-spacing: ["error", { "before": true, "after": false }]*/
 
 var foo = 1, bar = 2;
 var arr = [1 , 2];
@@ -103,16 +115,17 @@ function foo(a,b){}
 a, b
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `{ "before": true, "after": false }` options:
 
-以下模式被认为是没有问题的：
+选项 `{ "before": true, "after": false }` 的 **正确** 代码示例：
 
 ```js
-/*eslint comma-spacing: ["error", {"before": true, "after": false}]*/
+/*eslint comma-spacing: ["error", { "before": true, "after": false }]*/
 
 var foo = 1 ,bar = 2 ,
     baz = true;
 var arr = [1 ,2];
+var arr = [1 ,,3]
 var obj = {"foo": "bar" ,"baz": "qur"};
 foo(a ,b);
 new Foo(a ,b);
@@ -120,26 +133,16 @@ function foo(a ,b){}
 a ,b
 ```
 
-### Handling of `null` elements in `ArrayExpression` or `ArrayPattern`
+Examples of **correct** code for this rule with initial null element for the `{ "before": true, "after": false }` options:
 
-### `ArrayExpression` 或 `ArrayPattern`中的`null`元素处理
-
-If you have a `null` element within of an `ArrayExpression` or `ArrayPattern` this rule will not validate the spacing before the respective comma.
-
-如果在`ArrayExpression` 或 `ArrayPattern`中有个`null`元素，该规则将不会验证相应的逗号前的空格
-
-The following both examples are valid when the rule is configured with `{"before": false, "after": true}`.
-
-当该规则配置为{"before": false, "after": true}`，以下两个示例是有效的。
+当用空元素进行初始化时，选项 `{ "before": true, "after": false }` 的 **正确** 代码示例：
 
 ```js
-var items = [, 2, 3 ]
-var items = [ , 2, 3 ]
+/*eslint comma-spacing: ["error", { "before": true, "after": false }]*/
+/*eslint array-bracket-spacing: ["error", "never"]*/
+
+var arr = [,2 ,3]
 ```
-
-This behavior avoids conflicts with the [`array-bracket-spacing`](array-bracket-spacing) rule.
-
-这种行为避免了和[`array-bracket-spacing`](array-bracket-spacing)规则的冲突。
 
 ## When Not To Use It
 
@@ -151,6 +154,7 @@ If your project will not be following a consistent comma-spacing pattern, turn t
 
 * [Javascript](http://javascript.crockford.com/code.html)
 * [Dojo Style Guide](https://dojotoolkit.org/reference-guide/1.9/developer/styleguide.html)
+
 
 ## Related Rules
 
@@ -167,7 +171,7 @@ If your project will not be following a consistent comma-spacing pattern, turn t
 
 This rule was introduced in ESLint 0.9.0.
 
-该规则是在 ESLint 0.9.0 被引入的。
+该规则在 ESLint 0.9.0 被引入。
 
 ## Resources
 

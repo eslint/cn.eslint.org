@@ -1,8 +1,6 @@
 ---
 title: Rule block-scoped-var
 layout: doc
-translator: fengnana
-proofreader: qifeigit
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -22,7 +20,7 @@ This rule aims to reduce the usage of variables outside of their binding context
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint block-scoped-var: "error"*/
@@ -54,7 +52,7 @@ function doTryCatch() {
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint block-scoped-var: "error"*/

@@ -1,8 +1,6 @@
 ---
 title: Rule space-infix-ops
 layout: doc
-translator: molee1905
-proofreader: maomaoking
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,9 +8,9 @@ proofreader: maomaoking
 
 # 要求中缀操作符周围有空格 (space-infix-ops)
 
-(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
-(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 While formatting preferences are very personal, a number of style guides require spaces around operators, such as:
 
@@ -32,7 +30,7 @@ var sum = i+++2;
 
 While this is valid JavaScript syntax, it is hard to determine what the author intended.
 
-虽然这是有效的Javascript语法，但很难确定作者的意图。
+虽然这是有效的 JavaScript 语法，但很难确定作者的意图。
 
 ## Rule Details
 
@@ -60,9 +58,9 @@ Set the `int32Hint` option to `true` (default is `false`) to allow write `a|0` w
 var foo = bar|0; // `foo` is forced to be signed 32 bit integer
 ```
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误** 代码示例：
 
 ```js
 /*eslint space-infix-ops: "error"*/
@@ -83,9 +81,9 @@ var {a=0}=bar;
 function foo(a=0) { }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint space-infix-ops: "error"*/
@@ -108,7 +106,7 @@ function foo(a = 0) { }
 
 This rule was introduced in ESLint 0.2.0.
 
-该规则在ESLint 0.2.0 中被引入。
+该规则在 ESLint 0.2.0 中被引入。
 
 ## Resources
 

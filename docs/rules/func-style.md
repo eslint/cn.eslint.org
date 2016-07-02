@@ -1,18 +1,16 @@
 ---
 title: Rule func-style
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce Function Style (func-style)
+# enforce the consistent use of either `function` declarations or expressions (func-style)
 
-# 强制函数风格 (func-style)
+# 强制 `function` 声明或表达式的一致性 (func-style)
 
-There are two ways of defining functions in JavaScript: function declarations and function expressions. Declarations have the `function` keyword first, followed by a name, followed by its arguments and the function body, such as:
+There are two ways of defining functions in JavaScript: `function` declarations and `function` expressions. Declarations contain the `function` keyword first, followed by a name and then its arguments and the function body, for example:
 
-在 Javascript 中，有两种方式定义函数：函数声明和函数表达式。函数声明是以`function`关键字开头，然后是函数的名字，其次是它的参数和函数主体，例如：
+在 Javascript 中，有两种方式定义函数：`function` 声明和 `function` 表达式。函数声明是以 `function` 关键字开头，然后是函数的名字，其次是它的参数和函数主体，例如：
 
 ```js
 function doSomething() {
@@ -20,9 +18,9 @@ function doSomething() {
 }
 ```
 
-Equivalent function expressions begin with the `var` keyword, followed by a name, and then the function itself, such as:
+Equivalent function expressions begin with the `var` keyword, followed by a name and then the function itself, such as:
 
-函数表达式以`var`关键字开头，后面是函数的名称，然后是函数本身，例如：
+函数表达式以 `var` 关键字开头，后面是函数的名称，然后是函数本身，例如：
 
 ```js
 var doSomething = function() {
@@ -30,7 +28,7 @@ var doSomething = function() {
 };
 ```
 
-The primary difference between function declarations and function expressions is that declarations are *hoisted* to the top of the scope in which they are defined, which allows you to write code that uses the function before the declaration. For example:
+The primary difference between `function` declarations and `function expressions` is that declarations are *hoisted* to the top of the scope in which they are defined, which allows you to write code that uses the function before its declaration. For example:
 
 函数声明和函数表达式的主要区别是：所有的声明都被*提升*到当前作用域的顶部，这就意味着可以把调用它的语句放在函数声明之前。例如：
 
@@ -42,13 +40,13 @@ function doSomething() {
 }
 ```
 
-Although this code might seem like an error, it actually works fine because JavaScript engines hoist the function declarations to the top of the scope. That means this code is treated as if the declaration came before the invocation.
+Although this code might seem like an error, it actually works fine because JavaScript engines hoist the `function` declarations to the top of the scope. That means this code is treated as if the declaration came before the invocation.
 
 虽然这段代码可能看起来像一个错误，但实际上由于 Javascript 引擎将函数声明提升到了作用域顶部，这段代码是可以运行的。这就意味着这段代码被视为在调用之前进行了声明。
 
-For function expressions, you must define the function before it is used, otherwise it causes an error. Example:
+For `function` expressions, you must define the function before it is used, otherwise it causes an error. Example:
 
-对于函数表达式，必须在使用它之前进行定义，否则将会导致错误。例如：
+对于 `function` 表达式，必须在使用它之前进行定义，否则将会导致错误。例如：
 
 ```js
 doSomething();  // error!
@@ -68,25 +66,33 @@ Due to these different behaviors, it is common to have guidelines as to which st
 
 ## Rule Details
 
-This rule is aimed at enforcing a particular type of function style throughout a JavaScript file, either declarations or expressions. You can specify which you prefer in the configuration.
+This rule enforces a particular type of `function` style throughout a JavaScript file, either declarations or expressions. You can specify which you prefer in the configuration.
 
-该规则目的在于在一个 Javascript 文件中强制使用一种特定的函数风格，函数声明或函数表达式。你可以在配置文件中指定你喜欢的。
+该规则强制在一个 JavaScript 文件中强制使用一种特定的 `function` 风格：函数声明或函数表达式。你可以在配置文件中指定你喜欢的。
 
 ## Options
 
-### "expression"
+This rule has a string option:
 
-This is the default configuration.  It reports an error when function declarations are used instead of function expressions.
+该规则有一个字符串选项：
 
-这是默认配置。当应使用函数表达式却使用了函数声明时，它将报告一个错误。
+* `"expression"` (default) requires the use of function expressions instead of function declarations
+* `"expression"` (默认) 要求使用函数表达式而不是函数声明
+* `"declaration"` requires the use of function declarations instead of function expressions
+* `"declaration"` 要求使用函数声明而不是函数表达式
 
-```json
-"func-style": ["error", "expression"]
-```
+This rule has an object option for an exception:
 
-The following patterns are considered problems:
+该规则对表达式有一个对象选项：
 
-以下模式被认为是有问题的：
+* `"allowArrowFunctions": true` (default `false`) allows the use of arrow functions
+* `"allowArrowFunctions": true` (默认为 `false`) 允许使用箭头函数
+
+### expression
+
+Examples of **incorrect** code for this rule with the default `"expression"` option:
+
+默认选项 `"expression"` 的 **错误** 代码示例：
 
 ```js
 /*eslint func-style: ["error", "expression"]*/
@@ -96,9 +102,9 @@ function foo() {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `"expression"` option:
 
-以下模式被认为是没有问题的：
+默认选项 `"expression"` 的 **正确** 代码示例：
 
 ```js
 /*eslint func-style: ["error", "expression"]*/
@@ -108,27 +114,11 @@ var foo = function() {
 };
 ```
 
-### "declaration"
+### declaration
 
-This reports an error if any function expressions are used where function declarations are expected. You can specify to use expressions instead:
+Examples of **incorrect** code for this rule with the `"declaration"` option:
 
-在应使用函数声明的地方使用了函数表达式，它将会报告一个错误。你可以指定函数表达式来代替：
-
-```json
-"func-style": ["error", "declaration"]
-```
-
-An additional option object can be added with a property `"allowArrowFunctions"`.  Setting this to `true` will allow arrow functions.
-
-可以添加一个额外的选项对象，属性值为`"allowArrowFunctions"`。当设置为`true`时，将允许使用箭头函数。
-
-```json
-"func-style": ["error", "declaration", { "allowArrowFunctions": true }]
-```
-
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+选项 `"declaration"` 的 **错误** 代码示例：
 
 ```js
 /*eslint func-style: ["error", "declaration"]*/
@@ -136,17 +126,13 @@ The following patterns are considered problems:
 var foo = function() {
     // ...
 };
-```
-
-```js
-/*eslint func-style: ["error", "declaration"]*/
 
 var foo = () => {};
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"declaration"` option:
 
-以下模式被认为是没有问题的：
+选项 `"declaration"` 的 **正确** 代码示例：
 
 ```js
 /*eslint func-style: ["error", "declaration"]*/
@@ -161,12 +147,17 @@ SomeObject.foo = function() {
 };
 ```
 
+### allowArrowFunctions
+
+Examples of additional **correct** code for this rule with the `"declaration", { "allowArrowFunctions": true }` options:
+
+选项 `"declaration", { "allowArrowFunctions": true }` 的 **正确** 代码示例：
+
 ```js
 /*eslint func-style: ["error", "declaration", { "allowArrowFunctions": true }]*/
 
 var foo = () => {};
 ```
-
 
 ## When Not To Use It
 

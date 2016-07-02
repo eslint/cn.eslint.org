@@ -1,8 +1,6 @@
 ---
 title: Rule space-unary-ops
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,23 +8,23 @@ proofreader: molee1905
 
 # 要求或禁止在一元操作符之前或之后存在空格 (space-unary-ops)
 
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
-(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
-
-(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 Some style guides require or disallow spaces before or after unary operators. This is mainly a stylistic issue, however, some JavaScript expressions can be written without spacing which makes it harder to read and maintain.
 
-一些风格指南要求或禁止在一元操作符之前或之后存在空格。这主要是一个风格问题，然而，一些Javascript表达式如果不写空格将会使其难以阅读和维护。
+一些风格指南要求或禁止在一元操作符之前或之后存在空格。这主要是一个风格问题，然而，一些 JavaScript 表达式如果不写空格将会使其难以阅读和维护。
 
 ## Rule Details
 
 This rule enforces consistency regarding the spaces after `words` unary operators and after/before `nonwords` unary operators.
 
-该规则强制`words`一元操作符后空格和`nonwords`一元操作符之前或之后的空格的一致性。
+该规则强制 `words` 一元操作符后空格和 `nonwords` 一元操作符之前或之后的空格的一致性。
+
 Examples of unary `words` operators:
 
-一元`words`操作符的例子：
+一元 `words` 操作符的例子：
 
 ```js
 // new
@@ -47,7 +45,7 @@ void 0 // undefined
 
 Examples of unary `nonwords` operators:
 
-一元`nonwords`操作符的例子：
+一元 `nonwords` 操作符的例子：
 
 ```js
 if ([1,2,3].indexOf(1) !== -1) {};
@@ -64,9 +62,9 @@ This rule has three options:
 该规则有三个可选项：
 
 * `words` - applies to unary word operators such as: `new`, `delete`, `typeof`, `void`, `yield`
-* `words` - 适用于单词类一元操作符，例如： `new`， `delete`， `typeof`， `void`， `yield`
+* `words` - 适用于单词类一元操作符，例如：`new`、`delete`、`typeof`、`void`、`yield`
 * `nonwords` - applies to unary operators such as: `-`, `+`, `--`, `++`, `!`, `!!`
-* `nonwords` - 适用于这些一元操作符: `-`, `+`, `--`, `++`, `!`, `!!`
+* `nonwords` - 适用于这些一元操作符: `-`、`+`、`--`、`++`、`!`、`!!`
 * `overrides` - specifies overwriting usage of spacing for each
   operator, word or non word. This is empty by default, but can be used
   to enforce or disallow spacing around operators. For example:
@@ -86,11 +84,11 @@ This rule has three options:
 
 In this case, spacing will be disallowed after a `new` operator and required before/after a `++` operator.
 
-在这个例子中，`new`操作符之后禁用空格，`++`操作左右要求有空格。
+在这个例子中，`new` 操作符之后禁用空格，`++` 操作左右要求有空格。
 
 Given the default values `words`: `true`, `nonwords`: `false`, the following patterns are considered problems:
 
-使用默认设置 `words`: `true`, `nonwords`: `false`， 以下模式被认为是有问题的：
+使用默认设置 `words`: `true`、`nonwords`: `false`，以下模式被认为是有问题的：
 
 ```js
 /*eslint space-unary-ops: "error"*/
@@ -123,7 +121,7 @@ function *foo() {
 
 Given the default values `words`: `true`, `nonwords`: `false`, the following patterns are not considered problems:
 
-使用默认设置 `words`: `true`, `nonwords`: `false`， 以下模式被认为是没有问题的：
+使用默认设置 `words`: `true`、`nonwords`: `false`，以下模式被认为是没有问题的：
 
 ```js
 /*eslint space-unary-ops: "error"*/

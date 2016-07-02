@@ -1,18 +1,16 @@
 ---
 title: Rule no-console
 layout: doc
-translator: ybbjegj
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Use of console (no-console)
+# disallow the use of `console` (no-console)
 
-# 禁用 console (no-console)
+# 禁用 `console` (no-console)
 
 In JavaScript that is designed to be executed in the browser, it's considered a best practice to avoid using methods on `console`. Such messages are considered to be for debugging purposes and therefore not suitable to ship to the client. In general, calls using `console` should be stripped before being pushed to production.
 
-在 JavaScript 中，console 被设计为在浏览器中运行，避免使用`console`的方法被认为是一种最佳实践。`console` 输出的消息被认为是用于调试的，因此不适合输出到客户端。通常,在发布到产品之前应该剔除 `console` 的调用。
+在 JavaScript，虽然`console` 被设计为在浏览器中执行的，但避免使用 `console` 的方法被认为是一种最佳实践。这样的消息被认为是用于调试的，因此不适合输出到客户端。通常，在发布到产品之前应该剔除 `console` 的调用。
 
 ```js
 console.log("Made it here.");
@@ -21,24 +19,27 @@ console.error("That shouldn't have happened.");
 
 ## Rule Details
 
-This rule is aimed at eliminating unwanted `console` references from your JavaScript. As such, it warns whenever it sees `console` used as an identifier in code.
+This rule disallows calls to methods of the `console` object.
 
-该规则目的在于消除 JavaScript 代码中不需要的 `console` 引用。因此，在代码中只要发现 `console` 标识符，该规则就会发出警告。
+该规则禁止调用 `console` 对象的方法。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-console: "error"*/
 
-console.log("Hello world!");
-console.error("Something bad happened.");
+
+
+console.log("Log a debug level message.");
+console.warn("Log a warn level message.");
+console.error("Log an error level message.");
 ```
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-console: "error"*/
@@ -49,31 +50,29 @@ Console.log("Hello world!");
 
 ## Options
 
-This rule supports the following options:
+This rule has an object option for exceptions:
 
-该规则支持以下选项：
+该规则有例外情况，是个对象：
 
-`allow`: The list of console operations to be used as exceptions to the rule. 
+* `"allow"` has an array of strings which are allowed methods of the `console` object
+* `"allow"` 是个字符串数组，包含允许使用的`console` 对象的方法
 
-`allow`: console 操作的列表作为该规则的例外情况。 
+Examples of additional **correct** code for this rule with a sample `{ "allow": ["warn", "error"] }` option:
 
-For example:
-
-例如: 
+选项 `{ "allow": ["warn", "error"] }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
 
-console.log("this will be considered a problem");
-console.warn("this will not be considered a problem");
-console.error("this will not be considered a problem");
+console.warn("Log a warn level message.");
+console.error("Log an error level message.");
 ```
 
 ## When Not To Use It
 
 If you're using Node.js, however, `console` is used to output information to the user and so is not strictly used for debugging purposes. If you are developing for Node.js then you most likely do not want this rule enabled.
 
-如果你正在使用 Node.js，`console`主要用于向用户输出信息，而不是严格用于调试目的。如果你正在开发 Node.js，最好不要启用该规则。
+如果你在使用 Node.js，然后，`console` 主要用来向用户输出信息，所以不是严格用于调试目的。如果你正在做 Node.js 开发，那么你很可能不想启用此规则。
 
 ## Related Rules
 

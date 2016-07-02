@@ -1,8 +1,6 @@
 ---
 title: Rule comma-style
 layout: doc
-translator: molee1905
-proofreader: sunshiner
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,45 +8,68 @@ proofreader: sunshiner
 
 # 逗号风格 (comma-style)
 
-Comma Style rule enforces comma styles for a list of things separated by commas. There are two comma styles primarily in JavaScript. The standard one in which commas are placed at the end of the line. And Comma-First, in which, commas are placed at the start of the next line after the list item.
+The Comma Style rule enforces styles for comma-separated lists. There are two comma styles primarily used in JavaScript:
 
-逗号风格规则是对由逗号分隔的列表中逗号的位置做出规定。在Javascript中主要有两种逗号风格。标准的风格是将逗号放置到行尾，另一种是逗号优先风格，此风格将逗号放置到列表元素的下一行的开始。
+逗号风格规则强制逗号分隔列表使用一致的风格。在 JavaScript 中主要有两种逗号风格:
 
-One of the justifications for using Comma-First is that it helps tracking missing and trailing commas.
-In case linting is turned off, missing commas in variable declarations lead to leakage of global variables and trailing commas lead to errors in older versions of IE.
+* The standard style, in which commas are placed at the end of the current line
+* 标准风格, 即将逗号放置在当前行的末尾
+* Comma First style, in which commas are placed at the start of the next line
+* 逗号前置风格, 即将逗号放置在下一行的开始位置
 
-使用逗号优先的理由之一是它可以帮助跟踪漏写和多余的逗号。如果检测被关闭，在旧版的IE浏览器中，变量声明时，缺失逗号可能导致全局变量泄露，尾部的逗号将导致错误。
+One of the justifications for using Comma First style is that it can help track missing and trailing commas. These are problematic because missing commas in variable declarations can lead to the leakage of global variables and trailing commas can lead to errors in older versions of IE.
+
+使用逗号前置风格的一个理由是，它能帮助跟踪遗漏的逗号和拖尾的逗号。在旧版 IE 中，这两种情况都是有问题的：在变量声明中，遗漏逗号会导致全局变量的内存泄漏，而拖尾逗号会导致出现错误。
 
 ## Rule Details
 
-This rule is aimed at enforcing a particular comma style in JavaScript. As such, it warns whenever it sees a variable declaration, object property and array element that does not adhere to a particular comma style. It doesn't support cases where there are line breaks before and after comma (lone commas) with in declarations, properties and elements. It also avoids single line declaration cases.
+This rule enforce consistent comma style in array literals, object literals, and variable declarations.
 
-该规则是为了在Javascript中强制使用一种特定的逗号风格。因此，如果变量声明，对象属性和数组元素没有遵循该特定的逗号风格时，此规则将发出警告。在变量声明，对象属性或数组元素中，如果一个逗号(该行只有这一个逗号)之前和之后都有换行符，则不受此规定约束。单行声明的情况也不受此约束。
+该规则强制在数组字面量、对象字面量和变量声明中使用一致的逗号风格。
+
+This rule does not apply in either of the following cases:
+
+该规则不适用于以下两种情况：
+
+* comma preceded and followed by linebreak (lone comma)
+* 在逗号前后有换行符 (单独的逗号)
+* single-line array literals, object literals, and variable declarations
+* 单行数组字面量、对象字面量和变量声明
 
 ## Options
 
-The rule takes an option, a string, which could be either `"last"` or `"first"`. The default is `"last"`.
+This rule has a string option:
 
-该规则有一个可选项，是个字符串，可以是`"last"` 或 `"first"`。
-默认是 `"last"`。
+该规则有一个字符串选项：
 
-You can set the style in configuration like this:
+* `"last"` (default) requires a comma after and on the same line as an array element, object property, or variable declaration
+* `"last"` (默认) 要求逗号放在数组元素、对象属性或变量声明之后，且在同一行
+* `"first"` requires a comma before and on the same line as an array element, object property, or variable declaration
+* `"first"` 要求逗号放在数组元素、对象属性或变量声明之前，且在同一行
 
-你可以在配置文件中这样设置：
+This rule also accepts an additional `exceptions` object:
 
-```json
-"comma-style": ["error", "first"]
-```
+该规则还接受一个额外的 `exceptions` 对象：
+
+* `"exceptions"` has properties whose names correspond to node types in the abstract syntax tree (AST) of JavaScript code:
+* `"exceptions"` 包含与 JavaScript 代码的抽象语法树 (AST) 的节点类型对应的属性：
+
+    * `"ArrayExpression": true` ignores comma style in array literals
+    * `"ArrayExpression": true` 忽略数组字面量的逗号风格
+    * `"ObjectExpression": true` ignores comma style in object literals
+    * `"ObjectExpression": true` 忽略对象字面量的逗号风格
+    * `"VariableDeclaration": true` ignores comma style in variable declarations
+    * `"VariableDeclaration": true` 忽略变量声明的逗号风格
+
+A way to determine the node types as defined by [ESTree](https://github.com/estree/estree) is to use the [online demo](http://eslint.org/parser).
+
+可以使用 [online demo](http://eslint.org/parser) 来确定 [ESTree](https://github.com/estree/estree) 定义的节点类型。
 
 ### last
 
-This is the default setting for this rule. This option requires that the comma be placed after and be in the same line as the variable declaration, object property and array element.
+Examples of **incorrect** code for this rule with the default `"last"` option:
 
-这个是该规则的默认值。该选项要求逗号放置在变量声明，对象属性和数组元素之后并且在同一行。
-
-While using this setting, the following patterns are considered problems:
-
-当使用此设置时，以下模式被认为是有问题的：
+默认选项 `"last"` 的 **错误** 代码示例：
 
 ```js
 /*eslint comma-style: ["error", "last"]*/
@@ -64,19 +85,17 @@ var foo = 1
 var foo = ["apples"
            , "oranges"];
 
-
 function bar() {
     return {
         "a": 1
         ,"b:": 2
     };
 }
-
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `"last"` option:
 
-当使用此设置时，以下模式被认为是没有问题的：
+默认选项 `"last"` 的 **正确** 代码示例：
 
 ```js
 /*eslint comma-style: ["error", "last"]*/
@@ -86,10 +105,8 @@ var foo = 1, bar = 2;
 var foo = 1,
     bar = 2;
 
-
 var foo = ["apples",
            "oranges"];
-
 
 function bar() {
     return {
@@ -97,18 +114,13 @@ function bar() {
         "b:": 2
     };
 }
-
 ```
 
 ### first
 
-This option requires that the comma be placed before and be in the same line as the variable declaration, object property and array element.
+Examples of **incorrect** code for this rule with the `"first"` option:
 
-该选项要求逗号放置在变量声明，对象属性和数组元素之前并且在同一行。
-
-While using this setting, the following patterns are considered problems:
-
-当使用此设置时，以下模式被认为是有问题的：
+选项 `"first"` 的 **错误** 代码示例：
 
 ```js
 /*eslint comma-style: ["error", "first"]*/
@@ -116,10 +128,8 @@ While using this setting, the following patterns are considered problems:
 var foo = 1,
     bar = 2;
 
-
 var foo = ["apples",
            "oranges"];
-
 
 function bar() {
     return {
@@ -127,12 +137,11 @@ function bar() {
         "b:": 2
     };
 }
-
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"first"` option:
 
-以下模式被认为是没有问题的：
+选项 `"first"` 的 **正确** 代码示例：
 
 ```js
 /*eslint comma-style: ["error", "first"]*/
@@ -142,10 +151,8 @@ var foo = 1, bar = 2;
 var foo = 1
     ,bar = 2;
 
-
 var foo = ["apples"
           ,"oranges"];
-
 
 function bar() {
     return {
@@ -153,42 +160,31 @@ function bar() {
         ,"b:": 2
     };
 }
-
 ```
 
-### Exceptions
+### exceptions
 
-Exceptions of the following nodes may be passed in order to tell ESLint to ignore nodes of certain types.
+An example use case is to enforce comma style *only* in var statements.
 
-如果想让ESLint忽略某些类型的节点，可以通过设置exceptions属性来实现。
+一个强制 *只在变量声明中* 使用逗号风格的例子。
 
-```text
-ArrayExpression,
-ObjectExpression,
-VariableDeclaration
-```
+Examples of **incorrect** code for this rule with sample `"first", { "exceptions": { … } }` options:
 
-An example use case is if a user wanted to only enforce comma style in var statements.
-
-下面的用例就是用户只希望在变量声明中强制使用逗号风格规则。
-
-The following is considered a warning:
-
-以下被认为是一个警告：
+选项 `"first", { "exceptions": { … } }` 的 **错误** 代码示例：
 
 ```js
-/*eslint comma-style: ["error", "first", {exceptions: {ArrayExpression: true, ObjectExpression: true} }]*/
+/*eslint comma-style: ["error", "first", { "exceptions": { "ArrayExpression": true, "ObjectExpression": true } }]*/
 
 var o = {},
     a = [];
 ```
 
-But the following would not be a warning:
+Examples of **correct** code for this rule with sample `"first", { "exceptions": { … } }` options:
 
-但下面不会发出警告：
+选项 `"first", { "exceptions": { … } }` 的 **正确** 代码示例：
 
 ```js
-/*eslint comma-style: ["error", "first", {exceptions: {ArrayExpression: true, ObjectExpression: true} }]*/
+/*eslint comma-style: ["error", "first", { "exceptions": { "ArrayExpression": true, "ObjectExpression": true } }]*/
 
 var o = {fst:1,
          snd: [1,
@@ -198,19 +194,18 @@ var o = {fst:1,
 
 ## When Not To Use It
 
-If your project will not be using one true comma style, turn this rule off.
+This rule can safely be turned off if your project does not care about enforcing a consistent comma style.
 
-如果您的项目不使用某一特定的逗号风格，关闭此规则即可。
+如果你的项目不强制使用一致的逗号风格，关闭此规则即可。
 
 ## Further Reading
 
-For the first option in comma-style rule:
+For more information on the Comma First style:
 
-关于该规则的第一个可选项：
+关于逗号前置风格的更多信息请查看：
 
 * [A better coding convention for lists and object literals in JavaScript by isaacs](https://gist.github.com/isaacs/357981)
 * [npm coding style guideline](https://docs.npmjs.com/misc/coding-style)
-
 
 ## Related Rules
 

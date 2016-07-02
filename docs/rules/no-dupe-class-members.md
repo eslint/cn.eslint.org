@@ -1,8 +1,6 @@
 ---
 title: Rule no-dupe-class-members
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 

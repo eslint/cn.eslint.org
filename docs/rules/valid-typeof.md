@@ -1,28 +1,26 @@
 ---
 title: Rule valid-typeof
 layout: doc
-translator: molee1905
-proofreader: qifeigit
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Ensures that the results of typeof are compared against a valid string (valid-typeof)
+# enforce comparing `typeof` expressions against valid strings (valid-typeof)
 
-# 确保typeof的结果和一个有效的字符串相比较 (valid-typeof)
+# 强制 `typeof` 表达式与有效的字符串进行比较 (valid-typeof)
 
-For a vast majority of use-cases, the only valid results of the `typeof` operator will be one of the following: `"undefined"`, `"object"`, `"boolean"`, `"number"`, `"string"`, `"function"` and `"symbol"`. When the result of a `typeof` operation is compared against a string that is not one of these strings, it is usually a typo. This rule ensures that when the result of a `typeof` operation is compared against a string, that string is in the aforementioned set.
+For a vast majority of use cases, the result of the `typeof` operator is one of the following string literals: `"undefined"`, `"object"`, `"boolean"`, `"number"`, `"string"`, `"function"` and `"symbol"`. It is usually a typing mistake to compare the result of a `typeof` operator to other string literals.
 
-对于大多数用例，`typeof`操作唯一有效的结果将是下列之一：`"undefined"`， `"object"`， `"boolean"`，`"number"`，`"string"`，`"function"`和`"symbol"`。当`typeof`操作结果不是这些字符串中的一个相比较，通常是个书写错误。该规则确保`typeof`操作的结果是与一个字符串比较，这个字符串是在前面提及的字符串之一。
+对于绝大多数用例而言，`typeof` 操作符的结果是以下字符串字面量中的一个：`"undefined"`、`"object"`、`"boolean"`、`"number"`、`"string"`、`"function"` 和 `"symbol"`。把 `typeof` 操作符的结果与其它字符串进行比较，通常是个书写错误。
 
 ## Rule Details
 
-This rule aims to prevent errors from likely typos by ensuring that when the result of a `typeof` operation is compared against a string, that the string is a valid value.
+This rule enforces comparing `typeof` expressions to valid string literals.
 
-这条规则旨在通过确保typeof的操作结果是与一个有效的字符串相比较，防止可能的书写错误。
+该规则强制 `typeof` 表达式与有效的字符串进行比较。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint valid-typeof: "error"*/
@@ -35,7 +33,7 @@ typeof bar !== "fucntion"
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint valid-typeof: "error"*/
@@ -50,7 +48,7 @@ typeof bar === typeof qux
 
 You may want to turn this rule off if you will be using the `typeof` operator on host objects.
 
-如果你将使用`typeof`操作符on host objects，你可以关闭此规则。
+如果你将在宿主对象上使用 `typeof` 操作符，你可以关闭此规则。
 
 ## Version
 

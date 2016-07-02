@@ -1,7 +1,6 @@
 ---
 title: Rule no-extra-label
 layout: doc
-translator: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -22,7 +21,7 @@ A: while (a) {
 You can achieve the same result by removing the label and using `break` or `continue` without a label.
 Probably those labels would confuse developers because they expect labels to jump to further.
 
-你可以通过移除标签，只使用`break` 或 `continue`实现同样的结果。这些标签可能会使开发者感到困惑，因为他们可能希望使用标签跳转到更远的地方。
+你可以通过移除标签，只使用 `break` 或 `continue`实现同样的结果。这些标签可能会使开发者感到困惑，因为他们可能希望使用标签跳转到更远的地方。
 
 ## Rule Details
 
@@ -32,7 +31,7 @@ This rule is aimed at eliminating unnecessary labels.
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-extra-label: "error"*/
@@ -53,7 +52,7 @@ C: switch (a) {
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-extra-label: "error"*/

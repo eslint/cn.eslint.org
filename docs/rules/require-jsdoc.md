@@ -1,8 +1,6 @@
 ---
 title: Rule require-jsdoc
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -12,7 +10,7 @@ proofreader: molee1905
 
 [JSDoc](http://usejsdoc.org) is a JavaScript API documentation generator. It uses specially-formatted comments inside of code to generate API documentation automatically. For example, this is what a JSDoc comment looks like for a function:
 
-[JSDoc](http://usejsdoc.org)是一个 JavaScript API 文档生成器。它通过在代码中使用指定格式的注释自动生成 API 文档。例如，以下这个就是函数的JSDoc注释：
+[JSDoc](http://usejsdoc.org) 是一个 JavaScript API 文档生成器。它通过在代码中使用指定格式的注释自动生成 API 文档。例如，以下这个就是函数的 JSDoc 注释：
 
 ```js
 /**
@@ -37,18 +35,24 @@ This rule generates warnings for nodes that do not have JSDoc comments when they
 如果某些节点应该使用 JSDoc 注释的而没有使用，该规则将会发出警告。支持的节点：
 
 * `FunctionDeclaration`
+* `FunctionDeclaration`
 * `ClassDeclaration`
+* `ClassDeclaration`
+* `MethodDefinition`
 * `MethodDefinition`
 
 ## Options
 
 This rule accepts a `require` object with its properties as
 
-该规则接收一个`require`对象，属性如下：
+该规则接收一个 `require` 对象，属性如下：
 
 * `FunctionDeclaration` (default: `true`)
+* `FunctionDeclaration` (默认为 `true`)
 * `ClassDeclaration` (default: `false`)
+* `ClassDeclaration` (默认为 `false`)
 * `MethodDefinition` (default: `false`)
+* `MethodDefinition` (默认为 `false`)
 
 Default option settings are
 

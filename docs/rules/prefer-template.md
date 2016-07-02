@@ -1,14 +1,12 @@
 ---
 title: Rule prefer-template
 layout: doc
-translator: molee1905
-proofreader: summart
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Suggest using template literals instead of string concatenation. (prefer-template)
 
-# 建议使用模板而非字符串连接。(prefer-template)
+# 建议使用模板而非字符串连接 (prefer-template)
 
 In ES2015 (ES6), we can use template literals instead of string concatenation.
 
@@ -28,7 +26,7 @@ var str = `Hello, ${name}!`;
 
 This rule is aimed to flag usage of `+` operators with strings.
 
-该规则旨在标记字符串间`+`操作符的使用。
+该规则旨在标记字符串间 `+` 操作符的使用。
 
 The following patterns are considered problems:
 

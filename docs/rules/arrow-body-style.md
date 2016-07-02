@@ -1,8 +1,6 @@
 ---
 title: Rule arrow-body-style
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,28 +8,33 @@ proofreader: molee1905
 
 # 要求箭头函数体使用大括号 (arrow-body-style)
 
-Arrow functions can omit braces when there is a single statement in the body. This rule enforces the consistent use of braces in arrow functions.
+Arrow functions have two syntactic forms for their function bodies.  They may be defined with a *block* body (denoted by curly braces) `() => { ... }` or with a single expression `() => ...`, whose value is implicitly returned.
 
-当箭头函数体重只要一条语句时，箭头函数可以省略大括号。该规则强制箭头函数体使用大括号。
-
+箭头函数的主题有两种语法格式。它们可以被定义为一个 *块*(用大括号)`() => { ... }` 或只用单一的表达式`() => ...`，隐式返回值。
+ 
 ## Rule Details
 
-This rule can enforce the use of braces around arrow function body.
+This rule can enforce or disallow the use of braces around arrow function body.
 
-该规则可以强制箭头函数体使用大括号。
+该规则可以强制或禁止箭头函数体使用大括号。
 
 ## Options
 
-The rule takes one option, a string, which can be:
+The rule takes one or two options. The first is a string, which can be:
 
-该规则有一个选项，是个字符串，可以是：
+该规则有一到两个选项。第一个选项是个字符串，可以是：
 
 * `"always"` enforces braces around the function body
 * `"always"` 强制在箭头函数体周围使用大括号
 * `"as-needed"` enforces no braces where they can be omitted (default)
 * `"as-needed"` 当大括号是可以省略的，强制不使用它们 (默认)
+* `"never"` enforces no braces around the function body (constrains arrow functions to the role of returning an expression)
+* `"never"` 禁止在函数体周围出现大括号 (将箭头函数限制为返回结果的表达式)
 
-### "always"
+The second one is an object for more fine-grained configuration when the first option is `"as-needed"`. Currently, the only available option is `requireReturnForObjectLiteral`, a boolean property. It's `false` by default. If set to `true`, it requires braces and an explicit return for object literals.
+
+第二个选项是个对象，当第一个选项是 `"as-needed"`，可以进行更加细粒度的配置。目前，唯一有效的选项是一个布尔属性 `requireReturnForObjectLiteral`。默认为 `false`。如果设置为 `true`，它要求使用大括号，并且显示返回对象字面量。
+
 
 ```json
 "arrow-body-style": ["error", "always"]
@@ -74,6 +77,14 @@ When the rule is set to `"as-needed"` the following patterns are considered prob
 let foo = () => {
     return 0;
 };
+let foo = () => {
+    return {
+       bar: {
+            foo: 1,
+            bar: 2,
+        }
+    };
+};
 ```
 
 The following patterns are not considered problems:
@@ -89,12 +100,75 @@ let foo = (retv, name) => {
     retv[name] = true;
     return retv;
 };
+let foo = () => ({
+    bar: {
+        foo: 1,
+        bar: 2,
+    }
+});
 let foo = () => { bar(); };
 let foo = () => {};
 let foo = () => { /* do nothing */ };
 let foo = () => {
     // do nothing.
 };
+let foo = () => ({ bar: 0 });
+```
+
+#### requireReturnForObjectLiteral
+
+When the rule is set to `"as-needed", { requireReturnForObjectLiteral: true }` the following patterns are considered problems:
+
+当设置为`"as-needed", { requireReturnForObjectLiteral: true }`，以下模式被认为是有问题的：
+
+```js
+/*eslint arrow-body-style: ["error", "as-needed", { requireReturnForObjectLiteral: true }]*/
+/*eslint-env es6*/
+let foo = () => ({});
+let foo = () => ({ bar: 0 });
+```
+
+The following patterns are not considered problems:
+
+以下模式被认为是没有问题的：
+
+```js
+/*eslint arrow-body-style: ["error", "as-needed", { requireReturnForObjectLiteral: true }]*/
+/*eslint-env es6*/
+
+let foo = () => {};
+let foo = () => { return { bar: 0 }; };
+```
+
+### "never"
+
+When the rule is set to `"never"` the following patterns are considered problems:
+
+当设置为 `"never"` 时，以下模式被认为是有问题的：
+
+```js
+/*eslint arrow-body-style: ["error", "never"]*/
+/*eslint-env es6*/
+
+let foo = () => {
+    return 0;
+};
+let foo = (retv, name) => {
+    retv[name] = true;
+    return retv;
+};
+```
+
+The following patterns are not considered problems:
+
+以下模式被认为是没有问题的：
+
+```js
+/*eslint arrow-body-style: ["error", "never"]*/
+/*eslint-env es6*/
+
+let foo = () => 0;
+let foo = () => ({ foo: 0 });
 ```
 
 ## Version

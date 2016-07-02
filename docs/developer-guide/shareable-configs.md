@@ -1,22 +1,16 @@
 ---
-title: Documentation
+title: Shareable Configs
 layout: doc
-translator: maoshuyu
-proofreader: hacke2
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Shareable Configs
-
-# 可分享配置
 
 The configuration that you have in your `.eslintrc` file is an important part of your project, and as such, you may want to share it with other projects or people. Shareable configs allow you to publish your configuration settings on [npm](https://npmjs.com) and have others download and use it in their ESLint projects.
 
 包含配置信息的 `.eslintrc` 文件是你的项目中重要的部分，正因为这样，你可能想要将你的配置信息分享给其他项目或人。可分享的配置允许你在 [npm](https://npmjs.com) 发布你的配置设置并且其他人可以在他的 ESLint 项目中下载使用这些配置。
 
 ## Creating a Shareable Config
-
-## 创建可分享的配置
 
 Shareable configs are simply npm packages that export a configuration object. To start, [create a Node.js module](https://docs.npmjs.com/getting-started/creating-node-modules) like you normally would. Make sure the module name begins with `eslint-config-`, such as `eslint-config-myconfig`. Create a new `index.js` file and export an object containing your settings:
 
@@ -41,8 +35,6 @@ Since `index.js` is just JavaScript, you can optionally read these settings for 
 因为 `index.js` 只是 JavaScript，你可以选择读取一些配置生成文件或者自动生成文件。
 
 ## Publishing a Shareable Config
-
-## 发布可分享的配置
 
 Once your shareable config is ready, you can [publish to npm](https://docs.npmjs.com/getting-started/publishing-npm-packages) to share with others. We recommend using the `eslint` and `eslintconfig` keywords so others can easily find your module.
 
@@ -71,8 +63,6 @@ Be sure to replace `eslint-config-myconfig` with the actual name of your module.
 
 ## Using a Shareable Config
 
-## 使用可分享配置
-
 Shareable configs are designed to work with the `extends` feature of `.eslintrc` files. Instead of using a file path for the value of `extends`, use your module name. For example:
 
 可分享配置被设计和 `.eslintrc` 文件的 `extends` 特性一起使用。使用模块名称作为 `extends` 取值而不是文件路径。例如：
@@ -98,8 +88,6 @@ You can override settings from the shareable config by adding them directly into
 你可以在你的 `.eslintrc` 文件中直接添加规则覆盖可分享的配置。 
 
 ## Sharing Multiple Configs
-
-## 分享多个配置
 
 It's possible to share multiple configs in the same npm package. You can specify a default config for the package by following the directions in the first section. You can specify additional configs by simply adding a new file to your npm package and then referencing it from your ESLint config.
 
@@ -133,11 +121,9 @@ Note that you can leave off the `.js` from the filename. In this way, you can ad
 
 **Important:** We strongly recommend always including a default config for your plugin to avoid errors.
 
-**重要:** 我们强烈的建议为你的插件包含默认的配置从而避免错误。
+**重要：**我们强烈的建议为你的插件包含默认的配置从而避免错误。
 
 ## Local Config File Resolution
-
-## 本地配置文件解决方案
 
 If you need to make multiple configs that can extend from each other and live in different directories, you can create a single shareable config that handles this scenario.
 
@@ -203,7 +189,7 @@ module.exports = {
 
 Despite being in an entirely different directory, you'll see that all `extends` must use the full package path to the config file you wish to extend.
 
-尽管在一个完全不同的目录中，你会看到所有的 `extends`  都必须使用你希望扩展的配置文件的完整包路径。
+尽管在一个完全不同的目录中，你会看到所有的 `extends` 都必须使用你希望扩展的配置文件的完整包路径。
 
 Now inside your `/lib/ci/backend.js`
 
@@ -224,7 +210,5 @@ In the last file, you'll once again see that to properly resolve your config, yo
 在最后一个文件中，你会再次看到，要正确地解决你的配置，你需要包含完整的包路径。
 
 ## Further Reading
-
-## 深入阅读
 
 * [npm Developer Guide](https://docs.npmjs.com/misc/developers)

@@ -1,18 +1,16 @@
 ---
 title: Working on Issues
 layout: doc
-translator: molee1905
-proofreader: coocon
 ---
+<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
+
 # Working on Issues
 
 Our public [issues tracker](https://github.com/eslint/eslint/issues) lists all of the things we plan on doing as well as suggestions from the community. Before starting to work on an issue, be sure you read through the rest of this page.
 
-我们公共的[issues tracker](https://github.com/eslint/eslint/issues)列出了所有我们计划做的事情以及社区的建议。开始在议题（issue）上工作之前，确保你已经阅读了这个页面的其余部分。
+我们公共的 [issues tracker](https://github.com/eslint/eslint/issues) 列出了所有我们计划做的事情以及社区的建议。开始在议题（issue）上工作之前，确保你已经阅读了这个页面的其余部分。
 
 ## Issue Labels
-
-## Issue 标签
 
 We use labels to indicate the status of issues. The most important labels are:
 
@@ -35,15 +33,11 @@ We use labels to indicate the status of issues. The most important labels are:
 
 ## Bounty Issues
 
-## 赏金议题（issue）
-
 We accept and assign issue bounties using [BountySource](https://www.bountysource.com/teams/eslint/issues).
 
 我们使用[BountySource](https://www.bountysource.com/teams/eslint/issues)接受和分配议题（issue）赏金。
 
 ## Issue Priority
-
-## Issue 优先级
 
 Because we have a lot of issues, we prioritize certain issues above others. The following is the list of priorities, from highest to lowest:
 
@@ -61,8 +55,6 @@ Because we have a lot of issues, we prioritize certain issues above others. The 
 1. **Other** - 其他。
 
 ## Starting Work
-
-## 开始
 
 If you're going to work on an issue, please add a comment to that issue saying so and indicating when you think you will complete it. It will help us to avoid duplication of effort. Some examples of good comments are:
 

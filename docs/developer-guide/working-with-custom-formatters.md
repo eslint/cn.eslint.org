@@ -1,12 +1,12 @@
 ---
-title: Documentation
+title: Working with Custom Formatters
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Working with custom formatters
+# Working with Custom Formatters
 
-Writing an [eslint](https://github.com/eslint/eslint) custom formatter is simple. All is neeeded is a module that exports a function that will receive the results from the execution of [eslint](https://github.com/eslint/eslint).
+Writing an ESlint custom formatter is simple. All that is needed is a module that exports a function that will receive the results from the execution of ESLint.
 
 The simplest formatter will be something like:
 
@@ -307,7 +307,7 @@ More complex formatters could be written by grouping differently the errors and 
 When printing the files a recommended format will be something like this:
 
 ```bash
-file:line:colum
+file:line:column
 ```
 
 Since that allows modern fancy terminals (like [iTerm2](https://www.iterm2.com/) or [Guake](http://guake-project.org/)) to make them link to files that open in your favorite text editor.

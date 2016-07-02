@@ -1,8 +1,6 @@
 ---
 title: Rule no-implicit-coercion
 layout: doc
-translator: fengnana
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -45,7 +43,7 @@ foo = String(foo);
 
 This rule is aimed to flag shorter notations for the type conversion, then suggest a more self-explanatory notation.
 
-该规则目的就是标记出使用较短的符号进行类型转换的情况，建议使用一个更明确的符号。
+该规则目的是标记出使用较短的符号进行类型转换的情况，建议使用一个更明确的符号。
 
 ## Options
 
@@ -54,30 +52,23 @@ This rule has three main options and one override option to allow some coercions
 该规则有三个主要选项和一个覆盖选项，覆盖选项允许一些强制要求。
 
 * `"boolean"` (`true` by default) - When this is `true`, this rule warns shorter type conversions for `boolean` type.
-
-* `"boolean"`(默认是`true`)－当为`true`时，规则会对简短的`boolean`类型转换发出警告。
-
+* `"boolean"`(默认是 `true`)－当为 `true` 时，规则会对简短的 `boolean` 类型转换发出警告。
 * `"number"` (`true` by default) - When this is `true`, this rule warns shorter type conversions for `number` type.
-
-* `"number"`(默认是`true`)－当为`true`时，规则会对简短的`number`类型转换发出警告。
-
+* `"number"`(默认是 `true`)－当为 `true` 时，规则会对简短的 `number` 类型转换发出警告。
 * `"string"` (`true` by default) - When this is `true`, this rule warns shorter type conversions for `string` type.
-
-* `"string"`(默认是`true`)－当为`true`时，规则会对简短的`string`类型转换发出警告。
-
+* `"string"`(默认是 `true`)－当为 `true` 时，规则会对简短的 `string` 类型转换发出警告。
 * `"allow"` (`empty` by default) - Each entry in this array can be one of `~`, `!!`, `+` or `*` that are to be allowed.
-
-* `"allow"` (默认是`empty`) - 这个数组的每一项可以是 `~`，`!!`，`+` 或`*`。
+* `"allow"` (默认是 `empty`) - 这个数组的每一项可以是 `~`、`!!`、`+` 或 `*`。
 
 Note that operator `+` in `allow` list would allow `+foo` (number coercion) as well as `"" + foo` (string coercion).
 
-注意，在`allow`列表中，操作符`+`同时允许`+foo`（数字）和`"" + foo`(字符串)
+注意，在 `allow` 列表中，操作符 `+` 同时允许 `+foo`（数字）和 `"" + foo` (字符串)
 
 ### boolean
 
 Examples of **incorrect** code for the default `{ "boolean": true }` option:
 
-默认选项`{ "boolean": true }`的 **错误**代码示例：
+默认选项 `{ "boolean": true }` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-implicit-coercion: "error"*/
@@ -89,7 +80,7 @@ var b = ~foo.indexOf(".");
 
 Examples of **correct** code for the default `{ "boolean": true }` option:
 
-默认选项`{ "boolean": true }`的 **正确**代码示例：
+默认选项 `{ "boolean": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-implicit-coercion: "error"*/
@@ -104,7 +95,7 @@ var n = ~foo; // This is a just bitwise not.
 
 Examples of **incorrect** code for the default `{ "number": true }` option:
 
-默认选项`{ "number": true }`的 **错误**代码示例：
+默认选项 `{ "number": true }` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-implicit-coercion: "error"*/
@@ -115,7 +106,7 @@ var n = 1 * foo;
 
 Examples of **correct** code for the default `{ "number": true }` option:
 
-默认选项`{ "number": true }`的 **正确**代码示例：
+默认选项 `{ "number": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-implicit-coercion: "error"*/
@@ -129,7 +120,7 @@ var n = parseInt(foo, 10);
 
 Examples of **incorrect** code for the default `{ "string": true }` option:
 
-默认选项`{ "string": true }`的 **错误**代码示例：
+默认选项 `{ "string": true }` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-implicit-coercion: "error"*/
@@ -140,7 +131,7 @@ foo += "";
 
 Examples of **correct** code for the default `{ "string": true }` option:
 
-默认选项`{ "string": true }`的 **正确**代码示例：
+默认选项 `{ "string": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-implicit-coercion: "error"*/
@@ -152,11 +143,11 @@ var s = String(foo);
 
 Using `allow` list, we can override and allow specific operators.
 
-使用`allow`列表，我们可以覆盖和允许特定的操作符。
+使用 `allow` 列表，我们可以覆盖和允许特定的操作符。
 
 Examples of **correct** code for the sample `{ "allow": ["!!", "~"] }` option:
 
-`{ "allow": ["!!", "~"] }`选项的 **正确**代码示例：
+默认选项 `{ "allow": ["!!", "~"] }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-implicit-coercion: [2, { "allow": ["!!", "~"] } ]*/
@@ -175,7 +166,7 @@ If you don't want to be notified about shorter notations for the type conversion
 
 This rule was introduced in ESLint 1.0.0-rc-2.
 
-此规则在 ESLint 1.0.0-rc-2 中被引入。
+该规则在 ESLint 1.0.0-rc-2 中被引入。
 
 ## Resources
 

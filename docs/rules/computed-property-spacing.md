@@ -1,8 +1,6 @@
 ---
 title: Rule computed-property-spacing
 layout: doc
-translator: molee1905
-proofreader: sunshiner
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,66 +8,55 @@ proofreader: sunshiner
 
 # 禁止或强制在计算属性中使用空格 (computed-property-spacing)
 
-(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
-(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 While formatting preferences are very personal, a number of style guides require
 or disallow spaces between computed properties in the following situations:
 
-当代码风格非常个人化的时候，一些代码风格规范开始对计算属性两边是否使用空格做出强制规定：
+虽然代码风格纯属个人偏好，一些代码风格规范要求或禁止在以下情况的对计算属性内使用空格：
 
 ```js
 /*eslint-env es6*/
 
-// computed properties
 var obj = { prop: "value" };
 var a = "prop";
-var x = obj[a];
+var x = obj[a]; // computed property in object member expression
 
-// object literal computed properties (EcmaScript 6)
 var a = "prop";
-var obj = { [a]: "value" };
+var obj = {
+  [a]: "value" // computed property key in object literal (ECMAScript 6)
+};
 ```
 
 ## Rule Details
 
-This rule aims to maintain consistency around the spacing inside of computed properties.
+This rule enforces consistent spacing inside computed property brackets.
 
 该规则旨在保持计算属性内空格的一致性。
 
 It either requires or disallows spaces between the brackets and the values inside of them.
-Brackets that are separated from the adjacent value by a new line are exempt from this rule.
+This rule does not apply to brackets that are separated from the adjacent value by a newline.
 
-它强制要求或禁止括号和其内部值之间的空格。括号内相邻的值出现折行的，不适用此规则。
+它要求或禁止括号和其内部值之间的空格。括号内相邻的值出现折行的情况，不适用于此规则。
 
 ## Options
 
-There are two main options for the rule:
+This rule has a string option:
 
-该规则有两个主要可选项：
+该规则有一个字符串选项：
 
-* `"always"` enforces a space inside of computed properties
+* `"never"` (default) disallows spaces inside computed property brackets
+* `"never"` (默认) 禁止在计算属性内使用空格
+* `"always"` requires one or more spaces inside computed property brackets
+* `"always"` 要求在计算属性内使用一个或多个空格
 
-* `"always"` 强制在计算属性内使用空格
+### never
 
-* `"never"` disallows spaces inside of computed properties (default)
+Examples of **incorrect** code for this rule with the default `"never"` option:
 
-* `"never"` 禁止在计算属性内使用空格 (默认)
-
-Depending on your coding conventions, you can choose either option by specifying it in your configuration:
-
-根据您的编码约定，您可以在您的配置中选择使用任一选项：
-
-```json
-"computed-property-spacing": ["error", "never"]
-```
-
-### "never"
-
-When `"never"` is set, the following patterns will give a warning:
-
-当`"never"`被设置，以下模式将给出一个警告：
+默认选项 `"never"` 的 **错误** 代码示例：
 
 ```js
 /*eslint computed-property-spacing: ["error", "never"]*/
@@ -81,9 +68,9 @@ var x = {[ b ]: a}
 obj[foo[ bar ]]
 ```
 
-The following patterns are considered correct:
+Examples of **correct** code for this rule with the default `"never"` option:
 
-以下模式被认为是正确的：
+默认选项 `"never"` 的 **正确** 代码示例：
 
 ```js
 /*eslint computed-property-spacing: ["error", "never"]*/
@@ -95,11 +82,11 @@ var x = {[b]: a}
 obj[foo[bar]]
 ```
 
-### "always"
+### always
 
-When `"always"` is used, the following patterns will give a warning:
+Examples of **incorrect** code for this rule with the `"always"` option:
 
-当`"always"`被设置，以下模式将给出一个警告：
+选项 `"always"` 的 **错误** 代码示例：
 
 ```js
 /*eslint computed-property-spacing: ["error", "always"]*/
@@ -108,15 +95,14 @@ When `"always"` is used, the following patterns will give a warning:
 obj[foo]
 var x = {[b]: a}
 obj[ foo]
-obj[ foo ]
 obj['foo' ]
 obj[foo[ bar ]]
 var x = {[ b]: a}
 ```
 
-The following patterns are considered correct:
+Examples of **correct** code for this rule with the `"always"` option:
 
-以下模式被认为是正确的：
+选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 /*eslint computed-property-spacing: ["error", "always"]*/
@@ -126,7 +112,6 @@ obj[ foo ]
 obj[ 'foo' ]
 var x = {[ b ]: a}
 obj[ foo[ bar ] ]
-
 ```
 
 
@@ -134,14 +119,13 @@ obj[ foo[ bar ] ]
 
 You can turn this rule off if you are not concerned with the consistency of computed properties.
 
-如果你并不关注计算属性间距的一致性的话，关闭此规则即可。
+如果你并不关注计算属性的一致性的话，关闭此规则即可。
 
 ## Related Rules
 
+* [array-bracket-spacing](array-bracket-spacing)
 * [comma-spacing](comma-spacing)
 * [space-in-parens](space-in-parens)
-* [computed-property-spacing](computed-property-spacing)
-* [space-in-brackets](space-in-brackets) (deprecated)
 
 ## Version
 

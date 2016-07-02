@@ -1,8 +1,6 @@
 ---
 title: Rule no-this-before-super
 layout: doc
-translator: molee1905
-proofreader: coocon 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -12,17 +10,17 @@ proofreader: coocon
 
 In the constructor of derived classes, if `this`/`super` are used before `super()` calls, it raises a reference error.
 
-在派生类的构造函数中，如果在调用`super()`之前使用`this`或`super`，它将会引发一个引用错误。
+在派生类的构造函数中，如果在调用 `super()` 之前使用 `this` 或 `super`，它将会引发一个引用错误。
 
 This rule checks `this`/`super` keywords in constructors, then reports those that are before `super()`.
 
-该规则检测构造函数中的`this`或`super`关键字，然后报告那些在`super()`之前使用`this`或`super`的情况。
+该规则检测构造函数中的 `this` 或 `super` 关键字，然后报告那些在 `super()` 之前使用 `this` 或 `super` 的情况。
 
 ## Rule Details
 
 This rule is aimed to flag `this`/`super` keywords before `super()` callings.
 
-该规则旨在标记出在调用`super()`之前使用`this`或`super`的情况。
+该规则旨在标记出在调用 `super()` 之前使用 `this` 或 `super` 的情况。
 
 The following patterns are considered problems:
 
@@ -92,7 +90,7 @@ class A extends B {
 
 If you don't want to be notified about using `this`/`super` before `super()` in constructors, you can safely disable this rule.
 
-如果你不想收到关于构造函数中调用`super()`之前使用`this`或`super`情况的通知，关闭此规则即可。
+如果你不想收到关于构造函数中调用 `super()` 之前使用 `this` 或 `super` 情况的通知，关闭此规则即可。
 
 ## Version
 

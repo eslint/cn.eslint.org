@@ -1,54 +1,53 @@
 ---
 title: Rule no-obj-calls
 layout: doc
-translator: molee1905
-proofreader: yanggao40
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Global Object Function Calls (no-obj-calls)
+# disallow calling global object properties as functions (no-obj-calls)
 
-# 禁止全局对象函数调用 (no-obj-calls)
+# 禁止将全局对象当作函数进行调用 (no-obj-calls)
 
 ECMAScript provides several global objects that are intended to be used as-is. Some of these objects look as if they could be constructors due their capitalization (such as `Math` and `JSON`) but will throw an error if you try to execute them as functions.
 
-ECMAScript 提供了几个全局对象，旨在直接调用。这些对象由于是大写的（比如`Math` 和 `JSON`）看起来好像是构造函数，但是如果你尝试像函数一致执行它们，将会抛出错误。
+ECMAScript 提供了几个全局对象，旨在直接调用。这些对象由于是大写的（比如 `Math` 和 `JSON`）看起来像是构造函数，但是如果你尝试像函数一样执行它们，将会抛出错误。
 
 The [ECMAScript 5 specification](http://es5.github.io/#x15.8) makes it clear that both `Math` and `JSON` cannot be invoked:
 
-[ECMAScript 5 规范](http://es5.github.io/#x15.8)明确表示`Math` 和 `JSON`不能被调用：
+[ECMAScript 5 规范](http://es5.github.io/#x15.8)明确表示 `Math` 和 `JSON` 是不能被调用的：
 
 > The Math object does not have a `[[Call]]` internal property; it is not possible to invoke the Math object as a function.
 
-
-> Math对象没有`[[Call]]`内部属性，不能像一个函数一样调用Math对象
+> Math 对象没有 `[[Call]]` 内部属性，不能像一个函数一样调用 Math 对象
 
 ## Rule Details
 
-This rule is aimed at preventing the accidental calling of global objects as functions.
+This rule disallows calling the `Math` and `JSON` objects as functions.
 
-该规则旨在阻止意外调用全局对象函数。
+该规则禁止将 `Math` 和 `JSON` 对象当作函数进行调用。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-obj-calls: "error"*/
 
-var x = Math();
-var y = JSON();
+var math = Math();
+var json = JSON();
 ```
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-obj-calls: "error"*/
 
-var x = math();
-var y = json();
+function area(r) {
+    return Math.PI * r * r;
+}
+var object = JSON.parse("{}");
 ```
 
 ## Further Reading

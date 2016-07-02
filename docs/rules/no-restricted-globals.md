@@ -1,13 +1,12 @@
 ---
 title: Rule no-restricted-globals
 layout: doc
-translator: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow specific global variables (no-restricted-globals)
 
-# 禁用指定的全局变量 (no-restricted-globals)
+# 禁用特定的全局变量 (no-restricted-globals)
 
 Disallowing usage of specific global variables can be useful if you want to allow a set of global
 variables by enabling an environment, but still want to disallow some of those.
@@ -18,7 +17,7 @@ For instance, early Internet Explorer versions exposed the current DOM event as 
 `event`, but using this variable has been considered as a bad practice for a long time. Restricting
 this will make sure this variable isn't used in browser code.
 
-例如，早期的 IE 版本暴露了当前 DOM 事件`event`作为一个全局变量，但是使用这个变量长时间内被认为不是一个好的实践。限制它的使用需要确保这个变量没有被用在浏览器端的代码中。
+例如，早期的 IE 版本暴露了当前 DOM 事件 `event` 作为一个全局变量，但是使用这个变量长时间内被认为不是一个好的实践。限制它的使用需要确保这个变量没有被用在浏览器端的代码中。
 
 ## Rule Details
 
@@ -34,7 +33,7 @@ This rule takes a list of strings which are the global variable names.
 
 Examples of **incorrect** code for sample `"event", "fdescribe"` global variable names:
 
-名为`"event", "fdescribe"`的全局变量的 **错误**代码示例：
+全局变量 `"event", "fdescribe"` 的 **错误** 代码示例：
 
 ```js
 /*global event, fdescribe*/
@@ -50,7 +49,7 @@ fdescribe("foo", function() {
 
 Examples of **correct** code for a sample `"event"` global variable name:
 
-名为`"event"`的全局变量的 **正确**代码示例：
+全局变量 `"event"` 的 **正确** 代码示例：
 
 ```js
 /*global event*/

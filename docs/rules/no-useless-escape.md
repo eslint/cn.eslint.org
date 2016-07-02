@@ -1,7 +1,6 @@
 ---
 title: Rule no-useless-escape
 layout: doc
-translator: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -24,9 +23,9 @@ This rule flags escapes that can be safely removed without changing behavior.
 
 该规则标记在不改变代码行为的情况下可以安全移除的转义。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误** 代码示例：
 
 ```js
 /*eslint no-useless-escape: "error"*/
@@ -40,9 +39,9 @@ The following patterns are considered problems:
 
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint no-useless-escape: "error"*/

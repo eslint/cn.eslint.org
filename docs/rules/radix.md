@@ -1,8 +1,6 @@
 ---
 title: Rule radix
 layout: doc
-translator: fengnana
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -41,9 +39,9 @@ On the other hand, if the code is targeting only ES5-compliant environments pass
 
 ## Rule Details
 
-This rule is aimed at preventing the unintended conversion of a string to a number of a different base that intended or at preventing the redundant `10` radix if targeting modern environments only.
+This rule is aimed at preventing the unintended conversion of a string to a number of a different base than intended or at preventing the redundant `10` radix if targeting modern environments only.
 
-该规则旨在防止出现不确定的字符串对数字的转换或防止在现代环境中出现多余的基数`10`
+该规则旨在防止出现不确定的字符串对数字的转换或防止在现代环境中出现多余的基数 `10`。
 
 ## Options
 
@@ -52,18 +50,15 @@ There are two options for this rule:
 此规则有两个选项：
 
 * `"always"` enforces providing a radix (default)
-
 * `"always"`强制提供一个基数（默认的）
-
 * `"as-needed"` disallows providing the `10` radix
-
 * `"as-needed"`禁止提供基数`10`
 
 ### always
 
 Examples of **incorrect** code for the default `"always"` option:
 
-`"always"`选项的 **错误**代码示例：
+`"always"`选项的 **错误** 代码示例：
 
 ```js
 /*eslint radix: "error"*/
@@ -79,7 +74,7 @@ var num = parseInt();
 
 Examples of **correct** code for the default `"always"` option:
 
-`"always"`选项的 **正确**代码示例：
+`"always"`选项的 **正确** 代码示例：
 
 ```js
 /*eslint radix: "error"*/
@@ -95,7 +90,7 @@ var num = parseFloat(someValue);
 
 Examples of **incorrect** code for the `"as-needed"` option:
 
-`"as-needed"`选项的 **错误**代码示例：
+`"as-needed"`选项的 **错误** 代码示例：
 
 ```js
 /*eslint radix: ["error", "as-needed"]*/
@@ -109,7 +104,7 @@ var num = parseInt();
 
 Examples of **correct** code for the `"as-needed"` option:
 
-`"as-needed"`选项的 **正确**代码示例：
+`"as-needed"`选项的 **正确** 代码示例：
 
 ```js
 /*eslint radix: ["error", "as-needed"]*/
@@ -136,7 +131,7 @@ If you don't want to enforce either presence or omission of the `10` radix value
 
 This rule was introduced in ESLint 0.0.7.
 
-此规则在 ESLint 0.0.7 中被引入。
+该规则在 ESLint 0.0.7 中被引入。
 
 ## Resources
 

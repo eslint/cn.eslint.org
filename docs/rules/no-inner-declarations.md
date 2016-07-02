@@ -1,18 +1,16 @@
 ---
 title: Rule no-inner-declarations
 layout: doc
-translator: ybbjegj
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Declarations in Program or Function Body (no-inner-declarations)
+# disallow `function` or `var` declarations in nested blocks (no-inner-declarations)
 
-# 在程序或函数中声明（no-inner-declarations）
+# 禁止在嵌套的语句块中出现 `function` 或 `var` 声明 (no-inner-declarations)
 
 In JavaScript, prior to ES6, a function declaration is only allowed in the first level of a program or the body of another function, though parsers sometimes [erroneously accept them elsewhere](https://code.google.com/p/esprima/issues/detail?id=422). This only applies to function declarations; named or anonymous function expressions can occur anywhere an expression is permitted.
 
-在ES6之前的Javascript中，函数声明只能在程序的第一级或另一个函数体中使用，尽管解析器[错误地接受来自任何地方的声明](https://code.google.com/p/esprima/issues/detail?id=422)。这只适用于函数声明；命名的或匿名的函数表达式是可以出现在一个表达式所允许出现的任何位置。
+在 ES6 之前的 JavaScript 中，函数声明只能在程序或另一个函数体的顶层，尽管解析器有时会[错误地接受它们](https://code.google.com/p/esprima/issues/detail?id=422)。这只适用于函数声明；命名的或匿名的函数表达式是可以出现在任何允许的地方。
 
 ```js
 // Good
@@ -39,7 +37,7 @@ function anotherThing() {
 
 A variable declaration is permitted anywhere a statement can go, even nested deeply inside other blocks. This is often undesirable due to variable hoisting, and moving declarations to the root of the program or function body can increase clarity. Note that [block bindings](https://leanpub.com/understandinges6/read#leanpub-auto-block-bindings) (`let`, `const`) are not hoisted and therefore they are not affected by this rule.
 
-只要语句所允许，可以在任何地方声明变量，甚至嵌套很深的其他块中。由于变量提升，这种做法通常是不可取的，把变量声明放在程序或函数体的顶部可以提高代码清晰度。注意 [block bindings](https://leanpub.com/understandinges6/read#leanpub-auto-block-bindings) (`let`, `const`)不会声明提前，所以不受该规则影响。
+可以在任何地方声明变量，甚至是在深层嵌套的语句块中。由于变量声明提升，把声明放在程序或函数体的顶部会使代码更清晰，在任何地方随意声明变量的做法通常是不可取的。注意 [block bindings](https://leanpub.com/understandinges6/read#leanpub-auto-block-bindings) 中提到的 `let` 和 `const` 不会被提升，因此它们不受此规则影响。
 
 ```js
 /*eslint-env es6*/
@@ -76,23 +74,20 @@ This rule requires that function declarations and, optionally, variable declarat
 
 ## Options
 
-This rule takes a single option to specify whether it should check just function declarations or both function and variable declarations. The default is `"functions"`. Setting it to `"both"` will apply the same rules to both types of declarations.
+This rule has a string option:
 
-该规则只有一个选项，用来指定是只检测函数声明还是函数和变量声明都检测。默认值是 `"functions"`。设定为 `"both"` 同样的规则适用于两种类型的声明
+该规则有一个字符串选项：
 
-You can set the option in configuration like this:
-
-你可以像这样设置选项的配置:
-
-```json
-"no-inner-declarations": [2, "both"]
-```
+* `"functions"` (default) disallows `function` declarations in nested blocks
+* `"functions"` (默认) 禁止 `function` 声明出现在嵌套的语句块中
+* `"both"` disallows `function` and `var` declarations in nested blocks
+* `"both"` 禁止 `function` 和 `var` 声明出现在嵌套的语句块中
 
 ### functions
 
-Examples of **incorrect** code for the default `"functions"` option:
+Examples of **incorrect** code for this rule with the default `"functions"` option:
 
-默认选项`"functions"`的 **错误**代码示例：
+默认选项 `"functions"` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-inner-declarations: "error"*/
@@ -108,9 +103,9 @@ function doSomethingElse() {
 }
 ```
 
-Examples of **correct** code for the default `"functions"` option:
+Examples of **correct** code for this rule with the default `"functions"` option:
 
-默认选项`"functions"`的 **正确**代码示例：
+默认选项 `"functions"` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-inner-declarations: "error"*/
@@ -133,9 +128,9 @@ if (test) {
 
 ### both
 
-Examples of **incorrect** code for the `"both"` option:
+Examples of **incorrect** code for this rule with the `"both"` option:
 
-选项`"both"`的 **错误**代码示例：
+选项 `"both"` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-inner-declarations: ["error", "both"]*/
@@ -151,9 +146,9 @@ function doAnotherThing() {
 }
 ```
 
-Examples of **correct** code for the `"both"` option:
+Examples of **correct** code for this rule with the `"both"` option:
 
-选项`"both"`的 **错误**代码示例：
+选项 `"both"` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-inner-declarations: "error"*/
@@ -174,13 +169,13 @@ function doAnotherThing() {
 
 The function declaration portion rule will be rendered obsolete when [block-scoped functions](https://bugzilla.mozilla.org/show_bug.cgi?id=585536) land in ES6, but until then, it should be left on to enforce valid constructions. Disable checking variable declarations when using [block-scoped-var](block-scoped-var) or if declaring variables in nested blocks is acceptable despite hoisting.
 
-函数声明的部分规则在ES6上是过时的[block-scoped functions](https://bugzilla.mozilla.org/show_bug.cgi?id=585536)，但在此之前，它应该是行之有效的。当使用[block-scoped-var](block-scoped-var)时，或者如果在嵌套块中声明变量是可以接受的，禁用检查变量声明。
+当 [block-scoped functions](https://bugzilla.mozilla.org/show_bug.cgi?id=585536) 出现在 ES6 中时，函数声明的部分规则将被废弃，但在那之前，它应该是行之有效的。当使用 [block-scoped-var](block-scoped-var) 规则时或者在嵌套块中声明变量是可以接受的（尽管有变量声明提升）时候，可以不再检测变量声明。
 
 ## Version
 
 This rule was introduced in ESLint 0.6.0.
 
-该规则是在 ESLint 0.6.0 中引进的。
+该规则在 ESLint 0.6.0 中被引入。
 
 ## Resources
 

@@ -1,8 +1,6 @@
 ---
 title: Rule no-sequences
 layout: doc
-translator: fengnana
-proofreader: xkf521
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -31,16 +29,13 @@ This rule forbids the use of the comma operator, with the following exceptions:
 此规则禁止逗号操作符的使用，以下情况除外：
 
 * In the initialization or update portions of a `for` statement.
-
-在初始化或者更新部分`for`语句时。
-
+* 在初始化或者更新部分 `for` 语句时。
 * If the expression sequence is explicitly wrapped in parentheses.
-
-如果表达式序列被明确包裹在括号中。
+* 如果表达式序列被明确包裹在括号中。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-sequences: "error"*/
@@ -64,7 +59,7 @@ with (doSomething(), val) {}
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-sequences: "error"*/
@@ -96,7 +91,7 @@ Disable this rule if sequence expressions with the comma operator are acceptable
 
 This rule was introduced in ESLint 0.5.1.
 
-此规则在 ESLint 0.5.1 中被引入。
+该规则在 ESLint 0.5.1 中被引入。
 
 ## Resources
 

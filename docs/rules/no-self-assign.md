@@ -1,7 +1,6 @@
 ---
 title: Rule no-self-assign
 layout: doc
-translator: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -27,7 +26,7 @@ This rule is aimed at eliminating self assignments.
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-self-assign: "error"*/
@@ -43,7 +42,7 @@ foo = foo;
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-self-assign: "error"*/

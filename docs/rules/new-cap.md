@@ -1,18 +1,16 @@
 ---
 title: Rule new-cap
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require Constructors to Use Initial Caps (new-cap)
+# require constructor `function` names to begin with a capital letter (new-cap)
 
 # 要求构造函数首字母大写 (new-cap)
 
 The `new` operator in JavaScript creates a new instance of a particular type of object. That type of object is represented by a constructor function. Since constructor functions are just regular functions, the only defining characteristic is that `new` is being used as part of the call. Native JavaScript functions begin with an uppercase letter to distinguish those functions that are to be used as constructors from functions that are not. Many style guides recommend following this pattern to more easily determine which functions are to be used as constructors.
 
-在 Javascript 中`new`操作符用来创建特定类型的对象的一个实例。该类型的对象是由一个构造函数表示的。由于构造函数只是常规函数，唯一区别是使用`new`来调用。本地 Javascript 函数以首字母大写来区分是否是构造函数。许多风格指南推荐以下模式，可以更容易的确定那些函数被用作构造函数。
+在 JavaScript 中 `new` 操作符用来创建某个特定类型的对象的一个实例。该类型的对象是由一个构造函数表示的。由于构造函数只是常规函数，唯一区别是使用 `new` 来调用。本地 JavaScript 函数以首字母大写来区分是否是构造函数。许多风格指南推荐以下模式，可以更容易的确定哪些函数被用作构造函数。
 
 ```js
 var friend = new Person();
@@ -20,97 +18,189 @@ var friend = new Person();
 
 ## Rule Details
 
-This rule is aimed at helping to distinguish regular functions from constructor functions. As such, it warns whenever it sees `new` followed by an identifier that isn't capitalized or whenever it sees capitalized function called directly without `new` operator.
+This rule requires constructor names to begin with a capital letter. Certain built-in identifiers are exempt from this rule. These identifiers are:
 
-该规则旨在帮助区分常规函数和构造函数。因此，当`new`后的标识符不是首字母大写的或者首字母大写的函数被调用时没有`new`操作符，该规则将发出警告。
+该规则要求构造函数名首字母大写。特定内建标识符不适用于此规则。这些标识符是：
 
-The following patterns are considered problems:
+* `Array`
+* `Array`
+* `Boolean`
+* `Boolean`
+* `Date`
+* `Date`
+* `Error`
+* `Error`
+* `Function`
+* `Function`
+* `Number`
+* `Number`
+* `Object`
+* `Object`
+* `RegExp`
+* `RegExp`
+* `String`
+* `String`
+* `Symbol`
+* `Symbol`
 
-以下模式被认为是有问题的：
+Examples of **correct** code for this rule:
+
+**正确** 代码示例：
 
 ```js
 /*eslint new-cap: "error"*/
 
-var friend = new person();
-var colleague = Person();
-```
-
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
-
-```js
-/*eslint new-cap: "error"*/
-
-var friend = new Person();
-var colleague = person();
-```
-
-```js
-/*eslint new-cap: ["error", {"capIsNewExceptions": ["Person"]}]*/
-
-var colleague = Person();
-var colleague = foo.Person();
-var colleague = foo.bar.Person();
-```
-
-```js
-/*eslint new-cap: ["error", {"capIsNewExceptions": ["foo.Person"]}]*/
-
-var colleague = foo.Person();
+function foo(arg) {
+    return Boolean(arg);
+}
 ```
 
 ## Options
 
-By default both `newIsCap` and `capIsNew` options are set to `true`.
+This rule has an object option:
 
-默认情况下，`newIsCap` 和 `capIsNew`选项都为`true`。
+该规则有一个对象选项：
+
+* `"newIsCap": true` (default) requires all `new` operators to be called with uppercase-started functions.
+* `"newIsCap": true` (默认) 要求调用 `new` 操作符时有首字母大小的函数。
+* `"newIsCap": false` allows `new` operators to be called with lowercase-started or uppercase-started functions.
+* `"newIsCap": false` 允许调用 `new` 操作符有首字母小写或首字母大写的函数。
+* `"capIsNew": true` (default) requires all uppercase-started functions to be called with `new` operators.
+* `"capIsNew": true` (默认) 要求调用首字母大写的函数时有 `new` 操作符。
+* `"capIsNew": false` allows uppercase-started functions to be called without `new` operators.
+* `"capIsNew": false` 允许调用首字母大写的函数时没有 `new` 操作符。
+* `"newIsCapExceptions"` allows specified lowercase-started function names to be called with the `new` operator.
+* `"newIsCapExceptions"` 允许调用指定的首字母小写的函数时有 `new` 操作符。
+* `"capIsNewExceptions"` allows specified uppercase-started function names to be called without the `new` operator.
+* `"capIsNewExceptions"` 允许调用指定的首字母大写的函数时没有 `new` 操作符。
+* `"properties": true` (default) enables checks on object properties
+* `"properties": true` (默认) 检查对象属性。
+* `"properties": false` disables checks on object properties
+* `"properties": false` 禁止检查对象属性。
 
 ### newIsCap
 
-When `true`, rule checks if all `new` operators are called only with uppercase-started functions.
+Examples of **incorrect** code for this rule with the default `{ "newIsCap": true }` option:
 
-当为`true`时，该规则检查所有的`new`操作符被调用时，后面的函数是否都是首字母大写。
+默认选项 `{ "newIsCap": true }` 的 **错误** 代码示例：
+
+```js
+/*eslint new-cap: ["error", { "newIsCap": true }]*/
+
+var friend = new person();
+```
+
+Examples of **correct** code for this rule with the default `{ "newIsCap": true }` option:
+
+默认选项 `{ "newIsCap": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint new-cap: ["error", { "newIsCap": true }]*/
+
+var friend = new Person();
+```
+
+Examples of **correct** code for this rule with the `{ "newIsCap": false }` option:
+
+选项 `{ "newIsCap": false }` 的 **正确** 代码示例：
+
+```js
+/*eslint new-cap: ["error", { "newIsCap": false }]*/
+
+var friend = new person();
+```
 
 ### capIsNew
 
-When `true`, rule checks if all uppercase-started functions are called only with `new` operator.
+Examples of **incorrect** code for this rule with the default `{ "capIsNew": true }` option:
 
-当为`true`时，该规则检查所有的首字母大写的函数被调用时，前面的方法是否都有`new`操作符。
+默认选项 `{ "capIsNew": true }` 的 **错误** 代码示例：
+
+```js
+/*eslint new-cap: ["error", { "capIsNew": true }]*/
+
+var colleague = Person();
+```
+
+Examples of **correct** code for this rule with the default `{ "capIsNew": true }` option:
+
+默认选项 `{ "capIsNew": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint new-cap: ["error", { "capIsNew": true }]*/
+
+var colleague = new Person();
+```
+
+Examples of **correct** code for this rule with the `{ "capIsNew": false }` option:
+
+选项 `{ "capIsNew": false }` 的 **正确** 代码示例：
+
+```js
+/*eslint new-cap: ["error", { "capIsNew": false }]*/
+
+var colleague = Person();
+```
 
 ### newIsCapExceptions
 
-Array of lowercase function names that are permitted to be used with the `new` operator.
-If provided, it must be an `Array`.
+Examples of additional **correct** code for this rule with the `{ "newIsCapExceptions": ["events"] }` option:
 
-允许和`new`操作符一起使用的小写的函数名称的数组。如果提供了该选项，它必须是个`数组`。
+选项 `{ "newIsCapExceptions": ["events"] }` 的 **正确** 代码示例：
+
+```js
+/*eslint new-cap: ["error", { "newIsCapExceptions": ["events"] }]*/
+
+var events = require('events');
+
+var emitter = new events();
+```
 
 ### capIsNewExceptions
 
-Array of uppercase-starting function names that are permitted to be used without the `new` operator. If not provided, `capIsNewExceptions` defaults to the following:
+Examples of additional **correct** code for this rule with the `{ "capIsNewExceptions": ["Person"] }` option:
 
-允许不和`new`操作符一起使用的大写的函数名称的数组。如果没有提供该选项，`capIsNewExceptions` 默认包含以下元素：
+选项 `{ "capIsNewExceptions": ["Person"] }` 的 **正确** 代码示例：
 
-* `Array`
-* `Boolean`
-* `Date`
-* `Error`
-* `Function`
-* `Number`
-* `Object`
-* `RegExp`
-* `String`
-* `Symbol`
+```js
+/*eslint new-cap: ["error", { "capIsNewExceptions": ["Person"] }]*/
 
-If provided, it must be an `Array`. The default values will continue to be excluded when `capIsNewExceptions` is provided.
-
-如果提供了该选项，它必须是个`数组`。当提供了`capIsNewExceptions` 选项时，默认值将被排除在外。
+function foo(arg) {
+    return Person(arg);
+}
+```
 
 ### properties
 
-By default, this rule will check properties such as `object.Property` using the other options (default value is `true`). When set to `false`, this rule will not check properties so `new object.property()` is valid even when `newIsCap` is `true`.
+Examples of **incorrect** code for this rule with the default `{ "properties": true }` option:
 
-默认情况下，该规则将使用其它选项(默认值为`true`)检查所有属性，比如`object.Property`。当设置为`false`时，该规则将不检查属性，这样，即使`newIsCap` 为 `true`，`new object.property()`也是有效的。
+默认选项 `{ "properties": true }` 的 **错误** 代码示例：
+
+```js
+/*eslint new-cap: ["error", { "properties": true }]*/
+
+var friend = new person.acquaintance();
+```
+
+Examples of **correct** code for this rule with the default `{ "properties": true }` option:
+
+默认选项 `{ "properties": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint new-cap: ["error", { "properties": true }]*/
+
+var friend = new person.Acquaintance();
+```
+
+Examples of **correct** code for this rule with the `{ "properties": false }` option:
+
+选项 `{ "properties": false }` 的 **正确** 代码示例：
+
+```js
+/*eslint new-cap: ["error", { "properties": false }]*/
+
+var friend = new person.acquaintance();
+```
 
 ## When Not To Use It
 

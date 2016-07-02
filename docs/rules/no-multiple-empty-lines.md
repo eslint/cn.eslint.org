@@ -1,12 +1,10 @@
 ---
 title: Rule no-multiple-empty-lines
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallows multiple blank lines (no-multiple-empty-lines)
+# disallow multiple empty lines (no-multiple-empty-lines)
 
 # 不允许多个空行 (no-multiple-empty-lines)
 
@@ -22,82 +20,54 @@ This rule aims to reduce the scrolling required when reading through your code. 
 
 ## Options
 
-The second argument can be used to configure this rule:
+This rule has an object option:
 
-第二个参数被用来配置该规则：
+该规则有一个对象选项：
 
-* `max` sets the maximum number of consecutive blank lines.
-
-* `max` 设置最大连续的空行数。
-
-* `maxEOF` can be used to set a different number for the end of file. The last
-  blank lines will then be treated differently. If omitted, the `max` option is
-  applied at the end of the file.
-
-* `maxEOF` 用来设置文件末尾空行数。最后的空行将被区分对待。如果省略，`max`选项被应用到文件末尾。
-
-* `maxBOF` can be used to set a different number for the beginning of the file.
-  If omitted, the 'max' option is applied at the beginning of the file.
-
-* `maxBOF` 用来设置文件开始空行数。如果省略，`max`选项被应用到文件开始。
+* `"max"` (default: `2`) enforces a maximum number of consecutive empty lines.
+* `"max"` (默认为 `2`) 强制最大连续空行数。
+* `"maxEOF"` enforces a maximum number of consecutive empty lines at the end of files.
+* `"maxEOF"` 强制文件末尾的最大连续空行数。
+* `"maxBOF"` enforces a maximum number of consecutive empty lines at the beginning of files.
+* `"maxBOF"` 强制文件开始的最大连续空行数。
 
 ### max
 
-In the following example, the `error` is the severity of the rule, and the
-`max` property is the maximum number of empty lines (2 in this example).
+Examples of **incorrect** code for this rule with the default `{ "max": 2 }` option:
 
-在下面的示例中，`error`是该规则的等级，`max`属性是最大空行数(本例中是 2)。
-
-```json
-"no-multiple-empty-lines": ["error", {"max": 2}]
-```
-
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+默认选项 `{ "max": 2 }` 的 **错误** 代码示例：
 
 ```js
-/*eslint no-multiple-empty-lines: ["error", {max: 2}]*/
-
+/*eslint no-multiple-empty-lines: "error"*/
 
 var foo = 5;
 
 
 
 var bar = 3;
-
-
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `{ "max": 2 }` option:
 
-以下模式被认为是没有问题的：
+默认选项 `{ "max": 2 }` 的 **正确** 代码示例：
 
 ```js
-/*eslint no-multiple-empty-lines: ["error", {max: 2}]*/
-
+/*eslint no-multiple-empty-lines: "error"*/
 
 var foo = 5;
 
 
 var bar = 3;
-
-
 ```
 
 ### maxEOF
 
-```json
-"no-multiple-empty-lines": ["error", {"max": 2, "maxEOF": 1}]
-```
+Examples of **incorrect** code for this rule with the `{ max: 2, maxEOF: 1 }` options:
 
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+选项 `{ max: 2, maxEOF: 1 }` 的 **错误** 代码示例：
 
 ```js
-/*eslint no-multiple-empty-lines: ["error", {max: 2, maxEOF: 1}]*/
-
+/*eslint no-multiple-empty-lines: ["error", { "max": 2, "maxEOF": 1 }]*/
 
 var foo = 5;
 
@@ -107,13 +77,12 @@ var bar = 3;
 
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `{ max: 2, maxEOF: 1 }` options:
 
-以下模式被认为是没有问题的：
+选项 `{ max: 2, maxEOF: 1 }` 的 **正确** 代码示例：
 
 ```js
-/*eslint no-multiple-empty-lines: ["error", {max: 2, maxEOF: 1}]*/
-
+/*eslint no-multiple-empty-lines: ["error", { "max": 2, "maxEOF": 1 }]*/
 
 var foo = 5;
 
@@ -124,38 +93,31 @@ var bar = 3;
 
 ### maxBOF
 
-```json
-"no-multiple-empty-lines": ["error", {"max": 2, "maxBOF": 0}]
-```
+Examples of **incorrect** code for this rule with the `{ max: 2, maxBOF: 1 }` options:
 
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+选项 `{ max: 2, maxBOF: 1 }` 的 **错误** 代码示例：
 
 ```js
-/*eslint no-multiple-empty-lines: ["error", {max: 2, maxBOF: 0}]*/
+/*eslint no-multiple-empty-lines: ["error", { "max": 2, "maxBOF": 1 }]*/
 
 
 var foo = 5;
 
 
 var bar = 3;
-
-
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `{ max: 2, maxBOF: 1 }` options:
 
-以下模式被认为是没有问题的：
+选项 `{ max: 2, maxBOF: 1 }` 的 **正确** 代码示例：
 
 ```js
-/*eslint no-multiple-empty-lines: ["error", {max: 2, maxBOF: 0}]*/
+/*eslint no-multiple-empty-lines: ["error", { "max": 2, "maxBOF": 1}]*/
+
 var foo = 5;
 
 
 var bar = 3;
-
-
 ```
 
 ## When Not To Use It

@@ -1,18 +1,16 @@
 ---
 title: Rule max-statements
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Limit Maximum Number of Statements (max-statements)
+# enforce a maximum number of statements allowed in `function` blocks (max-statements)
 
 # 限制语句的最大数量 (max-statements)
 
 The `max-statements` rule allows you to specify the maximum number of statements allowed in a function.
 
-该规则允许你指定一个函数中允许的语句的最大数值。
+该规则允许你指定一个函数中所允许允许的最大语句数量。
 
 ```js
 function foo() {
@@ -24,50 +22,109 @@ function foo() {
 
 ## Rule Details
 
-This rule allows you to configure the maximum number of statements allowed in a function. The default is 10.
+This rule enforces a maximum number of statements allowed in function blocks.
 
-该规则允许配置函数中允许的最大语句数量。默认为10。
+该规则强制函数中所允许的最大语句数量。
 
 ## Options
 
-There is an additional optional argument to ignore top level functions.
+This rule has a number or object option:
 
-有一个额外的可选参数可以忽略顶层函数。
+该规则有一个数字或对象选项：
 
-```json
-"max-statements": ["error", 10, {"ignoreTopLevelFunctions": true}]
+* `"max"` (default `10`) enforces a maximum number of statements allows in function blocks
 
-// or you can use an object property to set the maximum
+**Deprecated:** The object property `maximum` is deprecated; please use the object property `max` instead.
 
-"max-statements": ["error", {"max": 10}, {"ignoreTopLevelFunctions": true}]
-```
+**已弃用：** `maximum` 属性已弃用；请使用 `max` 属性。
 
-**Deprecated:** the object property `maximum` is deprecated. Please use the property `max` instead.
+This rule has an object option:
 
-**弃用：**属性`maximum`已弃用。请使用`max`属性。
+该规则有一个对象选项：
 
-The following patterns are considered problems:
+* `"ignoreTopLevelFunctions": true` ignores top-level functions
+* `"ignoreTopLevelFunctions": true` 忽略顶级函数
 
-以下模式被认为是有问题的：
+### max
+
+Examples of **incorrect** code for this rule with the default `{ "max": 10 }` option:
+
+默认选项 `{ "max": 10 }` 的 **错误** 代码示例：
 
 ```js
-/*eslint max-statements: ["error", 2]*/  // Maximum of 2 statements.
-function foo() {
-  var bar = 1;
-  var baz = 2;
+/*eslint max-statements: ["error", 10]*/
+/*eslint-env es6*/
 
-  var qux = 3; // Too many.
+function foo() {
+  var foo1 = 1;
+  var foo2 = 2;
+  var foo3 = 3;
+  var foo4 = 4;
+  var foo5 = 5;
+  var foo6 = 6;
+  var foo7 = 7;
+  var foo8 = 8;
+  var foo9 = 9;
+  var foo10 = 10;
+
+  var foo11 = 11; // Too many.
 }
+
+let foo = () => {
+  var foo1 = 1;
+  var foo2 = 2;
+  var foo3 = 3;
+  var foo4 = 4;
+  var foo5 = 5;
+  var foo6 = 6;
+  var foo7 = 7;
+  var foo8 = 8;
+  var foo9 = 9;
+  var foo10 = 10;
+
+  var foo11 = 11; // Too many.
+};
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `{ "max": 10 }` option:
 
-以下模式被认为是没有问题的：
+默认选项 `{ "max": 10 }` 的 **正确** 代码示例：
 
 ```js
-/*eslint max-statements: ["error", 2]*/  // Maximum of 2 statements.
+/*eslint max-statements: ["error", 10]*/
+/*eslint-env es6*/
+
 function foo() {
-  var bar = 1;
+  var foo1 = 1;
+  var foo2 = 2;
+  var foo3 = 3;
+  var foo4 = 4;
+  var foo5 = 5;
+  var foo6 = 6;
+  var foo7 = 7;
+  var foo8 = 8;
+  var foo9 = 9;
+  var foo10 = 10;
+  return function () {
+
+    // The number of statements in the inner function does not count toward the
+    // statement maximum.
+
+    return 42;
+  };
+}
+
+let foo = () => {
+  var foo1 = 1;
+  var foo2 = 2;
+  var foo3 = 3;
+  var foo4 = 4;
+  var foo5 = 5;
+  var foo6 = 6;
+  var foo7 = 7;
+  var foo8 = 8;
+  var foo9 = 9;
+  var foo10 = 10;
   return function () {
 
     // The number of statements in the inner function does not count toward the
@@ -78,14 +135,28 @@ function foo() {
 }
 ```
 
+### ignoreTopLevelFunctions
+
+Examples of additional **correct** code for this rule with the `{ "max": 10 }, { "ignoreTopLevelFunctions": true }` options:
+
+选项 `{ "max": 10 }, { "ignoreTopLevelFunctions": true }` 的 **正确** 代码示例：
+
 ```js
-/*eslint max-statements: ["error", 1, {ignoreTopLevelFunctions: true}]*/  // Maximum of 1 statement.
-(function() {
-  var bar = 1;
-  return function () {
-    return 42;
-  };
-})()
+/*eslint max-statements: ["error", 10, { "ignoreTopLevelFunctions": true }]*/
+
+function foo() {
+  var foo1 = 1;
+  var foo2 = 2;
+  var foo3 = 3;
+  var foo4 = 4;
+  var foo5 = 5;
+  var foo6 = 6;
+  var foo7 = 7;
+  var foo8 = 8;
+  var foo9 = 9;
+  var foo10 = 10;
+  var foo11 = 11;
+}
 ```
 
 ## Related Rules

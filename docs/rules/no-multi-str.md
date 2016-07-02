@@ -1,8 +1,6 @@
 ---
 title: Rule no-multi-str
 layout: doc
-translator: fengnana
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -31,7 +29,7 @@ This rule is aimed at preventing the use of multiline strings.
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-multi-str: "error"*/
@@ -41,7 +39,7 @@ var x = "Line 1 \
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-multi-str: "error"*/
@@ -59,7 +57,7 @@ var x = "Line 1\n" +
 
 This rule was introduced in ESLint 0.0.9.
 
-此规则在 ESLint 0.0.9 中被引入。
+该规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

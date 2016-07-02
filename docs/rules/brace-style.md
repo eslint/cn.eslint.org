@@ -1,8 +1,6 @@
 ---
 title: Rule brace-style
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,14 +8,13 @@ proofreader: molee1905
 
 # 大括号风格要求 (brace-style)
 
-Brace style is closely related to [indent style](http://en.wikipedia.org/wiki/Indent_style) in programming and describes the placement of curly braces relative to their control statement and body. There are probably a dozen, if not more, brace styles in the world.
+Brace style is closely related to [indent style](http://en.wikipedia.org/wiki/Indent_style) in programming and describes the placement of braces relative to their control statement and body. There are probably a dozen, if not more, brace styles in the world.
 
 在编程过程中，大括号风格与[缩进风格](http://en.wikipedia.org/wiki/Indent_style)紧密联系，用来描述大括号相对控制语句和代码块的位置，少说也有十几种。
 
-The *one true brace style* is one of the most common brace styles in JavaScript, in which the opening curly brace of a block is placed on the same line as its corresponding statement or declaration. For example:
+The *one true brace style* is one of the most common brace styles in JavaScript, in which the opening brace of a block is placed on the same line as its corresponding statement or declaration. For example:
 
-在 Javascript 中，*one true brace style*也是最常见的一种，它将大括号放在控制语句或声明语句
-同一行的位置。例如：
+在 Javascript 中，*one true brace style*也是最常见的一种，它将大括号放在控制语句或声明语句同一行的位置。例如：
 
 ```js
 if (foo) {
@@ -27,7 +24,7 @@ if (foo) {
 }
 ```
 
-One common variant of one true brace style is called Stroustrup, in which the `else` statements in an `if-else` construct, as well as `catch` and `finally`, must be on its own line after the preceding closing brace, as in this example:
+One common variant of one true brace style is called Stroustrup, in which the `else` statements in an `if-else` construct, as well as `catch` and `finally`, must be on its own line after the preceding closing brace. For example:
 
 *one true brace style*的一种常见的变体形式叫做 *Stroustrup*，`if-else`中的`else`语句，连同`catch` 和 `finally`，都必须在右括号后另起一行，如下面这个例子：
 
@@ -40,7 +37,7 @@ else {
 }
 ```
 
-Another style is called [Allman](https://en.wikipedia.org/wiki/Indent_style#Allman_style), in which all the braces are expected to be on their own lines without any extra indentation:
+Another style is called [Allman](https://en.wikipedia.org/wiki/Indent_style#Allman_style), in which all the braces are expected to be on their own lines without any extra indentation. For example:
 
 另一种风格叫做[Allman](https://en.wikipedia.org/wiki/Indent_style#Allman_style)，
 括号必须单独成行且没有任何缩进：
@@ -62,40 +59,39 @@ While no style is considered better than the other, most developers agree that h
 
 ## Rule Details
 
-This rule is aimed at enforcing a particular brace style in JavaScript. As such, it warns whenever it sees a statement or declaration that does not adhere to the one true brace style.
+This rule enforces consistent brace style for blocks.
 
 该规则旨在强制在Javascript中使用特定的括号风格。因此，如果某条语句或声明没有遵守该该风格，该规则将发出警告。
 
 ## Options
 
-The rule takes two options:
+This rule has a string option:
 
-该规则有两个选项：
+该规则有一个字符串选项：
 
-1. A string which must be either `"1tbs"`, `"stroustrup"` or `"allman"`. The default is `"1tbs"`.
+* `"1tbs"` (default) enforces one true brace style
+* `"1tbs"` (默认) 强制 one true brace style
+* `"stroustrup"` enforces Stroustrup style
+* `"stroustrup"` 强制 Stroustrup style
+* `"allman"` enforces Allman style
+* `"allman"` 强制 Allman style
 
-1. 一个字符串，必须是`"1tbs"`、`"stroustrup"`或`"allman"`。默认值是`"1tbs"`。
+This rule has an object option for an exception:
 
-2. An object that further controls the behaviour of this rule. Currently, the only available parameter is `allowSingleLine`, which indicates whether start and end braces may be on the same line.
+该规则可以有例外情况，用对象表示：
 
-2. 一个对象，进一步限制该规则的行为。目前，唯一可用的参数是 `allowSingleLine`，用来指示开始和结束大括号是否在同一行。
-
-You can set the style in configuration like this:
-
-你可以在配置中这样设置：
-
-```json
-"brace-style": ["error", "stroustrup", { "allowSingleLine": true }]
-```
+* `"allowSingleLine": true` (default `false`) allows the opening and closing braces for a block to be on the *same* line
+* `"allowSingleLine": true` (默认 `false`) 允许块的开括号和闭括号在 *同一行*
 
 ### 1tbs
 
-This is the default setting for this rule and enforces one true brace style. While using this setting, the following patterns are considered problems:
+Examples of **incorrect** code for this rule with the default `"1tbs"` option:
 
-该选项是此默认设置，强制使用 *one true brace style*。当使用此设置时，以下模式被认为是有问题的：
+选项`"1tbs"`的 **错误** 代码示例：
 
 ```js
 /*eslint brace-style: "error"*/
+
 function foo()
 {
   return true;
@@ -122,9 +118,9 @@ else {
 }
 ```
 
-The following patterns use the one true brace style and are not considered problems:
+Examples of **correct** code for this rule with the default `"1tbs"` option:
 
-以下模式使用 *one true brace style*，被认为是没有问题的：
+选项`"1tbs"`的 **正确** 代码示例：
 
 ```js
 /*eslint brace-style: "error"*/
@@ -154,9 +150,9 @@ if (foo) bar();
 else if (baz) boom();
 ```
 
-With one-line form enabled, the following is also valid:
+Examples of **correct** code for this rule with the `"1tbs", { "allowSingleLine": true }` options:
 
-one-line 形式启用的情况下，以下模式也是有效的：
+选项`"1tbs", { "allowSingleLine": true }`的 **正确** 代码示例：
 
 ```js
 /*eslint brace-style: ["error", "1tbs", { "allowSingleLine": true }]*/
@@ -172,9 +168,9 @@ try { somethingRisky(); } catch(e) { handleError(); }
 
 ### stroustrup
 
-This enforces Stroustrup style. While using this setting, the following patterns are considered problems:
+Examples of **incorrect** code for this rule with the `"stroustrup"` option:
 
-该选项强制使用 *Stroustrup*风格。当使用此设置时，以下模式被认为是有问题的：
+选项`"stroustrup"`的 **错误** 代码示例：
 
 ```js
 /*eslint brace-style: ["error", "stroustrup"]*/
@@ -204,9 +200,9 @@ if (foo) {
 }
 ```
 
-The following patterns use the Stroustrup style and are not considered problems:
+Examples of **correct** code for this rule with the `"stroustrup"` option:
 
-以下模式使用 *Stroustrup*风格，被认为是没有问题的：
+选项`"stroustrup"`的 **正确** 代码示例：
 
 ```js
 /*eslint brace-style: ["error", "stroustrup"]*/
@@ -238,9 +234,9 @@ if (foo) bar();
 else if (baz) boom();
 ```
 
-With one-line form enabled, the following is also valid:
+Examples of **correct** code for this rule with the `"stroustrup", { "allowSingleLine": true }` options:
 
-one-line 形式启用的情况下，以下模式也是有效的：
+选项`"stroustrup", { "allowSingleLine": true }`的 **正确** 代码示例：
 
 ```js
 /*eslint brace-style: ["error", "stroustrup", { "allowSingleLine": true }]*/
@@ -258,9 +254,9 @@ catch(e) { handleError(); }
 
 ### allman
 
-This enforces Allman style. While using this setting, the following patterns are considered problems:
+Examples of **incorrect** code for this rule with the `"allman"` option:
 
-该选项强制使用 *Allman*风格。当使用此设置时，以下模式被认为是有问题的：
+选项`"allman"`的 **错误** 代码示例：
 
 ```js
 /*eslint brace-style: ["error", "allman"]*/
@@ -288,9 +284,9 @@ if (foo) {
 }
 ```
 
-The following patterns use the Allman style and are not considered problems:
+Examples of **correct** code for this rule with the `"allman"` option:
 
-以下模式使用 *Allman*风格，被认为是没有问题的：
+选项`"allman"`的 **正确** 代码示例：
 
 ```js
 /*eslint brace-style: ["error", "allman"]*/
@@ -328,9 +324,9 @@ if (foo) bar();
 else if (baz) boom();
 ```
 
-With one-line form enabled, the following is also valid:
+Examples of **correct** code for this rule with the `"allman", { "allowSingleLine": true }` options:
 
-one-line 形式启用的情况下，以下模式也是有效的：
+选项`"allman", { "allowSingleLine": true }`的 **正确** 代码示例：
 
 ```js
 /*eslint brace-style: ["error", "allman", { "allowSingleLine": true }]*/

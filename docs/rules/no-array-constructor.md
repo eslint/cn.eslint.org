@@ -1,14 +1,12 @@
 ---
 title: Rule no-array-constructor
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow creation of dense arrays using the `Array` constructor (no-array-constructor)
+# disallow `Array` constructors (no-array-constructor)
 
-# 不允许使用`Array`的构造函数创建稠密数组。
+# 禁止使用 `Array` 构造函数
 
 Use of the `Array` constructor to construct a new array is generally
 discouraged in favour of array literal notation because of the single-argument
@@ -16,13 +14,17 @@ pitfall and because the `Array` global may be redefined. The exception is when
 the Array constructor is used to intentionally create sparse arrays of a
 specified size by giving the constructor a single numeric argument.
 
-由于单参数的陷阱，和全局范围的`Array`可能被重定义，通常不允许使用`Array`的构造函数来创建数组。唯一的例外是通过给构造函数传入指定的一个数值来创建稀疏数组。
+由于单参数的陷阱，和全局范围的 `Array` 可能被重定义，通常不允许使用 `Array`的构造函数来创建数组。唯一的例外是通过给构造函数传入指定的一个数值来创建稀疏数组。
 
 ## Rule Details
 
-The following patterns are considered problems:
+This rule disallows `Array` constructors.
 
-以下模式被认为是有问题的：
+该规则禁止使用 `Array` 构造函数。
+
+Examples of **incorrect** code for this rule:
+
+**错误** 代码示例：
 
 ```js
 /*eslint no-array-constructor: "error"*/
@@ -36,9 +38,9 @@ Array(0, 1, 2)
 new Array(0, 1, 2)
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint no-array-constructor: "error"*/

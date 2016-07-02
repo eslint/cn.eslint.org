@@ -1,34 +1,48 @@
 ---
 title: Rule no-with
 layout: doc
-translator: fengnana
-proofreader: coocon 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# No with Statements (no-with)
+# disallow `with` statements (no-with)
 
-# 禁用 with 语句 (no-with)
+# 禁用 `with` 语句 (no-with)
 
-The `with` statement is potentially problematic because it adds members of an object to the current scope, making it impossible to tell what a variable inside the block actually refers to. Additionally, the `with` statement cannot be used in strict mode.
+The `with` statement is potentially problematic because it adds members of an object to the current scope, making it impossible to tell what a variable inside the block actually refers to.
 
-`with` 是潜在的问题，因为它会在当前的域中增加对象成员，使得区分实际块中的变量指的是什么变的不可能。此外, `with` 语句再严格模式下不可用。
+`with` 是潜在的问题，因为它会在当前的域中增加对象成员，使得区分实际块中的变量指的是什么变的不可能。
 
 ## Rule Details
 
-This rule is aimed at eliminating `with` statements.
+This rule disallows `with` statements.
 
 此规则目的在于排除 `with` 语句。
 
+If ESLint parses code in strict mode, the parser (instead of this rule) reports the error.
+
+如果 ESLint 在严格模式下解析代码，解析器（不是该规则）将报告这样的错误。
+
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-with: "error"*/
-with (foo) {
-    // ...
+
+with (point) {
+    r = Math.sqrt(x * x + y * y); // is r a member of point?
 }
+```
+
+Examples of **correct** code for this rule:
+
+**正确** 代码示例：
+
+```js
+/*eslint no-with: "error"*/
+/*eslint-env es6*/
+
+const r = ({x, y}) => Math.sqrt(x * x + y * y);
 ```
 
 ## When Not To Use It
@@ -45,7 +59,7 @@ If you intentionally use `with` statements then you can disable this rule.
 
 This rule was introduced in ESLint 0.0.2.
 
-此规则在 ESLint 0.0.2 中被引入。
+该规则在 ESLint 0.0.2 中被引入。
 
 ## Resources
 

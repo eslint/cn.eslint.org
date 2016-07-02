@@ -1,9 +1,8 @@
 ---
 title: Integrations
-layout: doc
-redirect_from: "/docs/integrations/"
-exceptMulti: true
+layout: doc_en
 ---
+<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Integrations
 
@@ -47,7 +46,7 @@ exceptMulti: true
 
 ## Testing
 
- * Mocha.js: [mocha-eslint](https://www.npmjs.com/package/mocha-eslint)
+* Mocha.js: [mocha-eslint](https://www.npmjs.com/package/mocha-eslint)
 
 ## External ESLint rules
 

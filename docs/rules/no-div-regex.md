@@ -1,8 +1,6 @@
 ---
 title: Rule no-div-regex
 layout: doc
-translator: fengnana
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -22,11 +20,11 @@ function bar() { return /=foo/; }
 
 This is used to disambiguate the division operator to not confuse users.
 
-此规则用来消除除法操作符的歧义。
+该规则用来消除除法操作符的歧义。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-div-regex: "error"*/
@@ -36,7 +34,7 @@ function bar() { return /=foo/; }
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-div-regex: "error"*/

@@ -1,44 +1,46 @@
 ---
 title: Rule no-dupe-args
 layout: doc
-translator: ybbjegj
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# No duplicate arguments (no-dupe-args)
+# disallow duplicate arguments in `function` definitions (no-dupe-args)
 
-# 禁止重复参数（no-dupe-args）
+# 禁止在 `function` 定义中出现重复的参数 (no-dupe-args)
 
-In strict mode you will receive a `SyntaxError` if a function takes multiple arguments with the same name.
+If more than one parameter has the same name in a function definition, the last occurrence "shadows" the preceding occurrences. A duplicated name might be a typing error.
 
-在严格模式下，如果一个函数有多个同名的参数，将会抛出 `SyntaxError`。
-
-Outside of strict mode duplicate arguments will mask the value of the first argument.
-
-在非严格模式下，将使用第一个参数的值。
+如果在一个函数定义中出现多个同名的参数，后面出现的会覆盖前面出现的参数。重复的名称可能是一个打字错误。
 
 ## Rule Details
 
-This rule prevents duplicate parameter names in a function.
+This rule disallows duplicate parameter names in function declarations or expressions. It does not apply to arrow functions or class methods, because the parser reports the error.
 
-该规则防止函数中出现重复的参数名。
+该规则禁止在函数定义或表达中出现重名参数。该规则并不适用于箭头函数或类方法，因为解析器会报告这样的错误。
+
+If ESLint parses code in strict mode, the parser (instead of this rule) reports the error.
+
+如果 ESLint 在严格模式下解析代码，解析器（不是该规则）将报告这样的错误。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-dupe-args: "error"*/
 
 function foo(a, b, a) {
-    console.log("which a is it?", a);
+    console.log("value of the second a:", a);
 }
+
+var bar = function (a, b, a) {
+    console.log("value of the second a:", a);
+};
 ```
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-dupe-args: "error"*/
@@ -46,14 +48,11 @@ Examples of **correct** code for this rule:
 function foo(a, b, c) {
     console.log(a, b, c);
 }
+
+var bar = function (a, b, c) {
+    console.log(a, b, c);
+};
 ```
-
-
-## When Not To Use It
-
-If your project uses strict mode this rule may not be needed as unique param names will be automatically enforced.
-
-如果你的项目使用严格模式，就不需要用该规则，因为严格模式将自动强制使用唯一的参数名。
 
 ## Version
 

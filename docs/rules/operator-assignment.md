@@ -1,8 +1,6 @@
 ---
 title: Rule operator-assignment
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -12,7 +10,7 @@ proofreader: molee1905
 
 JavaScript provides shorthand operators that combine variable assignment and some simple mathematical operations. For example, `x = x + 4` can be shortened to `x += 4`. The supported shorthand forms are as follows:
 
-Javascript 为变量赋值和一些简单的数学运算提供了速记运算符。例如，`x = x + 4`可以简化为`x += 4`。支持的简化形式如下：
+JavaScript 为变量赋值和一些简单的数学运算提供了速记运算符。例如，`x = x + 4` 可以简化为 `x += 4`。支持的简化形式如下：
 
 ```text
  Shorthand | Separate
@@ -40,11 +38,9 @@ This rule enforces use of the shorthand assignment operators by requiring them w
 
 This rule has two options: `always` and `never`. The default is `always`.
 
-该规则有两个可选项：`always` 和 `never`。默认是`always`。
+该规则有两个可选项：`always` 和 `never`。默认是 `always`。
 
 ### "always"
-
-`"operator-assignment": ["error", "always"]`
 
 This mode enforces use of operator assignment shorthand where possible.
 
@@ -80,8 +76,6 @@ x.y = x.y << z;
 ```
 
 ### "never"
-
-`"operator-assignment": ["error", "never"]`
 
 This mode warns on any use of operator assignment shorthand.
 

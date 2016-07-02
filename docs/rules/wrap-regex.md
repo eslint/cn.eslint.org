@@ -1,8 +1,6 @@
 ---
 title: Rule wrap-regex
 layout: doc
-translator: molee1905
-proofreader: qifeigit
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -26,9 +24,9 @@ This is used to disambiguate the slash operator and facilitates more readable co
 
 该规则旨在消除斜线运算符造成的歧义，增加代码的可读性。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误** 代码示例：
 
 ```js
 /*eslint wrap-regex: "error"*/
@@ -38,9 +36,9 @@ function a() {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint wrap-regex: "error"*/
@@ -54,7 +52,7 @@ function a() {
 
 This rule was introduced in ESLint 0.1.0.
 
-该规则在ESLint 0.1.0 中被引入。
+该规则在 ESLint 0.1.0 中被引入。
 
 ## Resources
 

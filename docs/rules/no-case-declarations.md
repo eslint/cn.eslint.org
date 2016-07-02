@@ -1,31 +1,34 @@
 ---
 title: Rule no-case-declarations
 layout: doc
-translator: fengnana
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow lexical declarations in case/default clauses (no-case-declarations)
 
-# 不允许在 case 或 default 子句中使用声明 (no-case-declarations)
+# 禁止在 case 或 default 子句中出现词法声明 (no-case-declarations)
 
-This rule disallows lexical declarations (`let`, `const`, `function` and `class`) in `case`/`default` clauses. The reason is that the lexical declaration is visible in the entire switch block but it only gets initialized when it is assigned, which will only happen if the case where it is defined is reached.
+This rule disallows lexical declarations (`let`, `const`, `function` and `class`)
+in `case`/`default` clauses. The reason is that the lexical declaration is visible
+in the entire switch block but it only gets initialized when it is assigned, which
+will only happen if the case where it is defined is reached.
 
-此规则禁止`case`/`default`分句中的声明语法（`let`, `const`, `function` and `class`）。原因是语法声明在整个 switch 块中是可见的，但只在被定义的位置进行初始化。
+该规则禁止词法声明 (`let`、`const`、`function` 和 `class`) 出现在 `case`或`default` 子句中。原因是，词法声明在整个 `switch` 语句块中是可见的，但是它只有在运行到它定义的 case 语句时，才会进行初始化操作。
 
 To ensure that the lexical declaration only applies to the current case clause
 wrap your clauses in blocks.
+
+为了保证词法声明语句只在当前 case 语句中有效，将你子句包裹在块中。
 
 ## Rule Details
 
 This rule aims to prevent access to uninitialized lexical bindings as well as accessing hoisted functions across case clauses.
 
-此规则旨在防止访问 case 语句中未初始化的声明和函数提升。
+该规则旨在避免访问未经初始化的词法绑定以及跨 case 语句访问被提升的函数。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-case-declarations: "error"*/
@@ -48,7 +51,7 @@ switch (foo) {
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-case-declarations: "error"*/
@@ -77,7 +80,7 @@ switch (foo) {
 
 If you depend on fall through behavior and want access to bindings introduced in the case block.
 
-如果你依赖落空行为并想访问 case 块中引入的绑定，可以关闭此规则。
+如果你依赖 case 落空行为，并想访问 case 块中引入的绑定，可以关闭此规则。
 
 ## Related Rules
 

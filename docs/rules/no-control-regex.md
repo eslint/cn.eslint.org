@@ -1,44 +1,42 @@
 ---
 title: Rule no-control-regex
 layout: doc
-translator: ybbjegj
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Controls Characters in Regular Expressions (no-control-regex)
+# disallow control characters in regular expressions (no-control-regex)
 
 # 禁止在正则表达式中使用控制字符（no-control-regex）
 
 Control characters are special, invisible characters in the ASCII range 0-31. These characters are rarely used in JavaScript strings so a regular expression containing these characters is most likely a mistake.
 
-在 ASCII 中，0-31 范围内的控制字符是特殊的不可视字符。这些字符很少被用在 JavaScript 字符串中，所以包含这些字符的正则表达式很有可能是错误的。
+在 ASCII 中，0-31 范围内的控制字符是特殊的、不可见的字符。这些字符很少被用在 JavaScript 字符串中，所以一个正则表达式如果包含这些字符的，很有可能一个错误。
 
 ## Rule Details
 
-This rule is aimed at ensuring all regular expressions don't use control characters.
+This rule disallows control characters in regular expressions.
 
-该规则目的在于确保所有的正则表达式都不使用控制字符。
+该规则禁止在正则表达式中出现控制字符。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-control-regex: "error"*/
 
-var pattern1 = /\\x1f/;
+var pattern1 = /\x1f/;
 var pattern2 = new RegExp("\x1f");
 ```
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-control-regex: "error"*/
 
-var pattern1 = /\\x20/;
+var pattern1 = /\x20/;
 var pattern2 = new RegExp("\x20");
 ```
 

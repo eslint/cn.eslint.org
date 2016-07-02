@@ -1,8 +1,6 @@
 ---
 title: Rule no-trailing-spaces
 layout: doc
-translator: molee1905
-proofreader: coocon 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,9 +8,9 @@ proofreader: coocon
 
 # 禁用行尾空格 (no-trailing-spaces)
 
-(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
-(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 Sometimes in the course of editing files, you can end up with extra whitespace at the end of lines. These whitespace differences can be picked up by source control systems and flagged as diffs, causing frustration for developers. While this extra whitespace causes no functional issues, many code conventions require that trailing spaces be removed before checkin.
 
@@ -49,7 +47,7 @@ var baz = 5;
 
 There is one option for this rule, `skipBlankLines`. When set to true, the rule will not flag any lines that are made up purely of whitespace. In short, if a line is zero-length after being trimmed of whitespace, then the rule will not flag that line when `skipBlankLines` is enabled.
 
-该规则有一个可选项， `skipBlankLines`。当设置为 true 时，该规则将不会标记任何空行。简而言之，如果删除空格后，某一行的长度为0，那么在 `skipBlankLines` 启用的情况下，该规将不会标记该行。
+该规则有一个可选项， `skipBlankLines`。当设置为 true 时，该规则将不会标记任何空行。简而言之，如果删除空格后，某一行的长度为 0，那么在 `skipBlankLines` 启用的情况下，该规将不会标记该行。
 
 You can enable this option in your config like this:
 

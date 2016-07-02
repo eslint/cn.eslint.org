@@ -1,13 +1,10 @@
 ---
-title: Developer guide
+title: Developer Guide
 layout: doc
-translator: maoshuyu
-proofreader: hacke2
 ---
+<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Developer Guide
-
-# 开发者指南
 
 This guide is intended for those who wish to:
 
@@ -37,23 +34,17 @@ If that sounds like you, then continue reading to get started.
 
 ## Section 1: Get the [Source Code](source-code.html)
 
-## 第一节：获取[源码](source-code.html)
-
 Before you can get started, you'll need to get a copy of the ESLint source code. This section explains how to do that and a little about the source code structure.
 
 在你开始之前，你需要获取ESLint的源码。本节解释如何获取源码和源码结构。
 
 ## Section 2: Set up a [Development Environment](development-environment.html)
 
-## 第二节：设置[开发环境](development-environment.html)
-
 Developing for ESLint is a bit different than running it on the command line. This section shows you how to set up a development environment and get you ready to write code.
 
 ESLint开发与在命令行上运行有些不同。本节将向你展示如何设置开发环境，并且让你准备好写代码。
 
-## Section 3: Run the Unit Tests
-
-## 第三节: 运行[单元测试](unit-tests.html)
+## Section 3: Run the [Unit Tests](unit-tests.html)
 
 There are a lot of unit tests included with ESLint to make sure that we're keeping on top of code quality. This section explains how to run the unit tests.
 
@@ -61,15 +52,11 @@ ESLint中有很多单元测试来确保我们保持高质量的代码。本节�
 
 ## Section 4: [Working with Rules](working-with-rules.html)
 
-## 第四节：[制定规则](working-with-rules.html)
-
 You're finally ready to start working with rules. You may want to fix an existing rule or create a new one. This section explains how to do all of that.
 
 你终于开始使用该规则了。你可能想要修复一个现有规则或创建一个新的。本节解释如何做到这些。
 
 ## Section 5: [Working with Plugins](working-with-plugins.html)
-
-## 第五节：[制定插件](working-with-plugins.html)
 
 You've developed library-specific rules for ESLint and you want to share it with the community. You can publish an ESLint plugin on npm.
 
@@ -77,15 +64,11 @@ You've developed library-specific rules for ESLint and you want to share it with
 
 ## Section 6: [Node.js API](nodejs-api.html)
 
-## 第六节： [Node.js API](nodejs-api.html)
-
 If you're interested in writing a tool that uses ESLint, then you can use the Node.js API to get programmatic access to functionality.
 
 如果你很感兴趣使用ESLint写一个工具，你可以使用Node.js API。
 
 ## Section 7: [Contributing](contributing/)
-
-## 第七节：[贡献](contributing/)
 
 Once you've made changes that you want to share with the community, the next step is to submit those changes back via a pull request.
 

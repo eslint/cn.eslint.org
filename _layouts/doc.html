@@ -1,8 +1,22 @@
 {% include header.html multi="true" %}
 {% include menu.html multi="true" %}
-<main class="doc">
+<main class="doc lang-zh">
   <article class="container">
-    {{ content | replace: '(recommended)', '<span title="recommended" aria-label="recommended" class="glyphicon glyphicon-ok"></span>' | replace: '<p>(fixable) ', '<p class="fixable">' | replace: '(fixable)', '<span title="fixable" aria-label="fixable" class="glyphicon glyphicon-wrench"></span>' | replace: '<p>Examples of <strong>incorrect</strong> code', '<p class="incorrect">Examples of <strong>incorrect</strong> code' | replace: '<p>Examples of <strong>correct</strong> code', '<p class="correct">Examples of <strong>correct</strong> code' | replace: '<p>Example of <strong>incorrect</strong> code', '<p class="incorrect">Example of <strong>incorrect</strong> code' | replace: '<p>Example of <strong>correct</strong> code', '<p class="correct">Example of <strong>correct</strong> code' }}
+    {{ content
+      | replace: '<p>Examples of <strong>incorrect</strong> code', '<p class="incorrect icon">Examples of <strong>incorrect</strong> code'
+      | replace: '<p>Example of <strong>incorrect</strong> code', '<p class="incorrect icon">Example of <strong>incorrect</strong> code'
+      | replace: '<p>Examples of additional <strong>incorrect</strong> code', '<p class="incorrect icon">Examples of additional <strong>incorrect</strong> code'
+      | replace: '<p>Example of additional <strong>incorrect</strong> code', '<p class="incorrect icon">Example of additional <strong>incorrect</strong> code'
+      | replace: '<p>Examples of <strong>correct</strong> code', '<p class="correct icon">Examples of <strong>correct</strong> code'
+      | replace: '<p>Example of <strong>correct</strong> code', '<p class="correct icon">Example of <strong>correct</strong> code'
+      | replace: '<p>Examples of additional <strong>correct</strong> code', '<p class="correct icon">Examples of additional <strong>correct</strong> code'
+      | replace: '<p>Example of additional <strong>correct</strong> code', '<p class="correct icon">Example of additional <strong>correct</strong> code'
+      | replace: '<p>(recommended) ', '<p class="recommended icon">'
+      | replace: '<p>(removed) ', '<p class="removed icon">'
+      | replace: '<p>(fixable) ', '<p class="fixable icon">'
+      | replace: '(recommended)', '<span title="recommended" aria-label="recommended" class="glyphicon glyphicon-ok"></span>'
+      | replace: '(fixable)', '<span title="fixable" aria-label="fixable" class="glyphicon glyphicon-wrench"></span>'
+    }}
   </article>
 </main>
 {% include footer.html multi="true" %}

@@ -1,14 +1,12 @@
 ---
 title: Rule no-undef-init
 layout: doc
-translator: ILFront-End
-proofreader: coocon 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow Initializing to undefined (no-undef-init)
 
-# 不允许初始化变量值为undefined (no-undef-init)
+# 不允许初始化变量值为 undefined (no-undef-init)
 
 In JavaScript, a variable that is declared and not initialized to any value automatically gets the value of `undefined`. For example:
 
@@ -39,7 +37,7 @@ This rule aims to eliminate variable declarations that initialize to `undefined`
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-undef-init: "error"*/
@@ -51,8 +49,7 @@ let bar = undefined;
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
-
+**正确** 代码示例：
 ```js
 /*eslint no-undef-init: "error"*/
 /*eslint-env es6*/
@@ -70,7 +67,7 @@ There is one situation where initializing to `undefined` behaves differently tha
 
 Example of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 for (i = 0; i < 10; i++) {
@@ -129,7 +126,7 @@ If you're using such an initialization inside of a loop, then you should disable
 
 Example of **correct** code for this rule, because it is disabled on a specific line:
 
-**正确**代码示例，因为它在特定的行上被禁用。
+**正确** 代码示例，因为它在特定的行上被禁用。
 
 ```js
 /*eslint no-undef-init: "error"*/
@@ -150,7 +147,7 @@ for (i = 0; i < 10; i++) {
 
 This rule was introduced in ESLint 0.0.6.
 
-此规则在 ESLint 0.0.6 中被引入。
+该规则在 ESLint 0.0.6 中被引入。
 
 ## Resources
 

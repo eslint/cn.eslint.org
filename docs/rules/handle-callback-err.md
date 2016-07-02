@@ -1,8 +1,6 @@
 ---
 title: Rule handle-callback-err
 layout: doc
-translator: ILFront-End
-proofreader: sunshiner
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -16,7 +14,7 @@ In Node.js, a common pattern for dealing with asynchronous behavior is called th
 
 This pattern expects an `Error` object or `null` as the first argument of the callback.
 
-这个模式期望一个`Error`对象或`null`作为回调的第一个参数。
+这个模式期望一个 `Error` 对象或 `null` 作为回调的第一个参数。
 
 Forgetting to handle these errors can lead to some really strange behavior in your application.
 
@@ -38,11 +36,11 @@ This rule expects that when you're using the callback pattern in Node.js you'll 
 
 The rule takes a single string option: the name of the error parameter. The default is `"err"`.
 
-该规则只有一个字符串选项：错误参数的名称。默认是`err`。
+该规则只有一个字符串选项：错误参数的名称。默认是 `err`。
 
 Examples of **incorrect** code for this rule with the default `"err"` parameter name:
 
-默认参数`"err"`的 **错误**代码示例：
+默认参数 `"err"` 的 **错误** 代码示例：
 
 ```js
 /*eslint handle-callback-err: "error"*/
@@ -55,7 +53,7 @@ function loadData (err, data) {
 
 Examples of **correct** code for this rule with the default `"err"` parameter name:
 
-默认参数`"err"`的 **正确**代码示例：
+默认参数 `"err"` 的 **正确** 代码示例：
 
 ```js
 /*eslint handle-callback-err: "error"*/
@@ -74,7 +72,7 @@ function generateError (err) {
 
 Examples of **correct** code for this rule with a sample `"error"` parameter name:
 
-参数`"error"`的 **正确**代码示例：
+参数 `"error"` 的 **正确** 代码示例：
 
 ```js
 /*eslint handle-callback-err: ["error", "error"]*/
@@ -96,19 +94,14 @@ so you need a more flexible configuration to ensure that the rule reports all un
 
 If the configured name of the error variable begins with a `^` it is considered to be a regexp pattern.
 
-如果错误变量的配置名以`^`开头被认为是一个正则模式。
+如果错误变量的配置名以 `^` 开头被认为是一个正则模式。
  
 * If the option is `"^(err|error|anySpecificError)$"`, the rule reports unhandled errors where the parameter name can be `err`, `error` or `anySpecificError`.
-
-* 如果这个选项是`"^(err|error|anySpecificError)$"`，当参数名为`err`, `error` or `anySpecificError`时，该规则会报告有未处理的错误。
-
+* 如果这个选项是 `"^(err|error|anySpecificError)$"`，当参数名为 `err`, `error` or `anySpecificError` 时，该规则会报告有未处理的错误。
 * If the option is `"^.+Error$"`, the rule reports unhandled errors where the parameter name ends with `Error` (for example, `connectionError` or `validationError` will match).
-
-* 如果这个选项是`"^.+Error$"`，当参数名以`Error`结尾时（例如，`connectionError`或`validationError`），该规则会报告有未处理的错误。
-
+* 如果这个选项是 `"^.+Error$"`，当参数名以 `Error` 结尾时（例如，`connectionError` 或 `validationError`），该规则会报告有未处理的错误。
 * If the option is `"^.*(e|E)rr"`, the rule reports unhandled errors where the parameter name matches any string that contains `err` or `Err` (for example, `err`, `error`, `anyError`, `some_err` will match).
-
-* 如果这个选项是`"^.*(e|E)rr"`，当参数名匹配任何字符串中含有`err`或`Err`的（例如，err`，`error`，`anyError`，`some_err`）该规则会报告有未处理的错误。
+* 如果这个选项是 `"^.*(e|E)rr"`，当参数名匹配任何字符串中含有 `err` 或 `Err`的（例如，err`，`error`，`anyError`，`some_err`）该规则会报告有未处理的错误。
 
 ## When Not To Use It
 
@@ -126,7 +119,7 @@ confident that some other form of monitoring will help you catch the problem.
 
 This rule was introduced in ESLint 0.4.5.
 
-此规则在 ESLint 0.4.5 被引入。
+该规则在 ESLint 0.4.5 被引入。
 
 ## Resources
 

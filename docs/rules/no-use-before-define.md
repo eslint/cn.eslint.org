@@ -1,14 +1,12 @@
 ---
 title: Rule no-use-before-define
 layout: doc
-translator: ILFront-End
-proofreader: coocon 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow Early Use (no-use-before-define)
 
-# 不允许定义前使用 (no-use-before-define)
+# 禁止定义前使用 (no-use-before-define)
 
 In JavaScript, prior to ES6, variable and function declarations are hoisted to the top of a scope, so it's possible to use identifiers before their formal declarations in code. This can be confusing and some believe it is best to always declare variables and functions before using them.
 
@@ -16,7 +14,7 @@ In JavaScript, prior to ES6, variable and function declarations are hoisted to t
 
 In ES6, block-level bindings (`let` and `const`) introduce a "temporal dead zone" where a `ReferenceError` will be thrown with any attempt to access the variable before its declaration.
 
-在 ES6 中，块级绑定(`let` and `const`)引入 "temporal dead zone"，当企图使用未声明的变量会抛出 `ReferenceError`。
+在 ES6 中，块级绑定 (`let` 和 `const`) 引入 "temporal dead zone"，当企图使用未声明的变量会抛出 `ReferenceError`。
 
 ## Rule Details
 
@@ -26,7 +24,7 @@ This rule will warn when it encounters a reference to an identifier that has not
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-use-before-define: "error"*/
@@ -52,7 +50,7 @@ var b = 1;
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-use-before-define: "error"*/
@@ -91,21 +89,17 @@ function g() {
   Otherwise, ignores those references.
   Function declarations are hoisted, so it's safe.
   Default is `true`.
-  
-  这个参数表示该规则是否要检测函数的声明。
+* 这个参数表示该规则是否要检测函数的声明。
   如果参数是 `true`，该规则会在引用一个未提前声明的函数时发出警报。
-  如果参数是 `false`, 忽略这些引用。
-  因为函数声明作用域会被提升，所以这样做是安全的。
+  如果参数是 `false`, 忽略这些引用。因为函数声明作用域会被提升，所以这样做是安全的。
   参数默认值是 `true`。
-
 * `classes` (`boolean`) -
   The flag which shows whether or not this rule checks class declarations of upper scopes.
   If this is `true`, this rule warns every reference to a class before the class declaration.
   Otherwise, ignores those references if the declaration is in upper function scopes.
   Class declarations are not hoisted, so it might be danger.
   Default is `true`.
-  
-  这个参数表示是否要检测作用域中顶部的类声明。
+* 这个参数表示是否要检测作用域中顶部的类声明。
   如果参数是 `true`，该规则会在引用一个未提前声明的类时发出警报。
   如果参数是 `false`，该规则会忽略在函数声明前的引用。
   因为类声明作用域会被提升，所以这样做可能是危险的。
@@ -121,7 +115,7 @@ This rule accepts `"nofunc"` string as a option.
 
 Examples of **correct** code for the `{ "functions": false }` option:
 
-选项`{ "functions": false }`的 **正确**代码示例：
+选项`{ "functions": false }`的 **正确** 代码示例：
 
 ```js
 /*eslint no-use-before-define: ["error", { "functions": false }]*/
@@ -134,7 +128,7 @@ function f() {}
 
 Examples of **incorrect** code for the `{ "classes": false }` option:
 
-选项`{ "classes": false }`的 **错误**代码示例：
+选项`{ "classes": false }`的 **错误** 代码示例：
 
 ```js
 /*eslint no-use-before-define: ["error", { "classes": false }]*/
@@ -147,7 +141,7 @@ class A {
 
 Examples of **correct** code for the `{ "classes": false }` option:
 
-选项`{ "classes": false }`的 **正确**代码示例：
+选项`{ "classes": false }`的 **正确** 代码示例：
 
 ```js
 /*eslint no-use-before-define: ["error", { "classes": false }]*/
@@ -165,7 +159,7 @@ class A {
 
 This rule was introduced in ESLint 0.0.9.
 
-此规则在 ESLint 0.0.9 中被引入。
+该规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

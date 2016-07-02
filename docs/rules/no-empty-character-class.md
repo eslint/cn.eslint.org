@@ -1,18 +1,16 @@
 ---
 title: Rule no-empty-character-class
 layout: doc
-translator: ybbjegj
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Empty Character Classes (no-empty-character-class)
+# disallow empty character classes in regular expressions (no-empty-character-class)
 
-# 禁止空字符集（no-empty-character-class）
+# 禁止在正则表达式中出现空字符集 (no-empty-character-class)
 
-Empty character classes in regular expressions do not match anything and can result in code that may not work as intended.
+Because empty character classes in regular expressions do not match anything, they might be typing mistakes.
 
-在正则表达式中空字符集不能匹配任何字符，还可能导致代码不能按预期工作。
+在正则表达式中空字符集不能匹配任何字符，它们可能是打字错误。
 
 ```js
 var foo = /^abc[]/;
@@ -20,41 +18,50 @@ var foo = /^abc[]/;
 
 ## Rule Details
 
-This rule is aimed at highlighting possible typos and unexpected behavior in regular expressions which may arise from the use of empty character classes.
+This rule disallows empty character classes in regular expressions.
 
-该规则旨在强调正则表达式中使用空字符集时，可能出现的拼写错误和异常行为。
+该规则禁止在正则表达式中出现空字符集。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-empty-character-class: "error"*/
 
-var foo = /^abc[]/;
-
-/^abc[]/.test(foo);
-
-bar.match(/^abc[]/);
+/^abc[]/.test("abcdefg"); // false
+"abcdefg".match(/^abc[]/); // null
 ```
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-empty-character-class: "error"*/
 
-var foo = /^abc/;
+/^abc/.test("abcdefg"); // true
+"abcdefg".match(/^abc/); // ["abc"]
 
-var foo = /^abc[a-z]/;
-
-var bar = new RegExp("^abc[]");
+/^abc[a-z]/.test("abcdefg"); // true
+"abcdefg".match(/^abc[a-z]/); // ["abcd"]
 ```
 
-## Related Rules
+## Known Limitations
 
-* [no-empty-class](no-empty-class) (removed)
+This rule does not report empty character classes in the string argument of calls to the `RegExp` constructor.
+
+该规则不会报告 `RegExp` 构造函数的字符串参数中空字符集的使用情况。 
+
+Example of a *false negative* when this rule reports correct code:
+
+当该规则报告了正确的代码时，*漏报*的示例：
+
+```js
+/*eslint no-empty-character-class: "error"*/
+
+var abcNeverMatches = new RegExp("^abc[]");
+```
 
 ## Version
 

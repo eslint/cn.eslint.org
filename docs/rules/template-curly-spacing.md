@@ -6,10 +6,16 @@ layout: doc
 
 # Enforce Usage of Spacing in Template Strings (template-curly-spacing)
 
-(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+# 强制模板字符串中空格的使用 (template-curly-spacing)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 We can embed expressions in template strings with using a pair of `${` and `}`.
 This rule can force usage of spacing inside of the curly brace pair according to style guides.
+
+我们可以在模板字符串中使用 `${` 和 `}` 嵌入表达式。该规则可以根据风格指南强制花括号内空格的使用。
 
 ```js
 let hello = `hello, ${people.name}!`;
@@ -18,6 +24,8 @@ let hello = `hello, ${people.name}!`;
 ## Rule Details
 
 This rule aims to maintain consistency around the spacing inside of template literals.
+
+该规则只在维护模板字面量中空格的一致性。
 
 ## Options
 
@@ -29,10 +37,16 @@ This rule aims to maintain consistency around the spacing inside of template lit
 
 This rule has one option which has either `"never"` or `"always"` as value.
 
-* `"never"` (by default) - Disallows spaces inside of the curly brace pair.
-* `"always"` - Requires one or more spaces inside of the curly brace pair.
+该规则有一个选项：
 
-The following patterns are considered problems when configured `"never"`:
+* `"never"` (by default) - Disallows spaces inside of the curly brace pair.
+* `"never"` (默认) - 禁止花括号内出现空格。
+* `"always"` - Requires one or more spaces inside of the curly brace pair.
+* `"always"` - 要求花括号内有一个或多个空格。
+
+Examples of **incorrect** code for this rule with the `"never"` option:
+
+选项 `"never"` 的 **错误** 代码示例：
 
 ```js
 /*eslint template-curly-spacing: "error"*/
@@ -43,18 +57,9 @@ The following patterns are considered problems when configured `"never"`:
 `hello, ${ people.name }!`;
 ```
 
-The following patterns are considered problems when configured `"always"`:
+Examples of **correct** code for this rule with the `"never"` option:
 
-```js
-/*eslint template-curly-spacing: ["error", "always"]*/
-
-`hello, ${ people.name}!`;
-`hello, ${people.name }!`;
-
-`hello, ${people.name}!`;
-```
-
-The following patterns are not considered problems when configured `"never"`:
+选项 `"never"` 的 **正确** 代码示例：
 
 ```js
 /*eslint template-curly-spacing: "error"*/
@@ -66,7 +71,22 @@ The following patterns are not considered problems when configured `"never"`:
 }!`;
 ```
 
-The following patterns are not considered problems when configured `"always"`:
+Examples of **incorrect** code for this rule with the `"always"` option:
+
+选项 `"always"` 的 **错误** 代码示例：
+
+```js
+/*eslint template-curly-spacing: ["error", "always"]*/
+
+`hello, ${ people.name}!`;
+`hello, ${people.name }!`;
+
+`hello, ${people.name}!`;
+```
+
+Examples of **correct** code for this rule with the `"always"` option:
+
+选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 /*eslint template-curly-spacing: ["error", "always"]*/
@@ -82,9 +102,13 @@ The following patterns are not considered problems when configured `"always"`:
 
 If you don't want to be notified about usage of spacing inside of template strings, then it's safe to disable this rule.
 
+如果你不想收到关于模板字符串中空格的使用情况的通知，可以禁用此规则。
+
 ## Version
 
 This rule was introduced in ESLint 2.0.0-rc.0.
+
+该规则在 ESLint 2.0.0-rc.0 中被引入。
 
 ## Resources
 

@@ -1,8 +1,6 @@
 ---
 title: Rule no-process-exit
 layout: doc
-translator: ILFront-End
-proofreader: yanggao40
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -12,7 +10,7 @@ proofreader: yanggao40
 
 The `process.exit()` method in Node.js is used to immediately stop the Node.js process and exit. This is a dangerous operation because it can occur in any method at any point in time, potentially stopping a Node.js application completely when an error occurs. For example:
 
-`process.exit()`方法在Node.js中被用于立即终止Node.js进程且退出。这是非常危险的操作，因为他能在任何方法任何时候出现，当发生错误时可能完全停止Node.js应用。如：
+`process.exit()` 方法在 Node.js 中被用于立即终止 Node.js 进程且退出。这是非常危险的操作，因为他能在任何方法任何时候出现，当发生错误时可能完全停止 Node.js 应用。如：
 
 ```js
 if (somethingBadHappened) {
@@ -23,7 +21,7 @@ if (somethingBadHappened) {
 
 This code could appear in any module and will stop the entire application when `somethingBadHappened` is truthy. This doesn't give the application any chance to respond to the error. It's usually better to throw an error and allow the application to handle it appropriately:
 
-这段代码能出现在任何模块中，当`somethingBadHappened`为true时，将停止整个应用。不给应用任何相应错误的机会。通常较好地做法是抛出一个错误，允许应用妥善处理这个错误。
+这段代码能出现在任何模块中，当 `somethingBadHappened` 为 true 时，将停止整个应用。不给应用任何相应错误的机会。通常较好地做法是抛出一个错误，允许应用妥善处理这个错误。
 
 ```js
 if (somethingBadHappened) {
@@ -39,11 +37,11 @@ By throwing an error in this way, other parts of the application have an opportu
 
 This rule aims to prevent the use of `process.exit()` in Node.js JavaScript. As such, it warns whenever `process.exit()` is found in code.
 
-此规则旨在阻止在Node.js中使用`process.exit()`。当在代码中发现`process.exit()`会报警告。
+此规则旨在阻止在 Node.js 中使用 `process.exit()`。当在代码中发现 `process.exit()`，该规则会发出警告。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-process-exit: "error"*/
@@ -54,7 +52,7 @@ process.exit(0);
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-process-exit: "error"*/
@@ -67,13 +65,13 @@ var exit = process.exit;
 
 There may be a part of a Node.js application that is responsible for determining the correct exit code to return upon exiting. In that case, you should turn this rule off to allow proper handling of the exit code.
 
-这可能是 Node.js 应用的一部分，负责正确的退出码并回退的决策。在这种情况下，你应该关闭规则来允许适当处理退出码。
+Node.js 应用中可以能有一部分是负责正确的退出码返回退出。在这种情况下，你应该关闭规则来允许适当处理退出码。
 
 ## Version
 
 This rule was introduced in ESLint 0.4.0.
 
-此规则在 ESLint 0.4.0 中被引入。
+该规则在 ESLint 0.4.0 中被引入。
 
 ## Resources
 

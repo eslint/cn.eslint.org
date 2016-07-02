@@ -1,8 +1,6 @@
 ---
 title: Rule no-new-func
 layout: doc
-translator: fengnana
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -12,7 +10,7 @@ proofreader: molee1905
 
 It's possible to create functions in JavaScript using the `Function` constructor, such as:
 
-在 JavaScript 中可以使用`Function`构造函数创建一个函数，例如：
+在 JavaScript 中可以使用 `Function` 构造函数创建一个函数，例如：
 
 ```js
 var x = new Function("a", "b", "return a + b");
@@ -20,17 +18,17 @@ var x = new Function("a", "b", "return a + b");
 
 This is considered by many to be a bad practice due to the difficulty in debugging and reading these types of functions.
 
-由于在调试和阅读这种类型函数上的困难，许多人认为这并不是一个好的做法，
+由于调试和阅读这种类型的函数比较困难，许多人认为这并不是一个好的做法，
 
 ## Rule Details
 
 This rule is raised to highlight the use of a bad practice. By passing a string to the Function constructor, you are requiring the engine to parse that string much in the way it has to when you call the `eval` function.
 
-该规则用来标记`Function`构造函数的使用。把一个字符串传给 Function 构造函数，你需要引擎解析该字符串大致同调用`eval`函数一样。
+该规则用来标记 `Function` 构造函数的使用。把一个字符串传给 Function 构造函数，你需要引擎解析该字符串，这一点同调用 `eval` 函数一样。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-new-func: "error"*/
@@ -41,7 +39,7 @@ var x = Function("a", "b", "return a + b");
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-new-func: "error"*/
@@ -55,7 +53,7 @@ var x = function (a, b) {
 
 In more advanced cases where you really need to use the `Function` constructor.
 
-在一些更高级的情况下，你确实需要使用`Function`构造函数。
+在一些更高级的情况下，你确实需要使用 `Function` 构造函数。
 
 ## Further Reading
 
@@ -65,7 +63,7 @@ In more advanced cases where you really need to use the `Function` constructor.
 
 This rule was introduced in ESLint 0.0.7.
 
-此规则在 ESLint 0.0.7 中被引入。
+该规则在 ESLint 0.0.7 中被引入。
 
 ## Resources
 

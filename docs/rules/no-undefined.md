@@ -1,8 +1,6 @@
 ---
 title: Rule no-undefined
 layout: doc
-translator: ILFront-End
-proofreader: coocon 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -53,7 +51,7 @@ Taking all of this into account, some style guides forbid the use of `undefined`
 * Checking if a value is `undefined` should be done with `typeof`.
 * 应该使用 `typeof` 检测一个值是否是 `undefined`。
 * Using the `void` operator to generate the value of `undefined` if necessary.
-* 如果有必要，使用`void` 操作符生成 `undefined`。
+* 如果有必要，使用 `void` 操作符生成 `undefined`。
 
 ## Rule Details
 
@@ -63,7 +61,7 @@ This rule aims to eliminate the use of `undefined`, and as such, generates a war
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-undefined: "error"*/
@@ -83,7 +81,7 @@ function foo(undefined) {
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-undefined: "error"*/
@@ -107,8 +105,8 @@ If you want to allow the use of `undefined` in your code, then you can safely tu
 
 ## Further Reading
 
-* [undefined - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)
-* [Understanding JavaScript’s ‘undefined’ | JavaScript, JavaScript...](http://javascriptweblog.wordpress.com/2010/08/16/understanding-undefined-and-preventing-referenceerrors/)
+* [undefined - JavaScript \| MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)
+* [Understanding JavaScript’s ‘undefined’ \| JavaScript, JavaScript...](http://javascriptweblog.wordpress.com/2010/08/16/understanding-undefined-and-preventing-referenceerrors/)
 * [ECMA262 edition 5.1 &sect;15.1.1.3: undefined](https://es5.github.io/#x15.1.1.3)
 
 ## Related Rules
@@ -120,7 +118,7 @@ If you want to allow the use of `undefined` in your code, then you can safely tu
 
 This rule was introduced in ESLint 0.7.1.
 
-此规则在 ESLint 0.7.1 中被引入。
+该规则在 ESLint 0.7.1 中被引入。
 
 ## Resources
 

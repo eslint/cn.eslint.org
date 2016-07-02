@@ -1,8 +1,6 @@
 ---
 title: Rule block-spacing
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,54 +8,43 @@ proofreader: molee1905
 
 # 禁止或强制在单行代码块中使用空格 (block-spacing)
 
-(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
-(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
-
-This rule is for spacing style within single line blocks.
-
-该规则是关于单行代码块的间距风格的。
-
-**Fixable:** 该规则可以通过`--fix`命令行进行自动修复。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 ## Rule Details
 
-This rule is aimed to flag usage of spacing inside of blocks.
+This rule enforces consistent spacing inside single-line blocks.
 
-该规则旨在标示代码块中空格的用法。
+该规则强制在单行块内的空格的一致性。
 
 ## Options
 
-This rule has a option, its value is `"always"` or `"never"`.
+This rule has a string option:
 
-该规则有一个选项, 值为 `"always"` 或 `"never"`。
+该规则有一个字符串选项：
 
-- `"always"` (by default) enforces one or more spaces.
-- `"always"` (默认) 强制是使用一个或多个空格。
-- `"never"` disallows space(s).
-- `"never"` 禁用空格。
+* `"always"` (default) requires one or more spaces
+* `"always"` (more) 要求使用一个或多个空格
+* `"never"` disallows spaces
+* `"never"` 禁用空格
 
-### "always"
+### always
 
-```json
-{
-  "block-spacing": ["error", "always"]
-}
-```
+Examples of **incorrect** code for this rule with the default `"always"` option:
 
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+默认选项`"always"`的 **错误** 代码示例：
 
 ```js
 /*eslint block-spacing: "error"*/
+
 function foo() {return true;}
 if (foo) { bar = 0;}
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `"always"` option:
 
-以下模式被认为是没有问题的：
+默认选项`"always"`的 **正确** 代码示例：
 
 ```js
 /*eslint block-spacing: "error"*/
@@ -66,17 +53,11 @@ function foo() { return true; }
 if (foo) { bar = 0; }
 ```
 
-### "never"
+### never
 
-```json
-{
-  "block-spacing": ["error", "never"]
-}
-```
+Examples of **incorrect** code for this rule with the `"never"` option:
 
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+选项`"never"`的 **错误** 代码示例：
 
 ```js
 /*eslint block-spacing: ["error", "never"]*/
@@ -85,9 +66,9 @@ function foo() { return true; }
 if (foo) { bar = 0;}
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"never"` option:
 
-以下模式被认为是没有问题的：
+选项`"never"`的 **正确** 代码示例：
 
 ```js
 /*eslint block-spacing: ["error", "never"]*/

@@ -1,8 +1,6 @@
 ---
 title: Rule accessor-pairs
 layout: doc
-translator: fengnana
-proofreader: ILFront-End
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -63,7 +61,7 @@ By activating the option `getWithoutSet` it enforces the presence of a setter fo
 
 Examples of **incorrect** code for the default `{ "setWithoutGet": true }` option:
 
-默认选项`{ "setWithoutGet": true }`的 **错误**代码示例：
+默认选项`{ "setWithoutGet": true }`的 **错误** 代码示例：
 
 ```js
 /*eslint accessor-pairs: "error"*/
@@ -84,7 +82,7 @@ Object.defineProperty(o, 'c', {
 
 Examples of **correct** code for the default `{ "setWithoutGet": true }` option:
 
-默认选项`{ "setWithoutGet": true }`的 **正确**代码示例：
+默认选项`{ "setWithoutGet": true }`的 **正确** 代码示例：
 
 ```js
 /*eslint accessor-pairs: "error"*/
@@ -111,10 +109,9 @@ Object.defineProperty(o, 'c', {
 ```
 
 ### getWithoutSet
-
 Examples of **incorrect** code for the `{ "getWithoutSet": true }` option:
 
-`{ "getWithoutSet": true }`选项的 **错误**代码示例：
+`{ "getWithoutSet": true }`选项的 **错误** 代码示例：
 
 ```js
 /*eslint accessor-pairs: ["error", { "getWithoutSet": true }]*/
@@ -148,7 +145,7 @@ Object.defineProperty(o, 'c', {
 
 Examples of **correct** code for the `{ "getWithoutSet": true }` option:
 
-`{ "getWithoutSet": true }`选项的 **正确**代码示例：
+`{ "getWithoutSet": true }`选项的 **正确** 代码示例：
 
 ```js
 /*eslint accessor-pairs: ["error", { "getWithoutSet": true }]*/
@@ -189,7 +186,7 @@ You can turn this rule off if you are not concerned with the simultaneous presen
 
 This rule was introduced in ESLint 0.22.0.
 
-此规则在 ESLint 0.22.0 中被引入。
+该规则在 ESLint 0.22.0 中被引入。
 
 ## Resources
 

@@ -2,12 +2,13 @@
     <hr>
 
     <div class="container">
+
       <footer>
         <ul class="list-inline">
           <li><a href="https://groups.google.com/group/eslint">Mailing List</a></li>
           <li><a href="https://github.com/eslint/eslint">GitHub</a></li>
           <li><a href="https://twitter.com/geteslint">Twitter</a></li>
-          <li>Copyright &copy; 2013-2016 Nicholas C. Zakas. All rights reserved.</li>
+          <li>Copyright jQuery Foundation and other contributors, <a href="https://jquery.org">https://jquery.org/</a></li>
         </ul>
       </footer>
     </div><!-- /.container -->
@@ -65,9 +66,9 @@
 
       {% endif %}
 
-      {% if include.multi == "true" and page.exceptMulti != true %}
+      {% if include.multi == "true" %}
         var langs = {mixed: '中英文',zh: '中文',en: '英文'};
-        var last = localStorage.getItem('lang') || 'mixed';
+        var last = localStorage.getItem('lang') || 'zh';
 
         if (last in langs) {
           $('.lang-chooser').html(langs[last]); 
@@ -95,11 +96,5 @@
   </script>
   <style type="text/css">#cnzz_stat_icon_1258344395 {opacity: 0;}</style>
   <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258344395'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258344395'%3E%3C/script%3E"));</script>
-</body>
-</html>
-
-</body>
-</html>
-
 </body>
 </html>

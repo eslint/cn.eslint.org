@@ -1,27 +1,26 @@
 ---
 title: Rule no-implicit-globals
 layout: doc
-translator: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow `var` and Named Functions in Global Scope (no-implicit-globals)
 
-# 禁止在全局范围使用`var`和命名函数 (no-implicit-globals)
+# 禁止在全局范围使用 `var` 和命名函数 (no-implicit-globals)
 
 When working with browser scripts, developers often forget that variable and function declarations at the top-level scope become global variables on the `window` object. As opposed to modules which have their own scope. Globals should be explicitly assigned to `window` or `self` if that is the intent. Otherwise variables intended to be local to the script should be wrapped in an IIFE.
 
-当使用浏览器端脚本时，开发者经常忘记在顶级作用域下变量和函数声明都会变成全局变量，作为`window`对象的一个属性或方法存在。它们没有自己的作用域，这一点与模块不一样。全局变量应该显式地赋值给`window`或`self`。否则，局部变量应该包裹在 IIFE 中。
+当使用浏览器端脚本时，开发者经常忘记在顶级作用域下变量和函数声明都会变成全局变量，作为 `window` 对象的一个属性或方法存在。它们没有自己的作用域，这一点与模块不一样。全局变量应该显式地赋值给 `window` 或 `self`。否则，局部变量应该包裹在 IIFE 中。
 
 ## Rule Details
 
 This rule disallows `var` and named `function` declarations at the top-level script scope. This does not apply to ES and CommonJS modules since they have a module scope.
 
-该规则禁止在顶级作用域下使用`var`和命名`function`声明。该规则不适用于 ES 和 CommonJS 的模块，因为它们有自己的模块作用域。
+该规则禁止在顶级作用域下使用 `var` 和命名的 `function` 声明。该规则不适用于 ES 和 CommonJS 的模块，因为它们有自己的模块作用域。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-implicit-globals: "error"*/
@@ -33,7 +32,7 @@ function bar() {}
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-implicit-globals: "error"*/
@@ -52,7 +51,7 @@ window.bar = function() {};
 
 Examples of **correct** code for this rule with `"parserOptions": { "sourceType": "module" }` in the ESLint configuration:
 
-`"parserOptions": { "sourceType": "module" }`选项的 **正确**代码示例：
+选项 `"parserOptions": { "sourceType": "module" }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-implicit-globals: 2*/

@@ -1,8 +1,6 @@
 ---
 title: Rule operator-linebreak
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -40,7 +38,7 @@ The `operator-linebreak` rule is aimed at enforcing a particular operator line b
 
 The rule takes two options, a string, which can be `"after"`, `"before"` or `"none"` where the default is `"after"` and an object for more fine-grained configuration.
 
-该规则有两个可选项，一个是字符串，值为`"after"`，`"before"`或`"none"`，默认值为`after`，另一个是个对象，可以进行更细粒度的配置。
+该规则有两个可选项，一个是字符串，值为 `"after"`、`"before"` 或 `"none"`，默认值为 `after`，另一个是个对象，可以进行更细粒度的配置。
 
 You can set the style in configuration like this:
 
@@ -52,7 +50,7 @@ You can set the style in configuration like this:
 
 The default configuration is to enforce line breaks _after_ the operator except for the ternary operator `?` and `:` following that.
 
-默认配置是强制换行符在操作符之后，除了三元操作符`?`和 `:`会紧随它。
+默认配置是强制换行符在操作符之后，除了三元操作符 `?` 和 `:` 会紧随它。
 
 ### "after"
 
@@ -219,7 +217,7 @@ answer = everything ? 42 : foo;
 
 The rule allows you to have even finer-grained control over individual operators by specifying an `overrides` dictionary:
 
-该规则允许你通过指定一个`overrides`字典来覆盖个别的操作符，以实现更细粒度的控制。
+该规则允许你通过指定一个 `overrides` 字典来覆盖个别的操作符，以实现更细粒度的控制。
 
 ```json
 "operator-linebreak": ["error", "before", { "overrides": { "?": "after", "+=": "none" } }]
@@ -231,9 +229,9 @@ This would override the global setting for that specific operator.
 
 #### "ignore" override
 
-This option is only supported using `overrides` and ignores line breaks on either side of the operator.
+This option is only supported using overrides and ignores line breaks on either side of the operator.
 
-该选项在使用`overrides`时有效，并且忽略操作符两边的换行。
+该选项在使用 `overrides` 时有效，并且忽略操作符两边的换行。
 
 While using this setting, the following patterns are not considered problems:
 

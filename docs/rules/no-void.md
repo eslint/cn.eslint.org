@@ -1,8 +1,6 @@
 ---
 title: Rule no-void
 layout: doc
-translator: fengnana
-proofreader: coocon 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -16,8 +14,7 @@ The `void` operator takes an operand and returns `undefined`: `void expression` 
 
 The common case of using `void` operator is to get a "pure" `undefined` value as prior to ES5 the `undefined` variable was mutable:
 
-使用 `void` 操作符的通常情况是要得到一个单纯的 `undefined` 值，因为之前的ES5 `undefined` 值是可变的:
-
+使用 `void` 操作符的通常情况是要得到一个单纯的 `undefined` 值，因为之前的 ES5 `undefined` 值是可变的:
 
 ```js
 // will always return undefined
@@ -73,7 +70,7 @@ This rule aims to eliminate use of void operator.
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-void: "error"*/
@@ -103,7 +100,7 @@ If you intentionally use the `void` operator then you can disable this rule.
 
 This rule was introduced in ESLint 0.8.0.
 
-此规则在 ESLint 0.8.0 中被引入。
+该规则在 ESLint 0.8.0 中被引入。
 
 ## Resources
 

@@ -12,7 +12,7 @@ proofreader: xkf521
 
 ES5 §15.1.1 Value Properties of the Global Object (`NaN`, `Infinity`, `undefined`) as well as strict mode restricted identifiers `eval` and `arguments` are considered to be restricted names in JavaScript. Defining them to mean something else can have unintended consequences and confuse others reading the code. For example, there's nothing prevent you from writing:
 
-ES5 §15.1.1中全局对象的属性值(`NaN`, `Infinity`, `undefined`)和严格模式下被限定的标识符`eval`，`arguments`也被认为是关键字。重定义关键字会产生意想不到的后果且易迷惑其他读者。比如：
+ES5 §15.1.1 中全局对象的属性值 (`NaN`、`Infinity`、`undefined`)和严格模式下被限定的标识符 `eval`、`arguments` 也被认为是关键字。重定义关键字会产生意想不到的后果且易迷惑其他读者。比如：
 
 ```js
 var undefined = "foo";
@@ -20,13 +20,13 @@ var undefined = "foo";
 
 Then any code used within the same scope would not get the global `undefined`, but rather the local version with a very different meaning.
 
-以上不能得到全局`undefined`，但在本作用域中却具有不同于全局的意思。
+以上不能得到全局 `undefined`，但在本作用域中却具有不同于全局的意思。
 
 ## Rule Details
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-shadow-restricted-names: "error"*/
@@ -42,7 +42,7 @@ try {} catch(eval){}
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-shadow-restricted-names: "error"*/
@@ -65,7 +65,7 @@ function f(a, b){}
 
 This rule was introduced in ESLint 0.1.4.
 
-此规则在 ESLint 0.1.4 中被引入。
+该规则在 ESLint 0.1.4 中被引入。
 
 ## Resources
 

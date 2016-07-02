@@ -1,22 +1,20 @@
 ---
 title: Rule jsx-quotes
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce JSX Quote Style (jsx-quotes)
+# enforce the consistent use of either double or single quotes in JSX attributes (jsx-quotes)
 
-# 强制JSX引号风格 (jsx-quotes)
+# 强制在 JSX 属性中使用一致的单引号或双引号 (jsx-quotes)
 
-(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
-(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 JSX attribute values can contain string literals, which are delimited with single or double quotes.
 
-JSX 的属性可以包含由单引号或双引号分隔的字符串。
+JSX 的属性可以包含由单引号或双引号分隔的字符串字面量。
 
 ```xml
 <a b='c' />
@@ -38,23 +36,26 @@ If you want to have e.g. a double quote within a JSX attribute value, you have t
 
 ## Rule Details
 
-This rule takes one argument.
+This rule enforces the consistent use of either double or single quotes in JSX attributes.
 
-该规则只有一个参数。
+该规则强制在 JSX 属性中使用一致的单引号或双引号。
 
-If it is `"prefer-double"` then the rule enforces the usage of double quotes for all JSX attribute values which doesn’t contain a double quote.
-If `"prefer-single"` is configured then the rule enforces the usage of single quotes for all JSX attribute values which doesn’t contain a single quote.
+## Options
 
-如果是`"prefer-double"`，该规则强制在JSX属性中使用双引号，其中不能再包含双引号。
-如果设置为 `"prefer-single"`，该规则强制在JSX属性中使用单引号，其中不能再包含单引号。
+This rule has a string option:
 
-The default is `"prefer-double"`.
+该规则有一个字符串选项：
 
-默认为`"prefer-double"`。
+* `"prefer-double"` (default) enforces the use of double quotes for all JSX attribute values that don't contain a double quote.
+* `"prefer-double"` (默认) 强制所有不包含双引号的 JSX 属性值使用双引号。
+* `"prefer-single"` enforces the use of single quotes for all JSX attribute values that don’t contain a single quote.
+* `"prefer-single"` 强制所有不包含单引号的 JSX 属性值使用单引号。
 
-The following patterns are considered problems when set to `"prefer-double"`:
+### prefer-double
 
-当设置为`"prefer-double"`，以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule with the default `"prefer-double"` option:
+
+默认选项 `"prefer-double"` 的 **错误** 代码示例：
 
 ```xml
 /*eslint jsx-quotes: ["error", "prefer-double"]*/
@@ -62,9 +63,9 @@ The following patterns are considered problems when set to `"prefer-double"`:
 <a b='c' />
 ```
 
-The following patterns are not considered problems when set to `"prefer-double"`:
+Examples of **correct** code for this rule with the default `"prefer-double"` option:
 
-当设置为`"prefer-double"`，以下模式被认为是没有问题的：
+默认选项 `"prefer-double"` 的 **正确** 代码示例：
 
 ```xml
 /*eslint jsx-quotes: ["error", "prefer-double"]*/
@@ -73,9 +74,11 @@ The following patterns are not considered problems when set to `"prefer-double"`
 <a b='"' />
 ```
 
-The following patterns are considered problems when set to `"prefer-single"`:
+### prefer-single
 
-当设置为`"prefer-single"`，以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule with the `"prefer-single"` option:
+
+选项 `"prefer-single"` 的 **错误** 代码示例：
 
 ```xml
 /*eslint jsx-quotes: ["error", "prefer-single"]*/
@@ -83,9 +86,9 @@ The following patterns are considered problems when set to `"prefer-single"`:
 <a b="c" />
 ```
 
-The following patterns are not considered problems when set to `"prefer-single"`:
+Examples of **correct** code for this rule with the `"prefer-single"` option:
 
-当设置为`"prefer-single"`，以下模式被认为是没有问题的：
+选项 `"prefer-single"` 的 **正确** 代码示例：
 
 ```xml
 /*eslint jsx-quotes: ["error", "prefer-single"]*/

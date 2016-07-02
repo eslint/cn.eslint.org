@@ -1,18 +1,16 @@
 ---
 title: Rule no-unreachable
 layout: doc
-translator: molee1905
-proofreader: coocon 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Unreachable Code (no-unreachable)
+# disallow unreachable code after `return`, `throw`, `continue`, and `break` statements (no-unreachable)
 
-# 禁止不可达代码 (no-unreachable)
+# 禁止在 `return`、`throw`、`continue` 和 `break` 语句后出现不可达代码 (no-unreachable)
 
-A number of statements unconditionally exit a block of code. Any statements after that will not be executed and may be an error. The presence of unreachable code is usually a sign of a coding error.
+Because the `return`, `throw`, `break`, and `continue` statements unconditionally exit a block of code, any statements after them cannot be executed. Unreachable statements are usually a mistake.
 
-很多语句无条件的退出代码块。它们之后的任何语句将不会被执行，可能是个错误。出现不可达代码通常是一个编码错误的标志。
+因为 `return`、`throw`、`continue` 和 `break` 语句无条件地退出代码块，其之后的任何语句都不会被执行。不可达语句通常是个错误。
 
 ```js
 function fn() {
@@ -24,13 +22,13 @@ function fn() {
 
 ## Rule Details
 
-This rule is aimed at detecting unreachable code. It produces an error when a statements exist after a `return`, `throw`, `break`, or `continue` statement.
+This rule disallows unreachable code after `return`, `throw`, `continue`, and `break` statements.
 
-该规则旨在检测不可达代码。当一个块中某个语句出现在 `return`，`throw`，`break`，或 `continue` 语句之后，它将产生一个错误。 
- 
+该规则禁止在 `return`、`throw`、`continue` 和 `break` 语句后出现不可达代码。
+
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-unreachable: "error"*/
@@ -68,7 +66,7 @@ console.log("done");
 
 Examples of **correct** code for this rule, because of JavaScript function and variable hoisting:
 
-**正确**代码示例，由于 Javascript 函数和变量提升：
+**正确** 代码示例，因为 JavaScript 函数和变量提升：
 
 ```js
 /*eslint no-unreachable: "error"*/

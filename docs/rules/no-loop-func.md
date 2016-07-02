@@ -1,8 +1,6 @@
 ---
 title: Rule no-loop-func
 layout: doc
-translator: fengnana
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -24,11 +22,11 @@ for (var i = 0; i < 10; i++) {
 
 In this case, you would expect each function created within the loop to return a different number. In reality, each function returns 10, because that was the last value of `i` in the scope.
 
-在这个例子中，你希望在循环中创建的每个函数返回一个不同的数字。实际上，每个函数都返回作用域中`i`的最后一个值 10。
+在这个例子中，你希望在循环中创建的每个函数返回一个不同的数字。实际上，每个函数都返回作用域中 `i` 的最后一个值 10。
 
 `let` or `const` mitigate this problem.
 
-`let` 或 `const`规避了这个问题。 
+`let` 或 `const` 规避了这个问题。 
 
 ```js
 /*eslint-env es6*/
@@ -53,7 +51,7 @@ This error is raised to highlight a piece of code that may not work as you expec
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-loop-func: "error"*/
@@ -83,7 +81,8 @@ for (let i=10; i; i--) {
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
+
 
 ```js
 /*eslint no-loop-func: "error"*/
@@ -121,7 +120,7 @@ for (let i=10; i; i--) {
 
 This rule was introduced in ESLint 0.0.9.
 
-此规则在 ESLint 0.0.9 中被引入。
+该规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

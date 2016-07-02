@@ -1,8 +1,6 @@
 ---
 title: Rule prefer-const
 layout: doc
-translator: molee1905
-proofreader: summart
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -16,17 +14,17 @@ If a variable is never reassigned, using the `const` declaration is better.
 
 `const` declaration tells readers, "this variable is never reassigned," reducing cognitive load and improving maintainability.
 
-`const`声明告诉读者，“这个变量从不会被重新赋值”，从而减少认知负荷，提高可维护性。
+`const` 声明告诉读者，“这个变量从不会被重新赋值”，从而减少认知负荷，提高可维护性。
 
 ## Rule Details
 
 This rule is aimed at flagging variables that are declared using `let` keyword, but never reassigned after the initial assignment.
 
-该规则旨在标记那些使用`let`声明，但在初始化赋值后从未被修改过的变量。
+该规则旨在标记那些使用 `let` 声明，但在初始化赋值后从未被修改过的变量。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint prefer-const: "error"*/
@@ -49,16 +47,11 @@ for (let i in [1, 2, 3]) {
 for (let a of [1, 2, 3]) {
     console.log(a);
 }
-
-// the initializer is separated.
-let a;
-a = 0;
-console.log(a);
 ```
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint prefer-const: "error"*/
@@ -104,13 +97,6 @@ for (let i = 0, end = 10; i < end; ++i) {
     console.log(a);
 }
 
-// the initializer is located at another block.
-let a;
-if (true) {
-    a = 0;
-}
-console.log(a);
-
 // suggest to use `no-var` rule.
 var b = 3;
 console.log(b);
@@ -120,7 +106,10 @@ console.log(b);
 
 ```json
 {
-    "prefer-const": ["error", {"destructuring": "any"}]
+    "prefer-const": ["error", {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+    }]
 }
 ```
 
@@ -141,7 +130,7 @@ There are 2 values:
 
 Examples of **incorrect** code for the default `{"destructuring": "any"}` option:
 
-默认选项`{"destructuring": "any"}`的 **错误**代码示例：
+默认选项`{"destructuring": "any"}`的 **错误** 代码示例：
 
 ```js
 /*eslint prefer-const: "error"*/
@@ -153,7 +142,7 @@ a = a + 1;
 
 Examples of **correct** code for the default `{"destructuring": "any"}` option:
 
-默认选项`{"destructuring": "any"}`的 **正确**代码示例：
+默认选项 `{"destructuring": "any"}` 的 **正确** 代码示例：
 
 ```js
 /*eslint prefer-const: "error"*/
@@ -171,7 +160,7 @@ b = b + 1;
 
 Examples of **incorrect** code for the `{"destructuring": "all"}` option:
 
-`{"destructuring": "all"}`选项的 **错误**代码示例：
+选项 `{"destructuring": "all"}` 的 **错误** 代码示例：
 
 ```js
 /*eslint prefer-const: ["error", {"destructuring": "all"}]*/
@@ -184,7 +173,7 @@ let {a, b} = obj;    /*error 'a' is never reassigned, use 'const' instead.
 
 Examples of **correct** code for the `{"destructuring": "all"}` option:
 
-`{"destructuring": "all"}`选项的 **正确**代码示例：
+选项 `{"destructuring": "all"}` 的 **正确** 代码示例：
 
 ```js
 /*eslint prefer-const: ["error", {"destructuring": "all"}]*/
@@ -193,6 +182,47 @@ Examples of **correct** code for the `{"destructuring": "all"}` option:
 // 'b' is never reassigned, but all of `a` and `b` should not be const, so those are ignored.
 let {a, b} = obj;
 a = a + 1;
+```
+
+### ignoreReadBeforeAssign
+
+This is an option to avoid conflicting with `no-use-before-define` rule (without `"nofunc"` option).
+If `true` is specified, this rule will ignore variables that are read between the declaration and the first assignment.
+Default is `false`.
+
+这是一个避免与 `no-use-before-define` 规则（不带 `"nofunc"` 选项）产生冲突的选项。如果为 `true`，该规则将忽略声明和第一次赋值之间的变量。默认为 `false`。
+
+Examples of **correct** code for the `{"ignoreReadBeforeAssign": true}` option:
+
+选项 `{"ignoreReadBeforeAssign": true}` 的 **正确** 代码示例：
+
+```js
+/*eslint prefer-const: ["error", {"ignoreReadBeforeAssign": true}]*/
+/*eslint-env es6*/
+
+let timer;
+function initialize() {
+    if (foo()) {
+        clearInterval(timer);
+    }
+}
+timer = setInterval(initialize, 100);
+```
+
+Examples of **correct** code for the defaut `{"ignoreReadBeforeAssign": false}` option:
+
+默认选项 `{"ignoreReadBeforeAssign": false}` 的 **正确** 代码示例：
+
+```js
+/*eslint prefer-const: ["error", {"ignoreReadBeforeAssign": false}]*/
+/*eslint-env es6*/
+
+const timer = setInterval(initialize, 100);
+function initialize() {
+    if (foo()) {
+        clearInterval(timer);
+    }
+}
 ```
 
 ## When Not To Use It
@@ -204,6 +234,7 @@ If you don't want to be notified about variables that are never reassigned after
 ## Related Rules
 
 * [no-var](no-var)
+* [no-use-before-define](no-use-before-define)
 
 ## Version
 

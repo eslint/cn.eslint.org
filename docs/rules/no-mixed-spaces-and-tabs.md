@@ -1,44 +1,26 @@
 ---
 title: Rule no-mixed-spaces-and-tabs
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow mixed spaces and tabs for indentation (no-mixed-spaces-and-tabs)
+# disallow mixed spaces and tabs for indentation (no-mixed-spaces-and-tabs)
 
-# 不允许空格和tab混合缩进 (no-mixed-spaces-and-tabs)
+# 禁止使用 空格 和 tab 混合缩进 (no-mixed-spaces-and-tabs)
 
 Most code conventions require either tabs or spaces be used for indentation. As such, it's usually an error if a single line of code is indented with both tabs and spaces.
 
-大多数代码约定要求使用空格或tab进行缩进。因此，一行代码同时混有tab缩进和空格缩进，通常是错误的。
+大多数代码约定要求使用空格或 tab 进行缩进。因此，一行代码同时混有 tab 缩进和空格缩进，通常是错误的。
 
 ## Rule Details
 
-The `no-mixed-spaces-and-tabs` rule is aimed at flagging any lines of code that are indented with a mixture of tabs and spaces.
+This rule disallows mixed spaces and tabs for indentation.
 
-该规则旨在标记同时有 tab 缩进和 space 缩进任何一行代码。
+该规则禁止使用 空格 和 tab 混合缩进。
 
-## Options
+Examples of **incorrect** code for this rule:
 
-### smart-tabs
-
-This option suppresses warnings about mixed tabs and spaces when the latter are used for alignment only. This technique is called [SmartTabs](http://www.emacswiki.org/emacs/SmartTabs). The option is turned off by default.
-
-该选项取消混合使用tab缩进和空格缩进时的警告，前提是后者的仅仅是为了对齐。这种技术被称为[SmartTabs](http://www.emacswiki.org/emacs/SmartTabs)。该选项默认是关闭的。
-
-You can enable this option by using the following configuration:
-
-你可以通过以下配置开启此选项：
-
-```json
-"no-mixed-spaces-and-tabs": ["error", "smart-tabs"]
-```
-
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+**错误** 代码示例：
 
 ```js
 /*eslint no-mixed-spaces-and-tabs: "error"*/
@@ -58,9 +40,9 @@ function main() {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint no-mixed-spaces-and-tabs: "error"*/
@@ -71,9 +53,15 @@ function add(x, y) {
 }
 ```
 
-When the SmartTabs option is enabled the following does not produce a warning:
+## Options
 
-当 SmartTabs 选项启用时，以下模式不会发出警告：
+This rule has a string option.
+
+* `"smart-tabs"` allows mixed spaces and tabs when the latter are used for alignment.
+
+### smart-tabs
+
+Examples of **correct** code for this rule with the `"smart-tabs"` option:
 
 ```js
 /*eslint no-mixed-spaces-and-tabs: ["error", "smart-tabs"]*/

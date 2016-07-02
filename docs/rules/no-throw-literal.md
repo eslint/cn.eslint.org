@@ -1,8 +1,6 @@
 ---
 title: Rule no-throw-literal
 layout: doc
-translator: fengnana
-proofreader: coocon 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -27,7 +25,7 @@ This rule is aimed at maintaining consistency when throwing exception by disallo
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-throw-literal: "error"*/
@@ -52,7 +50,7 @@ throw `${err}`
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-throw-literal: "error"*/
@@ -79,7 +77,7 @@ Due to the limits of static analysis, this rule cannot guarantee that you will o
 
 Examples of **correct** code for this rule, but which do not throw an `Error` object:
 
-**正确**代码示例如下，该示例不会抛出`Error` 对象：
+**正确** 代码示例如下，该示例不会抛出 `Error` 对象：
 
 ```js
 /*eslint no-throw-literal: "error"*/
@@ -104,7 +102,7 @@ throw foo.bar;
 
 This rule was introduced in ESLint 0.15.0.
 
-此规则在 ESLint 0.15.0 中被引入。
+该规则在 ESLint 0.15.0 中被引入。
 
 ## Resources
 

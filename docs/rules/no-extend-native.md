@@ -1,8 +1,6 @@
 ---
 title: Rule no-extend-native
 layout: doc
-translator: fengnana
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -12,11 +10,11 @@ proofreader: molee1905
 
 In JavaScript, you can extend any object, including builtin or "native" objects. Sometimes people change the behavior of these native objects in ways that break the assumptions made about them in other parts of the code.
 
-在 JavaScript 中，你可以扩展任何对象，包括内置或者“原生”对象。有时人们改变这些原生对象的行为，会影响到代码中的其它部分。
+在 JavaScript 中，你可以扩展任何对象，包括内置或者”原生”对象。有时人们改变这些原生对象的行为，会影响到代码中的其它部分。
 
 For example here we are overriding a builtin method that will then affect all Objects, even other builtins.
 
-例如我们重写了一个内建方法，将会影响到所有对象，甚至是其它内建对象。
+例如我们重写了一个内建的方法，将会影响到所有对象，甚至是其它内建对象。
 
 ```js
 // seems harmless
@@ -36,7 +34,7 @@ for (var id in users) {
 
 A common suggestion to avoid this problem would be to wrap the inside of the `for` loop with `users.hasOwnProperty(id)`. However, if this rule is strictly enforced throughout your codebase you won't need to take that step.
 
-避免这个问题的一个常见建议是在`for`循环里使用`users.hasOwnProperty(id)`。然而，如果你的代码库强制执行此规则，你不用做以上处理。
+建议在 `for` 循环里使用 `users.hasOwnProperty(id)`来避免此问题出现。然而，如果你的代码库强制执行此规则，你会需要这么做。
 
 ## Rule Details
 
@@ -46,10 +44,10 @@ Disallows directly modifying the prototype of builtin objects.
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
-/*eslint no-extend-native: 2*/
+/*eslint no-extend-native: "error"*/
 
 Object.prototype.a = "a";
 Object.defineProperty(Array.prototype, "times", { value: 999 });
@@ -59,13 +57,13 @@ Object.defineProperty(Array.prototype, "times", { value: 999 });
 
 This rule accepts an `exceptions` option, which can be used to specify a list of builtins for which extensions will be allowed.
 
-此规则接受一个`exceptions`选项，可以用来指定允许扩展的内建列表。
+此规则接受一个 `exceptions` 选项，可以用来指定允许扩展的内建列表。
 
 ### exceptions
 
 Examples of **correct** code for the sample `{ "exceptions": ["Object"] }` option:
 
-`{ "exceptions": ["Object"] }`选项的 **正确**代码示例：
+选项 `{ "exceptions": ["Object"] }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-extend-native: ["error", { "exceptions": ["Object"] }]*/
@@ -77,7 +75,7 @@ Object.prototype.a = "a";
 
 This rule *does not* report any of the following less obvious approaches to modify the prototype of builtin objects:
 
-该规则 *不*报告下面的不太明显的内建对象原型的修改：
+该规则不会报告对内建对象不太明显的修改情况：
 
 ```js
 var x = Object;
@@ -106,7 +104,7 @@ You may want to disable this rule when working with polyfills that try to patch 
 
 This rule was introduced in ESLint 0.1.4.
 
-此规则在 ESLint 0.1.4 中被引入。
+该规则在 ESLint 0.1.4 中被引入。
 
 ## Resources
 

@@ -1,12 +1,10 @@
 ---
 title: Pull Requests
 layout: doc
-translator: coocon
-proofreader: molee1905
 ---
-# Pull Requests
+<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# 合并请求（pull request）
+# Pull Requests
 
 If you want to contribute to an ESLint repo, please use a GitHub pull request. This is the fastest way for us to evaluate your code and to merge it into the code base. Please don't file an issue with snippets of code. Doing so means that we need to manually merge the changes in and update any appropriate tests. That decreases the likelihood that your code is going to get included in a timely manner. Please use pull requests.
 
@@ -14,14 +12,12 @@ If you want to contribute to an ESLint repo, please use a GitHub pull request. T
 
 ## Getting Started
 
-## 开始
-
 If you'd like to work on a pull request and you've never submitted code before, follow these steps:
 
 如果你想要使用合并请求（pull request），但是你之前从来没有提交过代码，请遵循以下步骤：
 
-1. Sign our [Contributor License Agreement](/cla).
-1. 签署我们的 [贡献者许可协议（Contributor License Agreement）](/cla)。
+1. Sign our [Contributor License Agreement](https://contribute.jquery.org/cla).
+1. 签署我们的 [贡献者许可协议（Contributor License Agreement）](https://contribute.jquery.org/cla)。
 1. Set up a [development environment](../development-environment).
 1. 搭建[开发环境](../development-environment)。
 1. Ensure there's an issue that describes what you're doing. You can create a new issue or just indicate you're [working on an existing issue](working-on-issues).
@@ -29,13 +25,12 @@ If you'd like to work on a pull request and you've never submitted code before, 
   * Exception: documentation-only changes do not require an issue.
   * 例外: 文档的修改不要求有议题（issue）。
 
+
 After that, you're ready to start working on code.
 
 在这之后，你可以开始操作代码了。
 
 ## Working with Code
-
-## 操作代码
 
 The process of submitting a pull request is fairly straightforward and generally follows the same pattern each time:
 
@@ -63,8 +58,6 @@ Details about each step are found below.
 
 ### Step 1: Create a new branch<a name="step1"></a>
 
-## 第一步： 创建一个分支<a name="step1"></a>
-
 The first step to sending a pull request is to create a new branch in your ESLint fork. Give the branch a descriptive name that describes what it is you're fixing, such as:
 
 发起一个合并请求（pull request）的第一步是，在你 fork 的 ESLint 中新建一个分支。给这个分支起一个描述性的名字用来描述你在修复什么，比如：
@@ -79,12 +72,10 @@ You should do all of your development for the issue in this branch.
 
 **Note:** Do not combine fixes for multiple issues into one branch. Use a separate branch for each issue you're working on.
 
-**注意:** 请不要把多个议题（issues）的修改合并到一个分支上。针对每个议题（issue）使用一个独立的分支。
+**注意：**请不要把多个议题（issue）的修改合并到一个分支上。针对每个议题（issue）使用一个独立的分支。
 
 
 ### Step 2: Make your changes<a name="step2"></a>
-
-### 第二步: 做出你的修改<a name="step2"></a>
 
 Make the changes to the code and tests, following the [code conventions](../code-conventions) as you go. Once you have finished, commit the changes to your branch:
 
@@ -115,10 +106,10 @@ The `Tag` is one of the following:
 
 * `Fix` - for a bug fix.
 * `Fix` - 针对一个 bug 的修复。
+* `Update` - for a backwards-compatible enhancement or a change to a rule that increases the number of reported problems.
+* `Update` - 用于向后兼容的增强 或 a change to a rule that increases the number of reported problems.
 * `New` - implemented a new feature.
 * `New` - 实现一个新特性。
-* `Update` - for a backwards-compatible enhancement.
-* `Update` - 用于向后兼容的增强。
 * `Breaking` - for a backwards-incompatible enhancement or feature.
 * `Breaking` - 用于非向后兼容的功能增强或新特性。
 * `Docs` - changes to documentation only.
@@ -127,6 +118,8 @@ The `Tag` is one of the following:
 * `Build` - 只包含构建过程的修改。
 * `Upgrade` - for a dependency upgrade.
 * `Upgrade` - 为依赖升级。
+* `Chore` - for refactoring, adding tests, etc. (anything that isn't user-facing).
+* `Chore` - for refactoring, adding tests, etc. (anything that isn't user-facing).
 
 Use the [labels of the issue you are working on](working-on-issues#issue-labels) to determine the best tag.
 
@@ -136,7 +129,7 @@ The message summary should be a one-sentence description of the change, and it m
 
 描述变更的摘要信息应该是一句话，并且它不能超过72个字符。议题（issue）编号应该展示在最后。如果提交的变更没能彻底修复问题，请使用`(refs #1234)`而不是 `(fixes #1234)`。
 
-Here are some good commit message summary examples
+Here are some good commit message summary examples:
 
 这里有几个比较好的提交信息摘要的例子：
 
@@ -152,8 +145,6 @@ The commit message format is important because these messages are used to create
 
 ### Step 3: Rebase onto upstream<a name="step3"></a>
 
-### 第三步: 变基（rebase) 到上游（upstream）<a name="step3"></a>
-
 Before you send the pull request, be sure to rebase onto the upstream source. This ensures your code is running on the latest available code.
 
 在你提交合并请求（pull request）之前，一定要变基（rebase) 到上游（upstream）源头。这将确保你的代码运行在最新的可用代码之上。
@@ -165,8 +156,6 @@ git rebase upstream/master
 
 ### Step 4: Run the tests<a name="step4"></a>
 
-### 第四步: 运行测试<a name="step4"></a>
-
 After rebasing, be sure to run all of the tests once again to make sure nothing broke:
 
 变基（rebase) 过后, 务必再次运行测试来确保没有什么问题了。
@@ -177,15 +166,11 @@ npm test
 
 ### Step 5: Squash your commits<a name="step5"></a>
 
-### 第五步: 压缩（squash) 你的提交<a name="step5"></a>
-
 ESLint requires just one commit per pull request. If you have used multiple commits, be sure to [squash](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html) your commits.
 
 ESLint 要求每个合并请求（pull request）只包含一次提交。如果你多次提交，一定要[压缩（squash）](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)你的提交。
 
 ### Step 6: Double check your submission<a name="step6"></a>
-
-### 第六步: 仔细检查你的提交<a name="step6"></a>
 
 With your code ready to go, this is a good time to double-check your submission to make sure it follows our conventions. Here are the things to check:
 
@@ -216,15 +201,11 @@ With your code ready to go, this is a good time to double-check your submission 
 
 ### Step 7: Send the pull request<a name="step7"></a>
 
-### 第七步: 发送合并请求（pull request）<a name="step7"></a>
-
 Now you're ready to send the pull request. Go to your ESLint fork and then follow the [GitHub documentation](https://help.github.com/articles/creating-a-pull-request) on how to send a pull request.
 
 现在你已经准备好发合并请求（pull request）了。到你fork的 ESLint, 按照[GitHub 文档](https://help.github.com/articles/creating-a-pull-request) 文档中如何发出一个合并请求（pull request）去做。
 
 ## Following Up
-
-## 跟进
 
 Once your pull request is sent, it's time for the team to review it. As such, please make sure to:
 
@@ -238,8 +219,6 @@ Once your pull request is sent, it's time for the team to review it. As such, pl
 1. 我们可能会要求你做出修改，变基（rebase），或是压缩（squash）你的提交。
 
 ### Updating the Commit Message
-
-### 更新提交信息
 
 If your commit message is in the incorrect format, you'll be asked to update it. You can do so via:
 
@@ -259,8 +238,6 @@ $ git push origin issue1234 -f
 
 ### Updating the Code
 
-### 更新代码
-
 If we ask you to make code changes, there's no need to close the pull request and create a new one. Just go back to the branch on your fork and make your changes. Then, when you're ready, you can add your changes into the branch:
 
 如果我们要求你做出代码变更，不需要关闭这个合并请求（pull request）再去创建一个新的。只要回到你的fork 上的分支，做出你的修改。然后，当你准备好了，你可以添加你的修改到这个分支：
@@ -277,8 +254,6 @@ This snippets adds all your new changes, then amends the previous commit with th
 
 
 ### Rebasing
-
-### 变基（rebase）
 
 If your code is out-of-date, we might ask you to rebase. That means we want you to apply your changes on top of the latest upstream code. You can do so via:
 
@@ -298,8 +273,6 @@ $ git push origin issue1234 -f
 ```
 
 ### Squashing
-
-### 压缩（squash）
 
 If you have more than one commit on your pull request, we'll ask you to [squash your commits](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html). Once your commits are squashed, you can do a forced push to update your branch:
 

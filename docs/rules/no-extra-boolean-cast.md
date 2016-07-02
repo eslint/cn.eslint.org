@@ -1,14 +1,12 @@
 ---
 title: Rule no-extra-boolean-cast
 layout: doc
-translator: ybbjegj
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Extra Boolean Casts (no-extra-boolean-cast)
+# disallow unnecessary boolean casts (no-extra-boolean-cast)
 
-# 禁止额外布尔类型转换（no-extra-boolean-cast）
+# 禁止不必要的布尔类型转换（no-extra-boolean-cast）
 
 In contexts such as an `if` statement's test where the result of the expression will already be coerced to a Boolean, casting to a Boolean via double negation (`!!`) or a `Boolean` call is unnecessary. For example, these `if` statements are equivalent:
 
@@ -30,13 +28,13 @@ if (foo) {
 
 ## Rule Details
 
-This rule aims to eliminate the use of Boolean casts in an already Boolean context.
+This rule disallows unnecessary boolean casts.
 
-该规则旨在消除布尔类型上下文中的布尔类型转换。
+该规则禁止不必要的布尔类型转换。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-extra-boolean-cast: "error"*/
@@ -72,7 +70,7 @@ for (; !!foo; ) {
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-extra-boolean-cast: "error"*/
@@ -91,7 +89,7 @@ var foo = bar ? !!baz : !!bat;
 
 This rule was introduced in ESLint 0.4.0.
 
-该规则是在 ESLint 0.4.0 中被引入的。
+该规则在 ESLint 0.4.0 中被引入。
 
 ## Resources
 

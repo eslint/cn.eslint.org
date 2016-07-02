@@ -1,8 +1,6 @@
 ---
 title: Rule object-curly-spacing
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,9 +8,9 @@ proofreader: molee1905
 
 # 禁止或强制对象的花括号中有空格。 (object-curly-spacing)
 
-(fixable) The --fix option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
-(fixable)[command line](../user-guide/command-line-interface#fix)中的`--fix`选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 While formatting preferences are very personal, a number of style guides require
 or disallow spaces between curly braces in the following situations:
@@ -72,7 +70,7 @@ Depending on your coding conventions, you can choose either option by specifying
 
 When `"never"` is set, the following patterns are considered problems:
 
-当设置为`"never"`时，以下模式被认为是有问题的：
+当设置为 `"never"` 时，以下模式被认为是有问题的：
 
 ```js
 /*eslint object-curly-spacing: ["error", "never"]*/
@@ -110,7 +108,7 @@ import {foo} from 'bar';
 
 When `"always"` is used, the following patterns are considered problems:
 
-当设置为`"always"`时，以下模式被认为是有问题的：
+当设置为 `"always"` 时，以下模式被认为是有问题的：
 
 ```js
 /*eslint object-curly-spacing: ["error", "always"]*/
@@ -146,7 +144,7 @@ import { foo } from 'bar';
 
 Note that `{}` is always exempt from spacing requirements with this rule.
 
-注意，`{}`总是豁免于此规则对空格的要求。
+注意，`{}` 总是豁免于此规则对空格的要求。
 
 ### Exceptions
 
@@ -154,7 +152,7 @@ There are two exceptions you can apply to this rule: `objectsInObjects` and
 `arraysInObjects`. Their values can be set to either `true` or `false` as part
 of an object literal set as the 3rd argument for the rule.
 
-有两种例外情况适用于此规则：`objectsInObjects`和`arraysInObjects`。它们的值可以设置为`true`或`false`，作为一个对象文本的一部分，被设置为规则的第三个参数。
+有两种例外情况适用于此规则：`objectsInObjects` 和 `arraysInObjects`。它们的值可以设置为 `true` 或 `false` ，作为一个对象文本的一部分，被设置为规则的第三个参数。
 
 These exceptions work in the context of the first option.
 That is, if `"always"` is set to enforce spacing and an exception is set to `false`,
@@ -162,7 +160,7 @@ it will disallow spacing for cases matching the exception. Likewise,
 if `"never"` is set to disallow spacing and an exception is set to `true`,
 it will enforce spacing for cases matching the exception.
 
-这些例外情况作用在第一个选项的基础上。也就是说，如果`"always"`设置为强制使用空格但例外情况被设置为`false`，那么符合这个例外的将禁止使用空格。同样的，如果`"never"`设置为禁止使用空格但例外情况被设为`true`，那么符合这个例外的将强制使用空格。
+这些例外情况作用在第一个选项的基础上。也就是说，如果 `"always"` 设置为强制使用空格但例外情况被设置为 `false`，那么符合这个例外的将禁止使用空格。同样的，如果 `"never"` 设置为禁止使用空格但例外情况被设为 `true`，那么符合这个例外的将强制使用空格。
 
 You can add exceptions like so:
 
@@ -180,16 +178,16 @@ You can add exceptions like so:
 In the case of the `"always"` option, set `objectsInObjects` exception to `false` to
 enforce the following style (notice the `}}` at the end):
 
-在设置了`"always"`选项的情况下，设置`objectsInObjects`例外为`false`，执行下面的风格(注意末尾的`}}`)：
+在设置了 `"always"` 选项的情况下，设置 `objectsInObjects` 例外为 `false` ，强制使用下面的风格 (注意末尾的 `}}`)：
 
 ```js
 var obj = { "foo": { "baz": 1, "bar": 2 }};
 ```
 
 In the case of the `"never"` option, set `objectsInObjects` exception to `true` to enforce
-the following style (with a space between the `}` at the end):
+the following style (with a space between the `}` at the end:
 
-在设置了`"never"`选项的情况下，设置`objectsInObjects`例外为`true`，执行下面的风格(末尾`}`之间有空格):
+在设置了 `"never"` 选项的情况下，设置 `objectsInObjects` 例外为 `true`，强制使用下面的风格 (末尾 `}` 之间有空格:
 
 ```js
 var obj = {"foo": {"baz": 1, "bar": 2} };
@@ -200,7 +198,7 @@ var obj = {"foo": {"baz": 1, "bar": 2} };
 In the case of the `"always"` option, set `arraysInObjects` exception to `false` to
 enforce the following style (notice the `]}` at the end):
 
-在设置了`"always"`选项的情况下，设置`arraysInObjects`例外为`false`，执行下面的风格(注意末尾的`}}`):
+在设置了 `"always"` 选项的情况下，设置 `arraysInObjects` 例外为 `false`，强制使用下面的风格 (注意末尾的 `}}`):
 
 ```js
 var obj = { "foo": [ 1, 2 ]};
@@ -208,9 +206,9 @@ var obj = { "foo": [ "baz", "bar" ]};
 ```
 
 In the case of the `"never"` option, set `arraysInObjects` exception to `true` to enforce
-the following style (with a space between the `]` and  `}` at the end):
+the following style (with a space between the `]` and  `}` at the end:
 
-在设置了`"never"`选项的情况下，设置`arraysInObjects`例外为`true`，执行下面的风格(末尾`]`和`}`之间有空格):
+在设置了 `"never"` 选项的情况下，设置 `arraysInObjects` 例外为 `true`，强制使用下面的风格 (末尾`]`和 `}` 之间有空格):
 
 ```js
 var obj = {"foo": [ 1, 2 ] };

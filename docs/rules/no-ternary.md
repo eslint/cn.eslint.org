@@ -1,14 +1,12 @@
 ---
 title: Rule no-ternary
 layout: doc
-translator: molee1905
-proofreader: xkf521
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Ternary Operators (no-ternary)
+# disallow ternary operators (no-ternary)
 
-# 不允许使用三元操作符 (no-ternary)
+# 禁止使用三元操作符 (no-ternary)
 
 The ternary operator is used to conditionally assign a value to a variable. Some believe that the use of ternary operators leads to unclear code.
 
@@ -20,29 +18,27 @@ var foo = isBar ? baz : qux;
 
 ## Rule Details
 
-The `no-ternary` rule aims to disallow the use of ternary operators.
+This rule disallows ternary operators.
 
-该规则旨在不允许使用三元操作符。
+该规则禁止使用三元操作符。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误** 代码示例：
 
 ```js
 /*eslint no-ternary: "error"*/
 
 var foo = isBar ? baz : qux;
 
-foo ? bar() : baz();
-
 function quux() {
-  return foo ? bar : baz;
+  return foo ? bar() : baz();
 }
 ```
 
-The following patterns are considered okay and could be used alternatively:
+Examples of **correct** code for this rule:
 
-以下模式被认为是可以的，可替代使用：
+**正确** 代码示例：
 
 ```js
 /*eslint no-ternary: "error"*/
@@ -55,17 +51,11 @@ if (isBar) {
     foo = qux;
 }
 
-if (foo) {
-    bar();
-} else {
-    baz();
-}
-
 function quux() {
     if (foo) {
-        return bar;
+        return bar();
     } else {
-        return baz;
+        return baz();
     }
 }
 ```
@@ -79,7 +69,7 @@ function quux() {
 
 This rule was introduced in ESLint 0.0.9.
 
-该规则在ESLint 0.0.9 中被引入。
+该规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

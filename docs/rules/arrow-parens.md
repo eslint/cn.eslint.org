@@ -1,8 +1,6 @@
 ---
 title: Rule arrow-parens
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -72,7 +70,9 @@ You can set the option in configuration like this:
 
 你可以在配置中这样设置：
 
-"arrow-parens": [2, "always"]
+```json
+"arrow-parens": ["error", "always"]
+```
 
 ### "always"
 
@@ -144,7 +144,7 @@ if ((a) => b) {
 } else {
  console.log('falsey value returned');
 };
-// outputs 'falsey value returned'
+// outputs 'truthy value returned'
 ```
 
 The following is another example of this behavior:

@@ -31,12 +31,9 @@ There are, however, some occasions when you must use quotes:
 然而，有一些场合，你必须使用引号：
 
 1. If you are using an ECMAScript 3 JavaScript engine (such as IE8) and you want to use a keyword (such as `if`) as a property name. This restriction was removed in ECMAScript 5.
-
-1. 如果你想在ECMAScript 3 JavaScript引擎（例如IE8）中使用关键字（例如`if`）作为属性名。这个限制在ECMAScript 5被移除。
-
+1. 如果你想在 ECMAScript 3 JavaScript 引擎（例如 IE8 ）中使用关键字（例如 `if`）作为属性名。这个限制在 ECMAScript 5 被移除。
 2. You want to use a non-identifier character in your property name, such as having a property with a space like `"one two"`.
-
-2. 你想在你的属性名中使用非标识符的字符，比如一个属性中间有一个空格，像`"one two"`这样。
+2. 你想在你的属性名中使用非标识符的字符，比如一个属性中间有一个空格，像 `"one two"` 这样。
 
 Another example where quotes do matter is when using numeric literals as property keys:
 
@@ -51,7 +48,7 @@ var object = {
 
 This may look alright at first sight, but this code in fact throws a syntax error in ECMAScript 5 strict mode. This happens because `1e2` and `100` are coerced into strings before getting used as the property name. Both `String(1e2)` and `String(100)` happen to be equal to `"100"`, which causes the "Duplicate data property in object literal not allowed in strict mode" error. Issues like that can be tricky to debug, so some prefer to require quotes around all property names.
 
-这可能乍一看起来是没有问题的，但在ECMAScript 5严格模式下，这段代码实际上会抛出一个语法错误。因为 `1e2` 和 `100`在作为属性名使用之前被强制转换为字符串。`String(1e2)` 和 `String(100)` 正好是等于`"100"`，造成了“严格模式下对象字面量中不允许重复的数据属性”的错误。这样的问题调试起来非常棘手，所以一些人喜欢要求所有的属性名都要有引号。
+这可能乍一看起来是没有问题的，但在 ECMAScript 5 严格模式下，这段代码实际上会抛出一个语法错误。因为 `1e2` 和 `100`在作为属性名使用之前被强制转换为字符串。`String(1e2)` 和 `String(100)` 正好是等于 `"100"`，造成了“严格模式下对象字面量中不允许重复的数据属性”的错误。这样的问题调试起来非常棘手，所以一些人喜欢要求所有的属性名都要有引号。
 
 ## Rule Details
 
@@ -63,7 +60,7 @@ This rule aims to enforce use of quotes in property names and as such will flag 
 
 There are four behaviors for this rule: `"always"` (default), `"as-needed"`, `"consistent"` and `"consistent-as-needed"`. You can define these options in your configuration as:
 
-该规则有四种行为：`"always"` (默认), `"as-needed"`, `"consistent"` 和 `"consistent-as-needed"`。你可以像这样在你的配置中定义这些选项：
+该规则有四种行为：`"always"` (默认), `"as-needed"`、`"consistent"` 和 `"consistent-as-needed"`。你可以像这样在你的配置中定义这些选项：
 
 ```json
 {
@@ -75,7 +72,7 @@ There are four behaviors for this rule: `"always"` (default), `"as-needed"`, `"c
 
 When configured with `"always"` as the first option (the default), quoting for all properties will be enforced. Some believe that ensuring property names in object literals are always wrapped in quotes is generally a good idea, since [depending on the property name you may need to quote them anyway](https://mathiasbynens.be/notes/javascript-properties). Consider this example:
 
-当第一个选项配置为`"always"`时(默认的)，所有的属性将被强制使用引号。有些人认为将对象字面量属性被引号包裹起来是一个很好的做法，因为[这样的属性总是要将它们用引号引起来](https://mathiasbynens.be/notes/javascript-properties)。请参考以下示例：
+当第一个选项配置为 `"always"` 时(默认的)，所有的属性将被强制使用引号。有些人认为将对象字面量属性被引号包裹起来是一个很好的做法，因为[这样的属性总是要将它们用引号引起来](https://mathiasbynens.be/notes/javascript-properties)。请参考以下示例：
 
 ```js
 var object = {
@@ -87,7 +84,7 @@ var object = {
 
 Here, the properties `foo` and `baz` are not wrapped in quotes, but `qux-lorem` is, because it doesn’t work without the quotes. This is rather inconsistent. Instead, you may prefer to quote names of all properties:
 
-示例中，属性`foo` 和 `baz`没有被包裹在引号中，但 `qux-lorem`被包裹在引号中，因为如果没有引号，它将不起作用。这表现的相当不一致的。相反的，你可能更愿意把所有的属性名都用引号包裹起来。
+示例中，属性 `foo` 和 `baz` 没有被包裹在引号中，但 `qux-lorem` 被包裹在引号中，因为如果没有引号，它将不起作用。这表现的相当不一致的。相反的，你可能更愿意把所有的属性名都用引号包裹起来。
 
 ```js
 var object = {
@@ -111,7 +108,7 @@ var object = {
 
 When configured with `"always"` as the first option (the default), quoting for all properties will be enforced. The following patterns are considered problems:
 
-当第一个选项配置为`"always"`时(默认的)，所有的属性将被强制使用引号。以下模式被认为是有问题的：
+当第一个选项配置为 `"always"` 时(默认的)，所有的属性将被强制使用引号。以下模式被认为是有问题的：
 
 ```js
 /*eslint quote-props: ["error", "always"]*/
@@ -154,7 +151,7 @@ var object3 = {
 
 When configured with `"as-needed"` as the first option, quotes will be enforced when they are strictly required, and unnecessary quotes will cause warnings. The following patterns are considered problems:
 
-当第一个选项配置为`"as-needed"`时，严格要求带引号的属性将被强制带引号，不必要的引号将发出警告。以下模式被认为是有问题的：
+当第一个选项配置为 `"as-needed"`时，严格要求带引号的属性将被强制带引号，不必要的引号将发出警告。以下模式被认为是有问题的：
 
 ```js
 /*eslint quote-props: ["error", "as-needed"]*/
@@ -198,7 +195,7 @@ var object3 = {
 
 When the `"as-needed"` mode is selected, an additional `keywords` option can be provided. This flag indicates whether language keywords should be quoted as properties. By default it is set to `false`.
 
-当`"as-needed"`方式被选用时，可提供一个额外的`keywords`选项。此标记指示关键字作为属性时是否需要带引号。默认情况下它被设置为`false`。
+当 `"as-needed"` 方式被选用时，可提供一个额外的 `keywords`选项。此标记指示关键字作为属性时是否需要带引号。默认情况下它被设置为 `false`。
 
 ```json
 {
@@ -208,7 +205,7 @@ When the `"as-needed"` mode is selected, an additional `keywords` option can be 
 
 When `keywords` is set to `true`, the following patterns become problems:
 
-当`keywords`被设置为`true`时，以下模式是有问题的：
+当 `keywords` 被设置为 `true` 时，以下模式是有问题的：
 
 ```js
 /*eslint quote-props: ["error", "as-needed", { "keywords": true }]*/
@@ -221,7 +218,7 @@ var x = {
 
 Another modifier for this rule is the `unnecessary` option which defaults to `true`. Setting this to `false` will prevent the rule from complaining about unnecessarily quoted properties. This comes in handy when you _only_ care about quoting keywords.
 
-该规则的另一个修饰符是`unnecessary`选项默认为`true`。设置这个选项为`false`，该规则将不对不是必须用引号包裹起来的属性进行检查。当你只关注被引号包裹起来的关键字时，这会很方便。
+该规则的另一个修饰符是 `unnecessary` 选项默认为 `true`。设置这个选项为 `false`，该规则将不对不是必须用引号包裹起来的属性进行检查。当你只关注被引号包裹起来的关键字时，这会很方便。
 
 ```json
 {
@@ -231,7 +228,7 @@ Another modifier for this rule is the `unnecessary` option which defaults to `tr
 
 When `unnecessary` is set to `false`, the following patterns _stop_ being problems:
 
-当设置`unnecessary`为`false`时，以下模式是没有问题的：
+当设置 `unnecessary` 为 `false` 时，以下模式是没有问题的：
 
 ```js
 /*eslint quote-props: ["error", "as-needed", { "keywords": true, "unnecessary": false }]*/
@@ -244,7 +241,7 @@ var x = {
 
 A `numbers` flag, with default value `false`, can also be used as a modifier for the `"as-needed"` mode. When it is set to `true`, numeric literals should always be quoted.
 
-`numbers`标记，默认为`false`，也可以在`"as-needed"`方式下被用作修饰符。当设置为`true`时，数字文本必须被引号包裹起来。
+`numbers` 标记，默认为 `false`，也可以在 `"as-needed"` 方式下被用作修饰符。当设置为 `true` 时，数字文本必须被引号包裹起来。
 
 ```json
 {
@@ -254,7 +251,7 @@ A `numbers` flag, with default value `false`, can also be used as a modifier for
 
 When `numbers` is set to `true`, the following patterns become problems:
 
-当`numbers`设置为`true`时，以下模式是有问题的：
+当 `numbers` 设置为 `true` 时，以下模式是有问题的：
 
 ```js
 /*eslint quote-props: ["error", "as-needed", { "numbers": true }]*/
@@ -278,7 +275,7 @@ var x = {
 
 When configured with `"consistent"`, the patterns below are considered problems. Basically `"consistent"` means all or no properties are expected to be quoted, in other words quoting style can't be mixed within an object. Please note the latter situation (no quotation at all) isn't always possible as some property names require quoting.
 
-当配置为`"consistent"`，以下模式被认为是有问题的。从根本上来说`"consistent"`意味着所有属性或没有属性要求被引号包裹起来，换句话说，在同一个对象中不能混合使用不同的引号风格。请注意后一种情况(没有引号)，并不总是不需要引号，可能因为某些属性名需要用引号包裹起来。
+当配置为 `"consistent"`，以下模式被认为是有问题的。从根本上来说 `"consistent"` 意味着所有属性或没有属性要求被引号包裹起来，换句话说，在同一个对象中不能混合使用不同的引号风格。请注意后一种情况(没有引号)，并不总是不需要引号，可能因为某些属性名需要用引号包裹起来。
 
 ```js
 /*eslint quote-props: ["error", "consistent"]*/
@@ -323,7 +320,7 @@ var object3 = {
 
 When configured with `"consistent-as-needed"`, the behavior is similar to `"consistent"` with one difference. Namely, properties' quoting should be consistent (as in `"consistent"`) but whenever all quotes are redundant a warning is raised. In other words if at least one property name has to be quoted (like `qux-lorem`) then all property names must be quoted, otherwise no properties can be quoted. The following patterns are considered problems:
 
-当配置了`"consistent-as-needed"`，它的行为类似于`"consistent"`，仅有一个区别。即，除了所有的引号都是多余的时候引起了警告，属性的引号应该是一致的(同在 `"consistent"`中一样)。换句话说，如果有一个属性名不得不被被引号包裹起来(像`qux-lorem`)，其他的属性也名必须也被引号包裹起来，否则，任何属性都不能被包裹起来。以下模式被认为是有问题的：
+当配置了 `"consistent-as-needed"`，它的行为类似于 `"consistent"` ，仅有一个区别。即，除了所有的引号都是多余的时候引起了警告，属性的引号应该是一致的(同在 `"consistent"` 中一样)。换句话说，如果有一个属性名不得不被被引号包裹起来(像 `qux-lorem`)，其他的属性也名必须也被引号包裹起来，否则，任何属性都不能被包裹起来。以下模式被认为是有问题的：
 
 ```js
 /*eslint quote-props: ["error", "consistent-as-needed"]*/
@@ -361,7 +358,7 @@ var object2 = {
 
 When the `"consistent-as-needed"` mode is selected, an additional `keywords` option can be provided. This flag indicates whether language keywords can be used unquoted as properties. By default it is set to `false`.
 
-当`"consistent-as-needed"`方式被选用时，可提供一个额外的`keywords`选项。此标记表明关键字作为属性是否可以不用引号。默认值为`false`。
+当 `"consistent-as-needed"` 方式被选用时，可提供一个额外的 `keywords` 选项。此标记表明关键字作为属性是否可以不用引号。默认值为 `false`。
 
 ```json
 {
@@ -371,7 +368,7 @@ When the `"consistent-as-needed"` mode is selected, an additional `keywords` opt
 
 When `keywords` is set to `true`, the following patterns are considered problems:
 
-当`keywords`被设置为`true`，以下模式被认为是有问题的：
+当 `keywords` 被设置为 `true`，以下模式被认为是有问题的：
 
 ```js
 /*eslint quote-props: ["error", "consistent-as-needed", { "keywords": true }]*/
@@ -386,7 +383,7 @@ var x = {
 
 If you don't care if property names are consistently wrapped in quotes or not, and you don't target legacy ES3 environments, turn this rule off.
 
-如果你并不关心属性名是否始终被引号包裹，也不会弥留在ES3环境中，关闭此规则即可。
+如果你并不关心属性名是否始终被引号包裹，也不会弥留在 ES3 环境中，关闭此规则即可。
 
 ## Further Reading
 
@@ -397,7 +394,7 @@ If you don't care if property names are consistently wrapped in quotes or not, a
 
 This rule was introduced in ESLint 0.0.6.
 
-该规则在ESLint 0.0.6中被引入。
+该规则在 ESLint 0.0.6 中被引入。
 
 ## Resources
 

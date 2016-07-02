@@ -1,8 +1,6 @@
 ---
 title: Rule no-proto
 layout: doc
-translator: fengnana
-proofreader: yanggao40
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -12,17 +10,17 @@ proofreader: yanggao40
 
 `__proto__` property has been deprecated as of ECMAScript 3.1 and shouldn't be used in the code.Use `getPrototypeOf` method instead.
 
-`__proto__`属性在ECMAScript 3.1中已经被弃用并且不应在代码中被使用。使用`getPrototypeOf`方法替代`__proto__`。
+`__proto__` 属性在 ECMAScript 3.1 中已经被弃用，并且不应该在代码中使用。使用 `getPrototypeOf` 方法替代 `__proto__`。
 
 ## Rule Details
 
 When an object is created `__proto__` is set to the original prototype property of the object’s constructor function. `getPrototypeOf` is the preferred method of getting "the prototype".
 
-当一个对象被创建，`__proto__`被设置为对象构造方法的原始原型属性。`getPrototypeOf`是获取"the prototype"的首选方法。
+当一个对象被创建，`__proto__` 被设置为对象构造方法的原始原型属性。`getPrototypeOf`是获取原型的首选方法。
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-proto: "error"*/
@@ -34,7 +32,7 @@ var a = obj["__proto__"];
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-proto: "error"*/
@@ -46,7 +44,7 @@ var a = Object.getPrototypeOf(obj);
 
 If you need to support legacy browsers, you might want to turn this rule off, since support for `getPrototypeOf` is not yet universal.
 
-如果你需要支持老版本的浏览器，你可能会想要关闭此规则，因为`getPrototypeOf`还没有被广泛支持。
+如果你需要支持老版本的浏览器，你可能会想要关闭此规则，因为 `getPrototypeOf` 还没有被广泛支持。
 
 ## Further Reading
 
@@ -56,7 +54,7 @@ If you need to support legacy browsers, you might want to turn this rule off, si
 
 This rule was introduced in ESLint 0.0.9.
 
-此规则在 ESLint 0.0.9 中被引入。
+该规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

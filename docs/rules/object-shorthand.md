@@ -1,8 +1,6 @@
 ---
 title: Rule object-shorthand
 layout: doc
-translator: molee1905
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -54,7 +52,7 @@ var foo = {
 ## Rule Details
 
 This rule enforces the use of the shorthand syntax. This applies
-to all methods (including generators) defined on object literals and any
+to all methods (including generators) defined in object literals and any
 properties defined where the key name matches name of the assigned variable.
 
 该规则强制简写语法的使用。这适用于对象字面量中的所有方法（包括 generators ）以及键名与已赋值的变量名相匹配的任何属性。
@@ -68,8 +66,9 @@ Each of the following properties would warn:
 /*eslint-env es6*/
 
 var foo = {
-    x: function() {},
-    y: function *() {},
+    w: function() {},
+    x: function *() {},
+    [y]: function() {},
     z: z
 };
 ```
@@ -83,8 +82,9 @@ In that case the expected syntax would have been:
 /*eslint-env es6*/
 
 var foo = {
-    x() {},
-    *y() {},
+    w() {},
+    *x() {},
+    [y]() {},
     z
 };
 ```
@@ -92,7 +92,7 @@ var foo = {
 This rule does not flag arrow functions inside of object literals.
 The following will *not* warn:
 
-该规则不标记对象字面量中的箭头函数。下面的示例将**不**发出警告：
+该规则不标记对象字面量中的箭头函数。下面的示例将 **不**发出警告：
 
 ```js
 /*eslint object-shorthand: "error"*/
@@ -108,7 +108,7 @@ var foo = {
 The rule takes an option which specifies when it should be applied. It can be set to
 `"always"`, `"properties"`, `"methods"`, or `"never"`. The default is `"always"`.
 
-该规则有一个选项。可以设置为`"always"`，`"properties"`，`"methods"`或`"never"`。 默认为`"always"`。
+该规则有一个选项。可以设置为 `"always"`、`"properties"`、`"methods"` 或 `"never"`。 默认为 `"always"`。
 
 * `"always"` expects that the shorthand will be used whenever possible.
 * `"always"` 只要有可能，简写就应该被使用。
@@ -129,9 +129,46 @@ You can set the option in configuration like this:
 }
 ```
 
+While set to `"always"`, `"methods"`, or `"properties"`, shorthand syntax using string literal keys can be ignored using the optional parameter `"avoidQuotes"`. This will make it so longform syntax is preferred whenever the object key is a string literal. Note: The first parameter must be specified when using this optional parameter.
+
+当设置为 `"always"`、`"methods"` 或 `"properties"`，使用 `"avoidQuotes"` 简写语法可以忽略字符串字面量的键。这样做，在对象的键是字符串时，长格式的语法成为首选。注意：使用这个选项时，必须指定第一个参数。
+
+```json
+{
+    "object-shorthand": ["error", "always", { "avoidQuotes": true }]
+}
+```
+
+Examples of **incorrect** code for this rule with the `"avoidQuotes"` option:
+
+选项 `"avoidQuotes"` 的 **错误** 代码示例：
+
+```js
+/*eslint object-shorthand: ["error", "always", { "avoidQuotes": true }]*/
+/*eslint-env es6*/
+
+var foo = {
+    "bar-baz"() {}
+};
+```
+
+Examples of **correct** code for this rule with the `"avoidQuotes"` option:
+
+选项 `"avoidQuotes"` 的 **正确** 代码示例：
+
+```js
+/*eslint object-shorthand: ["error", "always", { "avoidQuotes": true }]*/
+/*eslint-env es6*/
+
+var foo = {
+    "bar-baz": function() {},
+    "qux": qux
+};
+```
+
 While set to `"always"` or `"methods"`, constructor functions can be ignored with the optional parameter `"ignoreConstructors"` enabled. Note: The first parameter must be specified when using this optional parameter.
 
-当设置`"always"`或`"methods"`时，如果启用`"ignoreConstructors"`，构造函数可以被忽略。注意：当使用这个可选项时，必须制定一个参数。
+当设置 `"always"` 或 `"methods"`，启用选项参数 `"ignoreConstructors"` 后，构造函数可以被忽略。注意：使用这个选项时，必须指定第一个参数。
 
 ```json
 {
@@ -141,7 +178,7 @@ While set to `"always"` or `"methods"`, constructor functions can be ignored wit
 
 The following will *not* warn when `"ignoreConstructors"` is enabled:
 
-当启用`"ignoreConstructors"`时，下面的示例将**不**发出警告：
+当启用 `"ignoreConstructors"` 时，下面的示例将 **不**发出警告：
 
 ```js
 /*eslint object-shorthand: ["error", "always", { "ignoreConstructors": true }]*/

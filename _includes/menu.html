@@ -19,13 +19,13 @@
     </div>
 
     <nav id="eslint-navbar" class="collapse navbar-collapse eslint-navbar">
-      {% if include.multi == "true" and page.exceptMulti != true %}
+      {% if include.multi == "true"%}
       <ul class="nav navbar-nav navbar-left">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中英文</span><span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="lang-chooser">中文</span><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
             <li><a class="lang-type" data-lang="zh" href="javascript:;">中文</a></li>
+            <li><a class="lang-type" data-lang="mixed" href="javascript:;">中英文</a></li>
             <li><a class="lang-type" data-lang="en" href="javascript:;">英文</a></li>
           </ul>
         </li>
@@ -38,9 +38,6 @@
             <li><a href="/docs/user-guide/configuring">配置</a></li>
             <li><a href="/docs/user-guide/command-line-interface">命令行</a></li>
             <li><a href="/docs/rules/">规则</a></li>
-            <li class="divider"></li>
-            <li><a href="/docs/user-guide/migrating-to-1.0.0">迁移至v1.0.0</a></li>
-            <li><a href="/docs/user-guide/migrating-to-2.0.0">迁移至v2.0.0</a></li>
             <li><a href="/docs/user-guide/integrations">集成</a></li>
           </ul>
         </li>
@@ -68,7 +65,6 @@
           </ul>
         </li>
         <li><a href="/docs/about/">关于</a></li>
-        <li><a href="/docs/issue/">Ideas</a></li>
       </ul>
 
       <label for="eslint-toggle-search" class="navbar-toggle eslint-toggle-search-open">

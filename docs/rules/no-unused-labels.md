@@ -25,7 +25,7 @@ for (const student of students) {
 In this case, probably removing `OUTER_LOOP:` had been forgotten.
 Such labels take up space in the code and can lead to confusion by readers.
 
-在这个例子中，可能是忘记了移除`OUTER_LOOP:`。这样的标签不仅占据代码空间，而且会使读者感到迷惑。
+在这个例子中，可能是忘记了移除 `OUTER_LOOP:` 。这样的标签不仅占据代码空间，而且会使读者感到迷惑。
 
 ## Rule Details
 
@@ -35,7 +35,7 @@ This rule is aimed at eliminating unused labels.
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 /*eslint no-unused-labels: "error"*/
@@ -54,7 +54,7 @@ for (let i = 0; i < 10; ++i) {
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 /*eslint no-unused-labels: "error"*/

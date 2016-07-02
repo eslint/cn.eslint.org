@@ -1,24 +1,20 @@
 ---
-title: Documentation
+title: Command Line Interface
 layout: doc
-translator: freeyiyi1993
-proofreader: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Command Line Interface
 
-# Command Line Interface
+# 命令行
 
-# 命令行界面
-
-To run ESLint on Node.js, you must have npm installed. If npm is not installed, follow the instructions here: [https://www.npmjs.com/](https://www.npmjs.com/).
+To run ESLint on Node.js, you must have npm installed. If npm is not installed, follow the instructions here: https://www.npmjs.com/
 
 为了在 Node.js 上运行 ESLint，你必须先安装 npm。如果还没有安装 npm ，按照这里的说明进行安装：[https://www.npmjs.com/](https://www.npmjs.com/)。
 
-Once npm is installed, run the following:
+Once npm is installed, run the following
 
-一旦安装了 npm，运行下面的命令：
+一旦安装了 npm，运行下面的命令
 
     npm i -g eslint
 
@@ -40,13 +36,17 @@ or:
 
     eslint lib/**
 
-## Options
+Please note that when passing a glob as a parameter, it will be expanded by your shell. The results of the expansion can vary depending on your shell, and its configuration. If you want to use node `glob` syntax, you have to quote your parameter (using double quotes if you need it to run in Windows), as follows:
 
-## 选项
+请注意，传递一个 glob 模式作为参数时，它将由你的 shell 进行扩展。扩展的结果取决于你的 shell 及其配置。如果你想使用 node 的 `glob` 语法，你需要给参数加上引号（在 windows 系统运行时，如果你需要，也可以使用双引号 ），像下面这样：
+
+    eslint "lib/**"
+
+## Options
 
 The command line utility has several options. You can view the options by running `eslint -h`.
 
-命令行工具有几个选项，你可以通过运行`eslint -h`查看所有选项。
+命令行工具有几个选项，你可以通过运行 `eslint -h` 查看所有选项。
 
 ```text
 Basic configuration:
@@ -72,7 +72,7 @@ Specifying rules and plugins:
 
 Ignoring files:
   --ignore-path path::String  Specify path of ignore file
-  --no-ignore                Disable use of .eslintignore
+  --no-ignore                Disable use of ignore files and patterns
   --ignore-pattern [String]  Patterns of files to ignore (in addition to those
                              in .eslintignore)
 
@@ -88,7 +88,7 @@ Handling warnings:
 Output:
   -o, --output-file path::String  Specify file to write report to
   -f, --format String        Use a specific output format - default: stylish
-  --no-color                 Disable color in piped output
+  --color, --no-color        Force enabling/disabling of color
 
 Miscellaneous:
   --init                     Run config initialization wizard - default: false
@@ -96,14 +96,14 @@ Miscellaneous:
   --debug                    Output debugging information
   -h, --help                 Show help
   -v, --version              Outputs the version number
-  --no-inline-config         Prevent comments from changing eslint rules -
+  --no-inline-config         Prevent comments from changing config or rules -
                              default: false
   --print-config             Print the configuration to be used
 ```
 
 Options that accept array values can be specified by repeating the option or with a comma-delimited list (other than `--ignore-pattern` which does not allow the second style).
 
-接受数组值的选项可以通过重复该选项或使用逗号分隔的列表进行指定（除了`--ignore-pattern`不允许第二种风格）。
+这些选项可以通过重复该选项或使用逗号分隔的列表进行指定（除了 `--ignore-pattern` 不允许第二种风格）。
 
 Example:
 
@@ -114,8 +114,6 @@ Example:
     eslint --ext .jsx,.js file.js
 
 ### Basic configuration
-
-### 基本配置
 
 #### `-c`, `--config`
 
@@ -131,11 +129,11 @@ Example:
 
 This example uses the configuration file at `~/my-eslint.json`.
 
-这个例子使用了`~/my-eslint.json`作为配置文件。
+这个例子使用了 `~/my-eslint.json` 作为配置文件。
 
 It also accepts a module ID of [sharable config](../developer-guide/shareable-configs).
 
-它还接受[sharable config](../developer-guide/shareable-configs)的一个模块的 ID。
+它还接受 [sharable config](../developer-guide/shareable-configs) 的一个模块的 ID。
 
 Example:
 
@@ -145,13 +143,13 @@ Example:
 
 This example directly uses the sharable config `eslint-config-myconfig`.
 
-这个例子直接使用可共享的配置`eslint-config-myconfig`。
+这个例子直接使用可共享的配置 `eslint-config-myconfig`。
 
 #### `--no-eslintrc`
 
 Disables use of configuration from `.eslintrc` and `package.json` files.
 
-禁用`.eslintrc`和`package.json`文件中的配置。
+禁用 `.eslintrc` 和 `package.json` 文件中的配置。
 
 Example:
 
@@ -163,7 +161,7 @@ Example:
 
 This option enables specific environments. Details about the global variables defined by each environment are available on the [configuration](configuring) documentation. This flag only enables environments; it does not disable environments set in other configuration files. To specify multiple environments, separate them using commas, or use the flag multiple times.
 
-这个选项允许指定环境。关于每种环境中定义的全局变量的详细信息请查看[configuration](configuring)文档。这个标记只能启用化解，不能禁用在其他配置文件中设置的环境。要指定多个环境的话，使用逗号分隔它们，或多次使用这个标记。
+这个选项允许指定环境。关于每种环境中定义的全局变量的详细信息请查看 [configuration](configuring) 文档。这个标记只能启用环境，不能禁用在其它配置文件中设置的环境。要指定多个环境的话，使用逗号分隔它们，或多次使用这个标记。
 
 Examples:
 
@@ -177,7 +175,7 @@ Examples:
 This option allows you to specify which file extensions ESLint will use when searching for JavaScript files in the directories you specify.
 By default, it uses `.js` as the only file extension.
 
-这个选项允许你指定 ESLint 在指定的目录下查找 JavaScript 文件时要使用的文件扩展名。默认情况下，它使用`.js`作为唯一性文件扩展名。
+这个选项允许你指定 ESLint 在指定的目录下查找 JavaScript 文件时要使用的文件扩展名。默认情况下，它使用 `.js` 作为唯一性文件扩展名。
 
 Examples:
 
@@ -192,19 +190,19 @@ Examples:
     # Also use both .js and .js2
     eslint . --ext .js,.js2
 
-**Note:** If you use a glob pattern, then `--ext` is ignored.
+**Note:** If you use a glob pattern, then `--ext` is ignored
 
-**注意：**如果你使用了 glob 模式，则`--ext`被忽略。
+**注意：**如果你使用了 glob 模式，则 `--ext` 被忽略
 
 For example, `eslint lib/* --ext .js` will match all files within the `lib/` directory, regardless of extension.
 
-例如，`eslint lib/* --ext .js`将匹配`lib/`下的所有文件，忽略扩展名。
+例如，`eslint lib/* --ext .js` 将匹配 `lib/` 下的所有文件，忽略扩展名。
 
 #### `--global`
 
 This option defines global variables so that they will not be flagged as undefined by the `no-undef` rule. Global variables are read-only by default, but appending `:true` to a variable's name makes it writable. To define multiple variables, separate them using commas, or use the flag multiple times.
 
-这个选项定义了全局变量，这样它们就不会被`no-undef`规则标记为未定义了。全局变量默认是只读的，但是在变量名字后加上`:true`后会使它变得可写。要定义多个变量，使用逗号分隔它们，或多次使用这个标记。
+这个选项定义了全局变量，这样它们就不会被 `no-undef` 规则标记为未定义了。全局变量默认是只读的，但是在变量名字后加上 `:true` 后会使它变得可写。要定义多个变量，使用逗号分隔它们，或多次使用这个标记。
 
 Examples:
 
@@ -217,7 +215,7 @@ Examples:
 
 This option allows you to specify a parser to be used by ESLint. By default, `espree` will be used.
 
-该选项允许你为 ESLint 指定一个解析器。默认情况下，使用`espree`。
+该选项允许你为 ESLint 指定一个解析器。默认情况下，使用 `espree`。
 
 #### `--parser-options`
 
@@ -234,8 +232,6 @@ Examples:
 
 ### Caching
 
-### 缓存
-
 #### `--cache`
 
 Store the info about processed files in order to only operate on the changed ones.
@@ -244,37 +240,32 @@ Store the info about processed files in order to only operate on the changed one
 
 #### `--cache-file`
 
-Path to the cache file. If none specified `.eslintcache` will be used. The file will be created in the directory where the `eslint` command is executed. 
+Path to the cache file. If none specified `.eslintcache` will be used. The file will be created in the directory where the `eslint` command is executed. **Deprecated**: Use `--cache-location` instead.
 
-缓存文件的路径。如果没有指定，则使用`.eslintcache`。这个文件会在 `eslint` 命令行被执行的文件目录中被创建。
-
-**Deprecated：** Use `--cache-location` instead.
-
-**弃用：**使用`--cache-location`代替。
+缓存文件的路径。如果没有指定，则使用 `.eslintcache`。这个文件会在 `eslint` 命令行被执行的文件目录中被创建。
+**已弃用：** 请使用 `--cache-location`。
 
 #### `--cache-location`
 
 Path to the cache location. Can be a file or a directory. If none specified `.eslintcache` will be used. The file will be created in the directory where the `eslint` command is executed.
 
-缓存文件的路径。可以是一个文件或者一个目录。如果没有指定，则使用`.eslintcache`。这个文件会在 `eslint` 命令行被执行的文件目录中被创建。
+缓存文件的路径。可以是一个文件或者一个目录。如果没有指定，则使用 `.eslintcache` 。这个文件会在 `eslint` 命令行被执行的文件目录中被创建。
 
 In case a directory is specified a cache file will be created inside the specified folder. The name of the file will be based on the hash of the current working directory (CWD). e.g.: `.cache_hashOfCWD`
 
-如果指定一个目录，缓存文件将在指定的文件夹下被创建。文件名将基于当前工作目录（CWD)的 hash 值，比如： `.cache_hashOfCWD`。
+如果指定一个目录，缓存文件将在指定的文件夹下被创建。文件名将基于当前工作目录（CWD) 的  hash 值，比如：`.cache_hashOfCWD`。
 
 **Important note:** If the directory for the cache does not exist make sure you add a trailing `/` on *nix systems or `\` in windows. Otherwise the path will be assumed to be a file.
 
-**重要提示:** 如果不存在缓存文件的目录，请确保在尾部添加`/`（*nix 系统）或`\`（windows系统）。否则该路径将被假定为是一个文件。
+**重要提示：**如果不存在缓存文件的目录，请确保在尾部添加 `/`（*nix 系统）或 `\`（windows 系统）。否则该路径将被假定为是一个文件。
 
 Example:
 
 示例：
 
-    eslint 'src/**/*.js' --cache --cache-location '/Users/user/.eslintcache/'
+    eslint "src/**/*.js" --cache --cache-location "/Users/user/.eslintcache/"
 
 ### Specifying rules and plugins
-
-### 指定规则和插件
 
 #### `--rulesdir`
 
@@ -291,7 +282,7 @@ Example:
 The rules in your custom rules directory must follow the same format as bundled rules to work properly. You can also specify multiple locations for custom rules by including multiple `--rulesdir` flags:
 
 
-为了使你自定义的规则目录下的规则正常工作，必须遵照同绑定的规则一样的格式。你也可以通过包含多个`--rulesdir`标记来为自定义规则指定多个位置。
+为了使你自定义的规则目录下的规则正常工作，必须遵照同绑定的规则一样的格式。你也可以通过包含多个 `--rulesdir` 标记来为自定义规则指定多个位置。
 
     eslint --rulesdir my-rules/ --rulesdir my-other-rules/ file.js
 
@@ -300,7 +291,7 @@ The rules in your custom rules directory must follow the same format as bundled 
 This option specifies a plugin to load. You can omit the prefix `eslint-plugin-` from the plugin name.
 Before using the plugin you have to install it using npm.
 
-这个选项指定一个要加载的插件。你可以省略插件名的前缀`eslint-plugin-`。在你使用插件直接，你必须使用 npm 安装它。
+这个选项指定一个要加载的插件。你可以省略插件名的前缀 `eslint-plugin-`。在你使用插件直接，你必须使用 npm 安装它。
 
 Examples:
 
@@ -313,11 +304,11 @@ Examples:
 
 This option specifies rules to be used. These rules will be merged with any rules specified with configuration files. (You can use `--no-eslintrc` to change that behavior.) To define multiple rules, separate them using commas, or use the flag multiple times. The [levn](https://github.com/gkz/levn#levn--) format is used for specifying the rules.
 
-这个选项指定要使用的规则。这些规则将会与配制文件中指定的规则合并。（你可以使用`--no-eslintrc`改变这种行为。）要定义多个规则，使用逗号分隔它们，或多次使用这个标记。[levn](https://github.com/gkz/levn#levn--)格式被用来指定规则。
+这个选项指定要使用的规则。这些规则将会与配制文件中指定的规则合并。（你可以使用 `--no-eslintrc`改变这种行为。）要定义多个规则，使用逗号分隔它们，或多次使用这个标记。[levn](https://github.com/gkz/levn#levn--) 格式被用来指定规则。
 
 If the rule is defined within a plugin you have to prefix the rule ID with the plugin name and a `/`.
 
-如果这个规则定义在插件内，你必须在规则 ID 前使用插件名和`/`，即`插件名/规则ID`。
+如果这个规则定义在插件内，你必须在规则 ID 前使用插件名和 `/`，即 `插件名/规则ID`。
 
 Examples:
 
@@ -333,7 +324,7 @@ Examples:
 
 This option allows you to specify the file to use as your `.eslintignore`. By default, ESLint looks in the current working directory for `.eslintignore`. You can override this behavior by providing a path to a different file.
 
-这个选项允许你指定一个文件作为`.eslintignore`。默认情况下，ESLint 在当前工作目录下查找`.eslintignore`。你可以通过提供另一个文件的路径改变这种行为。
+这个选项允许你指定一个文件作为 `.eslintignore`。默认情况下，ESLint 在当前工作目录下查找 `.eslintignore`。你可以通过提供另一个文件的路径改变这种行为。
 
 Example:
 
@@ -343,9 +334,10 @@ Example:
 
 #### `--no-ignore`
 
-Disables excluding of files from `.eslintignore` and `--ignore-path` files.
+Disables excluding of files from `.eslintignore`, `--ignore-path` and `--ignore-pattern`.
 
-禁止排除`.eslintignore` 和 `--ignore-path`文件中指定的文件。
+禁止排除 `.eslintignore`、`--ignore-path` 和 `--ignore-pattern` 文件中指定的文件。
+
 
 Example:
 
@@ -353,9 +345,16 @@ Example:
 
     eslint --no-ignore file.js
 
-### Using stdin
+#### `--ignore-pattern`
 
-### 使用stdin
+This option allows you to specify patterns of files to ignore (in addition to those in `.eslintignore`). You can repeat the option to provide multiple patterns. The supported syntax is the same as in the `.eslintignore` file.
+
+Example:
+
+    eslint --ignore-pattern '/lib/' --ignore-pattern '/src/vendor/*' .
+
+
+### Using stdin
 
 #### `--stdin`
 
@@ -383,8 +382,6 @@ Example
 
 ### Handling warnings
 
-### 处理警告
-
 #### `--quiet`
 
 This option allows you to disable reporting on warnings. If you enable this option only errors are reported by ESLint.
@@ -405,7 +402,7 @@ This option allows you to specify a warning threshold, which can be used to forc
 
 Normally, if ESLint runs and finds no errors (only warnings), it will exit with a success exit status. However, if this option is specified and the total warning count is greater than the specified threshold, ESLint will exit with an error status. Specifying a threshold of `-1` or omitting this option will prevent this behavior.
 
-通常情况下，如果 ESLint 运行过程中，没有出现错误（只有警告），它将以成功的状态退出。然而，如果指定了这个选项，而且警告的总数超过了指定的阈值，ESLint 将以错误的状态退出。通过指定一个`-1`的阈值或省略这个选项将会避免这种行为。
+通常情况下，如果 ESLint 运行过程中，没有出现错误（只有警告），它将以成功的状态退出。然而，如果指定了这个选项，而且警告的总数超过了指定的阈值，ESLint 将以错误的状态退出。通过指定一个 `-1` 的阈值或省略这个选项将会避免这种行为。
 
 Example:
 
@@ -414,8 +411,6 @@ Example:
     eslint --max-warnings 10 file.js
 
 ### Output
-
-### 输出
 
 #### `-o`, `--output-file`
 
@@ -440,15 +435,26 @@ This option specifies the output format for the console. Possible formats are:
 这个选项指定了控制台的输出格式。可用的格式是：
  
 * [checkstyle](formatters/#checkstyle)
+* [checkstyle](formatters/#checkstyle)
+* [compact](formatters/#compact)
 * [compact](formatters/#compact)
 * [html](formatters/#html)
+* [html](formatters/#html)
+* [jslint-xml](formatters/#jslint-xml)
 * [jslint-xml](formatters/#jslint-xml)
 * [json](formatters/#json)
+* [json](formatters/#json)
+* [junit](formatters/#junit)
 * [junit](formatters/#junit)
 * [stylish](formatters/#stylish) (the default)
+* [stylish](formatters/#stylish) (默认)
+* [table](formatters/#table)
 * [table](formatters/#table)
 * [tap](formatters/#tap)
+* [tap](formatters/#tap)
 * [unix](formatters/#unix)
+* [unix](formatters/#unix)
+* [visualstudio](formatters/#visualstudio)
 * [visualstudio](formatters/#visualstudio)
 
 Example:
@@ -475,29 +481,28 @@ When specified, the given format is output to the console. If you'd like to save
 
 This saves the output into the `results.txt` file.
 
-这会将输出保存到`results.txt`文件。
+这会将输出保存到 `results.txt` 文件。
 
-#### `--no-color`
+#### `--color`, `--no-color`
 
-Disable color in piped output.
+This option forces the enabling/disabling of colorized output. You can use this to override the default behavior, which is to enable colorized output unless no TTY is detected, such as when when piping `eslint` through `cat` or `less`.
 
 在管道输出中禁用颜色。
 
-Example:
+Examples:
 
 示例：
 
+    eslint --color file.js | cat
     eslint --no-color file.js
 
 ### Miscellaneous
 
-### 其他
-
 #### `--init`
 
-This option will start config initialization wizard. It's designed to help new users quickly create `.eslintrc` file by answering a few questions. File will be created in current directory.
+This option will start config initialization wizard. It's designed to help new users quickly create .eslintrc file by answering a few questions. File will be created in current directory.
 
-这个选项将会配置初始化向导。用户通过回答一些问题，它就可以帮助用户快速地在当前工作目录下创建`.eslintrc`文件。
+这个选项将会配置初始化向导。用户通过回答一些问题，它就可以帮助用户快速地在当前工作目录下创建 `.eslintrc` 文件。
 
 #### `--fix`
 
@@ -506,11 +511,8 @@ This option instructs ESLint to try to fix as many issues as possible. The fixes
 该选项指示 ESLint 试图修复尽可能多的问题。修复只针对实际文件本身，而且剩下的未修复的问题才会输出。不是所有的问题都能使用这个标记进行修复，该标记在以下情形中不起作用：
 
 1. This option throws an error when code is piped to ESLint.
-
 1. 当代码传递给 ESLint 时，这个选项抛出一个错误。
-
 1. This option has no effect on code that uses processors.
-
 1. 这个选项对使用处理器的代码不起作用。
 
 #### `--debug`
@@ -543,14 +545,21 @@ This option prevents inline comments like `/*eslint-disable*/` or
 `/*global foo*/` from having any effect. This allows you to set an ESLint
 config without files modifying it. All inline config comments are ignored, e.g.:
 
-这个选项会阻止像`/*eslint-disable*/`或者`/*global foo*/` 这样的内联注释起作用。这允许你在不修改文件的情况下设置一个 ESLint 配置。所有的内联注释都会被忽略，比如：
+这个选项会阻止像 `/*eslint-disable*/` 或者 `/*global foo*/`  这样的内联注释起作用。这允许你在不修改文件的情况下设置一个 ESLint 配置。所有的内联注释都会被忽略，比如：
 
 * `/*eslint-disable*/`
+* `/*eslint-disable*/`
+* `/*eslint-enable*/`
 * `/*eslint-enable*/`
 * `/*global*/`
+* `/*global*/`
+* `/*eslint*/`
 * `/*eslint*/`
 * `/*eslint-env*/`
+* `/*eslint-env*/`
 * `// eslint-disable-line`
+* `// eslint-disable-line`
+* `// eslint-disable-next-line`
 * `// eslint-disable-next-line`
 
 Example:
@@ -573,15 +582,14 @@ Example:
 
 ## Ignoring files from linting
 
-## 忽略检查的文件
-
 ESLint supports `.eslintignore` files to exclude files from the linting process when ESLint operates on a directory. Files given as individual CLI arguments will be exempt from exclusion. The `.eslintignore` file is a plain text file containing one pattern per line. It can be located in any of the target directory's ancestors; it will affect files in its containing directory as well as all sub-directories. Here's a simple example of a `.eslintignore` file:
 
-当 ESLint 作用于一个目录时，ESLint 支持使用`.eslintignore`文件来避免检测处理。通过特定的命令行参数指定的文件就可以免除被忽略。`.eslintignore`文件是个纯文本文件，每一行都包含一种模式。它可以放在目标目录的任何父级目录；它将影响到它所在的当前目录和所有子目录。这里是`.eslintignore`文件的一个简单示例：
+当 ESLint 作用于一个目录时，ESLint 支持使用 `.eslintignore` 文件来避免检测处理。通过特定的命令行参数指定的文件就可以免除被忽略。`.eslintignore` 文件是个纯文本文件，每一行都包含一种模式。它可以放在目标目录的任何父级目录；它将影响到它所在的当前目录和所有子目录。这里是 `.eslintignore` 文件的一个简单示例：
 
     node_modules/*
     **/vendor/*.js
 
-A more detailed breakdown of supported patterns and directories ESLint ignores by default can be found in [Configuring ESLint](http://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories).
+A more detailed breakdown of supported patterns and directories ESLint ignores by default can be found in [Configuring ESLint](configuring#ignoring-files-and-directories).
 
-ESLint 默认忽略的模式分解和目录的更多详细信息可以在[Configuring ESLint](http://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories)中找到。
+ESLint 默认忽略的模式分解和目录的更多详细信息可以在 [Configuring ESLint](configuring#ignoring-files-and-directories) 中找到。
+

@@ -1,7 +1,6 @@
 ---
 title: Rule no-unmodified-loop-condition
 layout: doc
-translator: molee1905
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -45,7 +44,7 @@ If a reference is inside of a dynamic expression (e.g. `CallExpression`,
 
 Examples of **incorrect** code for this rule:
 
-**错误**代码示例：
+**错误** 代码示例：
 
 ```js
 while (node) {
@@ -64,7 +63,7 @@ while (node !== root) {
 
 Examples of **correct** code for this rule:
 
-**正确**代码示例：
+**正确** 代码示例：
 
 ```js
 while (node) {
