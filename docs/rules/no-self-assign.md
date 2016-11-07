@@ -1,5 +1,5 @@
 ---
-title: Rule no-self-assign
+title: no-self-assign - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -55,6 +55,59 @@ let foo = foo;
 
 // The default values have an effect.
 [foo = 1] = [foo];
+```
+
+## Options
+
+This rule has the option to check properties as well.
+
+该规则也有可以检查属性的选项。
+
+```json
+{
+    "no-self-assign": ["error", {"props": false}]
+}
+```
+
+- `props` - if this is `true`, `no-self-assign` rule warns self-assignments of properties. Default is `false`.
+- `props` - 如果为 `true`，`no-self-assign` 规则将对属性的自我赋值发出警告。默认为 `false`.
+
+### props
+
+Examples of **incorrect** code for the `{ "props": true }` option:
+
+选项 `{ "props": true }` 的 **错误** 代码示例：
+
+```js
+/*eslint no-self-assign: [error, {props: true}]*/
+
+// self-assignments with properties.
+obj.a = obj.a;
+obj.a.b = obj.a.b;
+obj["a"] = obj["a"];
+obj[a] = obj[a];
+```
+
+Examples of **correct** code for the `{ "props": true }` option:
+
+选项 `{ "props": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint no-self-assign: [error, {props: true}]*/
+
+// non-self-assignments with properties.
+obj.a = obj.b;
+obj.a.b = obj.c.b;
+obj.a.b = obj.a.c;
+obj[a] = obj["a"]
+
+// This ignores if there is a function call.
+obj.a().b = obj.a().b
+a().b = a().b
+
+// Known limitation: this does not support computed properties except single literal or single identifier.
+obj[a + b] = obj[a + b];
+obj["a" + "b"] = obj["a" + "b"];
 ```
 
 ## When Not To Use It

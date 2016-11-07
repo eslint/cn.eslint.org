@@ -1,6 +1,7 @@
 name: "ESLint中文"
 exclude: [
   'node_modules',
+  'bower_components',
   'vendor'
 ]
 keywords: "ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality"

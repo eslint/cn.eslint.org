@@ -1,5 +1,5 @@
 ---
-title: Rule valid-typeof
+title: valid-typeof - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -17,6 +17,15 @@ For a vast majority of use cases, the result of the `typeof` operator is one of 
 This rule enforces comparing `typeof` expressions to valid string literals.
 
 该规则强制 `typeof` 表达式与有效的字符串进行比较。
+
+## Options
+
+This rule has an object option:
+
+该规则有一个对象选项：
+
+* `"requireStringLiterals": true` requires `typeof` expressions to only be compared to string literals or other `typeof` expressions, and disallows comparisons to any other value.
+* `"requireStringLiterals": true` 要求 `typeof` 表达式只与字符串字面量或其它 `typeof` 表达式 进行比较，禁止与其它值进行比较。
 
 Examples of **incorrect** code for this rule:
 
@@ -41,6 +50,30 @@ Examples of **correct** code for this rule:
 typeof foo === "string"
 typeof bar == "undefined"
 typeof foo === baz
+typeof bar === typeof qux
+```
+
+Examples of **incorrect** code with the `{ "requireStringLiterals": true }` option:
+
+选项 `{ "requireStringLiterals": true }` 的 **错误** 代码示例：
+
+```js
+typeof foo === undefined
+typeof bar == Object
+typeof baz === "strnig"
+typeof qux === "some invalid type"
+typeof baz === anotherVariable
+typeof foo == 5
+```
+
+Examples of **correct** code with the `{ "requireStringLiterals": true }` option:
+
+选项 `{ "requireStringLiterals": true }` 的 **正确** 代码示例：
+
+```js
+typeof foo === "undefined"
+typeof bar == "object"
+typeof baz === "string"
 typeof bar === typeof qux
 ```
 

@@ -1,12 +1,12 @@
 ---
-title: Rule func-names
+title: func-names - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require Function Expressions to have a Name (func-names)
+# Require or disallow named `function` expressions (func-names)
 
-# 要求函数表达式有个一名字 (func-names)
+# 要求或禁止命名的 `function` 表达式 (func-names)
 
 A pattern that's becoming more common is to give function expressions names to aid in debugging. For example:
 
@@ -22,12 +22,29 @@ Adding the second `bar` in the above example is optional.  If you leave off the 
 
 ## Rule Details
 
-Examples of **incorrect** code for this rule:
+This rule can enforce or disallow the use of named function expressions.
 
-**错误** 代码示例：
+该规则要求或禁止命名的 `function` 表达式。
+
+## Options
+
+This rule has a string option:
+
+该规则有一个字符串选项：
+
+* `"always"` (default) requires function expressions to have a name
+* `"always"` (默认) 要求函数表达式有一个名字
+* `"never"` disallows named function expressions, except in recursive functions, where a name is needed
+* `"never"` 禁止命名函数表达式，除非在递归函数中，名字是需要的
+
+### always
+
+Examples of **incorrect** code for this rule with the default `"always"` option:
+
+默认选项 `"always"` 的 **错误** 代码示例：
 
 ```js
-/*eslint func-names: "error"*/
+/*eslint func-names: ["error", "always"]*/
 
 Foo.prototype.bar = function() {};
 
@@ -36,12 +53,12 @@ Foo.prototype.bar = function() {};
 }())
 ```
 
-Examples of **correct** code for this rule:
+Examples of **correct** code for this rule with the default `"always"` option:
 
-**正确** 代码示例：
+默认选项 `"always"` 的 **正确** 代码示例：
 
 ```js
-/*eslint func-names: "error"*/
+/*eslint func-names: ["error", "always"]*/
 
 Foo.prototype.bar = function bar() {};
 
@@ -50,9 +67,44 @@ Foo.prototype.bar = function bar() {};
 }())
 ```
 
+### never
+
+Examples of **incorrect** code for this rule with the `"never"` option:
+
+选项 `"never"` 的 **错误** 代码示例：
+
+```js
+/*eslint func-names: ["error", "never"]*/
+
+Foo.prototype.bar = function bar() {};
+
+(function bar() {
+    // ...
+}())
+```
+
+Examples of **correct** code for this rule with the `"never"` option:
+
+选项 `"never"` 的 **正确** 代码示例：
+
+```js
+/*eslint func-names: ["error", "never"]*/
+
+Foo.prototype.bar = function() {};
+
+(function() {
+    // ...
+}())
+```
+
 ## Further Reading
 
 * [Functions Explained](http://markdaggett.com/blog/2013/02/15/functions-explained/)
+
+## Compatibility
+
+* **JSCS**: [requireAnonymousFunctions](http://jscs.info/rule/requireAnonymousFunctions)
+* **JSCS**: [disallowAnonymousFunctions](http://jscs.info/rule/disallowAnonymousFunctions)
 
 ## Version
 

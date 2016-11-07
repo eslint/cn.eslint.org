@@ -1,33 +1,23 @@
 ---
-title: Rule prefer-reflect
-layout: doc
+title: prefer-reflect - Rules
+layout: doc_en
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Suggest using Reflect methods where applicable (prefer-reflect)
 
-# 建议在合适的地方使用Reflect方法 (prefer-reflect)
+This rule was **deprecated** in ESLint v3.9.0 and will not be replaced. The original intent of this rule now seems misguided as we have come to understand that `Reflect` methods are not actually intended to replace the `Object` counterparts the rule suggests, but rather exist as low-level primitives to be used with proxies in order to replicate the default behavior of various previously existing functionality.
 
 The ES6 Reflect API comes with a handful of methods which somewhat deprecate methods on old constructors:
 
-ES6的Reflect API 提供了若干的方法，在一定程度上不再支持一些旧的构造器上的方法：
-
 * [`Reflect.apply`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.apply) effectively deprecates [`Function.prototype.apply`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-function.prototype.apply) and [`Function.prototype.call`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-function.prototype.call)
-* [`Reflect.apply`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.apply) 有效地弃用了 [`Function.prototype.apply`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-function.prototype.apply) 和 [`Function.prototype.call`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-function.prototype.call)
 * [`Reflect.deleteProperty`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.deleteproperty) effectively deprecates the [`delete` keyword](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-delete-operator-runtime-semantics-evaluation)
-* [`Reflect.deleteProperty`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.deleteproperty) 有效地弃用了 [`delete` keyword](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-delete-operator-runtime-semantics-evaluation)
 * [`Reflect.getOwnPropertyDescriptor`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.getownpropertydescriptor) effectively deprecates [`Object.getOwnPropertyDescriptor`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-object.getownpropertydescriptor)
-* [`Reflect.getOwnPropertyDescriptor`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.getownpropertydescriptor) 有效地弃用了 [`Object.getOwnPropertyDescriptor`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-object.getownpropertydescriptor)
 * [`Reflect.getPrototypeOf`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.getprototypeof) effectively deprecates [`Object.getPrototypeOf`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-object.getprototypeof)
-* [`Reflect.getPrototypeOf`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.getprototypeof) 有效地弃用了 [`Object.getPrototypeOf`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-object.getprototypeof)
 * [`Reflect.setPrototypeOf`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.setprototypeof) effectively deprecates [`Object.setPrototypeOf`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-object.setprototypeof)
-* [`Reflect.setPrototypeOf`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.setprototypeof) 有效地弃用了 [`Object.setPrototypeOf`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-object.setprototypeof)
 * [`Reflect.preventExtensions`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.preventextensions)  effectively deprecates [`Object.preventExtensions`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-object.preventextensions)
-* [`Reflect.preventExtensions`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect.preventextensions) 有效地弃用了 [`Object.preventExtensions`](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-object.preventextensions)
 
 The prefer-reflect rule will flag usage of any older method, suggesting to instead use the newer Reflect version.
-
-该规则将标记任何旧方法的使用，建议使用较新的 Reflect 版本代替。
 
 ## Rule Details
 
@@ -36,93 +26,81 @@ The prefer-reflect rule will flag usage of any older method, suggesting to inste
 ### Exceptions
 
 ```
-"prefer-reflect": [<enabled>, { exceptions: [<...exceptions>] }]
+"prefer-reflect": [<enabled>, { "exceptions": [<...exceptions>] }]
 ```
 
 The `exceptions` option allows you to pass an array of methods names you'd like to continue to use in the old style.
 
-`exceptions` 选项允许你传递一个数组，数组中的元素为你想继续使用旧风格的方法的名字。
+For example if you wish to use all Reflect methods, except for `Function.prototype.apply` then your config would look like `prefer-reflect: [2, { "exceptions": ["apply"] }]`.
 
-For example if you wish to use all Reflect methods, except for `Function.prototype.apply` then your config would look like `prefer-reflect: [2, { exceptions: ["apply"] }]`.
+If you want to use Reflect methods, but keep using the `delete` keyword, then your config would look like `prefer-reflect: [2, { "exceptions": ["delete"] }]`.
 
-例如，如果你想使用除了 `Function.prototype.apply` 之外所有的 Reflect 方法，你的配置将会看起来像 `prefer-reflect: [2, { exceptions: ["apply"] }]`。
+These can be combined as much as you like. To make all methods exceptions (thereby rendering this rule useless), use `prefer-reflect: [2, { "exceptions": ["apply", "call", "defineProperty", "getOwnPropertyDescriptor", "getPrototypeOf", "setPrototypeOf", "isExtensible", "getOwnPropertyNames", "preventExtensions", "delete"] }]`
 
-If you want to use Reflect methods, but keep using the `delete` keyword, then your config would look like `prefer-reflect: [2, { exceptions: ["delete"] }]`.
+### Reflect.apply
 
-如果你想使用Reflect方法，但是保留 `delete` 关键字的使用，你的配置将会看起来像 `prefer-reflect: [2, { exceptions: ["delete"] }]`。
+Deprecates `Function.prototype.apply()` and `Function.prototype.call()`
 
-These can be combined as much as you like. To make all methods exceptions (thereby rendering this rule useless), use `prefer-reflect: [2, { exceptions: ["apply", "call", "defineProperty", "getOwnPropertyDescriptor", "getPrototypeOf", "setPrototypeOf", "isExtensible", "getOwnPropertyNames", "preventExtensions", "delete"] }]`
-
-这些可以根据你的喜好任意组合。不包含所有的方法(使这条规则变得无用)，使用 `prefer-reflect: [2, { exceptions: ["apply", "call", "defineProperty", "getOwnPropertyDescriptor", "getPrototypeOf", "setPrototypeOf", "isExtensible", "getOwnPropertyNames", "preventExtensions", "delete"] }]`
-
-### Reflect.apply (Function.prototype.apply/Function.prototype.call)
-
-The following patterns are considered problems:
-
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
 
-foo.apply(undefined, args);
-foo.apply(null, args);
-obj.foo.apply(obj, args);
-obj.foo.apply(other, args);
+myFunction.apply(undefined, args);
+myFunction.apply(null, args);
+obj.myMethod.apply(obj, args);
+obj.myMethod.apply(other, args);
 
-foo.call(undefined, arg);
-foo.call(null, arg);
-obj.foo.call(obj, arg);
-obj.foo.call(other, arg);
+myFunction.call(undefined, arg);
+myFunction.call(null, arg);
+obj.myMethod.call(obj, arg);
+obj.myMethod.call(other, arg);
 ```
 
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
+Examples of **correct** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
 
-Reflect.apply(undefined, args);
-Reflect.apply(null, args);
-Reflect.apply(obj.foo, obj, args);
-Reflect.apply(obj.foo, other, args);
-Reflect.apply(undefined, [arg]);
-Reflect.apply(null, [arg]);
-Reflect.apply(obj.foo, obj, [arg]);
-Reflect.apply(obj.foo, other, [arg]);
+Reflect.apply(myFunction, undefined, args);
+Reflect.apply(myFunction, null, args);
+Reflect.apply(obj.myMethod, obj, args);
+Reflect.apply(obj.myMethod, other, args);
+Reflect.apply(myFunction, undefined, [arg]);
+Reflect.apply(myFunction, null, [arg]);
+Reflect.apply(obj.myMethod, obj, [arg]);
+Reflect.apply(obj.myMethod, other, [arg]);
 ```
+
+Examples of **correct** code for this rule with the `{ "exceptions": ["apply"] }` option:
 
 ```js
-/*eslint prefer-reflect: ["error", { exceptions: ["apply"] }]*/
+/*eslint prefer-reflect: ["error", { "exceptions": ["apply"] }]*/
 
-foo.apply(undefined, args);
-foo.apply(null, args);
-obj.foo.apply(obj, args);
-obj.foo.apply(other, args);
-Reflect.apply(undefined, args);
-Reflect.apply(null, args);
-Reflect.apply(obj.foo, obj, args);
-Reflect.apply(obj.foo, other, args);
+// in addition to Reflect.apply(...):
+myFunction.apply(undefined, args);
+myFunction.apply(null, args);
+obj.myMethod.apply(obj, args);
+obj.myMethod.apply(other, args);
 ```
+
+Examples of **correct** code for this rule with the `{ "exceptions": ["call"] }` option:
 
 ```js
-/*eslint prefer-reflect: ["error", { exceptions: ["call"] }]*/
+/*eslint prefer-reflect: ["error", { "exceptions": ["call"] }]*/
 
-foo.call(undefined, arg);
-foo.call(null, arg);
-obj.foo.call(obj, arg);
-obj.foo.call(other, arg);
-Reflect.apply(undefined, [arg]);
-Reflect.apply(null, [arg]);
-Reflect.apply(obj.foo, obj, [arg]);
-Reflect.apply(obj.foo, other, [arg]);
+// in addition to Reflect.apply(...):
+myFunction.call(undefined, arg);
+myFunction.call(null, arg);
+obj.myMethod.call(obj, arg);
+obj.myMethod.call(other, arg);
 ```
 
-### Reflect.defineProperty (Object.defineProperty)
+### Reflect.defineProperty
 
-The following patterns are considered problems:
+Deprecates `Object.defineProperty()`
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -130,9 +108,7 @@ The following patterns are considered problems:
 Object.defineProperty({}, 'foo', {value: 1})
 ```
 
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
+Examples of **correct** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -140,18 +116,20 @@ The following patterns are not considered problems:
 Reflect.defineProperty({}, 'foo', {value: 1})
 ```
 
+Examples of **correct** code for this rule with the `{ "exceptions": ["defineProperty"] }` option:
+
 ```js
-/*eslint prefer-reflect: ["error", { exceptions: ["defineProperty"] }]*/
+/*eslint prefer-reflect: ["error", { "exceptions": ["defineProperty"] }]*/
 
 Object.defineProperty({}, 'foo', {value: 1})
 Reflect.defineProperty({}, 'foo', {value: 1})
 ```
 
-### Reflect.getOwnPropertyDescriptor (Object.getOwnPropertyDescriptor)
+### Reflect.getOwnPropertyDescriptor
 
-The following patterns are considered problems:
+Deprecates `Object.getOwnPropertyDescriptor()`
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -159,9 +137,7 @@ The following patterns are considered problems:
 Object.getOwnPropertyDescriptor({}, 'foo')
 ```
 
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
+Examples of **correct** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -169,22 +145,20 @@ The following patterns are not considered problems:
 Reflect.getOwnPropertyDescriptor({}, 'foo')
 ```
 
-__config:__ `prefer-reflect: ["error", { exceptions: ["getOwnPropertyDescriptor"] }]`
-
-__config:__ `prefer-reflect: ["error", { exceptions: ["getOwnPropertyDescriptor"] }]`
+Examples of **correct** code for this rule with the `{ "exceptions": ["getOwnPropertyDescriptor"] }` option:
 
 ```js
-/*eslint prefer-reflect: ["error", { exceptions: ["getOwnPropertyDescriptor"] }]*/
+/*eslint prefer-reflect: ["error", { "exceptions": ["getOwnPropertyDescriptor"] }]*/
 
 Object.getOwnPropertyDescriptor({}, 'foo')
 Reflect.getOwnPropertyDescriptor({}, 'foo')
 ```
 
-### Reflect.getPrototypeOf (Object.getPrototypeOf)
+### Reflect.getPrototypeOf
 
-The following patterns are considered problems:
+Deprecates `Object.getPrototypeOf()`
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -192,9 +166,7 @@ The following patterns are considered problems:
 Object.getPrototypeOf({}, 'foo')
 ```
 
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
+Examples of **correct** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -202,18 +174,20 @@ The following patterns are not considered problems:
 Reflect.getPrototypeOf({}, 'foo')
 ```
 
+Examples of **correct** code for this rule with the `{ "exceptions": ["getPrototypeOf"] }` option:
+
 ```js
-/*eslint prefer-reflect: ["error", { exceptions: ["getPrototypeOf"] }]*/
+/*eslint prefer-reflect: ["error", { "exceptions": ["getPrototypeOf"] }]*/
 
 Object.getPrototypeOf({}, 'foo')
 Reflect.getPrototypeOf({}, 'foo')
 ```
 
-### Reflect.setPrototypeOf (Object.setPrototypeOf)
+### Reflect.setPrototypeOf
 
-The following patterns are considered problems:
+Deprecates `Object.setPrototypeOf()`
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -221,9 +195,7 @@ The following patterns are considered problems:
 Object.setPrototypeOf({}, Object.prototype)
 ```
 
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
+Examples of **correct** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -231,22 +203,20 @@ The following patterns are not considered problems:
 Reflect.setPrototypeOf({}, Object.prototype)
 ```
 
-__config:__ `prefer-reflect: ["error", { exceptions: ["setPrototypeOf"] }]`
-
-__config:__ `prefer-reflect: ["error", { exceptions: ["setPrototypeOf"] }]`
+Examples of **correct** code for this rule with the `{ "exceptions": ["setPrototypeOf"] }` option:
 
 ```js
-/*eslint prefer-reflect: ["error", { exceptions: ["setPrototypeOf"] }]*/
+/*eslint prefer-reflect: ["error", { "exceptions": ["setPrototypeOf"] }]*/
 
 Object.setPrototypeOf({}, Object.prototype)
 Reflect.setPrototypeOf({}, Object.prototype)
 ```
 
-### Reflect.isExtensible (Object.isExtensible)
+### Reflect.isExtensible
 
-The following patterns are considered problems:
+Deprecates `Object.isExtensible`
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -254,9 +224,7 @@ The following patterns are considered problems:
 Object.isExtensible({})
 ```
 
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
+Examples of **correct** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -264,18 +232,20 @@ The following patterns are not considered problems:
 Reflect.isExtensible({})
 ```
 
+Examples of **correct** code for this rule with the `{ "exceptions": ["isExtensible"] }` option:
+
 ```js
-/*eslint prefer-reflect: ["error", { exceptions: ["isExtensible"] }]*/
+/*eslint prefer-reflect: ["error", { "exceptions": ["isExtensible"] }]*/
 
 Object.isExtensible({})
 Reflect.isExtensible({})
 ```
 
-### Reflect.getOwnPropertyNames (Object.getOwnPropertyNames)
+### Reflect.getOwnPropertyNames
 
-The following patterns are considered problems:
+Deprecates `Object.getOwnPropertyNames()`
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -283,9 +253,7 @@ The following patterns are considered problems:
 Object.getOwnPropertyNames({})
 ```
 
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
+Examples of **correct** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -293,18 +261,20 @@ The following patterns are not considered problems:
 Reflect.getOwnPropertyNames({})
 ```
 
+Examples of **correct** code for this rule with the `{ "exceptions": ["getOwnPropertyNames"] }` option:
+
 ```js
-/*eslint prefer-reflect: ["error", { exceptions: ["getOwnPropertyNames"] }]*/
+/*eslint prefer-reflect: ["error", { "exceptions": ["getOwnPropertyNames"] }]*/
 
 Object.getOwnPropertyNames({})
 Reflect.getOwnPropertyNames({})
 ```
 
-### Reflect.preventExtensions (Object.preventExtensions)
+### Reflect.preventExtensions
 
-The following patterns are considered problems:
+Deprecates `Object.preventExtensions()`
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -312,9 +282,7 @@ The following patterns are considered problems:
 Object.preventExtensions({})
 ```
 
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
+Examples of **correct** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
@@ -322,58 +290,53 @@ The following patterns are not considered problems:
 Reflect.preventExtensions({})
 ```
 
+Examples of **correct** code for this rule with the `{ "exceptions": ["preventExtensions"] }` option:
+
 ```js
-/*eslint prefer-reflect: ["error", { exceptions: ["preventExtensions"] }]*/
+/*eslint prefer-reflect: ["error", { "exceptions": ["preventExtensions"] }]*/
 
 Object.preventExtensions({})
 Reflect.preventExtensions({})
 ```
 
-### Reflect.deleteProperty (The `delete` keyword)
+### Reflect.deleteProperty
 
-The following patterns are considered problems:
+Deprecates the `delete` keyword
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
 
-delete foo.bar;
+delete foo.bar; // deleting object property
 ```
 
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
+Examples of **correct** code for this rule when used without exceptions:
 
 ```js
 /*eslint prefer-reflect: "error"*/
 
-delete bar; // Does not reference an object, just a var
+delete bar; // deleting variable
 Reflect.deleteProperty(foo, 'bar');
 ```
 
-(Note: For a rule preventing deletion of variables, see [no-delete-var instead](no-delete-var))
+Note: For a rule preventing deletion of variables, see [no-delete-var instead](no-delete-var)
 
-(注意：禁止删除变量请查看 [no-delete-var](no-delete-var))
+Examples of **correct** code for this rule with the `{ "exceptions": ["delete"] }` option:
 
 ```js
-/*eslint prefer-reflect: ["error", { exceptions: ["delete"] }]*/
+/*eslint prefer-reflect: ["error", { "exceptions": ["delete"] }]*/
 
 delete bar
 delete foo.bar
 Reflect.deleteProperty(foo, 'bar');
 ```
 
-
 ## When Not To Use It
 
 This rule should not be used in ES3/5 environments.
 
-该规则不应在 ES3/5 环境中使用。
-
 In ES2015 (ES6) or later, if you don't want to be notified about places where Reflect could be used, you can safely disable this rule.
-
-在 ES2015 (ES6) 或以后的版本中，如果你不想收到哪里应该使用 Reflect 的通知，你可以关闭此规则。
 
 ## Related Rules
 
@@ -384,8 +347,6 @@ In ES2015 (ES6) or later, if you don't want to be notified about places where Re
 ## Version
 
 This rule was introduced in ESLint 1.0.0-rc-2.
-
-该规则在 ESLint 1.0.0-rc-2 中被引入。
 
 ## Resources
 

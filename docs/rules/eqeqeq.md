@@ -1,5 +1,5 @@
 ---
-title: Rule eqeqeq
+title: eqeqeq - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -52,9 +52,9 @@ if (obj.getStuff() != undefined) { }
 
 ### always
 
-The `"always"` option (default) enforces the use of `===` and `!==` in every situation.
+The `"always"` option (default) enforces the use of `===` and `!==` in every situation (except when you opt-in to more specific handling of `null` [see below]).
 
-选项 `"always"`（默认）强制在任何情况下都使用 `===` 和 `!==`
+选项 `"always"`（默认）强制在任何情况下都使用 `===` 和 `!==` （除非你选择对 `null` 有更具体的处理[见下文]）。
 
 Examples of **incorrect** code for the `"always"` option:
 
@@ -93,6 +93,19 @@ true === true
 foo === null
 
 ```
+
+This rule optionally takes a second argument, which should be an object with the following supported properties:
+
+该规则可以有第二个参数，是个对象，支持以下属性：
+
+* `"null"`: Customize how this rule treats `null` literals. Possible values:
+* `"null"`: 自定义如何对待 `null` 字面量。可能的值：
+    * `always` (default) - Always use === or !==.
+    * `always` (默认) - 总是使用 === 或 !==.
+    * `never` - Never use === or !== with `null`.
+    * `never` - 从不和 `null` 一起使用 === 或 !==。
+    * `ignore` - Do not apply this rule to `null`.
+    * `ignore` - 不要对 `null` 应用此规则。
 
 ### smart
 
@@ -141,32 +154,16 @@ foo == null
 
 ### allow-null
 
-The `"allow-null"` option will enforce `===` and `!==` in your code with one exception - it permits comparing to `null` to check for `null` or `undefined` in a single expression.
+**Deprecated:** Instead of using this option use "always" and pass a "null" option property with value "ignore". This will tell eslint to always enforce strict equality except when comparing with the `null` literal.
 
-该选项会强制要求在你的代码中使用 `===` 和 `!==`，有一个例外，它允许 `null` 和 `null` 或者 `undefined` 在表达式中做比较。
+**弃用：** 使用 "always"，然后传一个 "null" 选项，属性值为 "ignore" 代替。这将告诉 eslint 除了与 `null` 字面量进行比较时，总是强制使用绝对相等。
 
 Examples of **incorrect** code for the `"allow-null"` option:
 
 选项 `"allow-null"` 的 **错误** 代码示例：
 
 ```js
-/*eslint eqeqeq: ["error", "allow-null"]*/
-
-bananas != 1
-typeof foo == 'undefined'
-'hello' != 'world'
-0 == 0
-foo == undefined
-```
-
-Examples of **correct** code for the `"allow-null"` option:
-
-选项 `"allow-null"` 的 **正确** 代码示例：
-
-```js
-/*eslint eqeqeq: ["error", "allow-null"]*/
-
-foo == null
+["error", "always", {"null": "ignore"}]
 ```
 
 ## When Not To Use It

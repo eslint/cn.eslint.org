@@ -1,5 +1,5 @@
 ---
-title: Rule radix
+title: radix - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -125,7 +125,6 @@ If you don't want to enforce either presence or omission of the `10` radix value
 ## Further Reading
 
 * [parseInt and radix](http://davidwalsh.name/parseint-radix)
-* [Missing radix parameter](http://jslinterrors.com/missing-radix-parameter/)
 
 ## Version
 

@@ -1,10 +1,12 @@
 ---
-title: Rule no-useless-computed-key
-layout: doc
+title: no-useless-computed-key - Rules
+layout: doc_en
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow unnecessary computed property keys on objects (no-useless-computed-key)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
 It's unnecessary to use computed properties with literals such as:
 
@@ -21,6 +23,8 @@ var foo = {"a": "b"};
 ## Rule Details
 
 This rule disallows unnecessary usage of computed property keys.
+
+## Examples
 
 Examples of **incorrect** code for this rule:
 

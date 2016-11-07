@@ -1,5 +1,5 @@
 ---
-title: Rule no-eq-null
+title: no-eq-null - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -8,9 +8,9 @@ layout: doc
 
 # 禁止与 null 进行比较 (no-eq-null)
 
-Comparing to `null` with a type-checking operator (`==` or `!=`), can have unintended results as the comparison will evaluate to true when comparing to not just a `null`, but also an `undefined` value.
+Comparing to `null` without a type-checking operator (`==` or `!=`), can have unintended results as the comparison will evaluate to true when comparing to not just a `null`, but also an `undefined` value.
 
-使用类型检测操作符（`==` 或 `!=`）与 `null` 进行比较，可能得意想不到的的结果，因为 `null`其本身以及 `null` 与 `undefined` 比较结果都为 true。
+与 `null` 进行比较时不使用类型检测操作符（`==` 或 `!=`），可能得意想不到的的结果，因为 `null` 其本身以及 `null` 与 `undefined` 比较结果都为 true。
 
 ```js
 if (foo == null) {

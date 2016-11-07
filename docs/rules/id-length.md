@@ -1,5 +1,5 @@
 ---
-title: Rule id-length
+title: id-length - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -283,12 +283,12 @@ var myObj = { a: 1 };
 
 ### exceptions
 
-Examples of additional **correct** code for this rule with the `{ "exceptions": "x" }` option:
+Examples of additional **correct** code for this rule with the `{ "exceptions": ["x"] }` option:
 
-选项 `{ "exceptions": "x" }` 的 **正确** 代码示例：
+选项 `{ "exceptions": ["x"] }` 的 **正确** 代码示例：
 
 ```js
-/*eslint id-length: ["error", { "max": "10" }]*/
+/*eslint id-length: ["error", { "exceptions": ["x"] }]*/
 /*eslint-env es6*/
 
 var x = 5;

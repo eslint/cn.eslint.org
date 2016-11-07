@@ -1,5 +1,5 @@
 ---
-title: Rule template-curly-spacing
+title: template-curly-spacing - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -13,7 +13,7 @@ layout: doc
 (fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 We can embed expressions in template strings with using a pair of `${` and `}`.
-This rule can force usage of spacing inside of the curly brace pair according to style guides.
+This rule can force usage of spacing _within_ the curly brace pair according to style guides.
 
 我们可以在模板字符串中使用 `${` 和 `}` 嵌入表达式。该规则可以根据风格指南强制花括号内空格的使用。
 
@@ -44,9 +44,13 @@ This rule has one option which has either `"never"` or `"always"` as value.
 * `"always"` - Requires one or more spaces inside of the curly brace pair.
 * `"always"` - 要求花括号内有一个或多个空格。
 
-Examples of **incorrect** code for this rule with the `"never"` option:
+## Examples
 
-选项 `"never"` 的 **错误** 代码示例：
+### never
+
+Examples of **incorrect** code for this rule with the default `"never"` option:
+
+默认选项 `"never"` 的 **错误** 代码示例：
 
 ```js
 /*eslint template-curly-spacing: "error"*/
@@ -57,9 +61,9 @@ Examples of **incorrect** code for this rule with the `"never"` option:
 `hello, ${ people.name }!`;
 ```
 
-Examples of **correct** code for this rule with the `"never"` option:
+Examples of **correct** code for this rule with the default `"never"` option:
 
-选项 `"never"` 的 **正确** 代码示例：
+默认选项 `"never"` 的 **正确** 代码示例：
 
 ```js
 /*eslint template-curly-spacing: "error"*/
@@ -70,6 +74,8 @@ Examples of **correct** code for this rule with the `"never"` option:
     people.name
 }!`;
 ```
+
+### always
 
 Examples of **incorrect** code for this rule with the `"always"` option:
 

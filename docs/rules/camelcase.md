@@ -1,5 +1,5 @@
 ---
-title: Rule camelcase
+title: camelcase - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -14,9 +14,9 @@ When it comes to naming variables, style guides generally fall into one of two c
 
 ## Rule Details
 
-This rule looks for any underscores (`_`) located within the source code. It ignores leading and trailing underscores and only checks those in the middle of a variable name. If ESLint decides that the variable is a constant (all uppercase), then no warning will be thrown. Otherwise, a warning will be thrown. This rule only flags definitions and assignments but not function calls.
+This rule looks for any underscores (`_`) located within the source code. It ignores leading and trailing underscores and only checks those in the middle of a variable name. If ESLint decides that the variable is a constant (all uppercase), then no warning will be thrown. Otherwise, a warning will be thrown. This rule only flags definitions and assignments but not function calls. In case of ES6 `import` statements, this rule only targets the name of the variable that will be imported into the local module scope.
 
-此规则在源码中查找下划线 (`_`)。它忽略前导和尾部的下划线，只检查在变量名称中间的下划线。如果 ESLint 判断定某个变量是个常量（全部大写），将不会发出警告。否则会发出警告。该规则仅仅标记定义和赋值，不适用于方法调用。
+此规则在源码中查找下划线 (`_`)。它忽略前导和尾部的下划线，只检查在变量名称中间的下划线。如果 ESLint 判断定某个变量是个常量（全部大写），将不会发出警告。否则会发出警告。该规则仅仅标记定义和赋值，不适用于方法调用。在 ES6 `import` 语句中，该规则只针对将引入到本地模块作用域的变量名。
 
 ## Options
 
@@ -37,6 +37,8 @@ Examples of **incorrect** code for this rule with the default `{ "properties": "
 
 ```js
 /*eslint camelcase: "error"*/
+
+import { no_camelcased } from "external-module"
 
 var my_favorite_color = "#112C85";
 
@@ -60,6 +62,8 @@ Examples of **correct** code for this rule with the default `{ "properties": "al
 ```js
 /*eslint camelcase: "error"*/
 
+import { no_camelcased as camelCased } from "external-module";
+
 var myFavoriteColor   = "#112C85";
 var _myFavoriteColor  = "#112C85";
 var myFavoriteColor_  = "#112C85";
@@ -68,6 +72,8 @@ var foo = bar.baz_boom;
 var foo = { qux: bar.baz_boom };
 
 obj.do_something();
+do_something();
+new do_something();
 
 var { category_id: category } = query;
 ```

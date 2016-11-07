@@ -1,5 +1,5 @@
 ---
-title: Rule prefer-const
+title: prefer-const - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -7,6 +7,10 @@ layout: doc
 # Suggest using `const` (prefer-const)
 
 # 建议使用`const` (prefer-const)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 If a variable is never reassigned, using the `const` declaration is better.
 

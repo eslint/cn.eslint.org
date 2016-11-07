@@ -1,5 +1,5 @@
 ---
-title: Rule prefer-template
+title: prefer-template - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -7,6 +7,10 @@ layout: doc
 # Suggest using template literals instead of string concatenation. (prefer-template)
 
 # 建议使用模板而非字符串连接 (prefer-template)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 In ES2015 (ES6), we can use template literals instead of string concatenation.
 
@@ -28,9 +32,11 @@ This rule is aimed to flag usage of `+` operators with strings.
 
 该规则旨在标记字符串间 `+` 操作符的使用。
 
-The following patterns are considered problems:
+## Examples
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule:
+
+**错误** 代码示例：
 
 ```js
 /*eslint prefer-template: "error"*/
@@ -39,9 +45,9 @@ var str = "Hello, " + name + "!";
 var str = "Time: " + (12 * 60 * 60 * 1000);
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint prefer-template: "error"*/
@@ -67,6 +73,7 @@ In ES2015 (ES6) or later, if you don't want to be notified about string concaten
 
 ## Related Rules
 
+* [no-useless-concat](no-useless-concat)
 * [quotes](quotes)
 
 ## Version

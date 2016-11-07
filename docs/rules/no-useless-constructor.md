@@ -1,5 +1,5 @@
 ---
-title: Rule no-useless-constructor
+title: no-useless-constructor - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -31,9 +31,9 @@ This rule flags class constructors that can be safely removed without changing h
 
 该规则标记可以被安全移除但又不改变类的行为的构造函数。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误** 代码示例：
 
 ```js
 /*eslint no-useless-constructor: "error"*/
@@ -51,9 +51,9 @@ class A extends B {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint no-useless-constructor: "error"*/

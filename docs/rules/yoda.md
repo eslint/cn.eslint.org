@@ -1,5 +1,5 @@
 ---
-title: Rule yoda
+title: yoda - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -7,6 +7,10 @@ layout: doc
 # Require or disallow Yoda Conditions (yoda)
 
 # 要求或者禁止Yoda条件 (yoda)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 Yoda conditions are so named because the literal value of the condition comes first while the variable comes second. For example, the following is a Yoda condition:
 
@@ -18,7 +22,7 @@ if ("red" === color) {
 }
 ```
 
-This is called a Yoda condition because it reads as, "red is the color", similar to the way the Star Wars character Yoda speaks. Compare to the other way of arranging the operands:
+This is called a Yoda condition because it reads as, "if red equals the color", similar to the way the Star Wars character Yoda speaks. Compare to the other way of arranging the operands:
 
 它被叫做 Yoda 条件是因为它这样读："红色是颜色"，类似于星球大战中 Yoda 的讲话方式。对比另一种操作数的排序方式：
 
@@ -28,7 +32,7 @@ if (color === "red") {
 }
 ```
 
-This typically reads, "color is red", which is arguably a more natural way to describe the comparison.
+This typically reads, "if the color equals red", which is arguably a more natural way to describe the comparison.
 
 这通常读作，"颜色是红的"，这是一种更自然的方式去描述对比。
 

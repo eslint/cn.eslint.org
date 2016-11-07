@@ -1,5 +1,5 @@
 ---
-title: Rule no-var
+title: no-var - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -7,6 +7,10 @@ layout: doc
 # require `let` or `const` instead of `var` (no-var)
 
 # 要求使用 `let` 或 `const` 而不是 `var`
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 ECMAScript 6 allows programmers to create variables with block scope instead of function scope using the `let`
 and `const` keywords. Block scope is common in many other programming languages and helps programmers avoid mistakes
@@ -33,9 +37,11 @@ This rule is aimed at discouraging the use of `var` and encouraging the use of `
 
 该规则旨在阻止 `var` 的使用，推荐使用 `const` 或 `let`。
 
-The following patterns are considered problems:
+## Examples
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule:
+
+**错误** 代码示例：
 
 ```js
 /*eslint no-var: "error"*/
@@ -44,9 +50,9 @@ var x = "y";
 var CONFIG = {};
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint no-var: "error"*/

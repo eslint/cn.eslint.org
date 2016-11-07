@@ -1,12 +1,16 @@
 ---
-title: Rule quote-props
+title: quote-props - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Quoting Style for Property Names (quote-props)
+# require quotes around object literal property names (quote-props)
 
-# 属性名称的引号风格 (quote-props)
+# 要求对象字面量属性名称使用引号 (quote-props)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 Object literal property names can be defined in two ways: using literals or using strings. For example, these two objects are equivalent:
 
@@ -52,63 +56,47 @@ This may look alright at first sight, but this code in fact throws a syntax erro
 
 ## Rule Details
 
-This rule aims to enforce use of quotes in property names and as such will flag any properties that don't use quotes (default behavior).
+This rule requires quotes around object literal property names.
 
-该规则旨在属性名中强制使用引号，因此，该规则将标记任何没有使用引号的属性(默认行为)。
+该规则要求对象字面量属性名称使用引号。
 
 ## Options
 
-There are four behaviors for this rule: `"always"` (default), `"as-needed"`, `"consistent"` and `"consistent-as-needed"`. You can define these options in your configuration as:
+This rule has two options, a string option and an object option.
 
-该规则有四种行为：`"always"` (默认), `"as-needed"`、`"consistent"` 和 `"consistent-as-needed"`。你可以像这样在你的配置中定义这些选项：
+该规则有两个选项，一个是字符串，一个是对象。
 
-```json
-{
-    "quote-props": ["error", "as-needed"]
-}
-```
+String option:
 
-### "always"
+字符串选项：
 
-When configured with `"always"` as the first option (the default), quoting for all properties will be enforced. Some believe that ensuring property names in object literals are always wrapped in quotes is generally a good idea, since [depending on the property name you may need to quote them anyway](https://mathiasbynens.be/notes/javascript-properties). Consider this example:
+* `"always"` (default) requires quotes around all object literal property names
+* `"always"` (默认) 要求对象字面量属性名称都使用引号
+* `"as-needed"` disallows quotes around object literal property names that are not strictly required
+* `"as-needed"` 当没有严格要求时，禁止对象字面量属性名称使用引号
+* `"consistent"` enforces a consistent quote style requires quotes around object literal property names
+* `"consistent"` 要求对象字面量属性名称使用一致的引号
+* `"consistent-as-needed"` requires quotes around all object literal property names if any name strictly requires quotes, otherwise disallows quotes around object property names
+* `"consistent-as-needed"` 如果有属性名称要求使用引号，则所有的属性名称都要使用引号；否则，禁止所有的属性名称使用引号
 
-当第一个选项配置为 `"always"` 时(默认的)，所有的属性将被强制使用引号。有些人认为将对象字面量属性被引号包裹起来是一个很好的做法，因为[这样的属性总是要将它们用引号引起来](https://mathiasbynens.be/notes/javascript-properties)。请参考以下示例：
+Object option:
 
-```js
-var object = {
-    foo: "bar",
-    baz: 42,
-    "qux-lorem": true
-};
-```
+对象选项：
 
-Here, the properties `foo` and `baz` are not wrapped in quotes, but `qux-lorem` is, because it doesn’t work without the quotes. This is rather inconsistent. Instead, you may prefer to quote names of all properties:
+* `"keywords": true` requires quotes around language keywords used as object property names (only applies when using `as-needed` or `consistent-as-needed`)
+* `"keywords": true` 如果关键字作为对象属性名称，要求使用引号 (当 `as-needed` 或 `consistent-as-needed` 时生效)
+* `"unnecessary": true` (default) disallows quotes around object literal property names that are not strictly required (only applies when using `as-needed`)
+* `"unnecessary": true` (默认) 如果没有严格要求，禁止对象属性名称使用引号 (当`as-needed` 时生效)
+* `"unnecessary": false` allows quotes around object literal property names that are not strictly required (only applies when using `as-needed`)
+* `"unnecessary": false` 如果没有严格要求，允许对象属性名称使用引号 (当 `as-needed` 时生效)
+* `"numbers": true` requires quotes around numbers used as object property names (only applies when using `as-needed`)
+* `"numbers": true` 当数字作为对象属性名称时，要求使用引号 (只当 `as-needed` 时生效)
 
-示例中，属性 `foo` 和 `baz` 没有被包裹在引号中，但 `qux-lorem` 被包裹在引号中，因为如果没有引号，它将不起作用。这表现的相当不一致的。相反的，你可能更愿意把所有的属性名都用引号包裹起来。
+### always
 
-```js
-var object = {
-    "foo": "bar",
-    "baz": 42,
-    "qux-lorem": true
-};
-```
+Examples of **incorrect** code for this rule with the default `"always"` option:
 
-or, if you prefer single quotes:
-
-又或者，假如你更喜欢单引号：
-
-```js
-var object = {
-    'foo': 'bar',
-    'baz': 42,
-    'qux-lorem': true
-};
-```
-
-When configured with `"always"` as the first option (the default), quoting for all properties will be enforced. The following patterns are considered problems:
-
-当第一个选项配置为 `"always"` 时(默认的)，所有的属性将被强制使用引号。以下模式被认为是有问题的：
+默认选项 `"always"` 的 **错误** 代码示例：
 
 ```js
 /*eslint quote-props: ["error", "always"]*/
@@ -120,9 +108,9 @@ var object = {
 };
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `"always"` option:
 
-以下模式被认为是没有问题的：
+默认选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 /*eslint quote-props: ["error", "always"]*/
@@ -147,11 +135,11 @@ var object3 = {
 };
 ```
 
-### "as-needed"
+### as-needed
 
-When configured with `"as-needed"` as the first option, quotes will be enforced when they are strictly required, and unnecessary quotes will cause warnings. The following patterns are considered problems:
+Examples of **incorrect** code for this rule with the `"as-needed"` option:
 
-当第一个选项配置为 `"as-needed"`时，严格要求带引号的属性将被强制带引号，不必要的引号将发出警告。以下模式被认为是有问题的：
+选项 `"as-needed"` 的 **错误** 代码示例：
 
 ```js
 /*eslint quote-props: ["error", "as-needed"]*/
@@ -164,9 +152,9 @@ var object = {
 };
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"as-needed"` option:
 
-以下模式被认为是没有问题的：
+选项 `"as-needed"` 的 **正确** 代码示例：
 
 ```js
 /*eslint quote-props: ["error", "as-needed"]*/
@@ -193,89 +181,11 @@ var object3 = {
 };
 ```
 
-When the `"as-needed"` mode is selected, an additional `keywords` option can be provided. This flag indicates whether language keywords should be quoted as properties. By default it is set to `false`.
+### consistent
 
-当 `"as-needed"` 方式被选用时，可提供一个额外的 `keywords`选项。此标记指示关键字作为属性时是否需要带引号。默认情况下它被设置为 `false`。
+Examples of **incorrect** code for this rule with the `"consistent"` option:
 
-```json
-{
-    "quote-props": ["error", "as-needed", { "keywords": true }]
-}
-```
-
-When `keywords` is set to `true`, the following patterns become problems:
-
-当 `keywords` 被设置为 `true` 时，以下模式是有问题的：
-
-```js
-/*eslint quote-props: ["error", "as-needed", { "keywords": true }]*/
-
-var x = {
-    while: 1,
-    volatile: "foo"
-};
-```
-
-Another modifier for this rule is the `unnecessary` option which defaults to `true`. Setting this to `false` will prevent the rule from complaining about unnecessarily quoted properties. This comes in handy when you _only_ care about quoting keywords.
-
-该规则的另一个修饰符是 `unnecessary` 选项默认为 `true`。设置这个选项为 `false`，该规则将不对不是必须用引号包裹起来的属性进行检查。当你只关注被引号包裹起来的关键字时，这会很方便。
-
-```json
-{
-    "quote-props": ["error", "as-needed", { "keywords": true, "unnecessary": false }]
-}
-```
-
-When `unnecessary` is set to `false`, the following patterns _stop_ being problems:
-
-当设置 `unnecessary` 为 `false` 时，以下模式是没有问题的：
-
-```js
-/*eslint quote-props: ["error", "as-needed", { "keywords": true, "unnecessary": false }]*/
-
-var x = {
-    "while": 1,
-    "foo": "bar"  // Would normally have caused a warning
-};
-```
-
-A `numbers` flag, with default value `false`, can also be used as a modifier for the `"as-needed"` mode. When it is set to `true`, numeric literals should always be quoted.
-
-`numbers` 标记，默认为 `false`，也可以在 `"as-needed"` 方式下被用作修饰符。当设置为 `true` 时，数字文本必须被引号包裹起来。
-
-```json
-{
-    "quote-props": ["error", "as-needed", {"numbers": true}]
-}
-```
-
-When `numbers` is set to `true`, the following patterns become problems:
-
-当 `numbers` 设置为 `true` 时，以下模式是有问题的：
-
-```js
-/*eslint quote-props: ["error", "as-needed", { "numbers": true }]*/
-
-var x = {
-    100: 1
-}
-```
-
-and the following patterns _stop_ being problems:
-
-以下模式没有问题：
-
-```js
-var x = {
-    "100": 1
-}
-```
-
-### "consistent"
-
-When configured with `"consistent"`, the patterns below are considered problems. Basically `"consistent"` means all or no properties are expected to be quoted, in other words quoting style can't be mixed within an object. Please note the latter situation (no quotation at all) isn't always possible as some property names require quoting.
-
-当配置为 `"consistent"`，以下模式被认为是有问题的。从根本上来说 `"consistent"` 意味着所有属性或没有属性要求被引号包裹起来，换句话说，在同一个对象中不能混合使用不同的引号风格。请注意后一种情况(没有引号)，并不总是不需要引号，可能因为某些属性名需要用引号包裹起来。
+选项 `"consistent"` 的 **错误** 代码示例：
 
 ```js
 /*eslint quote-props: ["error", "consistent"]*/
@@ -292,9 +202,9 @@ var object2 = {
 };
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"consistent"` option:
 
-以下模式被认为是没有问题的：
+选项 `"consistent"` 的 **正确** 代码示例：
 
 ```js
 /*eslint quote-props: ["error", "consistent"]*/
@@ -316,11 +226,11 @@ var object3 = {
 };
 ```
 
-### "consistent-as-needed"
+### consistent-as-needed
 
-When configured with `"consistent-as-needed"`, the behavior is similar to `"consistent"` with one difference. Namely, properties' quoting should be consistent (as in `"consistent"`) but whenever all quotes are redundant a warning is raised. In other words if at least one property name has to be quoted (like `qux-lorem`) then all property names must be quoted, otherwise no properties can be quoted. The following patterns are considered problems:
+Examples of **incorrect** code for this rule with the `"consistent-as-needed"` option:
 
-当配置了 `"consistent-as-needed"`，它的行为类似于 `"consistent"` ，仅有一个区别。即，除了所有的引号都是多余的时候引起了警告，属性的引号应该是一致的(同在 `"consistent"` 中一样)。换句话说，如果有一个属性名不得不被被引号包裹起来(像 `qux-lorem`)，其他的属性也名必须也被引号包裹起来，否则，任何属性都不能被包裹起来。以下模式被认为是有问题的：
+选项 `"consistent-as-needed"` 的 **错误** 代码示例：
 
 ```js
 /*eslint quote-props: ["error", "consistent-as-needed"]*/
@@ -337,9 +247,9 @@ var object2 = {
 };
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"consistent-as-needed"` option:
 
-以下模式被认为是没有问题的：
+选项 `"consistent-as-needed"` 的 **正确** 代码示例：
 
 ```js
 /*eslint quote-props: ["error", "consistent-as-needed"]*/
@@ -356,27 +266,61 @@ var object2 = {
 };
 ```
 
-When the `"consistent-as-needed"` mode is selected, an additional `keywords` option can be provided. This flag indicates whether language keywords can be used unquoted as properties. By default it is set to `false`.
+### keywords
 
-当 `"consistent-as-needed"` 方式被选用时，可提供一个额外的 `keywords` 选项。此标记表明关键字作为属性是否可以不用引号。默认值为 `false`。
+Examples of additional **incorrect** code for this rule with the `"as-needed", { "keywords": true }` options:
 
-```json
-{
-    "quote-props": ["error", "consistent-as-needed", { "keywords": true }]
-}
-```
-
-When `keywords` is set to `true`, the following patterns are considered problems:
-
-当 `keywords` 被设置为 `true`，以下模式被认为是有问题的：
+选项 `"as-needed", { "keywords": true }` 的 **错误** 代码示例：
 
 ```js
-/*eslint quote-props: ["error", "consistent-as-needed", { "keywords": true }]*/
+/*eslint quote-props: ["error", "as-needed", { "keywords": true }]*/
 
 var x = {
     while: 1,
     volatile: "foo"
 };
+```
+
+Examples of additional **incorrect** code for this rule with the `"consistent-as-needed", { "keywords": true }` options:
+
+选项 `"consistent-as-needed", { "keywords": true }` 的 **错误** 代码示例：
+
+```js
+/*eslint quote-props: ["error", "consistent-as-needed", { "keywords": true }]*/
+
+var x = {
+    "prop": 1,
+    "bar": "foo"
+};
+```
+
+### unnecessary
+
+Examples of additional **correct** code for this rule with the `"as-needed", { "unnecessary": false }` options:
+
+选项 `"as-needed", { "unnecessary": false }` 的 **正确** 代码示例：
+
+```js
+/*eslint quote-props: ["error", "as-needed", { "keywords": true, "unnecessary": false }]*/
+
+var x = {
+    "while": 1,
+    "foo": "bar"  // Would normally have caused a warning
+};
+```
+
+### numbers
+
+Examples of additional **incorrect** code for this rule with the `"as-needed", { "numbers": true }` options:
+
+选项 `"as-needed", { "numbers": true }` 的 **错误** 代码示例：
+
+```js
+/*eslint quote-props: ["error", "as-needed", { "numbers": true }]*/
+
+var x = {
+    100: 1
+}
 ```
 
 ## When Not To Use It

@@ -1,5 +1,5 @@
 ---
-title: Rule array-bracket-spacing
+title: array-bracket-spacing - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -100,7 +100,7 @@ var [ ,,x, ] = z;
 
 Examples of **correct** code for this rule with the default `"never"` option:
 
-默认选项`"never"`的 **正确**代码格式：
+默认选项`"never"`的 **正确**代码示例：
 
 ```js
 /*eslint array-bracket-spacing: ["error", "never"]*/
@@ -131,7 +131,7 @@ var [,,x,] = z;
 
 Examples of **incorrect** code for this rule with the `"always"` option:
 
-当设置了 `"always"`, 以下模式被认为是有问题的:
+选项 `"always"` 的 **错误** 代码示例：
 
 ```js
 /*eslint array-bracket-spacing: ["error", "always"]*/
@@ -155,7 +155,7 @@ var [,,x,] = z;
 
 Examples of **correct** code for this rule with the `"always"` option:
 
-以下模式被认为是没有问题的：
+选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 /*eslint array-bracket-spacing: ["error", "always"]*/
@@ -186,7 +186,7 @@ var [ ,,x, ] = z;
 
 Examples of **incorrect** code for this rule with the `"always", { "singleValue": false }` options:
 
-选项`"always", { "singleValue": false }`的 **错误** 代码示例：
+选项 `"always", { "singleValue": false }` 的 **错误** 代码示例：
 
 ```js
 /*eslint array-bracket-spacing: ["error", "always", { "singleValue": false }]*/
@@ -203,7 +203,7 @@ var foo = [ { 'foo': 'bar' } ];
 
 Examples of **correct** code for this rule with the `"always", { "singleValue": false }` options:
 
-选项`"always", { "singleValue": false }`的 **正确** 代码示例：
+选项 `"always", { "singleValue": false }` 的 **正确** 代码示例：
 
 ```js
 /*eslint array-bracket-spacing: ["error", "always", { "singleValue": false }]*/
@@ -218,7 +218,7 @@ var foo = [{ 'foo': 'bar' }];
 
 Examples of **incorrect**  this rule with the `"always", { "objectsInArrays": false }` options:
 
-选项`"always", { "objectsInArrays": false }`的 **错误** 代码示例：
+选项 `"always", { "objectsInArrays": false }` 的 **错误** 代码示例：
 
 ```js
 /*eslint array-bracket-spacing: ["error", "always", { "objectsInArrays": false }]*/
@@ -231,7 +231,7 @@ var arr = [ {
 
 Examples of **correct** code for this rule with the `"always", { "objectsInArrays": false }` options:
 
-选项`"always", { "objectsInArrays": false }`的 **正确** 代码示例：
+选项 `"always", { "objectsInArrays": false }` 的 **正确** 代码示例：
 
 ```js
 /*eslint array-bracket-spacing: ["error", "always", { "objectsInArrays": false }]*/
@@ -246,7 +246,7 @@ var arr = [{
 
 Examples of **incorrect** code for this rule with the `"always", { "arraysInArrays": false }` options:
 
-选项`"always", { "arraysInArrays": false }`的 **错误** 代码示例：
+选项 `"always", { "arraysInArrays": false }` 的 **错误** 代码示例：
 
 ```js
 /*eslint array-bracket-spacing: ["error", "always", { "arraysInArrays": false }]*/
@@ -257,7 +257,7 @@ var arr = [ [ 1, 2 ], 2, [ 3, 4 ] ];
 
 Examples of **correct** code for this rule with the `"always", { "arraysInArrays": false }` options:
 
-选项`"always", { "arraysInArrays": false }`的 **正确** 代码示例：
+选项 `"always", { "arraysInArrays": false }` 的 **正确** 代码示例：
 
 ```js
 /*eslint array-bracket-spacing: ["error", "always", { "arraysInArrays": false }]*/

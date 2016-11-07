@@ -1,42 +1,82 @@
 ---
-title: Rule no-native-reassign
-layout: doc
+title: no-native-reassign - Rules
+layout: doc_en
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow Reassignment of Native Objects (no-native-reassign)
 
-# 禁止对原生对象赋值 (no-native-reassign)
+This rule was **deprecated** in ESLint v3.3.0 and replaced by the [no-global-assign](no-global-assign) rule.
 
-Reports an error when they encounter an attempt to assign a value to built-in native object.
-
-当试图给内置的原生对象赋值时，该规则将会报告错误。
+JavaScript environments contain a number of built-in global variables, such as `window` in browsers and `process` in Node.js. In almost all cases, you don't want to assign a value to these global variables as doing so could result in losing access to important functionality. For example, you probably don't want to do this in browser code:
 
 ```js
-String = "hello world";
+window = {};
 ```
+
+While examples such as `window` are obvious, there are often hundreds of built-in global objects provided by JavaScript environments. It can be hard to know if you're assigning to a global variable or not.
 
 ## Rule Details
 
-The native objects reported by this rule are the `builtin` variables from [globals](https://github.com/sindresorhus/globals/).
+This rule disallows modifications to read-only global variables.
 
-此规则报告的原生对象是来自 [globals](https://github.com/sindresorhus/globals/) 的`内置`变量。 
+ESLint has the capability to configure global variables as read-only.
+
+* [Specifying Environments](../user-guide/configuring#specifying-environments)
+* [Specifying Globals](../user-guide/configuring#specifying-globals)
 
 Examples of **incorrect** code for this rule:
-
-**错误** 代码示例：
 
 ```js
 /*eslint no-native-reassign: "error"*/
 
-String = new Object();
+Object = null
+undefined = 1
+```
+
+```js
+/*eslint no-native-reassign: "error"*/
+/*eslint-env browser*/
+
+window = {}
+length = 1
+top = 1
+```
+
+```js
+/*eslint no-native-reassign: "error"*/
+/*globals a:false*/
+
+a = 1
+```
+
+Examples of **correct** code for this rule:
+
+```js
+/*eslint no-native-reassign: "error"*/
+
+a = 1
+var b = 1
+b = 2
+```
+
+```js
+/*eslint no-native-reassign: "error"*/
+/*eslint-env browser*/
+
+onload = function() {}
+```
+
+```js
+/*eslint no-native-reassign: "error"*/
+/*globals a:true*/
+
+a = 1
 ```
 
 ## Options
 
 This rule accepts an `exceptions` option, which can be used to specify a list of builtins for which reassignments will be allowed:
-
-此规则有一个 `exceptions` 选项，可以用来指定一个允许被赋值的内建变量列表。
 
 ```json
 {
@@ -50,8 +90,6 @@ This rule accepts an `exceptions` option, which can be used to specify a list of
 
 If you are trying to override one of the native objects.
 
-如果你想尝试覆盖一个原生对象。
-
 ## Related Rules
 
 * [no-extend-native](no-extend-native)
@@ -61,8 +99,6 @@ If you are trying to override one of the native objects.
 ## Version
 
 This rule was introduced in ESLint 0.0.9.
-
-该规则在 ESLint 0.0.9 中被引入。
 
 ## Resources
 

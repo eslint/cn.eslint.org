@@ -1,5 +1,5 @@
 ---
-title: Rule no-unused-vars
+title: no-unused-vars - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -25,9 +25,11 @@ A variable is considered to be used if any of the following are true:
 * It represents a function that is called (`doSomething()`)
 * 作为回调函数
 * It is read (`var y = x`)
-* 可读 (`var y = x`)
+* 被读取 (`var y = x`)
 * It is passed into a function as an argument (`doSomething(x)`)
 * 传入函数中作为argument对象(`doSomething(x)`)
+* It is read inside of a function that is passed to another function (`doSomething(function() { foo(); })`)
+* 在传入到另一个函数的函数中被读取
 
 A variable is *not* considered to be used if it is only ever assigned to (`var x = 5`) or declared.
 
@@ -41,13 +43,18 @@ Examples of **incorrect** code for this rule:
 /*eslint no-unused-vars: "error"*/
 /*global some_unused_var*/
 
-//It checks variables you have defined as global
+// It checks variables you have defined as global
 some_unused_var = 42;
 
 var x;
 
+// Write-only variables are not considered as used.
 var y = 10;
 y = 5;
+
+// A read for a modification of itself is not considered as used.
+var z = 0;
+z = z + 1;
 
 // By default, unused arguments cause warnings.
 (function(foo) {
@@ -79,11 +86,17 @@ myFunc(function foo() {
 (function(foo) {
     return foo;
 })();
+
+var myFunc;
+myFunc = setTimeout(function() {
+    // myFunc is considered used
+    myFunc();
+}, 50);
 ```
 
 ### exported
 
-In environments outside of CommonJS or ECMAScript modules, you may use `var` to create a global variable that may be used by other scripts. You can use the `/* exported variableName */` comment block to indicate that this variable is being exported and therefore should not be considered unused. 
+In environments outside of CommonJS or ECMAScript modules, you may use `var` to create a global variable that may be used by other scripts. You can use the `/* exported variableName */` comment block to indicate that this variable is being exported and therefore should not be considered unused.
 
 在 CommonJS 或者 ECMAScript 模块外部，可用 `var`创建一个被其他模块代码引用的变量。你也可以用 `/* exported variableName */` 注释快表明此变量已导出，因此此变量不会被认为是未被使用过的。
 

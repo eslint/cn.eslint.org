@@ -1,5 +1,5 @@
 ---
-title: Rule max-len
+title: max-len - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -18,9 +18,9 @@ var foo = { "bar": "This is a bar.", "baz": { "qux": "This is a qux" }, "difficu
 
 ## Rule Details
 
-This rule enforces a maximum line length to increase code readability and maintainability.
+This rule enforces a maximum line length to increase code readability and maintainability. The length of a line is defined as the number of Unicode characters in the line.
 
-该规则旨在通过限制代码行的长度来提高代码的可读性和可维护性。因此，如果超过了配置的最大值，该规则将发出警告。
+该规则旨在通过限制代码行的长度来提高代码的可读性和可维护性。因此，如果超过了配置的最大值，该规则将发出警告。一行的长度为行中的 Unicode 字符的数量。
 
 **Note:** This rule calculates the length of a line via code points, not characters. That means if you use a double-byte character in your code, it will count as 2 code points instead of 1, and 2 will be used to calculate line length. This is a technical limitation of JavaScript that is made easier with ES2015, and we will look to update this when ES2015 is available in Node.js.
 
@@ -46,6 +46,12 @@ This rule has a number or object option:
 * `"ignoreTrailingComments": true` 忽略拖尾注释
 * `"ignoreUrls": true` ignores lines that contain a URL
 * `"ignoreUrls": true` 忽略含有链接的行
+* `"ignoreStrings": true` ignores lines that contain a double-quoted or single-quoted string
+* `"ignoreStrings": true` 忽略含有双引号或单引号字符串的行
+* `"ignoreTemplateLiterals": true` ignores lines that contain a template literal
+* `"ignoreTemplateLiterals": true` 忽略包含模板字面量的行
+* `"ignoreRegExpLiterals": true` ignores lines that contain a RegExp literal
+* `"ignoreRegExpLiterals": true` 忽略包含正则表达式的行
 
 ### code
 
@@ -148,6 +154,42 @@ Examples of **correct** code for this rule with the `{ "ignoreUrls": true }` opt
 /*eslint max-len: ["error", { "ignoreUrls": true }]*/
 
 var url = 'https://www.example.com/really/really/really/really/really/really/really/long';
+```
+
+### ignoreStrings
+
+Examples of **correct** code for this rule with the `{ "ignoreStrings": true }` option:
+
+选项 `{ "ignoreStrings": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint max-len: ["error", { "ignoreStrings": true }]*/
+
+var longString = 'this is a really really really really really long string!';
+```
+
+### ignoreTemplateLiterals
+
+Examples of **correct** code for this rule with the `{ "ignoreTemplateLiterals": true }` option:
+
+选项 `{ "ignoreTemplateLiterals": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint max-len: ["error", { "ignoreTemplateLiterals": true }]*/
+
+var longTemplateLiteral = `this is a really really really really really long template literal!`;
+```
+
+### ignoreRegExpLiterals
+
+Examples of **correct** code for this rule with the `{ "ignoreRegExpLiterals": true }` option:
+
+选项 `{ "ignoreRegExpLiterals": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint max-len: ["error", { "ignoreRegExpLiterals": true }]*/
+
+var longRegExpLiteral = /this is a really really really really really long regular expression!/;
 ```
 
 ### ignorePattern

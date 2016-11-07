@@ -23,8 +23,10 @@
   "homepage": "https://github.com/eslint/cn.eslint.org#readme",
   "dependencies": {},
   "devDependencies": {
+    "bootstrap": "^3.3.6",
     "browserify": "^11.0.1",
     "json-loader": "^0.5.2",
+    "less": "^2.7.1",
     "node-libs-browser": "^0.5.2"
   }
 }

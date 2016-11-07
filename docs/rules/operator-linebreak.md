@@ -1,12 +1,12 @@
 ---
-title: Rule operator-linebreak
+title: operator-linebreak - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Operator Linebreak (operator-linebreak)
+# enforce consistent linebreak style for operators (operator-linebreak)
 
-# 操作符、换行符 (operator-linebreak)
+# 强制操作符使用一致的换行符风格 (operator-linebreak)
 
 When a statement is too long to fit on a single line, line breaks are generally inserted next to the operators separating expressions. The first style coming to mind would be to place the operator at the end of the line, following the english punctuation rules.
 
@@ -30,37 +30,39 @@ var fullHeight = borderTop
 
 ## Rule Details
 
-The `operator-linebreak` rule is aimed at enforcing a particular operator line break style. As such, it warns whenever it sees a binary operator or assignment that does not adhere to a particular style: either placing linebreaks after or before the operators.
+This rule enforces a consistent linebreak style for operators.
 
-该规则旨在强制一个特定的换行符风格。因此，如果遇到二元操作符或不遵守特定风格的赋值语句，比如，将换行符放在操作符之前或之后，该规则将发出警告。
+该规则旨在强制一个特定的换行符风格。
  
 ## Options
 
-The rule takes two options, a string, which can be `"after"`, `"before"` or `"none"` where the default is `"after"` and an object for more fine-grained configuration.
+This rule has one option, which can be a string option or an object option.
 
-该规则有两个可选项，一个是字符串，值为 `"after"`、`"before"` 或 `"none"`，默认值为 `after`，另一个是个对象，可以进行更细粒度的配置。
+该规则有一个可选项，可以是字符串或对象：
 
-You can set the style in configuration like this:
+String option:
 
-你可以在配置中像这样设置：
+字符串选项：
 
-```json
-"operator-linebreak": ["error", "before", { "overrides": { "?": "after" } }]
-```
+* `"after"` (default) requires linebreaks to be placed after the operator (except for the ternary operator characters `?` and `:`)
+* `"after"` (默认) 要求把换行符放在操作符后面 (除了三元操作符 `?` 和 `:`)
+* `"before"` requires linebreaks to be placed before the operator
+* `"before"` 要求把换行符放在操作符前面
+* `"none"` disallows linebreaks on either side of the operator
+* `"none"` 禁止在操作前后有换行符
 
-The default configuration is to enforce line breaks _after_ the operator except for the ternary operator `?` and `:` following that.
+Object option:
 
-默认配置是强制换行符在操作符之后，除了三元操作符 `?` 和 `:` 会紧随它。
+对象选项：
 
-### "after"
+* `"overrides"` overrides the global setting for specified operators
+* `"overrides"` 覆盖对指定的操作的全局设置
 
-This is the default setting for this rule. This option requires the line break to be placed after the operator.
+### after
 
-这是该规则的默认设置。该选项要求把换行符放在操作符后面。
+Examples of **incorrect** code for this rule with the default `"after"` option:
 
-While using this setting, the following patterns are considered problems:
-
-当这样设置时，以下模式被认为是有问题的：
+默认选项 `"after"` 的 **错误** 代码示例：
 
 ```js
 /*eslint operator-linebreak: ["error", "after"]*/
@@ -84,9 +86,9 @@ answer = everything
   : foo;
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `"after"` option:
 
-以下模式被认为是没有问题的：
+默认选项 `"after"` 的 **正确** 代码示例：
 
 ```js
 /*eslint operator-linebreak: ["error", "after"]*/
@@ -108,15 +110,11 @@ answer = everything ?
   foo;
 ```
 
-### "before"
+### before
 
-This option requires the line break to be placed before the operator.
+Examples of **incorrect** code for this rule with the `"before"` option:
 
-该选项要求把换行符放在操作符之前。
-
-While using this setting, the following patterns are considered problems:
-
-当这样设置时，以下模式被认为是有问题的：
+选项 `"before"` 的 **错误** 代码示例：
 
 ```js
 /*eslint operator-linebreak: ["error", "before"]*/
@@ -136,9 +134,9 @@ answer = everything ?
   foo;
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"before"` option:
 
-以下模式被认为是没有问题的：
+选项 `"before"` 的 **正确** 代码示例：
 
 ```js
 /*eslint operator-linebreak: ["error", "before"]*/
@@ -160,15 +158,11 @@ answer = everything
   : foo;
 ```
 
-### "none"
+### none
 
-This option disallows line breaks on either side of the operator.
+Examples of **incorrect** code for this rule with the `"none"` option:
 
-该选项禁止把换行符在操作符两边。
-
-While using this setting, the following patterns are considered problems:
-
-当这样设置时，以下模式被认为是有问题的：
+选项 `"none"` 的 **错误** 代码示例：
 
 ```js
 /*eslint operator-linebreak: ["error", "none"]*/
@@ -196,9 +190,9 @@ answer = everything ?
   foo;
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"none"` option:
 
-以下模式被认为是没有问题的：
+选项 `"none"` 的 **正确** 代码示例：
 
 ```js
 /*eslint operator-linebreak: ["error", "none"]*/
@@ -213,32 +207,25 @@ if (someCondition || otherCondition) {
 answer = everything ? 42 : foo;
 ```
 
-### Fine-grained control
+### overrides
 
-The rule allows you to have even finer-grained control over individual operators by specifying an `overrides` dictionary:
+Examples of additional **correct** code for this rule with the `{ "overrides": { +=": "before" } }` option:
 
-该规则允许你通过指定一个 `overrides` 字典来覆盖个别的操作符，以实现更细粒度的控制。
-
-```json
-"operator-linebreak": ["error", "before", { "overrides": { "?": "after", "+=": "none" } }]
-```
-
-This would override the global setting for that specific operator.
-
-这将覆盖那个指定的操作符的全局设置。
-
-#### "ignore" override
-
-This option is only supported using overrides and ignores line breaks on either side of the operator.
-
-该选项在使用 `overrides` 时有效，并且忽略操作符两边的换行。
-
-While using this setting, the following patterns are not considered problems:
-
-当使用这个选项时，以下模式被认为是没有问题的：
+选项 `{ "overrides": { +=": "before" } }` 的 **正确** 代码示例：
 
 ```js
-/*eslint operator-linebreak: ["error", "after", { "overrides": { "?": "ignore", ":": "ignore"} }]*/
+/*eslint operator-linebreak: ["error", "after", { "overrides": { +=": "before" } }]*/
+
+var thing
+  += 'thing';
+```
+
+Examples of additional **correct** code for this rule with the `{ "overrides": { "?": "ignore", ":": "ignore" } }` option:
+
+选项 `{ "overrides": { "?": "ignore", ":": "ignore" } }` 的 **正确** 代码示例：
+
+```js
+/*eslint operator-linebreak: ["error", "after", { "overrides": { "?": "ignore", ":": "ignore" } }]*/
 
 answer = everything ?
   42

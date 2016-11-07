@@ -1,5 +1,5 @@
 ---
-title: Rule no-regex-spaces
+title: no-regex-spaces - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -7,6 +7,10 @@ layout: doc
 # disallow multiple spaces in regular expression literals (no-regex-spaces)
 
 # 禁止正则表达式字面量中出现多个空格 (no-regex-spaces)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 Regular expressions can be very complex and difficult to understand, which is why it's important to keep them as simple as possible in order to avoid mistakes. One of the more error-prone things you can do with a regular expression is to use more than one space, such as:
 
@@ -42,33 +46,18 @@ Examples of **incorrect** code for this rule:
 /*eslint no-regex-spaces: "error"*/
 
 var re = /foo   bar/;
+var re = new RegExp("foo   bar");
 ```
 
 Examples of **correct** code for this rule:
 
 **正确** 代码示例：
 
-
 ```js
 /*eslint no-regex-spaces: "error"*/
 
 var re = /foo {3}bar/;
-```
-
-## Known Limitations
-
-This rule does not report multiple spaces in the string argument of calls to the `RegExp` constructor.
-
-该规则不会报告 `RegExp` 构造函数的字符串参数中出现多个空格的情况。
-
-Example of a *false negative* when this rule reports correct code:
-
-当该规则报告了正确的代码时，*漏报*的示例：
-
-```js
-/*eslint no-regex-spaces: "error"*/
-
-var re = new RegExp("foo   bar");
+var re = new RegExp("foo {3}bar");
 ```
 
 ## When Not To Use It

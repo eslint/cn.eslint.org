@@ -1,5 +1,5 @@
 ---
-title: Rule space-before-function-paren
+title: space-before-function-paren - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -42,21 +42,56 @@ This rule aims to enforce consistent spacing before function parentheses and as 
 
 ## Options
 
-This rule takes one argument. If it is `"always"` then all named functions and anonymous functions must have space before function parentheses. If `"never"` then all named functions and anonymous functions must not have space before function parentheses. If you want different spacing for named and anonymous functions you can pass a configuration object as the rule argument to configure those separately (e. g. `{"anonymous": "always", "named": "never"}`).
+This rule has a string option or an object option:
 
-This rule takes one argument. If it is `"always"` then all named functions and anonymous functions must have space before function parentheses. If `"never"` then all named functions and anonymous functions must not have space before function parentheses. If you want different spacing for named and anonymous functions you can pass a configuration object as the rule argument to configure those separately (e. g. `{"anonymous": "always", "named": "never"}`). In this case, you can use "ignore" to only apply the rule to one type of function (e. g. `{"anonymous": "ignore", "named": "never"}` will warn on spaces for named functions, but will not warn on anonymous functions one way or the other).
+该规则有一个字符串选项或一个对象选项：
 
-该规则有一个参数。如果为 `"always"`，所有命名的函数和匿名函数的圆括号之前都必须有空格。如果为 `"never"` ，所有命名的函数和匿名函数的圆括号之前都必须没有空格。如果命名的函数和匿名函数要求不同的空格类型，可以单独传递一个可选配置的对象作为该规则的参数来分别配置(例如 `{"anonymous": "always", "named": "never"}`)。在这个例子中，你可以使用 "ignore" 指定一种类型的函数应用于此规则（比如，`{"anonymous": "ignore", "named": "never"}` 将对命名的函数的空格发出警告，不会对匿名函数的空格发出警告）。
+```js
+{
+    "space-before-function-paren": ["error", "always"],
+    // or
+    "space-before-function-paren": ["error", {
+        "anonymous": "always",
+        "named": "always",
+        "asyncArrow": "ignore"
+    }],
+}
+```
 
-The default configuration is `"always"`.
+* `always` (default) requires a space followed by the `(` of arguments.
+* `always` (默认) 要求在参数的 `(` 后面有一个空格。
+* `never` disallows any space followed by the `(` of arguments.
+* `never` 禁止在参数的 `(` 后面有空格。
 
-默认配置为 `"always"`。
+The string option does not check async arrow function expressions for backward compatibility.
+
+字符串选项不会检查异步的箭头函数表达式以向后兼容。
+
+You can also use a separate option for each type of function.
+Each of the following options can be set to `"always"`, `"never"`, or `"ignore"`.
+
+你也可以对每种类型的函数分别设置选项。以下每个选项可以设置为 `"always"`、`"never"` 或 `"ignore"`。
+
+Default is `"always"` basically.
+
+默认为 `"always"`。
+
+* `anonymous` is for anonymous function expressions (e.g. `function () {}`).
+* `anonymous` 针对匿名函数表达式 (比如 `function () {}`)。
+* `named` is for named function expressions (e.g. `function foo () {}`).
+* `named` 针对命名的函数表达式 (比如 `function foo () {}`)。
+* `asyncArrow` is for async arrow function expressions (e.g. `async () => {}`).
+* `asyncArrow` 针对异步的箭头函数表达式 (比如 `async () => {}`)。
+
+`asyncArrow` is set to `"ignore"` by default for backwards compatibility.
+
+`asyncArrow` 默认设置为 `"ignore"` 以向后兼容。
 
 ### "always"
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule with the default `"always"` option:
 
-以下模式被认为是有问题的：
+默认选项 `"always"` 的 **错误** 代码示例：
 
 ```js
 /*eslint space-before-function-paren: "error"*/
@@ -87,9 +122,9 @@ var foo = {
 };
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `"always"` option:
 
-以下模式被认为是没有问题的：
+默认选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 /*eslint space-before-function-paren: "error"*/
@@ -118,13 +153,17 @@ var foo = {
         // ...
     }
 };
+
+// async arrow function expressions are ignored by default.
+var foo = async () => 1
+var foo = async() => 1
 ```
 
 ### "never"
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule with the `"never"` option:
 
-以下模式被认为是有问题的：
+选项 `"never"` 的 **错误** 代码示例：
 
 ```js
 /*eslint space-before-function-paren: ["error", "never"]*/
@@ -155,9 +194,9 @@ var foo = {
 };
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"never"` option:
 
-以下模式被认为是没有问题的：
+选项 `"never"` 的 **正确** 代码示例：
 
 ```js
 /*eslint space-before-function-paren: ["error", "never"]*/
@@ -186,16 +225,20 @@ var foo = {
         // ...
     }
 };
+
+// async arrow function expressions are ignored by default.
+var foo = async () => 1
+var foo = async() => 1
 ```
 
-### `{"anonymous": "always", "named": "never"}`
+### `{"anonymous": "always", "named": "never", "asyncArrow": "always"}`
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule with the `{"anonymous": "always", "named": "never", "asyncArrow": "always"}` option:
 
-以下模式被认为是有问题的：
+选项 `{"anonymous": "always", "named": "never", "asyncArrow": "always"}` 的 **错误** 代码示例：
 
 ```js
-/*eslint space-before-function-paren: ["error", { "anonymous": "always", "named": "never" }]*/
+/*eslint space-before-function-paren: ["error", {"anonymous": "always", "named": "never", "asyncArrow": "always"}]*/
 /*eslint-env es6*/
 
 function foo () {
@@ -217,14 +260,16 @@ var foo = {
         // ...
     }
 };
+
+var foo = async(a) => await a
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `{"anonymous": "always", "named": "never", "asyncArrow": "always"}` option:
 
-以下模式被认为是没有问题的：
+选项 `{"anonymous": "always", "named": "never", "asyncArrow": "always"}` 的 **正确** 代码示例：
 
 ```js
-/*eslint space-before-function-paren: ["error", { "anonymous": "always", "named": "never" }]*/
+/*eslint space-before-function-paren: ["error", {"anonymous": "always", "named": "never", "asyncArrow": "always"}]*/
 /*eslint-env es6*/
 
 function foo() {
@@ -246,13 +291,15 @@ var foo = {
         // ...
     }
 };
+
+var foo = async (a) => await a
 ```
 
 ### `{"anonymous": "never", "named": "always"}`
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule with the `{"anonymous": "never", "named": "always"}` option:
 
-以下模式被认为是有问题的：
+选项 `{"anonymous": "never", "named": "always"}` 的 **错误** 代码示例：
 
 ```js
 /*eslint space-before-function-paren: ["error", { "anonymous": "never", "named": "always" }]*/
@@ -279,9 +326,9 @@ var foo = {
 };
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `{"anonymous": "never", "named": "always"}` option:
 
-以下模式被认为是没有问题的：
+选项 `{"anonymous": "never", "named": "always"}` 的 **正确** 代码示例：
 
 ```js
 /*eslint space-before-function-paren: ["error", { "anonymous": "never", "named": "always" }]*/
@@ -310,9 +357,9 @@ var foo = {
 
 ### `{"anonymous": "ignore", "named": "always"}`
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule with the `{"anonymous": "ignore", "named": "always"}` option:
 
-以下模式被认为是有问题的：
+选项 `{"anonymous": "ignore", "named": "always"}` 的 **错误** 代码示例：
 
 ```js
 /*eslint space-before-function-paren: ["error", { "anonymous": "ignore", "named": "always" }]*/
@@ -335,9 +382,9 @@ var foo = {
 };
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `{"anonymous": "ignore", "named": "always"}` option:
 
-以下模式被认为是没有问题的：
+选项 `{"anonymous": "ignore", "named": "always"}` 的 **正确** 代码示例：
 
 ```js
 /*eslint space-before-function-paren: ["error", { "anonymous": "ignore", "named": "always" }]*/

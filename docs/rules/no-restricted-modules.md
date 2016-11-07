@@ -1,5 +1,5 @@
 ---
-title: Rule no-restricted-modules
+title: no-restricted-modules - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -12,7 +12,7 @@ Disallowing usage of specific Node.js modules can be useful if you want to contr
 
 如果你想控制可用的方法，限制开发者的使用范围，或者实现一个特性，可以通过禁用指定的 Node.js 模块来实现。 
 
-This way you can block usage of the `fs` module if you want disallow file system access.
+This way you can block usage of the `fs` module if you want to disallow file system access.
 Blocking the `os` module can be useful if you don't want to allow any operating system specific code.
 
 如果你想禁止访问文件系统，可以禁用 `fs` 模块的使用。

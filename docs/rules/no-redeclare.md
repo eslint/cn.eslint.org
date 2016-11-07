@@ -1,10 +1,10 @@
 ---
-title: Rule no-redeclare
+title: no-redeclare - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Redeclaring Variables (no-redeclare)
+# disallow variable redeclaration (no-redeclare)
 
 # 禁止重新声明变量 (no-redeclare)
 

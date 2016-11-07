@@ -50,8 +50,6 @@ Every rule:
 * 可以开启或关闭（没有什么可以被认为“太重要所以不能关闭”）
 * Can be set to be a warning or error individually
 * 可以将结果设置成警告或者错误
-* Is turned on by providing a non-zero number and off by providing zero
-* 设置为非 0 值表示开启，设置为 0 表示关闭
 
 Additionally:
 

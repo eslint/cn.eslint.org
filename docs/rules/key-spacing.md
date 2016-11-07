@@ -1,5 +1,5 @@
 ---
-title: Rule key-spacing
+title: key-spacing - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -7,6 +7,10 @@ layout: doc
 # enforce consistent spacing between keys and values in object literal properties (key-spacing)
 
 # 强制在对象字面量的键和值之间使用一致的空格 (key-spacing)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 This rule enforces spacing around the colon in object literal properties. It can verify each property individually, or it can ensure horizontal alignment of adjacent properties in an object literal.
 
@@ -24,25 +28,27 @@ This rule has an object option:
 
 该规则有一个对象选项：
 
-* `"beforeColon": false` (default) disallows spaces between the key and the colon in object literals
+* `"beforeColon": false` (default) disallows spaces between the key and the colon in object literals.
 * `"beforeColon": false` (默认) 禁止在对象字面量的键和值之间存在空格
-* `"beforeColon": true` requires at least one space between the key and the colon in object literals
+* `"beforeColon": true` requires at least one space between the key and the colon in object literals.
 * `"beforeColon": true` 要求在对象字面量的键和值之间存在至少有一个空格
-* `"afterColon": true` (default) requires at least one space between the colon and the value in object literals
+* `"afterColon": true` (default) requires at least one space between the colon and the value in object literals.
 * `"afterColon": true` (默认) 要求在对象字面量的冒号和值之间存在至少有一个空格
-* `"afterColon": false` disallows spaces between the colon and the value in object literals
+* `"afterColon": false` disallows spaces between the colon and the value in object literals.
 * `"afterColon": false` 禁止在对象字面量的冒号和值之间存在空格
-* `"mode": strict` (default) enforces exactly one space before or after colons in object literals
+* `"mode": strict` (default) enforces exactly one space before or after colons in object literals.
 * `"mode": strict` (默认) 要求在冒号前后只有一个空格
-* `"mode": minimum` enforces one or more spaces before or after colons in object literals
+* `"mode": minimum` enforces one or more spaces before or after colons in object literals.
 * `"mode": minimum` 要求在冒号前后最少有一个空格
-* `"align": "value"` enforces horizontal alignment of values in object literals
+* `"align": "value"` enforces horizontal alignment of values in object literals.
 * `"align": "value"` 要求对象字面量中的值水平对齐
 * `"align": "colon"` enforces horizontal alignment of both colons and values in object literals.
 * `"align": "colon"` 要求对象字面量中的冒号和值都水平对齐
-* `"singleLine"` specifies a spacing style for single-line object literals
+* `"align"` with an object value allows for fine-grained spacing when values are being aligned in object literals.
+* `"align"` 允许细粒度的控制对象字面量值的间距直到对齐
+* `"singleLine"` specifies a spacing style for single-line object literals.
 * `"singleLine"` 为单行对象字面量指定一个空格风格
-* `"multiLine"` specifies a spacing style for multi-line object literals
+* `"multiLine"` specifies a spacing style for multi-line object literals.
 * `"multiLine"` 为多行对象字面量指定一个空格风格
 
 Please note that you can either use the top-level options or the grouped options (`singleLine` and `multiLine`) but not both.
@@ -235,6 +241,136 @@ call({
     foobar: 42,
     bat   : 2 * 2
 });
+```
+
+### align
+
+The `align` option can take additional configuration through the `beforeColon`, `afterColon`, `mode`, and `on` options.
+
+`align` 选项可以通过 `beforeColon`、`afterColon`、`mode` 和 `on` 进行额外的配置。
+
+If `align` is defined as an object, but not all of the parameters are provided, undefined parameters will default to the following:
+
+如果 `align` 被定义为一个对象，但是没有提供所有的参数，那么，未定义的参数将默认为：
+
+```js
+// Defaults
+align: {
+    "beforeColon": false,
+    "afterColon": true,
+    "on": "colon",
+    "mode": "strict"
+}
+```
+
+Examples of **correct** code for this rule with sample `{ "align": { } }` options:
+
+选项 `{ "align": { } }` 的 **正确** 代码示例：
+
+```js
+/*eslint key-spacing: ["error", {
+    "align": {
+        "beforeColon": true,
+        "afterColon": true,
+        "on": "colon"
+    }
+}]*/
+
+var obj = {
+    "one"   : 1,
+    "seven" : 7
+}
+```
+
+```js
+/*eslint key-spacing: ["error", {
+    "align": {
+        "beforeColon": false,
+        "afterColon": false,
+        "on": "value"
+    }
+}]*/
+
+var obj = {
+    "one":  1,
+    "seven":7
+}
+```
+
+### align and multiLine
+
+The `multiLine` and `align` options can differ, which allows for fine-tuned control over the `key-spacing` of your files.  `align` will **not** inherit from `multiLine` if `align` is configured as an object.
+
+`multiLine` 和 `align` 选项可以有所区别，这将允许对你的文件进行更细粒度的控制 `key-spacing`。如果 `align` 被配置为一个对象，`align` **将不会** 从 `multiLine` 继承。
+
+`multiLine` is used any time  an object literal spans multiple lines.  The `align` configuration is used when there is a group of properties in the the same object. For example:
+
+`multiLine` 可以在任何时候被用在跨行的对象字面量上。而当一个对象有多个属性时，使用 `align` 配置。 
+
+```javascript
+var myObj = {
+  key1: 1, // uses multiLine
+
+  key2: 2, // uses align (when defined)
+  key3: 3, // uses align (when defined)
+
+  key4: 4 // uses multiLine
+}
+
+```
+
+Examples of **incorrect** code for this rule with sample `{ "align": { }, "multiLine": { } }` options:
+
+选项 `{ "align": { }, "multiLine": { } }` 的 **错误** 代码示例：
+
+```js
+/*eslint key-spacing: ["error", {
+    "multiLine": {
+        "beforeColon": false,
+        "afterColon":true
+    },
+    "align": {
+        "beforeColon": true,
+        "afterColon": true,
+        "on": "colon"
+    }
+}]*/
+
+var obj = {
+    "myObjectFunction": function() {
+        // Do something
+    },
+    "one"             : 1,
+    "seven"           : 7
+}
+```
+
+Examples of **correct** code for this rule with sample `{ "align": { }, "multiLine": { } }` options:
+
+选项 `{ "align": { }, "multiLine": { } }` 的 **正确** 代码示例：
+
+```js
+/*eslint key-spacing: ["error", {
+    "multiLine": {
+        "beforeColon": false,
+        "afterColon": true
+
+    },
+    "align": {
+        "beforeColon": true,
+        "afterColon": true,
+        "on": "colon"
+    }
+}]*/
+
+var obj = {
+    "myObjectFunction": function() {
+        // Do something
+        //
+    }, // These are two separate groups, so no alignment between `myObjectFuction` and `one`
+    "one"   : 1,
+    "seven" : 7 // `one` and `seven` are in their own group, and therefore aligned
+}
 ```
 
 ### singleLine and multiLine

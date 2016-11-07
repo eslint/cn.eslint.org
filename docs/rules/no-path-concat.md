@@ -1,8 +1,6 @@
 ---
-title: Rule no-path-concat
+title: no-path-concat - Rules
 layout: doc
-translator: ILFront-End
-proofreader: yanggao40
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 

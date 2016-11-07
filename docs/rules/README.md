@@ -10,7 +10,6 @@ The `--fix` option on the [command line](../user-guide/command-line-interface#fi
 
 These rules relate to possible syntax or logic errors in JavaScript code:
 
-* [comma-dangle](comma-dangle.md): require or disallow trailing commas (recommended) (fixable)
 * [no-cond-assign](no-cond-assign.md): disallow assignment operators in conditional expressions (recommended)
 * [no-console](no-console.md): disallow the use of `console` (recommended)
 * [no-constant-condition](no-constant-condition.md): disallow constant expressions in conditions (recommended)
@@ -36,7 +35,7 @@ These rules relate to possible syntax or logic errors in JavaScript code:
 * [no-sparse-arrays](no-sparse-arrays.md): disallow sparse arrays (recommended)
 * [no-unexpected-multiline](no-unexpected-multiline.md): disallow confusing multiline expressions (recommended)
 * [no-unreachable](no-unreachable.md): disallow unreachable code after `return`, `throw`, `continue`, and `break` statements (recommended)
-* [no-unsafe-finally](no-unsafe-finally.md): disallow control flow statements in `finally` blocks
+* [no-unsafe-finally](no-unsafe-finally.md): disallow control flow statements in `finally` blocks (recommended)
 * [use-isnan](use-isnan.md): require calls to `isNaN()` when checking for `NaN` (recommended)
 * [valid-jsdoc](valid-jsdoc.md): enforce valid JSDoc comments
 * [valid-typeof](valid-typeof.md): enforce comparing `typeof` expressions against valid strings (recommended)
@@ -81,7 +80,7 @@ These rules relate to better ways of doing things to help you avoid problems:
 * [no-magic-numbers](no-magic-numbers.md): disallow magic numbers
 * [no-multi-spaces](no-multi-spaces.md): disallow multiple spaces (fixable)
 * [no-multi-str](no-multi-str.md): disallow multiline strings
-* [no-native-reassign](no-native-reassign.md): disallow reassigning native objects
+* [no-native-reassign](no-native-reassign.md): disallow assignments to native objects or read-only global variables (recommended)
 * [no-new](no-new.md): disallow `new` operators outside of assignments or comparisons
 * [no-new-func](no-new-func.md): disallow `new` operators with the `Function` object
 * [no-new-wrappers](no-new-wrappers.md): disallow `new` operators with the `String`, `Number`, and `Boolean` objects
@@ -156,19 +155,20 @@ These rules relate to style guidelines, and are therefore quite subjective:
 * [block-spacing](block-spacing.md): enforce consistent spacing inside single-line blocks (fixable)
 * [brace-style](brace-style.md): enforce consistent brace style for blocks
 * [camelcase](camelcase.md): enforce camelcase naming convention
+* [comma-dangle](comma-dangle.md): require or disallow trailing commas (fixable)
 * [comma-spacing](comma-spacing.md): enforce consistent spacing before and after commas (fixable)
 * [comma-style](comma-style.md): enforce consistent comma style
 * [computed-property-spacing](computed-property-spacing.md): enforce consistent spacing inside computed property brackets (fixable)
 * [consistent-this](consistent-this.md): enforce consistent naming when capturing the current execution context
 * [eol-last](eol-last.md): enforce at least one newline at the end of files (fixable)
-* [func-names](func-names.md): enforce named `function` expressions
+* [func-names](func-names.md): require or disallow named `function` expressions
 * [func-style](func-style.md): enforce the consistent use of either `function` declarations or expressions
 * [id-blacklist](id-blacklist.md): disallow specified identifiers
 * [id-length](id-length.md): enforce minimum and maximum identifier lengths
 * [id-match](id-match.md): require identifiers to match a specified regular expression
 * [indent](indent.md): enforce consistent indentation (fixable)
 * [jsx-quotes](jsx-quotes.md): enforce the consistent use of either double or single quotes in JSX attributes (fixable)
-* [key-spacing](key-spacing.md): enforce consistent spacing between keys and values in object literal properties
+* [key-spacing](key-spacing.md): enforce consistent spacing between keys and values in object literal properties (fixable)
 * [keyword-spacing](keyword-spacing.md): enforce consistent spacing before and after keywords (fixable)
 * [linebreak-style](linebreak-style.md): enforce consistent linebreak style (fixable)
 * [lines-around-comment](lines-around-comment.md): require empty lines around comments
@@ -179,6 +179,7 @@ These rules relate to style guidelines, and are therefore quite subjective:
 * [max-params](max-params.md): enforce a maximum number of parameters in `function` definitions
 * [max-statements](max-statements.md): enforce a maximum number of statements allowed in `function` blocks
 * [max-statements-per-line](max-statements-per-line.md): enforce a maximum number of statements allowed per line
+* [multiline-ternary](multiline-ternary.md): enforce newlines between operands of ternary expressions
 * [new-cap](new-cap.md): require constructor `function` names to begin with a capital letter
 * [new-parens](new-parens.md): require parentheses when invoking a constructor with no arguments
 * [newline-after-var](newline-after-var.md): require or disallow an empty line after `var` declarations
@@ -191,7 +192,7 @@ These rules relate to style guidelines, and are therefore quite subjective:
 * [no-lonely-if](no-lonely-if.md): disallow `if` statements as the only statement in `else` blocks
 * [no-mixed-operators](no-mixed-operators.md): disallow mixes of different operators
 * [no-mixed-spaces-and-tabs](no-mixed-spaces-and-tabs.md): disallow mixed spaces and tabs for indentation (recommended)
-* [no-multiple-empty-lines](no-multiple-empty-lines.md): disallow multiple empty lines
+* [no-multiple-empty-lines](no-multiple-empty-lines.md): disallow multiple empty lines (fixable)
 * [no-negated-condition](no-negated-condition.md): disallow negated conditions
 * [no-nested-ternary](no-nested-ternary.md): disallow nested ternary expressions
 * [no-new-object](no-new-object.md): disallow `Object` constructors
@@ -210,7 +211,7 @@ These rules relate to style guidelines, and are therefore quite subjective:
 * [one-var-declaration-per-line](one-var-declaration-per-line.md): require or disallow newlines around `var` declarations
 * [operator-assignment](operator-assignment.md): require or disallow assignment operator shorthand where possible
 * [operator-linebreak](operator-linebreak.md): enforce consistent linebreak style for operators
-* [padded-blocks](padded-blocks.md): require or disallow padding within blocks
+* [padded-blocks](padded-blocks.md): require or disallow padding within blocks (fixable)
 * [quote-props](quote-props.md): require quotes around object literal property names
 * [quotes](quotes.md): enforce the consistent use of either backticks, double, or single quotes (fixable)
 * [require-jsdoc](require-jsdoc.md): require JSDoc comments
@@ -231,7 +232,7 @@ These rules relate to style guidelines, and are therefore quite subjective:
 These rules relate to ES6, also known as ES2015:
 
 * [arrow-body-style](arrow-body-style.md): require braces around arrow function bodies
-* [arrow-parens](arrow-parens.md): require parentheses around arrow function arguments
+* [arrow-parens](arrow-parens.md): require parentheses around arrow function arguments (fixable)
 * [arrow-spacing](arrow-spacing.md): enforce consistent spacing before and after the arrow in arrow functions (fixable)
 * [constructor-super](constructor-super.md): require `super()` calls in constructors (recommended)
 * [generator-star-spacing](generator-star-spacing.md): enforce consistent spacing around `*` operators in generator functions (fixable)
@@ -246,15 +247,15 @@ These rules relate to ES6, also known as ES2015:
 * [no-useless-computed-key](no-useless-computed-key.md): disallow unnecessary computed property keys in object literals
 * [no-useless-constructor](no-useless-constructor.md): disallow unnecessary constructors
 * [no-useless-rename](no-useless-rename.md): disallow renaming import, export, and destructured assignments to the same name (fixable)
-* [no-var](no-var.md): require `let` or `const` instead of `var`
-* [object-shorthand](object-shorthand.md): require or disallow method and property shorthand syntax for object literals
+* [no-var](no-var.md): require `let` or `const` instead of `var` (fixable)
+* [object-shorthand](object-shorthand.md): require or disallow method and property shorthand syntax for object literals (fixable)
 * [prefer-arrow-callback](prefer-arrow-callback.md): require arrow functions as callbacks
-* [prefer-const](prefer-const.md): require `const` declarations for variables that are never reassigned after declared
+* [prefer-const](prefer-const.md): require `const` declarations for variables that are never reassigned after declared (fixable)
 * [prefer-reflect](prefer-reflect.md): require `Reflect` methods where applicable
 * [prefer-rest-params](prefer-rest-params.md): require rest parameters instead of `arguments`
 * [prefer-spread](prefer-spread.md): require spread operators instead of `.apply()`
 * [prefer-template](prefer-template.md): require template literals instead of string concatenation
-* [require-yield](require-yield.md): require generator functions to contain `yield`
+* [require-yield](require-yield.md): require generator functions to contain `yield` (recommended)
 * [rest-spread-spacing](rest-spread-spacing.md): enforce spacing between rest and spread operators and their expressions (fixable)
 * [sort-imports](sort-imports.md): enforce sorted import declarations within modules
 * [template-curly-spacing](template-curly-spacing.md): require or disallow spacing around embedded expressions of template strings (fixable)

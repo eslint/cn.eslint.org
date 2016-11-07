@@ -1,5 +1,5 @@
 ---
-title: Rule indent
+title: indent - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -106,6 +106,16 @@ This rule has an object option:
 * `"SwitchCase"` (默认：0) 强制 `switch` 语句中的 `case` 子句的缩进水平
 * `"VariableDeclarator"` (default: 1) enforces indentation level for `var` declarators; can also take an object to define separate rules for `var`, `let` and `const` declarations.
 * `"VariableDeclarator"` (默认：1) 强制 `var` 声明的缩进水平；也可以使用一个对象为 `var`、`let` 和 `const` 声明分别定义。
+* `"outerIIFEBody"` (default: 1) enforces indentation level for file-level IIFEs.
+* `"MemberExpression"` (off by default) enforces indentation level for multi-line property chains (except in variable declarations and assignments)
+* `"FunctionDeclaration"` takes an object to define rules for function declarations.
+    * `parameters` (off by default) enforces indentation level for parameters in a function declaration. This can either be a number indicating indentation level, or the string `"first"` indicating that all parameters of the declaration must be aligned with the first parameter.
+    * `body` (default: 1) enforces indentation level for the body of a function declaration.
+* `"FunctionExpression"` takes an object to define rules for function expressions.
+    * `parameters` (off by default) enforces indentation level for parameters in a function expression. This can either be a number indicating indentation level, or the string `"first"` indicating that all parameters of the expression must be aligned with the first parameter.
+    * `body` (default: 1) enforces indentation level for the body of a function expression.
+* `"CallExpression"` takes an object to define rules for function call expressions.
+    * `arguments` (off by default) enforces indentation level for arguments in a call expression. This can either be a number indicating indentation level, or the string `"first"` indicating that all arguments of the expression must be aligned with the first argument.
 
 Level of indentation denotes the multiple of the indent specified. Example:
 
@@ -121,10 +131,24 @@ Level of indentation denotes the multiple of the indent specified. Example:
 * 如果缩进设置为 tab 缩进，`VariableDeclarator` 设置为 `2`，多行变量声明将会缩进 2 个 tab。
 * Indent of 2 spaces with `SwitchCase` set to `0` will not indent `case` clauses with respect to `switch` statements.
 * 如果缩进设置为 2 个空格，`SwitchCase` 设置为 `0`，`case`将不会缩进。
+* Indent of 2 spaces with `SwitchCase` set to `1` will indent `case` clauses with 2 spaces with respect to `switch` statements.
+* 如果缩进设置为 2 个空格，`SwitchCase` 设置为 `1`，`case` 子句将相对于 `switch` 语句缩进 2 个空格。
 * Indent of 2 spaces with `SwitchCase` set to `2` will indent `case` clauses with 4 spaces with respect to `switch` statements.
 * 如果缩进设置为 2 个空格，`SwitchCase` 设置为 `2`，`case` 子句将相对于 `switch` 语句缩进 4 个空格。
-* Indent of tabs with `SwitchCase` set to `2` will indent `case` clauses with 2 tabs with respect to `switch` statements.
+* Indent of tab with `SwitchCase` set to `2` will indent `case` clauses with 2 tabs with respect to `switch` statements.
 * 如果缩进设置为 tab 缩进，`SwitchCase` 设置为 2，`case` 子句将相对于 `switch` 语句缩进 2 个 tab。
+* Indent of 2 spaces with `MemberExpression` set to `0` will indent the multi-line property chains with 0 spaces.
+* 如果缩进设置为 2 个空格， `MemberExpression` 设置为 `0`，多行属性将不对缩进。
+* Indent of 2 spaces with `MemberExpression` set to `1` will indent the multi-line property chains with 2 spaces.
+* 如果缩进设置为 2 个空格， `MemberExpression` 设置为 `1`，多行属性将缩进 2 个空格。
+* Indent of 2 spaces with `MemberExpression` set to `2` will indent the multi-line property chains with 4 spaces.
+* 如果缩进设置为 2 个空格， `MemberExpression` 设置为 `2`，多行属性将缩进 4 个空格。
+* Indent of 4 spaces with `MemberExpression` set to `0` will indent the multi-line property chains with 0 spaces.
+* 如果缩进设置为 4 个空格， `MemberExpression` 设置为 `0`，多行属性将不会缩进。
+* Indent of 4 spaces with `MemberExpression` set to `1` will indent the multi-line property chains with 4 spaces.
+* 如果缩进设置为 4 个空格， `MemberExpression` 设置为 `1`，多行属性将将缩进 4 个空格。
+* Indent of 4 spaces with `MemberExpression` set to `2` will indent the multi-line property chains with 8 spaces.
+* 如果缩进设置为 4 个空格， `MemberExpression` 设置为 `2`，多行属性将将缩进 8 个空格。
 
 ### tab
 
@@ -266,6 +290,242 @@ let a,
 const a = 1,
       b = 2,
       c = 3;
+```
+
+### outerIIFEBody
+
+Examples of **incorrect** code for this rule with the options `2, { "outerIIFEBody": 0 }`:
+
+选项 `2, { "outerIIFEBody": 0 }` 的 **错误** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "outerIIFEBody": 0 }]*/
+
+(function() {
+
+  function foo(x) {
+    return x + 1;
+  }
+
+})();
+
+
+if(y) {
+console.log('foo');
+}
+```
+
+Examples of **correct** code for this rule with the options `2, {"outerIIFEBody": 0}`:
+
+选项 `2, {"outerIIFEBody": 0}` 的 **正确** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "outerIIFEBody": 0 }]*/
+
+(function() {
+
+function foo(x) {
+  return x + 1;
+}
+
+})();
+
+
+if(y) {
+   console.log('foo');
+}
+```
+
+### MemberExpression
+
+Examples of **incorrect** code for this rule with the `2, { "MemberExpression": 1 }` options:
+
+选项 `2, { "MemberExpression": 1 }` 的 **错误** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "MemberExpression": 1 }]*/
+
+foo
+.bar
+.baz()
+```
+
+Examples of **correct** code for this rule with the `2, { "MemberExpression": 1 }` option:
+
+选项 `2, { "MemberExpression": 1 }` 的 **正确** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "MemberExpression": 1 }]*/
+
+foo
+  .bar
+  .baz();
+
+// Any indentation is permitted in variable declarations and assignments.
+var bip = aardvark.badger
+                  .coyote;
+```
+
+### FunctionDeclaration
+
+Examples of **incorrect** code for this rule with the `2, { "FunctionDeclaration": {"body": 1, "parameters": 2} }` option:
+
+选项 `2, { "FunctionDeclaration": {"body": 1, "parameters": 2} }` 的 **错误** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "FunctionDeclaration": {"body": 1, "parameters": 2} }]*/
+
+function foo(bar,
+  baz,
+  qux) {
+    qux();
+}
+```
+
+Examples of **correct** code for this rule with the `2, { "FunctionDeclaration": {"body": 1, "parameters": 2} }` option:
+
+选项 `2, { "FunctionDeclaration": {"body": 1, "parameters": 2} }` 的 **正确** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "FunctionDeclaration": {"body": 1, "parameters": 2} }]*/
+
+function foo(bar,
+    baz,
+    qux) {
+  qux();
+}
+```
+
+Examples of **incorrect** code for this rule with the `2, { "FunctionDeclaration": {"parameters": "first"} }` option:
+
+选项 `2, { "FunctionDeclaration": {"parameters": "first"} }` 的 **错误** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, {"FunctionDeclaration": {"parameters": "first"}}]*/
+
+function foo(bar, baz,
+  qux, boop) {
+  qux();
+}
+```
+
+Examples of **correct** code for this rule with the `2, { "FunctionDeclaration": {"parameters": "first"} }` option:
+
+选项 `2, { "FunctionDeclaration": {"parameters": "first"} }` 的 **正确** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, {"FunctionDeclaration": {"parameters": "first"}}]*/
+
+function foo(bar, baz,
+             qux, boop) {
+  qux();
+}
+```
+
+### FunctionExpression
+
+Examples of **incorrect** code for this rule with the `2, { "FunctionExpression": {"body": 1, "parameters": 2} }` option:
+
+选项 `2, { "FunctionExpression": {"body": 1, "parameters": 2} }` 的 **错误** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "FunctionExpression": {"body": 1, "parameters": 2} }]*/
+
+var foo = function(bar,
+  baz,
+  qux) {
+    qux();
+}
+```
+
+Examples of **correct** code for this rule with the `2, { "FunctionExpression": {"body": 1, "parameters": 2} }` option:
+
+选项 `2, { "FunctionExpression": {"body": 1, "parameters": 2} }` 的 **正确** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "FunctionExpression": {"body": 1, "parameters": 2} }]*/
+
+var foo = function(bar,
+    baz,
+    qux) {
+  qux();
+}
+```
+
+Examples of **incorrect** code for this rule with the `2, { "FunctionExpression": {"parameters": "first"} }` option:
+
+选项 `2, { "FunctionExpression": {"parameters": "first"} }` 的 **错误** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, {"FunctionExpression": {"parameters": "first"}}]*/
+
+var foo = function(bar, baz,
+  qux, boop) {
+  qux();
+}
+```
+
+Examples of **correct** code for this rule with the `2, { "FunctionExpression": {"parameters": "first"} }` option:
+
+选项 `2, { "FunctionExpression": {"parameters": "first"} }` 的 **正确** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, {"FunctionExpression": {"parameters": "first"}}]*/
+
+var foo = function(bar, baz,
+                   qux, boop) {
+  qux();
+}
+```
+
+### CallExpression
+
+Examples of **incorrect** code for this rule with the `2, { "CallExpression": {"arguments": 1} }` option:
+
+选项 `2, { "CallExpression": {"arguments": 1} }` 的 **错误** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "CallExpression": {"arguments": 1} }]*/
+
+foo(bar,
+    baz,
+      qux
+);
+```
+
+Examples of **correct** code for this rule with the `2, { "CallExpression": {"arguments": 1} }` option:
+
+选项 `2, { "CallExpression": {"arguments": 1} }` 的 **正确** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "CallExpression": {"arguments": 1} }]*/
+
+foo(bar,
+  baz,
+  qux
+);
+```
+
+Examples of **incorrect** code for this rule with the `2, { "CallExpression": {"arguments": "first"} }` option:
+
+选项 `2, { "CallExpression": {"arguments": "first"} }` 的 **错误** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, {"CallExpression": {"arguments": "first"}}]*/
+
+foo(bar, baz,
+  baz, boop, beep);
+```
+
+Examples of **correct** code for this rule with the `2, { "CallExpression": {"arguments": "first"} }` option:
+
+选项 `2, { "CallExpression": {"arguments": "first"} }` 的 **正确** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, {"CallExpression": {"arguments": "first"}}]*/
+
+foo(bar, baz,
+    baz, boop, beep);
 ```
 
 ## Compatibility

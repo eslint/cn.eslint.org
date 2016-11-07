@@ -1,8 +1,6 @@
 ---
-title: Rule no-shadow-restricted-names
+title: no-shadow-restricted-names - Rules
 layout: doc
-translator: ILFront-End
-proofreader: xkf521
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 

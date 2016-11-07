@@ -1,5 +1,5 @@
 ---
-title: Rule lines-around-comment
+title: lines-around-comment - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -15,7 +15,7 @@ of these rules is to make the comments easier to read and improve readability of
 
 ## Rule Details
 
-This rule requires empty lines before and/or after comments. It can be enabled separately for both block (`/*`) and line (`//`) comments. This rule does not apply to comments that appear on the same line as code and does not require empty lines at the beginning or end of a file. 
+This rule requires empty lines before and/or after comments. It can be enabled separately for both block (`/*`) and line (`//`) comments. This rule does not apply to comments that appear on the same line as code and does not require empty lines at the beginning or end of a file.
 
 该规则允许你指定在注释之前或之后是否应该有空行。它可以区分块级注释 (`/*`) 和单行注释(`//`)。该规则不适用于注释和代码出现在同一行的情况，也不要求在文件开头和末尾有空行。空行
 

@@ -1,5 +1,5 @@
 ---
-title: Rule no-constant-condition
+title: no-constant-condition - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -37,6 +37,10 @@ Examples of **incorrect** code for this rule:
 /*eslint no-constant-condition: "error"*/
 
 if (false) {
+    doSomethingUnfinished();
+}
+
+if (void x) {
     doSomethingUnfinished();
 }
 

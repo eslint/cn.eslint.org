@@ -1,9 +1,9 @@
 ---
-title: Rule consistent-return
+title: consistent-return - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
- 
+
 # require `return` statements to either always or never specify values (consistent-return)
 
 # 要求使用一致的 `return` 语句 (consistent-return)

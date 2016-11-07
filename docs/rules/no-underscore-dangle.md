@@ -1,10 +1,10 @@
 ---
-title: Rule no-underscore-dangle
+title: no-underscore-dangle - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Dangling Underscores in Identifiers (no-underscore-dangle)
+# disallow dangling underscores in identifiers (no-underscore-dangle)
 
 # 禁止标识符中有悬空下划线 (no-underscore-dangle)
 
@@ -26,31 +26,9 @@ Whether or not you choose to allow dangling underscores in identifiers is purely
 
 ## Rule Details
 
-This rule aims to eliminate the use of dangling underscores in identifiers.
+This rule disallows dangling underscores in identifiers.
 
 该规则旨在消除标识符中悬空下划线的使用。
-
-## Options
-
-### `allow`
-
-```json
-"no-underscore-dangle": ["error", { "allow": [] }]
-```
-
-Array of variable names that are permitted to be used with underscore. If provided, it must be an `Array`.
-
-允许使用下划线的变量名数组。如果提供了该选项，它必须是个`Array`。
-
-### `allowAfterThis`
-
-```json
-"no-underscore-dangle": ["error", { "allowAfterThis": true }]
-```
-
-This option allows usage of dangled variables as members of `this`.
-
-该选项允许作为 `this` 的成员变量可以使用下划线。
 
 Examples of **incorrect** code for this rule:
 
@@ -77,6 +55,24 @@ obj.__proto__ = {};
 var file = __filename;
 ```
 
+## Options
+
+This rule has an object option:
+
+该规则有一个对象选项：
+
+* `"allow"` allows specified identifiers to have dangling underscores
+* `"allow"` 允许指定标识符使用悬空下划线
+* `"allowAfterThis": false` (default) disallows dangling underscores in members of the `this` object
+* `"allowAfterThis": false` (默认) 禁止在 `this` 对象的成员变量上使用悬空下划线
+* `"allowAfterSuper": false` (default) disallows dangling underscores in members of the `super` object
+* `"allowAfterSuper": false` (默认) 禁止在 `super` 对象的成员变量上使用悬空下划线
+
+### allow
+
+Examples of additional **correct** code for this rule with the `{ "allow": ["foo_", "_bar"] }` option:
+
+选项 `{ "allow": ["foo_", "_bar"] }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-underscore-dangle: ["error", { "allow": ["foo_", "_bar"] }]*/
@@ -85,11 +81,30 @@ var foo_;
 foo._bar();
 ```
 
+### allowAfterThis
+
+Examples of **correct** code for this rule with the `{ "allowAfterThis": true }` option:
+
+选项 `{ "allowAfterThis": true }` 的 **正确** 代码示例：
+
 ```js
 /*eslint no-underscore-dangle: ["error", { "allowAfterThis": true }]*/
 
 var a = this.foo_;
 this._bar();
+```
+
+### allowAfterSuper
+
+Examples of **correct** code for this rule with the `{ "allowAfterSuper": true }` option:
+
+选项 `{ "allowAfterSuper": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint no-underscore-dangle: ["error", { "allowAfterSuper": true }]*/
+
+var a = super.foo_;
+super._bar();
 ```
 
 ## When Not To Use It

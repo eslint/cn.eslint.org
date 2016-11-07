@@ -75,6 +75,12 @@
             display: list-item;
         }
     }
+    tr.rule-en {
+        display: none;
+    }
+    .table-striped.inuse-rules>tbody>tr:nth-of-type(4n) {
+        background-color: #f9f9f9;
+    }
 }
 
 .lang-en {
@@ -106,6 +112,12 @@
         li {
             display: list-item;
         }
+    }
+    tr.rule-zh {
+        display: none;
+    }
+    .table-striped.inuse-rules>tbody>tr:nth-of-type(4n+3) {
+        background-color: #fff;
     }
 }
 

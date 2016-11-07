@@ -1,5 +1,5 @@
 ---
-title: Rule no-magic-numbers
+title: no-magic-numbers - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -42,6 +42,14 @@ var dutyFreePrice = 100,
 var data = ['foo', 'bar', 'baz'];
 
 var dataLast = data[2];
+```
+
+```js
+/*eslint no-magic-numbers: "error"*/
+
+var SECONDS;
+
+SECONDS = 60;
 ```
 
 Examples of **correct** code for this rule:

@@ -1,5 +1,5 @@
 ---
-title: Rule no-implied-eval
+title: no-implied-eval - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -21,7 +21,7 @@ setTimeout("alert('Hi!');", 100);
 ```
 
 This is considered an implied `eval()` because a string of JavaScript code is
- passed in to be interpreted. The same can be done with `setInterval()` and `execScript()`. Both interpret the JavaScript code in the global scope. For  both `setTimeout()` and `setInterval()`, the first argument can also be a function, and that is considered safer and is more performant:
+ passed in to be interpreted. The same can be done with `setInterval()` and `execScript()`. Both interpret the JavaScript code in  the global scope. For  both `setTimeout()` and `setInterval()`, the first argument can also be a function, and that is considered safer and is more performant:
 
 这被认为是一个隐式的 `eval()` 因为传入的 JavaScript 字符串可以被解析。`setInterval()` 和 `execScript()` 也一样。两种方式都能在全局作用域解析 JavaScript 代码。对于 `setTimeout()` 和 `setInterval()` 来说，第一个参数也可以是个函数，并且这种方式被认为更安全更高效。
  
@@ -80,10 +80,6 @@ setInterval(function() {
 If you want to allow `setTimeout()` and `setInterval()` with string arguments, then you can safely disable this rule.
 
 如果你想要允许 `setTimeout()` 和 `setInterval()` 使用字符串参数，你可以关闭此规则。
-
-## Further Reading
-
-* [Implied eval is evil. Pass a function instead of a string.](http://jslinterrors.com/implied-eval-is-evil-pass-a-function-instead-of-a-string/)
 
 ## Related Rules
 

@@ -1,5 +1,5 @@
 ---
-title: Rule max-statements-per-line
+title: max-statements-per-line - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -26,7 +26,7 @@ This rule enforces a maximum number of statements allowed per line.
 
 ### max
 
-The `"max"` object property is optional (default: 1).
+The "max" object property is optional (default: 1).
 
 `"max"` 属性书可选的（默认为 `1`)。
 

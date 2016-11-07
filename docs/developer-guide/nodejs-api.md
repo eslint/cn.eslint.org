@@ -69,9 +69,9 @@ var codeLines = SourceCode.splitLines(code);
 
 ## linter
 
-The `linter` object does the actual evaluation of the JavaScript code. It doesn't do any filesystem operations, it simply parses and reports on the code. You can retrieve `linter` like this:
+The `linter` object does the actual evaluation of the JavaScript code. It doesn't do any filesystem operations, it simply parses and reports on the code. In particular, the `linter` object does not process configuration objects or files. You can retrieve `linter` like this:
 
-`linter` 对象对 JavaScript 代码进行评估。它不会对文件系统进行操作，它只会简单地解析和报告代码。你可以这样取得 `linter`： 
+`linter` 对象对 JavaScript 代码进行评估。它不会对文件系统进行操作，它只会简单地解析和报告代码。特别是，`linter` 对象不会处理配置对象或文件。你可以这样取得 `linter`： 
 
 ```js
 var linter = require("eslint").linter;
@@ -83,8 +83,10 @@ The most important method on `linter` is `verify()`, which initiates linting of 
 
 * `code` - the source code to lint (a string or instance of `SourceCode`).
 * `code`- 要检测的源代码（字符串或者 `SourceCode` 的实例）。
-* `config` - a configuration object that is equivalent to an eslintrc file.
-* `config` - 一个配置对象，相当于一个 eslintrc 文件。
+* `config` - a configuration object that has been processed and normalized by CLIEngine using eslintrc files and/or other configuration arguments.
+* `config` - 一个配置对象，被 CLIEngine 用来处理和规范，使用 eslintrc 文件和/或其它配置参数。
+    * **Note**: If you want to lint text and have your configuration be read and processed, use CLIEngine's [`executeOnFiles`](#executeonfiles) or [`executeOnText`](#executeontext) instead.
+    * **注意：**如果你想检测文本，读取和处理你的配置，使用 CLIEngine's [`executeOnFiles`](#executeonfiles) 或 [`executeOnText`](#executeontext)。
 * `optionsOrFilename` - (optional) Additional options for this run or a string representing the filename to associate with the code being linted.
 * `optionsOrFilename` - (可选的)运行的额外选项或与要检查的代码有关的文件名。
     * `filename` - (optional) the filename to associate with the source code.
@@ -162,12 +164,20 @@ The information available for each linting message is:
 * `serverity` - 根据你的配置，值为1或2。
 * `source` - the line of code where the problem is (or empty string if it can't be found).
 * `source` - 引起问的的代码的所在行（如果找不到的话就为空）。
+* `endColumn` - the end column of the range on which the error occurred (this property is omitted if it's not range).
+* `endColumn` - 错误发生的范围的结束列 (如果不是范围，这个属性会被省略)。
+* `endLine` - the end line of the range on which the error occurred (this property is omitted if it's not range).
+* `endLine` - 错误发生的范围的结束行 (如果不是范围，这个属性会被省略)。
 * `fix` - an object describing the fix for the problem (this property is omitted if no fix is available).
 * `fix` - 描述修复问题信息的对象（如果没有修复则会忽略此属性）。
 
+**Please note**: the `source` property will be removed from the linting messages in an upcoming breaking release. If you depend on this property, you can still use the `getSourceCode` method described below to get the line of code for each message.
+
+**请注意：**`source` 属性将在未来的大版本中从检测消息中移除。如果你依赖这个属性，你仍可以使用下面描述的 `getSourceCode` 方法来获得每行代码的每条消息。
+
 You can also get an instance of the `SourceCode` object used inside of `linter` by using the `getSourceCode()` method:
 
-你也可以通过 `getSourceCode()` 方法获取一个 `SourceCode` 的实例在 `linter` 内部使用：
+你也可以通过 `getSourceCode()` 方法获取一个在 `linter` 内部使用 `SourceCode` 的实例：
 
 ```js
 var linter = require("eslint").linter;
@@ -205,40 +215,46 @@ The `CLIEngine` is a constructor, and you can create a new instance by passing i
 
 `CLIEngine` 是一个构造器，你可以通过传递想用的选项创建一个实例。下面是可以的选项：
 
-* `configFile` - The configuration file to use (default: null). Corresponds to `-c`.
-* `configFile` - 要使用的配置文件（默认：null）。对应于 `-c`。
-* `envs` - An array of environments to load (default: empty array). Corresponds to `--env`.
-* `envs` - 需要加载的环境的数组（默认为空数组）。对应于 `--env`。
-* `extensions` - An array of filename extensions that should be checked for code. The default is an array containing just `".js"`. Corresponds to `--ext`.
-* `extensions`- 应被代码检查的文件名扩展的数组。默认为仅包含 `".js"` 的数组。对应于 `--ext`。
-* `globals` - An array of global variables to declare (default: empty array). Corresponds to `--global`.
-* `globals` - 要声明为全局变量的数组（默认为空数组）。对应于 `--global`。
-* `fix` - True indicates that fixes should be applied to the text when possible.
-* `fix` - True代表可能时修改应用到文本。
-* `ignore` - False disables use of `.eslintignore`, `ignorePath` and `ignorePattern` (default: true). Corresponds to `--no-ignore`.
-* `ignore`- 值为false时禁用 `.eslintignore`、`ignorePath` 和 `ignorePattern` (默认为true)。对应于 `--no-ignore`。
-* `ignorePath` - The ignore file to use instead of `.eslintignore` (default: null). Corresponds to `--ignore-path`.
-* `ignorePath` - 要使用的忽略文件不是 `.eslintignore` (默认为 null)。对应于 `--ignore-path`。
-* `ignorePattern` - Glob patterns for paths to ignore. String or array of strings.
-* `ignorePattern` - 忽略路径的 Glob 模式。字符串或者字符串的数组。
+* `allowInlineConfig` - Set to false to disable the use of configuration comments (such as `/*eslint-disable*/`). Corresponds to `--no-inline-config`.
+* `allowInlineConfig` - 设置为 false 来禁止使用配置中的注释 (比如 `/*eslint-disable*/`)。对应 `--no-inline-config`。
 * `baseConfig` - Set to false to disable use of base config. Could be set to an object to override default base config as well.
 * `baseConfig` - 设置为 false 禁用基本配置。 也可以设置为一个对象来重写基本配置。
-* `rulePaths` - An array of directories to load custom rules from (default: empty array). Corresponds to `--rulesdir`.
-* `rulePaths` - 用来从自定义规则加载的目录的数组。(默认为空数组)。对应于 `--rulesdir`。
-* `rules` - An object of rules to use (default: null). Corresponds to `--rule`.
-* `rules` - 要使用的规则的对象 (默认为null)。 对应于 `--rule`。
-* `useEslintrc` - Set to false to disable use of `.eslintrc` files (default: true). Corresponds to `--no-eslintrc`.
-* `useEslintrc` - 设置为 false 时禁用 `.eslintrc` 文件(默认为true)。对应于`--no-eslintrc`。
-* `parser` - Specify the parser to be used (default: `espree`). Corresponds to `--parser`.
-* `parser` - 指定使用的解析器(默认为 `espree`)。对应于 `--parser`。
 * `cache` - Operate only on changed files (default: `false`). Corresponds to `--cache`.
 * `cache` - 仅操作改变的文件(默认为 `false`)。对应于 `--cache`.
 * `cacheFile` - Name of the file where the cache will be stored (default: `.eslintcache`). Corresponds to `--cache-file`. Deprecated: use `cacheLocation` instead.
 * `cacheFile` - 存放缓存的文件名。（默认为 `.eslintcache`）。对应于 `--cache-file`。已经过时，用 `cacheLocation` 代替。
 * `cacheLocation` - Name of the file or directory where the cache will be stored (default: `.eslintcache`). Corresponds to `--cache-location`.
 * `cacheLocation` - 存放缓存的文件或者目录名。（默认为 `.eslintcache`）。 对应于--cache-location`。
+* `configFile` - The configuration file to use (default: null). Corresponds to `-c`.
+* `configFile` - 要使用的配置文件（默认：null）。对应于 `-c`。
 * `cwd` - Path to a directory that should be considered as the current working directory.
 * `cwd` - 当前工作目录路径
+* `envs` - An array of environments to load (default: empty array). Corresponds to `--env`.
+* `envs` - 需要加载的环境的数组（默认为空数组）。对应于 `--env`。
+* `extensions` - An array of filename extensions that should be checked for code. The default is an array containing just `".js"`. Corresponds to `--ext`.
+* `extensions`- 应被代码检查的文件名扩展的数组。默认为仅包含 `".js"` 的数组。对应于 `--ext`。
+* `fix` - True indicates that fixes should be included with the output report, and that errors and warnings should not be listed if they can be fixed. However, the files on disk will not be changed. To persist changes to disk, call [`outputFixes()`](#outputfixes).
+* `fix` - True 表示修复应该包含在输出报告中，错误和警告如果可以修复，就不应该再列出。然而，磁盘上的文件不会被改变。调用[`outputFixes()`](#outputfixes)，来改变。
+* `globals` - An array of global variables to declare (default: empty array). Corresponds to `--global`.
+* `globals` - 要声明为全局变量的数组（默认为空数组）。对应于 `--global`。
+* `ignore` - False disables use of `.eslintignore`, `ignorePath` and `ignorePattern` (default: true). Corresponds to `--no-ignore`.
+* `ignore`- 值为 false 时禁用 `.eslintignore`、`ignorePath` 和 `ignorePattern` (默认为true)。对应于 `--no-ignore`。
+* `ignorePath` - The ignore file to use instead of `.eslintignore` (default: null). Corresponds to `--ignore-path`.
+* `ignorePath` - 要使用的忽略文件不是 `.eslintignore` (默认为 null)。对应于 `--ignore-path`。
+* `ignorePattern` - Glob patterns for paths to ignore. String or array of strings.
+* `ignorePattern` - 忽略路径的 Glob 模式。字符串或者字符串的数组。
+* `parser` - Specify the parser to be used (default: `espree`). Corresponds to `--parser`.
+* `parser` - 指定使用的解析器(默认为 `espree`)。对应于 `--parser`。
+* `parserOptions` - An object containing parser options (default: empty object). Corresponds to `--parser-options`.
+* `parserOptions` - 一个包含解析器选项的对象 (默认: 空对象)。对应 `--parser-options`。
+* `plugins` - An array of plugins to load (default: empty array). Corresponds to `--plugin`.
+* `plugins` - 要加载的插件数组 (默认: 空数组)。对应 `--plugin`。
+* `rulePaths` - An array of directories to load custom rules from (default: empty array). Corresponds to `--rulesdir`.
+* `rulePaths` - 加载自定义规则的目录的数组。(默认：空数组)。对应于 `--rulesdir`。
+* `rules` - An object of rules to use (default: null). Corresponds to `--rule`.
+* `rules` - 要使用的规则的对象 (默认为null)。 对应于 `--rule`。
+* `useEslintrc` - Set to false to disable use of `.eslintrc` files (default: true). Corresponds to `--no-eslintrc`.
+* `useEslintrc` - 设置为 false 时禁用 `.eslintrc` 文件(默认为true)。对应于`--no-eslintrc`。
 
 For example:
 
@@ -293,7 +309,6 @@ The return value is an object containing the results of the linting operation. H
             output: "foo;",
             messages: [
                 {
-                    fatal: false,
                     severity: 2,
                     ruleId: "semi",
                     severity: 2,
@@ -311,13 +326,62 @@ The return value is an object containing the results of the linting operation. H
 }
 ```
 
-The top-level report object has a `results` array containing all linting results for files that had warnings or errors (any files that did not produce a warning or error are omitted). Each file result includes the `filePath`, a `messages` array, `errorCount`, `warningCount`, and optionally `output`. The `messages` array contains the result of calling `linter.verify()` on the given file. The `errorCount` and `warningCount` give the exact number of errors and warnings respectively on the given file. The `output` property gives the source code for the file with as many fixes applied as possible, so you can use that to rewrite the files if necessary. The top-level report object also has `errorCount` and `warningCount` which give the exact number of errors and warnings respectively on all the files.
+If the operation ends with a parsing error, you will get a single message for this file, with `fatal: true` added as an extra property.
 
-顶层的报告对象有一个 `result` 数组，该数组包含引起警告或错误的文件的检测结果（不引起警告或错误的文件都会被忽略）。每个文件的结果包含 `filePath`, 一个 `messages` 数组, `errorCount`, `warningCount`, 和可选的 `output`。`message`数组包含对给定文件调用 `linter.verify()` 函数的结果。`errorCount` 和 `warningCount` 对于给定文件分别给错误和警告的确切数目。`output` 属性会给出尽可能多的应用在文件上的修复源代码。所以，如果有必要你可以使用它来重写文件。顶层的报告对象也包含 `errorCount` 和 `warningCount`，分别对所有的文件给出准确的警告和错误数量。
+如果操作出现一个解析错误，你将获得一条消息，带有一个额外的属性 `fatal: true`。
 
-Once you get a report object, it's up to you to determine how to output the results.
+```js
+{
+    results: [
+        {
+            filePath: "./myfile.js",
+            messages: [
+                {
+                    ruleId: null,
+                    fatal: true,
+                    severity: 2,
+                    source: "fucntion foo() {}",
+                    message: "Parsing error: Unexpected token foo",
+                    line: 1,
+                    column: 10
+                }
+            ],
+            errorCount: 1,
+            warningCount: 0,
+            source: "fucntion foo() {}"
+        }
+    ],
+    errorCount: 1,
+    warningCount: 0
+}
+```
 
-一旦获取一个报告对象，怎么输出结果取决于你。
+The top-level report object has a `results` array containing all linting results for files that had warnings or errors (any files that did not produce a warning or error are omitted). Each file result includes:
+
+报告对象的顶层是个 `results` 数组，包含文件的所有检查结果，有警告或错误（任何不产生讲过或错误的文件将被忽略）。每个文件结果包括：
+
+* `filePath` - Path to the given file.
+* `filePath` - 给定的文件路径。
+* `messages` - Array containing the result of calling `linter.verify()` on the given file.
+* `messages` - 包含在给定的文件上调用 `linter.verify()` 产生的结果的数组。
+* `errorCount` and `warningCount` - The exact number of errors and warnings respectively on the given file.
+* `errorCount` 和 `warningCount` - 给定的文件对应的错误和警告具体数量。
+* `source` - The source code for the given file. This property is omitted if this file has no errors/warnings or if the `output` property is present.
+* `source` - 给定的文件的源码。如果该文件没有错误或警告，或如果有 `output` 属性，这个属性将被省略。
+* `output` - The source code for the given file with as many fixes applied as possible, so you can use that to rewrite the files if necessary. This property is omitted if no fix is available.
+* `output` - 给定的文件应用尽可能多的修复之后的源码，如果有必要，你可以使用它对文件进行重写。如果没有可用的修复，这个属性将被省略。
+
+The top-level report object also has `errorCount` and `warningCount` which give the exact number of errors and warnings respectively on all the files.
+
+顶层报告对象也有 `errorCount` 和 `warningCount`，分别给出所有文件的错误和警告具体数量。
+
+**Please note**: the `source` property will be removed from the linting messages returned in `messages` in an upcoming breaking release. If you depend on this property, you should now use the top-level `source` or `output` properties instead.
+
+**请注意：**`source` 属性将在未来的大版本中从检测消息中移除。如果你依赖这个属性，你现在应该使用顶层的 `source` 或 `output` 属性。
+
+Once you get a report object, it's up to you to determine how to output the results. Fixes will not be automatically applied to the files, even if you set `fix: true` when constructing the `CLIEngine` instance. To apply fixes to the files, call [`outputFixes`](#outputfixes).
+
+一旦你得到了一个报告对象，由你来决定如何输出结果。修复不会自动应用到文件，即使你在创建 `CLIEngine` 实例时设置 `fix: true`。调用 [`outputFixes`](#outputfixes)来使修复生效。
 
 ### resolveFileGlobPatterns()
 
@@ -403,6 +467,9 @@ The `report` returned from `executeOnText()` is in the same format as from `exec
 
 `report` 从 `executeOnText()` 返回和从 `executeOnFiles()` 返回具有相同的格式, 但是在 `report.results` 中永远只有一个结果。
 
+If a filename in the optional second parameter matches a file that is configured to be ignored, then this function returns no errors or warnings. To return a warning instead, call the method with true as the optional third parameter.
+
+如果第二个可选参数的文件名匹配配置文件中被忽略的文件，该函数不会返回任何错误或经过。为了返回一个警告，调用该方法时设置第三个参数为 true。
 
 ### addPlugin()
 
@@ -454,6 +521,8 @@ Retrieves a formatter, which you can then use to format a report object. The arg
 
 * "[checkstyle](./user-guide/formatters#checkstyle)"
 * "[checkstyle](../user-guide/formatters#checkstyle)"
+* "[codeframe](../user-guide/formatters#codeframe)"
+* "[codeframe](../user-guide/formatters#codeframe)"
 * "[compact](../user-guide/formatters#compact)"
 * "[compact](../user-guide/formatters#compact)"
 * "[html](../user-guide/formatters#html)"
@@ -504,7 +573,7 @@ console.log(formatter(report.results));
 
 **Note:** Also available as a static function on `CLIEngine`.
 
-**注意：** `CLIEngine` 的静态方法也是适用的。
+**注意：**`CLIEngine` 的静态方法也是适用的。
 
 ```js
 // get the default formatter by calling the static function

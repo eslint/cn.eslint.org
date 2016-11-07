@@ -1,5 +1,5 @@
 ---
-title: Rule no-extra-parens
+title: no-extra-parens - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -7,6 +7,10 @@ layout: doc
 # disallow unnecessary parentheses (no-extra-parens)
 
 # 禁止冗余的括号（no-extra-parens）
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 This rule restricts the use of parentheses to only where they are necessary.
 
@@ -20,7 +24,7 @@ This rule always ignores extra parentheses around the following:
 
 * RegExp literals such as `(/abc/).test(var)` to avoid conflicts with the [wrap-regex](wrap-regex) rule
 * RegExp 字面量比如 `(/abc/).test(var)` 避免与 [wrap-regex](wrap-regex) 规则产生冲突
-* immediately-invokes function expressions (also known as IIFEs) such as `var x = (function () {})();` and `((function foo() {return 1;})())` to avoid conflicts with the [wrap-iife](wrap-iife) rule
+* immediately-invoked function expressions (also known as IIFEs) such as `var x = (function () {})();` and `((function foo() {return 1;})())` to avoid conflicts with the [wrap-iife](wrap-iife) rule
 * 立即执行函数 (也就是 IIFE) 比如 `var x = (function () {})();` 和 `((function foo() {return 1;})())` 避免与 [wrap-iife](wrap-iife) 规则产生冲突
 
 ## Options

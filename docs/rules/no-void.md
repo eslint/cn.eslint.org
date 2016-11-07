@@ -1,5 +1,5 @@
 ---
-title: Rule no-void
+title: no-void - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -28,7 +28,7 @@ The common case of using `void` operator is to get a "pure" `undefined` value as
     return undefined;
 })();
 
-// will throw TypeError is ES5+
+// will throw TypeError in ES5+
 (function(){
     'use strict';
     undefined = 1;
@@ -44,7 +44,7 @@ foo = void 0;
 foo = undefined;
 ```
 
-When used with IIFE (immediately-invoked function expression) `void` can be used to force the function keyword to be treated as an expression instead of a declaration:
+When used with IIFE (immediately-invoked function expression), `void` can be used to force the function keyword to be treated as an expression instead of a declaration:
 
 当在 IIFE (立即调用函数表达式)时被使用时,`void` 可以用来强制 function 关键字被当作成表达式而不是声明:
 
@@ -58,7 +58,7 @@ void function(){ foo = 1; }() // will assign foo a value of 1
 function(){ foo = 1; }() // will throw SyntaxError
 ```
 
-Some code styles prohibit `void` operator marking it as non-obvious and hard to read.
+Some code styles prohibit `void` operator, marking it as non-obvious and hard to read.
 
 一些代码风格禁止使用 `void` 操作符，把它标记为不明显的，难以阅读的。
 

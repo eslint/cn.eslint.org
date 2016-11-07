@@ -1,12 +1,12 @@
 ---
-title: Rule no-inner-declarations
+title: no-inner-declarations - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow `function` or `var` declarations in nested blocks (no-inner-declarations)
+# disallow variable or `function` declarations in nested blocks  (no-inner-declarations)
 
-# 禁止在嵌套的语句块中出现 `function` 或 `var` 声明 (no-inner-declarations)
+# 禁止在嵌套的语句块中出现变量或 `function` 声明 (no-inner-declarations)
 
 In JavaScript, prior to ES6, a function declaration is only allowed in the first level of a program or the body of another function, though parsers sometimes [erroneously accept them elsewhere](https://code.google.com/p/esprima/issues/detail?id=422). This only applies to function declarations; named or anonymous function expressions can occur anywhere an expression is permitted.
 

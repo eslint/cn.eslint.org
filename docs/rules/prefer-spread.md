@@ -1,12 +1,16 @@
 ---
-title: Rule prefer-spread
+title: prefer-spread - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Suggest using the spread operator instead of `.apply()` (prefer-spread)
+# Suggest using the spread operator instead of `.apply()`. (prefer-spread)
 
 # 建议使用扩展运算符而非`.apply()` (prefer-spread)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 Before ES2015, one must use `Function.prototype.apply()` to call variadic functions.
 
@@ -30,13 +34,13 @@ Math.max(...args);
 
 ## Rule Details
 
-This rule is aimed to flag usage of `Function.prototype.apply()` that can be replaced with the spread operator.
+This rule is aimed to flag usage of `Function.prototype.apply()` in situations where the spread operator could be used instead.
 
-该规则旨在标记可以被扩展运算符代替的 `Function.prototype.apply()` 的使用情况。
+## Examples
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误** 代码示例：
 
 ```js
 /*eslint prefer-spread: "error"*/
@@ -48,9 +52,9 @@ foo.apply(null, args);
 obj.foo.apply(obj, args);
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint prefer-spread: "error"*/
@@ -71,13 +75,9 @@ Known limitations:
 
 已知的限制：
 
-This rule analyzes code statically to check whether or not the `this` argument is changed.
+This rule analyzes code statically to check whether or not the `this` argument is changed. So, if the `this` argument is computed in a dynamic expression, this rule cannot detect a violation.
 
-该规则通过静态分析代码的方式检查`this`参数是否有改变。
-
-So if the `this` argument is computed in a dynamic expression, this rule cannot detect a violation.
-
-如果 `this` 是在动态表达式中就被计算出来的，该规则便无法检测到。
+该规则通过静态分析代码的方式检查`this`参数是否有改变。因此，如果在动态表达式中有 `this` 参数，该规则不会检查这种情况。
 
 ```js
 /*eslint prefer-spread: "error"*/

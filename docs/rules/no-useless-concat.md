@@ -1,8 +1,6 @@
 ---
-title: Rule no-useless-concat
+title: no-useless-concat - Rules
 layout: doc
-translator: fengnana
-proofreader: coocon 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -28,7 +26,7 @@ var foo = "ab";
 
 ## Rule Details
 
-This rule aims to flag the concatenation of two literals when they could be combined into a single literal. Literals can be strings or template literals.
+This rule aims to flag the concatenation of 2 literals when they could be combined into a single literal. Literals can be strings or template literals.
 
 此规则目的在于标记可以组合成单个字面量的两个字面量的拼接。字面量可以是字符串或者模板字面量。
 

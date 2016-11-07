@@ -20,11 +20,8 @@ If you'd like to work on a pull request and you've never submitted code before, 
 1. 签署我们的 [贡献者许可协议（Contributor License Agreement）](https://contribute.jquery.org/cla)。
 1. Set up a [development environment](../development-environment).
 1. 搭建[开发环境](../development-environment)。
-1. Ensure there's an issue that describes what you're doing. You can create a new issue or just indicate you're [working on an existing issue](working-on-issues).
-1. 确保有一个议题（issue）描述你正在做的事情。你可以新建一个议题（issue）或者表明你正[working on an existing issue](working-on-issues)。
-  * Exception: documentation-only changes do not require an issue.
-  * 例外: 文档的修改不要求有议题（issue）。
-
+1. If you want to implement a breaking change or a change to the core, ensure there's an issue that describes what you're doing and the issue has been accepted. You can create a new issue or just indicate you're [working on an existing issue](working-on-issues). Bug fixes, documentation changes, and other pull requests do not require an issue.
+1. 如果你想实现一个重大改变或对 ESLint 核心的改变，确保有一个 issue 描述你在做什么，而且这个 issue 已经被接受。你可以创建一个新的 issue 或只表明你[正在处理一个已存在的 issue](working-on-issues)。bug 修复，文档修改，和其它合并请求（pull request）不需要有 issue。
 
 After that, you're ready to start working on code.
 
@@ -44,10 +41,10 @@ The process of submitting a pull request is fairly straightforward and generally
 3. [变基（rebase) 到上游（upstream）](#step3)
 4. [Run the tests](#step4)
 4. [运行测试](#step4)
-5. [Squash your commits](#step5)
-5. [压缩（squash）你的提交](#step5)
-6. [Double check your submission](#step6)
-6. [仔细检查你的提交](#step6)
+5. [Double check your submission](#step5)
+5. [仔细检查你的提交](#step6)
+6. [Push your changes](#step6)
+6. [推送你的修改](#step6)
 7. [Submit the pull request](#step7)
 7. [提交这个合并请求（pull request）](#step7)
 
@@ -73,7 +70,6 @@ You should do all of your development for the issue in this branch.
 **Note:** Do not combine fixes for multiple issues into one branch. Use a separate branch for each issue you're working on.
 
 **注意：**请不要把多个议题（issue）的修改合并到一个分支上。针对每个议题（issue）使用一个独立的分支。
-
 
 ### Step 2: Make your changes<a name="step2"></a>
 
@@ -123,11 +119,11 @@ The `Tag` is one of the following:
 
 Use the [labels of the issue you are working on](working-on-issues#issue-labels) to determine the best tag.
 
-参考[issue labels](working-on-issues#issue-labels) 选定最合适的标签.
+参考 [issue 标签](working-on-issues#issue-labels) 选定最合适的标签.
 
-The message summary should be a one-sentence description of the change, and it must be 72 characters in length or shorter. The issue number should be mentioned at the end. If the commit doesn't completely fix the issue, then use `(refs #1234)` instead of `(fixes #1234)`.
+The message summary should be a one-sentence description of the change, and it must be 72 characters in length or shorter. If the pull request addresses an issue, then the issue number should be mentioned at the end. If the commit doesn't completely fix the issue, then use `(refs #1234)` instead of `(fixes #1234)`.
 
-描述变更的摘要信息应该是一句话，并且它不能超过72个字符。议题（issue）编号应该展示在最后。如果提交的变更没能彻底修复问题，请使用`(refs #1234)`而不是 `(fixes #1234)`。
+描述变更的摘要信息应该是一句话，并且它不能超过72个字符。如果合并请求（pull request） 指明了一个 issue，issue 编号应该展示在最后。如果提交的变更没能彻底修复问题，请使用`(refs #1234)` 而不是 `(fixes #1234)`。
 
 Here are some good commit message summary examples:
 
@@ -164,11 +160,9 @@ After rebasing, be sure to run all of the tests once again to make sure nothing 
 npm test
 ```
 
-### Step 5: Squash your commits<a name="step5"></a>
+If there are any failing tests, update your code until all tests pass.
 
-ESLint requires just one commit per pull request. If you have used multiple commits, be sure to [squash](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html) your commits.
-
-ESLint 要求每个合并请求（pull request）只包含一次提交。如果你多次提交，一定要[压缩（squash）](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)你的提交。
+如果有失败的测试，更新你的代码知道测试通过。
 
 ### Step 6: Double check your submission<a name="step6"></a>
 
@@ -199,6 +193,23 @@ With your code ready to go, this is a good time to double-check your submission 
 * Follow the [Code Conventions](../code-conventions.html).
 * 遵循[代码规范（Code Conventions）](../code-conventions.html)。
 
+### Step 6: Push your changes<a name="step6"></a>
+
+Next, push your changes to your clone:
+
+下一步，推送你的修改：
+
+```
+git push origin issue1234
+```
+
+If you are unable to push because some references are old, do a forced push instead:
+
+如果你因为一些引用较为国税不能推送，那就强制推送：
+
+```
+git push -f origin issue1234
+```
 ### Step 7: Send the pull request<a name="step7"></a>
 
 Now you're ready to send the pull request. Go to your ESLint fork and then follow the [GitHub documentation](https://help.github.com/articles/creating-a-pull-request) on how to send a pull request.
@@ -252,9 +263,9 @@ This snippets adds all your new changes, then amends the previous commit with th
 
 这段代码中增加了你所有的新的变化，然后会修改之前的提交。这个 `--no-edit` 表示你不想修改提交信息；如果你需要修改提交信息，你可以省略这个选项。
 
-
 ### Rebasing
 
+If your code is out-of-date, we might ask you to rebase. That means we want you to apply your changes on top of the latest upstream code. Make sure you have set up a [development environment](../development-environment) and then you can rebase using these commands:
 If your code is out-of-date, we might ask you to rebase. That means we want you to apply your changes on top of the latest upstream code. You can do so via:
 
 如果你的代码过时了，我们也许会要求你变基（rebase）。 它意味着我们希望你把自己的变更应用到最新的上游（upstream）代码中。你可以这样做：
@@ -267,16 +278,6 @@ $ git rebase upstream/master
 You might find that there are merge conflicts when you attempt to rebase. Please [resolve the conflicts](https://help.github.com/articles/resolving-merge-conflicts-after-a-git-rebase/) and then do a forced push to your branch:
 
 当你试图rebase的时候，你可能会遇到合并冲突。请[解决冲突（resolve the conflicts）](https://help.github.com/articles/resolving-merge-conflicts-after-a-git-rebase/) 接着强制推送到你的分支：
-
-```
-$ git push origin issue1234 -f
-```
-
-### Squashing
-
-If you have more than one commit on your pull request, we'll ask you to [squash your commits](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html). Once your commits are squashed, you can do a forced push to update your branch:
-
-如果你的合并请求（pull request）中包含多次提交，我们会要求你 [压缩提交（squash your commits）](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)。一旦你的提交压缩以后，你可以做一个强制推送来更新你的分支：
 
 ```
 $ git push origin issue1234 -f

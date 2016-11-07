@@ -1,5 +1,5 @@
 ---
-title: Rule no-invalid-this
+title: no-invalid-this - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -28,6 +28,8 @@ This rule judges from following conditions whether or not the function is a cons
 
 * The name of the function starts with uppercase.
 * 该函数的名字以大写字母开头。
+* The function is assigned to a variable which starts with an uppercase letter.
+* 该函数被赋值给一个以大小字母开头的变量。
 * The function is a constructor of ES2015 Classes.
 * 该函数是 ES2015 类构造函数。
 
@@ -36,9 +38,9 @@ This rule judges from following conditions whether or not the function is a meth
 此规则从以下条件中判断函数是否是一个方法：
 
 * The function is on an object literal.
-* 该函数在对象字面量上
-* The function assigns to a property.
-* 该函数赋值给一个属性
+* 该函数在对象字面量上。
+* The function is assigned to a property.
+* 该函数被赋值给一个属性。
 * The function is a method/getter/setter of ES2015 Classes. (excepts static methods)
 * 该函数是一个 ES2015 类的方法、getter 或 setter。(除静态方法)
 

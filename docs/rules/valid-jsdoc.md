@@ -1,5 +1,5 @@
 ---
-title: Rule valid-jsdoc
+title: valid-jsdoc - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -54,6 +54,10 @@ This rule enforces valid and consistent JSDoc comments. It reports any of the fo
 This rule does not report missing JSDoc comments for classes, functions, or methods.
 
 该规则对类、函数或方法报告缺失 JSDoc 注释的情况。
+
+**Note:** This rule does not support all of the Google Closure documentation tool's use cases. As such, some code such as `(/**number*/ n => n * 2);` will be flagged as missing appropriate function JSDoc comments even though `/**number*/` is intended to be a type hint and not a documentation block for the function. We don't recommend using this rule if you use type hints in this way.
+
+**注意：**该规则不支持所有的 Google Closure Tools 文档的所有用例。因此，`(/**number*/ n => n * 2);` 这样的代码将被标记为缺少适当的的函数 JSDoc 注释，即使有 `/**number*/` 暗示是个数字，而且不是一个函数的文档块。如果你以这种方式使用类型提示，我们不推荐你使用这个规则。
 
 Examples of **incorrect** code for this rule:
 

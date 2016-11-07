@@ -1,5 +1,5 @@
 ---
-title: Rule use-isnan
+title: use-isnan - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -25,9 +25,9 @@ Therefore, use `Number.isNaN()` or global `isNaN()` functions to test whether a 
 
 ## Rule Details
 
-This rule disallows comparisons to `NaN`.
+This rule disallows comparisons to 'NaN'.
 
-该规则禁止与 `NaN` 的比较。
+该规则禁止与 'NaN' 的比较。
 
 Examples of **incorrect** code for this rule:
 

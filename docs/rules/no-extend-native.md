@@ -1,5 +1,5 @@
 ---
-title: Rule no-extend-native
+title: no-extend-native - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -98,7 +98,7 @@ You may want to disable this rule when working with polyfills that try to patch 
 
 ## Related Rules
 
-* [no-native-reassign](no-native-reassign)
+* [no-global-assign](no-global-assign)
 
 ## Version
 

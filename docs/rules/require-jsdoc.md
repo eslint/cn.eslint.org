@@ -1,10 +1,10 @@
 ---
-title: Rule require-jsdoc
+title: require-jsdoc - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require JSDoc comment (require-jsdoc)
+# require JSDoc comments (require-jsdoc)
 
 # 要求使用 JSDoc 注释 (require-jsdoc)
 
@@ -30,31 +30,27 @@ Some style guides require JSDoc comments for all functions as a way of explainin
 
 ## Rule Details
 
-This rule generates warnings for nodes that do not have JSDoc comments when they should. Supported nodes:
+This rule requires JSDoc comments for specified nodes. Supported nodes:
 
-如果某些节点应该使用 JSDoc 注释的而没有使用，该规则将会发出警告。支持的节点：
+该规则要求指定的节点使用 JSDoc 注释。支持的节点：
 
-* `FunctionDeclaration`
-* `FunctionDeclaration`
-* `ClassDeclaration`
-* `ClassDeclaration`
-* `MethodDefinition`
-* `MethodDefinition`
+* `"FunctionDeclaration"`
+* `"FunctionDeclaration"`
+* `"ClassDeclaration"`
+* `"ClassDeclaration"`
+* `"MethodDefinition"`
+* `"MethodDefinition"`
 
 ## Options
 
-This rule accepts a `require` object with its properties as
+This rule has a single object option:
 
-该规则接收一个 `require` 对象，属性如下：
+该规则有一个对象选项：
 
-* `FunctionDeclaration` (default: `true`)
-* `FunctionDeclaration` (默认为 `true`)
-* `ClassDeclaration` (default: `false`)
-* `ClassDeclaration` (默认为 `false`)
-* `MethodDefinition` (default: `false`)
-* `MethodDefinition` (默认为 `false`)
+* `"require"` requires JSDoc comments for the specified nodes
+* `"require"` 要求指定的节点使用 JSDoc 注释
 
-Default option settings are
+Default option settings are:
 
 默认选项设置如下：
 
@@ -70,9 +66,11 @@ Default option settings are
 }
 ```
 
-The following patterns are considered problems:
+### require
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule with the `{ "require": { "FunctionDeclaration": true, "MethodDefinition": true, "ClassDeclaration": true } }` option:
+
+选项 `{ "require": { "FunctionDeclaration": true, "MethodDefinition": true, "ClassDeclaration": true } }` 的 **错误** 代码示例：
 
 ```js
 /*eslint "require-jsdoc": ["error", {
@@ -92,9 +90,9 @@ class Test{
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `{ "require": { "FunctionDeclaration": true, "MethodDefinition": true, "ClassDeclaration": true } }` option:
 
-以下模式被认为是没有问题的：
+选项 `{ "require": { "FunctionDeclaration": true, "MethodDefinition": true, "ClassDeclaration": true } }` 的 **正确** 代码示例：
 
 ```js
 /*eslint "require-jsdoc": ["error", {
@@ -106,15 +104,15 @@ The following patterns are not considered problems:
 }]*/
 
 /**
-* It returns 10
-*/
+ * It returns 10
+ */
 function foo() {
     return 10;
 }
 
 /**
-* It returns 10
-*/
+ * It returns 10
+ */
 var foo = function() {
     return 10;
 }
@@ -125,8 +123,8 @@ array.filter(function(item) {
 });
 
 /**
-* It returns 10
-*/
+ * It returns 10
+ */
 class Test{
     /**
     * returns the date

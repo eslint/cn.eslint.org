@@ -40,6 +40,17 @@ Once your shareable config is ready, you can [publish to npm](https://docs.npmjs
 
 一旦可分享的配置设置好，你可以 [发布到 npm](https://docs.npmjs.com/getting-started/publishing-npm-packages) 分享给其他人。我们建议使用 `eslint` 和 `eslintconfig` 关键字方便其他人很容易的找到你的模块。
 
+You should declare your dependency on eslint in `package.json` using the [peerDependencies](https://docs.npmjs.com/files/package.json#peerdependencies) field. The recommended way to declare a dependency for future proof compatibility is with the ">=" range syntax, using the lowest required eslint version. For example:
+
+你应该在 `package.json` 中用 [peerDependencies](https://docs.npmjs.com/files/package.json#peerdependencies) 字段声明你依赖的 eslint。推荐使用 ">=" 范围语法，即使用最低要求的 eslint 版本，声明该
+依赖以向后兼容。
+
+```
+peerDependencies: {
+    "eslint": ">= 3"
+}
+```
+
 You can also test your shareable config on your computer before publishing by linking your module globally. Type:
 
 在发布到 npm 之前，你可以将你的模块 link 到全局从而测试你的可分享设置模块。像这样:

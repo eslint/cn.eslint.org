@@ -31,6 +31,8 @@ Before you can get started developing, you'll need to have a couple of things in
 在你开始开发之前，你需要安装以下工具：
 
 * [Node.JS](http://nodejs.org)
+* [Node.JS](http://nodejs.org)
+* [npm](http://npmjs.org)
 * [npm](http://npmjs.org)
 
 Once you have a local copy and have Node.JS and npm installed, you'll need to install the ESLint dependencies:

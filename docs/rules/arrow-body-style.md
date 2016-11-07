@@ -1,5 +1,5 @@
 ---
-title: Rule arrow-body-style
+title: arrow-body-style - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -7,6 +7,10 @@ layout: doc
 # Require braces in arrow function body (arrow-body-style)
 
 # 要求箭头函数体使用大括号 (arrow-body-style)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 Arrow functions have two syntactic forms for their function bodies.  They may be defined with a *block* body (denoted by curly braces) `() => { ... }` or with a single expression `() => ...`, whose value is implicitly returned.
 
@@ -40,9 +44,11 @@ The second one is an object for more fine-grained configuration when the first o
 "arrow-body-style": ["error", "always"]
 ```
 
-When the rule is set to `"always"` the following patterns are considered problems:
+### always
 
-当设置为`"always"`，以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule with the `"always"` option:
+
+选项 `"always"` 的 **错误** 代码示例：
 
 ```js
 /*eslint arrow-body-style: ["error", "always"]*/
@@ -50,9 +56,9 @@ When the rule is set to `"always"` the following patterns are considered problem
 let foo = () => 0;
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"always"` option:
 
-以下模式被认为是没有问题的：
+选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 let foo = () => {
@@ -64,11 +70,11 @@ let foo = (retv, name) => {
 };
 ```
 
-### "as-needed"
+### as-needed
 
-When the rule is set to `"as-needed"` the following patterns are considered problems:
+Examples of **incorrect** code for this rule with the default `"as-needed"` option:
 
-当设置为`"as-needed"`，以下模式被认为是有问题的：
+默认选项 `"as-needed"` 的 **错误** 代码示例：
 
 ```js
 /*eslint arrow-body-style: ["error", "as-needed"]*/
@@ -87,9 +93,9 @@ let foo = () => {
 };
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `"as-needed"` option:
 
-以下模式被认为是没有问题的：
+默认选项 `"as-needed"` 的 **正确** 代码示例：
 
 ```js
 /*eslint arrow-body-style: ["error", "as-needed"]*/
@@ -117,9 +123,13 @@ let foo = () => ({ bar: 0 });
 
 #### requireReturnForObjectLiteral
 
-When the rule is set to `"as-needed", { requireReturnForObjectLiteral: true }` the following patterns are considered problems:
+> This option is only applicable when used in conjunction with the `"as-needed"` option.
 
-当设置为`"as-needed", { requireReturnForObjectLiteral: true }`，以下模式被认为是有问题的：
+> 该选项只适合与`"as-needed"配合使用。
+
+Examples of **incorrect** code for this rule with the `{ "requireReturnForObjectLiteral": true }` option:
+
+选项 `{ "requireReturnForObjectLiteral": true }` 的 **错误** 代码示例：
 
 ```js
 /*eslint arrow-body-style: ["error", "as-needed", { requireReturnForObjectLiteral: true }]*/
@@ -128,9 +138,9 @@ let foo = () => ({});
 let foo = () => ({ bar: 0 });
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `{ "requireReturnForObjectLiteral": true }` option:
 
-以下模式被认为是没有问题的：
+选项 `{ "requireReturnForObjectLiteral": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint arrow-body-style: ["error", "as-needed", { requireReturnForObjectLiteral: true }]*/
@@ -140,11 +150,11 @@ let foo = () => {};
 let foo = () => { return { bar: 0 }; };
 ```
 
-### "never"
+### never
 
-When the rule is set to `"never"` the following patterns are considered problems:
+Examples of **incorrect** code for this rule with the `"never"` option:
 
-当设置为 `"never"` 时，以下模式被认为是有问题的：
+选项 `"never"` 的 **错误** 代码示例：
 
 ```js
 /*eslint arrow-body-style: ["error", "never"]*/
@@ -159,9 +169,9 @@ let foo = (retv, name) => {
 };
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"never"` option:
 
-以下模式被认为是没有问题的：
+选项 `"never"` 的 **正确** 代码示例：
 
 ```js
 /*eslint arrow-body-style: ["error", "never"]*/

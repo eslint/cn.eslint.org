@@ -1,12 +1,12 @@
 ---
-title: Rule no-new-symbol
+title: no-new-symbol - Rules
 layout: doc_en
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow Symbol Constructor (no-new-symbol)
 
-The `Symbol` constructor is not intended to be used with the `new` operator, but to be called as a function.
+`Symbol` is not intended to be used with the `new` operator, but to be called as a function.
 
 ```js
 var foo = new Symbol("foo");
@@ -18,7 +18,9 @@ This throws a `TypeError` exception.
 
 This rule is aimed at preventing the accidental calling of `Symbol` with the `new` operator.
 
-The following patterns are considered problems:
+## Examples
+
+Examples of **incorrect** code for this rule:
 
 ```js
 /*eslint no-new-symbol: "error"*/
@@ -27,7 +29,7 @@ The following patterns are considered problems:
 var foo = new Symbol('foo');
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
 ```js
 /*eslint no-new-symbol: "error"*/

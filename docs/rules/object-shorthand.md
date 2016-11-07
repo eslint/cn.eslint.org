@@ -1,5 +1,5 @@
 ---
-title: Rule object-shorthand
+title: object-shorthand - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -7,6 +7,10 @@ layout: doc
 # Require Object Literal Shorthand Syntax (object-shorthand)
 
 # 要求对象字面量简写语法 (object-shorthand)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 EcmaScript 6 provides a concise form for defining object literal methods and properties. This
 syntax can make defining complex object literals much cleaner.
@@ -105,19 +109,22 @@ var foo = {
 
 ## Options
 
-The rule takes an option which specifies when it should be applied. It can be set to
-`"always"`, `"properties"`, `"methods"`, or `"never"`. The default is `"always"`.
+The rule takes an option which specifies when it should be applied. It can be set to one of the following values:
 
-该规则有一个选项。可以设置为 `"always"`、`"properties"`、`"methods"` 或 `"never"`。 默认为 `"always"`。
+该规则有一个选项。可以设置为下列值之一：
 
-* `"always"` expects that the shorthand will be used whenever possible.
-* `"always"` 只要有可能，简写就应该被使用。
+* `"always"` (default) expects that the shorthand will be used whenever possible.
+* `"always"` (默认) 只要有可能，简写就应该被使用。
 * `"methods"` ensures the method shorthand is used (also applies to generators).
 * `"methods"` 保证方法简写被使用（同样适用于 generators ）。
-* `"properties` ensures the property shorthand is used (where the key and variable name match).
-* `"properties` 保证属性简写被使用 (键和变量名称相匹配的情况).
+* `"properties"` ensures the property shorthand is used (where the key and variable name match).
+* `"properties"` 保证属性简写被使用 (键和变量名称相匹配的情况).
 * `"never"` ensures that no property or method shorthand is used in any object literal.
 * `"never"` 保证对象字面量中的任何属性和方法都不使用简写。
+* `"consistent"` ensures that either all shorthand or all longform will be used in an object literal.
+* `"consistent"` 保证对象字面量的简写或非简写一致性。
+* `"consistent-as-needed"` ensures that either all shorthand or all longform will be used in an object literal, but ensures all shorthand whenever possible.
+* `"consistent-as-needed"` 保证对象字面量的简写或非简写一致性，但尽可能的全部使用简写。
 
 You can set the option in configuration like this:
 
@@ -176,9 +183,9 @@ While set to `"always"` or `"methods"`, constructor functions can be ignored wit
 }
 ```
 
-The following will *not* warn when `"ignoreConstructors"` is enabled:
+Examples of **correct** code for this rule with the `"ignoreConstructors"` option:
 
-当启用 `"ignoreConstructors"` 时，下面的示例将 **不**发出警告：
+选项 `"ignoreConstructors"` 的 **正确** 代码示例：
 
 ```js
 /*eslint object-shorthand: ["error", "always", { "ignoreConstructors": true }]*/
@@ -186,6 +193,53 @@ The following will *not* warn when `"ignoreConstructors"` is enabled:
 
 var foo = {
     ConstructorFunction: function() {}
+};
+```
+
+Examples of **incorrect** code for this rule with the `"consistent"` option:
+
+选项 `"consistent"` 的 **错误** 代码示例：
+
+```js
+/*eslint object-shorthand: [2, "consistent"]*/
+/*eslint-env es6*/
+
+var foo = {
+    a,
+    b: "foo",
+};
+```
+
+Examples of **correct** code for this rule with the `"consistent"` option:
+
+选项 `"consistent"` 的 **正确** 代码示例：
+
+```js
+/*eslint object-shorthand: [2, "consistent"]*/
+/*eslint-env es6*/
+
+var foo = {
+    a: a,
+    b: "foo"
+};
+
+var bar = {
+    a,
+    b,
+};
+```
+
+Examples of **incorrect** code for this rule with the `"consistent-as-needed"` option:
+
+选项 `"consistent-as-needed"` 的 **错误** 代码示例：
+
+```js
+/*eslint object-shorthand: [2, "consistent-as-needed"]*/
+/*eslint-env es6*/
+
+var foo = {
+    a: a,
+    b: b,
 };
 ```
 

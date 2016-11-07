@@ -1,5 +1,5 @@
 ---
-title: Rule sort-imports
+title: sort-imports - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -42,23 +42,48 @@ This rule checks all import declarations and verifies that all imports are first
 
 该规则检查所有的 import 声明，验证所有的 import 都是首先按照使用的成员语法排序，其次是按照第一个成员或别名的字母顺序排序。
 
-The sort order of import declarations based on the member syntax can be configured via the `memberSyntaxSortOrder` option.
-The default member syntax sort order is:
+## Options
 
-基于成员语法的经过排序的 import 声明可以通过 `memberSyntaxSortOrder` 选项进行配置。默认的成员语法排列顺序是：
+This rule accepts an object with its properties as
 
-- `none` - import module without exported bindings.
-- `none` - import 没有输出绑定的模块。
-- `all` - import all members provided by exported bindings.
-- `all` - import 所有经输出绑定的成员。
-- `multiple` - import multiple members.
-- `multiple` - import 多个成员。
-- `single` - import single member.
-- `single` - import 单个成员。
+该规则有一个对象选项：
 
-The following example shows correct sorted import declarations:
+* `ignoreCase` (default: `false`)
+* `ignoreCase` (默认：`false`)
+* `ignoreMemberSort` (default: `false`)
+* `ignoreMemberSort` (默认：`false`)
+* `memberSyntaxSortOrder` (default: `["none", "all", "multiple", "single"]`); all 4 items must be present in the array, but you can change the order:
+* `memberSyntaxSortOrder` (默认：`["none", "all", "multiple", "single"]`)；洗个选项都必须在数组中，但你可以改变它们的顺序：
+	* `none` - import module without exported bindings.
+	* `none` - import 没有输出绑定的模块。
+	* `all` - import all members provided by exported bindings.
+	* `all` - import 所有经输出绑定的成员。
+	* `multiple` - import multiple members.
+	* `multiple` - import 多个成员。
+	* `single` - import single member.
+	* `single` - import 单个成员。
 
-以下示例展示了正确排序的 import 声明：
+Default option settings are:
+
+默认选项设置：
+
+```json
+{
+    "sort-imports": ["error", {
+        "ignoreCase": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+    }]
+}
+```
+
+## Examples
+
+### Default settings
+
+Examples of **correct** code for this rule when using default options:
+
+默认选项 **正确** 代码示例：
 
 ```js
 /*eslint sort-imports: "error"*/
@@ -69,11 +94,25 @@ import {alpha, beta} from 'alpha.js';
 import {delta, gamma} from 'delta.js';
 import a from 'baz.js';
 import b from 'qux.js';
+
+/*eslint sort-imports: "error"*/
+import a from 'foo.js';
+import b from 'bar.js';
+import c from 'baz.js';
+
+/*eslint sort-imports: "error"*/
+import 'foo.js'
+import * from 'bar.js';
+import {a, b} from 'baz.js';
+import c from 'qux.js';
+
+/*eslint sort-imports: "error"*/
+import {a, b, c} from 'foo.js'
 ```
 
-Examples of **incorrect** code for this rule:
+Examples of **incorrect** code for this rule when using default options:
 
-**错误** 代码示例：
+默认选项 **错误** 代码示例：
 
 ```js
 /*eslint sort-imports: "error"*/
@@ -100,61 +139,15 @@ import * as b from 'bar.js';
 import {b, a, c} from 'foo.js'
 ```
 
-Examples of **correct** code for this rule:
-
-**正确** 代码示例：
-
-```js
-/*eslint sort-imports: "error"*/
-import a from 'foo.js';
-import b from 'bar.js';
-import c from 'baz.js';
-
-/*eslint sort-imports: "error"*/
-import 'foo.js'
-import * from 'bar.js';
-import {a, b} from 'baz.js';
-import c from 'qux.js';
-
-/*eslint sort-imports: "error"*/
-import {a, b, c} from 'foo.js'
-```
-
-
-## Options
-
-This rule accepts an object with its properties as
-
-该规则接受一个对象选项：
-
-- `ignoreCase` (default: `false`)
-- `ignoreCase` (默认为 `false`)
-- `ignoreMemberSort` (default: `false`)
-- `ignoreMemberSort` (默认为 `false`)
-- `memberSyntaxSortOrder` (default: `["none", "all", "multiple", "single"]`)
-- `memberSyntaxSortOrder` (默认为 `["none", "all", "multiple", "single"]`)
-
-Default option settings are
-
-默认选项设置：
-
-```json
-{
-    "sort-imports": ["error", {
-        "ignoreCase": false,
-        "ignoreMemberSort": false,
-        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
-    }]
-}
-```
-
 ### `ignoreCase`
 
 When `true` the rule ignores the case-sensitivity of the imports local name.
 
-Examples of **incorrect** code for this rule:
+当为 `true` 时，该规则忽略 import 语句本地名称的大小写。
 
-**错误** 代码示例：
+Examples of **incorrect** code for this rule with the `{ "ignoreCase": true }` option:
+
+选项 `{ "ignoreCase": true }` 的 **错误** 代码示例：
 
 ```js
 /*eslint sort-imports: ["error", { "ignoreCase": true }]*/
@@ -163,9 +156,9 @@ import B from 'foo.js';
 import a from 'bar.js';
 ```
 
-Examples of **correct** code for this rule:
+Examples of **correct** code for this rule with the `{ "ignoreCase": true }` option:
 
-**正确** 代码示例：
+选项 `{ "ignoreCase": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint sort-imports: ["error", { "ignoreCase": true }]*/
@@ -177,22 +170,26 @@ import c from 'baz.js';
 
 Default is `false`.
 
+默认为 `false`。
+
 ### `ignoreMemberSort`
 
 Ignores the member sorting within a `multiple` member import declaration.
 
-Examples of **incorrect** code for this rule:
+忽略有多个成员的 import 声明的排序。
 
-**错误** 代码示例：
+Examples of **incorrect** code for this rule with the default `{ "ignoreMemberSort": false }` option:
+
+默认选项 `{ "ignoreMemberSort": false }` 的 **错误** 代码示例：
 
 ```js
-/*eslint sort-imports: "error"*/
+/*eslint sort-imports: ["error", { "ignoreMemberSort": false }]*/
 import {b, a, c} from 'foo.js'
 ```
 
-Examples of **correct** code for this rule:
+Examples of **correct** code for this rule with the `{ "ignoreMemberSort": true }` option:
 
-**正确** 代码示例：
+选项 `{ "ignoreMemberSort": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint sort-imports: ["error", { "ignoreMemberSort": true }]*/
@@ -201,28 +198,30 @@ import {b, a, c} from 'foo.js'
 
 Default is `false`.
 
+默认为 `false`。
+
 ### `memberSyntaxSortOrder`
 
-The member syntax sort order can be configured with this option. There are four different styles and the default member syntax sort order is:
+There are four different styles and the default member syntax sort order is:
 
-成员语法排序可以用这个选项进行配置。有四种不同的风格，默认的成员语法排列顺序是：
+有四种不同的风格，默认的成员语法排列顺序是：
 
-- `none` - import module without exported bindings.
-- `none` - import 没有输出绑定的模块。
-- `all` - import all members provided by exported bindings.
-- `all` - import 所有经输出绑定的成员。
-- `multiple` - import multiple members.
-- `multiple` - import 多个成员。
-- `single` - import single member.
-- `single` - import 单个成员。
+* `none` - import module without exported bindings.
+* `none` - import 没有输出绑定的模块。
+* `all` - import all members provided by exported bindings.
+* `all` - import 所有经输出绑定的成员。
+* `multiple` - import multiple members.
+* `multiple` - import 多个成员。
+* `single` - import single member.
+* `single` - import 单个成员。
 
-Use this option if you want a different sort order. Every style must be defined in the sort order (There shall be four items in the array).
+All four options must be specified in the array, but you can customise their order.
 
-如果你想用一种不同的排序，可以使用该选。每种风格必须按顺序定义（在数组中应该有四个元素）。
+所有四个选项必须指定在数组中，但是你可以自定义它们的顺序。
 
-Examples of **incorrect** code for this rule:
+Examples of **incorrect** code for this rule with the default `{ "memberSyntaxSortOrder": ["none", "all", "multiple", "single"] }` option:
 
-**错误** 代码示例：
+默认选项 `{ "memberSyntaxSortOrder": ["none", "all", "multiple", "single"] }`  的 **错误** 代码示例：
 
 ```js
 /*eslint sort-imports: "error"*/
@@ -230,16 +229,22 @@ import a from 'foo.js';
 import * as b from 'bar.js';
 ```
 
-Examples of **correct** code for this rule:
+Examples of **correct** code for this rule with the `{ "memberSyntaxSortOrder": ['single', 'all', 'multiple', 'none'] }` option:
 
-**正确** 代码示例：
+选项 `{ "memberSyntaxSortOrder": ['single', 'all', 'multiple', 'none'] }` 的 **正确** 代码示例：
 
 ```js
 /*eslint sort-imports: ["error", { "memberSyntaxSortOrder": ['single', 'all', 'multiple', 'none'] }]*/
 
 import a from 'foo.js';
 import * as b from 'bar.js';
+```
 
+Examples of **correct** code for this rule with the `{ "memberSyntaxSortOrder": ['all', 'single', 'multiple', 'none'] }` option:
+
+选项 `{ "memberSyntaxSortOrder": ['all', 'single', 'multiple', 'none'] }` 的 **正确** 代码示例：
+
+```
 /*eslint sort-imports: ["error", { "memberSyntaxSortOrder": ['all', 'single', 'multiple', 'none'] }]*/
 
 import * as foo from 'foo.js';
@@ -250,13 +255,18 @@ import {a, b} from 'foo.js';
 
 Default is `["none", "all", "multiple", "single"]`.
 
-默认为  `["none", "all", "multiple", "single"]`。
+默认为 `["none", "all", "multiple", "single"]`。
 
 ## When Not To Use It
 
 This rule is a formatting preference and not following it won't negatively affect the quality of your code. If alphabetizing imports isn't a part of your coding standards, then you can leave this rule disabled.
 
 该规则是个格式化偏好，不遵循它不会影响你的代码质量。如果按字母顺序排序的 import 不是你编码标准一部分，你可以关闭此规则。
+
+## Related Rules
+
+* [sort-keys](http://eslint.org/docs/rules/sort-keys)
+* [sort-vars](http://eslint.org/docs/rules/sort-vars)
 
 ## Version
 

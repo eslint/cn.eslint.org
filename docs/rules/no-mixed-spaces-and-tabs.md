@@ -1,5 +1,5 @@
 ---
-title: Rule no-mixed-spaces-and-tabs
+title: no-mixed-spaces-and-tabs - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -57,11 +57,16 @@ function add(x, y) {
 
 This rule has a string option.
 
+该规则有一个字符串选项。
+
 * `"smart-tabs"` allows mixed spaces and tabs when the latter are used for alignment.
+* `"smart-tabs"` 当 tab 是为了对齐，允许混合使用空格和 tab。
 
 ### smart-tabs
 
 Examples of **correct** code for this rule with the `"smart-tabs"` option:
+
+选项 `"smart-tabs"` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-mixed-spaces-and-tabs: ["error", "smart-tabs"]*/

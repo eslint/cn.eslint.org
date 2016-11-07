@@ -1,5 +1,5 @@
 ---
-title: Rule generator-star-spacing
+title: generator-star-spacing - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -66,6 +66,8 @@ This rule aims to enforce spacing around the `*` of generator functions.
 
 该规则旨在约束 generator 函数的 `*` 周围的空格。
 
+## Options
+
 The rule takes one option, an object, which has two keys `before` and `after` having boolean values `true` or `false`.
 
 该规则只有一个可选项，是个对象，有两个键`before` 和 `after`对应的值可以为`true`或`false`。
@@ -106,9 +108,13 @@ And the option has shorthand as a string keyword:
 "generator-star-spacing": ["error", "after"]
 ```
 
-When using `{"before": true, "after": false}` this placement will be enforced:
+## Examples
 
-当使用 `{"before": true, "after": false}` 时：
+### before
+
+Examples of **correct** code for this rule with the `"before"` option:
+
+选项 `"before"` 的 **正确** 代码示例：
 
 ```js
 /*eslint generator-star-spacing: ["error", {"before": true, "after": false}]*/
@@ -121,9 +127,11 @@ var anonymous = function *() {};
 var shorthand = { *generator() {} };
 ```
 
-When using `{"before": false, "after": true}` this placement will be enforced:
+### after
 
-当使用 `{"before": false, "after": true}` 时：
+Examples of **correct** code for this rule with the `"after"` option:
+
+选项 `"after"` 的 **正确** 代码示例：
 
 ```js
 /*eslint generator-star-spacing: ["error", {"before": false, "after": true}]*/
@@ -136,9 +144,11 @@ var anonymous = function* () {};
 var shorthand = { * generator() {} };
 ```
 
-When using `{"before": true, "after": true}` this placement will be enforced:
+### both
 
-当使用 `{"before": true, "after": true}` 时：
+Examples of **correct** code for this rule with the `"both"` option:
+
+选项 `"both"` 的 **正确** 代码示例：
 
 ```js
 /*eslint generator-star-spacing: ["error", {"before": true, "after": true}]*/
@@ -151,9 +161,11 @@ var anonymous = function * () {};
 var shorthand = { * generator() {} };
 ```
 
-When using `{"before": false, "after": false}` this placement will be enforced:
+### neither
 
-当使用 `{"before": false, "after": false}` 时：
+Examples of **correct** code for this rule with the `"neither"` option:
+
+选项 `"neither"` 的 **正确** 代码示例：
 
 ```js
 /*eslint generator-star-spacing: ["error", {"before": false, "after": false}]*/

@@ -1,12 +1,16 @@
 ---
-title: Rule one-var-declaration-per-line
+title: one-var-declaration-per-line - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require or disallow an newline around variable declarations (one-var-declaration-per-line)
+# require or disallow newlines around variable declarations (one-var-declaration-per-line)
 
 # 要求或禁止在变量声明周围换行 (one-var-declaration-per-line)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 Some developers declare multiple var statements on the same line:
 
@@ -26,30 +30,65 @@ var foo,
     baz;
 ```
 
-This rule enforces a consistent style across the entire project.
+Keeping to one of these styles across a project's codebase can help with maintaining code consistency.
 
-该规则强制在整个项目中使用一致的风格。
+在整个项目中保持使用一种风格有利于保持代码一致性。
 
 ## Rule Details
 
-This rule enforces a consistent coding style where newlines are required or disallowed after each var declaration or just when there is a variable initialization. It ignores var declarations inside for loop conditionals.
+This rule enforces a consistent newlines around variable declarations. This rule ignores variable declarations inside `for` loop conditionals.
 
-该规则强制一种一致的代码风格，在每个变量声明或只是在变量初始化之后要求或禁止使用换行符。它将忽略循环条件中的变量声明。
+该规则强制变量声明使用一致的的换行。该规则忽略 `for` 循环语句中的变量声明。
 
 ## Options
 
-This rule takes one option, a string, which can be:
+This rule has a single string option:
 
 该规则有一个字符串选项，可以是：
 
-* `"always"` enforces a newline around each variable declaration
+* `"initializations"` (default) enforces a newline around variable initializations
+* `"initializations"` (默认) 强制每个变量初始化语句换行
+* `"always"` enforces a newline around variable declarations
 * `"always"` 强制每个变量声明都换行
-* `"initializations"` enforces a newline around each variable initialization (default)
-* `"initializations"` 强制每个变量初始化语句换行 (默认)
 
-The following patterns are considered problems when set to `"always"`:
+### initializations
 
-设置为 `"always"`，以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule with the default `"initializations"` option:
+
+默认选项 `"initializations"` 的 **错误** 代码示例：
+
+```js
+/*eslint one-var-declaration-per-line: ["error", "initializations"]*/
+/*eslint-env es6*/
+
+var a, b, c = 0;
+
+let a,
+    b = 0, c;
+```
+
+Examples of **correct** code for this rule with the default `"initializations"` option:
+
+默认选项 `"initializations"` 的 **正确** 代码示例：
+
+```js
+/*eslint one-var-declaration-per-line: ["error", "initializations"]*/
+/*eslint-env es6*/
+
+var a, b;
+
+let a,
+    b;
+
+let a,
+    b = 0;
+```
+
+### always
+
+Examples of **incorrect** code for this rule with the `"always"` option:
+
+选项 `"always"` 的 **错误** 代码示例：
 
 ```js
 /*eslint one-var-declaration-per-line: ["error", "always"]*/
@@ -62,46 +101,15 @@ let a, b = 0;
 const a = 0, b = 0;
 ```
 
-The following patterns are not considered problems when set to `"always"`:
+Examples of **correct** code for this rule with the `"always"` option:
 
-设置为 `"always"`，以下模式被认为是没有问题的：
+选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 /*eslint one-var-declaration-per-line: ["error", "always"]*/
 /*eslint-env es6*/
 
 var a,
-    b;
-
-let a,
-    b = 0;
-```
-
-The following patterns are considered problems when set to `"initializations"`:
-
-设置为 `"initializations"`，以下模式被认为是有问题的：
-
-```js
-/*eslint one-var-declaration-per-line: ["error", "initializations"]*/
-/*eslint-env es6*/
-
-var a, b, c = 0;
-
-let a,
-    b = 0, c;
-```
-
-The following patterns are not considered problems when set to `"initializations"`:
-
-设置为  `"initializations"`，以下模式被认为是没有问题的：
-
-```js
-/*eslint one-var-declaration-per-line: ["error", "initializations"]*/
-/*eslint-env es6*/
-
-var a, b;
-
-let a,
     b;
 
 let a,

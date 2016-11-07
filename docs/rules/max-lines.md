@@ -1,5 +1,5 @@
 ---
-title: Rule max-lines
+title: max-lines - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -28,8 +28,8 @@ This rule has a number or object option:
 * `"max"` (默认 `300`) 强制一个文件的最大行数
 * `"skipBlankLines": true` ignore lines made up purely of whitespace.
 * `"skipBlankLines": true` 忽略空白行
-* `"skipComment": true` ignore lines containing just comments
-* `"skipComment": true` 忽略只包含注释的行
+* `"skipComments": true` ignore lines containing just comments
+* `"skipComments": true` 忽略只包含注释的行
 
 ### code
 
@@ -99,7 +99,7 @@ Examples of **correct** code for this rule with the `{ "skipBlankLines": true }`
 选项 `{ "skipBlankLines": true }` 的 **正确** 代码示例：
 
 ```js
-/*eslint max-lines: ["error", 2, {"skipBlankLines": true}]*/
+/*eslint max-lines: ["error", {"max": 2, "skipBlankLines": true}]*/
 
 var a,
     b, c;
@@ -112,7 +112,7 @@ Examples of **incorrect** code for this rule with the `{ "skipComments": true }`
 选项 `{ "skipComments": true }` 的 **错误** 代码示例：
 
 ```js
-/*eslint max-lines: ["error", 2, {"skipComments": true}]*/
+/*eslint max-lines: ["error", {"max": 2, "skipComments": true}]*/
 // a comment
 var a,
     b,
@@ -124,7 +124,7 @@ Examples of **correct** code for this rule with the `{ "skipComments": true }` o
 选项 `{ "skipComments": true }` 的 **正确** 代码示例：
 
 ```js
-/*eslint max-lines: ["error", 2, {"skipComments": true}]*/
+/*eslint max-lines: ["error", {"max": 2, "skipComments": true}]*/
 // a comment
 var a,
     b, c;

@@ -1,12 +1,12 @@
 ---
-title: Rule quotes
+title: quotes - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce Quote Style (quotes)
+# enforce the consistent use of either backticks, double, or single quotes (quotes)
 
-# 强制引号风格 (quotes)
+# 强制使用一致的反勾号、双引号或单引号 (quotes)
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
@@ -34,40 +34,45 @@ Many codebases require strings to be defined in a consistent manner.
 
 ## Rule Details
 
-This rule is aimed at ensuring consistency of string quotes and as such will report a problem when an inconsistent style is found.
+This rule enforces the consistent use of either backticks, double, or single quotes.
 
-该规则旨在保证字符串引号的一致性，因此，如果发现不一致的风格，该规则将会报告问题。
+该规则强制使用一致的反勾号、双引号或单引号。
 
-The rule configuration takes up to two options:
+## Options
 
-该规则配置有两个可选项。
+This rule has two options, a string option and an object option.
 
-1. The first option is `"double"`, `"single"` or `"backtick"` for double-quotes, single-quotes or backticks respectively. The default is `"double"`.
-1. 第一个选项是 `"double"`、`"single"` 或 `"backtick"`分别对应双引号，单引号或反勾号。默认是 `"double"`。
-1. The second option takes two options:
-1. 第二个选项有两个选项：
-    1. `"avoidEscape"`: When using `"avoidEscape"`, this rule will not report a problem when a string is using single-quotes or double-quotes so long as the string contains a quote that would have to be escaped otherwise. For example, if you specify `"double"` and `"avoidEscape"`, the string `'He said, "hi!"'` is not considered a problem because using double quotes for that string would require escaping the double quotes inside of the string. This option is off by default.
-    1. `"avoidEscape"`: 当使用 `"avoidEscape"` 时，如果一个字符串使用了单引号或双引号，只要这个字符串包含需要转义的引号，该规则就不会报告问题。例如，如果你指定`"double"` 和 `"avoid-escape"`，字符串 `'He said, "hi!"'` 不被认为是个问题，因为，该字符串使用双引号要求将该字符串内的双引号进行转义。该选项默认是关闭的。
-    1. `"allowTemplateLiterals"`: when using `"allowTemplateLiterals"`, this rule will not report a problem when a string is using backticks and option one is either `"double"` or `"single"`.
-    1. `"allowTemplateLiterals"`: 当使用 `"allowTemplateLiterals"`时，如果一字符串使用了反勾号，另一选项是 `"double"` 或 `"single"`，该规则就不会报告问题。
+该规则有两个选项，一个是字符串，一个是对象。
 
-When using `"single"` or `"double"`, template literals that don't contain a substitution, don't contain a line break and aren't tagged templates, are flagged as problems, even with the `"avoidEscape"` option. However they are not problems when `"allowTemplateLiterals"` is used.
+String option:
 
-当使用 `"single"` 或 `"double"`，不包含一个替代文本、换行符和不被标记的模板的模板字面量，都被认为是问题，即使有 `"avoid-escape"` 选项。
+字符串选项：
 
-Configuration looks like this:
+* `"double"` (default) requires the use of double quotes wherever possible
+* `"double"` (默认) 要求尽可能地使用双引号
+* `"single"` requires the use of single quotes wherever possible
+* `"single"` 要求尽可能地使用单引号
+* `"backtick"` requires the use of backticks wherever possible
+* `"backtick"` 要求尽可能地使用反勾号
 
-配置看起来像这样：
+Object option:
 
-```js
-[2, "single", {"avoidEscape": true, "allowTemplateLiterals": true}]
-```
+对象选项：
 
-**Deprecation notice**: The `avoid-escape` option is a deprecated syntax and you should use the object form instead.
+* `"avoidEscape": true` allows strings to use single-quotes or double-quotes so long as the string contains a quote that would have to be escaped otherwise
+* `"avoidEscape": true` 允许字符串使用单引号或双引号，只要字符串中包含了一个其它引号，否则需要转义
+* `"allowTemplateLiterals": true` allows strings to use backticks
+* `"allowTemplateLiterals": true` 允许字符串使用反勾号
 
-The following patterns are considered problems:
+**Deprecated**: The object property `avoid-escape` is deprecated; please use the object property `avoidEscape` instead.
 
-以下模式被认为是有问题的：
+**弃用：**`avoid-escape`选项已被弃用；请使用 `avoidEscape`。
+
+### double
+
+Examples of **incorrect** code for this rule with the default `"double"` option:
+
+默认选项 `"double"` 的 **错误** 代码示例：
 
 ```js
 /*eslint quotes: ["error", "double"]*/
@@ -76,45 +81,9 @@ var single = 'single';
 var unescaped = 'a string containing "double" quotes';
 ```
 
-```js
-/*eslint quotes: ["error", "single"]*/
+Examples of **correct** code for this rule with the default `"double"` option:
 
-var double = "double";
-var unescaped = "a string containing 'single' quotes";
-```
-
-```js
-/*eslint quotes: ["error", "double", {"avoidEscape": true}]*/
-
-var single = 'single';
-var single = `single`;
-```
-
-```js
-/*eslint quotes: ["error", "single", {"avoidEscape": true}]*/
-
-var double = "double";
-var double = `double`;
-```
-
-```js
-/*eslint quotes: ["error", "backtick"]*/
-
-var single = 'single';
-var double = "double";
-var unescaped = 'a string containing `backticks`';
-```
-
-```js
-/*eslint quotes: ["error", "backtick", {"avoidEscape": true}]*/
-
-var single = 'single';
-var double = "double";
-```
-
-The following patterns are not considered problems:
-
-以下模式被认为是没有问题的：
+默认选项 `"double"` 的 **正确** 代码示例：
 
 ```js
 /*eslint quotes: ["error", "double"]*/
@@ -125,6 +94,23 @@ var backtick = `back\ntick`;  // backticks are allowed due to newline
 var backtick = tag`backtick`; // backticks are allowed due to tag
 ```
 
+### single
+
+Examples of **incorrect** code for this rule with the `"single"` option:
+
+选项 `"single"` 的 **错误** 代码示例：
+
+```js
+/*eslint quotes: ["error", "single"]*/
+
+var double = "double";
+var unescaped = "a string containing 'single' quotes";
+```
+
+Examples of **correct** code for this rule with the `"single"` option:
+
+选项 `"single"` 的 **正确** 代码示例：
+
 ```js
 /*eslint quotes: ["error", "single"]*/
 /*eslint-env es6*/
@@ -133,31 +119,23 @@ var single = 'single';
 var backtick = `back${x}tick`; // backticks are allowed due to substitution
 ```
 
-```js
-/*eslint quotes: ["error", "double", {"avoidEscape": true}]*/
+### backticks
 
-var single = 'a string containing "double" quotes';
-```
+Examples of **incorrect** code for this rule with the `"backtick"` option:
 
-```js
-/*eslint quotes: ["error", "single", {"avoidEscape": true}]*/
-
-var double = "a string containing 'single' quotes";
-```
+选项 `"backtick"` 的 **错误** 代码示例：
 
 ```js
-/*eslint quotes: ["error", "double", {"allowTemplateLiterals": true}]*/
+/*eslint quotes: ["error", "backtick"]*/
 
 var single = 'single';
-var single = `single`;
-```
-
-```js
-/*eslint quotes: ["error", "single", {"allowTemplateLiterals": true}]*/
-
 var double = "double";
-var double = `double`;
+var unescaped = 'a string containing `backticks`';
 ```
+
+Examples of **correct** code for this rule with the `"backtick"` option:
+
+选项 `"backtick"` 的 **正确** 代码示例：
 
 ```js
 /*eslint quotes: ["error", "backtick"]*/
@@ -166,10 +144,60 @@ var double = `double`;
 var backtick = `backtick`;
 ```
 
+### avoidEscape
+
+Examples of additional **correct** code for this rule with the `"double", { "avoidEscape": true }` options:
+
+选项呢 `"double", { "avoidEscape": true }` 的 **正确** 代码示例：
+
 ```js
-/*eslint quotes: ["error", "backtick", {"avoidEscape": true}]*/
+/*eslint quotes: ["error", "double", { "avoidEscape": true }]*/
+
+var single = 'a string containing "double" quotes';
+```
+
+Examples of additional **correct** code for this rule with the `"single", { "avoidEscape": true }` options:
+
+选项 `"single", { "avoidEscape": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint quotes: ["error", "single", { "avoidEscape": true }]*/
+
+var double = "a string containing 'single' quotes";
+```
+
+Examples of additional **correct** code for this rule with the `"backtick", { "avoidEscape": true }` options:
+
+选项 `"backtick", { "avoidEscape": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint quotes: ["error", "backtick", { "avoidEscape": true }]*/
 
 var double = "a string containing `backtick` quotes"
+```
+
+### allowTemplateLiterals
+
+Examples of additional **correct** code for this rule with the `"double", { "allowTemplateLiterals": true }` options:
+
+选项 `"double", { "allowTemplateLiterals": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint quotes: ["error", "double", { "allowTemplateLiterals": true }]*/
+
+var double = "double";
+var double = `double`;
+```
+
+Examples of additional **correct** code for this rule with the `"single", { "allowTemplateLiterals": true }` options:
+
+选项 `"single", { "allowTemplateLiterals": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint quotes: ["error", "single", { "allowTemplateLiterals": true }]*/
+
+var single = 'single';
+var single = `single`;
 ```
 
 ## When Not To Use It

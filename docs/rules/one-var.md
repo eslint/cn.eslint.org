@@ -1,12 +1,12 @@
 ---
-title: Rule one-var
+title: one-var - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require or Disallow One Variable Declaration per Scope (one-var)
+# enforce variables to be declared either together or separately in functions (one-var)
 
-# 每个作用域要求或禁止只有一个变量声明 (one-var)
+# 强制函数中的变量在一起声明或分开声明 (one-var)
 
 Variables can be declared at any point in JavaScript code using `var`, `let`, or `const`. There are many styles and preferences related to the declaration of variables, and one of those is deciding on how many variable declarations should be allowed in a single function.
 
@@ -44,86 +44,60 @@ The single-declaration school of thought is based in pre-ECMAScript 6 behaviors,
 
 ## Rule Details
 
-This rule is aimed at enforcing the use of either one variable declaration or multiple declarations per function (for `var`) or block (for `let` and `const`) scope. As such, it will warn when it encounters an unexpected number of variable declarations.
+This rule enforces variables to be declared either together or separately per function ( for `var`) or block (for `let` and `const`) scope.
 
-该规则旨在强制在函数 (`var`) 或块 (`let` 和 `const`) 范围使用单一声明还是多条声明。因此，如果出现意外数目的声明语句，它将发出警告。
+该规则旨在强制在函数 (`var`) 或块 (`let` 和 `const`) 范围使用单一声明还是多条声明。
 
 ## Options
 
-There are two ways to configure this rule. The first is by using one string specified as `"always"` (the default) to enforce one variable declaration per scope or `"never"` to enforce multiple variable declarations per scope.  If you declare variables in your code with `let` and `const`, then `"always"` and `"never"` will apply to the block scope for those declarations, not the function scope.
+This rule has one option, which can be a string option or an object option.
 
-有两种方式配置此规则。第一个是使用字符串，默认为 `"always"`，在每个范围内强制只有一个变量声明或为 `"never"`，在每个范围内强制使用多个变量声明。如果你在你的代码中，使用 `let` 和 `const` 声明变量，`"always"` 和 `"never"` 将会作用于这些声明的块范围的顶部而不是函数范围的顶部。
+该规则有一个选项，可以是字符串或对象。
 
-The second way to configure this rule is with an object. The keys are any of:
+String option:
 
-第二种方式是使用一个对象。该对象的键是以下任意一个：
+字符串选项：
 
-* `var`
-* `var`
-* `let`
-* `let`
-* `const`
-* `const`
+* `"always"` (default) requires one variable declaration per scope
+* `"always"` (默认) 要求每个作用域有一个变量声明
+* `"never"` requires multiple variable declarations per scope
+* `"never"` 要求每个作用域有多个变量声明
 
-or:
+Object option:
 
-或：
+对象选项：
 
-* `uninitialized`
-* `uninitialized`
-* `initialized`
-* `initialized`
+* `"var": "always"` requires one `var` declaration per function
+* `"var": "always"` 要求每个函数有一个 `var` 声明
+* `"var": "never"` requires multiple `var` declarations per function
+* `"var": "never"` 要求每个函数有多个 `var` 声明
+* `"let": "always"` requires one `let` declaration per block
+* `"let": "always"` 要求每个块有一个 `let` 声明
+* `"let": "never"` requires multiple `let` declarations per block
+* `"let": "never"` 要求每个块有多个 `let` 声明
+* `"const": "always"` requires one `const` declaration per block
+* `"const": "always"` 要求每个块有一个 `const` 声明
+* `"const": "never"` requires multiple `const` declarations per block
+* `"const": "never"` 要求每个块有多个 `const` 声明
 
-and the values are either `"always"` or `"never"`. This allows you to set behavior differently for each type of declaration, or whether variables are initialized during declaration.
+Alternate object option:
 
-对应的值为 `"always"` 或 `"never"`。这允许你针对不同类型的声明，不管声明时是否初始化，都可以做出不同的设置。
+对象选项：
 
-You can configure the rule as follows:
+* `"initialized": "always"` requires one variable declaration for initialized variables per scope
+* `"initialized": "always"` 要求每个作用域的初始化的变量有一个变量声明
+* `"initialized": "never"` requires multiple variable declarations for initialized variables per scope
+* `"initialized": "never"` 要求每个作用域的初始化的变量有多个变量声明
+* `"uninitialized": "always"` requires one variable declaration for uninitialized variables per scope
+* `"uninitialized": "always"` 要求每个作用域的未初始化的变量有一个变量声明
+* `"uninitialized": "never"` requires multiple variable declarations for uninitialized variables per scope
+* `"uninitialized": "never"` 要求每个作用域的未初始化的变量有多个变量声明
 
-你可以这样的配置规则：
+### always
 
-(default) Exactly one variable declaration per type per function (var) or block (let or const)
+Examples of **incorrect** code for this rule with the default `"always"` option:
 
-(默认)每种类型、函数 (var) 或块 (let 或 const) 只有一个声明
-
-```json
-"one-var": [2, "always"]
-```
-
-Exactly one declarator per declaration per function (var) or block (let or const)
-
-每个函数 (var) 或块 (let 或 const) 中的每个声明都一个声明符
-
-```json
-"one-var": ["error", "never"]
-```
-
-Configure each declaration type individually. Defaults to `"always"` if key not present.
-
-单独配置每个声明类型。如果键不存在，默认为 `"always"`。
-
-```json
-"one-var": ["error", {
-    "var": "always", // Exactly one var declaration per function
-    "let": "always", // Exactly one let declaration per block
-    "const": "never" // Exactly one declarator per const declaration per block
-}]
-```
-
-Configure uninitialized and initialized seperately. Defaults to `"always"` if key not present.
-
-分开配置未初始化的和已初始化的变量声明。如果键不存在，默认为 `"always"`。
-
-```json
-"one-var": [2, {
-    "uninitialized": "always", // Exactly one declaration for uninitialized variables per function (var) or block (let or const)
-    "initialized": "never" // Exactly one declarator per initialized variable declaration per function (var) or block (let or const)
-}]
-```
-
-When configured with `"always"` as the first option (the default), the following patterns are considered problems:
-
-当配置 `"always"` 作为第一个选项时(默认)，以下模式被认为是有问题的：
+默认选项 `"always"` 的 **错误** 代码示例：
 
 ```js
 /*eslint one-var: ["error", "always"]*/
@@ -152,9 +126,9 @@ function foo() {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `"always"` option:
 
-以下模式被认为是没有问题的：
+默认选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 /*eslint one-var: ["error", "always"]*/
@@ -192,9 +166,11 @@ function foo(){
 }
 ```
 
-When configured with `"never"` as the first option, the following patterns are considered problems:
+### never
 
-当配置 `"never"` 做为第一个选项时，以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule with the `"never"` option:
+
+选项 `"never"` 的 **错误** 代码示例：
 
 ```js
 /*eslint one-var: ["error", "never"]*/
@@ -222,9 +198,9 @@ function foo(){
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"never"` option:
 
-以下模式被认为是没有问题的：
+选项 `"never"` 的 **正确** 代码示例：
 
 ```js
 /*eslint one-var: ["error", "never"]*/
@@ -252,17 +228,34 @@ function foo() {
 }
 ```
 
-When configured with an object as the first option, you can individually control how `var`, `let`, and `const` are handled, or alternatively how `uninitialized` and `initialized` variables are handled (which if used will override `var`, `let`, and `const`).
+### var, let, and const
 
-当第一个选项配置为一个对象时，你可以单独控制如何处理 `var`、`let` 和 `const`，或者控制如何处理未声明的和已声明的变量(会覆盖 `var`、`let` 和 `const`)。
+Examples of **incorrect** code for this rule with the `{ var: "always", let: "never", const: "never" }` option:
 
-**Note:** A variable declared in a for-in or for-of loop will not be flagged with the option `{ uninitialized: "always" }`, as this value is determined by the loop.
+选项 `{ var: "always", let: "never", const: "never" }` 的 **错误** 代码示例：
 
-**注意：** for-in 或 for-of 中的变量声明不会被 `{ uninitialized: "always" }` 选项标记，因为这个值由循环来决定。
+```js
+/*eslint one-var: ["error", { var: "always", let: "never", const: "never" }]*/
+/*eslint-env es6*/
 
-The following patterns are not considered problems:
+function foo() {
+    var bar;
+    var baz;
+    let qux,
+        norf;
+}
 
-以下模式被认为是没有问题的：
+function foo() {
+    const bar = 1,
+          baz = 2;
+    let qux,
+        norf;
+}
+```
+
+Examples of **correct** code for this rule with the `{ var: "always", let: "never", const: "never" }` option:
+
+选项 `{ var: "always", let: "never", const: "never" }` 的 **正确** 代码示例：
 
 ```js
 /*eslint one-var: ["error", { var: "always", let: "never", const: "never" }]*/
@@ -283,43 +276,106 @@ function foo() {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **incorrect** code for this rule with the `{ var: "never" }` option:
 
-以下模式被认为是没有问题的：
+选项 `{ var: "never" }` 的 **错误** 代码示例：
 
 ```js
-/*eslint one-var: ["error", { uninitialized: "always", initialized: "never" }]*/
+/*eslint one-var: ["error", { var: "never" }]*/
+/*eslint-env es6*/
+
+function foo() {
+    var bar,
+        baz;
+}
+```
+
+Examples of **correct** code for this rule with the `{ var: "never" }` option:
+
+选项 `{ var: "never" }` 的 **正确** 代码示例：
+
+```js
+/*eslint one-var: ["error", { var: "never" }]*/
+/*eslint-env es6*/
+
+function foo() {
+    var bar,
+        baz;
+    const bar = 1; // `const` and `let` declarations are ignored if they are not specified
+    const baz = 2;
+    let qux;
+    let norf;
+}
+```
+
+
+### initialized and uninitialized
+
+Examples of **incorrect** code for this rule with the `{ "initialized": "always", "uninitialized": "never" }` option:
+
+选项 `{ "initialized": "always", "uninitialized": "never" }` 的 **错误** 代码示例：
+
+```js
+/*eslint one-var: ["error", { "initialized": "always", "uninitialized": "never" }]*/
+/*eslint-env es6*/
 
 function foo() {
     var a, b, c;
     var foo = true;
     var bar = false;
 }
+```
 
-let x, y;
+Examples of **correct** code for this rule with the `{ "initialized": "always", "uninitialized": "never" }` option:
+
+选项 `{ "initialized": "always", "uninitialized": "never" }` 的 **正确** 代码示例：
+
+```js
+/*eslint one-var: ["error", { "initialized": "always", "uninitialized": "never" }]*/
+
+function foo() {
+    var a;
+    var b;
+    var c;
+    var foo = true,
+        bar = false;
+}
+
 for (let z of foo) {
     doSomething(z);
 }
 
-let x, y, z;
+let z;
 for (z of foo) {
     doSomething(z);
 }
 ```
 
-If you are configuring the rule with an object, by default, if you didn't specify declaration type it will not be checked. So the following pattern is not considered a warning when options are set to: `{ var: "always", let: "always" }`
+Examples of **incorrect** code for this rule with the `{ "initialized": "never" }` option:
 
-如果你正在使用一个对象进行配置规则，默认情况下，如果你不指定声明类型，它将不会被检查。所以，当选项设置为 `{ var: "always", let: "always" }`，以下模式不被认为是一个警告。
+选项 `{ "initialized": "never" }` 的 **错误** 代码示例：
 
 ```js
-/*eslint one-var: ["error", { var: "always", let: "always" }]*/
+/*eslint one-var: ["error", { "initialized": "never" }]*/
 /*eslint-env es6*/
 
 function foo() {
-    var a, b;
-    const foo = true;
-    const bar = true;
-    let c, d;
+    var foo = true,
+        bar = false;
+}
+```
+
+Examples of **correct** code for this rule with the `{ "initialized": never" }` option:
+
+选项 `{ "initialized": never" }` 的 **正确** 代码示例：
+
+```js
+/*eslint one-var: ["error", { initialized: never" }]*/
+
+function foo() {
+    var foo = true;
+    var bar = false;
+    var a, b, c; // Uninitialized variables are ignored
 }
 ```
 
@@ -328,10 +384,6 @@ function foo() {
 
 * **JSHint**: This rule maps to the `onevar` JSHint rule, but allows `let` and `const` to be configured separately.
 * **JSCS**: This rule roughly maps to [disallowMultipleVarDecl](http://jscs.info/rule/disallowMultipleVarDecl)
-
-## Further Reading
-
-[JSLint Errors - Combine this with the previous 'var' statement](http://jslinterrors.com/combine-this-with-the-previous-var-statement/)
 
 ## Version
 

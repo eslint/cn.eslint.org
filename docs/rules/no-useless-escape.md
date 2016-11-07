@@ -1,5 +1,5 @@
 ---
-title: Rule no-useless-escape
+title: no-useless-escape - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -8,13 +8,14 @@ layout: doc
 
 # 禁用不必要的转义 (no-useless-escape)
 
-Escaping non-special characters in strings and regular expressions doesn't have any effects on results, as in the following example:
+Escaping non-special characters in strings, template literals, and regular expressions doesn't have any effect, as demonstrated in the following example:
 
-对字符串和正则表达式中的常规字符进行转义，不会对结果产生任何影响，例如：
+对字符串、模板字面量和正则表达式中的常规字符进行转义，不会对结果产生任何影响，例如：
 
 ```js
 let foo = "hol\a"; // > foo = "hola"
-let bar = /\:/ // same functionality with /:/
+let bar = `${foo}\!`; // > bar = "hola!"
+let baz = /\:/ // same functionality with /:/
 ```
 
 ## Rule Details
@@ -34,6 +35,9 @@ Examples of **incorrect** code for this rule:
 '\"';
 "\#";
 "\e";
+`\"`;
+`\"${foo}\"`;
+`\#{foo}`;
 /\!/;
 /\@/;
 
@@ -52,6 +56,9 @@ Examples of **correct** code for this rule:
 "\u00a9";
 "\371";
 "xs\u2111";
+`\``;
+`\${${foo}\}`;
+`$\{${foo}\}`;
 /\\/g;
 /\t/g;
 /\\w\\$\\*\\^\\./;

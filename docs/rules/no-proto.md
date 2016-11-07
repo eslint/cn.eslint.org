@@ -1,5 +1,5 @@
 ---
-title: Rule no-proto
+title: no-proto - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -8,7 +8,7 @@ layout: doc
 
 # 禁用`__proto__`（no-proto）
 
-`__proto__` property has been deprecated as of ECMAScript 3.1 and shouldn't be used in the code.Use `getPrototypeOf` method instead.
+`__proto__` property has been deprecated as of ECMAScript 3.1 and shouldn't be used in the code. Use `getPrototypeOf` method instead.
 
 `__proto__` 属性在 ECMAScript 3.1 中已经被弃用，并且不应该在代码中使用。使用 `getPrototypeOf` 方法替代 `__proto__`。
 

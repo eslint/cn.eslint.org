@@ -96,9 +96,9 @@ This object may not:
 
 ## The `eslint` object
 
-The main method of the `eslint` object is `verify()` and accepts two arguments: the source text to verify and a configuration object (the baked configuration of the given configuration file plus command line options). The method first parses the given text with Esprima and retrieves the AST. The AST is produced with both line/column and range locations which are useful for reporting location of issues and retrieving the source text related to an AST node, respectively.
+The main method of the `eslint` object is `verify()` and accepts two arguments: the source text to verify and a configuration object (the baked configuration of the given configuration file plus command line options). The method first parses the given text with `espree` (or whatever the configured parser is) and retrieves the AST. The AST is produced with both line/column and range locations which are useful for reporting location of issues and retrieving the source text related to an AST node, respectively.
 
-`eslint` 对象的主要方法是 `verify()`，接收两个参数：要验证的源码文本和一个配置对象（通过准备好的配置文件加命令行操作会生成配置）。该方法首先使用 Esprima 解析获取的文本，检索 AST。AST 用来产生行/列和范围的位置，对报告问题的位置和检索与 AST 节点有关的源文本很有帮助。
+`eslint` 对象的主要方法是 `verify()`，接收两个参数：要验证的源码文本和一个配置对象（通过准备好的配置文件加命令行操作会生成配置）。该方法首先使用 `espree`（或配置的解析器） 解析获取的文本，检索 AST。AST 用来产生行/列和范围的位置，对报告问题的位置和检索与 AST 节点有关的源文本很有帮助。
 
 Once the AST is available, `estraverse` is used to traverse the AST from top to bottom. At each node, the `eslint` object emits an event that has the same name as the node type (i.e., "Identifier", "WithStatement", etc.). On the way back up the subtree, an event is emitted with the AST type name and suffixed with ":after", such as "Identifier:after" - this allows rules to take action both on the way down and on the way up in the traversal. Each event is emitted with the appropriate AST node available.
 

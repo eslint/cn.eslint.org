@@ -1,12 +1,12 @@
 ---
-title: Rule semi
+title: semi - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce or Disallow Semicolons (semi)
+# require or disallow semicolons instead of ASI (semi)
 
-# 强制或禁止分号 (semi)
+# 要求或禁止使用分号代替 ASI (semi)
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
@@ -89,36 +89,40 @@ Although ASI allows for more freedom over your coding style, it can also make yo
 
 ## Rule Details
 
-This rule is aimed at ensuring consistent use of semicolons. You can decide whether or not to require semicolons at the end of statements.
+This rule enforces consistent use of semicolons.
 
-该规则旨在保证分号使用的一致性。你可以决定语句末尾是否需要分号。
+该规则强制使用一致的分号。
 
 ## Options
 
-The rule takes one or two options. The first one is a string, which could be `"always"` or `"never"`. The default is `"always"`. The second one is an object for more fine-grained configuration when the first option is `"always"`.
+This rule has two options, a string option and an object option.
 
-该规则有一到两个选项。第一个是个字符串，可以是 `"always"` 或 `"never"` 。默认为`"always"`。第二个选项是个对象，当第一个选项是 `"always"` 时，这个对象可以提供细粒度的配置。
+该规则有两个选项，一个是字符串，一个是对象。
 
-You can set the option in configuration like this:
+String option:
 
-你可以在配置中这样设置选项：
+字符串选项：
 
-### "always"
+* `"always"` (default) requires semicolons at the end of statements
+* `"always"` (默认) 要求在语句末尾使用分号
+* `"never"` disallows semicolons as the end of statements (except to disambiguate statements beginning with `[`, `(`, `/`, `+`, or `-`)
+* `"never"` 禁止在语句末尾使用分号 (除了消除以 `[`、`(`、`/`、`+` 或 `-` 开始的语句的歧义)
 
-By using the default option, semicolons must be used any place where they are valid.
+Object option:
 
-使用默认设置，分号将被用到任何合适的位置。
+对象选项：
 
-```json
-semi: ["error", "always"]
-```
+* `"omitLastInOneLineBlock": true` ignores the last semicolon in a block in which its braces (and therefore the content of the block) are in the same line
+* `"omitLastInOneLineBlock": true` 忽略花括号在同一行（内容也就在同一行了）的语句块中的最后一个分号
 
-The following patterns are considered problems:
+### always
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule with the default `"always"` option:
+
+默认选项 `"always"` 的 **错误** 代码示例：
 
 ```js
-/*eslint semi: "error"*/
+/*eslint semi: ["error", "always"]*/
 
 var name = "ESLint"
 
@@ -127,9 +131,9 @@ object.method = function() {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `"always"` option:
 
-以下模式被认为是没有问题的：
+默认选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 /*eslint semi: "error"*/
@@ -141,51 +145,11 @@ object.method = function() {
 };
 ```
 
-#### Fine-grained control
+### never
 
-When setting the first option as "always", an additional option can be added to omit the last semicolon in a one-line block, that is, a block in which its braces (and therefore the content of the block) are in the same line:
+Examples of **incorrect** code for this rule with the `"never"` option:
 
-当设置第一个选项为 `"always"` 时，可以添加一个额外的选项以省略单行块中最后的分号，也就是括号（内容也是）都在同一行的块。
-
-```json
-semi: ["error", "always", { "omitLastInOneLineBlock": true}]
-```
-
-The following patterns are considered problems:
-
-```js
-/*eslint semi: ["error", "always", { "omitLastInOneLineBlock": true}] */
-
-if (foo) {
-    bar()
-}
-
-if (foo) { bar(); }
-```
-
-The following patterns are not considered problems:
-
-```js
-/*eslint semi: ["error", "always", { "omitLastInOneLineBlock": true}] */
-
-if (foo) { bar() }
-
-if (foo) { bar(); baz() }
-```
-
-### "never"
-
-If you want to enforce that semicolons are never used, switch the configuration to:
-
-如果你想强制不使用分号，配置如下：
-
-```json
-semi: [2, "never"]
-```
-
-Then, the following patterns are considered problems:
-
-这时，以下模式被认为是有问题的：
+选项 `"never"` 的 **错误** 代码示例：
 
 ```js
 /*eslint semi: ["error", "never"]*/
@@ -197,9 +161,9 @@ object.method = function() {
 };
 ```
 
-And the following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"never"` option:
 
-以下模式被认为是没有问题的：
+选项 `"never"` 的 **正确** 代码示例：
 
 ```js
 /*eslint semi: ["error", "never"]*/
@@ -225,6 +189,20 @@ var name = "ESLint"
 })()
 ```
 
+#### omitLastInOneLineBlock
+
+Examples of additional **incorrect** code for this rule with the `"always", { "omitLastInOneLineBlock": true }` options:
+
+选项 `"always", { "omitLastInOneLineBlock": true }` 的 **错误** 代码示例：
+
+```js
+/*eslint semi: ["error", "always", { "omitLastInOneLineBlock": true}] */
+
+if (foo) { bar() }
+
+if (foo) { bar(); baz() }
+```
+
 ## When Not To Use It
 
 If you do not want to enforce semicolon usage (or omission) in any particular way, then you can turn this rule off.
@@ -235,7 +213,6 @@ If you do not want to enforce semicolon usage (or omission) in any particular wa
 
 * [An Open Letter to JavaScript Leaders Regarding Semicolons](http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding)
 * [JavaScript Semicolon Insertion](http://inimino.org/~inimino/blog/javascript_semicolons)
-* [Understanding Automatic Semicolon Insertion in JavaScript](http://jamesallardice.com/understanding-automatic-semi-colon-insertion-in-javascript/)
 
 ## Related Rules
 

@@ -1,5 +1,5 @@
 ---
-title: Rule sort-vars
+title: sort-vars - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -75,19 +75,13 @@ var c, d, a, e;
 
 ## Options
 
-```
-"sort-vars": [<enabled>, { "ignoreCase": <boolean> }]
-```
+This rule has an object option:
 
-### `ignoreCase`
+* `"ignoreCase": true` (default `false`) ignores the case-sensitivity of the variables order
 
-When `true` the rule ignores the case-sensitivity of the variables order.
+### ignoreCase
 
-当设置为`true`时，该规则忽略变量的大小写进行排序。
-
-Examples of **correct** code for this rule:
-
-**正确** 代码示例：
+Examples of **correct** code for this rule with the `{ "ignoreCase": true }` option:
 
 ```js
 /*eslint sort-vars: ["error", { "ignoreCase": true }]*/
@@ -102,6 +96,11 @@ var a, B, c;
 This rule is a formatting preference and not following it won't negatively affect the quality of your code. If you alphabetizing variables isn't a part of your coding standards, then you can leave this rule off.
 
 该规则是一个格式化偏好，不遵循它，也不会对你的代码质量产生负面影响。如果按字母顺序排序的变量不是你编码标准的一部分，那么你可以关闭此规则。
+
+## Related Rules
+
+* [sort-keys](http://eslint.org/docs/rules/sort-keys)
+* [sort-imports](http://eslint.org/docs/rules/sort-imports)
 
 ## Version
 

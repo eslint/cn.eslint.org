@@ -1,12 +1,12 @@
 ---
-title: Rule object-curly-newline
+title: object-curly-newline - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require or disallow line breaks inside braces (object-curly-newline)
+# enforce consistent line breaks inside braces (object-curly-newline)
 
-# 要求或禁止花括号内使用换行符 (object-curly-newline)
+# 强制在花括号内使用一致的换行符 (object-curly-newline)
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
@@ -18,42 +18,33 @@ A number of style guides require or disallow line breaks inside of object braces
 
 ## Rule Details
 
-This rule enforces consistent line breaks inside braces.
-This rule is applied to both object literals and destructuring assignments.
+This rule enforces consistent line breaks inside braces of object literals or destructuring assignments.
 
 该规则强制花括号内使用换行符的一致性。该规则同时适用于对象字面量和解构赋值。
 
 ## Options
 
-```json
-{
-    "object-curly-newline": ["error", {"multiline": true}]
-}
-```
+This rule has either a string option:
 
-This rule has options of 4 kinds:
+该规则有一个字符串选项
 
-该规则有四种类型的选项：
+* `"always"` requires line breaks inside braces
+* `"always"` 要求花括号内有换行符
+* `"never"` disallows line breaks inside braces
+* `"never"` 禁止花括号内有换行符
 
-* `"always"` - requires line breaks always.
-* `"always"` - 总是要求有换行符。
-* `"never"` - disallows line breaks.
-* `"never"` - 禁止使用换行符。
-* `{multiline: true}` (default) - requires line breaks if there are line breaks inside properties or between properties. Otherwise, disallows line breaks.
-* `{multiline: true}` (默认) - 如果在属性内部或属性之间有换行符，就要求有换行符。否则，禁止使用换行符。
-* `{minProperties: <integer>}` - requires line breaks if the number of properties is more than the given integer. Otherwise, disallows line breaks.
-* `{minProperties: <integer>}` - 如果属性的数量超过了给定的数值，要求有换行符。否则禁止使用换行符。
+Or an object option:
 
-`multiline` and `minProperties` can be combined.
+或一个对象选项：
 
-`multiline` 和 `minProperties` 可以合并使用。
+* `"multiline": true` (default) requires line breaks if there are line breaks inside properties or between properties
+* `{multiline: true}` (默认)如果在属性内部或属性之间有换行符，就要求有换行符
+* `"minProperties"` requires line breaks if the number of properties is more than the given integer
+* `"minProperties"` 如果属性的数量超过了给定的数值，要求有换行符
 
-* `{multiline: true, minProperties: <integer>}` - requires line breaks if there are line breaks inside properties or between properties, or if the number of properties is more than the given integer. Otherwise, disallows line breaks.
-* `{multiline: true, minProperties: <integer>}` - 如果在属性内部或属性之间有换行符，或属性的数量超过了给定的数值，要求有换行符。否则，禁止使用换行符。
+You can specify different options for object literals and destructuring assignments:
 
-Also, we can separate configuration for each object literal and destructuring assignment:
-
-同时，我们可以为字面量和解构赋值分别配置：
+你可以为字面量和解构赋值指定不同的选项：
 
 ```json
 {
@@ -64,10 +55,10 @@ Also, we can separate configuration for each object literal and destructuring as
 }
 ```
 
-* `"ObjectExpression"` - configuration for object literals.
-* `"ObjectExpression"` - 对象字面量的配置。
-* `"ObjectPattern"` - configuration for object patterns of destructuring assignments.
-* `"ObjectPattern"` - 对象的解构赋值模式的配置。
+* `"ObjectExpression"` configuration for object literals
+* `"ObjectExpression"` 对象字面量的配置。
+* `"ObjectPattern"` configuration for object patterns of destructuring assignments
+* `"ObjectPattern"` 对象的解构赋值模式的配置。
 
 ### always
 
@@ -219,12 +210,12 @@ let {k = function() {
 
 ### multiline
 
-Examples of **incorrect** code for this rule with the default `{"multiline": true}` option:
+Examples of **incorrect** code for this rule with the default `{ "multiline": true }` option:
 
-默认选项 `{"multiline": true}` 的 **错误** 代码示例：
+默认选项 `{ "multiline": true }` 的 **错误** 代码示例：
 
 ```js
-/*eslint object-curly-newline: ["error", {"multiline": true}]*/
+/*eslint object-curly-newline: ["error", { "multiline": true }]*/
 /*eslint-env es6*/
 
 let a = {
@@ -256,12 +247,12 @@ let {k = function() {
 }} = obj;
 ```
 
-Examples of **correct** code for this rule with the default `{"multiline": true}` option:
+Examples of **correct** code for this rule with the default `{ "multiline": true }` option:
 
-默认选项 `{"multiline": true}` 的 **正确** 代码示例：
+默认选项 `{ "multiline": true }` 的 **正确** 代码示例：
 
 ```js
-/*eslint object-curly-newline: ["error", {"multiline": true}]*/
+/*eslint object-curly-newline: ["error", { "multiline": true }]*/
 /*eslint-env es6*/
 
 let a = {};
@@ -293,12 +284,12 @@ let {
 
 ### minProperties
 
-Examples of **incorrect** code for this rule with the `{"minProperties": 2}` option:
+Examples of **incorrect** code for this rule with the `{ "minProperties": 2 }` option:
 
-选项 `{"minProperties": 2}` 的 **错误** 代码示例：
+选项 `{ "minProperties": 2 }` 的 **错误** 代码示例：
 
 ```js
-/*eslint object-curly-newline: ["error", {"minProperties": 2}]*/
+/*eslint object-curly-newline: ["error", { "minProperties": 2 }]*/
 /*eslint-env es6*/
 
 let a = {
@@ -330,12 +321,12 @@ let {
 } = obj;
 ```
 
-Examples of **correct** code for this rule with the `{"minProperties": 2}` option:
+Examples of **correct** code for this rule with the `{ "minProperties": 2 }` option:
 
-选项 `{"minProperties": 2}` 的 **正确** 代码示例：
+选项 `{ "minProperties": 2 }` 的 **正确** 代码示例：
 
 ```js
-/*eslint object-curly-newline: ["error", {"minProperties": 2}]*/
+/*eslint object-curly-newline: ["error", { "minProperties": 2 }]*/
 /*eslint-env es6*/
 
 let a = {};
@@ -365,88 +356,14 @@ let {k = function() {
 }} = obj;
 ```
 
-### multiline and minProperties
+### ObjectExpression and ObjectPattern
 
-Examples of **incorrect** code for this rule with the `{"multiline": true, "minProperties": 2}` option:
+Examples of **incorrect** code for this rule with the `{ "ObjectExpression": "always", "ObjectPattern": "never" }` options:
 
-选项 `{"multiline": true, "minProperties": 2}` 的 **错误** 代码示例：
-
-```js
-/*eslint object-curly-newline: ["error", {"multiline": true, "minProperties": 2}]*/
-/*eslint-env es6*/
-
-let a = {
-};
-let b = {
-    foo: 1
-};
-let c = {foo: 1, bar: 2};
-let d = {foo: 1,
-    bar: 2};
-let e = {foo: function() {
-    dosomething();
-}};
-
-let {
-} = obj;
-let {
-    f
-} = obj;
-let {g, h} = obj;
-let {i,
-    j} = obj;
-let {k = function() {
-    dosomething();
-}} = obj;
-```
-
-Examples of **correct** code for this rule with the `{"multiline": true, "minProperties": 2}` option:
-
-选项 `{"multiline": true, "minProperties": 2}` 的 **正确** 代码示例：
+选项 `{ "ObjectExpression": "always", "ObjectPattern": "never" }` 的 **错误** 代码示例：
 
 ```js
-/*eslint object-curly-newline: ["error", {"multiline": true, "minProperties": 2}]*/
-/*eslint-env es6*/
-
-let a = {};
-let b = {foo: 1};
-let c = {
-    foo: 1, bar: 2
-};
-let d = {
-    foo: 1,
-    bar: 2
-};
-let e = {
-    foo: function() {
-        dosomething();
-    }
-};
-
-let {} = obj;
-let {f} = obj;
-let {
-    g, h
-} = obj;
-let {
-    i,
-    j
-} = obj;
-let {
-    k = function() {
-        dosomething();
-    }
-} = obj;
-```
-
-### separating configuration
-
-Examples of **incorrect** code for this rule with the `{"ObjectExpression": "always", "ObjectPattern": "never"}` option:
-
-选项 `{"ObjectExpression": "always", "ObjectPattern": "never"}` 的 **错误** 代码示例：
-
-```js
-/*eslint object-curly-newline: ["error", {"ObjectExpression": "always", "ObjectPattern": "never"}]*/
+/*eslint object-curly-newline: ["error", { "ObjectExpression": "always", "ObjectPattern": "never" }]*/
 /*eslint-env es6*/
 
 let a = {};
@@ -477,12 +394,12 @@ let {
 } = obj;
 ```
 
-Examples of **correct** code for this rule with the `{"ObjectExpression": "always", "ObjectPattern": "never"}` option:
+Examples of **correct** code for this rule with the `{ "ObjectExpression": "always", "ObjectPattern": "never" }` options:
 
-选项 `{"ObjectExpression": "always", "ObjectPattern": "never"}` 的 **正确** 代码示例：
+选项 `{ "ObjectExpression": "always", "ObjectPattern": "never" }` 的 **正确** 代码示例：
 
 ```js
-/*eslint object-curly-newline: ["error", {"ObjectExpression": "always", "ObjectPattern": "never"}]*/
+/*eslint object-curly-newline: ["error", { "ObjectExpression": "always", "ObjectPattern": "never" }]*/
 /*eslint-env es6*/
 
 let a = [
@@ -525,7 +442,7 @@ If you don't want to enforce consistent line breaks inside braces, then it's saf
 
 ## Related Rules
 
-* [comma-spacing](key-spacing)
+* [comma-spacing](comma-spacing)
 * [key-spacing](key-spacing)
 * [object-curly-spacing](object-curly-spacing)
 * [object-property-newline](object-property-newline)

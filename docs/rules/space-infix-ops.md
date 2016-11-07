@@ -1,10 +1,10 @@
 ---
-title: Rule space-infix-ops
+title: space-infix-ops - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require Spaces Around Infix Operators (space-infix-ops)
+# require spacing around infix operators (space-infix-ops)
 
 # 要求中缀操作符周围有空格 (space-infix-ops)
 

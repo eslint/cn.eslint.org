@@ -1,5 +1,5 @@
 ---
-title: Rule no-this-before-super
+title: no-this-before-super - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -22,9 +22,11 @@ This rule is aimed to flag `this`/`super` keywords before `super()` callings.
 
 该规则旨在标记出在调用 `super()` 之前使用 `this` 或 `super` 的情况。
 
-The following patterns are considered problems:
+## Examples
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule:
+
+**错误** 代码示例：
 
 ```js
 /*eslint no-this-before-super: "error"*/
@@ -58,9 +60,9 @@ class A extends B {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint no-this-before-super: "error"*/

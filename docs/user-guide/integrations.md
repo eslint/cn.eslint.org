@@ -12,7 +12,7 @@ layout: doc_en
     * [SublimeLinter-eslint](https://github.com/roadhump/SublimeLinter-eslint)
     * [Build Next](https://github.com/albertosantini/sublimetext-buildnext)
 * [Vim](https://github.com/scrooloose/syntastic/tree/master/syntax_checkers/javascript)
-* Emacs: [Flycheck](http://www.flycheck.org/) supports ESLint with the [javascript-eslint](http://www.flycheck.org/manual/latest/Supported-languages.html#Javascript) checker.
+* Emacs: [Flycheck](http://www.flycheck.org/) supports ESLint with the [javascript-eslint](http://www.flycheck.org/en/latest/languages.html#javascript) checker.
 * Eclipse Orion: ESLint is the [default linter](http://dev.eclipse.org/mhonarc/lists/orion-dev/msg02718.html)
 * Eclipse IDE with [Tern ESLint linter](https://github.com/angelozerr/tern.java/wiki/Tern-Linter-ESLint)
 * [TextMate 2](https://github.com/natesilva/javascript-eslint.tmbundle)
@@ -32,6 +32,7 @@ layout: doc_en
 * Ember-cli: [ember-cli-eslint](https://www.npmjs.com/package/ember-cli-eslint)
 * Sails.js: [sails-hook-eslint](https://www.npmjs.com/package/sails-hook-eslint)
 * Start: [start-eslint](https://www.npmjs.com/package/start-eslint)
+* Brunch: [eslint-brunch](https://www.npmjs.com/package/eslint-brunch)
 
 ## Command Line Tools
 
@@ -42,6 +43,7 @@ layout: doc_en
 ## Source Control
 
 * [Git Precommit Hook](https://coderwall.com/p/zq8jlq)
+* [Git pre-commit hook that only lints staged changes](https://gist.github.com/dahjelle/8ddedf0aebd488208a9a7c829f19b9e8)
 * [overcommit Git hook manager](https://github.com/brigade/overcommit)
 
 ## Testing
@@ -56,3 +58,7 @@ layout: doc_en
 * [React](https://github.com/yannickcr/eslint-plugin-react)
 
 … and many more published on npm with the [eslintplugin](https://www.npmjs.com/browse/keyword/eslintplugin) keyword.
+
+## Other Integration Lists
+
+You can find a curated list of other popular integrations for ESLint in the [awesome-eslint](https://github.com/dustinspecker/awesome-eslint) GitHub repository.

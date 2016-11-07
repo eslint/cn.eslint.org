@@ -1,5 +1,5 @@
 ---
-title: Rule comma-dangle
+title: comma-dangle - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -59,9 +59,23 @@ This rule enforces consistent use of trailing commas in object and array literal
 
 ## Options
 
-This rule has a string option:
+This rule has a string option or an object option:
 
-该规则有一个字符串选项：
+该规则有一个字符串选项或一个对象选项：
+
+```json
+{
+    "comma-dangle": ["error", "never"],
+    // or
+    "comma-dangle": ["error", {
+        "arrays": "never",
+        "objects": "never",
+        "imports": "never",
+        "exports": "never",
+        "functions": "ignore",
+    }]
+}
+```
 
 * `"never"` (default) disallows trailing commas
 * `"never"` (默认) 禁用拖尾逗号
@@ -71,6 +85,37 @@ This rule has a string option:
 * `"always-multiline"` 当最后一个元素或属性与闭括号 `]` 或 `}` 在 *不同的行*时，要求使用拖尾逗号；当在 *同一行*时，禁止使用拖尾逗号。
 * `"only-multiline"` allows (but does not require) trailing commas when the last element or property is in a *different* line than the closing `]` or `}` and disallows trailing commas when the last element or property is on the *same* line as the closing `]` or `}`
 * `"only-multiline"` 当最后一个元素或属性与闭括号 `]` 或 `}` 在 *不同的行*时，允许（但不要求）使用拖尾逗号；当在 *同一行*时，禁止使用拖尾逗号。
+
+Trailing commas in function declarations and function calls are valid syntax since ECMAScript 2017; however, the string option does not check these situations for backwards compatibility.
+
+从ECMAScript 2017开始，拖尾逗号在函数声明和函数调用中是有效的语法；然而，字符串选项不会检查这种情况以向后兼容。
+
+You can also use an object option to configure this rule for each type of syntax.
+
+你也可以使用一个对象选项针对每种类型的语法来配置该规则规则。
+
+Each of the following options can be set to `"never"`, `"always"`, `"always-multiline"`, `"only-multiline"`, or `"ignore"`.
+
+以下每个选项可以设置为 `"never"`、`"always"`、`"always-multiline"`、`"only-multiline"` 或 `"ignore"`。
+
+The default for each option is `"never"` unless otherwise specified.
+
+每个选项默认为 `"never"`，除非额外指定。
+
+* `arrays` is for array literals and array patterns of destructuring. (e.g. `let [a,] = [1,];`)
+* `arrays` 针对数组字面量和解构赋值的数组模式。(比如 `let [a,] = [1,];`)
+* `objects` is for object literals and object patterns of destructuring. (e.g. `let {a,} = {a: 1};`)
+* `objects` 针对对象字面量和解构赋值的对象模式。(比如 `let {a,} = {a: 1};`)
+* `imports` is for import declarations of ES Modules. (e.g. `import {a,} from "foo";`)
+* `imports` 针对 ES 模块的 import 声明。 (比如 `import {a,} from "foo";`)
+* `exports` is for export declarations of ES Modules. (e.g. `export {a,};`)
+* `exports` 针对 ES 模块的 export 声明。 (比如 `export {a,};`)
+* `functions` is for function declarations and function calls. (e.g. `(function(a,){ })(b,);`)<br>
+* `functions` 针对函数声明和函数调用。 (比如 `(function(a,){ })(b,);`)<br>
+  
+`functions` is set to `"ignore"` by default for consistency with the string option.
+
+`functions` 默认设置为 `"ignore"` 以与字符串选项保持一致。
 
 ### never
 
@@ -277,6 +322,64 @@ foo({
   bar: "baz",
   qux: "quux"
 });
+```
+
+### functions
+
+Examples of **incorrect** code for this rule with the `{"functions": "never"}` option:
+
+选项 `{"functions": "never"}` 的 **错误** 代码示例：
+
+```js
+/*eslint comma-dangle: ["error", {"functions": "never"}]*/
+
+function foo(a, b,) {
+}
+
+foo(a, b,);
+new foo(a, b,);
+```
+
+Examples of **correct** code for this rule with the `{"functions": "never"}` option:
+
+选项 `{"functions": "never"}` 的 **正确** 代码示例：
+
+```js
+/*eslint comma-dangle: ["error", {"functions": "never"}]*/
+
+function foo(a, b) {
+}
+
+foo(a, b);
+new foo(a, b);
+```
+
+Examples of **incorrect** code for this rule with the `{"functions": "always"}` option:
+
+选项 `{"functions": "always"}` 的 **错误** 代码示例：
+
+```js
+/*eslint comma-dangle: ["error", {"functions": "always"}]*/
+
+function foo(a, b) {
+}
+
+foo(a, b);
+new foo(a, b);
+```
+
+Examples of **correct** code for this rule with the `{"functions": "always"}` option:
+
+选项 `{"functions": "always"}` 的 **正确** 代码示例：
+
+```js
+/*eslint comma-dangle: ["error", {"functions": "always"}]*/
+
+function foo(a, b,) {
+}
+
+foo(a, b,);
+new foo(a, b,);
 ```
 
 ## When Not To Use It

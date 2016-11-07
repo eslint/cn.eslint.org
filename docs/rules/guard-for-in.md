@@ -1,5 +1,5 @@
 ---
-title: Rule guard-for-in
+title: guard-for-in - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -17,6 +17,10 @@ for (key in foo) {
     doSomething(key);
 }
 ```
+
+Note that simply checking `foo.hasOwnProperty(key)` is likely to cause an error in some cases; see [no-prototype-builtins](no-prototype-builtins).
+
+注意，在某些情况下，对 `foo.hasOwnProperty(key)` 做简单的检测可能会导致错误出现；查看[no-prototype-builtins](no-prototype-builtins)。
 
 ## Rule Details
 
@@ -49,6 +53,10 @@ for (key in foo) {
     }
 }
 ```
+
+## Related Rules
+
+* [no-prototype-builtins](no-prototype-builtins)
 
 ## Further Reading
 

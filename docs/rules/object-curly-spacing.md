@@ -1,12 +1,12 @@
 ---
-title: Rule object-curly-spacing
+title: object-curly-spacing - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow or enforce spaces inside of curly braces in objects. (object-curly-spacing)
+# enforce consistent spacing inside braces (object-curly-spacing)
 
-# 禁止或强制对象的花括号中有空格。 (object-curly-spacing)
+# 强制在花括号中使用一致的空格 (object-curly-spacing)
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
 
@@ -34,43 +34,43 @@ export { foo };
 
 ## Rule Details
 
-This rule aims to maintain consistency around the spacing inside of object literals. It also
-applies to EcmaScript 6 destructured assignment and import/export specifiers.
+This rule enforce consistent spacing inside braces of object literals, destructuring assignments, and import/export specifiers.
 
-该规则旨在维持对象文本中空格的一致性。它同样适用于 EcmaScript 6 的解构赋值和 import/export 说明符。
-
-It either requires or disallows spaces between those braces and the values inside of them.
-
-该规则要求或禁止花括号和值之间有空格。
-
-Braces that are separated from the adjacent value by a new line are exempt from this rule.
-
-括号内相邻的值出现折行的，不适用此规则。
+该规则强制在对象字面量、解构赋值 和 import/export 说明符的花括号中使用一致的空格。
 
 ## Options
 
-There are two main options for the rule:
+This rule has two options, a string option and an object option.
 
-该规则有两个主要的选项：
+该规则有两个选项，一个是字符串，一个是对象。
 
-* `"always"` enforces a space inside of curly braces
-* `"always"` 强制在花括号中有空格
-* `"never"` disallows spaces inside of curly braces (default)
-* `"never"` 不允许花括号中有空格 (默认)
+String option:
 
-Depending on your coding conventions, you can choose either option by specifying it in your configuration:
+字符串选项：
 
-根据你的代码约定，你可以在你的配置中指定任一选项：
+* `"never"` (default) disallows spacing inside of braces
+* `"never"` (默认) 不允许花括号中有空格
+* `"always"` requires spacing inside of braces (except `{}`)
+* `"always"` 要求花括号内有空格 (除了 `{}`)
 
-```json
-"object-curly-spacing": ["error", "always"]
-```
+Object option:
 
-### "never"
+对象选项：
 
-When `"never"` is set, the following patterns are considered problems:
+* `"arraysInObjects": true` requires spacing inside of braces of objects beginning and/or ending with an array element (applies when the first option is set to `never`)
+* `"arraysInObjects": true` 要求以数组元素开始或结尾的对象的花括号中有空格 (当第一个选项为 `never` 时生效)
+* `"arraysInObjects": false` disallows spacing inside of braces of objects beginning and/or ending with an array element (applies when the first option is set to `always`)
+* `"arraysInObjects": false` 禁止以数组元素开始或结尾的对象的花括号中有空格 (当第一个选项为 `always` 时生效)
+* `"objectsInObjects": true` requires spacing inside of braces of objects beginning and/or ending with an object element (applies when the first option is set to `never`)
+* `"objectsInObjects": true` 要求以对象元素开始或结尾的对象的花括号中有空格 (当第一个选项为 `never` 时生效)
+* `"objectsInObjects": false` disallows spacing inside of braces of objects beginning and/or ending with an object element (applies when the first option is set to `always`)
+* `"objectsInObjects": false` 禁止以对象元素开始或结尾的对象的花括号中有空格 (当第一个选项为 `always` 时生效)
 
-当设置为 `"never"` 时，以下模式被认为是有问题的：
+### never
+
+Examples of **incorrect** code for this rule with the default `"never"` option:
+
+默认选项 `"never"` 的 **错误** 代码示例：
 
 ```js
 /*eslint object-curly-spacing: ["error", "never"]*/
@@ -83,9 +83,9 @@ var {x } = y;
 import { foo } from 'bar';
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the default `"never"` option:
 
-以下模式被认为是没有问题的：
+默认选项 `"never"` 的 **正确** 代码示例：
 
 ```js
 /*eslint object-curly-spacing: ["error", "never"]*/
@@ -104,11 +104,11 @@ var {x} = y;
 import {foo} from 'bar';
 ```
 
-### "always"
+### always
 
-When `"always"` is used, the following patterns are considered problems:
+Examples of **incorrect** code for this rule with the `"always"` option:
 
-当设置为 `"always"` 时，以下模式被认为是有问题的：
+选项 `"always"` 的 **错误** 代码示例：
 
 ```js
 /*eslint object-curly-spacing: ["error", "always"]*/
@@ -125,9 +125,9 @@ var {x} = y;
 import {foo } from 'bar';
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"always"` option:
 
-以下模式被认为是没有问题的：
+选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 /*eslint object-curly-spacing: ["error", "always"]*/
@@ -142,77 +142,51 @@ var { x } = y;
 import { foo } from 'bar';
 ```
 
-Note that `{}` is always exempt from spacing requirements with this rule.
+#### arraysInObjects
 
-注意，`{}` 总是豁免于此规则对空格的要求。
+Examples of additional **correct** code for this rule with the `"never", { "arraysInObjects": true }` options:
 
-### Exceptions
-
-There are two exceptions you can apply to this rule: `objectsInObjects` and
-`arraysInObjects`. Their values can be set to either `true` or `false` as part
-of an object literal set as the 3rd argument for the rule.
-
-有两种例外情况适用于此规则：`objectsInObjects` 和 `arraysInObjects`。它们的值可以设置为 `true` 或 `false` ，作为一个对象文本的一部分，被设置为规则的第三个参数。
-
-These exceptions work in the context of the first option.
-That is, if `"always"` is set to enforce spacing and an exception is set to `false`,
-it will disallow spacing for cases matching the exception. Likewise,
-if `"never"` is set to disallow spacing and an exception is set to `true`,
-it will enforce spacing for cases matching the exception.
-
-这些例外情况作用在第一个选项的基础上。也就是说，如果 `"always"` 设置为强制使用空格但例外情况被设置为 `false`，那么符合这个例外的将禁止使用空格。同样的，如果 `"never"` 设置为禁止使用空格但例外情况被设为 `true`，那么符合这个例外的将强制使用空格。
-
-You can add exceptions like so:
-
-你可以像这样添加例外情况：
-
-```json
-"object-curly-spacing": ["error", "always", {
-  "objectsInObjects": false,
-  "arraysInObjects": false
-}]
-```
-
-#### `objectsInObjects`
-
-In the case of the `"always"` option, set `objectsInObjects` exception to `false` to
-enforce the following style (notice the `}}` at the end):
-
-在设置了 `"always"` 选项的情况下，设置 `objectsInObjects` 例外为 `false` ，强制使用下面的风格 (注意末尾的 `}}`)：
+选项 `"never", { "arraysInObjects": true }` 的 **正确** 代码示例：
 
 ```js
-var obj = { "foo": { "baz": 1, "bar": 2 }};
+/*eslint object-curly-spacing: ["error", "never", { "arraysInObjects": true }]*/
+
+var obj = {"foo": [ 1, 2 ] };
+var obj = {"foo": [ "baz", "bar" ] };
 ```
 
-In the case of the `"never"` option, set `objectsInObjects` exception to `true` to enforce
-the following style (with a space between the `}` at the end:
+Examples of additional **correct** code for this rule with the `"always", { "arraysInObjects": false }` options:
 
-在设置了 `"never"` 选项的情况下，设置 `objectsInObjects` 例外为 `true`，强制使用下面的风格 (末尾 `}` 之间有空格:
-
-```js
-var obj = {"foo": {"baz": 1, "bar": 2} };
-```
-
-#### `arraysInObjects`
-
-In the case of the `"always"` option, set `arraysInObjects` exception to `false` to
-enforce the following style (notice the `]}` at the end):
-
-在设置了 `"always"` 选项的情况下，设置 `arraysInObjects` 例外为 `false`，强制使用下面的风格 (注意末尾的 `}}`):
+选项 `"always", { "arraysInObjects": false }` 的 **正确** 代码示例：
 
 ```js
+/*eslint object-curly-spacing: ["error", "always", { "arraysInObjects": false }]*/
+
 var obj = { "foo": [ 1, 2 ]};
 var obj = { "foo": [ "baz", "bar" ]};
 ```
 
-In the case of the `"never"` option, set `arraysInObjects` exception to `true` to enforce
-the following style (with a space between the `]` and  `}` at the end:
 
-在设置了 `"never"` 选项的情况下，设置 `arraysInObjects` 例外为 `true`，强制使用下面的风格 (末尾`]`和 `}` 之间有空格):
+#### objectsInObjects
+
+Examples of additional **correct** code for this rule with the `"never", { "objectsInObjects": true }` options:
+
+选项 `"never", { "objectsInObjects": true }` 的 **正确** 代码示例：
 
 ```js
-var obj = {"foo": [ 1, 2 ] };
-var obj = {"foo": [ "baz", "bar" ] };
+/*eslint object-curly-spacing: ["error", "never", { "objectsInObjects": true }]*/
+
+var obj = {"foo": {"baz": 1, "bar": 2} };
+```
+
+Examples of additional **correct** code for this rule with the `"always", { "objectsInObjects": false }` options:
+
+选项 `"always", { "objectsInObjects": false }` 的 **正确** 代码示例：
+
+```js
+/*eslint object-curly-spacing: ["error", "always", { "objectsInObjects": false }]*/
+
+var obj = { "foo": { "baz": 1, "bar": 2 }};
 ```
 
 ## When Not To Use It

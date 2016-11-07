@@ -1,5 +1,5 @@
 ---
-title: Rule require-yield
+title: require-yield - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -8,15 +8,17 @@ layout: doc
 
 # 禁用函数内没有`yield`的 generator 函数
 
+## Rule Details
+
 This rule generates warnings for generator functions that do not have the `yield` keyword.
 
 如果 generator 函数内部没有`yield`关键字，该规则将发出警告。
 
-## Rule Details
+## Examples
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误** 代码示例：
 
 ```js
 /*eslint require-yield: "error"*/
@@ -27,9 +29,9 @@ function* foo() {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint require-yield: "error"*/

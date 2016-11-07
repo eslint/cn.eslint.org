@@ -1,5 +1,5 @@
 ---
-title: Rule no-param-reassign
+title: no-param-reassign - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -12,9 +12,9 @@ Assignment to variables declared as function parameters can be misleading and le
 
 对函数参数中的变量进行赋值可能会误导读者，导致混乱，也会改变 `arguments` 对象。通常，对函数参数进行赋值并非有意为之，更多的是程序员的书写错误做成的。
 
-This rule can be also configured to false when function parameters are modified. Side effects on parameters can cause counter-intuitive execution flow and make errors difficult to track down.
+This rule can be also configured to fail when function parameters are modified. Side effects on parameters can cause counter-intuitive execution flow and make errors difficult to track down.
 
-当函数参数被修改时，该规则也可以配置不启用。由此造成的副作用可能导致不直观的执行流程，是错误难以跟踪。
+当函数参数被修改时，该规则也可能会失效。由此造成的副作用可能导致不直观的执行流程，使错误难以跟踪。
 
 ## Rule Details
 

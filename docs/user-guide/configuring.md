@@ -33,9 +33,9 @@ All of these options give you fine-grained control over how ESLint treats your c
 
 ## Specifying Parser Options
 
-ESLint allows you to specify the JavaScript language options you want to support. By default, ESLint supports only ECMAScript 5 syntax. You can override that setting to enable support for ECMAScript 6 and 7 as well as [JSX](http://facebook.github.io/jsx/) by using parser options.
+ESLint allows you to specify the JavaScript language options you want to support. By default, ESLint expects ECMAScript 5 syntax. You can override that setting to enable support for other ECMAScript versions as well as JSX by using parser options.
 
-ESLint 允许你指定你想要支持的 JavaScript 语言选项。默认情况下，ESLint 支持 ECMAScript 5 语法。你可以通过使用解析器选项让它支持 ECMAScript 6 和 7 以及 [JSX](http://facebook.github.io/jsx/)。
+ESLint 允许你指定你想要支持的 JavaScript 语言选项。默认情况下，ESLint 支持 ECMAScript 5 语法。你可以覆盖该设置启用对 ECMAScript 其它版本和 JSX 的支持。
 
 Please note that supporting JSX syntax is not the same as supporting React. React applies specific semantics to JSX syntax that ESLint doesn't recognize. We recommend using [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react) if you are using React and want React semantics.
 
@@ -45,8 +45,8 @@ Parser options are set in your `.eslintrc.*` file by using the `parserOptions` p
 
 在 `.eslintrc.*` 文件使用 `parserOptions` 属性设置解析器选项。可用的选项有：
 
-* `ecmaVersion` - set to 3, 5 (default), 6, or 7 to specify the version of ECMAScript you want to use.
-* `ecmaVersion` - 设置为 3， 5 (默认)， 6 或 7 指定你想要使用的 ECMAScript 版本。
+* `ecmaVersion` - set to 3, 5 (default), 6, 7, or 8 to specify the version of ECMAScript syntax you want to use. You can also set to 2015 (same as 6), 2016 (same as 7), or 2017 (same as 8) to use the year-based naming.
+* `ecmaVersion` - 设置为 3， 5 (默认)， 6、7 或 8 指定你想要使用的 ECMAScript 版本。你也可以指定为 2015（同 6），2016（同 7），或 2017（同 8）使用年份命名
 * `sourceType` - set to `"script"` (default) or `"module"` if your code is in ECMAScript modules.
 * `sourceType` - 设置为 `"script"` (默认) 或 `"module"`（如果你的代码是 ECMAScript 模块)。
 * `ecmaFeatures` - an object indicating which additional language features you'd like to use:
@@ -141,8 +141,8 @@ An environment defines global variables that are predefined. The available envir
 * `commonjs` - CommonJS 全局变量和 CommonJS 作用域 (仅为使用 Browserify/WebPack 写的只支持浏览器的代码)。
 * `shared-node-browser` - Globals common to both Node and Browser.
 * `shared-node-browser` - Node 和 Browser 通用全局变量。
-* `es6` - enable all ECMAScript 6 features except for modules.
-* `es6` - 支持除了modules所有 ECMAScript 6 特性。
+* `es6` - enable all ECMAScript 6 features except for modules (this automatically sets the `ecmaVersion` parser option to 6).
+* `es6` - 支持除模块外所有 ECMAScript 6 特性（该选项会自动设置 `ecmaVersion` 解析器选项为 6）。
 * `worker` - web workers global variables.
 * `worker` - web workers 全局变量。
 * `amd` - defines `require()` and `define()` as global variables as per the [amd](https://github.com/amdjs/amdjs-api/wiki/AMD) spec.
@@ -197,7 +197,7 @@ To specify environments using a comment inside of your JavaScript file, use the 
 在你的 JavaScript 文件中使用注释来指定环境，格式如下：
 
 ```js
-/*eslint-env node, mocha */
+/* eslint-env node, mocha */
 ```
 
 This enables Node.js and Mocha environments.
@@ -336,6 +336,10 @@ And in YAML:
 These examples allow `var1` to be overwritten in your code, but disallow it for `var2`.
 
 这些例子 `var1` 允许被重写，`var2` 不允许被重写。
+
+**Note:** Enable the [no-global-assign](../rules/no-global-assign) rule to disallow modifications to read-only global variables in your code.
+
+**注意：**启用[no-global-assign](../rules/no-global-assign)规则来禁止对只读的全局变量进行修改。
 
 ## Configuring Plugins
 
@@ -573,6 +577,14 @@ alert('foo'); // eslint-disable-line no-alert, quotes, semi
 alert('foo');
 ```
 
+All of the above methods also work for plugin rules. For example, to disable `eslint-plugin-example`'s `rule-name` rule, combine the plugin's name (`example`) and the rule's name (`rule-name`) into `example/rule-name`:
+
+上面的所有方法同样适用于插件规则。例如，禁止 `eslint-plugin-example` 的 `rule-name` 规则，把插件名（`example`）和规则名（`rule-name`）结合为 `example/rule-name`：
+
+```js
+foo(); // eslint-disable-line example/rule-name
+```
+
 **Note:** Comments that disable warnings for a portion of a file tell ESLint not to report rule violations for the disabled code. ESLint still parses the entire file, however, so disabled code still needs to be syntactically valid JavaScript.
 
 **注意：**为文件的某部分禁用警告的注释，告诉 ESLint 不要对禁用的代码报告规则的冲突。ESLint 仍解析整个文件，然而，禁用的代码仍需要是有效的 JavaScript 语法。
@@ -800,9 +812,9 @@ An `extends` property value `"eslint:recommended"` enables a subset of core rule
 
 值为 `"eslint:recommended"` 的 `extends` 属性启用一系列核心规则，这些规则报告一些常见问题，在 [规则页面](../rules/) 中被标记为 (recommended) 。这个推荐的子集只能在 ESLint 主要版本进行更新。
 
-If your configuration extends the recommended rules: after you upgrade to a newer major version of ESLint, review the reported problems before you use the `--fix` option on the [command line](../command-line-interface#fix), so you know if a new fixable recommended rule will make changes to the code.
+If your configuration extends the recommended rules: after you upgrade to a newer major version of ESLint, review the reported problems before you use the `--fix` option on the [command line](./command-line-interface#fix), so you know if a new fixable recommended rule will make changes to the code.
 
-如果你的配置集成了推荐的规则：在你升级到 ESLint 新的主版本之后，在你使用[命令行](../command-line-interface#fix)的 `--fix` 选项之前，检查一下报告的问题，这样你就知道一个新的可修复的推荐的规则将更改代码。
+如果你的配置集成了推荐的规则：在你升级到 ESLint 新的主版本之后，在你使用[命令行](./command-line-interface#fix)的 `--fix` 选项之前，检查一下报告的问题，这样你就知道一个新的可修复的推荐的规则将更改代码。
 
 The `eslint --init` command can create a configuration so you can extend the recommended rules.
 
@@ -946,9 +958,9 @@ You might enable all core rules as a shortcut to explore rules and options while
 
 当你决定在一个项目上使用的规则和选项，尤其是如果你很少覆盖选项或禁用规则，你可能启用所有核心规则作为一种快捷方式使用。规则的默认选项并不是 ESLint 推荐的（例如，`quotes` 规则的默认选项并不意味着双引号要比单引号好）。
 
-If your configuration extends all core rules: after you upgrade to a newer major or minor version of ESLint, review the reported problems before you use the `--fix` option on the [command line](../command-line-interface#fix), so you know if a new fixable rule will make changes to the code.
+If your configuration extends all core rules: after you upgrade to a newer major or minor version of ESLint, review the reported problems before you use the `--fix` option on the [command line](./command-line-interface#fix), so you know if a new fixable rule will make changes to the code.
 
-如果你的配置扩展了所有的核心规则：在你升级到一个新的大或小的 ESLint 版本，在你使用[命令行](../command-line-interface#fix)的 `--fix` 选项之前，检查一下报告的问题，这样你就知道一个新的可修复的规则将更改代码。
+如果你的配置扩展了所有的核心规则：在你升级到一个新的大或小的 ESLint 版本，在你使用[命令行](./command-line-interface#fix)的 `--fix` 选项之前，检查一下报告的问题，这样你就知道一个新的可修复的规则将更改代码。
 
 Example of a configuration file in JavaScript format:
 

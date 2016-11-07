@@ -1,5 +1,5 @@
 ---
-title: Rule strict
+title: strict - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -7,6 +7,10 @@ layout: doc
 # require or disallow strict mode directives (strict)
 
 # 要求或禁止使用严格模式指令 (strict)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 A strict mode directive is a `"use strict"` literal at the beginning of a script or function body. It enables strict mode semantics.
 
@@ -70,6 +74,10 @@ This rule disallows strict mode directives, no matter which option is specified,
 * `"sourceType": "module"` 也就是说，文件是 **ECMAScript** 模块
 * `"impliedStrict": true` property in the `ecmaFeatures` object
 * `"impliedStrict": true` `ecmaFeatures` 对象中的属性
+
+This rule disallows strict mode directives, no matter which option is specified, in functions with non-simple parameter lists (for example, parameter lists with default parameter values) because that is a syntax error in **ECMAScript 2016** and later. See the examples of the [function](#function) option.
+
+在有非常规参数列表（例如，有默认参数值）的函数中，不管指定的了什么选项，该规则禁止指定严格模式指令，因为 在 **ECMAScript 2016** 和以后的版本中将会报语法错误。查看[function](#function) 选项。
 
 ## Options
 
@@ -173,16 +181,28 @@ function foo() {
 
 function foo() {
 }
-```
-
-```js
-/*eslint strict: ["error", "function"]*/
 
 (function() {
     function bar() {
         "use strict";
     }
 }());
+```
+
+```js
+/*eslint strict: ["error", "function"]*/
+/*eslint-env es6*/
+
+// Illegal "use strict" directive in function with non-simple parameter list.
+// This is a syntax error since ES2016.
+function foo(a = 1) {
+    "use strict";
+}
+
+// We cannot write "use strict" directive in this function.
+// So we have to wrap this function with a function with "use strict" directive.
+function foo(a = 1) {
+}
 ```
 
 Examples of **correct** code for this rule with the `"function"` option:
@@ -198,8 +218,19 @@ function foo() {
 
 (function() {
     "use strict";
+
     function bar() {
     }
+
+    function baz(a = 1) {
+    }
+}());
+
+var foo = (function() {
+    "use strict";
+
+    return function foo(a = 1) {
+    };
 }());
 ```
 

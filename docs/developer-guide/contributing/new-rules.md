@@ -41,16 +41,9 @@ Even though these are the formal criteria for inclusion, each rule is evaluated 
 
 If you want to propose a new rule, [create an issue](https://github.com/eslint/eslint/issues/new?body=**When%20does%20this%20rule%20warn%3F%20Please%20describe%20and%20show%20example%20code%3A**%0A%0A**Is%20this%20rule%20preventing%20an%20error%20or%20is%20it%20stylistic%3F**%0A%0A**Why%20is%20this%20rule%20a%20candidate%20for%20inclusion%20instead%20of%20creating%20a%20custom%20rule%3F**%0A%0A**Are%20you%20willing%20to%20create%20the%20rule%20yourself%3F**%0A%0A) be sure to include:
 
-如果你想提出一条新规则，[新建一个议题（issue）](https://github.com/eslint/eslint/issues/new?body=**When%20does%20this%20rule%20warn%3F%20Please%20describe%20and%20show%20example%20code%3A**%0A%0A**Is%20this%20rule%20preventing%20an%20error%20or%20is%20it%20stylistic%3F**%0A%0A**Why%20is%20this%20rule%20a%20candidate%20for%20inclusion%20instead%20of%20creating%20a%20custom%20rule%3F**%0A%0A**Are%20you%20willing%20to%20create%20the%20rule%20yourself%3F**%0A%0A) 请确保包含以下几点：
+If you want to propose a new rule, [create a pull request](/docs/developer-guide/contributing/pull-requests) or new issue and paste the questions from the [rule proposal template](https://github.com/eslint/eslint/blob/master/templates/rule-proposal.md) into the description.
 
-1. When the rules will warn. Include a description as well as sample code.
-1. 该规则在什么时候发出警告。请包含示例代码及相关描述。
-1. Whether the rule prevents an error or is stylistic.
-1. 该规则是避免产生一个错误，还是风格上的？
-1. Why the rule should be in the core instead of creating a custom rule.
-1. 为什么该规则应该是核心规则而不是一个自定义规则。
-1. Are you willing to create the rule yourself?
-1. 你愿意自己创建这条规则吗？
+如果你想提出一条新规则，[创建一个合并请求（pull request）](/docs/developer-guide/contributing/pull-requests)，或新 issue，把[规则提议模板](https://github.com/eslint/eslint/blob/master/templates/rule-proposal.md)的问题粘贴到描述里。
 
 We need all of this information in order to determine whether or not the rule is a good core rule candidate.
 

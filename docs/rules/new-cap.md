@@ -1,10 +1,10 @@
 ---
-title: Rule new-cap
+title: new-cap - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require constructor `function` names to begin with a capital letter (new-cap)
+# require constructor names to begin with a capital letter (new-cap)
 
 # 要求构造函数首字母大写 (new-cap)
 
@@ -71,8 +71,12 @@ This rule has an object option:
 * `"capIsNew": false` 允许调用首字母大写的函数时没有 `new` 操作符。
 * `"newIsCapExceptions"` allows specified lowercase-started function names to be called with the `new` operator.
 * `"newIsCapExceptions"` 允许调用指定的首字母小写的函数时有 `new` 操作符。
+* `"newIsCapExceptionPattern"` allows any lowercase-started function names that match the specified regex pattern to be called with the `new` operator.
+* `"newIsCapExceptionPattern"` 允许调用任何的首字母小写的函数名匹配指定的正则表达式时有 `new` 操作符。
 * `"capIsNewExceptions"` allows specified uppercase-started function names to be called without the `new` operator.
 * `"capIsNewExceptions"` 允许调用指定的首字母大写的函数时没有 `new` 操作符。
+* `"capIsNewExceptionPattern"` allows any uppercase-started function names that match the specified regex pattern to be called without the `new` operator.
+* `"capIsNewExceptionPattern"` 允许调用任何的首字母大写的函数名匹配指定的正则表达式时没有 `new` 操作符。
 * `"properties": true` (default) enables checks on object properties
 * `"properties": true` (默认) 检查对象属性。
 * `"properties": false` disables checks on object properties
@@ -156,6 +160,19 @@ var events = require('events');
 var emitter = new events();
 ```
 
+### newIsCapExceptionPattern
+
+Examples of additional **correct** code for this rule with the `{ "newIsCapExceptionPattern": "^person\.." }` option:
+
+选项 `{ "newIsCapExceptionPattern": "^person\.." }` 的 **正确** 代码示例：
+
+```js
+/*eslint new-cap: ["error", { "newIsCapExceptionPattern": "^person\.." }]*/
+
+var friend = new person.acquaintance();
+var bestFriend = new person.friend();
+```
+
 ### capIsNewExceptions
 
 Examples of additional **correct** code for this rule with the `{ "capIsNewExceptions": ["Person"] }` option:
@@ -168,6 +185,19 @@ Examples of additional **correct** code for this rule with the `{ "capIsNewExcep
 function foo(arg) {
     return Person(arg);
 }
+```
+
+### capIsNewExceptionPattern
+
+Examples of additional **correct** code for this rule with the `{ "capIsNewExceptionPattern": "^Person\.." }` option:
+
+选项 `{ "capIsNewExceptionPattern": "^Person\.." }` 的 **正确** 代码示例：
+
+```js
+/*eslint new-cap: ["error", { "capIsNewExceptionPattern": "^Person\.." }]*/
+
+var friend = person.Acquaintance();
+var bestFriend = person.Friend();
 ```
 
 ### properties

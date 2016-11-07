@@ -1,12 +1,12 @@
 ---
-title: Rule no-shadow
+title: no-shadow - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Shadowing (no-shadow)
+# disallow variable declarations from shadowing variables declared in the outer scope (no-shadow)
 
-# 禁止覆盖 (no-shadow)
+# 禁止变量声明覆盖外层作用域的变量 (no-shadow)
 
 Shadowing is the process by which a local variable shares the same name as a variable in its containing scope. For example:
 

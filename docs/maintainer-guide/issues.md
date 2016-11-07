@@ -54,40 +54,74 @@ The steps for triaging an issue are:
 1. Next steps:
     * **Questions:** answer the question and close the issue when the conversation is over.
     * **Bugs:** if you can verify the bug, add the "accepted" label and ask if they would like to submit a pull request.
-    * **New Rules:** if you are willing to champion the rule (meaning you believe it should be included in ESLint core and you will take ownership of the process for including it), then add a comment saying you will champion the issue. As the champion, it's your job to gain consensus from the ESLint team on inclusion, guide the rule creation process until it's complete, so only champion a rule that you have time to implement or help another contributor implement. Once consensus has been reached on inclusion, add the "accepted" and "help wanted" labels.
-    * **Rule Changes:** if you are willing to champion the change, and the change would not be breaking (requiring a major version increment), then add a comment saying that you will champion the issue. As with new rules, the champion is expected to gain consensus from the ESLint team on inclusion and to guide the change through to completion. Once consensus has been reached on inclusion, add the "accepted" and "help wanted" labels.
+    * **New Rules:** if you are willing to champion the rule (meaning you believe it should be included in ESLint core and you will take ownership of the process for including it), add a comment saying you will champion the issue, assign the issue to yourself, and follow the [guidelines](#championing-issues) below.
+    * **Rule Changes:** if you are willing to champion the change and it would not be a breaking change (requiring a major version increment), add a comment saying that you will champion the issue, assign the issue to yourself, and follow the [guidelines](#championing-issues) below.
     * **Breaking Changes:** if you suspect or can verify that a change would be breaking, label it as "Breaking".
     * **Duplicates:** if you can verify the issue is a duplicate, add a comment mentioning the duplicate issue (such as, "Duplicate of #1234") and close the issue.
 1. Regardless of the above, always leave a comment. Don't just add labels, engage with the person who opened the issue by asking a question (request more information if necessary) or stating your opinion of the issue. If it's a verified bug, ask if the user would like to submit a pull request.
 
-**Note:** Don't add an "accepted" label to an issue unless it's a bug that you've been able to reproduce and verify (you're sure it's a bug), a new rule that you're championing, or a rule change that you're championing. The "accepted" label will be added to other issues by a project lead if it's appropriate for the roadmap.
+**Note:** "Beginner" issues are intended to help new contributors feel welcome and empowered to make a contribution to ESLint. To ensure that new contributors are given a chance to work on these issues, issues labeled "beginner" must be open for 30 days *from the day the issue was labeled* before a team member is permitted to work on them.
 
-## Evaluating Core Features and Enhancements (Project Leads Only)
+## Accepting Issues
 
-If you're a project lead, then you'll need to evaluate incoming requests for inclusion in the formal roadmap. You should label an issue as "accepted" when all of the following are true:
+Issues may be labeled as "accepted" when the issue is:
+
+* A bug that you've been able to reproduce and verify (i.e. you're sure it's a bug)
+* A new rule or rule change that you're championing and [consensus](#consensus) has been reached for its inclusion in the project
+
+The "accepted" label will be added to other issues by a TSC member if it's appropriate for the roadmap.
+
+## Championing Issues
+
+New rules and rule changes require a champion. As champion, it's your job to:
+
+* Gain [consensus](#consensus) from the ESLint team on inclusion
+* Guide the rule creation process until it's complete (so only champion a rule that you have time to implement or help another contributor implement)
+
+Once consensus has been reached on inclusion, add the "accepted" and, optionally, "help wanted" and "beginner" labels, as necessary.
+
+## Consensus
+
+Consensus is reached on issues when there are at least three team members who believe the change is a good idea and no one who believes the change is a bad idea. In order to indicate your support for an issue, leave a +1 reaction (thumbs up) on the original issue description in addition to any comments you might have.
+
+## When to Send to TSC
+
+If consensus cannot be reached on an issue, or an issue's progress has been stalled and it's not clear if the issue should be closed, then you can refer the issue to the TSC for resolution. To do so, add the "tsc agenda" label to the issue and add a comment including the following information:
+
+1. A one-paragraph summary of the discussion to this point.
+2. The question you would like the TSC to answer.
+
+The issue will be discussed at the next TSC meeting and the resolution will be posted back to the issue.
+
+## Evaluating Core Features and Enhancements (TSC members only)
+
+In addition to the above, changes to the core (including CLI changes) that would result in a minor or major version release must be approved by the TSC by standard TSC motion. Add the label "tsc agenda" to the issue and it will be discussed at the next TSC meeting. In general, requests should meet the following criteria to be considered:
 
 1. The feature or enhancement is in scope for the project and should be added to the roadmap
-1. You are committed to including the change within the next year
-1. You are reasonably certain of who will do the work
+1. Someone is committed to including the change within the next year
+1. There is reasonable certainty about who will do the work
 
 When a suggestion is too ambitious or would take too much time to complete, it's better not to accept the proposal. Stick to small, incremental changes and lay out a roadmap of where you'd like the project to go eventually. Don't let the project get bogged down in big features that will take a long time to complete.
-
-**Help Wanted:** If there's an issue you'd like to see completed, but don't believe it's something the project team should address, add the "help wanted" label. The "help wanted" label indicates that while the project team won't be implementing the suggestion, a pull request will be accepted.
 
 **Breaking Changes:** Be on the lookout for changes that would be breaking. Issues that represent breaking changes should be labeled as "breaking".
 
 ## When to Close an Issue
 
-Any team member may close an issue if any of the following is true:
+All team members are allowed to close issues depending on how the issue has been resolved.
 
-1. The issue is a duplicate of an existing issue
-1. The issue is just a question and has been answered
-1. The issue has been open for a year or more with no sign of progress
-1. No one has committed to working on the issue for the roadmap within 30 days of being labeled "accepted"
-1. The request is outside the scope of the project
+Team members may close an issue **immediately** if:
 
-In general, it's better to close issues sooner rather than later. It gives people better feedback about the issue affects the project roadmap.
+1. The issue is a duplicate of an existing issue.
+1. The issue is just a question and has been answered.
 
-## Consensus
+Team members may close an issue where the consensus is to not accept the issue after a waiting period (to ensure that other team members have a chance to review the issue before it is closed):
 
-Consensus is reached on issues when there are at least three team members who believe the change is a good idea and no one who believes the change is a bad idea. If consensus cannot be reached, then a consensus among reviewers must be achieved where no one believes it is a bad idea. If consensus among reviewers cannot be achieved, the reviewers will vote and majority wins.
+* Wait **2 days** if the issue was opened Monday through Friday.
+* Wait **3 days** if the issue was opened on Saturday or Sunday.
+
+In an effort to keep the issues backlog manageable, team members may also close an issue if the following conditions are met:
+
+* **Unaccepted**: Close after it has been open for 21 days, as these issues do not have enough support to move forward.
+* **Accepted**: Close after 90 days if no one from the team or the community is willing to step forward and own the work to complete to it.
+* **Help wanted:** Close after 90 days if it has not been completed.
+

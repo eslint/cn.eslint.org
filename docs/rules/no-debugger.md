@@ -1,5 +1,5 @@
 ---
-title: Rule no-debugger
+title: no-debugger - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -45,7 +45,7 @@ function isTruthy(x) {
 
 ## When Not To Use It
 
-If your code is still very much in development and don't want to worry about stripping about `debugger` statements, then turn this rule off. You'll generally want to turn it back on when testing code prior to deployment.
+If your code is still very much in development and don't want to worry about stripping `debugger` statements, then turn this rule off. You'll generally want to turn it back on when testing code prior to deployment.
 
 如果你的代码在很大程度上仍处于开发阶段，不想担心剥离 `debugger` 语句，那么就关闭此规则。通常在部署测试代码之前，你会想重新开启此规则。
 

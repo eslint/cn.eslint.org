@@ -1,5 +1,5 @@
 ---
-title: Rule no-undef-init
+title: no-undef-init - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -7,6 +7,10 @@ layout: doc
 # Disallow Initializing to undefined (no-undef-init)
 
 # 不允许初始化变量值为 undefined (no-undef-init)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 In JavaScript, a variable that is declared and not initialized to any value automatically gets the value of `undefined`. For example:
 
@@ -33,6 +37,7 @@ It's considered a best practice to avoid initializing variables to `undefined`.
 ## Rule Details
 
 This rule aims to eliminate variable declarations that initialize to `undefined`.
+
 此规则旨在限制变量声明后被初始化为 `undefined`。
 
 Examples of **incorrect** code for this rule:
@@ -50,6 +55,7 @@ let bar = undefined;
 Examples of **correct** code for this rule:
 
 **正确** 代码示例：
+
 ```js
 /*eslint no-undef-init: "error"*/
 /*eslint-env es6*/

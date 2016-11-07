@@ -1,5 +1,5 @@
 ---
-title: Rule no-dupe-class-members
+title: no-dupe-class-members - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -32,9 +32,11 @@ This rule is aimed to flag the use of duplicate names in class members.
 
 该规则旨在标记类成员中重复名称的使用。
 
-The following patterns are considered problems:
+## Examples
 
-以下模式被认为是有问题的：
+Examples of **incorrect** code for this rule:
+
+**错误** 代码示例：
 
 ```js
 /*eslint no-dupe-class-members: "error"*/
@@ -56,9 +58,9 @@ class Foo {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint no-dupe-class-members: "error"*/

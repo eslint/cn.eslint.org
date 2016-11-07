@@ -1,12 +1,12 @@
 ---
-title: Rule init-declarations
+title: init-declarations - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce/Disallow Variable Initializations (init-declarations)
+# require or disallow initialization in variable declarations (init-declarations)
 
-# 强制或禁止变量初始化 (init-declarations)
+# 强制或禁止变量声明语句中初始化 (init-declarations)
 
 In JavaScript, variables can be assigned during declaration, or at any point afterwards using an assignment statement. For example, in the following code, `foo` is initialized during declaration, while `bar` is initialized later.
 

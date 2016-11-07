@@ -1,5 +1,5 @@
 ---
-title: Rule no-confusing-arrow
+title: no-confusing-arrow - Rules
 layout: doc_en
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->

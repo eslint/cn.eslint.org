@@ -1,5 +1,5 @@
 ---
-title: Rule yield-star-spacing
+title: yield-star-spacing - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -17,6 +17,14 @@ layout: doc
 This rule enforces spacing around the `*` in `yield*` expressions.
 
 该规则强制在 `yield*` 表达式中 `*` 左右使用空格。
+
+To use this rule you either need to [use the `es6` environment](../user-guide/configuring) or
+[set `ecmaVersion` to `6` in `parserOptions`](../user-guide/configuring).
+
+使用此规则，你需要[使用 `es6` 环境](../user-guide/configuring) 或
+[在 `parserOptions`中设置 `ecmaVersion` 为 `6`](../user-guide/configuring)。
+
+## Options
 
 The rule takes one option, an object, which has two keys `before` and `after` having boolean values `true` or `false`.
 
@@ -56,9 +64,13 @@ The option also has a string shorthand:
 "yield-star-spacing": ["error", "after"]
 ```
 
-When using `"after"` this spacing will be enforced:
+## Examples
 
-当使用 `"after"`，强制使用以下格式：
+### after
+
+Examples of **correct** code for this rule with the default `"after"` option:
+
+默认选项 `"after"` 的 **正确** 代码示例：
 
 ```js
 /*eslint yield-star-spacing: ["error", "after"]*/
@@ -69,9 +81,11 @@ function* generator() {
 }
 ```
 
-When using `"before"` this spacing will be enforced:
+### before
 
-当使用 `"before"`，强制使用以下格式：
+Examples of **correct** code for this rule with the `"before"` option:
+
+选项 `"before"` 的 **正确** 代码示例：
 
 ```js
 /*eslint yield-star-spacing: ["error", "before"]*/
@@ -82,9 +96,11 @@ function *generator() {
 }
 ```
 
-When using `"both"` this spacing will be enforced:
+### both
 
-当使用 `"both"`，强制使用以下格式：
+Examples of **correct** code for this rule with the `"both"` option:
+
+选项 `"both"` 的 **正确** 代码示例：
 
 ```js
 /*eslint yield-star-spacing: ["error", "both"]*/
@@ -95,9 +111,11 @@ function * generator() {
 }
 ```
 
-When using `"neither"` this spacing will be enforced:
+### neither
 
-当使用 `"neither"`，强制使用以下格式：
+Examples of **correct** code for this rule with the `"neither"` option:
+
+选项 `"neither"` 的 **正确** 代码示例：
 
 ```js
 /*eslint yield-star-spacing: ["error", "neither"]*/
@@ -107,11 +125,6 @@ function*generator() {
   yield*other();
 }
 ```
-
-To use this rule you either need to [use the `es6` environment](../user-guide/configuring) or
-[set `ecmaVersion` to `6` in `parserOptions`](../user-guide/configuring).
-
-使用此规则，你需要[使用 `es6` 环境](../user-guide/configuring) 或 [在 `parserOptions` 中设置 `ecmaVersion` 为 `6`](../user-guide/configuring)。
 
 ## When Not To Use It
 

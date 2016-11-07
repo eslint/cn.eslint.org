@@ -1,5 +1,5 @@
 ---
-title: Rule no-invalid-regexp
+title: no-invalid-regexp - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -10,11 +10,13 @@ layout: doc
 
 An invalid pattern in a regular expression literal is a `SyntaxError` when the code is parsed, but an invalid string in `RegExp` constructors throws a `SyntaxError` only when the code is executed.
 
-
+在正则表达式字面量中无效的模式在代码解析时会引起 `SyntaxError`，但是 `RegExp` 的构造函数中无效的字符串只在代码执行时才会抛出 `SyntaxError`。
 
 ## Rule Details
 
 This rule disallows invalid regular expression strings in `RegExp` constructors.
+
+该规则禁止在 `RegExp` 构造函数中出现无效的正则表达式。
 
 Examples of **incorrect** code for this rule:
 

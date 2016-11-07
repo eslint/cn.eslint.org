@@ -1,5 +1,5 @@
 ---
-title: Rule no-implicit-coercion
+title: no-implicit-coercion - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -7,6 +7,10 @@ layout: doc
 # Disallow the type conversion with shorter notations. (no-implicit-coercion)
 
 # 禁止使用较短的符号实现类型转换 (no-implicit-coercion)
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
 
 In JavaScript, there are a lot of different ways to convert value types.
 Some of them might be hard to read and understand.
@@ -23,7 +27,7 @@ var b = ~foo.indexOf(".");
 var n = +foo;
 var n = 1 * foo;
 var s = "" + foo;
-foo += "";
+foo += ``;
 ```
 
 Those can be replaced with the following code:
@@ -126,7 +130,9 @@ Examples of **incorrect** code for the default `{ "string": true }` option:
 /*eslint no-implicit-coercion: "error"*/
 
 var s = "" + foo;
+var s = `` + foo;
 foo += "";
+foo += ``;
 ```
 
 Examples of **correct** code for the default `{ "string": true }` option:
@@ -137,6 +143,7 @@ Examples of **correct** code for the default `{ "string": true }` option:
 /*eslint no-implicit-coercion: "error"*/
 
 var s = String(foo);
+foo = String(foo);
 ```
 
 ### allow

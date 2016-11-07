@@ -1,12 +1,12 @@
 ---
-title: Rule operator-assignment
+title: operator-assignment - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Operator Assignment Shorthand (operator-assignment)
+# require or disallow assignment operator shorthand where possible (operator-assignment)
 
-# 简化赋值操作 (operator-assignment)
+# 要求或禁止尽可能地简化赋值操作 (operator-assignment)
 
 JavaScript provides shorthand operators that combine variable assignment and some simple mathematical operations. For example, `x = x + 4` can be shortened to `x += 4`. The supported shorthand forms are as follows:
 
@@ -30,25 +30,39 @@ JavaScript 为变量赋值和一些简单的数学运算提供了速记运算符
 
 ## Rule Details
 
-This rule enforces use of the shorthand assignment operators by requiring them where possible or prohibiting them entirely.
+This rule requires or disallows assignment operator shorthand where possible.
 
-该规则强制简化的赋值操作符在可能的地方的使用或完全禁止它们。
+该规则要求或禁止尽可能地简化赋值操作
 
 ## Options
 
-This rule has two options: `always` and `never`. The default is `always`.
+This rule has a single string option:
 
-该规则有两个可选项：`always` 和 `never`。默认是 `always`。
+该规则有一个字符串选项：
 
-### "always"
+* `"always"` (default)  requires assignment operator shorthand where possible
+* `"always"` (默认)  要求尽可能地简化赋值操作
+* `"never"` disallows assignment operator shorthand
+* `"never"` 禁止简化赋值操作
 
-This mode enforces use of operator assignment shorthand where possible.
+### always
 
-该模式在任何可能的情况下强制使用简化的赋值操作符。
+Examples of **incorrect** code for this rule with the default `"always"` option:
 
-The following are examples of valid patterns:
+默认选项 `"always"` 的 **错误** 代码示例：
 
-以下示例为有效模式：
+```js
+/*eslint operator-assignment: ["error", "always"]*/
+
+x = x + y;
+x = y * x;
+x[0] = x[0] / y;
+x.y = x.y << z;
+```
+
+Examples of **correct** code for this rule with the default `"always"` option:
+
+默认选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 /*eslint operator-assignment: ["error", "always"]*/
@@ -62,45 +76,28 @@ x[foo()] = x[foo()] % 2;
 x = y + x; // `+` is not always commutative (e.g. x = "abc")
 ```
 
-The following patterns are considered problems and should be replaced by their shorthand equivalents:
+### never
 
-以下模式被认为是有问题的，应该使用它们的简化版：
+Examples of **incorrect** code for this rule with the `"never"` option:
 
-```js
-/*eslint operator-assignment: ["error", "always"]*/
-
-x = x + y;
-x = y * x;
-x[0] = x[0] / y;
-x.y = x.y << z;
-```
-
-### "never"
-
-This mode warns on any use of operator assignment shorthand.
-
-该模式对任何简化的赋值操作符的使用发出警告。
-
-The following are examples of valid patterns:
-
-以下示例为有效模式：
-
-```js
-/*eslint operator-assignment: ["error", "never"]*/
-
-x = x + y;
-x.y = x.y / a.b;
-```
-
-The following patterns are considered problems and should be written out fully without the shorthand assignments:
-
-以下模式被认为是有问题的，不应该使用它们的简写：
+选项 `"never"` 的 **错误** 代码示例：
 
 ```js
 /*eslint operator-assignment: ["error", "never"]*/
 
 x *= y;
 x ^= (y + z) / foo();
+```
+
+Examples of **correct** code for this rule with the `"never"` option:
+
+选项 `"never"` 的 **正确** 代码示例：
+
+```js
+/*eslint operator-assignment: ["error", "never"]*/
+
+x = x + y;
+x.y = x.y / a.b;
 ```
 
 ## When Not To Use It

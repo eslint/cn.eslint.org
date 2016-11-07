@@ -1,12 +1,12 @@
 ---
-title: Rule max-statements
+title: max-statements - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce a maximum number of statements allowed in `function` blocks (max-statements)
+# enforce a maximum number of statements allowed in function blocks (max-statements)
 
-# 限制语句的最大数量 (max-statements)
+# 限制函数块中的语句的最大数量 (max-statements)
 
 The `max-statements` rule allows you to specify the maximum number of statements allowed in a function.
 

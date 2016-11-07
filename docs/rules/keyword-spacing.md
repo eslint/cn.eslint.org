@@ -1,5 +1,5 @@
 ---
-title: Rule keyword-spacing
+title: keyword-spacing - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -33,9 +33,9 @@ Of course, you could also have a style guide that disallows spaces around keywor
 
 ## Rule Details
 
-This rule enforces consistent spacing around keywords and keyword-like tokens: `as` (in module declarations), `break`, `case`, `catch`, `class`, `const`, `continue`, `debugger`, `default`, `delete`, `do`, `else`, `export`, `extends`, `finally`, `for`, `from` (in module declarations), `function`, `get` (of getters), `if`, `import`, `in`, `instanceof`, `let`, `new`, `of` (in for-of statements), `return`, `set` (of setters), `static`, `super`, `switch`, `this`, `throw`, `try`, `typeof`, `var`, `void`, `while`, `with`, and `yield`. This rule is designed carefully not to conflict with other spacing rules: it does not apply to spacing where other rules report problems.
+This rule enforces consistent spacing around keywords and keyword-like tokens: `as` (in module declarations), `async` (of async functions), `await` (of await expressions), `break`, `case`, `catch`, `class`, `const`, `continue`, `debugger`, `default`, `delete`, `do`, `else`, `export`, `extends`, `finally`, `for`, `from` (in module declarations), `function`, `get` (of getters), `if`, `import`, `in`, `instanceof`, `let`, `new`, `of` (in for-of statements), `return`, `set` (of setters), `static`, `super`, `switch`, `this`, `throw`, `try`, `typeof`, `var`, `void`, `while`, `with`, and `yield`. This rule is designed carefully not to conflict with other spacing rules: it does not apply to spacing where other rules report problems.
 
-该规则强制关键字和类似关键字的符号周围空格的一致性：`as`、`break`、`case`、`catch`、`class`、`const`、`continue`、`debugger`、`default`、`delete`、`do`、`else`、`export`、`extends`、`finally`、`for`、`from`、`function`、`get`、`if`、`import`、`in`、`instanceof`、`let`、`new`、`of`、`return`、`set`、`static`、`super`、`switch`、`this`、`throw`、`try`、`typeof`、`var`、`void`、`while`、`with` 和 `yield`。
+该规则强制关键字和类似关键字的符号周围空格的一致性：`as`、`async`、`await`、`break`、`case`、`catch`、`class`、`const`、`continue`、`debugger`、`default`、`delete`、`do`、`else`、`export`、`extends`、`finally`、`for`、`from`、`function`、`get`、`if`、`import`、`in`、`instanceof`、`let`、`new`、`of`、`return`、`set`、`static`、`super`、`switch`、`this`、`throw`、`try`、`typeof`、`var`、`void`、`while`、`with` 和 `yield`。该规则不会与其它空格规则发生冲突：它并不应用于别的规则会报告问题的空格。
 
 ## Options
 
@@ -76,7 +76,7 @@ Examples of **correct** code for this rule with the default `{ "before": true }`
 
 默认选项 `{ "before": true }` 的 **正确** 代码示例：
 
-```javascript
+```js
 /*eslint keyword-spacing: ["error", { "before": true }]*/
 /*eslint-env es6*/
 
@@ -214,7 +214,7 @@ let obj = {
     foo:function() {}
 };
 
-// not conflict with `no-spaced-func`
+// not conflict with `func-call-spacing`
 class A {
     constructor() {
         super();

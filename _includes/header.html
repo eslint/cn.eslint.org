@@ -8,7 +8,7 @@
   <meta name="description" content="{{ site.description }}">
 {% if page.title != site.name %}
     {% if page.title != "ESLint" %}
-        <title>{{ page.title | remove:'Rule'}} - {{ site.name }}</title>
+        <title>{{ page.title }} - {{ site.name }}</title>
     {% else %}
         <title>{{ site.name }}</title>
     {% endif %}
@@ -17,15 +17,13 @@
 {% endif %}
 
   <link href="{{ site.url }}{{ page.url }}" rel="canonical" />
-  <link rel="stylesheet" href="/styles/main.936b04d2.css"/>
-  <link rel="stylesheet" href="/styles/search.css"/>
-  <link rel="stylesheet" href="/styles/overrides.css"/>
+  <link rel="stylesheet" href="/styles/main.css"/>
   {% if include.multi == "true" %}
   <link rel="stylesheet" href="/styles/mixed.css"/>
   {% endif %}
   <link rel="icon" href="/img/favicon.512x512.png">
-  <link rel="stylesheet" href="/styles/rouge.css"/>
   <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
+
   <script src="https://cdn.jsdelivr.net/g/lodash@3.10.1,hogan.js@3.0.2,algoliasearch@3.8.1,autocomplete.js@0.12.0(autocomplete.min.js)"></script>
 
 </head>

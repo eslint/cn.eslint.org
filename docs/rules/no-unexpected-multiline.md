@@ -1,8 +1,6 @@
 ---
-title: Rule no-unexpected-multiline
+title: no-unexpected-multiline - Rules
 layout: doc
-translator: molee1905
-proofreader: coocon 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -14,7 +12,7 @@ Semicolons are usually optional in JavaScript, because of automatic semicolon in
 
 在 JavaScript 中，分号通常是可选的，因为会自动插入分号（ASI)。你可以使用 [semi](./semi) 规则要求或禁止分号。
 
-The rules for ASI are relatively straightforward: As once described by Isaac Schlueter, a newline character character always ends a statement, just like a semicolon, **except** where one of the following is true:
+The rules for ASI are relatively straightforward: As once described by Isaac Schlueter, a newline character always ends a statement, just like a semicolon, **except** where one of the following is true:
 
 ASI 的规则是相对简单的：正如 Isaac Schlueter 曾经描述的那样，一个 `\n` 字符总是一个语句的结尾(像分号一样)，除非下面之一为真：
 
@@ -96,6 +94,7 @@ Note that the patterns considered problems are **not** flagged by the [semi](sem
 
 ## Related Rules
 
+* [func-call-spacing](func-call-spacing)
 * [semi](semi)
 * [no-spaced-func](no-spaced-func)
 * [space-unary-ops](space-unary-ops)

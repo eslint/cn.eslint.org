@@ -1,5 +1,5 @@
 ---
-title: Rule space-before-blocks
+title: space-before-blocks - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -32,11 +32,7 @@ This rule will enforce consistency of spacing before blocks. It is only applied 
 
 ## Options
 
-This rule takes one argument. If it is `"always"` then blocks must always have at least one preceding space. If `"never"`
-then all blocks should never have any preceding space. If different spacing is desired for function
-blocks, keyword blocks and classes, an optional configuration object can be passed as the rule argument to
-configure the cases separately.
-( e.g. `{ "functions": "never", "keywords": "always", classes: "always" }` )
+This rule takes one argument. If it is `"always"` then blocks must always have at least one preceding space. If `"never"` then all blocks should never have any preceding space. If different spacing is desired for function blocks, keyword blocks and classes, an optional configuration object can be passed as the rule argument to configure the cases separately. ( e.g. `{ "functions": "never", "keywords": "always", "classes": "always" }` )
 
 该规则有一个参数。如果为 `"always"`，块语句必须总是至少有一个前置空格。如果为`"never"`，所有的块永远不会有前置空格。如果函数块和关键字块要求不同的空格类型，可以单独传递一个可选配置的对象作为该规则的参数来配置这种情况。(比如：`{ "functions": "never", "keywords": "always", classes: "always" } `)
 
@@ -46,9 +42,9 @@ The default is `"always"`.
 
 ### "always"
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule with the `"always"` option:
 
-以下模式被认为是有问题的：
+选项 `"always"` 的 **错误** 代码示例：
 
 ```js
 /*eslint space-before-blocks: "error"*/
@@ -70,9 +66,9 @@ class Foo{
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"always"` option:
 
-以下模式被认为是没有问题的：
+选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 /*eslint space-before-blocks: "error"*/
@@ -99,9 +95,9 @@ try {} catch(a) {}
 
 ### "never"
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule with the `"never"` option:
 
-以下模式被认为是有问题的：
+选项 `"never"` 的 **错误** 代码示例：
 
 ```js
 /*eslint space-before-blocks: ["error", "never"]*/
@@ -119,9 +115,9 @@ for (;;) {
 try {} catch(a) {}
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule with the `"never"` option:
 
-以下模式被认为是没有问题的：
+选项 `"never"` 的 **正确** 代码示例：
 
 ```js
 /*eslint space-before-blocks: ["error", "never"]*/
@@ -143,12 +139,12 @@ class Foo{
 }
 ```
 
-The following patterns are considered problems when configured `{ "functions": "never", "keywords": "always", classes: "never" }`:
+Examples of **incorrect** code for this rule when configured `{ "functions": "never", "keywords": "always", "classes": "never" }`:
 
-当配置为 `{ "functions": "never", "keywords": "always", classes: "never" }`，以下模式被认为是有问题的：
+选项 `{ "functions": "never", "keywords": "always", "classes": "never" }` 的 **错误** 代码示例：
 
 ```js
-/*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "always", classes: "never" }]*/
+/*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "always", "classes": "never" }]*/
 /*eslint-env es6*/
 
 function a() {}
@@ -160,12 +156,12 @@ class Foo{
 }
 ```
 
-The following patterns are not considered problems when configured `{ "functions": "never", "keywords": "always", classes: "never" }`:
+Examples of **correct** code for this rule when configured `{ "functions": "never", "keywords": "always", "classes": "never" }`:
 
-当配置为 `{ "functions": "never", "keywords": "always", classes: "never" }`，以下模式被认为是没有问题的：
+选项 `{ "functions": "never", "keywords": "always", "classes": "never" }` 的 **正确** 代码示例：
 
 ```js
-/*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "always", classes: "never" }]*/
+/*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "always", "classes": "never" }]*/
 /*eslint-env es6*/
 
 for (;;) {
@@ -181,12 +177,12 @@ class Foo {
 }
 ```
 
-The following patterns are considered problems when configured `{ "functions": "always", "keywords": "never", classes: "never" }`:
+Examples of **incorrect** code for this rule when configured `{ "functions": "always", "keywords": "never", "classes": "never" }`:
 
-当配置为 `{ "functions": "always", "keywords": "never", classes: "never" }` ，以下模式被认为是有问题的：
+选项 `{ "functions": "always", "keywords": "never", "classes": "never" }` 的 **错误** 代码示例：
 
 ```js
-/*eslint space-before-blocks: ["error", { "functions": "always", "keywords": "never", classes: "never" }]*/
+/*eslint space-before-blocks: ["error", { "functions": "always", "keywords": "never", "classes": "never" }]*/
 /*eslint-env es6*/
 
 function a(){}
@@ -198,12 +194,12 @@ class Foo {
 }
 ```
 
-The following patterns are not considered problems when configured `{ "functions": "always", "keywords": "never", classes: "never" }`:
+Examples of **correct** code for this rule when configured `{ "functions": "always", "keywords": "never", "classes": "never" }`:
 
-当配置为 `{ "functions": "always", "keywords": "never", classes: "never" }`，以下模式被认为是没有问题的：
+选项 `{ "functions": "always", "keywords": "never", "classes": "never" }` 的 **正确** 代码示例：
 
 ```js
-/*eslint space-before-blocks: ["error", { "functions": "always", "keywords": "never", classes: "never" }]*/
+/*eslint space-before-blocks: ["error", { "functions": "always", "keywords": "never", "classes": "never" }]*/
 /*eslint-env es6*/
 
 if (a){
@@ -217,12 +213,12 @@ class Foo{
 }
 ```
 
-The following patterns are considered problems when configured `{ "functions": "never", "keywords": "never", classes: "always" }`:
+Examples of **incorrect** code for this rule when configured `{ "functions": "never", "keywords": "never", "classes": "always" }`:
 
-当配置为 `{ "functions": "never", "keywords": "never", classes: "always" }`， 以下模式被认为是有问题的：
+选项 `{ "functions": "never", "keywords": "never", "classes": "always" }` 的 **错误** 代码示例：
 
 ```js
-/*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "never", classes: "always" }]*/
+/*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "never", "classes": "always" }]*/
 /*eslint-env es6*/
 
 class Foo{
@@ -230,12 +226,12 @@ class Foo{
 }
 ```
 
-The following patterns are not considered problems when configured `{ "functions": "never", "keywords": "never", classes: "always" }`:
+Examples of **correct** code for this rule when configured `{ "functions": "never", "keywords": "never", "classes": "always" }`:
 
-当配置为`{ "functions": "never", "keywords": "never", classes: "always" }`，以下模式被认为是没有问题的：
+选项呢 `{ "functions": "never", "keywords": "never", "classes": "always" }` 的 **正确** 代码示例：
 
 ```js
-/*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "never", classes: "always" }]*/
+/*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "never", "classes": "always" }]*/
 /*eslint-env es6*/
 
 class Foo {

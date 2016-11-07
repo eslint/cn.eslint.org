@@ -1,5 +1,5 @@
 ---
-title: Rule no-eval
+title: no-eval - Rules
 layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -146,26 +146,24 @@ global.eval("var a = 0");
 
 ## Known Limitations
 
-This rule is warning every `eval()` even if the `eval` is not global's.This behavior is in order to detect calls of direct `eval`. Such as:
+* This rule is warning every `eval()` even if the `eval` is not global's. This behavior is in order to detect calls of direct `eval`. Such as:
+* 该规则会对每一个 `eval()` 发出警告，即使 `eval` 是非全局的函数。这种行为是为了检测对 `eval` 的直接调用。比如：
 
-该规则会对每一个 `eval()` 发出警告，即使 `eval` 是非全局的函数。这种行为是为了检测对 `eval` 的直接调用。比如：
+  ```js
+  module.exports = function(eval) {
+      // If the value of this `eval` is built-in `eval` function, this is a
+      // call of direct `eval`.
+      eval("var a = 0");
+  };
+  ```
 
-```js
-module.exports = function(eval) {
-    // If the value of this `eval` is built-in `eval` function, this is a
-    // call of direct `eval`.
-    eval("var a = 0");
-};
-```
+* This rule cannot catch renaming the global object. Such as:
+* 该规则无法捕获重命名的全局对象。比如：
 
-This rule cannot catch renaming the global object. Such as:
-
-该规则无法捕获重命名的全局对象。比如：
-
-```js
-var foo = window;
-foo.eval("var a = 0");
-```
+  ```js
+  var foo = window;
+  foo.eval("var a = 0");
+  ```
 
 ## Further Reading
 
