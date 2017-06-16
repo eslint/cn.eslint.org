@@ -51,7 +51,7 @@ This object's responsibilities include:
 
 This object may not:
 
-这个对象可能不：
+这个对象不能：
 
 * Call `process.exit()` directly
 * 直接调用 `process.exit()`
@@ -83,7 +83,7 @@ This object's responsibilities include:
 
 This object may not:
 
-这个对象可能不：
+这个对象不能：
 
 * Call `process.exit()` directly
 * 直接调用 `process.exit()`
@@ -119,7 +119,7 @@ This object's responsibilities include:
 
 This object may not:
 
-这个对象可能不：
+这个对象不能：
 
 * Call `process.exit()` directly
 * 直接调用 `process.exit()`
@@ -149,7 +149,7 @@ These objects' responsibilities are:
 
 These objects may not:
 
-这个对象可能不：
+这个对象不能：
 
 * Call `process.exit()` directly
 * 直接调用 `process.exit()`
