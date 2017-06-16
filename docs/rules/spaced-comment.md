@@ -39,7 +39,7 @@ The rule takes two options.
     * 如果是 `"always"`，`//` 或 `/*` 必须跟随至少一个空白。
     * If `"never"` then there should be no whitespace following.
     * 如果是 `"never"`，其后不允许有空白。
-* This rule can also take a 2nd option, an object with either of the following keys: `"exceptions"` and `"markers"`.
+* This rule can also take a 2nd option, an object with any of the following keys: `"exceptions"` and `"markers"`.
 * 该规则可以设置第二个选项，是一个对象，其属性的键为 `"exceptions"` 和 `"markers"`。
     * The `"exceptions"` value is an array of string patterns which are considered exceptions to the rule.
     Please note that exceptions are ignored if the first argument is `"never"`.
@@ -174,9 +174,10 @@ Examples of **correct** code for this rule with the `"never"` option:
 
 ### exceptions
 
-Examples of **incorrect** code for this rule with the `{ "block": { "exceptions": ["-"] } }` option:
+Examples of **incorrect** code for this rule with the `"always"` option combined with `"exceptions"`:
 
-选项 `{ "block": { "exceptions": ["-"] } }` 的 **错误** 代码示例：
+选项 `"always"` 结合 `"exceptions"` 的 **错误** 代码示例：
+
 
 ```js
 /* eslint spaced-comment: ["error", "always", { "block": { "exceptions": ["-"] } }] */
@@ -210,9 +211,9 @@ Examples of **incorrect** code for this rule with the `{ "block": { "exceptions"
 /*-+-+-+-+-+-+-+*/
 ```
 
-Examples of **correct** code for this rule with the `{ "exceptions": ["-"] }` option:
+Examples of **correct** code for this rule with the `"always"` option combined with `"exceptions"`:
 
-选项 `{ "exceptions": ["-"] }` 的 **正确** 代码示例：
+选项 `"always"` 结合 `"exceptions"` 的 **正确** 代码示例：
 
 ```js
 /* eslint spaced-comment: ["error", "always", { "exceptions": ["-"] }] */
@@ -260,9 +261,9 @@ Examples of **correct** code for this rule with the `{ "exceptions": ["-"] }` op
 
 ### markers
 
-Examples of **incorrect** code for this rule with the `{ "markers": ["/"] }` option:
+Examples of **incorrect** code for this rule with the `"always"` option combined with `"markers"`:
 
-选项 `{ "markers": ["/"] }` 的 **错误** 代码示例：
+选项 `"always"` 结合 `"markers"` 的 **错误** 代码示例：
 
 ```js
 /* eslint spaced-comment: ["error", "always", { "markers": ["/"] }] */
@@ -280,9 +281,9 @@ Examples of **incorrect** code for this rule with the `{ "markers": ["/"] }` opt
 /*!This is a comment with a marker but with whitespace at the end */
 ```
 
-Examples of **correct** code for this rule with the `{ "markers": ["/"] }` option:
+Examples of **correct** code for this rule with the `"always"` option combined with `"markers"`:
 
-选项 `{ "markers": ["/"] }` 的 **正确** 代码示例：
+选项 `"always"` 结合 `"markers"` 的 **正确** 代码示例：
 
 ```js
 /* eslint spaced-comment: ["error", "always", { "markers": ["/"] }] */

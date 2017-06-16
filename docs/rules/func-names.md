@@ -34,6 +34,8 @@ This rule has a string option:
 
 * `"always"` (default) requires function expressions to have a name
 * `"always"` (默认) 要求函数表达式有一个名字
+* `"as-needed"` requires function expressions to have a name, if the name cannot be assigned automatically in an ES6 environment
+* `"as-needed"` 如果 在 ES6 环境中，这个函数名无法自动被赋值，要求函数表达式有一个名字
 * `"never"` disallows named function expressions, except in recursive functions, where a name is needed
 * `"never"` 禁止命名函数表达式，除非在递归函数中，名字是需要的
 
@@ -61,6 +63,40 @@ Examples of **correct** code for this rule with the default `"always"` option:
 /*eslint func-names: ["error", "always"]*/
 
 Foo.prototype.bar = function bar() {};
+
+(function bar() {
+    // ...
+}())
+```
+
+### as-needed
+
+ECMAScript 6 introduced a `name` property on all functions. The value of `name` is determined by evaluating the code around the function to see if a name can be inferred. For example, a function assigned to a variable will automatically have a `name` property equal to the name of the variable. The value of `name` is then used in stack traces for easier debugging.
+
+ECMAScript 6 的所有函数中都有一个 `name` 属性。`name`值是根据函数的代码来推断的。比如，一个函数赋值给一个变量将会自动有一个 `name` 属性等同于变量的名称。在堆栈跟踪中使用 `name`值，更容易调试。
+
+Examples of **incorrect** code for this rule with the `"as-needed"` option:
+
+选项 `"as-needed"` 的 **错误** 代码示例：
+
+```js
+/*eslint func-names: ["error", "as-needed"]*/
+
+Foo.prototype.bar = function() {};
+
+(function() {
+    // ...
+}())
+```
+
+Examples of **correct** code for this rule with the `"as-needed"` option:
+
+选项 `"as-needed"` 的 **正确** 代码示例：
+
+```js
+/*eslint func-names: ["error", "as-needed"]*/
+
+var bar = function() {};
 
 (function bar() {
     // ...
@@ -100,6 +136,7 @@ Foo.prototype.bar = function() {};
 ## Further Reading
 
 * [Functions Explained](http://markdaggett.com/blog/2013/02/15/functions-explained/)
+* [Function Names in ES6](http://www.2ality.com/2015/09/function-names-es6.html)
 
 ## Compatibility
 

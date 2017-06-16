@@ -103,23 +103,37 @@ This rule has an object option:
 该规则有一个对象选项：
 
 * `"SwitchCase"` (default: 0) enforces indentation level for `case` clauses in `switch` statements
-* `"SwitchCase"` (默认：0) 强制 `switch` 语句中的 `case` 子句的缩进水平
+* `"SwitchCase"` (默认：0) 强制 `switch` 语句中的 `case` 子句的缩进级别
 * `"VariableDeclarator"` (default: 1) enforces indentation level for `var` declarators; can also take an object to define separate rules for `var`, `let` and `const` declarations.
-* `"VariableDeclarator"` (默认：1) 强制 `var` 声明的缩进水平；也可以使用一个对象为 `var`、`let` 和 `const` 声明分别定义。
+* `"VariableDeclarator"` (默认：1) 强制 `var` 声明的缩进级别；也可以使用一个对象为 `var`、`let` 和 `const` 声明分别定义。
 * `"outerIIFEBody"` (default: 1) enforces indentation level for file-level IIFEs.
+* `"outerIIFEBody"` (默认: 1) 强制针对文件级别的 IIFE 的缩进
 * `"MemberExpression"` (off by default) enforces indentation level for multi-line property chains (except in variable declarations and assignments)
+* `"MemberExpression"` (默认关闭) 强制针对多行属性链的缩进 (除了在变量声明和赋值语句中)
 * `"FunctionDeclaration"` takes an object to define rules for function declarations.
+* `"FunctionDeclaration"` 使用一个对象定义函数声明的缩进规则。
     * `parameters` (off by default) enforces indentation level for parameters in a function declaration. This can either be a number indicating indentation level, or the string `"first"` indicating that all parameters of the declaration must be aligned with the first parameter.
+    * `parameters` (默认关闭) 强制针对函数声明中参数的缩进。可以是一个数字来表示缩进级别，或字符串 `"first"` 表示声明中的所有参数必须与第一个参数对齐。
     * `body` (default: 1) enforces indentation level for the body of a function declaration.
+    * `body` (默认: 1) 强制针对函数声明的函数体的缩进级别。
 * `"FunctionExpression"` takes an object to define rules for function expressions.
+* `"FunctionExpression"` 使用一个对象定义函数表达式的缩进规则。
     * `parameters` (off by default) enforces indentation level for parameters in a function expression. This can either be a number indicating indentation level, or the string `"first"` indicating that all parameters of the expression must be aligned with the first parameter.
+    * `parameters` (默认关闭) 强制针对函数表达式中参数的缩进。可以是一个数字来表示缩进级别，或字符串 `"first"` 表示表达式中的所有参数必须与第一个参数对齐。
     * `body` (default: 1) enforces indentation level for the body of a function expression.
+    * `body` (默认: 1) 强制针对函数表达式的函数体的缩进级别。
 * `"CallExpression"` takes an object to define rules for function call expressions.
+* `"CallExpression"` 使用一个对象定义函数调用表达式的缩进规则。
     * `arguments` (off by default) enforces indentation level for arguments in a call expression. This can either be a number indicating indentation level, or the string `"first"` indicating that all arguments of the expression must be aligned with the first argument.
+    * `arguments` (默认关闭) 强制针对函数调用表达式中参数的缩进。可以是一个数字来表示缩进级别，或字符串 `"first"` 表示表达式中的所有参数必须先与第一个参数对齐。
+* `"ArrayExpression"` (default: 1) enforces indentation level for elements in arrays. It can also be set to the string `"first"`, indicating that all the elements in the array should be aligned with the first element.
+* `"ArrayExpression"` (默认: 1) 强制针对数组中的元素的缩进。可以是一个数字来表示缩进级别，或字符串 `"first"` 表示数组中的所有元素必须与第一个元素对齐。
+* `"ObjectExpression"` (default: 1) enforces indentation level for properties in objects. It can be set to the string `"first"`, indicating that all properties in the object should be aligned with the first property.
+* `"ObjectExpression"` (默认: 1) 强制针对对象中的属性的缩进。可以是一个数字来表示缩进级别，或字符串 `"first"` 表示对象中的所有属性必须与第一个属性对齐。
 
 Level of indentation denotes the multiple of the indent specified. Example:
 
-缩进水平表示指定的多个缩进。例如：
+缩进级别表示指定的多个缩进。例如：
 
 * Indent of 4 spaces with `VariableDeclarator` set to `2` will indent the multi-line variable declarations with 8 spaces.
 * 如果缩进设置为 4 个空格，`VariableDeclarator` 设置为 `2`，多行变量声明将会缩进 8 个空格。
@@ -527,6 +541,115 @@ Examples of **correct** code for this rule with the `2, { "CallExpression": {"ar
 foo(bar, baz,
     baz, boop, beep);
 ```
+
+### ArrayExpression
+
+Examples of **incorrect** code for this rule with the `2, { "ArrayExpression": 1 }` option:
+
+选项 `2, { "ArrayExpression": 1 }` 的 **错误** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "ArrayExpression": 1 }]*/
+
+var foo = [
+    bar,
+baz,
+      qux
+];
+```
+
+Examples of **correct** code for this rule with the `2, { "ArrayExpression": 1 }` option:
+
+选项 `2, { "ArrayExpression": 1 }` 的 **正确** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "ArrayExpression": 1 }]*/
+
+var foo = [
+  bar,
+  baz,
+  qux
+];
+```
+
+Examples of **incorrect** code for this rule with the `2, { "ArrayExpression": "first" }` option:
+
+选项 `2, { "ArrayExpression": "first" }` 的 **错误** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, {"ArrayExpression": "first"}]*/
+
+var foo = [bar,
+  baz,
+  qux
+];
+```
+
+Examples of **correct** code for this rule with the `2, { "ArrayExpression": "first" }` option:
+
+选项 `2, { "ArrayExpression": "first" }` 的 **正确** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, {"ArrayExpression": "first"}]*/
+
+var foo = [bar,
+           baz,
+           qux
+];
+```
+
+### ObjectExpression
+
+Examples of **incorrect** code for this rule with the `2, { "ObjectExpression": 1 }` option:
+
+选项 `2, { "ObjectExpression": 1 }` 的 **错误** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "ObjectExpression": 1 }]*/
+
+var foo = {
+    bar: 1,
+baz: 2,
+      qux: 3
+};
+```
+
+Examples of **correct** code for this rule with the `2, { "ObjectExpression": 1 }` option:
+
+选项 `2, { "ObjectExpression": 1 }` 的 **正确** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "ObjectExpression": 1 }]*/
+
+var foo = {
+  bar: 1,
+  baz: 2,
+  qux: 3
+};
+```
+
+Examples of **incorrect** code for this rule with the `2, { "ObjectExpression": "first" }` option:
+
+选项 `2, { "ObjectExpression": "first" }` 的 **错误** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, {"ObjectExpression": "first"}]*/
+
+var foo = { bar: 1,
+  baz: 2 };
+```
+
+Examples of **correct** code for this rule with the `2, { "ObjectExpression": "first" }` option:
+
+选项 `2, { "ObjectExpression": "first" }` 的 **正确** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, {"ObjectExpression": "first"}]*/
+
+var foo = { bar: 1,
+            baz: 2 };
+```
+
 
 ## Compatibility
 

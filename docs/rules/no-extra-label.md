@@ -8,6 +8,10 @@ layout: doc
 
 # 禁用不必要的标签 (no-extra-label)
 
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+
 If a loop contains no nested loops or switches, labeling the loop is unnecessary.
 
 如果一个循环中不包含嵌套循环或 switch 语句，对这样的循环使用标签是不必要的。

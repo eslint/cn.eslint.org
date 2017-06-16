@@ -12,8 +12,8 @@ ESlint 被设计为是完全可配置的，这意味着你可以关闭每一个�
 
 1. **Configuration Comments** - use JavaScript comments to embed configuration information directly into a file.
 1. **Configuration Comments** - 使用 JavaScript 注释把配置信息直接嵌入到一个文件。
-1. **Configuration Files** - use a JavaScript, JSON or YAML file to specify configuration information for an entire directory and all of its subdirectories. This can be in the form of an [.eslintrc.*](#configuration-file-formats) file or an `eslintConfig` field in a `package.json` file, both of which ESLint will look for and read automatically, or you can specify a configuration file on the [command line](command-line-interface).
-1. **Configuration Files** - 使用 JavaScript、JSON 或者 YAML 文件为整个目录和它的子目录指定配置信息。可以用 [.eslintrc.*](#configuration-file-formats) 文件或者在 `package.json` 文件里的 `eslintConfig` 字段这两种方式进行配置，ESLint 会查找和自动读取它们，再者，你可以在[命令行](command-line-interface)指定一个配置文件。
+1. **Configuration Files** - use a JavaScript, JSON or YAML file to specify configuration information for an entire directory and all of its subdirectories. This can be in the form of an [.eslintrc.*](#configuration-file-formats) file or an `eslintConfig` field in a [`package.json`](https://docs.npmjs.com/files/package.json) file, both of which ESLint will look for and read automatically, or you can specify a configuration file on the [command line](command-line-interface).
+1. **Configuration Files** - 使用 JavaScript、JSON 或者 YAML 文件为整个目录和它的子目录指定配置信息。可以用 [.eslintrc.*](#configuration-file-formats) 文件或者在 [`package.json`](https://docs.npmjs.com/files/package.json) 文件里的 `eslintConfig` 字段这两种方式进行配置，ESLint 会查找和自动读取它们，再者，你可以在[命令行](command-line-interface)指定一个配置文件。
 
 There are several pieces of information that can be configured:
 
@@ -801,10 +801,22 @@ The `rules` property can do any of the following to extend (or override) the set
 
 * enable additional rules
 * 启用额外的规则
-* override default options for rules from base configurations
-* 覆盖基础配置中的规则的默认选项
-* disable rules from base configurations
-* 禁用基础配置中的规则
+* change an inherited rule's severity without changing its options:
+* 改变继承的规则级别而不改变它的选项：
+    * Base config: `"eqeqeq": ["error", "allow-null"]`
+    * 基础配置：`"eqeqeq": ["error", "allow-null"]`
+    * Derived config: `"eqeqeq": ["error", "allow-null"]`
+    * 派生的配置：`"eqeqeq": "warn"`
+    * Resulting actual config: `"eqeqeq": ["warn", "allow-null"]`
+    * 最后生成的配置：`"eqeqeq": ["warn", "allow-null"]`
+* override options for rules from base configurations:
+* 覆盖基础配置中的规则的选项
+    * Base config: `"quotes": ["error", "single", "avoid-escape"]`
+    * 基础配置：`"quotes": ["error", "single", "avoid-escape"]`
+    * Derived config: `"quotes": ["error", "single"]`
+    * 派生的配置：`"quotes": ["error", "single"]`
+    * Resulting actual config: `"quotes": ["error", "single"]`
+    * 最后生成的配置：`"quotes": ["error", "single"]`
 
 ### Using `"eslint:recommended"`
 

@@ -232,7 +232,7 @@ The `CLIEngine` is a constructor, and you can create a new instance by passing i
 * `envs` - An array of environments to load (default: empty array). Corresponds to `--env`.
 * `envs` - 需要加载的环境的数组（默认为空数组）。对应于 `--env`。
 * `extensions` - An array of filename extensions that should be checked for code. The default is an array containing just `".js"`. Corresponds to `--ext`.
-* `extensions`- 应被代码检查的文件名扩展的数组。默认为仅包含 `".js"` 的数组。对应于 `--ext`。
+* `extensions`- 要检查的文件扩展名的数组。默认为仅包含 `".js"` 的数组。对应于 `--ext`。
 * `fix` - True indicates that fixes should be included with the output report, and that errors and warnings should not be listed if they can be fixed. However, the files on disk will not be changed. To persist changes to disk, call [`outputFixes()`](#outputfixes).
 * `fix` - True 表示修复应该包含在输出报告中，错误和警告如果可以修复，就不应该再列出。然而，磁盘上的文件不会被改变。调用[`outputFixes()`](#outputfixes)，来改变。
 * `globals` - An array of global variables to declare (default: empty array). Corresponds to `--global`.
@@ -305,20 +305,77 @@ The return value is an object containing the results of the linting operation. H
 {
     results: [
         {
-            filePath: "./myfile.js",
-            output: "foo;",
+            filePath: "/Users/eslint/project/myfile.js",
+            messages: [{
+                ruleId: "semi",
+                severity: 2,
+                message: "Missing semicolon.",
+                line: 1,
+                column: 13,
+                nodeType: "ExpressionStatement",
+                source: "\"use strict\"", // Deprecated: see "please note" paragraph below.
+                fix: { range: [12, 12], text: ";" }
+            }],
+            errorCount: 1,
+            warningCount: 0,
+            source: "\"use strict\"\n"
+        }
+    ],
+    errorCount: 1,
+    warningCount: 0
+}
+```
+
+You can also pass `fix: true` when instantiating the `CLIEngine` in order to have it figure out what fixes can be applied.
+
+你也可以在 `CLIEngine` 实例化时，传入 `fix: true`，以指明可以应用哪些修复。
+
+```js
+var CLIEngine = require("eslint").CLIEngine;
+
+var cli = new CLIEngine({
+    envs: ["browser", "mocha"],
+    fix: true, // difference from last example
+    useEslintrc: false,
+    rules: {
+        semi: 2,
+        quotes: [2, "double"]
+    }
+});
+
+// lint myfile.js and all files in lib/
+var report = cli.executeOnFiles(["myfile.js", "lib/"]);
+```
+
+```js
+{
+    results: [
+        {
+            filePath: "/Users/eslint/project/myfile.js",
             messages: [
                 {
-                    severity: 2,
                     ruleId: "semi",
                     severity: 2,
+                    message: "Missing semicolon.",
                     line: 1,
-                    column: 23,
-                    message: "Expected a semicolon."
+                    column: 13,
+                    nodeType: "ExpressionStatement",
+                    source: "\"use strict\"", // Deprecated: see "please note" paragraph below.
+                    fix: { range: [12, 12], text: ";" }
+                },
+                {
+                    ruleId: "func-name-matching",
+                    severity: 2,
+                    message: "Function name `bar` should match variable name `foo`",
+                    line: 2,
+                    column: 5,
+                    nodeType: "VariableDeclarator",
+                    source: "var foo = function bar() {};"
                 }
             ],
             errorCount: 1,
-            warningCount: 0
+            warningCount: 0,
+            output: "\"use strict\";\nvar foo = function bar() {};\nfoo();\n"
         }
     ],
     errorCount: 1,
@@ -623,6 +680,7 @@ var CLIEngine = require("eslint").CLIEngine;
 
 var cli = new CLIEngine({
     envs: ["browser", "mocha"],
+    fix: true,
     useEslintrc: false,
     rules: {
         semi: 2

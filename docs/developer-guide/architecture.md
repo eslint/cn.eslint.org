@@ -24,9 +24,9 @@ ESLint 有几个关键部分：
 
 ## The `cli` object
 
-The `cli` object is the API for the command line interface. Literally, the `bin/eslint.js` file simply passes arguments to the `cli` object and then calls `process.exit()` with the returned exit code.
+The `cli` object is the API for the command line interface. Literally, the `bin/eslint.js` file simply passes arguments to the `cli` object and then sets `process.exitCode` to the returned exit code.
 
-`cli`对象是命令行接口的 API。事实上，`bin/eslint.js` 文件只是简单的将参数传递给 `cli` 对象，然后调用 `process.exit()`，并返回退出码。
+`cli`对象是命令行接口的 API。事实上，`bin/eslint.js` 文件只是简单的将参数传递给 `cli` 对象，然后设置 `process.exitCode`，并返回退出码。
 
 The main method is `cli.execute()`, which accepts an array of strings that represent the command line options (as if `process.argv` were passed without the first two arguments). If you want to run ESLint from inside of another program and have it act like the CLI, then `cli` is the object to use.
 
@@ -100,9 +100,9 @@ The main method of the `eslint` object is `verify()` and accepts two arguments: 
 
 `eslint` 对象的主要方法是 `verify()`，接收两个参数：要验证的源码文本和一个配置对象（通过准备好的配置文件加命令行操作会生成配置）。该方法首先使用 `espree`（或配置的解析器） 解析获取的文本，检索 AST。AST 用来产生行/列和范围的位置，对报告问题的位置和检索与 AST 节点有关的源文本很有帮助。
 
-Once the AST is available, `estraverse` is used to traverse the AST from top to bottom. At each node, the `eslint` object emits an event that has the same name as the node type (i.e., "Identifier", "WithStatement", etc.). On the way back up the subtree, an event is emitted with the AST type name and suffixed with ":after", such as "Identifier:after" - this allows rules to take action both on the way down and on the way up in the traversal. Each event is emitted with the appropriate AST node available.
+Once the AST is available, `estraverse` is used to traverse the AST from top to bottom. At each node, the `eslint` object emits an event that has the same name as the node type (i.e., "Identifier", "WithStatement", etc.). On the way back up the subtree, an event is emitted with the AST type name and suffixed with ":exit", such as "Identifier:exit" - this allows rules to take action both on the way down and on the way up in the traversal. Each event is emitted with the appropriate AST node available.
 
-一旦AST是可用的，`estraverse` 被用来从上到下遍历 AST。在每个节点，`eslint`对象触发与该节点类型同名的一个事件（即 "Identifier"，"WithStatement" 等）。在回退到子树上时，一个带有 AST 类型名称和 ":after" 后缀的事件被触发，比如 "Identifier:after" - 这允许规则在正向和逆向遍历开始起作用。每个事件在恰当的 AST 节点可用时触发。
+一旦AST是可用的，`estraverse` 被用来从上到下遍历 AST。在每个节点，`eslint`对象触发与该节点类型同名的一个事件（即 "Identifier"，"WithStatement" 等）。在回退到子树上时，一个带有 AST 类型名称和 ":exit" 后缀的事件被触发，比如 "Identifier:exit" - 这允许规则在正向和逆向遍历开始起作用。每个事件在恰当的 AST 节点可用时触发。
 
 This object's responsibilities include:
 

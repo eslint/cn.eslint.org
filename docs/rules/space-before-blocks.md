@@ -241,9 +241,9 @@ class Foo {
 
 ## When Not To Use It
 
-You can turn this rule off if you are not concerned with the consistency of spacing before blocks or if you are using the `space-after-keywords` rule set to `"never"`.
+You can turn this rule off if you are not concerned with the consistency of spacing before blocks.
 
-如果你不关心块之前的空格的一致性或者你在使用 `space-after-keywords` 规则，而且设置了 `"never"`，你可以关闭此规则。
+如果你不关心块之前的空格的一致性，你可以关闭此规则。
 
 ## Related Rules
 

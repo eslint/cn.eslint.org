@@ -8,6 +8,10 @@ layout: doc
 
 # 要求使用 === 和 !== (eqeqeq)
 
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+
 It is considered good practice to use the type-safe equality operators `===` and `!==` instead of their regular counterparts `==` and `!=`.
 
 使用类型安全的 `===` 和 `!==` 操作符代替 `==` 和 `!=` 操作符是一个很好的实践。
@@ -47,6 +51,10 @@ if ("" == text) { }
 
 if (obj.getStuff() != undefined) { }
 ```
+
+The `--fix` option on the command line automatically fixes some problems reported by this rule. A problem is only fixed if one of the operands is a `typeof` expression, or if both operands are literals with the same type.
+
+[命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的一些问题。该规则唯一问题是只修复操作数之一是 `typeof` 表达式的或操作数是相同类型的字面量。
 
 ## Options
 
@@ -157,10 +165,6 @@ foo == null
 **Deprecated:** Instead of using this option use "always" and pass a "null" option property with value "ignore". This will tell eslint to always enforce strict equality except when comparing with the `null` literal.
 
 **弃用：** 使用 "always"，然后传一个 "null" 选项，属性值为 "ignore" 代替。这将告诉 eslint 除了与 `null` 字面量进行比较时，总是强制使用绝对相等。
-
-Examples of **incorrect** code for the `"allow-null"` option:
-
-选项 `"allow-null"` 的 **错误** 代码示例：
 
 ```js
 ["error", "always", {"null": "ignore"}]

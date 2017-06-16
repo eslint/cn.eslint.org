@@ -164,7 +164,7 @@ If there are any failing tests, update your code until all tests pass.
 
 如果有失败的测试，更新你的代码知道测试通过。
 
-### Step 6: Double check your submission<a name="step6"></a>
+### Step 5: Double check your submission<a name="step5"></a>
 
 With your code ready to go, this is a good time to double-check your submission to make sure it follows our conventions. Here are the things to check:
 

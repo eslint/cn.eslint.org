@@ -8,9 +8,9 @@ layout: doc
 
 # 禁用 Alert (no-alert)
 
-JavaScripts' alert, confirm, and prompt functions are widely considered to be obtrusive as UI elements and should be replaced by a more appropriate custom UI implementation. Furthermore, alert is often used while debugging code, which should be removed before deployment to production.
+JavaScript's `alert`, `confirm`, and `prompt` functions are widely considered to be obtrusive as UI elements and should be replaced by a more appropriate custom UI implementation. Furthermore, `alert` is often used while debugging code, which should be removed before deployment to production.
 
-JavaScript 的 alert、confirm 和 prompt 被广泛认为是突兀的 UI 元素，应该被一个更合适的自定义的 UI 界面代替。此外, alert 经常被用于调试代码，部署到生产环境之前应该删除。
+JavaScript 的 `alert`、`confirm` 和 `prompt` 被广泛认为是突兀的 UI 元素，应该被一个更合适的自定义的 UI 界面代替。此外, `alert` 经常被用于调试代码，部署到生产环境之前应该删除。
 
 ```js
 alert("here!");

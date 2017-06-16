@@ -365,12 +365,12 @@ function foo() {
 }
 ```
 
-Examples of **correct** code for this rule with the `{ "initialized": never" }` option:
+Examples of **correct** code for this rule with the `{ "initialized": "never" }` option:
 
-选项 `{ "initialized": never" }` 的 **正确** 代码示例：
+选项 `{ "initialized": "never" }` 的 **正确** 代码示例：
 
 ```js
-/*eslint one-var: ["error", { initialized: never" }]*/
+/*eslint one-var: ["error", { initialized: "never" }]*/
 
 function foo() {
     var foo = true;

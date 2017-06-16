@@ -8,6 +8,10 @@ layout: doc
 
 # 要求或禁止尽可能地简化赋值操作 (operator-assignment)
 
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+
 JavaScript provides shorthand operators that combine variable assignment and some simple mathematical operations. For example, `x = x + 4` can be shortened to `x += 4`. The supported shorthand forms are as follows:
 
 JavaScript 为变量赋值和一些简单的数学运算提供了速记运算符。例如，`x = x + 4` 可以简化为 `x += 4`。支持的简化形式如下：

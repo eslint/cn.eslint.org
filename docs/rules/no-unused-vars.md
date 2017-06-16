@@ -66,6 +66,11 @@ function fact(n) {
     if (n < 2) return 1;
     return n * fact(n - 1);
 }
+
+// When a function definition destructures an array, unused entries from the array also cause warnings.
+function getY([x, y]) {
+    return y;
+}
 ```
 
 Examples of **correct** code for this rule:
@@ -92,6 +97,11 @@ myFunc = setTimeout(function() {
     // myFunc is considered used
     myFunc();
 }, 50);
+
+// Only the second argument from the descructured array is used.
+function getY([, y]) {
+    return y;
+}
 ```
 
 ### exported
@@ -124,7 +134,7 @@ By default this rule is enabled with `all` option for variables and `after-used`
 ```json
 {
     "rules": {
-        "no-unused-vars": ["error", { "vars": "all", "args": "after-used" }]
+        "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
     }
 }
 ```
@@ -241,6 +251,22 @@ Examples of **correct** code for the `{ "args": "none" }` option:
 (function(foo, bar, baz) {
     return bar;
 })();
+```
+
+### ignoreRestSiblings
+
+The `ignoreRestSiblings` option is a boolean (default: `false`). Using a [Rest Property](https://github.com/sebmarkbage/ecmascript-rest-spread) it is possible to "omit" properties from an object, but by default the sibling properties are marked as "unused". With this option enabled the rest property's siblings are ignored.
+
+`ignoreRestSiblings` 选项是个布尔类型 (默认: `false`)。使用 [Rest 属性](https://github.com/sebmarkbage/ecmascript-rest-spread) 可能会“省略”对象中的属性，但是默认情况下，其兄弟属性被标记为 "unused"。使用该选项可以使 rest 属性的兄弟属性被忽略。
+
+Examples of **correct** code for the `{ "ignoreRestSiblings": true }` option:
+
+选项 `{ "ignoreRestSiblings": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
+// 'type' is ignored because it has a rest property sibling.
+var { type, ...coords } = data;
 ```
 
 ### argsIgnorePattern

@@ -89,9 +89,10 @@ function g() {
   Otherwise, ignores those references.
   Function declarations are hoisted, so it's safe.
   Default is `true`.
-* 这个参数表示该规则是否要检测函数的声明。
+* `functions` (`boolean`) -
+  这个参数表示该规则是否要检测函数的声明。
   如果参数是 `true`，该规则会在引用一个未提前声明的函数时发出警报。
-  如果参数是 `false`, 忽略这些引用。因为函数声明作用域会被提升，所以这样做是安全的。
+  否则，忽略这些引用。因为函数声明作用域会被提升，所以这样做是安全的。
   参数默认值是 `true`。
 * `classes` (`boolean`) -
   The flag which shows whether or not this rule checks class declarations of upper scopes.
@@ -99,10 +100,21 @@ function g() {
   Otherwise, ignores those references if the declaration is in upper function scopes.
   Class declarations are not hoisted, so it might be danger.
   Default is `true`.
-* 这个参数表示是否要检测作用域中顶部的类声明。
+* `classes` (`boolean`) -
+  这个参数表示是否要检测上层作用域中的类声明。
   如果参数是 `true`，该规则会在引用一个未提前声明的类时发出警报。
-  如果参数是 `false`，该规则会忽略在函数声明前的引用。
-  因为类声明作用域会被提升，所以这样做可能是危险的。
+  否则，该规则会忽略对上层作用域中的类声明的引用。
+  因为类声明作用域不会被提升，所以这样做可能是危险的。
+  参数默认是 `true`。
+* `variables` (`boolean`) -
+  This flag determines whether or not the rule checks variable declarations in upper scopes.
+  If this is `true`, the rule warns every reference to a variable before the variable declaration.
+  Otherwise, the rule ignores a reference if the declaration is in an upper scope, while still reporting the reference if it's in the same scope as the declaration.
+  Default is `true`.
+* `variables` (`boolean`) -
+  这个参数表示是否要在上层作用域内检测变量声明。
+  如果参数是 `true`，该规则会在引用一个未提前声明的变量时发出警报。
+  否则，该规则会忽略在上层作用域中变量声明的引用，然而仍然会报告对同一作用域中的变量声明的引用。
   参数默认是 `true`。
 
 This rule accepts `"nofunc"` string as a option.
@@ -153,6 +165,33 @@ function foo() {
 
 class A {
 }
+```
+
+### variables
+
+Examples of **incorrect** code for the `{ "variables": false }` option:
+
+选项 `{ "variables": false }` 的 **错误** 代码示例：
+
+```js
+/*eslint no-use-before-define: ["error", { "variables": false }]*/
+
+console.log(foo);
+var foo = 1;
+```
+
+Examples of **correct** code for the `{ "variables": false }` option:
+
+选项 `{ "variables": false }` 的 **正确** 代码示例：
+
+```js
+/*eslint no-use-before-define: ["error", { "variables": false }]*/
+
+function baz() {
+    console.log(foo);
+}
+
+var foo = 1;
 ```
 
 ## Version

@@ -12,6 +12,10 @@ If an `if` block contains a `return` statement, the `else` block becomes unneces
 
 如果 `if` 块中包含了一个 `return` 语句，`else` 块就成了多余的了。可以将其内容移至块外。
 
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+
 ```js
 function foo() {
     if (x) {

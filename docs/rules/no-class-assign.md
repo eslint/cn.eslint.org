@@ -29,9 +29,9 @@ This rule is aimed to flag modifying variables of class declarations.
 
 该规则旨在标记类声明中变量的修改情况。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误** 代码示例：
 
 ```js
 /*eslint no-class-assign: "error"*/
@@ -72,9 +72,9 @@ let A = class A {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint no-class-assign: "error"*/

@@ -48,8 +48,8 @@ String option:
 
 * `"always"` (default) requires empty lines at the beginning and ending of block statements (except `switch` statements and classes)
 * `"always"` (默认) 要求块语句开始或末尾有空行 (除了 `switch` 语句和类)
-* `"never"` disallows empty lines at the beginning and ending of block statements
-* `"never"` 禁止块语句开始或末尾有空行
+* `"never"` disallows empty lines at the beginning and ending of block statements (except `switch` statements and classes)
+* `"never"` 禁止块语句开始或末尾有空行 (除了 `switch` 语句和类)
 
 Object option:
 

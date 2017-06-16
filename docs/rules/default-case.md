@@ -55,9 +55,9 @@ Once again, the intent here is to show that the developer intended for there to 
 
 ## Rule Details
 
-This rule aims to require `default` case in `switch` statements. You may optionally include a `// no default` after the last `case` if there is no `default` case.
+This rule aims to require `default` case in `switch` statements. You may optionally include a `// no default` after the last `case` if there is no `default` case. The comment may be in any desired case, such as `// No Default`.
 
-此规则的目的是在 `switch` 语句中强制声明 `default` 分支。或者也可以在最后一个 `case` 分支下，使用 `// no default` 来表明此处不需要 `default` 分支。
+此规则的目的是在 `switch` 语句中强制声明 `default` 分支。或者也可以在最后一个 `case` 分支下，使用 `// no default` 来表明此处不需要 `default` 分支。注释可以任何形式出现，比如 `// No Default`。
 
 Examples of **incorrect** code for this rule:
 
@@ -101,6 +101,13 @@ switch (a) {
     // no default
 }
 
+switch (a) {
+    case 1:
+        /* code */
+        break;
+
+    // No Default
+}
 ```
 
 ## Options
@@ -109,14 +116,14 @@ This rule accepts a single options argument:
 
 该规则接受单个选项参数：
 
-* Set the `commentPattern` option to a regular expression string to change the default `^no default$` comment test pattern
-* 设置 `commentPattern` 为一个正则表达式字符串，来改变默认的 `^no default$` 注释匹配模式
+* Set the `commentPattern` option to a regular expression string to change the default `/^no default$/i` comment test pattern
+* 设置 `commentPattern` 为一个正则表达式字符串，来改变默认的 `/^no default$/i` 注释匹配模式
 
 ### commentPattern
 
 Examples of **correct** code for the `{ "commentPattern": "^skip\\sdefault" }` option:
 
-选项 `{ "commentPattern": "^skip\\sdefault" }` 的 **错误** 代码示例：
+选项 `{ "commentPattern": "^skip\\sdefault" }` 的 **正确** 代码示例：
 
 ```js
 /*eslint default-case: ["error", { "commentPattern": "^skip\\sdefault" }]*/

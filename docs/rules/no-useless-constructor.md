@@ -31,6 +31,8 @@ This rule flags class constructors that can be safely removed without changing h
 
 该规则标记可以被安全移除但又不改变类的行为的构造函数。
 
+## Examples
+
 Examples of **incorrect** code for this rule:
 
 **错误** 代码示例：

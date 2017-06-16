@@ -17,6 +17,16 @@ ESLint 是在 ECMAScript/JavaScript 代码中识别和报告模式匹配的工�
 * ESLint is completely pluggable, every single rule is a plugin and you can add more at runtime.
 * ESLint 是完全插件化的。每一个规则都是一个插件并且你可以在运行时添加更多的规则。
 
+## Getting Started Tutorial
+
+<iframe width="560" height="318" src="/img/tutorial-video.png" frameborder="0" allowfullscreen></iframe>
+
+*Why ESLint* @0:00, *Installing and using ESLint* @2:20.  <a href="https://www.pluralsight.com/courses/eslint-better-code-quality?utm_source=eslint-dot-org&utm_medium=video&utm_campaign=authordemo" target="_blank">Full ESLint Course at Pluralsight</a>
+Note that, for some reason, not everyone can see the vedio on <a href="https://youtu.be/hppJw2REb8g">youtube</a>, so the translator use a vedio screenshot here instead of a <a href="http://t.cn/RSkK9KS">vedio</a>.
+
+*Why ESLint* @0:00, *Installing and using ESLint* @2:20.  <a href="https://www.pluralsight.com/courses/eslint-better-code-quality?utm_source=eslint-dot-org&utm_medium=video&utm_campaign=authordemo" target="_blank">去 Pluralsight 查看全部 ESLint 课程</a>
+**注：**由于某些未知原因，你可能看不到<a href="https://youtu.be/hppJw2REb8g">youtube</a> 的视频，所以只放了<a href="http://t.cn/RSkK9KS">视频</a>截图。
+
 ## Installation and Usage
 
 There are two ways to install ESLint: globally and locally.

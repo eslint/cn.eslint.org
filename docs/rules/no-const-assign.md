@@ -24,9 +24,10 @@ This rule is aimed to flag modifying variables that are declared using `const` k
 
 该规则旨在标记修改用`const`关键字声明的变量。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误** 代码示例：
+
 
 ```js
 /*eslint no-const-assign: "error"*/
@@ -52,9 +53,10 @@ const a = 0;
 ++a;
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
+
 
 ```js
 /*eslint no-const-assign: "error"*/

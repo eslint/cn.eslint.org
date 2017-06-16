@@ -44,9 +44,9 @@ foo("var a = 0");
 this.eval("var a = 0");
 ```
 
-Examples of **incorrect** code for this rule with browser environment:
+Example of additional **incorrect** code for this rule when `browser` environment is set to `true`:
 
-在浏览器环境下的 **错误** 代码示例：
+当环境指定为 `browser` 为  `true` 时的 **错误** 代码示例：
 
 ```js
 /*eslint no-eval: "error"*/
@@ -55,9 +55,9 @@ Examples of **incorrect** code for this rule with browser environment:
 window.eval("var a = 0");
 ```
 
-Examples of **incorrect** code for this rule with node environment:
+Example of additional **incorrect** code for this rule when `node` environment is set to `true`:
 
-在 node 环境下的 **错误** 代码示例：
+当环境指定为 `node` 为  `true` 时的 **错误** 代码示例：
 
 ```js
 /*eslint no-eval: "error"*/
@@ -103,9 +103,9 @@ Indirect calls to `eval` are less dangerous than direct calls to `eval` because 
 }
 ```
 
-Examples of **incorrect** code for this rule:
+Example of **incorrect** code for this rule with the `{"allowIndirect": true}` option:
 
-**错误** 代码示例：
+选项 `{"allowIndirect": true}` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-eval: "error"*/
@@ -115,9 +115,9 @@ var obj = { x: "foo" },
     value = eval("obj." + key);
 ```
 
-Examples of **correct** code for this rule:
+Examples of **correct** code for this rule with the `{"allowIndirect": true}` option:
 
-**正确** 代码示例：
+选项 `{"allowIndirect": true}` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-eval: "error"*/

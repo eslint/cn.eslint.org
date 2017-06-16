@@ -3,6 +3,11 @@ categories:
     description_zh: '这些规则与 JavaScript 代码中可能的错误或逻辑错误有关：'
     name: Possible Errors
     rules:
+      - description: disallow `await` inside of loops
+        description_zh: disallow `await` inside of loops
+        fixable: false
+        name: no-await-in-loop
+        recommended: false
       - description: disallow assignment operators in conditional expressions
         description_zh: 禁止条件表达式中出现赋值操作符
         fixable: false
@@ -60,7 +65,7 @@ categories:
         recommended: true
       - description: disallow unnecessary boolean casts
         description_zh: 禁止不必要的布尔转换
-        fixable: false
+        fixable: true
         name: no-extra-boolean-cast
         recommended: true
       - description: disallow unnecessary parentheses
@@ -215,7 +220,7 @@ categories:
         recommended: false
       - description: require the use of `===` and `!==`
         description_zh: 要求使用 `===` 和 `!==`
-        fixable: false
+        fixable: true
         name: eqeqeq
         recommended: false
       - description: require `for-in` loops to include an `if` statement
@@ -248,7 +253,7 @@ categories:
         recommended: false
       - description: disallow `else` blocks after `return` statements in `if` statements
         description_zh: 禁止 `if` 语句中 `return` 语句之后有 `else` 块
-        fixable: false
+        fixable: true
         name: no-else-return
         recommended: false
       - description: disallow empty functions
@@ -283,7 +288,7 @@ categories:
         recommended: false
       - description: disallow unnecessary labels
         description_zh: 禁用不必要的标签
-        fixable: false
+        fixable: true
         name: no-extra-label
         recommended: false
       - description: disallow fallthrough of `case` statements
@@ -412,6 +417,10 @@ categories:
         fixable: false
         name: no-return-assign
         recommended: false
+      - description: disallow unnecessary `return await`
+        fixable: false
+        name: no-return-await
+        recommended: false
       - description: 'disallow `javascript:` urls'
         description_zh: '禁止使用 `javascript:` url'
         fixable: false
@@ -487,6 +496,11 @@ categories:
         fixable: false
         name: no-with
         recommended: false
+      - description: require using Error objects as Promise rejection reasons
+        description_zh: require using Error objects as Promise rejection reasons
+        fixable: false
+        name: prefer-promise-reject-errors
+        recommended: false
       - description: >-
           enforce the consistent use of the radix argument when using
           `parseInt()`
@@ -494,6 +508,11 @@ categories:
           强制在`parseInt()`使用基数参数
         fixable: false
         name: radix
+        recommended: false
+      - description: disallow async functions which have no `await` expression
+        description_zh: disallow async functions which have no `await` expression
+        fixable: false
+        name: require-await
         recommended: false
       - description: >-
           require `var` declarations be placed at the top of their containing
@@ -681,6 +700,11 @@ categories:
         description_zh: 强制使用骆驼拼写法命名约定
         fixable: false
         name: camelcase
+        recommended: false
+      - description: enforce or disallow capitalization of the first letter of a comment
+        description_zh: enforce or disallow capitalization of the first letter of a comment
+        fixable: true
+        name: capitalized-comments
         recommended: false
       - description: require or disallow trailing commas
         description_zh: 要求或禁止末尾逗号
@@ -904,6 +928,11 @@ categories:
         fixable: false
         name: no-mixed-spaces-and-tabs
         recommended: true
+      - description: disallow use of chained assignment expressions
+        description_zh: disallow use of chained assignment expressions
+        fixable: false
+        name: no-multi-assign
+        recommended: false
       - description: disallow multiple empty lines
         description_zh: 禁止出现多行空行
         fixable: true
@@ -934,8 +963,8 @@ categories:
         fixable: false
         name: no-restricted-syntax
         recommended: false
-      - description: disallow tabs in file
-        description_zh: disallow tabs in file
+      - description: disallow all tabs
+        description_zh: disallow all tabs
         fixable: false
         name: no-tabs
         recommended: false
@@ -956,7 +985,7 @@ categories:
         recommended: false
       - description: disallow ternary operators when simpler alternatives exist
         description_zh: 禁止可以在有更简单的可替代的表达式时使用三元操作符
-        fixable: false
+        fixable: true
         name: no-unneeded-ternary
         recommended: false
       - description: disallow whitespace before properties
@@ -976,7 +1005,7 @@ categories:
         recommended: false
       - description: enforce placing object properties on separate lines
         description_zh: 强制将对象的属性放在不同的行上
-        fixable: false
+        fixable: true
         name: object-property-newline
         recommended: false
       - description: require or disallow newlines around variable declarations
@@ -994,12 +1023,12 @@ categories:
         recommended: false
       - description: require or disallow assignment operator shorthand where possible
         description_zh: 要求或禁止在可能的情况下使用简化的赋值操作符
-        fixable: false
+        fixable: true
         name: operator-assignment
         recommended: false
       - description: enforce consistent linebreak style for operators
         description_zh: 强制操作符使用一致的换行符
-        fixable: false
+        fixable: true
         name: operator-linebreak
         recommended: false
       - description: require or disallow padding within blocks
@@ -1077,6 +1106,11 @@ categories:
         description_zh: 强制在注释中 `//` 或 `/*` 使用一致的空格
         fixable: true
         name: spaced-comment
+        recommended: false
+      - description: require or disallow spacing between template tags and their literals
+        description_zh: require or disallow spacing between template tags and their literals
+        fixable: true
+        name: template-tag-spacing
         recommended: false
       - description: require or disallow Unicode byte order mark (BOM)
         description_zh: 要求或禁止 Unicode 字节顺序标记 (BOM)
@@ -1205,6 +1239,11 @@ categories:
         fixable: true
         name: prefer-const
         recommended: false
+      - description: require destructuring from arrays and/or objects
+        description_zh: require destructuring from arrays and/or objects
+        fixable: false
+        name: prefer-destructuring
+        recommended: false
       - description: >-
           disallow `parseInt()` in favor of binary, octal, and hexadecimal
           literals
@@ -1245,7 +1284,7 @@ categories:
         recommended: false
       - description: enforce sorted import declarations within modules
         description_zh: 强制模块内的 import 排序
-        fixable: false
+        fixable: true
         name: sort-imports
         recommended: false
       - description: require symbol descriptions

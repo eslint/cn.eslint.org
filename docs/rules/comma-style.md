@@ -60,8 +60,22 @@ This rule also accepts an additional `exceptions` object:
 
     * `"ArrayExpression": true` ignores comma style in array literals
     * `"ArrayExpression": true` 忽略数组字面量的逗号风格
+    * `"ArrayPattern": true` ignores comma style in array patterns of destructuring
+    * `"ArrayPattern": true` 忽略数组的解构赋值语句中的逗号风格
+    * `"ArrowFunctionExpression": true` ignores comma style in the parameters of arrow function expressions
+    * `"ArrowFunctionExpression": true` 忽略箭头函数表达式的参数中的逗号风格
+    * `"CallExpression": true` ignores comma style in the arguments of function calls
+    * `"CallExpression": true` 忽略函数调用的参数中的逗号风格
+    * `"FunctionDeclaration": true` ignores comma style in the parameters of function declarations
+    * `"FunctionDeclaration": true` 忽略函数声明的参数中的逗号风格
+    * `"FunctionExpression": true` ignores comma style in the parameters of function expressions
+    * `"FunctionExpression": true` 忽略函数表达式的参数中的逗号风格
+    * `"ImportDeclaration": true` ignores comma style in the specifiers of import declarations
+    * `"ImportDeclaration": true` 忽略 import 语句中的逗号风格
     * `"ObjectExpression": true` ignores comma style in object literals
     * `"ObjectExpression": true` 忽略对象字面量的逗号风格
+    * `"ObjectPattern": true` ignores comma style in object patterns of destructuring
+    * `"ObjectPattern": true` 忽略对象的解构赋值中的逗号风格
     * `"VariableDeclaration": true` ignores comma style in variable declarations
     * `"VariableDeclaration": true` 忽略变量声明的逗号风格
 
@@ -210,6 +224,7 @@ For more information on the Comma First style:
 
 * [A better coding convention for lists and object literals in JavaScript by isaacs](https://gist.github.com/isaacs/357981)
 * [npm coding style guideline](https://docs.npmjs.com/misc/coding-style)
+
 
 ## Related Rules
 

@@ -8,6 +8,10 @@ layout: doc
 
 # import 排序 (sort-imports)
 
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+
 The import statement is used to import members (functions, objects or primitives) that have been exported from an external module. Using a specific member syntax:
 
 import 语句用来引入外部模块输出的成员 (函数、对象或原语)。使用一个特定的成员的语法：
@@ -54,14 +58,14 @@ This rule accepts an object with its properties as
 * `ignoreMemberSort` (默认：`false`)
 * `memberSyntaxSortOrder` (default: `["none", "all", "multiple", "single"]`); all 4 items must be present in the array, but you can change the order:
 * `memberSyntaxSortOrder` (默认：`["none", "all", "multiple", "single"]`)；洗个选项都必须在数组中，但你可以改变它们的顺序：
-	* `none` - import module without exported bindings.
-	* `none` - import 没有输出绑定的模块。
-	* `all` - import all members provided by exported bindings.
-	* `all` - import 所有经输出绑定的成员。
-	* `multiple` - import multiple members.
-	* `multiple` - import 多个成员。
-	* `single` - import single member.
-	* `single` - import 单个成员。
+    * `none` = import module without exported bindings.
+    * `none` = import 没有输出绑定的模块。
+    * `all` = import all members provided by exported bindings.
+    * `all` = import 所有经输出绑定的成员。
+    * `multiple` = import multiple members.
+    * `multiple` = import 多个成员。
+    * `single` = import single member.
+    * `single` = import 单个成员。
 
 Default option settings are:
 

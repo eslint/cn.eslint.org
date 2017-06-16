@@ -191,9 +191,9 @@ var name = "ESLint"
 
 #### omitLastInOneLineBlock
 
-Examples of additional **incorrect** code for this rule with the `"always", { "omitLastInOneLineBlock": true }` options:
+Examples of additional **correct** code for this rule with the `"always", { "omitLastInOneLineBlock": true }` options:
 
-选项 `"always", { "omitLastInOneLineBlock": true }` 的 **错误** 代码示例：
+选项 `"always", { "omitLastInOneLineBlock": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint semi: ["error", "always", { "omitLastInOneLineBlock": true}] */

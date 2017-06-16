@@ -40,9 +40,9 @@ The default configuration is `{ "before": true, "after": true }`.
 
 `true` 意味着应该有 **一个或多个空格**，`false`意味着 **没有空格**。
 
-The following patterns are considered problems if `{ "before": true, "after": true }`.
+Examples of **incorrect** code for this rule with the default `{ "before": true, "after": true }` option:
 
-如果设置为`{ "before": true, "after": true }`，以下模式被认为是有问题的：
+默认选项 `{ "before": true, "after": true }` 的 **错误** 代码示例：
 
 ```js
 /*eslint arrow-spacing: "error"*/
@@ -58,9 +58,9 @@ a=> a;
 () =>{'\n'};
 ```
 
-The following patterns are not considered problems if `{ "before": true, "after": true }`.
+Examples of **correct** code for this rule with the default `{ "before": true, "after": true }` option:
 
-如果设置为`{ "before": true, "after": true }`，以下模式被认为是没有问题的：
+默认选项 `{ "before": true, "after": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint arrow-spacing: "error"*/
@@ -72,9 +72,22 @@ a => a;
 () => {'\n'};
 ```
 
-The following patterns are not considered problems if `{ "before": false, "after": false }`.
+Examples of **incorrect** code for this rule with the `{ "before": false, "after": false }` option:
 
-如果设置为`{ "before": false, "after": false }`，以下模式被认为是没有问题的：
+选项 `{ "before": false, "after": false }` 的 **错误** 代码示例：
+
+```js
+/*eslint arrow-spacing: ["error", { "before": false, "after": false }]*/
+/*eslint-env es6*/
+
+() =>{};
+(a) => {};
+()=> {'\n'};
+```
+
+Examples of **correct** code for this rule with the `{ "before": false, "after": false }` option:
+
+选项 `{ "before": false, "after": false }` 的 **正确** 代码示例：
 
 ```js
 /*eslint arrow-spacing: ["error", { "before": false, "after": false }]*/
@@ -82,27 +95,25 @@ The following patterns are not considered problems if `{ "before": false, "after
 
 ()=>{};
 (a)=>{};
-a=>a;
 ()=>{'\n'};
 ```
 
-The following patterns are not considered problems if `{ "before": true, "after": false }`.
+Examples of **incorrect** code for this rule with the `{ "before": false, "after": true }` option:
 
-如果设置为`{ "before": true, "after": false }`，以下模式被认为是没有问题的：
+选项 `{ "before": false, "after": true }` 的 **错误** 代码示例：
 
 ```js
-/*eslint arrow-spacing: ["error", { "before": true, "after": false }]*/
+/*eslint arrow-spacing: ["error", { "before": false, "after": true }]*/
 /*eslint-env es6*/
 
 () =>{};
-(a) =>{};
-a =>a;
-() =>{'\n'};
+(a) => {};
+()=>{'\n'};
 ```
 
-The following patterns are not considered problems if `{ "before": false, "after": true }`.
+Examples of **correct** code for this rule with the `{ "before": false, "after": true }` option:
 
-如果设置为`{ "before": false, "after": true }`，以下模式被认为是没有问题的：
+选项 `{ "before": false, "after": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint arrow-spacing: ["error", { "before": false, "after": true }]*/
@@ -110,7 +121,6 @@ The following patterns are not considered problems if `{ "before": false, "after
 
 ()=> {};
 (a)=> {};
-a=> a;
 ()=> {'\n'};
 ```
 

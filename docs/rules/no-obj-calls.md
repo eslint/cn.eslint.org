@@ -20,11 +20,19 @@ The [ECMAScript 5 specification](http://es5.github.io/#x15.8) makes it clear tha
 
 > Math 对象没有 `[[Call]]` 内部属性，不能像一个函数一样调用 Math 对象
 
+And the [ECMAScript 2015 specification](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect-object) makes it clear that `Reflect` cannot be invoked:
+
+[ECMAScript 2015 specification](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect-object) 明确表明 `Reflect` 不能被调用：
+
+> The Reflect object also does not have a `[[Call]]` internal method; it is not possible to invoke the Reflect object as a function.
+
+> Reflect 对象没有 `[[Call]]` 内置方法；无法像调用函数一样调用 Reflect 对象。
+
 ## Rule Details
 
-This rule disallows calling the `Math` and `JSON` objects as functions.
+This rule disallows calling the `Math`,`JSON` and `Reflect` objects as functions.
 
-该规则禁止将 `Math` 和 `JSON` 对象当作函数进行调用。
+该规则禁止将 `Math`、`JSON` 和 `Reflect` 对象当作函数进行调用。
 
 Examples of **incorrect** code for this rule:
 
@@ -35,6 +43,7 @@ Examples of **incorrect** code for this rule:
 
 var math = Math();
 var json = JSON();
+var reflect = Reflect();
 ```
 
 Examples of **correct** code for this rule:
@@ -48,12 +57,12 @@ function area(r) {
     return Math.PI * r * r;
 }
 var object = JSON.parse("{}");
+var value = Reflect.get({ x: 1, y: 2 }, "x");
 ```
 
 ## Further Reading
 
 * [The Math Object](http://es5.github.io/#x15.8)
-* ['{a}' is not a function](http://jslinterrors.com/a-is-not-a-function/)
 
 ## Version
 

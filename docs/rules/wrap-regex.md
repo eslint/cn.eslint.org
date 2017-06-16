@@ -28,7 +28,7 @@ This is used to disambiguate the slash operator and facilitates more readable co
 
 该规则旨在消除斜线运算符造成的歧义，增加代码的可读性。
 
-Examples of **incorrect** code for this rule:
+Example of **incorrect** code for this rule:
 
 **错误** 代码示例：
 
@@ -40,7 +40,7 @@ function a() {
 }
 ```
 
-Examples of **correct** code for this rule:
+Example of **correct** code for this rule:
 
 **正确** 代码示例：
 

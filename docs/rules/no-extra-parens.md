@@ -46,9 +46,10 @@ This rule has an object option for exceptions to the `"all"` option:
 * `"conditionalAssign": false` 允许在条件语句的测试表达式中的赋值语句周围出现额外的圆括号
 * `"returnAssign": false` allows extra parentheses around assignments in `return` statements
 * `"returnAssign": false` 允许在 `return` 语句中的赋值语句周围出现额外的圆括号
-* `"returnAssign": false` allows extra parentheses around assignments in `return` statements
 * `"nestedBinaryExpressions": false` allows extra parentheses in nested binary expressions
 * `"nestedBinaryExpressions": false` 允许在嵌套的二元表达式中出现额外的圆括号
+* `"ignoreJSX": "none|all|multi-line|single-line"` allows extra parentheses around no/all/multi-line/single-line JSX components. Defaults to `none`.
+* `"ignoreJSX": "none|all|multi-line|single-line"` 允许在 no/所有/多行/单行的JSX 组件周围出现额外的圆括号。 默认为 `none`。
 
 ### all
 
@@ -76,6 +77,8 @@ Examples of **correct** code for this rule with the default `"all"` option:
 /* eslint no-extra-parens: "error" */
 
 (0).toString();
+
+(Object.prototype.toString.call());
 
 ({}.toString.call());
 
@@ -126,7 +129,7 @@ b => b ? (c = d) : (c = e);
 
 ### nestedBinaryExpressions
 
-Examples of **correct** for this rule with the `"all"` and `{ "nestedBinaryExpressions": false }` options:
+Examples of **correct** code for this rule with the `"all"` and `{ "nestedBinaryExpressions": false }` options:
 
 选项 `"all"` 和 `{ "nestedBinaryExpressions": false }` 的 **正确** 代码示例：
 
@@ -136,6 +139,78 @@ Examples of **correct** for this rule with the `"all"` and `{ "nestedBinaryExpre
 x = a || (b && c);
 x = a + (b * c);
 x = (a * b) / c;
+```
+
+### ignoreJSX
+
+Examples of **correct** code for this rule with the `all` and `{ "ignoreJSX": "all" }` options:
+
+选项 `all` 和 `{ "ignoreJSX": "all" }` **正确** 代码示例：
+
+```js
+/* eslint no-extra-parens: ["error", "all", { ignoreJSX: "all" }] */
+const Component = (<div />)
+const Component = (
+    <div
+        prop={true}
+    />
+)
+```
+
+Examples of **incorrect** code for this rule with the `all` and `{ "ignoreJSX": "multi-line" }` options:
+
+选项 `all` 和 `{ "ignoreJSX": "multi-line" }` 的 **错误** 代码示例：
+
+```js
+/* eslint no-extra-parens: ["error", "all", { ignoreJSX: "multi-line" }] */
+const Component = (<div />)
+const Component = (<div><p /></div>)
+```
+
+Examples of **correct** code for this rule with the `all` and `{ "ignoreJSX": "multi-line" }` options:
+
+选项 `all` 和 `{ "ignoreJSX": "multi-line" }` 的 **正确** 代码示例：
+
+```js
+/* eslint no-extra-parens: ["error", "all", { ignoreJSX: "multi-line" }] */
+const Component = (
+    <div>
+        <p />
+    </div>
+)
+const Component = (
+    <div
+        prop={true}
+    />
+)
+```
+
+Examples of **incorrect** code for this rule with the `all` and `{ "ignoreJSX": "single-line" }` options:
+
+选项 `all` 和 `{ "ignoreJSX": "single-line" }` 的 **错误** 代码示例：
+
+```js
+/* eslint no-extra-parens: ["error", "all", { ignoreJSX: "single-line" }] */
+const Component = (
+    <div>
+        <p />
+    </div>
+)
+const Component = (
+    <div
+        prop={true}
+    />
+)
+```
+
+Examples of **correct** code for this rule with the `all` and `{ "ignoreJSX": "single-line" }` options:
+
+选项 `all` 和 `{ "ignoreJSX": "single-line" }` 的 **正确** 代码示例：
+
+```js
+/* eslint no-extra-parens: ["error", "all", { ignoreJSX: "single-line" }] */
+const Component = (<div />)
+const Component = (<div><p /></div>)
 ```
 
 ### functions
@@ -160,6 +235,8 @@ Examples of **correct** code for this rule with the `"functions"` option:
 /* eslint no-extra-parens: ["error", "functions"] */
 
 (0).toString();
+
+(Object.prototype.toString.call());
 
 ({}.toString.call());
 

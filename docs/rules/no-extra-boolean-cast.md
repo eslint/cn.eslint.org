@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止不必要的布尔类型转换（no-extra-boolean-cast）
 
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+
 In contexts such as an `if` statement's test where the result of the expression will already be coerced to a Boolean, casting to a Boolean via double negation (`!!`) or a `Boolean` call is unnecessary. For example, these `if` statements are equivalent:
 
 在上下文中比如 `if` 语句的测试表达式的结果已经被强制转化成了一个布尔值，再通过双重否定（`!!`）或 `Boolean` 转化是不必要的。例如，这些 `if` 语句是等价的：

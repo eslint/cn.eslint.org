@@ -86,9 +86,9 @@ In this case, spacing will be disallowed after a `new` operator and required bef
 
 在这个例子中，`new` 操作符之后禁用空格，`++` 操作左右要求有空格。
 
-Given the default values `words`: `true`, `nonwords`: `false`, the following patterns are considered problems:
+Examples of **incorrect** code for this rule with the `{"words": true, "nonwords": false}` option:
 
-使用默认设置 `words`: `true`、`nonwords`: `false`，以下模式被认为是有问题的：
+选项 `{"words": true, "nonwords": false}` 的 **错误** 代码示例：
 
 ```js
 /*eslint space-unary-ops: "error"*/
@@ -119,9 +119,9 @@ function *foo() {
 }
 ```
 
-Given the default values `words`: `true`, `nonwords`: `false`, the following patterns are not considered problems:
+Examples of **correct** code for this rule with the `{"words": true, "nonwords": false}` option:
 
-使用默认设置 `words`: `true`、`nonwords`: `false`，以下模式被认为是没有问题的：
+选项 `{"words": true, "nonwords": false}` 的 **正确** 代码示例：
 
 ```js
 /*eslint space-unary-ops: "error"*/

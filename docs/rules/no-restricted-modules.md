@@ -30,6 +30,10 @@ The rule takes one or more strings as options: the names of restricted modules.
 
 该规则可以用一个或多个字符串作为选项：限制的模块的名称。
 
+It can also take an object with lists of "paths" and gitignore-style "patterns" strings.
+
+也可以使用一个包含路径列表或 gitignore 风格模式的字符串的列表的对象。
+
 For example, to restrict the use of all Node.js core modules (via https://github.com/nodejs/node/tree/master/lib):
 
 例如，限制使用 Node.js 所有核心模块 ([查看](https://github.com/nodejs/node/tree/master/lib)):
@@ -53,6 +57,18 @@ var fs = require('fs');
 var cluster = require(' cluster ');
 ```
 
+```js
+/*eslint no-restricted-modules: ["error", { "paths": ["cluster"] }]*/
+
+var cluster = require('cluster');
+```
+
+```js
+/*eslint no-restricted-modules: ["error", { "patterns": ["lodash/*"] }]*/
+
+var cluster = require('lodash/pick');
+```
+
 Examples of **correct** code for this rule with sample `"fs", "cluster"` restricted modules:
 
 限制 `"fs", "cluster"` 模块的 **正确** 代码示例：
@@ -61,6 +77,16 @@ Examples of **correct** code for this rule with sample `"fs", "cluster"` restric
 /*eslint no-restricted-modules: ["error", "fs", "cluster"]*/
 
 var crypto = require('crypto');
+```
+
+```js
+/*eslint no-restricted-modules: ["error", {
+    "paths": ["fs", "cluster"],
+    "patterns": ["lodash/*", "!lodash/pick"]
+}]*/
+
+var crypto = require('crypto');
+var eslint = require('lodash/pick');
 ```
 
 ## Version

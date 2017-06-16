@@ -282,7 +282,6 @@ Example:
 
 The rules in your custom rules directory must follow the same format as bundled rules to work properly. You can also specify multiple locations for custom rules by including multiple `--rulesdir` options:
 
-
 为了使你自定义的规则目录下的规则正常工作，必须遵照同绑定的规则一样的格式。你也可以通过包含多个 `--rulesdir` 选项来为自定义规则指定多个位置。
 
     eslint --rulesdir my-rules/ --rulesdir my-other-rules/ file.js
@@ -344,7 +343,6 @@ Disables excluding of files from `.eslintignore`, `--ignore-path` and `--ignore-
 
 禁止排除 `.eslintignore`、`--ignore-path` 和 `--ignore-pattern` 文件中指定的文件。
 
-
 Example:
 
 示例：
@@ -359,6 +357,7 @@ This option allows you to specify patterns of files to ignore (in addition to th
 
 Example:
 
+示例：
     eslint --ignore-pattern '/lib/' --ignore-pattern '/src/vendor/*' .
 
 
@@ -370,7 +369,7 @@ This option tells ESLint to read and lint source code from STDIN instead of from
 
 这个选项告诉 ESLint 从 STDIN 而不是从文件中读取和检测源码。你可以使用该选项向 ESLint 来输入代码。
 
-Example
+Example:
 
 示例：
 
@@ -509,9 +508,7 @@ Examples:
 
 #### `--init`
 
-This option will start config initialization wizard. It's designed to help new users quickly create .eslintrc file by answering a few questions, choosing a popular style guide, or inspecting your source files and attempting to automatically generate a suitable configuration.
-
-This option will start config initialization wizard. It's designed to help new users quickly create .eslintrc file by answering a few questions. File will be created in current directory.
+This option will start config initialization wizard. It’s designed to help new users quickly create .eslintrc file by answering a few questions, choosing a popular style guide, or inspecting your source files and attempting to automatically generate a suitable configuration.
 
 这个选项将会配置初始化向导。它被用来帮助新用户快速地创建 `.eslintrc` 文件，用户通过回答一些问题，选择一个流行的风格指南，或检查你的源文件，自动生成一个合适的配置。
 
@@ -548,11 +545,6 @@ This option outputs the current ESLint version onto the console. All other optio
 
 这个选项在控制台输出当前 ESlint 的版本。当有这个标记时，忽略其他所有标记。
 
-Example:
-
-示例：
-
-    eslint -v
 
 #### `--no-inline-config`
 

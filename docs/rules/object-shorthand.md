@@ -136,9 +136,18 @@ You can set the option in configuration like this:
 }
 ```
 
-While set to `"always"`, `"methods"`, or `"properties"`, shorthand syntax using string literal keys can be ignored using the optional parameter `"avoidQuotes"`. This will make it so longform syntax is preferred whenever the object key is a string literal. Note: The first parameter must be specified when using this optional parameter.
+Additionally, the rule takes an optional object configuration:
 
-当设置为 `"always"`、`"methods"` 或 `"properties"`，使用 `"avoidQuotes"` 简写语法可以忽略字符串字面量的键。这样做，在对象的键是字符串时，长格式的语法成为首选。注意：使用这个选项时，必须指定第一个参数。
+另外，该规则有个可选配置对象：
+
+* `"avoidQuotes": true` indicates that longform syntax is preferred whenever the object key is a string literal (default: `false`). Note that this option can only be enabled when the string option is set to `"always"`, `"methods"`, or `"properties"`.
+* `"avoidQuotes": true` 表示对象的键是字符串时，倾向于长格式的语法。(默认: `false`)。注意该选项只在 `"always"`、`"methods"` 或 `"properties"` 选项下才有效。
+* `"ignoreConstructors": true` can be used to prevent the rule from reporting errors for constructor functions. (By default, the rule treats constructors the same way as other functions.) Note that this option can only be enabled when the string option is set to `"always"` or `"methods"`.
+* `"ignoreConstructors": true` 可以用来阻止报告构造函数出现的错误。 (默认情况下，该规则把构造函数当成普通的函数。) 注意该选项只在 `"always"` 或 `"methods"` 选项下才有效。
+* `"avoidExplicitReturnArrows": true` indicates that methods are preferred over explicit-return arrow functions for function properties. (By default, the rule allows either of these.) Note that this option can only be enabled when the string option is set to `"always"` or `"methods"`.
+* `"avoidExplicitReturnArrows": true` 表示函数属性相对于显式返回的箭头函数更倾向于方法。 (默认情况下，两者皆可)注意该选项只在 `"always"` 或 `"methods"` 选项下才有效。
+
+### `avoidQuotes`
 
 ```json
 {
@@ -146,9 +155,9 @@ While set to `"always"`, `"methods"`, or `"properties"`, shorthand syntax using 
 }
 ```
 
-Examples of **incorrect** code for this rule with the `"avoidQuotes"` option:
+Example of **incorrect** code for this rule with the `"always", { "avoidQuotes": true }` option:
 
-选项 `"avoidQuotes"` 的 **错误** 代码示例：
+选项 `"always", { "avoidQuotes": true }` 的 **错误** 代码示例：
 
 ```js
 /*eslint object-shorthand: ["error", "always", { "avoidQuotes": true }]*/
@@ -159,9 +168,9 @@ var foo = {
 };
 ```
 
-Examples of **correct** code for this rule with the `"avoidQuotes"` option:
+Example of **correct** code for this rule with the `"always", { "avoidQuotes": true }` option:
 
-选项 `"avoidQuotes"` 的 **正确** 代码示例：
+选项 `"always", { "avoidQuotes": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint object-shorthand: ["error", "always", { "avoidQuotes": true }]*/
@@ -173,9 +182,7 @@ var foo = {
 };
 ```
 
-While set to `"always"` or `"methods"`, constructor functions can be ignored with the optional parameter `"ignoreConstructors"` enabled. Note: The first parameter must be specified when using this optional parameter.
-
-当设置 `"always"` 或 `"methods"`，启用选项参数 `"ignoreConstructors"` 后，构造函数可以被忽略。注意：使用这个选项时，必须指定第一个参数。
+### `ignoreConstructors`
 
 ```json
 {
@@ -183,9 +190,9 @@ While set to `"always"` or `"methods"`, constructor functions can be ignored wit
 }
 ```
 
-Examples of **correct** code for this rule with the `"ignoreConstructors"` option:
+Example of **correct** code for this rule with the `"always", { "ignoreConstructors": true }` option:
 
-选项 `"ignoreConstructors"` 的 **正确** 代码示例：
+选项  `"always", { "ignoreConstructors": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint object-shorthand: ["error", "always", { "ignoreConstructors": true }]*/
@@ -196,7 +203,51 @@ var foo = {
 };
 ```
 
-Examples of **incorrect** code for this rule with the `"consistent"` option:
+### `avoidExplicitReturnArrows`
+
+```json
+{
+    "object-shorthand": ["error", "always", { "avoidExplicitReturnArrows": true }]
+}
+```
+
+Example of **incorrect** code for this rule with the `"always", { "avoidExplicitReturnArrows": true }` option:
+
+选项 `"always", { "avoidExplicitReturnArrows": true }` 的 **错误** 代码示例：
+
+```js
+/*eslint object-shorthand: ["error", "always", { "avoidExplicitReturnArrows": true }]*/
+/*eslint-env es6*/
+
+var foo = {
+  foo: (bar, baz) => {
+    return bar + baz;
+  },
+
+  qux: (foobar) => {
+    return foobar * 2;
+  }
+};
+```
+
+Example of **correct** code for this rule with the `"always", { "avoidExplicitReturnArrows": true }` option:
+
+选项 `"always", { "avoidExplicitReturnArrows": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint object-shorthand: ["error", "always", { "avoidExplicitReturnArrows": true }]*/
+/*eslint-env es6*/
+
+var foo = {
+  foo(bar, baz) {
+    return bar + baz;
+  },
+
+  qux: foobar => foobar * 2
+};
+```
+
+Example of **incorrect** code for this rule with the `"consistent"` option:
 
 选项 `"consistent"` 的 **错误** 代码示例：
 
@@ -229,9 +280,9 @@ var bar = {
 };
 ```
 
-Examples of **incorrect** code for this rule with the `"consistent-as-needed"` option:
+Example of **incorrect** code with the `"consistent-as-needed"` option, which is very similar to `"consistent"`:
 
-选项 `"consistent-as-needed"` 的 **错误** 代码示例：
+选项 `"consistent-as-needed"`（ 类似于 `"consistent"`） 的 **错误** 代码示例：
 
 ```js
 /*eslint object-shorthand: [2, "consistent-as-needed"]*/

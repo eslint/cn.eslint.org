@@ -50,6 +50,16 @@ function foo() {
 function* foo() { }
 ```
 
+## When Not To Use It
+
+If you don't want to notify generator functions that have no `yield` expression, then it's safe to disable this rule.
+
+如果伱不想被通知 generator 函数没有 `yield` 表达式，关闭此规则即可。
+
+## Related Rules
+
+* [require-await](require-await)
+
 ## Version
 
 This rule was introduced in ESLint 1.0.0-rc-1.

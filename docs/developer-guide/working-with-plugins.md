@@ -137,7 +137,7 @@ configs: {
 
 **Note:** Please note that configuration will not automatically attach your rules and you have to specify your plugin name and any rules you want to enable that are part of the plugin. Any plugin rules must be prefixed with the short or long plugin name. See [Configuring Plugins](../user-guide/configuring#configuring-plugins)
 
-**注意：** 配置不会自动附加你的规则，你必须指定你的插件名和任何你想使用的插件中的规则。任何插件中的规则必须带有插件名或其简写前缀。查看 [Configuring Plugins](../user-guide/configuring#configuring-plugins)。
+**注意：**配置不会自动附加你的规则，你必须指定你的插件名和任何你想使用的插件中的规则。任何插件中的规则必须带有插件名或其简写前缀。查看 [Configuring Plugins](../user-guide/configuring#configuring-plugins)。
 
 ### Peer Dependency
 
@@ -183,6 +183,14 @@ ruleTester.run("custom-plugin-rule", rule, {
         }
     ]
 });
+```
+
+The `RuleTester` constructor optionally accepts an object argument, which can be used to specify defaults for your test cases. For example, if all of your test cases use ES2015, you can set it as a default:
+
+`RuleTester` 构造函数接收一个对象参数，用来指定你测试用例的默认配置。比如，如果伱的测试用例都是使用的 ES2015，你可以设置它为一个默认的的配置。
+
+```js
+const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 2015 } });
 ```
 
 #### Customizing RuleTester

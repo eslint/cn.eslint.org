@@ -348,9 +348,9 @@ catch(e) { handleError(); }
 
 ## When Not To Use It
 
-If your project will not be using the one true brace style, turn this rule off.
+If you don't want to enforce a particular brace style, don't enable this rule.
 
-如果你的项目不使用 *one true brace style*，关闭此规则即可。
+如果伱不想强制使用一种括号风格，关闭此规则即可。
 
 ## Further Reading
 

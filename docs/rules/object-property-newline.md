@@ -8,6 +8,10 @@ layout: doc
 
 # 强制将对象的属性放在不同的行上 (object-property-newline)
 
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+
 While formatting preferences are very personal, a number of style guides require that object properties be placed on separate lines for better readability.
 
 虽然代码风格纯属个人偏好，一些代码风格规范为了更好的可读性要求将对象的属性放在不同的行上。

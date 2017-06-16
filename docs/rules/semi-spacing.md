@@ -113,9 +113,9 @@ This option enforces spacing before semicolons and disallows spacing after semic
 
 这个选项强制分号之前有空格，禁止分号之后有空格。
 
-Examples of **incorrect** code for this rule:
+Examples of **incorrect** code for this rule with the `{"before": true, "after": false}` option:
 
-**错误** 代码示例：
+选项 `{"before": true, "after": false}` 的 **错误** 代码示例：
 
 ```js
 /*eslint semi-spacing: ["error", { "before": true, "after": false }]*/
@@ -128,9 +128,9 @@ for (i = 0;i < 10;i++) {}
 for (i = 0; i < 10; i++) {}
 ```
 
-Examples of **correct** code for this rule:
+Examples of **correct** code for this rule with the `{"before": true, "after": false}` option:
 
-**正确** 代码示例：
+选项 `{"before": true, "after": false}` 的 **正确** 代码示例：
 
 ```js
 /*eslint semi-spacing: ["error", { "before": true, "after": false }]*/

@@ -8,6 +8,10 @@ layout: doc
 
 # 强制操作符使用一致的换行符风格 (operator-linebreak)
 
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+
 When a statement is too long to fit on a single line, line breaks are generally inserted next to the operators separating expressions. The first style coming to mind would be to place the operator at the end of the line, following the english punctuation rules.
 
 当一条语句太长不能放在一行时，换行符一般插入到分离表达式的操作符后面。第一种想到的风格是把操作符放在行末，紧跟在英文标点符号规则之后。
@@ -44,8 +48,8 @@ String option:
 
 字符串选项：
 
-* `"after"` (default) requires linebreaks to be placed after the operator (except for the ternary operator characters `?` and `:`)
-* `"after"` (默认) 要求把换行符放在操作符后面 (除了三元操作符 `?` 和 `:`)
+* `"after"` requires linebreaks to be placed after the operator
+* `"after"` 要求把换行符放在操作符后面
 * `"before"` requires linebreaks to be placed before the operator
 * `"before"` 要求把换行符放在操作符前面
 * `"none"` disallows linebreaks on either side of the operator
@@ -57,6 +61,10 @@ Object option:
 
 * `"overrides"` overrides the global setting for specified operators
 * `"overrides"` 覆盖对指定的操作的全局设置
+
+The default configuration is `"after", { "overrides": { "?": "before", ":": "before" } }`
+
+默认配置为 `"after", { "overrides": { "?": "before", ":": "before" } }`
 
 ### after
 
@@ -209,12 +217,12 @@ answer = everything ? 42 : foo;
 
 ### overrides
 
-Examples of additional **correct** code for this rule with the `{ "overrides": { +=": "before" } }` option:
+Examples of additional **correct** code for this rule with the `{ "overrides": { "+=": "before" } }` option:
 
-选项 `{ "overrides": { +=": "before" } }` 的 **正确** 代码示例：
+选项 `{ "overrides": { "+=": "before" } }` 的 **正确** 代码示例：
 
 ```js
-/*eslint operator-linebreak: ["error", "after", { "overrides": { +=": "before" } }]*/
+/*eslint operator-linebreak: ["error", "after", { "overrides": { "+=": "before" } }]*/
 
 var thing
   += 'thing';

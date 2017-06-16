@@ -132,7 +132,7 @@ Examples of **incorrect** code for this rule with the `{ "requireReturnForObject
 选项 `{ "requireReturnForObjectLiteral": true }` 的 **错误** 代码示例：
 
 ```js
-/*eslint arrow-body-style: ["error", "as-needed", { requireReturnForObjectLiteral: true }]*/
+/*eslint arrow-body-style: ["error", "as-needed", { "requireReturnForObjectLiteral": true }]*/
 /*eslint-env es6*/
 let foo = () => ({});
 let foo = () => ({ bar: 0 });
@@ -143,7 +143,7 @@ Examples of **correct** code for this rule with the `{ "requireReturnForObjectLi
 选项 `{ "requireReturnForObjectLiteral": true }` 的 **正确** 代码示例：
 
 ```js
-/*eslint arrow-body-style: ["error", "as-needed", { requireReturnForObjectLiteral: true }]*/
+/*eslint arrow-body-style: ["error", "as-needed", { "requireReturnForObjectLiteral": true }]*/
 /*eslint-env es6*/
 
 let foo = () => {};

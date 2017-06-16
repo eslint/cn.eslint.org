@@ -24,9 +24,9 @@ This rule is aimed to flag invalid/missing `super()` calls.
 
 该规则旨在标记无效或缺失的 `super()` 调用。
 
-The following patterns are considered problems:
+Examples of **incorrect** code for this rule:
 
-以下模式被认为是有问题的：
+**错误** 代码示例：
 
 ```js
 /*eslint constructor-super: "error"*/
@@ -54,9 +54,9 @@ class A extends null {
 }
 ```
 
-The following patterns are not considered problems:
+Examples of **correct** code for this rule:
 
-以下模式被认为是没有问题的：
+**正确** 代码示例：
 
 ```js
 /*eslint constructor-super: "error"*/
