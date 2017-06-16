@@ -87,7 +87,7 @@ Examples of **incorrect** code for this rule with the `{ "skipBlankLines": true 
 选项 `{ "skipBlankLines": true }` 的 **错误** 代码示例：
 
 ```js
-/*eslint max-lines: ["error", 2, {"skipBlankLines": true}]*/
+/*eslint max-lines: ["error", {"max": 2, "skipBlankLines": true}]*/
 
 var a,
     b,

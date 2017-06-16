@@ -8,6 +8,10 @@ layout: doc
 
 # 不允许修改类声明的变量 (no-class-assign)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 `ClassDeclaration` creates a variable, and we can modify the variable.
 
 `ClassDeclaration` 创建一个变量，我们可以修改这个变量。

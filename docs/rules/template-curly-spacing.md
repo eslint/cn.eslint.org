@@ -8,14 +8,17 @@ layout: doc
 
 # 强制模板字符串中空格的使用 (template-curly-spacing)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 We can embed expressions in template strings with using a pair of `${` and `}`.
+
+我们可以在模板字符串中使用 `${` 和 `}` 嵌入表达式。
+
 This rule can force usage of spacing _within_ the curly brace pair according to style guides.
 
-我们可以在模板字符串中使用 `${` 和 `}` 嵌入表达式。该规则可以根据风格指南强制花括号内空格的使用。
+该规则可以根据风格指南强制花括号内空格的使用。
 
 ```js
 let hello = `hello, ${people.name}!`;

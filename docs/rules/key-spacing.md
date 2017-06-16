@@ -8,9 +8,9 @@ layout: doc
 
 # 强制在对象字面量的键和值之间使用一致的空格 (key-spacing)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 This rule enforces spacing around the colon in object literal properties. It can verify each property individually, or it can ensure horizontal alignment of adjacent properties in an object literal.
 
@@ -36,10 +36,10 @@ This rule has an object option:
 * `"afterColon": true` (默认) 要求在对象字面量的冒号和值之间存在至少有一个空格
 * `"afterColon": false` disallows spaces between the colon and the value in object literals.
 * `"afterColon": false` 禁止在对象字面量的冒号和值之间存在空格
-* `"mode": strict` (default) enforces exactly one space before or after colons in object literals.
-* `"mode": strict` (默认) 要求在冒号前后只有一个空格
-* `"mode": minimum` enforces one or more spaces before or after colons in object literals.
-* `"mode": minimum` 要求在冒号前后最少有一个空格
+* `"mode": "strict"` (default) enforces exactly one space before or after colons in object literals.
+* `"mode": "strict"` (默认) 要求在冒号前后只有一个空格
+* `"mode": "minimum"` enforces one or more spaces before or after colons in object literals.
+* `"mode": "minimum"` 要求在冒号前后最少有一个空格
 * `"align": "value"` enforces horizontal alignment of values in object literals.
 * `"align": "value"` 要求对象字面量中的值水平对齐
 * `"align": "colon"` enforces horizontal alignment of both colons and values in object literals.
@@ -303,7 +303,7 @@ The `multiLine` and `align` options can differ, which allows for fine-tuned cont
 
 `multiLine` 和 `align` 选项可以有所区别，这将允许对你的文件进行更细粒度的控制 `key-spacing`。如果 `align` 被配置为一个对象，`align` **将不会** 从 `multiLine` 继承。
 
-`multiLine` is used any time  an object literal spans multiple lines.  The `align` configuration is used when there is a group of properties in the the same object. For example:
+`multiLine` is used any time  an object literal spans multiple lines.  The `align` configuration is used when there is a group of properties in the same object. For example:
 
 `multiLine` 可以在任何时候被用在跨行的对象字面量上。而当一个对象有多个属性时，使用 `align` 配置。 
 

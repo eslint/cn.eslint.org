@@ -106,9 +106,9 @@ Example:
 
 示例：
 
-    eslint --ext .jsx --ext .js file.js
+    eslint --ext .jsx --ext .js  lib/
 
-    eslint --ext .jsx,.js file.js
+    eslint --ext .jsx,.js  lib/
 
 ### Basic configuration
 
@@ -358,6 +358,7 @@ This option allows you to specify patterns of files to ignore (in addition to th
 Example:
 
 示例：
+
     eslint --ignore-pattern '/lib/' --ignore-pattern '/src/vendor/*' .
 
 

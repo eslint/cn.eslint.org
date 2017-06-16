@@ -105,7 +105,7 @@ Examples of **correct** code for the `{ "terms": ["todo", "fixme", "any other te
 
 ## When Not To Use It
 
-* If you have a large code base that was not developed with a policy to not use such warning terms, you might get hundreds of warnings / errors which might be contra-productive if you can't fix all of them (e.g. if you don't get the time to do it) as you might overlook other warnings / errors or get used to many of them and don't pay attention on it anymore.
+* If you have a large code base that was not developed with a policy to not use such warning terms, you might get hundreds of warnings / errors which might be counter-productive if you can't fix all of them (e.g. if you don't get the time to do it) as you might overlook other warnings / errors or get used to many of them and don't pay attention on it anymore.
 * 如果你有一个大型的代码库，没有使用这种警告条款进行开发，在非生产环境下，如果你不能修复所有这些问题，你可能会得到数以百计的警告或错误（例如，如果你没有时间去做），你可能会忽略其他警告或错误，或者习惯了，不在过多关注它们了。
 * Same reason as the point above: You shouldn't configure terms that are used very often (e.g. central parts of the native language used in your comments).
 * 正如上面说那样：你不应配置那些经常被使用的条款（例如，在你的注释中使用本地语言）。

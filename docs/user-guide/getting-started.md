@@ -22,10 +22,12 @@ ESLint 是在 ECMAScript/JavaScript 代码中识别和报告模式匹配的工�
 <iframe width="560" height="318" src="/img/tutorial-video.png" frameborder="0" allowfullscreen></iframe>
 
 *Why ESLint* @0:00, *Installing and using ESLint* @2:20.  <a href="https://www.pluralsight.com/courses/eslint-better-code-quality?utm_source=eslint-dot-org&utm_medium=video&utm_campaign=authordemo" target="_blank">Full ESLint Course at Pluralsight</a>
-Note that, for some reason, not everyone can see the vedio on <a href="https://youtu.be/hppJw2REb8g">youtube</a>, so the translator use a vedio screenshot here instead of a <a href="http://t.cn/RSkK9KS">vedio</a>.
 
 *Why ESLint* @0:00, *Installing and using ESLint* @2:20.  <a href="https://www.pluralsight.com/courses/eslint-better-code-quality?utm_source=eslint-dot-org&utm_medium=video&utm_campaign=authordemo" target="_blank">去 Pluralsight 查看全部 ESLint 课程</a>
-**注：**由于某些未知原因，你可能看不到<a href="https://youtu.be/hppJw2REb8g">youtube</a> 的视频，所以只放了<a href="http://t.cn/RSkK9KS">视频</a>截图。
+
+Note that, for some reason, not everyone can see the vedio on <a href="https://youtu.be/hppJw2REb8g">youtube</a>, so the translator use a vedio screenshot here instead of a <a href="http://t.cn/RSkK9KS">vedio</a>.
+
+**注：**由于某些未知原因，你可能看不到 <a href="https://youtu.be/hppJw2REb8g">youtube</a> 的视频，所以只放了<a href="http://t.cn/RSkK9KS">视频</a>截图。
 
 ## Installation and Usage
 
@@ -51,9 +53,9 @@ You should then setup a configuration file:
 $ ./node_modules/.bin/eslint --init
 ```
 
-After that, you can run ESLint on any file or directory like this:
+After that, you can run ESLint in your project's root directory like this:
 
-之后，你可以在任何文件或目录运行 ESLint：
+之后，你可以在你项目根目录运行 ESLint：
 
 ```
 $ ./node_modules/.bin/eslint yourfile.js
@@ -95,9 +97,7 @@ Any plugins or shareable configs that you use must also be installed globally to
 
 **Note:** `eslint --init` is intended for setting up and configuring ESLint on a per-project basis and will perform a local installation of ESLint and its plugins in the directory in which it is run. If you prefer using a global installation of ESLint, any plugins used in your configuration must also be installed globally.
 
-**注意：**`eslint --init`适用于对某个项目进行设置和配置 ESLint，并将执行本地安装的 ESLint 和及它所运行的目录下的插件 。如果你倾向于使用全局安装的 ESLint，你配置中使用的任何插件也必须是全局安装的。
-
-**注意：** `eslint --init`
+**注意：**`eslint --init`适用于对某个项目进行设置和配置 ESLint，并在其运行的的目录执行本地安装的 ESLint 及 插件。如果你倾向于使用全局安装的 ESLint，你配置中使用的任何插件也必须是全局安装的。
 
 ## Configuration
 

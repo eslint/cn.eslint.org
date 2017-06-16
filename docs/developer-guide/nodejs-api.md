@@ -67,19 +67,20 @@ var codeLines = SourceCode.splitLines(code);
  */
 ```
 
-## linter
+## Linter
 
-The `linter` object does the actual evaluation of the JavaScript code. It doesn't do any filesystem operations, it simply parses and reports on the code. In particular, the `linter` object does not process configuration objects or files. You can retrieve `linter` like this:
+The `Linter` object does the actual evaluation of the JavaScript code. It doesn't do any filesystem operations, it simply parses and reports on the code. In particular, the `Linter` object does not process configuration objects or files. You can retrieve instances of `Linter` like this:
 
-`linter` 对象对 JavaScript 代码进行评估。它不会对文件系统进行操作，它只会简单地解析和报告代码。特别是，`linter` 对象不会处理配置对象或文件。你可以这样取得 `linter`： 
+`Linter` 对象对 JavaScript 代码进行评估。它不会对文件系统进行操作，它只会简单地解析和报告代码。特别是，`Linter` 对象不会处理配置对象或文件。你可以这样取得 `Linter` 实例： 
 
 ```js
-var linter = require("eslint").linter;
+var Linter = require("eslint").Linter;
+var linter = new Linter();
 ```
 
-The most important method on `linter` is `verify()`, which initiates linting of the given text. This method accepts four arguments:
+The most important method on `Linter` is `verify()`, which initiates linting of the given text. This method accepts four arguments:
 
-`linter` 最重要的方法为 `verify()`，它对给出的文本进行检测。这个方法接受4个参数：
+`Linter` 最重要的方法为 `verify()`，它对给出的文本进行检测。这个方法接受4个参数：
 
 * `code` - the source code to lint (a string or instance of `SourceCode`).
 * `code`- 要检测的源代码（字符串或者 `SourceCode` 的实例）。
@@ -103,7 +104,8 @@ You can call `verify()` like this:
 你可以这样调用 `verify()`：
 
 ```js
-var linter = require("eslint").linter;
+var Linter = require("eslint").Linter;
+var linter = new Linter();
 
 var messages = linter.verify("var foo;", {
     rules: {
@@ -180,7 +182,8 @@ You can also get an instance of the `SourceCode` object used inside of `linter` 
 你也可以通过 `getSourceCode()` 方法获取一个在 `linter` 内部使用 `SourceCode` 的实例：
 
 ```js
-var linter = require("eslint").linter;
+var Linter = require("eslint").Linter;
+var linter = new Linter();
 
 var messages = linter.verify("var foo = bar;", {
     rules: {
@@ -196,6 +199,26 @@ console.log(code.text);     // "var foo = bar;"
 In this way, you can retrieve the text and AST used for the last run of `linter.verify()`.
 
 通过这种方式，你可以获取用作 `linter.verify()` 最终返回值的文本和 AST。
+
+## linter
+
+The `eslint.linter` object (deprecated) is an instance of the `Linter` class as defined [above](#Linter). `eslint.linter` exists for backwards compatibility, but we do not recommend using it because any mutations to it are shared among every module that uses `eslint`. Instead, please create your own instance of `eslint.Linter`.
+
+`eslint.linter` 对象(已弃用)是 `Linter` 类（[如上定义](#Linter)）的一个实例。`eslint.linter` 是为了向后兼容，但我们不推荐使用它，因为对它的任何改变将影响所有使用 `eslint` 的模块。相反，请创建你自己的  `eslint.Linter` 实例。
+
+```js
+var linter = require("eslint").linter;
+
+var messages = linter.verify("var foo;", {
+    rules: {
+        semi: 2
+    }
+}, { filename: "foo.js" });
+```
+
+Note: This API is deprecated as of 4.0.0.
+
+注意：该 API 已在 4.0.0 版中被弃用。
 
 ## CLIEngine
 
@@ -222,7 +245,7 @@ The `CLIEngine` is a constructor, and you can create a new instance by passing i
 * `cache` - Operate only on changed files (default: `false`). Corresponds to `--cache`.
 * `cache` - 仅操作改变的文件(默认为 `false`)。对应于 `--cache`.
 * `cacheFile` - Name of the file where the cache will be stored (default: `.eslintcache`). Corresponds to `--cache-file`. Deprecated: use `cacheLocation` instead.
-* `cacheFile` - 存放缓存的文件名。（默认为 `.eslintcache`）。对应于 `--cache-file`。已经过时，用 `cacheLocation` 代替。
+* `cacheFile` - 存放缓存的文件名。（默认为 `.eslintcache`）。对应于 `--cache-file`。已经弃用，用 `cacheLocation` 代替。
 * `cacheLocation` - Name of the file or directory where the cache will be stored (default: `.eslintcache`). Corresponds to `--cache-location`.
 * `cacheLocation` - 存放缓存的文件或者目录名。（默认为 `.eslintcache`）。 对应于--cache-location`。
 * `configFile` - The configuration file to use (default: null). Corresponds to `-c`.
@@ -231,8 +254,8 @@ The `CLIEngine` is a constructor, and you can create a new instance by passing i
 * `cwd` - 当前工作目录路径
 * `envs` - An array of environments to load (default: empty array). Corresponds to `--env`.
 * `envs` - 需要加载的环境的数组（默认为空数组）。对应于 `--env`。
-* `extensions` - An array of filename extensions that should be checked for code. The default is an array containing just `".js"`. Corresponds to `--ext`.
-* `extensions`- 要检查的文件扩展名的数组。默认为仅包含 `".js"` 的数组。对应于 `--ext`。
+* `extensions` - An array of filename extensions that should be checked for code. The default is an array containing just `".js"`. Corresponds to `--ext`. It is only used in conjunction with directories, not with filenames or glob patterns.
+* `extensions`- 要检查的文件扩展名的数组。默认为仅包含 `".js"` 的数组。对应于 `--ext`。它只和目录配合使用，而不是与 文件名或 glob 模式配合使用。
 * `fix` - True indicates that fixes should be included with the output report, and that errors and warnings should not be listed if they can be fixed. However, the files on disk will not be changed. To persist changes to disk, call [`outputFixes()`](#outputfixes).
 * `fix` - True 表示修复应该包含在输出报告中，错误和警告如果可以修复，就不应该再列出。然而，磁盘上的文件不会被改变。调用[`outputFixes()`](#outputfixes)，来改变。
 * `globals` - An array of global variables to declare (default: empty array). Corresponds to `--global`.
@@ -255,6 +278,7 @@ The `CLIEngine` is a constructor, and you can create a new instance by passing i
 * `rules` - 要使用的规则的对象 (默认为null)。 对应于 `--rule`。
 * `useEslintrc` - Set to false to disable use of `.eslintrc` files (default: true). Corresponds to `--no-eslintrc`.
 * `useEslintrc` - 设置为 false 时禁用 `.eslintrc` 文件(默认为true)。对应于`--no-eslintrc`。
+
 
 For example:
 
@@ -318,11 +342,15 @@ The return value is an object containing the results of the linting operation. H
             }],
             errorCount: 1,
             warningCount: 0,
+            fixableErrorCount: 1,
+            fixableWarningCount: 0,
             source: "\"use strict\"\n"
         }
     ],
     errorCount: 1,
-    warningCount: 0
+    warningCount: 0,
+    fixableErrorCount: 1,
+    fixableWarningCount: 0
 }
 ```
 
@@ -373,13 +401,17 @@ var report = cli.executeOnFiles(["myfile.js", "lib/"]);
                     source: "var foo = function bar() {};"
                 }
             ],
-            errorCount: 1,
+            errorCount: 2,
             warningCount: 0,
+            fixableErrorCount: 1,
+            fixableWarningCount: 0,
             output: "\"use strict\";\nvar foo = function bar() {};\nfoo();\n"
         }
     ],
-    errorCount: 1,
-    warningCount: 0
+    errorCount: 2,
+    warningCount: 0,
+    fixableErrorCount: 1,
+    fixableWarningCount: 0,
 }
 ```
 
@@ -405,11 +437,15 @@ If the operation ends with a parsing error, you will get a single message for th
             ],
             errorCount: 1,
             warningCount: 0,
+            fixableErrorCount: 0,
+            fixableWarningCount: 0,
             source: "fucntion foo() {}"
         }
     ],
     errorCount: 1,
-    warningCount: 0
+    warningCount: 0,
+    fixableErrorCount: 0,
+    fixableWarningCount: 0,
 }
 ```
 
@@ -697,5 +733,6 @@ CLIEngine.outputFixes(report);
 ## Deprecated APIs
 
 * `cli` - the `cli` object has been deprecated in favor of `CLIEngine`. As of v1.0.0, `cli` is no longer exported and should not be used by external tools.
-
-* `cli` - `cli` 对象在 `CLIEngine` 中已经过时. 在 v1.0.0 版本中, `cli` 不会再导出并且不会再被外部工具使用。
+* `cli` - `cli` 对象在 `CLIEngine` 中已经弃用. 在 v1.0.0 版本中, `cli` 不会再导出并且不会再被外部工具使用。
+* `linter` - the `linter` object has has been deprecated in favor of `Linter`, as of v4.0.0
+* `linter` - 在 v4.0.0 版中，`linter` 对象已经弃用，取而代之的是 `Linter`。

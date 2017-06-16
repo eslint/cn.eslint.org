@@ -8,9 +8,9 @@ layout: doc
 
 # import 排序 (sort-imports)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 The import statement is used to import members (functions, objects or primitives) that have been exported from an external module. Using a specific member syntax:
 
@@ -45,6 +45,10 @@ When declaring multiple imports, a sorted list of import declarations make it ea
 This rule checks all import declarations and verifies that all imports are first sorted by the used member syntax and then alphabetically by the first member or alias name.
 
 该规则检查所有的 import 声明，验证所有的 import 都是首先按照使用的成员语法排序，其次是按照第一个成员或别名的字母顺序排序。
+
+The `--fix` option on the command line automatically fixes some problems reported by this rule: multiple members on a single line are automatically sorted (e.g. `import { b, a } from 'foo.js'` is corrected to `import { a, b } from 'foo.js'`), but multiple lines are not reordered.
+
+命令行中的 `--fix` 选项可以自动修复一些该规则报告的问题：在同一行的多个元素会自动被排序（如， `import { b, a } from 'foo.js'` 会更正为 `import { a, b } from 'foo.js'`），但跨行的情况下不会重新排序。
 
 ## Options
 

@@ -8,6 +8,10 @@ layout: doc
 
 # 禁用稀疏数组
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 Sparse arrays contain empty slots, most frequently due to multiple commas being used in an array literal, such as:
 
 稀疏数组包括很多空位置，经常是由于在数组字面量中使用多个逗号造成的，例如：

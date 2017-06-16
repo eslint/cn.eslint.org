@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止在 case 或 default 子句中出现词法声明 (no-case-declarations)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 This rule disallows lexical declarations (`let`, `const`, `function` and `class`)
 in `case`/`default` clauses. The reason is that the lexical declaration is visible
 in the entire switch block but it only gets initialized when it is assigned, which

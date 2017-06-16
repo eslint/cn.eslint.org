@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止重复 case 标签（no-duplicate-case）
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 If a `switch` statement has duplicate test expressions in `case` clauses, it is likely that a programmer copied a `case` clause but forgot to change the test expression.
 
 如果一个 `switch` 语句中的 `case` 子句中出现重复的测试表达式，那么很有可能是某个程序员拷贝了一个 `case` 子句但忘记了修改测试表达式。

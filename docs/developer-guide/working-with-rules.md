@@ -6,9 +6,9 @@ layout: doc
 
 # Working with Rules
 
-**Note:** This page covers the most recent rule format. There is also a [deprecated rule format](./working-with-rules-deprecated).
+**Note:** This page covers the most recent rule format for ESLint >= 3.0.0. There is also a [deprecated rule format](./working-with-rules-deprecated).
 
-**注意：**这个页面覆盖了大部分规则格式。也有[弃用的规则格式](./working-with-rules-deprecated)。
+**注意：**这个页面覆盖了 ESLint( >= 3.0.0)的大部分规则格式。也有[弃用的规则格式](./working-with-rules-deprecated)。
 
 Each rule in ESLint has two files named with its identifier (for example, `no-extra-semi`).
 
@@ -233,6 +233,7 @@ You can also use placeholders in the message and provide `data`:
 你也可以在消息中使用占位符和提供 `data`：
 
 ```js
+{% raw %}
 context.report({
     node: node,
     message: "Unexpected identifier: {{ identifier }}",
@@ -240,6 +241,7 @@ context.report({
         identifier: node.name
     }
 });
+{% endraw %}
 ```
 
 Note that leading and trailing whitespace is optional in message parameters.

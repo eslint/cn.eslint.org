@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止将全局对象当作函数进行调用 (no-obj-calls)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 ECMAScript provides several global objects that are intended to be used as-is. Some of these objects look as if they could be constructors due their capitalization (such as `Math` and `JSON`) but will throw an error if you try to execute them as functions.
 
 ECMAScript 提供了几个全局对象，旨在直接调用。这些对象由于是大写的（比如 `Math` 和 `JSON`）看起来像是构造函数，但是如果你尝试像函数一样执行它们，将会抛出错误。
@@ -30,7 +34,7 @@ And the [ECMAScript 2015 specification](http://www.ecma-international.org/ecma-2
 
 ## Rule Details
 
-This rule disallows calling the `Math`,`JSON` and `Reflect` objects as functions.
+This rule disallows calling the `Math`, `JSON` and `Reflect` objects as functions.
 
 该规则禁止将 `Math`、`JSON` 和 `Reflect` 对象当作函数进行调用。
 

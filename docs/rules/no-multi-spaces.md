@@ -8,9 +8,9 @@ layout: doc
 
 # 禁止出现多个空格 (no-multi-spaces)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 Multiple spaces in a row that are not used for indentation are typically mistakes. For example:
 
@@ -77,15 +77,69 @@ a ? b: c
 
 ## Options
 
-To avoid contradictions if some other rules require multiple spaces, this rule has an option to ignore certain node types in the abstract syntax tree (AST) of JavaScript code.
+This rule's configuration consists of an object with the following properties:
 
-为了避免与有些需要多个空格的规则冲突，该规则有一个选项可以忽略 JavaScript 代码的语法抽象树 (AST) 中特定的节点类型。
+该规则的配置是个对象，包含以下属性：
+
+* `"ignoreEOLComments": true` (defaults to `false`) ignores multiple spaces before comments that occur at the end of lines
+* `"ignoreEOLComments": true` (默认 `false`) 忽略行尾注释前的多个空格
+* `"exceptions": { "Property": true }` (`"Property"` is the only node specified by default) specifies nodes to ignore
+* `"exceptions": { "Property": true }` (`"Property"` 是为一个默认指定的节点) 指定要忽略的节点
+
+### ignoreEOLComments
+
+Examples of **incorrect** code for this rule with the `{ "ignoreEOLComments": false }` (default) option:
+
+默认选项 `{ "ignoreEOLComments": false }` 的 **错误** 代码示例：
+
+```js
+/*eslint no-multi-spaces: ["error", { ignoreEOLComments: false }]*/
+
+var x = 5;      // comment
+var x = 5;      /* multiline
+ * comment
+ */
+```
+
+Examples of **correct** code for this rule with the `{ "ignoreEOLComments": false }` (default) option:
+
+选项 `{ "ignoreEOLComments": false }` 的 **正确** 代码示例：
+
+```js
+/*eslint no-multi-spaces: ["error", { ignoreEOLComments: false }]*/
+
+var x = 5; // comment
+var x = 5; /* multiline
+ * comment
+ */
+```
+
+Examples of **correct** code for this rule with the `{ "ignoreEOLComments": true }` option:
+
+选项 `{ "ignoreEOLComments": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint no-multi-spaces: ["error", { ignoreEOLComments: true }]*/
+
+var x = 5; // comment
+var x = 5;      // comment
+var x = 5; /* multiline
+ * comment
+ */
+var x = 5;      /* multiline
+ * comment
+ */
+```
 
 ### exceptions
 
-The `exceptions` object expects property names to be AST node types as defined by [ESTree](https://github.com/estree/estree). The easiest way to determine the node types for `exceptions` is to use the [online demo](http://eslint.org/parser).
+To avoid contradictions with other rules that require multiple spaces, this rule has an `exceptions` option to ignore certain nodes.
 
-`exceptions` 对象属性名是 AST 节点类型，这些类型被定义在 [ESTree](https://github.com/estree/estree)。确定节点类型的最简单的方法是使用 [online demo](http://eslint.org/parser)。
+为了避免与其他需要多个空格的规则发生冲突，该规则有一个 `exceptions` 选项可以忽略特定的节点。
+
+This option is an object that expects property names to be AST node types as defined by [ESTree](https://github.com/estree/estree). The easiest way to determine the node types for `exceptions` is to use the [online demo](http://eslint.org/parser).
+
+该选项是个对象，属性名是 AST 节点类型，这些类型被定义在 [ESTree](https://github.com/estree/estree)。确定节点类型的最简单的方法是使用 [online demo](http://eslint.org/parser)。
 
 Only the `Property` node type is ignored by default, because for the [key-spacing](key-spacing) rule some alignment options require multiple spaces in properties of object literals.
 

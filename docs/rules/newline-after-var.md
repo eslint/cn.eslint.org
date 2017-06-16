@@ -8,9 +8,13 @@ layout: doc
 
 # 要求或禁止变量声明语句后有一行空行 (newline-after-var)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+
+This rule was **deprecated** in ESLint v4.0.0 and replaced by the [padding-line-between-statements](padding-line-between-statements) rule.
+
+该规则在 ESLint v4.0.0 中 **已弃用**，被 [padding-line-between-statements](padding-line-between-statements) 替代。
 
 As of today there is no consistency in separating variable declarations from the rest of the code. Some developers leave an empty line between var statements and the rest of the code like:
 
@@ -47,7 +51,7 @@ This rule has a string option:
 
 该规则有一个字符串选项：
 
-* `"always"` (default) requires an empty line after `var`, `let`, or `const`Comments on a line directly after var statements are treated like additional var statements.
+* `"always"` (default) requires an empty line after `var`, `let`, or `const`. Comments on a line directly after var statements are treated like additional var statements.
 * `"always"` (默认) 要求在 `var`、`let` 或 `const` 之后有空行。声明语句后紧随的注释被当作类似于声明语句
 * `"never"` disallows empty lines after `var`, `let`, or `const`
 * `"never"` 禁止在 `var`、`let` 或 `const` 之后有空行

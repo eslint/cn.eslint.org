@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止空块语句 (no-empty)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 Empty block statements, while not technically errors, usually occur due to refactoring that wasn't completed. They can cause confusion when reading code.
 
 空语句块，如果不是技术上的错误，通常是由于不完整的重构造成的。这会造成代码阅读上的困惑。

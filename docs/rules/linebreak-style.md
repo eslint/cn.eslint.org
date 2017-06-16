@@ -8,9 +8,9 @@ layout: doc
 
 # 强制使用一致的换行符风格 (linebreak-style)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 When developing with a lot of people all having different editors, VCS applications and operating systems it may occur that
 different line endings are written by either of the mentioned (might especially happen when using the windows and mac versions of SourceTree together).
@@ -99,9 +99,23 @@ function foo(params) { // \r\n
 } // \r\n
 ```
 
+## Using this rule with version control systems
+
+Version control systems sometimes have special behavior for linebreaks. To make it easy for developers to contribute to your codebase from different platforms, you may want to configure your VCS to handle linebreaks appropriately.
+
+版本控制系统有时对换行符有一些特殊的行为。为了让开发人员更方便的在不同的平台贡献自己的代码库，你可能需要配置你 VCS 的来适当地处理换行符。
+
+For example, the default behavior of [git](https://git-scm.com/) on Windows systems is to convert LF linebreaks to CRLF when checking out files, but to store the linebreaks as LF when committing a change. This will cause the `linebreak-style` rule to report errors if configured with the `"unix"` setting, because the files that ESLint sees will have CRLF linebreaks. If you use git, you may want to add a line to your [`.gitattributes` file](https://git-scm.com/docs/gitattributes) to prevent git from converting linebreaks in `.js` files:
+
+比如，window 系统中 [git](https://git-scm.com/) 在 checkout 文件时会把换行符 LF 转换为 CRLF， 但在提交时，会把换行符保存为 LF。如果配置了了 `"unix"` 设置，这将导致 `linebreak-style` 规则报告错误，因为 ESLint 检测到的是 CRLF。如果你使用 git， 伱可能希望在你的 [`.gitattributes` 文件](https://git-scm.com/docs/gitattributes) 添加一行来避免 git 对 `.js` 文件中的换行符进行转换。
+
+```
+*.js text eol=lf
+```
+
 ## When Not To Use It
 
-If you aren't concerned about having different line endings within you code, then you can safely turn this rule off.
+If you aren't concerned about having different line endings within your code, then you can safely turn this rule off.
 
 如果你不关心你的代码中是否以不同的换行符结尾，你可以关闭此规则。
 

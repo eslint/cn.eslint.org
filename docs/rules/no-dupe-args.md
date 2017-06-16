@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止在 `function` 定义中出现重复的参数 (no-dupe-args)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 If more than one parameter has the same name in a function definition, the last occurrence "shadows" the preceding occurrences. A duplicated name might be a typing error.
 
 如果在一个函数定义中出现多个同名的参数，后面出现的会覆盖前面出现的参数。重复的名称可能是一个打字错误。

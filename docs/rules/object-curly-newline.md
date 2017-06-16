@@ -8,9 +8,9 @@ layout: doc
 
 # 强制在花括号内使用一致的换行符 (object-curly-newline)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 A number of style guides require or disallow line breaks inside of object braces and other tokens.
 
@@ -38,9 +38,12 @@ Or an object option:
 或一个对象选项：
 
 * `"multiline": true` (default) requires line breaks if there are line breaks inside properties or between properties
-* `{multiline: true}` (默认)如果在属性内部或属性之间有换行符，就要求有换行符
-* `"minProperties"` requires line breaks if the number of properties is more than the given integer
-* `"minProperties"` 如果属性的数量超过了给定的数值，要求有换行符
+* `"multiline": true` (默认)如果在属性内部或属性之间有换行符，就要求有换行符
+* `"minProperties"` requires line breaks if the number of properties is more than the given integer. By default, an error will also be reported if an object contains linebreaks and has fewer properties than the given integer. However, the second behavior is disabled if the `consistent` option is set to `true`
+* `"minProperties"` 如果属性的数量超过了给定的数值，要求有换行符。默认情况下，如果一个对象包含换行符并且属性的数量少于给定的数量，该规则也会报错误。然而，如果设置 `consistent` 选项为 `true`，则该选项将不起作用。
+* `"consistent": true` requires that either both curly braces, or neither, directly enclose newlines. Note that enabling this option will also change the behavior of the `minProperties` option. (See `minProperties` above for more information)
+* `"consistent": true` 要求使用花括号，或者不使用或括号直接使用换行。注意启用该选项将改变 `minProperties` 选项的行为。(查看上面的 `minProperties`，获取更多信息)
+
 
 You can specify different options for object literals and destructuring assignments:
 
@@ -354,6 +357,90 @@ let {
 let {k = function() {
     dosomething();
 }} = obj;
+```
+
+### consistent
+
+Examples of **incorrect** code for this rule with the `{ "consistent": true }` option:
+
+选项 `{ "consistent": true }` 的 **错误** 代码示例：
+
+```js
+/*eslint object-curly-newline: ["error", { "consistent": true }]*/
+/*eslint-env es6*/
+
+let a = {foo: 1
+};
+let b = {
+    foo: 1};
+let c = {foo: 1, bar: 2
+};
+let d = {
+    foo: 1, bar: 2};
+let e = {foo: 1,
+    bar: 2};
+let f = {foo: function() {
+    dosomething();
+}};
+
+let {g
+} = obj;
+let {
+    h} = obj;
+let {i, j
+} = obj;
+let {
+    k, l} = obj;
+let {m,
+    n} = obj;
+let {o = function() {
+    dosomething();
+}} = obj;
+```
+
+Examples of **correct** code for this rule with the `{ "consistent": true }` option:
+
+选项 `{ "consistent": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint object-curly-newline: ["error", { "consistent": true }]*/
+/*eslint-env es6*/
+
+let a = {};
+let b = {foo: 1};
+let c = {
+    foo: 1
+};
+let d = {
+    foo: 1, bar: 2
+};
+let e = {
+    foo: 1,
+    bar: 2
+};
+let f = {foo: function() {dosomething();}};
+let g = {
+    foo: function() {
+        dosomething();
+    }
+};
+
+let {} = obj;
+let {h} = obj;
+let {i, j} = obj;
+let {
+    k, l
+} = obj;
+let {
+    m,
+    n
+} = obj;
+let {o = function() {dosomething();}} = obj;
+let {
+    p = function() {
+        dosomething();
+    }
+} = obj;
 ```
 
 ### ObjectExpression and ObjectPattern

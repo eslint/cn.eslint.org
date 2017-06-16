@@ -8,9 +8,9 @@ layout: doc
 
 # 禁止或强制在括号内使用空格 (array-bracket-spacing)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 A number of style guides require or disallow spaces between array brackets and other tokens. This rule
 applies to both array literals and destructuring assignments (ECMAScript 6).
@@ -216,7 +216,7 @@ var foo = [{ 'foo': 'bar' }];
 
 ### objectsInArrays
 
-Examples of **incorrect**  code for this rule with the `"always", { "objectsInArrays": false }` options:
+Examples of **incorrect** code for this rule with the `"always", { "objectsInArrays": false }` options:
 
 选项 `"always", { "objectsInArrays": false }` 的 **错误** 代码示例：
 

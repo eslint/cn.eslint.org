@@ -8,9 +8,9 @@ layout: doc
 
 # 要求使用 `let` 或 `const` 而不是 `var`
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 ECMAScript 6 allows programmers to create variables with block scope instead of function scope using the `let`
 and `const` keywords. Block scope is common in many other programming languages and helps programmers avoid mistakes
@@ -23,7 +23,7 @@ var count = people.length;
 var enoughFood = count > sandwiches.length;
 
 if (enoughFood) {
-    var count = sandwiches.length; // accidently overriding the count variable
+    var count = sandwiches.length; // accidentally overriding the count variable
     console.log("We have " + count + " sandwiches for everyone. Plenty for all!");
 }
 

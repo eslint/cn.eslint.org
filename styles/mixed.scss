@@ -150,6 +150,7 @@ p.removed + p ~ p.fixable:before {
 }
 
 p.recommended + p:before {
+  color: #37ab00;
   content: "\e013"; /* ok */
 }
 
@@ -158,6 +159,7 @@ p.removed + p:before {
 }
 
 p.fixable + p:before {
+  color: #f29900;
   content: "\e136"; /* wrench */
 }
 

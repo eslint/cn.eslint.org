@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止在 `return`、`throw`、`continue` 和 `break` 语句后出现不可达代码 (no-unreachable)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 Because the `return`, `throw`, `break`, and `continue` statements unconditionally exit a block of code, any statements after them cannot be executed. Unreachable statements are usually a mistake.
 
 因为 `return`、`throw`、`continue` 和 `break` 语句无条件地退出代码块，其之后的任何语句都不会被执行。不可达语句通常是个错误。

@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止使用令人困惑的多行表达式 (no-unexpected-multiline)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 Semicolons are usually optional in JavaScript, because of automatic semicolon insertion (ASI). You can require or disallow semicolons with the [semi](./semi) rule.
 
 在 JavaScript 中，分号通常是可选的，因为会自动插入分号（ASI)。你可以使用 [semi](./semi) 规则要求或禁止分号。
@@ -54,6 +58,9 @@ let x = function() {}
 let x = function() {}
 x
 `hello`
+
+let x = foo
+/regex/g.test(bar)
 ```
 
 Examples of **correct** code for this rule:

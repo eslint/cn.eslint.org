@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止在条件语句中出现赋值操作符（no-cond-assign）
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 In conditional statements, it is very easy to mistype a comparison operator (such as `==`) as an assignment operator (such as `=`). For example:
 
 在条件语句中，很容易将一个比较运算符（像 `==`）错写成赋值运算符（如 `=`）。例如：

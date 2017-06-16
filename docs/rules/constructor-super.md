@@ -8,6 +8,10 @@ layout: doc
 
 # 验证构造函数中 `super()` 的调用 (constructor-super)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 Constructors of derived classes must call `super()`.
 Constructors of non derived classes must not call `super()`.
 If this is not observed, the javascript engine will raise a runtime error.

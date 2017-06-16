@@ -8,6 +8,10 @@ layout: doc
 
 # 在构造函数中禁止在调用`super()`之前使用`this`或`super`。 (no-this-before-super)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 In the constructor of derived classes, if `this`/`super` are used before `super()` calls, it raises a reference error.
 
 在派生类的构造函数中，如果在调用 `super()` 之前使用 `this` 或 `super`，它将会引发一个引用错误。

@@ -52,9 +52,9 @@ function foo(bar) {
 
 ## Options
 
-This rule takes one option, an object, with a boolean property `"props"`. It is `false` by default. If it is set to `true`, this rule warns against the modification of parameter properties.
+This rule takes one option, an object, with a boolean property `"props"` and an array `"ignorePropertyModificationsFor"`. `"props"` is `false` by default. If `"props"` is set to `true`, this rule warns against the modification of parameter properties unless they're included in `"ignorePropertyModificationsFor"`, which is an empty array by default.
 
-该规则有一个选项，是个对象，其中有一个 `"props"` 的布尔属性。默认为`false`。如果设置为`true`，对参数的任何属性的修改，该规则都将发出警告。
+该规则有一个选项，是个对象，其中有一个 `"props"` 的布尔属性和一个数组属性`"ignorePropertyModificationsFor"`。`"props"` 默认为 `false`。如果 `"props"` 设置为`true`，对参数的任何属性的修改，该规则都将发出警告， 除非在 `"ignorePropertyModificationsFor"`（默认为空数组） 有该参数。
 
 ### props
 
@@ -97,6 +97,27 @@ function foo(bar) {
     bar.aaa++;
 }
 ```
+
+Examples of **correct** code for the `{ "props": true }` option with `"ignorePropertyModificationsFor"` set:
+
+选项 `{ "props": true }` 并设置了 `"ignorePropertyModificationsFor"` 的 **正确** 代码示例：
+
+```js
+/*eslint no-param-reassign: ["error", { "props": true, "ignorePropertyModificationsFor": ["bar"] }]*/
+
+function foo(bar) {
+    bar.prop = "value";
+}
+
+function foo(bar) {
+    delete bar.aaa;
+}
+
+function foo(bar) {
+    bar.aaa++;
+}
+```
+
 
 ## When Not To Use It
 

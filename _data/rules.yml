@@ -3,11 +3,25 @@ categories:
     description_zh: '这些规则与 JavaScript 代码中可能的错误或逻辑错误有关：'
     name: Possible Errors
     rules:
+      - description: >-
+          enforce "for" loop update clause moving the counter in the right
+          direction.
+        description_zh: >-
+          enforce "for" loop update clause moving the counter in the right
+          direction.
+        fixable: false
+        name: for-direction
+        recommended: false
       - description: disallow `await` inside of loops
         description_zh: disallow `await` inside of loops
         fixable: false
         name: no-await-in-loop
         recommended: false
+      - description: disallow comparing against -0
+        description_zh: disallow comparing against -0
+        fixable: false
+        name: no-compare-neg-zero
+        recommended: true
       - description: disallow assignment operators in conditional expressions
         description_zh: 禁止条件表达式中出现赋值操作符
         fixable: false
@@ -30,7 +44,7 @@ categories:
         recommended: true
       - description: disallow the use of `debugger`
         description_zh: 禁用 `debugger`
-        fixable: false
+        fixable: true
         name: no-debugger
         recommended: true
       - description: disallow duplicate arguments in `function` definitions
@@ -48,16 +62,17 @@ categories:
         fixable: false
         name: no-duplicate-case
         recommended: true
-      - description: disallow empty character classes in regular expressions
-        description_zh: 禁止在正则表达式中使用空字符集
-        fixable: false
-        name: no-empty-character-class
-        recommended: true
       - description: disallow empty block statements
         description_zh: 禁止出现空语句块
         fixable: false
         name: no-empty
         recommended: true
+      - description: disallow empty character classes in regular expressions
+        description_zh: 禁止在正则表达式中使用空字符集
+        fixable: false
+        name: no-empty-character-class
+        recommended: true
+      
       - description: disallow reassigning exceptions in `catch` clauses
         description_zh: 禁止对 `catch` 子句的参数重新赋值
         fixable: false
@@ -145,7 +160,7 @@ categories:
         description_zh: disallow negating the left operand of relational operators
         fixable: true
         name: no-unsafe-negation
-        recommended: false
+        recommended: true
       - description: require calls to `isNaN()` when checking for `NaN`
         description_zh: 要求使用 `isNaN()` 检查 `NaN`
         fixable: false
@@ -305,7 +320,7 @@ categories:
         description_zh: disallow assignments to native objects or read-only global variables
         fixable: false
         name: no-global-assign
-        recommended: false
+        recommended: true
       - description: disallow shorthand type conversions
         description_zh: 禁止使用短符号进行类型转换
         fixable: true
@@ -364,6 +379,11 @@ categories:
         fixable: false
         name: no-multi-str
         recommended: false
+      - description: disallow `new` operators outside of assignments or comparisons
+        description_zh: disallow `new` operators outside of assignments or comparisons
+        fixable: false
+        name: no-new
+        recommended: false
       - description: disallow `new` operators with the `Function` object
         description_zh: 禁止对 `Function` 对象使用 `new` 操作符
         fixable: false
@@ -377,21 +397,16 @@ categories:
         fixable: false
         name: no-new-wrappers
         recommended: false
-      - description: disallow `new` operators outside of assignments or comparisons
-        description_zh: 禁止在非赋值或条件语句中使用 `new` 操作符
-        fixable: false
-        name: no-new
-        recommended: false
-      - description: disallow octal escape sequences in string literals
-        description_zh: 禁止在字符串中使用八进制转义序列
-        fixable: false
-        name: no-octal-escape
-        recommended: false
       - description: disallow octal literals
         description_zh: 禁用八进制字面量
         fixable: false
         name: no-octal
         recommended: true
+      - description: disallow octal escape sequences in string literals
+        description_zh: 禁止在字符串中使用八进制转义序列
+        fixable: false
+        name: no-octal-escape
+        recommended: false
       - description: disallow reassigning `function` parameters
         description_zh: 禁止对 `function` 的参数进行重新赋值
         fixable: false
@@ -418,6 +433,7 @@ categories:
         name: no-return-assign
         recommended: false
       - description: disallow unnecessary `return await`
+        description_zh: disallow unnecessary `return await`
         fixable: false
         name: no-return-await
         recommended: false
@@ -458,7 +474,7 @@ categories:
         recommended: false
       - description: disallow unused labels
         description_zh: 禁用出现未使用过的标
-        fixable: false
+        fixable: true
         name: no-unused-labels
         recommended: true
       - description: disallow unnecessary calls to `.call()` and `.apply()`
@@ -475,7 +491,7 @@ categories:
         description_zh: 禁用不必要的转义字符
         fixable: false
         name: no-useless-escape
-        recommended: false
+        recommended: true
       - description: disallow redundant return statements
         description_zh: disallow redundant return statements
         fixable: true
@@ -573,11 +589,6 @@ categories:
         fixable: false
         name: no-restricted-globals
         recommended: false
-      - description: disallow identifiers from shadowing restricted names
-        description_zh: 禁止覆盖受限制的标识符
-        fixable: false
-        name: no-shadow-restricted-names
-        recommended: false
       - description: >-
           disallow variable declarations from shadowing variables declared in
           the outer scope
@@ -586,10 +597,10 @@ categories:
         fixable: false
         name: no-shadow
         recommended: false
-      - description: disallow initializing variables to `undefined`
-        description_zh: 禁止将变量初始化为 `undefined`
-        fixable: true
-        name: no-undef-init
+      - description: disallow identifiers from shadowing restricted names
+        description_zh: 禁止将标识符定义为受限的名字
+        fixable: false
+        name: no-shadow-restricted-names
         recommended: false
       - description: >-
           disallow the use of undeclared variables unless mentioned in `/*global
@@ -599,6 +610,11 @@ categories:
         fixable: false
         name: no-undef
         recommended: true
+      - description: disallow initializing variables to `undefined`
+        description_zh: disallow initializing variables to `undefined`
+        fixable: true
+        name: no-undef-init
+        recommended: false
       - description: disallow the use of `undefined` as an identifier
         description_zh: 禁止将 `undefined` 作为标识符
         fixable: false
@@ -635,6 +651,10 @@ categories:
         description_zh: 要求回调函数中有容错处理
         fixable: false
         name: handle-callback-err
+        recommended: false
+      - description: disallow use of the Buffer() constructor
+        fixable: false
+        name: no-buffer-constructor
         recommended: false
       - description: >-
           disallow `require` calls to be mixed with regular variable
@@ -681,10 +701,20 @@ categories:
       这些规则是关于风格指南的，而且是非常主观的：
     name: Stylistic Issues
     rules:
+      - description: enforce linebreaks after opening and before closing array brackets
+        description_zh: enforce linebreaks after opening and before closing array brackets
+        fixable: true
+        name: array-bracket-newline
+        recommended: false
       - description: enforce consistent spacing inside array brackets
         description_zh: 强制数组方括号中使用一致的空格
         fixable: true
         name: array-bracket-spacing
+        recommended: false
+      - description: enforce line breaks after each array element
+        description_zh: enforce line breaks after each array element
+        fixable: true
+        name: array-element-newline
         recommended: false
       - description: enforce consistent spacing inside single-line blocks
         description_zh: 强制在单行代码块中使用一致的空格
@@ -823,11 +853,6 @@ categories:
         fixable: true
         name: lines-around-comment
         recommended: false
-      - description: require or disallow newlines around directives
-        description_zh: require or disallow newlines around directives
-        fixable: true
-        name: lines-around-directive
-        recommended: false
       - description: enforce a maximum depth that blocks can be nested
         description_zh: 强制可嵌套的块的最大深度
         fixable: false
@@ -853,15 +878,15 @@ categories:
         fixable: false
         name: max-params
         recommended: false
-      - description: enforce a maximum number of statements allowed per line
-        description_zh: 强制每一行中所允许的最大语句数量
-        fixable: false
-        name: max-statements-per-line
-        recommended: false
       - description: enforce a maximum number of statements allowed in function blocks
         description_zh: 强制函数块最多允许的的语句数量
         fixable: false
         name: max-statements
+        recommended: false
+      - description: enforce a maximum number of statements allowed per line
+        description_zh: 强制每一行中所允许的最大语句数量
+        fixable: false
+        name: max-statements-per-line
         recommended: false
       - description: enforce newlines between operands of ternary expressions
         description_zh: enforce newlines between operands of ternary expressions
@@ -877,16 +902,6 @@ categories:
         description_zh: 要求调用无参构造函数时有圆括号
         fixable: true
         name: new-parens
-        recommended: false
-      - description: require or disallow an empty line after variable declarations
-        description_zh: 要求或禁止变量声明语句后有一行空行
-        fixable: true
-        name: newline-after-var
-        recommended: false
-      - description: require an empty line before `return` statements
-        description_zh: 要求 `return` 语句之前有一空行
-        fixable: true
-        name: newline-before-return
         recommended: false
       - description: require a newline after each call in a method chain
         description_zh: 要求方法链中每个调用都有一个换行符
@@ -993,6 +1008,11 @@ categories:
         fixable: true
         name: no-whitespace-before-property
         recommended: false
+      - description: enforce the location of single-line statements
+        description_zh: enforce the location of single-line statements
+        fixable: true
+        name: nonblock-statement-body-position
+        recommended: false
       - description: enforce consistent line breaks inside braces
         description_zh: 强制大括号内换行符的一致性
         fixable: true
@@ -1008,11 +1028,6 @@ categories:
         fixable: true
         name: object-property-newline
         recommended: false
-      - description: require or disallow newlines around variable declarations
-        description_zh: 要求或禁止在变量声明周围换行
-        fixable: true
-        name: one-var-declaration-per-line
-        recommended: false
       - description: >-
           enforce variables to be declared either together or separately in
           functions
@@ -1020,6 +1035,11 @@ categories:
           强制函数中的变量要么一起声明要么分开声明
         fixable: false
         name: one-var
+        recommended: false
+      - description: require or disallow newlines around variable declarations
+        description_zh: require or disallow newlines around variable declarations
+        fixable: true
+        name: one-var-declaration-per-line
         recommended: false
       - description: require or disallow assignment operator shorthand where possible
         description_zh: 要求或禁止在可能的情况下使用简化的赋值操作符
@@ -1035,6 +1055,11 @@ categories:
         description_zh: 要求或禁止块内填充
         fixable: true
         name: padded-blocks
+        recommended: false
+      - description: require or disallow padding lines between statements
+        description_zh: require or disallow padding lines between statements
+        fixable: true
+        name: padding-line-between-statements
         recommended: false
       - description: require quotes around object literal property names
         description_zh: 要求对象字面量属性名称用引号括起来
@@ -1054,15 +1079,20 @@ categories:
         fixable: false
         name: require-jsdoc
         recommended: false
+      - description: require or disallow semicolons instead of ASI
+        description_zh: require or disallow semicolons instead of ASI
+        fixable: true
+        name: semi
+        recommended: false
       - description: enforce consistent spacing before and after semicolons
         description_zh: 强制分号之前和之后使用一致的空格
         fixable: true
         name: semi-spacing
         recommended: false
-      - description: require or disallow semicolons instead of ASI
-        description_zh: 要求或禁止使用分号而不是 ASI
+      - description: enforce location of semicolons
+        description_zh: 强制分号的位置
         fixable: true
-        name: semi
+        name: semi-style
         recommended: false
       - description: require object keys to be sorted
         description_zh: require object keys to be sorted
@@ -1106,6 +1136,11 @@ categories:
         description_zh: 强制在注释中 `//` 或 `/*` 使用一致的空格
         fixable: true
         name: spaced-comment
+        recommended: false
+      - description: enforce spacing around colons of switch statements
+        description_zh: enforce spacing around colons of switch statements
+        fixable: true
+        name: switch-colon-spacing
         recommended: false
       - description: require or disallow spacing between template tags and their literals
         description_zh: require or disallow spacing between template tags and their literals
@@ -1161,7 +1196,7 @@ categories:
         recommended: true
       - description: disallow arrow functions where they could be confused with comparisons
         description_zh: disallow arrow functions where they could be confused with comparisons
-        fixable: false
+        fixable: true
         name: no-confusing-arrow
         recommended: false
       - description: disallow reassigning `const` variables
@@ -1309,6 +1344,18 @@ deprecated:
   description: 'These rules have been deprecated and replaced by newer rules:'
   name: Deprecated
   rules:
+    - name: indent-legacy
+      replacedBy:
+        - indent
+    - name: lines-around-directive
+      replacedBy:
+        - padding-line-between-statements
+    - name: newline-after-var
+      replacedBy:
+        - padding-line-between-statements
+    - name: newline-before-return
+      replacedBy:
+        - padding-line-between-statements
     - name: no-native-reassign
       replacedBy:
         - no-global-assign

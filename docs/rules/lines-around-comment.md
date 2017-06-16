@@ -8,6 +8,10 @@ layout: doc
 
 # 强制注释周围有空行 (lines-around-comment)
 
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+
 Many style guides require empty lines before or after comments. The primary goal
 of these rules is to make the comments easier to read and improve readability of the code.
 
@@ -47,7 +51,8 @@ This rule has an object option:
 * `"allowArrayStart": true` 允许注释出现在数组字面量的开始位置
 * `"allowArrayEnd": true` allows comments to appear at the end of array literals
 * `"allowArrayEnd": true` 允许注释出现在数组字面量的结束位置
-
+* `"applyDefaultIgnorePatterns"` enables or disables the default comment patterns to be ignored by the rule
+* `"ignorePattern"` custom patterns to be ignored by the rule
 ### beforeBlockComment
 
 Examples of **incorrect** code for this rule with the default `{ "beforeBlockComment": true }` option:
@@ -399,6 +404,60 @@ const [
     /* what a great and wonderful day */
 ] = ["great", "not great"];
 ```
+
+
+### ignorePattern
+
+By default this rule ignores comments starting with the following words: `eslint`, `jshint`, `jslint`, `istanbul`, `global`, `exported`, `jscs`. An alternative regular expression can be provided.
+
+Examples of **correct** code for the `ignorePattern` option:
+
+```js
+/*eslint lines-around-comment: ["error"]*/
+
+foo();
+/* eslint mentioned in this comment */,
+bar();
+
+
+/*eslint lines-around-comment: ["error", { "ignorePattern": "pragma" }] */
+
+foo();
+/* a valid comment using pragma in it */
+```
+
+Examples of **incorrect** code for the `ignorePattern` option:
+
+```js
+/*eslint lines-around-comment: ["error", { "ignorePattern": "pragma" }] */
+
+1 + 1;
+/* something else */
+```
+
+### applyDefaultIgnorePatterns
+
+Default ignore patterns are applied even when `ignorePattern` is provided. If you want to omit default patterns, set this option to `false`.
+
+Examples of **correct** code for the `{ "applyDefaultIgnorePatterns": false }` option:
+
+```js
+/*eslint lines-around-comment: ["error", { "ignorePattern": "pragma", applyDefaultIgnorePatterns: false }] */
+
+foo();
+/* a valid comment using pragma in it */
+```
+
+Examples of **incorrect** code for the `{ "applyDefaultIgnorePatterns": false }` option:
+
+```js
+/*eslint lines-around-comment: ["error", { "applyDefaultIgnorePatterns": false }] */
+
+foo();
+/* eslint mentioned in comment */
+
+```
+
 
 ## When Not To Use It
 

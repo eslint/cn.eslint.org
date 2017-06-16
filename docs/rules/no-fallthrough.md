@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止 case 语句落空 (no-fallthrough)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 The `switch` statement in JavaScript is one of the more error-prone constructs of the language thanks in part to the ability to "fall through" from one `case` to the next. For example:
 
 在 JavaScript 中，`switch` 语句是一种比较容易出错的结构，在某种程度上这要归功于 `case` 的落空能力。比如：

@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止对 `function` 声明重新赋值 (no-func-assign)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 JavaScript functions can be written as a FunctionDeclaration `function foo() { ... }` or as a FunctionExpression `var foo = function() { ... };`. While a JavaScript interpreter might tolerate it, overwriting/reassigning a function written as a FunctionDeclaration is often indicative of a mistake or issue.
 
 JavaScript 函数有两种形式：函数声明 `function foo() { ... }` 或者函数表达式 `var foo = function() { ... }` 。虽然 JavaScript 解释器可以容忍对函数声明进行覆盖或重新赋值，但通常这是个错误或会导致问题出现。

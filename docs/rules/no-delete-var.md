@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止删除变量 (no-delete-var)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 The purpose of the `delete` operator is to remove a property from an object. Using the `delete` operator on a variable might lead to unexpected behavior.
 
 `delete` 的目的是删除对象的属性。使用 `delete` 操作删除一个变量可能会导致意外情况发生。

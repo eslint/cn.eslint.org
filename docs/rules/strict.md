@@ -8,9 +8,9 @@ layout: doc
 
 # 要求或禁止使用严格模式指令 (strict)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 A strict mode directive is a `"use strict"` literal at the beginning of a script or function body. It enables strict mode semantics.
 
@@ -78,6 +78,10 @@ This rule disallows strict mode directives, no matter which option is specified,
 This rule disallows strict mode directives, no matter which option is specified, in functions with non-simple parameter lists (for example, parameter lists with default parameter values) because that is a syntax error in **ECMAScript 2016** and later. See the examples of the [function](#function) option.
 
 在有非常规参数列表（例如，有默认参数值）的函数中，不管指定的了什么选项，该规则禁止指定严格模式指令，因为 在 **ECMAScript 2016** 和以后的版本中将会报语法错误。查看[function](#function) 选项。
+
+The `--fix` option on the command line does not insert new `"use strict"` statements, but only removes unneeded statements.
+
+命令行的 `--fix` 选项不会插入新的 `"use strict"` 语句，只会移除不再需要的语句。
 
 ## Options
 

@@ -46,9 +46,9 @@ Every rule:
 
 * Is standalone
 * 各自独立
-* Can be able to be turned off or on (nothing can be deemed "too important to turn off")
+* Can be turned off or on (nothing can be deemed "too important to turn off")
 * 可以开启或关闭（没有什么可以被认为“太重要所以不能关闭”）
-* Can be set to be a warning or error individually
+* Can be set to a warning or error individually
 * 可以将结果设置成警告或者错误
 
 Additionally:

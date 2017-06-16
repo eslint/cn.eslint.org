@@ -117,7 +117,7 @@ function g() {
   否则，该规则会忽略在上层作用域中变量声明的引用，然而仍然会报告对同一作用域中的变量声明的引用。
   参数默认是 `true`。
 
-This rule accepts `"nofunc"` string as a option.
+This rule accepts `"nofunc"` string as an option.
 `"nofunc"` is the same as `{ "functions": false, "classes": true }`.
 
 该规则接受 `"nofunc"` 字符串作为一个选项。

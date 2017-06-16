@@ -8,9 +8,9 @@ layout: doc
 
 # 要求或禁止函数圆括号之前有一个空格 (space-before-function-paren)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 When formatting a function, whitespace is allowed between the function name or `function` keyword and the opening paren. Named functions also require a space between the `function` keyword and the function name, but anonymous functions require no whitespace. For example:
 
@@ -53,7 +53,7 @@ This rule has a string option or an object option:
     "space-before-function-paren": ["error", {
         "anonymous": "always",
         "named": "always",
-        "asyncArrow": "ignore"
+        "asyncArrow": "always"
     }],
 }
 ```
@@ -68,13 +68,9 @@ The string option does not check async arrow function expressions for backward c
 字符串选项不会检查异步的箭头函数表达式以向后兼容。
 
 You can also use a separate option for each type of function.
-Each of the following options can be set to `"always"`, `"never"`, or `"ignore"`.
+Each of the following options can be set to `"always"`, `"never"`, or `"ignore"`. The default is `"always"`.
 
-你也可以对每种类型的函数分别设置选项。以下每个选项可以设置为 `"always"`、`"never"` 或 `"ignore"`。
-
-Default is `"always"` basically.
-
-默认为 `"always"`。
+你也可以对每种类型的函数分别设置选项。以下每个选项可以设置为 `"always"`、`"never"` 或 `"ignore"`。默认为 `"always"`。
 
 * `anonymous` is for anonymous function expressions (e.g. `function () {}`).
 * `anonymous` 针对匿名函数表达式 (比如 `function () {}`)。
@@ -82,10 +78,6 @@ Default is `"always"` basically.
 * `named` 针对命名的函数表达式 (比如 `function foo () {}`)。
 * `asyncArrow` is for async arrow function expressions (e.g. `async () => {}`).
 * `asyncArrow` 针对异步的箭头函数表达式 (比如 `async () => {}`)。
-
-`asyncArrow` is set to `"ignore"` by default for backwards compatibility.
-
-`asyncArrow` 默认设置为 `"ignore"` 以向后兼容。
 
 ### "always"
 
@@ -120,6 +112,8 @@ var foo = {
         // ...
     }
 };
+
+var foo = async() => 1
 ```
 
 Examples of **correct** code for this rule with the default `"always"` option:
@@ -154,9 +148,7 @@ var foo = {
     }
 };
 
-// async arrow function expressions are ignored by default.
 var foo = async () => 1
-var foo = async() => 1
 ```
 
 ### "never"
@@ -192,6 +184,8 @@ var foo = {
         // ...
     }
 };
+
+var foo = async () => 1
 ```
 
 Examples of **correct** code for this rule with the `"never"` option:
@@ -226,8 +220,6 @@ var foo = {
     }
 };
 
-// async arrow function expressions are ignored by default.
-var foo = async () => 1
 var foo = async() => 1
 ```
 

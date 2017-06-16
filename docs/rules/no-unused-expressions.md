@@ -51,9 +51,11 @@ This rule, in its default state, does not require any arguments. If you would li
 此规则在默认情况下，不需要任何参数。如果你想要开启一个或者更多的设置你可以通过一个如下所示的选项对象实现：
 
 * `allowShortCircuit` set to `true` will allow you to use short circuit evaluations in your expressions (Default: `false`).
-* `allowShortCircuit` 设置为 `true` 将会允许你在表达式中使用逻辑短路求值。（默认为 `false`）
-* `allowTernary` set to `true` will enable you use ternary operators in your expressions similarly to short circuit evaluations (Default: `false`).
-* `allowTernary` 设置为 `true` 将会允许你在表达式中使用类似逻辑短路求值的三元运算符。（默认为 `false`）。
+* `allowShortCircuit` 设置为 `true` 将允许你在表达式中使用逻辑短路求值。（默认为 `false`）
+* `allowTernary` set to `true` will enable you to use ternary operators in your expressions similarly to short circuit evaluations (Default: `false`).
+* `allowTernary` 设置为 `true` 将允许你在表达式中使用类似逻辑短路求值的三元运算符。（默认为 `false`）。
+* `allowTaggedTemplates` set to `true` will enable you to use tagged template literals in your expressions (Default: `false`).
+* `allowTaggedTemplates` 设置为 `true` 将允许你在表达式中使用带标签的模板字面量 (默认: `false`)。
 
 These options allow unused expressions *only if all* of the code paths either directly change the state (for example, assignment statement) or could have *side effects* (for example, function call).
 
@@ -83,6 +85,8 @@ c = a, b;
 a() && function namedFunctionInExpressionContext () {f();}
 
 (function anIncompleteIIFE () {});
+
+injectGlobal`body{ color: red; }`
 
 ```
 
@@ -181,6 +185,28 @@ Examples of **correct** code for the `{ "allowShortCircuit": true, "allowTernary
 /*eslint no-unused-expressions: ["error", { "allowShortCircuit": true, "allowTernary": true }]*/
 
 a ? b() || (c = d) : e()
+```
+
+### allowTaggedTemplates
+
+Examples of **incorrect** code for the `{ "allowTaggedTemplates": true }` option:
+
+选项 `{ "allowTaggedTemplates": true }` 的 **错误** 代码示例：
+
+```js
+/*eslint no-unused-expressions: ["error", { "allowTaggedTemplates": true }]*/
+
+`some untagged template string`;
+```
+
+Examples of **correct** code for the `{ "allowTaggedTemplates": true }` option:
+
+选项 `{ "allowTaggedTemplates": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint no-unused-expressions: ["error", { "allowTaggedTemplates": true }]*/
+
+tag`some tagged template string`;
 ```
 
 ## Version

@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止在嵌套的语句块中出现变量或 `function` 声明 (no-inner-declarations)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 In JavaScript, prior to ES6, a function declaration is only allowed in the first level of a program or the body of another function, though parsers sometimes [erroneously accept them elsewhere](https://code.google.com/p/esprima/issues/detail?id=422). This only applies to function declarations; named or anonymous function expressions can occur anywhere an expression is permitted.
 
 在 ES6 之前的 JavaScript 中，函数声明只能在程序或另一个函数体的顶层，尽管解析器有时会[错误地接受它们](https://code.google.com/p/esprima/issues/detail?id=422)。这只适用于函数声明；命名的或匿名的函数表达式是可以出现在任何允许的地方。

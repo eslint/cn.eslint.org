@@ -8,7 +8,7 @@ layout: doc
 
 # 不允许使用`undefined`变量 (no-undefined)
 
-The `undefined` variable is unique in JavaScript because it is actually a property of the global object. As such, in ECMAScript 3 it was possible to overwrite the value of `undefined`. While ECMAScript 5 disallows overwriting `undefined`, it's still possible to shadow `undefined`, such as:
+The `undefined` variable in JavaScript is actually a property of the global object. As such, in ECMAScript 3 it was possible to overwrite the value of `undefined`. While ECMAScript 5 disallows overwriting `undefined`, it's still possible to shadow `undefined`, such as:
 
 `undefined` 变量在 JavaScript 中是独一无二的，因为它实际上是一个全局对象属性。在 ECMAScript 3 中，可重写 `undefined` 的值，然而 ECMAScript 5 不允许重写 `undefined` ，但仍然可能遮盖原来的 `undefined`，例如：
 
@@ -24,34 +24,20 @@ function doSomething(data) {
 }
 ```
 
-This represents a problem for `undefined` that doesn't exist for `null`, which is a keyword and primitive value that can neither be overwritten nor shadowed.
+Because `undefined` can be overwritten or shadowed, reading `undefined` can give an unexpected value. (This is not the case for `null`, which is a keyword that always produces the same value.) To guard against this, you can avoid all uses of `undefined`, which is what some style guides recommend and what this rule enforces. Those style guides then also recommend:
 
-这表明 `undefined` 存在一个问题，这个问题在 `null` 中不存在，`null` 是一个关键字，也是一个原始属性值，既不能被重写也不可被覆盖。
+由于 `undefined` 会被覆盖和遮蔽，所以读取 `undefined` 会给你一个意想不到的值。（这种情况还不同于 `null`， `null` 会始终产生同一个值。）为了防止这种情况凡是，你可以避免对 `undefined` 的所有使用，这也是一项风格指南所推荐的，也是该规则强制的。那些风格指南也推荐：
 
-All uninitialized variables automatically get the value of `undefined`:
-
-所有未初始化的变量自动获得 `undefined` 为值。
-
-```js
-var foo;
-
-console.log(foo === undefined);     // true (assuming no shadowing)
-```
-
-For this reason, it's not necessary to explicitly initialize a variable to `undefined`.
-
-这是此因，我们没有必要初始化一个变量为 `undefined`。
-
-Taking all of this into account, some style guides forbid the use of `undefined`, recommending instead:
-
-综合所有，一些编码风格指南禁止使用 `undefined` 为值，建议改为：
-
-* Variables that should be `undefined` are simply left uninitialized.
-* 要使变量值为 `undefined`，不初始化即可。
+* Variables that should be `undefined` are simply left uninitialized. (All uninitialized variables automatically get the value of `undefined` in JavaScript.)
+* 要使变量值为 `undefined`，不初始化即可。 (在 JavaScript 中，所有未经初始化的变量会自动地获得值为 `undefined`)
 * Checking if a value is `undefined` should be done with `typeof`.
 * 应该使用 `typeof` 检测一个值是否是 `undefined`。
 * Using the `void` operator to generate the value of `undefined` if necessary.
 * 如果有必要，使用 `void` 操作符生成 `undefined`。
+
+As an alternative, you can use the [no-global-assign](no-global-assign) and [no-shadow-restricted-names](no-shadow-restricted-names) rules to prevent `undefined` from being shadowed or assigned a different value. This ensures that `undefined` will always hold its original, expected value.
+
+作为另外一种宣泄，你可以使用 [no-global-assign](no-global-assign) 和 [no-shadow-restricted-names](no-shadow-restricted-names) 规则来阻止遮蔽 `undefined` 或被赋值为一个不同的值。这会保证 `undefined` 将总是保持它的原始的和所期望的值。
 
 ## Rule Details
 
@@ -113,6 +99,8 @@ If you want to allow the use of `undefined` in your code, then you can safely tu
 
 * [no-undef-init](no-undef-init)
 * [no-void](no-void)
+* [no-shadow-restricted-names](no-shadow-restricted-names)
+* [no-global-assign](no-global-assign)
 
 ## Version
 

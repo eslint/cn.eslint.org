@@ -77,7 +77,7 @@ Please see the [generator documentation](https://github.com/eslint/generator-esl
 
 ## Step 5: Run the tests
 
-Running the tests is the best way to ensure you have correctly set up your development environment. Make sure you're in the the `eslint` directory and run:
+Running the tests is the best way to ensure you have correctly set up your development environment. Make sure you're in the `eslint` directory and run:
 
 运行测试是确保你正确安装了开发环境最好的方式。确保你在 `eslint` 文件夹下并运行:
 

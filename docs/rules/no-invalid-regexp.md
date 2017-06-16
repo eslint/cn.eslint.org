@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止在 `RegExp` 构造函数中出现无效的正则表达式 (no-invalid-regexp)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 An invalid pattern in a regular expression literal is a `SyntaxError` when the code is parsed, but an invalid string in `RegExp` constructors throws a `SyntaxError` only when the code is executed.
 
 在正则表达式字面量中无效的模式在代码解析时会引起 `SyntaxError`，但是 `RegExp` 的构造函数中无效的字符串只在代码执行时才会抛出 `SyntaxError`。

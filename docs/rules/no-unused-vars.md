@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止未使用过的变量 (no-unused-vars)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 Variables that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring. Such variables take up space in the code and can lead to confusion by readers.
 
 已声明的变量在代码里未被使用过，就像是由于不完整的重构而导致的遗漏错误。这样的变量增加了代码量，并且混淆读者。
@@ -120,6 +124,20 @@ Note that `/* exported */` has no effect for any of the following:
 * `parserOptions.sourceType` 是 `module`
 * when `ecmaFeatures.globalReturn` is `true`
 * `ecmaFeatures.globalReturn` 为 `true`
+
+The line comment `// exported variableName` will not work as `exported` is not line-specific.
+
+行注释 `// exported variableName` 将不起作用，因为 `exported` 不是特定于行的。
+
+Examples of **correct** code for `/* exported variableName */` operation:
+
+选项 `/* exported variableName */` 的 **正确** 代码示例：
+
+```js
+/* exported global_var */
+
+var global_var = 42;
+```
 
 ## Options
 

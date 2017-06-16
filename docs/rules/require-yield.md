@@ -8,6 +8,10 @@ layout: doc
 
 # 禁用函数内没有`yield`的 generator 函数
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 ## Rule Details
 
 This rule generates warnings for generator functions that do not have the `yield` keyword.

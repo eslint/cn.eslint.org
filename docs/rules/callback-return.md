@@ -98,7 +98,7 @@ function bar(err, send) {
 }
 ```
 
-Examples of **correct** code for this rule with the the option `["done", "send.error", "send.success"]`:
+Examples of **correct** code for this rule with the option `["done", "send.error", "send.success"]`:
 
 选项`["done", "send.error", "send.success"]`的 **正确** 代码示例：
 

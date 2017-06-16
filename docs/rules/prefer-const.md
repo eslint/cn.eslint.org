@@ -8,9 +8,9 @@ layout: doc
 
 # 建议使用`const` (prefer-const)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 If a variable is never reassigned, using the `const` declaration is better.
 
@@ -213,7 +213,7 @@ function initialize() {
 timer = setInterval(initialize, 100);
 ```
 
-Examples of **correct** code for the defaut `{"ignoreReadBeforeAssign": false}` option:
+Examples of **correct** code for the default `{"ignoreReadBeforeAssign": false}` option:
 
 默认选项 `{"ignoreReadBeforeAssign": false}` 的 **正确** 代码示例：
 

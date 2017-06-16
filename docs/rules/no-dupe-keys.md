@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止在对象字面量中出现重复的键 (no-dupe-keys)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 Multiple properties with the same key in object literals can cause unexpected behavior in your application.
 
 在你的应用程序中，如果对象字面量中出现多个属性有同样的键可能会到导致意想不到的情况出现。

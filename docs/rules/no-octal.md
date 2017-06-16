@@ -8,6 +8,10 @@ layout: doc
 
 # 禁用八进制字面量 (no-octal)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 Octal literals are numerals that begin with a leading zero, such as:
 
 八进制自面量是指那些以 0 开始的数字，比如：

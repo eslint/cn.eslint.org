@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止重新声明变量 (no-redeclare)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 In JavaScript, it's possible to redeclare the same variable name using `var`. This can lead to confusion as to where the variable is actually declared and initialized.
 
 在 JavaScript 中，使用 `var` 可以对同一个变量再次声明。这会使变量实际声明和定义的位置混乱不堪。

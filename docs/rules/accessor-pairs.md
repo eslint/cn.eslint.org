@@ -109,6 +109,7 @@ Object.defineProperty(o, 'c', {
 ```
 
 ### getWithoutSet
+
 Examples of **incorrect** code for the `{ "getWithoutSet": true }` option:
 
 `{ "getWithoutSet": true }`选项的 **错误** 代码示例：

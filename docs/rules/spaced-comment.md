@@ -8,9 +8,9 @@ layout: doc
 
 # 要求或禁止在注释前有空白 (space 或 tab) (spaced-comment)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 Some style guides require or disallow a whitespace immediately after the initial `//` or `/*` of a comment.
 
@@ -45,13 +45,13 @@ The rule takes two options.
     Please note that exceptions are ignored if the first argument is `"never"`.
     * `"exceptions"` 的值是一个字符串形式的数组，这些字符串也就是该规则的例外。
     请注意，如果第一个参数是 `"never"`，例外情况会被忽略。
-    ```json
+    ```
     "spaced-comment": ["error", "always", { "exceptions": ["-", "+"] }]
     ```
-    * The `"markers"` value is an array of string patterns which are considered markers for docblock-style comments,such as an additional `/`, used to denote documentation read by doxygen, vsdoc, etc. which must have additional characters. The `"markers"` array will apply regardless of the value of the first argument, e.g. `"always"` or `"never"`.
+    * The `"markers"` value is an array of string patterns which are considered markers for docblock-style comments, such as an additional `/`, used to denote documentation read by doxygen, vsdoc, etc. which must have additional characters. The `"markers"` array will apply regardless of the value of the first argument, e.g. `"always"` or `"never"`.
     * `"markers"`的值是一个字符串形式的数组，这些字符串也就是块级注释的标记，例如一个额外的 `/`，被用来表示是由 doxygen、vsdoc 等系统读取的文档，这些系统必须有额外的字符。
     不管第一个参数是 `"always"` 还是 `"never"`、`"markers"`数组都会起作用。
-    ```json
+    ```
     "spaced-comment": ["error", "always", { "markers": ["/"] }]
     ```
 

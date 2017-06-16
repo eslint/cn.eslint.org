@@ -41,6 +41,13 @@ Please note that supporting JSX syntax is not the same as supporting React. Reac
 
 请注意，对 JSX 语法的支持不用于对 React 的支持。React 适用于特定 ESLint 无法识别的 JSX 语法。如果你正在使用 React 和 想要 React 语义，我们推荐你使用 [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)。
 
+By the same token, supporting ES6 syntax is not the same as supporting new ES6 globals (e.g., new types such as
+`Set`).
+For ES6 syntax, use `{ "parserOptions": { "ecmaVersion": 6 } }`; for new ES6 global variables, use `{ "env":
+{ "es6": true } }` (this setting enables ES6 syntax automatically).
+
+同样的，支持 ES6 语法并不意味着支持新的 ESLint 全局变量或类型（如，新类型比如 `Set`）。对于 ES6 语法，使用 `{ "parserOptions": { "ecmaVersion": 6 } }`；对于新的 ES6 全局变量，使用 `{ "env":{ "es6": true } }`(这个设置会自动启用 ES6 语法)。
+
 Parser options are set in your `.eslintrc.*` file by using the `parserOptions` property. The available options are:
 
 在 `.eslintrc.*` 文件使用 `parserOptions` 属性设置解析器选项。可用的选项有：
@@ -122,6 +129,8 @@ The following parsers are compatible with ESLint:
 * [Esprima](https://npmjs.com/package/esprima)
 * [Babel-ESLint](https://npmjs.com/package/babel-eslint) - A wrapper around the [Babel](http://babeljs.io) parser that makes it compatible with ESLint.
 * [Babel-ESLint](https://npmjs.com/package/babel-eslint) - 对[Babel](http://babeljs.io)解析器的包装使其与 ESLint 兼容。
+* [typescript-eslint-parser(Experimental)](https://npmjs.com/package/typescript-eslint-parser) - A parser that converts TypeScript into an ESTree-compatible form so it can be used in ESLint. The goal is to allow TypeScript files to be parsed by ESLint (though not necessarily pass all ESLint rules).
+* [typescript-eslint-parser(实验)](https://npmjs.com/package/typescript-eslint-parser) - 一个把 TypeScript 转换为 ESTree 兼容格式的解析器，这样就它就可以在 ESLint 中使用了。这样的目的是允许通过 ESLint （尽管不一定要通过所有的 ESLint 规则）来解析 TypeScript 文件。
 
 Note when using a custom parser, the `parserOptions` configuration property is still required for ESLint to work properly with features not in ECMAScript 5 by default. Parsers are all passed `parserOptions` and may or may not use them to determine which features to enable.
 
@@ -728,9 +737,9 @@ And in YAML:
   root: true
 ```
 
-For example, consider `projectA` which has `"root": true` set in the `.eslintrc` file in the main project directory.  In this case, while linting `main.js`, the configurations within `lib/`will be used, but the `.eslintrc` file in `projectA/` will not.
+For example, consider `projectA` which has `"root": true` set in the `.eslintrc` file in the `lib/` directory.  In this case, while linting `main.js`, the configurations within `lib/` will be used, but the `.eslintrc` file in `projectA/` will not.
 
-例如，`projectA` 的主目录下的 `.eslintrc` 文件中设置了 `"root": true`。这种情况下，当检测 `main.js` 时，`lib/` 下的配置将会被使用，`projectA/` 下的 `.eslintrc` 将不会被使用。
+例如，`projectA` 的 `lib/` 目录下的 `.eslintrc` 文件中设置了 `"root": true`。这种情况下，当检测 `main.js` 时，`lib/` 下的配置将会被使用，`projectA/` 下的 `.eslintrc` 将不会被使用。
 
 ```text
 home
@@ -805,7 +814,7 @@ The `rules` property can do any of the following to extend (or override) the set
 * 改变继承的规则级别而不改变它的选项：
     * Base config: `"eqeqeq": ["error", "allow-null"]`
     * 基础配置：`"eqeqeq": ["error", "allow-null"]`
-    * Derived config: `"eqeqeq": ["error", "allow-null"]`
+    * Derived config: `"eqeqeq": "warn"`
     * 派生的配置：`"eqeqeq": "warn"`
     * Resulting actual config: `"eqeqeq": ["warn", "allow-null"]`
     * 最后生成的配置：`"eqeqeq": ["warn", "allow-null"]`

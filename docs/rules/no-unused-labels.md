@@ -8,6 +8,14 @@ layout: doc
 
 # 禁用未使用过的标签 (no-unused-labels)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+
 Labels that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring.
 
 只声明却没有使用的标签可能是由于不完全的重构造成的错误。

@@ -8,6 +8,10 @@ layout: doc
 
 # 禁止在正则表达式中出现空字符集 (no-empty-character-class)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 Because empty character classes in regular expressions do not match anything, they might be typing mistakes.
 
 在正则表达式中空字符集不能匹配任何字符，它们可能是打字错误。

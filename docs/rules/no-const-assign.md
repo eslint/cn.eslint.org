@@ -8,6 +8,10 @@ layout: doc
 
 # 不允许改变用`const`声明的变量 (no-const-assign)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 We cannot modify variables that are declared using `const` keyword.
 It will raise a runtime error.
 

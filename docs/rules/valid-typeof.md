@@ -8,6 +8,10 @@ layout: doc
 
 # 强制 `typeof` 表达式与有效的字符串进行比较 (valid-typeof)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 For a vast majority of use cases, the result of the `typeof` operator is one of the following string literals: `"undefined"`, `"object"`, `"boolean"`, `"number"`, `"string"`, `"function"` and `"symbol"`. It is usually a typing mistake to compare the result of a `typeof` operator to other string literals.
 
 对于绝大多数用例而言，`typeof` 操作符的结果是以下字符串字面量中的一个：`"undefined"`、`"object"`、`"boolean"`、`"number"`、`"string"`、`"function"` 和 `"symbol"`。把 `typeof` 操作符的结果与其它字符串进行比较，通常是个书写错误。

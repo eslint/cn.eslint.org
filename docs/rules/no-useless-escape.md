@@ -8,6 +8,10 @@ layout: doc
 
 # 禁用不必要的转义 (no-useless-escape)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 Escaping non-special characters in strings, template literals, and regular expressions doesn't have any effect, as demonstrated in the following example:
 
 对字符串、模板字面量和正则表达式中的常规字符进行转义，不会对结果产生任何影响，例如：
