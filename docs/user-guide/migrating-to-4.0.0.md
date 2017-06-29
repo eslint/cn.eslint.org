@@ -1,3 +1,4 @@
+> * 原文地址：[ESLint Migrating to v4.0.0](http://eslint.org/docs/user-guide/migrating-to-4.0.0)
 ---
 title: Migrating to v4.0.0
 layout: doc
