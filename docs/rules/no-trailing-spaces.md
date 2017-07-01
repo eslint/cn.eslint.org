@@ -56,6 +56,10 @@ This rule has an object option:
 * `"skipBlankLines": false` (默认) 禁止在空行使用空白符
 * `"skipBlankLines": true` allows trailing whitespace on empty lines
 * `"skipBlankLines": true` 允许在空行使用空白符
+* `"ignoreComments": false` (default) disallows trailing whitespace in comment blocks
+* `"ignoreComments": false` (默认) 禁止在注释块中使用空白符
+* `"ignoreComments": true` allows trailing whitespace in comment blocks
+* `"ignoreComments": true` 允许在注释块中使用空白符
 
 ### skipBlankLines
 
@@ -69,6 +73,24 @@ Examples of **correct** code for this rule with the `{ "skipBlankLines": true }`
 var foo = 0;
 var baz = 5;
 //•••••
+```
+
+### ignoreComments
+
+Examples of **correct** code for this rule with the `{ "ignoreComments": true }` option:
+
+选项 `{ "ignoreComments": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint no-trailing-spaces: ["error", { "ignoreComments": true }]*/
+
+//foo•
+//•••••
+/**
+ *•baz
+ *••
+ *•bar
+ */
 ```
 
 ## Version

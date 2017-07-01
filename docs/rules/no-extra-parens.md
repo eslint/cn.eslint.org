@@ -50,6 +50,8 @@ This rule has an object option for exceptions to the `"all"` option:
 * `"nestedBinaryExpressions": false` 允许在嵌套的二元表达式中出现额外的圆括号
 * `"ignoreJSX": "none|all|multi-line|single-line"` allows extra parentheses around no/all/multi-line/single-line JSX components. Defaults to `none`.
 * `"ignoreJSX": "none|all|multi-line|single-line"` 允许在 no/所有/多行/单行的JSX 组件周围出现额外的圆括号。 默认为 `none`。
+* `"enforceForArrowConditionals": false` allows extra parentheses around ternary expressions which are the body of an arrow function
+* `"enforceForArrowConditionals": false` 允许在箭头函数体中的三元表达式周围出现额外的圆括号
 
 ### all
 
@@ -211,6 +213,19 @@ Examples of **correct** code for this rule with the `all` and `{ "ignoreJSX": "s
 /* eslint no-extra-parens: ["error", "all", { ignoreJSX: "single-line" }] */
 const Component = (<div />)
 const Component = (<div><p /></div>)
+```
+
+### enforceForArrowConditionals
+
+Examples of **correct** code for this rule with the `"all"` and `{ "enforceForArrowConditionals": false }` options:
+
+选项 `"all"` and `{ "enforceForArrowConditionals": false }` 的 **正确** 代码示例：
+
+```js
+/* eslint no-extra-parens: ["error", "all", { "enforceForArrowConditionals": false }] */
+
+const b = a => 1 ? 2 : 3;
+const d = c => (1 ? 2 : 3);
 ```
 
 ### functions

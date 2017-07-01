@@ -199,6 +199,45 @@ console.log(code.text);     // "var foo = bar;"
 In this way, you can retrieve the text and AST used for the last run of `linter.verify()`.
 
 通过这种方式，你可以获取用作 `linter.verify()` 最终返回值的文本和 AST。
+### verifyAndFix()
+
+This method is similar to `verify()` except that it also runs autofixing logic, similar to the `--fix` flag on the command line. The result object will contain the autofixed code, along with any remaining linting messages for the code that were not autofixed.
+
+该方法类似于 `verify()`，它还有运行自动修复的逻辑，类似于命令行中的 `--fix` 标记。返回的结果对象将包含自动修复后的代码，和其他没有自动修复过的代码的检测消息。
+
+```js
+var Linter = require("eslint").Linter;
+var linter = new Linter();
+
+var messages = linter.verifyAndFix("var foo", {
+    rules: {
+        semi: 2
+    }
+}, { filename: "foo.js" });
+```
+
+Output object from this method:
+
+该方法输出的对象为：
+
+```js
+{
+    fixed: true,
+    text: "var foo;",
+    messages: []
+}
+```
+
+The information available is:
+
+字段的含义为：
+
+* `fixed` - True, if the code was fixed.
+* `fixed` - 如果代码已修复，则为 true。
+* `text` - Fixed code text (might be the same as input if no fixes were applied).
+* `text` - 修复的代码文本 (如果没有应用任何修复，该文本可能同输入时的一样).
+* `messages` - Collection of all messages for the given code (It has the same information as explained above under `verify` block).
+* `messages` - 给定代码的消息集合 (同上面的 `verify` 中介绍的一样).
 
 ## linter
 

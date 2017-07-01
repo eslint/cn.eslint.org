@@ -34,7 +34,7 @@ module.exports = {
 };
 ```
 
-To use the rule in ESLint, you would use the unprefixed plugin name, followed by a slash, followed by the rule name. So if this plugin were named `eslint-plugin-myplugin`, then in your configuration you'd refer to the rule by the name `myplugin/dollar-sign`. Example: `"rules": {"myplugin/dollar-sign": "error"}`.
+To use the rule in ESLint, you would use the unprefixed plugin name, followed by a slash, followed by the rule name. So if this plugin were named `eslint-plugin-myplugin`, then in your configuration you'd refer to the rule by the name `myplugin/dollar-sign`. Example: `"rules": {"myplugin/dollar-sign": 2}`.
 
 如果要在 ESLint 中使用插件中的规则，你可以使用不带前缀的插件名，后跟一个 `/`，然后是规则名。所以如果这个插件是 `eslint-plugin-myplugin`，那么在你的配置中你可以使用 `myplugin/dollar-sign` 来引用其中的规则。示例：`"rules": {"myplugin/dollar-sign": "error"}`。
 
@@ -199,28 +199,50 @@ const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 2015 } });
 
 The `RuleTester#run()` method is used to run the tests. It should be passed the following arguments:
 
+`RuleTester#run()` 方法用来运行测试用例。需要传入一下参数：
+
 * The name of the rule (string)
+* 规则名 (字符串)
 * The rule object itself (see ["working with rules"](./working-with-rules))
+* 规则对象 (查看 ["working with rules"](./working-with-rules))
 * An object containing `valid` and `invalid` properties, each of which is an array containing test cases.
+* 一个包含 `valid` 和 `invalid` 属性的对象，其值是一个包含测试用例的数组。
 
 A test case is an object with the following properties:
 
+测试用例个对象，包含以下属性：
+
 * `code` (string, required): The source code that the rule should be run on
+* `code` (string, required)：规则要验证的源码。
 * `options` (array, optional): The options passed to the rule. The rule severity should not be included in this list.
+* `options` (array, optional)：这个选项要传递给规则。不要包括规则级别。
 * `filename` (string, optional): The filename for the given case (useful for rules that make assertions about filenames)
+* `filename` (string, optional)：给定的测试用例的文件名 (只在规则对文件名进行断言时才有用)
 
 In addition to the properties above, invalid test cases can also have the following properties:
 
+除了上述的属性外，invalid 测试用例还可以有以下属性：
+
 * `errors` (number or array, required): Asserts some properties of the errors that the rule is expected to produce when run on this code. If this is a number, asserts the number of errors produced. Otherwise, this should be a list of objects, each containing information about a single reported error. The following properties can be used for an error (all are optional):
+* `errors` (number or array, required): 断言该规则在运行该处代码时产生的错误的一些属性。如果是个数组，则断言产生的错误数量。否则，应该是个对象列表，每个对象包含单个报告的错误。一个错误可以包含以下属性（都是可选的）：
     * `message` (string/regexp): The message for the error
+    * `message` (string/regexp): 产生的错误的消息
     * `type` (string): The type of the reported AST node
+    * `type` (string): 报告的 AST 节点的类型
     * `line` (number): The 1-based line number of the reported location
+    * `line` (number): 报告的位置的行号（从1开始）
     * `column` (number): The 0-based column number of the reported location
+    * `column` (number): 报告的位置的列号（从0开始）
     * `endLine` (number): The 1-based line number of the end of the reported location
+    * `endLine` (number): 报告的位置的结束行号（从1开始）
     * `endColumn` (number): The 0-based column number of the end of the reported location
+    * `endColumn` (number): 报告的位置的结束列号（从0开始）
 * `output` (string, optional): Asserts the output that will be produced when using this rule for a single pass of autofixing (e.g. with the `--fix` command line flag). If this is `null`, asserts that none of the reported problems suggest autofixes.
+* `output` (string, optional): 断言在使用该规则时产生的输出 (如，使用命令行标记 `--fix`)。如果是 `null`，断言没有建议自动修复的报告。
 
 Any additional properties of a test case will be passed directly to the linter as config options. For example, a test case can have a `parserOptions` property to configure parser behavior.
+
+测试用例的其他任何属性都将作为配置选项直接传给 linter 。例如，测试用例可以有一个 `parserOptions` 属性来配置解析器的行为。
 
 #### Customizing RuleTester
 
@@ -273,3 +295,36 @@ Add these keywords into your `package.json` file to make it easy for others to f
 ## Further Reading
 
 * [npm Developer Guide](https://docs.npmjs.com/misc/developers)
+
+### Working with Custom Parsers
+
+If you want to use your own parser and provide additional capabilities for your rules, you can specify your own custom parser. By default, the ESLint parser will use its parse method that takes in the source code as a first parameter and additional optional parameters as a second parameter to create an AST. You can specify a `parse` configuration to use your own custom parser. If a `parseForESLint` method is exposed, this method will be used to parse. Otherwise, the parser will use the `parse` method. `parseForESLint` behaves like `parse` and takes in the the source code and optional ESLint configurations. When `parseForESLint` is called, the method should return an object that contains the required property `ast` and an optional `services` property. `ast` should contain the AST. The `services` property contains the parser-dependent services. The value of the service property is available to rules as `context.parserServices`
+
+如果你想使用你自己的解析器，并为你的规则提供额外的功能，那么你可以指定你自定义的解析器了。默认情况下，ESLint 解析器使用它的源码中的解析方法作为第一个参数，其他的可选参数作为第二个参数来创建 AST。你可以指定一个 `parse` 配置来使用你的自定义解析器。如果暴露了 `parseForESLint` 方法，该方法将被用来做解析使用。否则，该解析器将使用 `parse` 方法。`parseForESLint` 类似于 `parse`，也接受源码和可选的 ESLint 配置。当调用 `parseForESLint` 时，该方法应该返回一个包含必须属性的 `ast` 和可选属性 `services` 的对象。`ast` 应该包含对应的 AST。`services` 属性应该包含解析器依赖的服务。规则对于的 service 属性的值为 `context.parserServices`。
+
+If no parseForESLint function is found, the parser will use the default parse method with the source code and the parser options. You can find a ESLint parser project [here](https://github.com/eslint/typescript-eslint-parser).
+
+如果没有发现 `parseForESLint` 方法，解析器将使用带有源码和解析选项的默认的解析方法。具体查看 [ESLint 解析器](https://github.com/eslint/typescript-eslint-parser)。
+
+    {
+
+        "parser": './path/to/awesome-custom-parser.js'
+    }
+
+```javascript
+var espree = require("espree");
+// awesome-custom-parser.js
+exports.parseForESLint = function(code, options) {
+    return {
+        ast: espree.parse(code, options),
+        services: {
+            foo: function() {
+                console.log("foo");
+            }
+        }
+    };
+};
+
+```
+
+

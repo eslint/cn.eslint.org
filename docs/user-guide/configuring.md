@@ -1007,6 +1007,73 @@ module.exports = {
 }
 ```
 
+## Configuration Based on Glob Patterns
+
+Sometimes a more fine-controlled configuration is necessary, for example if the configuration for files within the same directory has to be different. Therefore you can provide configurations under the `overrides` key that will only apply to files that match specific glob patterns, using the same format you would pass on the command line (e.g., `app/**/*.test.js`).
+
+有时，你可能需要更精细的配置，比如，如果同一个目录下的文件需要有不同的配置。因此，你可以在配置中使用  `overrides` 键，它只适用于匹配特定的 glob 模式的文件，使用你在命令行上传递的格式 (e.g., `app/**/*.test.js`)。
+
+### How it works
+
+* Glob pattern overrides can only be configured within config files (`.eslintrc.*` or `package.json`).
+* Glob 模式覆盖只能在配置文件 (`.eslintrc.*` 或 `package.json`) 中进行配置。
+* The patterns are applied against the file path relative to the directory of the config file. For example, if your config file has the path `/Users/john/workspace/any-project/.eslintrc.js` and the file you want to lint has the path `/Users/john/workspace/any-project/lib/util.js`, then the pattern provided in `.eslintrc.js` will be executed against the relative path `lib/util.js`.
+* 模式应用于相对于配置文件的目录的文件路径。 比如，如果你的配置文件的路径为 `/Users/john/workspace/any-project/.eslintrc.js` 而你要检测的路径为  `/Users/john/workspace/any-project/lib/util.js`，那么你在 `.eslintrc.js` 中提供的模式是相对于 ` lib/util.js` 来执行的.
+* Glob pattern overrides have higher precedence than the regular configuration in the same config file. Multiple overrides within the same config are applied in order. That is, the last override block in a config file always has the highest precedence.
+* 在相同的配置文件中，Glob 模式覆盖比其他常规配置具有更高的优先级。 同一个配置中的多个覆盖将按顺序被应用。也就是说，配置文件中的最后一个覆盖会有最高优先级。
+* A glob specific configuration works almost the same as any other ESLint config. Override blocks can contain any configuration options that are valid in a regular config, with the exception of `extends`, `overrides`, and `root`.
+* 一个 glob 特定的配置几乎与 ESLint 的其他配置相同。覆盖块可以包含常规配置中的除了 `extends`、`overrides` 和 `root` 之外的其他任何有效配置选项，
+* Multiple glob patterns can be provided within a single override block. A file must match at least one of the supplied patterns for the configuration to apply.
+* 可以在单个覆盖块中提供多个 glob 模式。一个文件必须匹配至少一个配置中提供的模式。
+* Override blocks can also specify patterns to exclude from matches. If a file matches any of the excluded patterns, the configuration won't apply.
+* 覆盖块也可以指定从匹配中排除的模式。如果一个文件匹配了任何一个排除模式，该配置将不再被应用。
+
+### Relative glob patterns
+
+```
+project-root
+├── app
+│   ├── lib
+│   │   ├── foo.js
+│   │   ├── fooSpec.js
+│   ├── components
+│   │   ├── bar.js
+│   │   ├── barSpec.js
+│   ├── .eslintrc.json
+├── server
+│   ├── server.js
+│   ├── serverSpec.js
+├── .eslintrc.json
+```
+
+The config in `app/.eslintrc.json` defines the glob pattern `**/*Spec.js`. This pattern is relative to the base directory of `app/.eslintrc.json`. So, this pattern would match `app/lib/fooSpec.js` and `app/components/barSpec.js` but **NOT** `server/serverSpec.js`. If you defined the same pattern in the `.eslintrc.json` file within in the `project-root` folder, it would match all three of the `*Spec` files.
+
+`app/.eslintrc.json` 文件中的配置定义了 glob 模式 `**/*Spec.js`。该模式是相对 `app/.eslintrc.json` 的基本目录的。因此，该模式将匹配 `app/lib/fooSpec.js` 和 `app/components/barSpec.js` 但 **不匹配** `server/serverSpec.js`。如果你在项目根目录下的 `.eslintrc.json` 文件中定义了同样的模式，它将匹配这三个 `*Spec` 文件。
+
+### Example configuration
+
+In your `.eslintrc.json`:
+
+在你的 `.eslintrc.json` 文件中：
+
+```json
+{
+  "rules": {
+    "quotes": [ 2, "double" ]
+  },
+
+  "overrides": [
+    {
+      "files": [ "bin/*.js", "lib/*.js" ],
+      "excludedFiles": "*.test.js",
+      "rules": {
+        "quotes": [ 2, "single" ]
+      }
+    }
+  ]
+}
+```
+
 ## Comments in Configuration Files
 
 Both the JSON and YAML configuration file formats support comments (`package.json` files should not include them). You can use JavaScript-style comments or YAML-style comments in either type of file and ESLint will safely ignore them. This allows your configuration files to be more human-friendly. For example:
@@ -1028,9 +1095,9 @@ JSON 和 YAML 配置文件格式都支持注释 ( `package.json` 文件不应该
 
 ## Specifying File extensions to Lint
 
-Currently the sole method for telling ESLint which file extensions to lint is by specifying a comma separated list of extensions using the [`--ext`](./command-line-interface#ext) command line option.
+Currently the sole method for telling ESLint which file extensions to lint is by specifying a comma separated list of extensions using the [`--ext`](./command-line-interface#ext) command line option. Note this flag only takes effect in conjunction with directories, and will be ignored if used with filenames or glob patterns.
 
-目前，告诉 ESLint 哪个文件扩展名要检测的唯一方法是使用 [`--ext`](./command-line-interface#ext) 命令行选项指定一个逗号分隔的扩展名列表。
+目前，告诉 ESLint 哪个文件扩展名要检测的唯一方法是使用 [`--ext`](./command-line-interface#ext) 命令行选项指定一个逗号分隔的扩展名列表。注意，该标记只在与目录一起使用时有效，如果使用文件名或 glob 模式，它将会被忽略。
 
 ## Ignoring Files and Directories
 
@@ -1063,9 +1130,9 @@ In addition to any patterns in a `.eslintignore` file, ESLint always ignores fil
 
 除了 `.eslintignore` 文件中的模式，ESLint总是忽略 `/node_modules/*` 和 `/bower_components/*` 中的文件。
 
-For example, placing the following `.eslintignore` file in the current working directory will ignore all of `node_modules`, `bower_components`, any files with the extensions `.ts.js` or `.coffee.js` extension that might have been transpiled, and anything in the `build/` directory except `build/index.js`:
+For example, placing the following `.eslintignore` file in the current working directory will ignore all of `node_modules`, `bower_components` and anything in the `build/` directory except `build/index.js`:
 
-例如：把下面 `.eslintignore` 文件放到当前工作目录里，将忽略 `node_modules`，`bower_components` 和所有以 `.ts.js` 或者 `.coffee.js` 为扩展名的文件以及 `build/`  目录下除了 `build/index.js` 的所有文件。
+例如：把下面 `.eslintignore` 文件放到当前工作目录里，将忽略 `node_modules`，`bower_components` 以及 `build/`  目录下除了 `build/index.js` 的所有文件。
 
 ```text
 # /node_modules/* and /bower_components/* ignored by default
@@ -1092,6 +1159,22 @@ You can also use your `.gitignore` file:
 Any file that follows the standard ignore file format can be used. Keep in mind that specifying `--ignore-path` means that any existing `.eslintignore` file will not be used. Note that globbing rules in `.eslintignore` follow those of `.gitignore`.
 
 任何文件只要满足标准忽略文件格式都可以用。记住，指定 `--ignore-path` 意味着任何现有的 `.eslintignore` 文件将不被使用。请注意，`.eslintignore` 中的匹配规则比 `.gitignore` 中的更严格。
+
+### Using eslintIgnore in package.json
+
+If an `.eslintignore` file is not found and an alternate file is not specified, eslint will look in package.json for an `eslintIgnore` key to check for files to ignore.
+
+    {
+      "name": "mypackage",
+      "version": "0.0.1",
+      "eslintConfig": {
+          "env": {
+              "browser": true,
+              "node": true
+          }
+      },
+      "eslintIgnore": ["hello.js", "world.js"]
+    }
 
 ### Ignored File Warnings
 

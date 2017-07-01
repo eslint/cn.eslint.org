@@ -8,6 +8,10 @@ ESLint comes with several built-in formatters to control the appearance of the l
 
 ESLint 由几种内置的格式化工具组成，以便控制检查结果的样式和支持第三方格式化工具。
 
+You can specify a formatter using the `--format` or `-f` flag on the command line. For example, `--format codeframe` uses the `codeframe` formatter.
+
+你可以在命令行上使用 `--format` 或 `-f` 标记来指定一个格式化器。比如，`--format codeframe` 使用 `codeframe` 格式化器。
+
 The built-in formatter options are:
 
 内置的格式化工具列举如下：

@@ -46,10 +46,10 @@ String option:
 
 字符串选项：
 
-* `"always"` (default) requires empty lines at the beginning and ending of block statements (except `switch` statements and classes)
-* `"always"` (默认) 要求块语句开始或末尾有空行 (除了 `switch` 语句和类)
-* `"never"` disallows empty lines at the beginning and ending of block statements (except `switch` statements and classes)
-* `"never"` 禁止块语句开始或末尾有空行 (除了 `switch` 语句和类)
+* `"always"` (default) requires empty lines at the beginning and ending of block statements and classes
+* `"always"` (默认) 要求块语句和类的开始或末尾有空行
+* `"never"` disallows empty lines at the beginning and ending of block statements and classes
+* `"never"` 禁止块语句和类的开始或末尾有空行
 
 Object option:
 

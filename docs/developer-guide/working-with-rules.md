@@ -98,10 +98,10 @@ The source file for a rule exports an object with the following properties.
 
 `create` (function) 返回一个对象，其中包含了 ESLint 在遍历 JavaScript 代码的抽象语法树 AST ([ESTree](https://github.com/estree/estree) 定义的 AST) 时，用来访问节点的方法。
 
-* if a key is a node type, ESLint calls that **visitor** function while going **down** the tree
-* 如果一个 key 是个节点类型，在 **向下** 遍历树时，ESLint 调用 **visitor** 函数
-* if a key is a node type plus `:exit`, ESLint calls that **visitor** function while going **up** the tree
-* 如果一个 key 是个节点类型，并带有 `:exit`，在 **向上** 遍历树时，ESLint 调用 **visitor** 函数
+* if a key is a node type or a [selector](./selectors), ESLint calls that **visitor** function while going **down** the tree
+* 如果一个 key 是个节点类型或 [selector](./selectors)，在 **向下** 遍历树时，ESLint 调用 **visitor** 函数
+* if a key is a node type or a [selector](./selectors) plus `:exit`, ESLint calls that **visitor** function while going **up** the tree
+* 如果一个 key 是个节点类型或 [selector](./selectors)，并带有 `:exit`，在 **向上** 遍历树时，ESLint 调用 **visitor** 函数
 * if a key is an event name, ESLint calls that **handler** function for [code path analysis](./code-path-analysis)
 * 如果一个 key 是个事件名字，ESLint 为[代码路径分析](./code-path-analysis)调用 **handler** 函数
 
@@ -268,9 +268,9 @@ context.report({
 });
 ```
 
-Here, the `fix()` function is used to insert a semicolon after the node. Note that the fix is not immediately applied and may not be applied at all if there are conflicts with other fixes. If the fix cannot be applied, then the problem message is reported as usual; if the fix can be applied, then the problem message is not reported.
+Here, the `fix()` function is used to insert a semicolon after the node. Note that a fix is not immediately applied, and may not be applied at all if there are conflicts with other fixes. After applying fixes, ESLint will run all of the enabled rules again on the fixed code, potentially applying more fixes. This process will repeat up to 10 times, or until no more fixable problems are found. Afterwards, any remaining problems will be reported as usual.
 
-在这里，`fix()` 函数被用来在该节点之后插入一个分号。注意，此函数并不立即进行修复，如果与其它修复程序有冲突，可能根本就不进行修复。如果不进行修复，则像往常一下报告问题消息；如果进行修复，则不会报告问题消息。
+在这里，`fix()` 函数被用来在该节点之后插入一个分号。注意，此函数并不立即进行修复，如果与其它修复程序有冲突，可能根本就不进行修复。在应用修复之后，ESLint 将在所有启用的规则再次运行修复的代码，以应用更多的修复。这个过程将最多重复10次，直到找到更多的可修复的问题。之后，其他问题将照常进行报告。
 
 **Important:** Unless the rule [exports](#rule-basics) the `meta.fixable` property, ESLint does not apply fixes even if the rule implements `fix` functions.
 
@@ -297,16 +297,53 @@ The `fixer` object has the following methods:
 * `replaceTextRange(range, text)` - replaces the text in the given range
 * `replaceTextRange(range, text)` - 替换给定范围内的文本
 
+The above methods return a `fixing` object.
+
+以上方法返回一个 `fixing` 对象。
+
+The `fix()` function can return the following values:
+
+`fix()` 函数可以返回下面的值：
+
+* A `fixing` object.
+* 一个 `fixing` 对象。
+* An array which includes `fixing` objects.
+* 一个包含 `fixing` 对象的数组。
+* An iterable object which enumerates `fixing` objects. Especially, the `fix()` function can be a generator.
+* 一个可迭代的对象，用来枚举 `fixing` 对象。特别是，`fix()` 可以是一个生成器。
+
+If you make a `fix()` function which returns multiple `fixing` objects, those `fixing` objects must not be overlapped.
+
+如果你让一个 `fix()` 函数返回多个 `fixing` 对象，那么这些 `fixing` 对象不能重叠。 
+
 Best practices for fixes:
 
 修复的最佳实践：
 
-1. Make fixes that are as small as possible. Anything more than a single character is risky and could prevent other, simpler fixes from being made.
-1. 做尽可能小的修复。多一个字符就会多一份风险，可能会妨碍其它更简单的修复。
+1. Avoid any fixes that could change the runtime behavior of code and cause it to stop working.
+1. 避免任何可能改变代码运行时行为和导致其停止工作的修复。
+1. Make fixes as small as possible. Fixes that are unnecessarily large could conflict with other fixes, and prevent them from being applied.
+1. 做尽可能小的修复。那些不必要的修复可能会与其他修复发生冲突，应该避免。
 1. Only make one fix per message. This is enforced because you must return the result of the fixer operation from `fix()`.
 1. 使每条消息只有一个修复。这是强制的，因为你必须从 `fix()` 返回修复操作的结果。
-1. Fixes should not introduce clashes with other rules. You can accidentally introduce a new problem that won't be reported until ESLint is run again. Another good reason to make as small a fix as possible.
-1. 修复不应引入与其它规则的冲突。你可能不经意间引入了一个新的问题，直到 ESLint 重新运行，它都不会被发现。另一个好的理由是让修复程序尽可能的小。
+1. Since all rules are run again after the initial round of fixes is applied, it's not necessary for a rule to check whether the code style of a fix will cause errors to be reported by another rule.
+1. 由于所有的规则只第一轮修复之后重新运行，所以规则就没必要去检查一个修复的代码风格是否会导致另一个规则报告错误。
+    * For example, suppose a fixer would like to surround an object key with quotes, but it's not sure whether the user would prefer single or double quotes.
+    * 比如，假如修复一个对象的键周周围的引号，但不确定用户是喜欢单引号还是双引号。
+
+        ```js
+        ({ foo : 1 })
+
+        // should get fixed to either
+
+        ({ 'foo': 1 })
+
+        // or
+
+        ({ "foo": 1 })
+        ```
+    * This fixer can just select a quote type arbitrarily. If it guesses wrong, the resulting code will be automatically reported and fixed by the [`quotes`](/docs/rules/quotes) rule.
+    * 修复程序将可以随意选择一种引号类型。如果猜错了，[`quotes`](/docs/rules/quotes) 规则将会自动报告和修复。
 
 ### context.options
 
@@ -362,40 +399,83 @@ Once you have an instance of `SourceCode`, you can use the methods on it to work
 
 一旦你获取了 `SourceCode` 的一个实例，你可以在代码中使用它的方法：
 
+* `getText(node)` - returns the source code for the given node. Omit `node` to get the whole source.
+* `getText(node)` - 返回给定节点的源码。省略 `node`，返回整个源码。
 * `getAllComments()` - returns an array of all comments in the source.
 * `getAllComments()` - 返回一个包含源中所有注释的数组。
-* `getComments(node)` - returns the leading and trailing comments arrays for the given node.
-* `getComments(node)` - 返回给定节点的前导注释和末尾注释的数组。
-* `getFirstToken(node)` - returns the first token representing the given node.
-* `getFirstToken(node)` - 返回代表给定节点的第一个记号。
-* `getFirstTokens(node, count)` - returns the first `count` tokens representing the given node.
-* `getFirstTokens(node, count)` - 返回代表给定节点的第一个 `count` 记号。
+* `getCommentsBefore(nodeOrToken)` - returns an array of comment tokens that occur directly before the given node or token.
+* `getCommentsBefore(nodeOrToken)` - 返回一个在给定的节点或 token 之前的注释的数组。
+* `getCommentsAfter(nodeOrToken)` - returns an array of comment tokens that occur directly after the given node or token.
+* `getCommentsAfter(nodeOrToken)` - 返回一个在给定的节点或 token 之后的注释的数组。
+* `getCommentsInside(node)` - returns an array of all comment tokens inside a given node.
+* `getCommentsInside(node)` - 返回一个在给定的节点内的注释的数组。
 * `getJSDocComment(node)` - returns the JSDoc comment for a given node or `null` if there is none.
 * `getJSDocComment(node)` - 返回给定节点的 JSDoc 注释，如果没有则返回 null。
-* `getLastToken(node)` - returns the last token representing the given node.
-* `getLastToken(node)` - 返回代表给定节点最后一个记号。
-* `getLastTokens(node, count)` - returns the last `count` tokens representing the given node.
-* `getLastTokens(node, count)` - 返回代表给定节点的最后一个 `count` 记号。
-* `getNodeByRangeIndex(index)` - returns the deepest node in the AST containing the given source index.
-* `getNodeByRangeIndex(index)` - 返回 AST 中最深的节点，包括给定的源的索引。
 * `isSpaceBetweenTokens(first, second)` - returns true if there is a whitespace character between the two tokens.
 * `isSpaceBetweenTokens(first, second)` - 如果两个记号之间有空白，返回 true
-* `getText(node)` - returns the source code for the given node. Omit `node` to get the whole source.
-* `getText(node)` - 返回给定节点的源码。 省略 node，返回所有源码。
-* `getTokenAfter(nodeOrToken)` - returns the first token after the given node or token.
-* `getTokenAfter(nodeOrToken)` - 返回给定的节点或记号之后的第一个记号。
-* `getTokenBefore(nodeOrToken)` - returns the first token before the given node or token.
-* `getTokenBefore(nodeOrToken)` - 返回给定的节点或记号之前的第一个记号。
-* `getTokenByRangeStart(index)` - returns the token whose range starts at the given index in the source.
-* `getTokenByRangeStart(index)` - 返回源中范围从给定的索引开始的记号。
+* `getFirstToken(node, skipOptions)` - returns the first token representing the given node.
+* `getFirstToken(node, skipOptions)` - 返回代表给定节点的第一个token。
+* `getFirstTokens(node, countOptions)` - returns the first `count` tokens representing the given node.
+* `getFirstTokens(node, countOptions)` - 返回代表给定节点的第一个 `count` 数量的 token。
+* `getLastToken(node, skipOptions)` - returns the last token representing the given node.
+* `getLastToken(node, skipOptions)` - 返回代表给定节点最后一个token。
+* `getLastTokens(node, countOptions)` - returns the last `count` tokens representing the given node.
+* `getLastTokens(node, countOptions)` - 返回代表给定节点的最后一个 `count` 数量的 token。
+* `getTokenAfter(nodeOrToken, skipOptions)` - returns the first token after the given node or token.
+* `getTokenAfter(nodeOrToken, skipOptions)` - 返回给定的节点或记号之后的第一个token。
+* `getTokensAfter(nodeOrToken, countOptions)` - returns `count` tokens after the given node or token.
+* `getTokensAfter(nodeOrToken, countOptions)` - 返回给定节点或记号之后的 `count` 数量的 token。
+* `getTokenBefore(nodeOrToken, skipOptions)` - returns the first token before the given node or token.
+* `getTokenBefore(nodeOrToken, skipOptions)` - 返回给定的节点或记号之前的第一个 token。
+* `getTokensBefore(nodeOrToken, countOptions)` - returns `count` tokens before the given node or token.
+* `getTokensBefore(nodeOrToken, countOptions)` - 返回给定节点或记号之前的 `count` 数量的 token。
+* `getFirstTokenBetween(nodeOrToken1, nodeOrToken2, skipOptions)` - returns the first token between two nodes or tokens.
+* `getFirstTokenBetween(nodeOrToken1, nodeOrToken2, skipOptions)` - 返回两个节点或 token 之间的第一个 token。
+* `getFirstTokensBetween(nodeOrToken1, nodeOrToken2, countOptions)` - returns the first `count` tokens between two nodes or tokens.
+* `getFirstTokensBetween(nodeOrToken1, nodeOrToken2, countOptions)` - 返回两个节点或 token 之间的第一个 `count` 数量的 token。
+* `getLastTokenBetween(nodeOrToken1, nodeOrToken2, skipOptions)` - returns the last token between two nodes or tokens.
+* `getLastTokenBetween(nodeOrToken1, nodeOrToken2, skipOptions)` - 返回两个节点或 token 之间的最后一个 token。
+* `getLastTokensBetween(nodeOrToken1, nodeOrToken2, countOptions)` - returns the last `count` tokens between two nodes or tokens.
+* `getLastTokensBetween(nodeOrToken1, nodeOrToken2, countOptions)` - 返回两个节点或 token 之间的最后一个 `count` 数量的 token。
 * `getTokens(node)` - returns all tokens for the given node.
-* `getTokens(node)` - 返回给定节点的所有记号。
-* `getTokensAfter(nodeOrToken, count)` - returns `count` tokens after the given node or token.
-* `getTokensAfter(nodeOrToken, count)` - 返回给定节点或记号之后的 `count` 记号。
-* `getTokensBefore(nodeOrToken, count)` - returns `count` tokens before the given node or token.
-* `getTokensBefore(nodeOrToken, count)` - 返回给定节点或记号之前的 `count` 记号。
-* `getTokensBetween(node1, node2)` - returns the tokens between two nodes.
-* `getTokensBetween(node1, node2)` - 返回两个节点间记号。
+* `getTokens(node)` - 返回给定节点的所有 token。
+* `getTokensBetween(nodeOrToken1, nodeOrToken2)` - returns all tokens between two nodes.
+* `getTokensBetween(nodeOrToken1, nodeOrToken2)` - 返回两个节点间 token。
+* `getTokenByRangeStart(index, rangeOptions)` - returns the token whose range starts at the given index in the source.
+* `getTokenByRangeStart(index, rangeOptions)` - 返回源中范围从给定的索引开始的token。
+* `getNodeByRangeIndex(index)` - returns the deepest node in the AST containing the given source index.
+* `getNodeByRangeIndex(index)` - 返回 AST 中包含给定的源的索引的最深节点。
+* `getLocFromIndex(index)` - returns an object with `line` and `column` properties, corresponding to the location of the given source index. `line` is 1-based and `column` is 0-based.
+* `getLocFromIndex(index)` - 返回一个包含 `line` 和 `column` 属性的对象，对应给定的源的索引的位置。`line` 从 1 开始，`column` 从 0 开始。
+* `getIndexFromLoc(loc)` - returns the index of a given location in the source code, where `loc` is an object with a 1-based `line` key and a 0-based `column` key.
+* `getIndexFromLoc(loc)` - 返回一个源码中的给定的位置的索引，`loc` 是个对象，包含一个从 1 开始的 `line` 键和一个从 0 开始的 `column` 键。
+* `commentsExistBetween(nodeOrToken1, nodeOrToken2)` - returns `true` if comments exist between two nodes.
+* `commentsExistBetween(nodeOrToken1, nodeOrToken2)` - 如果两个节点间存在注释，返回 `true`。
+
+describe for parameters above:
+
+参数描述：
+
+* `skipOptions` is an object which has 3 properties; `skip`, `includeComments`, and `filter`. Default is `{skip: 0, includeComments: false, filter: null}`.
+* `skipOptions` 是个对象，包含三个属性；`skip`、`includeComments` 和 `filter`。默认是 `{skip: 0, includeComments: false, filter: null}`。
+    * `skip` is a positive integer, the number of skipping tokens. If `filter` option is given at the same time, it doesn't count filtered tokens as skipped.
+    * `skip` 是个正整数，表示要跳过的 token 的数量。如果同时给出了 `filter` 选项，过滤掉的 token 不计入此值。
+    * `includeComments` is a boolean value, the flag to include comment tokens into the result.
+    * `includeComments` 是个布尔值，标记是否把注释 token 包含进返回结果中。
+    * `filter` is a function which gets a token as the first argument, if the function returns `false` then the result excludes the token.
+    * `filter` 是个函数，用一个 token 作为第一个参数，如果该函数返回 `false`，那么返回的结果将不包含那个 token。
+* `countOptions` is an object which has 3 properties; `count`, `includeComments`, and `filter`. Default is `{count: 0, includeComments: false, filter: null}`.
+* `countOptions` 是个对象包含三个属性；`count`、`includeComments` 和 `filter`。默认为 `{count: 0, includeComments: false, filter: null}`。
+    * `count` is a positive integer, the maximum number of returning tokens.
+    * `count` 是个正整数，返回的 token 的最大数量。
+    * `includeComments` is a boolean value, the flag to include comment tokens into the result.
+    * `includeComments` 是个布尔值，标记是否把注释 token 包含进返回结果中。
+    * `filter` is a function which gets a token as the first argument, if the function returns `false` then the result excludes the token.
+    * `filter` 是个函数，用一个 token 作为第一个参数，如果该函数返回 `false`，那么返回的结果将不包含那个 token。
+* `rangeOptions` is an object which has 1 property: `includeComments`.
+* `rangeOptions` 是个对象，包含一个属性: `includeComments`。
+    * `includeComments` is a boolean value, the flag to include comment tokens into the result.
+    * `includeComments` 是个布尔值，标记是否把注释 token 包含进返回结果中。
 
 There are also some properties you can access:
 
@@ -413,6 +493,19 @@ There are also some properties you can access:
 You should use a `SourceCode` object whenever you need to get more information about the code being linted.
 
 你应该使用 `SourceCode` 对象，无论在何时你需要获取有关被检查的代码的更多信息。
+
+#### Deprecated
+
+Please note that the following methods have been deprecated and will be removed in a future version of ESLint:
+
+请注意，以下方法已被弃用，将在 ESLint 未来某个版本中移除：
+
+* `getComments()` - replaced by `getCommentsBefore()`, `getCommentsAfter()`, and `getCommentsInside()`
+* `getComments()` - 被 `getCommentsBefore()`、`getCommentsAfter()` 和 `getCommentsInside()` 代替。
+* `getTokenOrCommentBefore()` - replaced by `getTokenBefore()` with the `{ includeComments: true }` option
+* `getTokenOrCommentBefore()` - 被 `getTokenBefore()` 使用 `{ includeComments: true }` 选项代替option
+* `getTokenOrCommentAfter()` - replaced by `getTokenAfter()` with the `{ includeComments: true }` option
+* `getTokenOrCommentAfter()` - 被 `getTokenAfter()` 使用 `{ includeComments: true }` 选项代替
 
 ### Options Schemas
 
@@ -483,25 +576,39 @@ In this way, you can look for patterns in the JavaScript text itself when the AS
 
 通过这种方式，当 AST 没有提供合适的数据（比如逗号、分号、括号的位置等），你可以寻找 JavaScript 文本中的模式本身。
 
-### Accessing comments
+### Accessing Comments
 
-If you need to access comments for a specific node you can use `sourceCode.getComments(node)`:
+While comments are not technically part of the AST, ESLint provides a few ways for rules to access them:
 
-如果你需要访问特定的节点的注释，你可以使用`sourceCode.getComments(node)`：
+虽然从技术上说，评论并不是 AST 的一部分，但 ESLint 提供了一些方法来访问它们：
 
-```js
-// the "comments" variable has a "leading" and "trailing" property containing
-// its leading and trailing comments, respectively
-var comments = sourceCode.getComments(node);
-```
+#### sourceCode.getAllComments()
 
-Keep in mind that comments are technically not a part of the AST and are only attached to it on demand, i.e. when you call `getComments()`.
+This method returns an array of all the comments found in the program. This is useful for rules that need to check all comments regardless of location.
 
-记住，从技术上而言，注释并不是 AST 的一部分，它们只是在需要的时候，也就是当你调用 `getComments()` 时，附加到 AST。
+这个方法返回一个在程序中找到的所有的注释的数组。这对于要检查所有注释的规则是有用的，无论这些注释在什么位置。
 
-**Note:** One of the libraries adds AST node properties for comments - do not use these properties. Always use `sourceCode.getComments()` as this is the only guaranteed API for accessing comments (we will likely change how comments are handled later).
+#### sourceCode.getCommentsBefore(), sourceCode.getCommentsAfter(), and sourceCode.getCommentsInside()
 
-**注意：**一个类库为注释添加了 AST 节点属性 - 不要使用这些属性。总是使用 `sourceCode.getComments()` 作为访问注释的唯一有保证的 API (稍后我们可能会改变注释的处理方式)。
+These methods return an array of comments that appear directly before, directly after, and inside nodes, respectively. They are useful for rules that need to check comments in relation to a given node or token.
+
+这些方法分别返回一个在节点之前，节点之后，节点内的注释的数组。这对于要检查给定的节点或 token 的注释的规则是有用的。
+
+Keep in mind that the results of this method are calculated on demand.
+
+请记住，这些结果是按需计算的。
+
+#### Token traversal methods
+
+Finally, comments can be accessed through many of `sourceCode`'s methods using the `includeComments` option.
+
+最后，注释可以通过很多 `sourceCode` 的方法使用 `includeComments` 选项来访问。
+
+### Accessing Shebangs
+
+Shebangs are represented by tokens of type `"Shebang"`. They are treated as comments and can be accessed by the methods outlined above.
+
+Shebang(#!) 使用 `"Shebang"` 类型的 token 来表示。它们可以被当做注释，也可以用上述方法来访问。
 
 ### Accessing Code Paths
 
