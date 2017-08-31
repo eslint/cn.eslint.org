@@ -59,9 +59,9 @@ This rule has a string option or an object option:
 ```
 
 * `always` (default) requires a space followed by the `(` of arguments.
-* `always` (默认) 要求在参数的 `(` 后面有一个空格。
+* `always` (默认) 要求在参数的 `(` 前面有一个空格。
 * `never` disallows any space followed by the `(` of arguments.
-* `never` 禁止在参数的 `(` 后面有空格。
+* `never` 禁止在参数的 `(` 前面有空格。
 
 The string option does not check async arrow function expressions for backward compatibility.
 
