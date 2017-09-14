@@ -8,23 +8,23 @@ layout: doc
 
 ESLint is designed to be completely configurable, meaning you can turn off every rule and run only with basic syntax validation, or mix and match the bundled rules and your custom rules to make ESLint perfect for your project. There are two primary ways to configure ESLint:
 
-ESlint 被设计为是完全可配置的，这意味着你可以关闭每一个规则，只运行基本语法验证，或混合和匹配绑定的规则和自定义规则，以让 ESLint 更适合于你的项目。有两种主要的方式来配置 ESLint：
+ESlint 被设计为完全可配置的，这意味着你可以关闭每一个规则而只运行基本语法验证，或混合和匹配 ESLint 默认绑定的规则和你的自定义规则，以让 ESLint 更适合你的项目。有两种主要的方式来配置 ESLint：
 
 1. **Configuration Comments** - use JavaScript comments to embed configuration information directly into a file.
-1. **Configuration Comments** - 使用 JavaScript 注释把配置信息直接嵌入到一个文件。
+1. **Configuration Comments** - 使用 JavaScript 注释把配置信息直接嵌入到一个代码源文件中。
 1. **Configuration Files** - use a JavaScript, JSON or YAML file to specify configuration information for an entire directory and all of its subdirectories. This can be in the form of an [.eslintrc.*](#configuration-file-formats) file or an `eslintConfig` field in a [`package.json`](https://docs.npmjs.com/files/package.json) file, both of which ESLint will look for and read automatically, or you can specify a configuration file on the [command line](command-line-interface).
-1. **Configuration Files** - 使用 JavaScript、JSON 或者 YAML 文件为整个目录和它的子目录指定配置信息。可以用 [.eslintrc.*](#configuration-file-formats) 文件或者在 [`package.json`](https://docs.npmjs.com/files/package.json) 文件里的 `eslintConfig` 字段这两种方式进行配置，ESLint 会查找和自动读取它们，再者，你可以在[命令行](command-line-interface)指定一个配置文件。
+1. **Configuration Files** - 使用 JavaScript、JSON 或者 YAML 文件为整个目录和它的子目录指定配置信息。可以配置一个独立的 [.eslintrc.*](#configuration-file-formats) 文件，或者直接在 [`package.json`](https://docs.npmjs.com/files/package.json) 文件里的 `eslintConfig` 字段指定配置，ESLint 会查找和自动读取它们，再者，你可以在[命令行](command-line-interface)运行时指定一个任意的配置文件。
 
 There are several pieces of information that can be configured:
 
 有很多信息可以配置：
 
 * **Environments** - which environments your script is designed to run in. Each environment brings with it a certain set of predefined global variables.
-* **Environments** - 指定脚本的运行环境。每种环境都有一组特定的预定义全局变量。
+* **Environments** - 指定脚本的运行环境。每种环境都会有一组特定的预定义全局变量。
 * **Globals** - the additional global variables your script accesses during execution.
-* **Globals** - 脚本在执行期间访问的额外的全局变量
+* **Globals** - 脚本在执行期间访问的额外的全局变量。
 * **Rules** - which rules are enabled and at what error level.
-* **Rules** - 启用的规则及各自的错误级别
+* **Rules** - 启用的规则及其各自的错误级别。
 
 
 All of these options give you fine-grained control over how ESLint treats your code.
@@ -35,22 +35,22 @@ All of these options give you fine-grained control over how ESLint treats your c
 
 ESLint allows you to specify the JavaScript language options you want to support. By default, ESLint expects ECMAScript 5 syntax. You can override that setting to enable support for other ECMAScript versions as well as JSX by using parser options.
 
-ESLint 允许你指定你想要支持的 JavaScript 语言选项。默认情况下，ESLint 支持 ECMAScript 5 语法。你可以覆盖该设置启用对 ECMAScript 其它版本和 JSX 的支持。
+ESLint 允许你指定你想要支持的 JavaScript 语言选项。默认情况下，ESLint 支持 ECMAScript 5 语法。你可以覆盖该设置，以启用对 ECMAScript 其它版本和 JSX 的支持。
 
 Please note that supporting JSX syntax is not the same as supporting React. React applies specific semantics to JSX syntax that ESLint doesn't recognize. We recommend using [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react) if you are using React and want React semantics.
 
-请注意，对 JSX 语法的支持不用于对 React 的支持。React 适用于特定 ESLint 无法识别的 JSX 语法。如果你正在使用 React 和 想要 React 语义，我们推荐你使用 [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)。
+请注意，对 JSX 语法的支持不用于对 React 的支持。React 使用了一些特定的 ESLint 无法识别的 JSX 语法。如果你正在使用 React 并且想要 React 语义支持，我们推荐你使用 [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)。
 
 By the same token, supporting ES6 syntax is not the same as supporting new ES6 globals (e.g., new types such as
 `Set`).
 For ES6 syntax, use `{ "parserOptions": { "ecmaVersion": 6 } }`; for new ES6 global variables, use `{ "env":
 { "es6": true } }` (this setting enables ES6 syntax automatically).
 
-同样的，支持 ES6 语法并不意味着支持新的 ESLint 全局变量或类型（如，新类型比如 `Set`）。对于 ES6 语法，使用 `{ "parserOptions": { "ecmaVersion": 6 } }`；对于新的 ES6 全局变量，使用 `{ "env":{ "es6": true } }`(这个设置会自动启用 ES6 语法)。
+同样的，支持 ES6 语法并不意味着同时支持新的 ES6 全局变量或类型（比如 `Set` 等新类型）。使用 `{ "parserOptions": { "ecmaVersion": 6 } }` 来启用 ES6 语法支持；要额外支持新的 ES6 全局变量，使用 `{ "env":{ "es6": true } }`(这个设置会同时自动启用 ES6 语法支持)。
 
 Parser options are set in your `.eslintrc.*` file by using the `parserOptions` property. The available options are:
 
-在 `.eslintrc.*` 文件使用 `parserOptions` 属性设置解析器选项。可用的选项有：
+解析器选项可以在 `.eslintrc.*` 文件使用 `parserOptions` 属性设置。可用的选项有：
 
 * `ecmaVersion` - set to 3, 5 (default), 6, 7, or 8 to specify the version of ECMAScript syntax you want to use. You can also set to 2015 (same as 6), 2016 (same as 7), or 2017 (same as 8) to use the year-based naming.
 * `ecmaVersion` - 设置为 3， 5 (默认)， 6、7 或 8 指定你想要使用的 ECMAScript 版本。你也可以指定为 2015（同 6），2016（同 7），或 2017（同 8）使用年份命名
