@@ -655,7 +655,7 @@ ESLint 支持几种格式的配置文件：
 * **JSON** - use `.eslintrc.json` to define the configuration structure. ESLint's JSON files also allow JavaScript-style comments.
 * **JSON** - 使用 `.eslintrc.json` 去定义配置的结构，ESLint 的 JSON 文件允许 JavaScript 风格的注释。
 * **Deprecated** - use `.eslintrc`, which can be either JSON or YAML.
-* **Deprecated** - 使用 `.eslintrc`，可以使 JSON 也可以是 YAML。
+* **(不推荐)** - 使用 `.eslintrc`，可以使 JSON 也可以是 YAML。
 * **package.json** - create an `eslintConfig` property in your `package.json` file and define your configuration there.
 * **package.json** - 在 `package.json` 里创建一个 `eslintConfig`属性，在那里定义你的配置。
 
@@ -680,7 +680,7 @@ If there are multiple configuration files in the same directory, ESLint will onl
 
 When using `.eslintrc.*` and `package.json` files for configuration, you can take advantage of configuration cascading. For instance, suppose you have the following structure:
 
-当使用 `.eslintrc.*` 和 `package.json`文件的配置时，你可以利用配置级联。例如，假如你有以下结构：
+当使用 `.eslintrc.*` 和 `package.json`文件的配置时，你可以利用层叠配置。例如，假如你有以下结构：
 
 ```text
 your-project
@@ -716,7 +716,7 @@ If there is an `.eslintrc` and a `package.json` file found in the same directory
 
 **Note:** If you have a personal configuration file in your home directory (`~/.eslintrc`), it will only be used if no other configuration files are found. Since a personal configuration would apply to everything inside of a user's directory, including third-party code, this could cause problems when running ESLint.
 
-**注意：**如果在你的主目录下有一个自定义的配置文件 (`~/.eslintrc`) ，如果没有其它配置文件时它才会被使用。因为个人配置将适用于用户目录下的所有目录和文件，包括第三方的代码，当 ESLint 运行时肯能会导致问题。
+**注意：**如果在你的主目录下有一个自定义的配置文件 (`~/.eslintrc`) ，如果没有其它配置文件时它才会被使用。因为个人配置将适用于用户目录下的所有目录和文件，包括第三方的代码，当 ESLint 运行时可能会导致问题。
 
 By default, ESLint will look for configuration files in all parent folders up to the root directory. This can be useful if you want all of your projects to follow a certain convention, but can sometimes lead to unexpected results. To limit ESLint to a specific project, place `"root": true` inside the `eslintConfig` field of the `package.json` file or in the `.eslintrc.*` file at your project's root level.  ESLint will stop looking in parent folders once it finds a configuration with `"root": true`.
 
