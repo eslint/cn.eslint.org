@@ -66,9 +66,9 @@ This rule requires or disallows strict mode directives.
 
 该规则要求或禁止严格模式指令。
 
-This rule disallows strict mode directives, no matter which option is specified, if ESLint configuration specifies either of the following as [parser options](../user-guide/configuring#specifying-parser-options):
+This rule disallows strict mode directives, no matter which option is specified, if ESLint configuration specifies either of the following as [parser options](/docs/user-guide/configuring):
 
-该规则禁止严格模式指令，无论指定了下面的哪个选项 [parser options](../user-guide/configuring#specifying-parser-options)：
+该规则禁止严格模式指令，无论指定了下面的哪个选项 [parser options](/docs/user-guide/configuring)：
 
 * `"sourceType": "module"` that is, files are **ECMAScript** modules
 * `"sourceType": "module"` 也就是说，文件是 **ECMAScript** 模块
@@ -108,14 +108,15 @@ The `"safe"` option corresponds to the `"global"` option if ESLint considers a f
 
 如果 ESLint 认为一个文件是 **Node.js** 或 **CommonJS** 模块，`"safe"` 选项就对应 `"global"` 选项，因为配置指定了下面中的一个：
 
-* `node` or `commonjs` [environments](../user-guide/configuring#specifying-environments)
-* `node` 或 `commonjs` [environments](../user-guide/configuring#specifying-environments)
-* `"globalReturn": true` property in the `ecmaFeatures` object of [parser options](../user-guide/configuring#specifying-parser-options)
-* `"globalReturn": true` [parser options](../user-guide/configuring#specifying-parser-options) 的 `ecmaFeatures` 对象中的属性
+* `node` or `commonjs` [environments](/docs/user-guide/configuring)
+* `node` 或 `commonjs` [environments](/docs/user-guide/configuring)
+* `"globalReturn": true` property in the `ecmaFeatures` object of [parser options](/docs/user-guide/configuring)
+* `"globalReturn": true` [parser options](/docs/user-guide/configuring) 的 `ecmaFeatures` 对象中的属性
 
-Otherwise the `"safe"` option corresponds to the `"function"` option.
+Otherwise the `"safe"` option corresponds to the `"function"` option. Note that if `"globalReturn": false` is explicitly specified in the configuration, the `"safe"` option will correspond to the `"function"` option regardless of the specified environment.
 
-否则 `"safe"` 选项就对应 `"function"` 选项。
+否则 `"safe"` 选项就对应 `"function"` 选项。注意，如果在配置中显示指定了 `"globalReturn": false`，则  `"safe"` 选项等同于 `"function"` 选项，不受限于所指定的环境。
+
 
 ### global
 

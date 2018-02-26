@@ -137,9 +137,9 @@ To avoid contradictions with other rules that require multiple spaces, this rule
 
 为了避免与其他需要多个空格的规则发生冲突，该规则有一个 `exceptions` 选项可以忽略特定的节点。
 
-This option is an object that expects property names to be AST node types as defined by [ESTree](https://github.com/estree/estree). The easiest way to determine the node types for `exceptions` is to use the [online demo](http://eslint.org/parser).
+This option is an object that expects property names to be AST node types as defined by [ESTree](https://github.com/estree/estree). The easiest way to determine the node types for `exceptions` is to use the [online demo](https://eslint.org/parser).
 
-该选项是个对象，属性名是 AST 节点类型，这些类型被定义在 [ESTree](https://github.com/estree/estree)。确定节点类型的最简单的方法是使用 [online demo](http://eslint.org/parser)。
+该选项是个对象，属性名是 AST 节点类型，这些类型被定义在 [ESTree](https://github.com/estree/estree)。确定节点类型的最简单的方法是使用 [online demo](https://eslint.org/parser)。
 
 Only the `Property` node type is ignored by default, because for the [key-spacing](key-spacing) rule some alignment options require multiple spaces in properties of object literals.
 

@@ -4,9 +4,9 @@ layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow or enforce spaces inside of single line blocks (block-spacing)
+# Disallow or enforce spaces inside of blocks after opening block and before closing block (block-spacing)
 
-# 禁止或强制在单行代码块中使用空格 (block-spacing)
+# 禁止或强制在代码块中开括号前和闭括号后有空格 (block-spacing)
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
@@ -14,9 +14,9 @@ layout: doc
 
 ## Rule Details
 
-This rule enforces consistent spacing inside single-line blocks.
+This rule enforces consistent spacing inside an open block token and the next token on the same line. This rule also enforces consistent spacing inside a close block token and previous token on the same line.
 
-该规则强制在单行块内的空格的一致性。
+该规则强制在左花括号和同一行上的下一个 token 之间有一致的空格。该规则同样强制右花括号和在同一行的前一个 token 之间有一致的空格。
 
 ## Options
 
@@ -40,6 +40,9 @@ Examples of **incorrect** code for this rule with the default `"always"` option:
 
 function foo() {return true;}
 if (foo) { bar = 0;}
+function baz() {let i = 0;
+    return i;
+}
 ```
 
 Examples of **correct** code for this rule with the default `"always"` option:

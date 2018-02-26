@@ -16,17 +16,17 @@ ECMAScript provides several global objects that are intended to be used as-is. S
 
 ECMAScript 提供了几个全局对象，旨在直接调用。这些对象由于是大写的（比如 `Math` 和 `JSON`）看起来像是构造函数，但是如果你尝试像函数一样执行它们，将会抛出错误。
 
-The [ECMAScript 5 specification](http://es5.github.io/#x15.8) makes it clear that both `Math` and `JSON` cannot be invoked:
+The [ECMAScript 5 specification](https://es5.github.io/#x15.8) makes it clear that both `Math` and `JSON` cannot be invoked:
 
-[ECMAScript 5 规范](http://es5.github.io/#x15.8)明确表示 `Math` 和 `JSON` 是不能被调用的：
+[ECMAScript 5 规范](https://es5.github.io/#x15.8)明确表示 `Math` 和 `JSON` 是不能被调用的：
 
 > The Math object does not have a `[[Call]]` internal property; it is not possible to invoke the Math object as a function.
 
 > Math 对象没有 `[[Call]]` 内部属性，不能像一个函数一样调用 Math 对象
 
-And the [ECMAScript 2015 specification](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect-object) makes it clear that `Reflect` cannot be invoked:
+And the [ECMAScript 2015 specification](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect-object) makes it clear that `Reflect` cannot be invoked:
 
-[ECMAScript 2015 specification](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect-object) 明确表明 `Reflect` 不能被调用：
+[ECMAScript 2015 specification](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-reflect-object) 明确表明 `Reflect` 不能被调用：
 
 > The Reflect object also does not have a `[[Call]]` internal method; it is not possible to invoke the Reflect object as a function.
 
@@ -66,7 +66,7 @@ var value = Reflect.get({ x: 1, y: 2 }, "x");
 
 ## Further Reading
 
-* [The Math Object](http://es5.github.io/#x15.8)
+* [The Math Object](https://es5.github.io/#x15.8)
 
 ## Version
 

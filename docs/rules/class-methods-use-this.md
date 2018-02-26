@@ -1,14 +1,20 @@
 ---
 title: class-methods-use-this - Rules
-layout: doc_en
+layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Enforce that class methods utilize `this` (class-methods-use-this)
 
+# 强制类方法使用 `this` (class-methods-use-this)
+
 If a class method does not use `this`, it can safely be made a static function.
 
+如果一个类方法不使用 `this`，可以安全的做为静态函数出现。
+
 It's possible to have a class method which doesn't use `this`, such as:
+
+可以有一个不使用 `this` 的类方法，比如：
 
 ```js
 class A {
@@ -31,6 +37,8 @@ a.sayHi(); // => "hi"
 
 In the example above, the `sayHi` method doesn't use `this`, so we can make it a static method:
 
+在上面的例子中，`sayHi` 方法没有使用 `this`，因此我们可以把它改造成静态方法：
+
 ```js
 class A {
     constructor() {
@@ -51,11 +59,17 @@ A.sayHi(); // => "hi"
 
 Also note in the above examples that the code calling the function on an *instance* of the class (`let a = new A(); a.sayHi();`) changes to calling it on the *class* itself (`A.sayHi();`).
 
+还要注意，在上面的例子中，在类实例上调用函数 (`let a = new A(); a.sayHi();`) 改为在类自身上调用 (`A.sayHi();`)。
+
 ## Rule Details
 
 This rule is aimed to flag class methods that do not use `this`.
 
+该规则只在标记没有使用 `this` 的类方法。
+
 Examples of **incorrect** code for this rule:
+
+**错误** 代码示例：
 
 ```js
 /*eslint class-methods-use-this: "error"*/
@@ -69,6 +83,8 @@ class A {
 ```
 
 Examples of **correct** code for this rule:
+
+**正确** 代码示例：
 
 ```js
 /*eslint class-methods-use-this: "error"*/
@@ -102,7 +118,12 @@ class A {
 
 The `exceptMethods` option allows you to pass an array of method names for which you would like to ignore warnings.
 
+`exceptMethods` 选项允许你传递一个你想要忽略警告的方法名的数组。
+
+
 Examples of **incorrect** code for this rule when used without exceptMethods:
+
+当使用 `exceptMethods` 时的 **错误** 代码示例：
 
 ```js
 /*eslint class-methods-use-this: "error"*/
@@ -115,6 +136,8 @@ class A {
 
 Examples of **correct** code for this rule when used with exceptMethods:
 
+当使用 `exceptMethods` 时的 **正确** 代码示例：
+
 ```js
 /*eslint class-methods-use-this: ["error", { "exceptMethods": ["foo"] }] */
 
@@ -124,9 +147,16 @@ class A {
 }
 ```
 
+## Further Reading
+
+* [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
+
 ## Version
 
 This rule was introduced in ESLint 3.4.0.
+
+该规则在 ESLint 3.4.0 中被引入。
 
 ## Resources
 

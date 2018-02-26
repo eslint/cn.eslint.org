@@ -1,6 +1,7 @@
 ---
 title: User Guide
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/README.md
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -45,9 +46,13 @@ Wondering if ESLint will work with your favorite editor or build system? This se
 The ESLint team is committed to making upgrading as easy and painless as possible. This section outlines the guidelines the team has set in place for the deprecation of rules in future releases.
 
 ESLint 团队致力于尽可能精简的无痛升级。本章节概述了该团队设置的在未来版本要弃用的规则的指南。
+## Migrating
 
-## [Migrating to 1.0.0](migrating-to-1.0.0)
+If you were using a prior version of ESLint, you can get help with the transition by reading:
 
-If you were using a version of ESLint prior to v1.0.0, this section helps you with the transition.
+如果你在是用 ESLint 之前的版本，你可以通过阅读以下内容来获得版本过渡的帮助：
 
-如果你的 ESLint 的版本在 v1.0.0 之前，本章节将帮助你进行过渡。
+- [migrating-to-1.0.0](migrating-to-1.0.0)
+- [migrating-to-2.0.0](migrating-to-2.0.0)
+- [migrating-to-3.0.0](migrating-to-3.0.0)
+- [migrating-to-4.0.0](migrating-to-4.0.0)

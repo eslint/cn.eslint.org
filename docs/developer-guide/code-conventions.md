@@ -6,9 +6,9 @@ layout: doc
 
 # Code Conventions
 
-Programming language style guides are important for the long-term maintainability of software. This guide is based on the [Code Conventions for the Java Programming Language](http://java.sun.com/docs/codeconv/) and [Douglas Crockford's Code Conventions for the JavaScript Programming Language](http://javascript.crockford.com/code.html). Modifications have been made due to my personal experience and preferences.
+Programming language style guides are important for the long-term maintainability of software. This guide is based on the [Code Conventions for the Java Programming Language](https://java.sun.com/docs/codeconv/) and [Douglas Crockford's Code Conventions for the JavaScript Programming Language](http://javascript.crockford.com/code.html). Modifications have been made due to my personal experience and preferences.
 
-编程语言的格式指导对于软件的长期可维护性至关重要，这个指导是基于 [Java 编程语言代码规范](http://java.sun.com/docs/codeconv/) 和 [Douglas Crockford 所写的 JavaScript 编程语言代码规范](http://javascript.crockford.com/code.html)。并根据我的经验和个人风格进行了修改。
+编程语言的格式指导对于软件的长期可维护性至关重要，这个指导是基于 [Java 编程语言代码规范](https://java.sun.com/docs/codeconv/) 和 [Douglas Crockford 所写的 JavaScript 编程语言代码规范](http://javascript.crockford.com/code.html)。并根据我的经验和个人风格进行了修改。
 
 ## File Format
 
@@ -312,7 +312,7 @@ Make frequent use of comments to aid others in understanding your code. Use comm
 
 ### Single-Line Comments
 
-Single-line comments should be used to documentation one line of code or a group of related lines of code. A single-line comment may be used in three ways:
+Single-line comments should be used to document one line of code or a group of related lines of code. A single-line comment may be used in three ways:
 
 单行注释应该适用于文件的一行或一组多行间有联系的代码，单行注释使用于以下三个途径：
 

@@ -74,6 +74,7 @@ The rule takes one option, an object, which has two keys `before` and `after` ha
 
 * `before` enforces spacing between the `*` and the `function` keyword.
   If it is `true`, a space is required, otherwise spaces are disallowed.
+
   In object literal shorthand methods, spacing before the `*` is not checked, as they lack a `function` keyword.
 
 * `before` 强制在 `*` 和 `function` 关键字之间有空格。如果设置为 `true` ，要求有空格，否则不允许有空格。在对象文本的缩写方法中，`*`之前的空格不会被检查，因为它们缺少 `function` 关键字。
@@ -87,8 +88,12 @@ The default is `{"before": true, "after": false}`.
 
 默认为 `{"before": true, "after": false}`。
 
+An example configuration:
+
+一个示例配置：
+
 ```json
-"generator-star-spacing": ["error", {"before": false, "after": true}]
+"generator-star-spacing": ["error", {"before": true, "after": false}]
 ```
 
 And the option has shorthand as a string keyword:
@@ -104,9 +109,43 @@ And the option has shorthand as a string keyword:
 * `{"before": false, "after": false}` → `"neither"`
 * `{"before": false, "after": false}` → `"neither"`
 
+An example of shorthand configuration:
+
+一个简写配置示例：
+
 ```json
 "generator-star-spacing": ["error", "after"]
 ```
+
+Additionally, this rule allows further configurability via overrides per function type.
+
+另外，该规则允许通过覆盖每个函数类型进行进一步配置。
+
+* `named` provides overrides for named functions
+* `named` 覆盖命名的函数
+* `anonymous` provides overrides for anonymous functions
+* `anonymous` 覆盖匿名函数
+* `method` provides overrides for class methods or property function shorthand
+* `method` 覆盖类方法或简写属性函数
+
+An example of a configuration with overrides:
+
+一个覆盖的配置示例：
+
+```json
+"generator-star-spacing": ["error", {
+    "before": false,
+    "after": true,
+    "anonymous": "neither",
+    "method": {"before": true, "after": true}
+}]
+```
+
+In the example configuration above, the top level "before" and "after" options define the default behavior of
+the rule, while the "anonymous" and "method" options override the default behavior.
+Overrides can be either an object with "before" and "after", or a shorthand string as above.
+
+在上面的配置示例中，顶层 "before" 和 "after" 选项定义该规则的默认行为，而 "anonymous" 和 "method" 选项覆盖默认行为。覆盖可以是带有 "before" 和 "after" 属性的对象，也可以是上面的简写字符串。
 
 ## Examples
 
@@ -176,6 +215,50 @@ function*generator() {}
 var anonymous = function*() {};
 
 var shorthand = { *generator() {} };
+```
+
+Examples of **incorrect** code for this rule with overrides present:
+
+带有覆盖的 **错误** 代码示例：
+
+```js
+/*eslint generator-star-spacing: ["error", {
+    "before": false,
+    "after": true,
+    "anonymous": "neither",
+    "method": {"before": true, "after": true}
+}]*/
+/*eslint-env es6*/
+
+function * generator() {}
+
+var anonymous = function* () {};
+
+var shorthand = { *generator() {} };
+
+class Class { static* method() {} }
+```
+
+Examples of **correct** code for this rule with overrides present:
+
+带有覆盖的 **正确** 代码示例：
+
+```js
+/*eslint generator-star-spacing: ["error", {
+    "before": false,
+    "after": true,
+    "anonymous": "neither",
+    "method": {"before": true, "after": true}
+}]*/
+/*eslint-env es6*/
+
+function* generator() {}
+
+var anonymous = function*() {};
+
+var shorthand = { * generator() {} };
+
+class Class { static * method() {} }
 ```
 
 ## When Not To Use It

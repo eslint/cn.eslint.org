@@ -18,7 +18,7 @@ This rule aims to flag usage of `this` keywords outside of classes or class-like
 
 此规则目的在于标记类或者类对象之外的 `this` 关键字的使用。
 
-Basically this rule checks whether or not a function which are containing `this` keywords is a constructor or a method.
+Basically, this rule checks whether or not a function containing `this` keyword is a constructor or a method.
 
 基本上该规则检查一个包含 `this` 关键字的函数是一个构造函数还是方法。
 

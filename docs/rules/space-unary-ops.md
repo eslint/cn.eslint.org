@@ -119,6 +119,14 @@ function *foo() {
 }
 ```
 
+```js
+/*eslint space-unary-ops: "error"*/
+
+async function foo() {
+    await(bar);
+}
+```
+
 Examples of **correct** code for this rule with the `{"words": true, "nonwords": false}` option:
 
 选项 `{"words": true, "nonwords": false}` 的 **正确** 代码示例：
@@ -154,6 +162,14 @@ foo--;
 
 function *foo() {
     yield (0)
+}
+```
+
+```js
+/*eslint space-unary-ops: "error"*/
+
+async function foo() {
+    await (bar);
 }
 ```
 

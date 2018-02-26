@@ -18,21 +18,29 @@ This rule is aimed at preventing synchronous methods from being called in Node.j
 
 这条规则旨在阻止使用 Node.js 中的同步方法。这些方法看起来比较特别，会在后缀加 `Sync`(这是 Node.js 中的约定)。
 
-Examples of **incorrect** code for this rule:
+## Options
 
-**错误** 代码示例：
+This rule has an optional object option `{ allowAtRootLevel: <boolean> }`, which determines whether synchronous methods should be allowed at the top level of a file, outside of any functions. This option defaults to `false`.
+
+该规则有一个对象选项 `{ allowAtRootLevel: <boolean> }`，用来决定同步方法是否允许放置在文件顶层，在任何函数之外。默认为 `false`。
+
+Examples of **incorrect** code for this rule with the default `{ allowAtRootLevel: false }` option:
+
+默认选项 `{ allowAtRootLevel: false }` 的 **错误** 代码示例：
 
 ```js
 /*eslint no-sync: "error"*/
 
 fs.existsSync(somePath);
 
-var contents = fs.readFileSync(somePath).toString();
+function foo() {
+  var contents = fs.readFileSync(somePath).toString();
+}
 ```
 
-Examples of **correct** code for this rule:
+Examples of **correct** code for this rule with the default `{ allowAtRootLevel: false }` option:
 
-**正确** 代码示例：
+默认选项 `{ allowAtRootLevel: false }` 的 **正确** 代码示例：
 
 ```js
 /*eslint no-sync: "error"*/
@@ -44,11 +52,35 @@ async(function() {
 });
 ```
 
+Examples of **incorrect** code for this rule with the `{ allowAtRootLevel: true }` option
+
+选项 `{ allowAtRootLevel: true }` 的 **错误** 代码示例：
+
+```js
+/*eslint no-sync: ["error", { allowAtRootLevel: true }]*/
+
+function foo() {
+  var contents = fs.readFileSync(somePath).toString();
+}
+
+var bar = baz => fs.readFileSync(qux);
+```
+
+Examples of **correct** code for this rule with the `{ allowAtRootLevel: true }` option
+
+选项 `{ allowAtRootLevel: true }` 的 **正确** 代码示例：
+
+```js
+/*eslint no-sync: ["error", { allowAtRootLevel: true }]*/
+
+fs.readFileSync(somePath).toString();
+```
+
 ## When Not To Use It
 
-If you want to allow synchronous operations in your script.
+If you want to allow synchronous operations in your script, do not enable this rule.
 
-如果你想在你的脚本中使用同步操作。
+如果你想在你的脚本中使用同步操作，不启用此规则即可
 
 ## Version
 

@@ -96,6 +96,7 @@ Examples of **correct** code for this rule when using default options:
 ```js
 /*eslint sort-imports: "error"*/
 import 'module-without-export.js';
+import * as bar from 'bar.js';
 import * as foo from 'foo.js';
 import * as bar from 'bar.js';
 import {alpha, beta} from 'alpha.js';
@@ -110,7 +111,7 @@ import c from 'baz.js';
 
 /*eslint sort-imports: "error"*/
 import 'foo.js'
-import * from 'bar.js';
+import * as bar from 'bar.js';
 import {a, b} from 'baz.js';
 import c from 'qux.js';
 
@@ -223,7 +224,7 @@ There are four different styles and the default member syntax sort order is:
 * `single` - import single member.
 * `single` - import 单个成员。
 
-All four options must be specified in the array, but you can customise their order.
+All four options must be specified in the array, but you can customize their order.
 
 所有四个选项必须指定在数组中，但是你可以自定义它们的顺序。
 
@@ -252,7 +253,7 @@ Examples of **correct** code for this rule with the `{ "memberSyntaxSortOrder": 
 
 选项 `{ "memberSyntaxSortOrder": ['all', 'single', 'multiple', 'none'] }` 的 **正确** 代码示例：
 
-```
+```js
 /*eslint sort-imports: ["error", { "memberSyntaxSortOrder": ['all', 'single', 'multiple', 'none'] }]*/
 
 import * as foo from 'foo.js';
@@ -273,8 +274,8 @@ This rule is a formatting preference and not following it won't negatively affec
 
 ## Related Rules
 
-* [sort-keys](http://eslint.org/docs/rules/sort-keys)
-* [sort-vars](http://eslint.org/docs/rules/sort-vars)
+* [sort-keys](sort-keys)
+* [sort-vars](sort-vars)
 
 ## Version
 

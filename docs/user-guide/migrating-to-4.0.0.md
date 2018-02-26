@@ -1,6 +1,7 @@
 ---
 title: Migrating to v4.0.0
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/migrating-to-4.0.0.md
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -25,6 +26,7 @@ The lists below are ordered roughly by the number of users each change is expect
 
 1. [`RuleTester` now validates properties of test cases](#rule-tester-validation)
 1. [AST nodes no longer have comment properties](#comment-attachment)
+1. [`LineComment` and `BlockComment` events will no longer be emitted during AST traversal](#event-comments)
 1. [Shebangs are now returned from comment APIs](#shebangs)
 
 ### Breaking changes for integration developers

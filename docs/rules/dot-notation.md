@@ -74,9 +74,9 @@ var x = foo["class"]; // Property name is a reserved word, square-bracket notati
 
 ### allowPattern
 
-For example, when preparing data to be sent to an external API, it is often required to use property names that include underscores. If the `camelcase` rule is in effect, these [snake case](http://en.wikipedia.org/wiki/Snake_case) properties would not be allowed. By providing an `allowPattern` to the `dot-notation` rule, these snake case properties can be accessed with bracket notation.
+For example, when preparing data to be sent to an external API, it is often required to use property names that include underscores.  If the `camelcase` rule is in effect, these [snake case](https://en.wikipedia.org/wiki/Snake_case) properties would not be allowed.  By providing an `allowPattern` to the `dot-notation` rule, these snake case properties can be accessed with bracket notation.
 
-例如，当把准备好的数据发送到外部接口时，经常要求使用包括下划线的属性名。如果启用了 `camelcase` 规则，这些 [snake case](http://en.wikipedia.org/wiki/Snake_case) 属性将不被允许使用。通过给 `dot-notation` 规则提供 `allowPattern` 选项，这些属性就可以使用括号来访问了。
+例如，当把准备好的数据发送到外部接口时，经常要求使用包括下划线的属性名。如果启用了 `camelcase` 规则，这些 [snake case](https://en.wikipedia.org/wiki/Snake_case) 属性将不被允许使用。通过给 `dot-notation` 规则提供 `allowPattern` 选项，这些属性就可以使用括号来访问了。
 
 Examples of **correct** code for the sample `{ "allowPattern": "^[a-z]+(_[a-z]+)+$" }` option:
 

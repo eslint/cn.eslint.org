@@ -70,7 +70,7 @@ function g() {
 
 // With blockBindings: true
 {
-    let C;
+    let c;
     c++;
 }
 ```

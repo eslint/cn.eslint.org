@@ -49,13 +49,17 @@ a = 10;
 
 This rule takes one optional argument, an object with a boolean property `"builtinGlobals"`. It defaults to `false`.
 
-该规则有一个选项参数，是个对象，该对象有个布尔属性为`"builtinGlobals"`。默认为`false`。
+该规则有一个选项参数，是个对象，该对象有个布尔属性为 `"builtinGlobals"`。默认为`false`。
 
 If set to `true`, this rule also checks redeclaration of built-in globals, such as `Object`, `Array`, `Number`...
 
 如果设置为 `true`，该规则也会检查全局内建对象，比如`Object`、`Array`、`Number`...
 
 ### builtinGlobals
+
+The `"builtinGlobals"` option will check for redeclaration of built-in globals in global scope.
+
+`"builtinGlobals"` 选项将会在全局范围检查被重新声明的内置全局变量。
 
 Examples of **incorrect** code for the `{ "builtinGlobals": true }` option:
 
@@ -81,6 +85,14 @@ var top = 0;
 The `browser` environment has many built-in global variables (for example, `top`). Some of built-in global variables cannot be redeclared.
 
 `browser` 环境有很多内建的全局变量（例如，`top`）。一些内建的全局变量不能被重新声明。
+
+Note that when using the `node` or `commonjs` environments (or `ecmaFeatures.globalReturn`, if using the default parser), the top scope of a program is not actually the global scope, but rather a "module" scope. When this is the case, declaring a variable named after a builtin global is not a redeclaration, but rather a shadowing of the global variable. In that case, the [`no-shadow`](no-shadow) rule with the `"builtinGlobals"` option should be used.
+
+注意，当使用 `node` 或 `commonjs` 环境 (或 `ecmaFeatures.globalReturn`，如果使用默认解析器)时，则程序的最大作用域不是实际的全局作用域，而是一个模块作用域。当出现这种情况时，声明一个以内置的全局变量命令的变量，不算是重声明，只是遮蔽了全局变量。在这种情况下，应该使用 [`no-shadow`](no-shadow) 规则的 `"builtinGlobals"` 选项。
+
+## Related Rules
+
+* [no-shadow](no-shadow)
 
 ## Version
 

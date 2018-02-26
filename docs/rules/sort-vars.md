@@ -8,6 +8,10 @@ layout: doc
 
 # 变量排序 (sort-vars)
 
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+
 When declaring multiple variables within the same block, some developers prefer to sort variable names alphabetically to be able to find necessary variable easier at the later time. Others feel that it adds complexity and becomes burden to maintain.
 
 当在同一个语句块中定义多个变量时，一些开发者比较喜欢将变量按字母顺序排序，以便在以后的时间更容易地找到需要的变量。其他人觉得，这样变得更复杂，甚至成了维护的负担。
@@ -99,8 +103,8 @@ This rule is a formatting preference and not following it won't negatively affec
 
 ## Related Rules
 
-* [sort-keys](http://eslint.org/docs/rules/sort-keys)
-* [sort-imports](http://eslint.org/docs/rules/sort-imports)
+* [sort-keys](sort-keys)
+* [sort-imports](sort-imports)
 
 ## Version
 

@@ -28,22 +28,30 @@ This rule has an object option:
 
 该规则有一个对象选项：
 
-* `"beforeColon": false` (default) disallows spaces between the key and the colon in object literals.
-* `"beforeColon": false` (默认) 禁止在对象字面量的键和值之间存在空格
-* `"beforeColon": true` requires at least one space between the key and the colon in object literals.
-* `"beforeColon": true` 要求在对象字面量的键和值之间存在至少有一个空格
-* `"afterColon": true` (default) requires at least one space between the colon and the value in object literals.
-* `"afterColon": true` (默认) 要求在对象字面量的冒号和值之间存在至少有一个空格
-* `"afterColon": false` disallows spaces between the colon and the value in object literals.
-* `"afterColon": false` 禁止在对象字面量的冒号和值之间存在空格
-* `"mode": "strict"` (default) enforces exactly one space before or after colons in object literals.
-* `"mode": "strict"` (默认) 要求在冒号前后只有一个空格
-* `"mode": "minimum"` enforces one or more spaces before or after colons in object literals.
-* `"mode": "minimum"` 要求在冒号前后最少有一个空格
-* `"align": "value"` enforces horizontal alignment of values in object literals.
-* `"align": "value"` 要求对象字面量中的值水平对齐
-* `"align": "colon"` enforces horizontal alignment of both colons and values in object literals.
-* `"align": "colon"` 要求对象字面量中的冒号和值都水平对齐
+* `"beforeColon": false (default) | true`
+* `"beforeColon": false (默认) | true`
+    * `false`: disallows spaces between the key and the colon in object literals.
+    * `false`: 禁止在对象字面量的键和冒号之间存在空格
+    * `true`: requires at least one space between the key and the colon in object literals.
+    * `true`: 要求在对象字面量的键和冒号之间存在至少有一个空格
+* `"afterColon": true (default) | false`
+* `"afterColon": true (默认) | false`
+    * `true`: requires at least one space between the colon and the value in object literals.
+    * `true`: 要求在对象字面量的冒号和值之间存在至少有一个空格
+    * `false`: disallows spaces between the colon and the value in object literals.
+    * `false`: 禁止在对象字面量的冒号和值之间存在空格
+* `"mode": "strict" (default) | "minimum"`
+* `"mode": "strict" (默认) | "minimum"`
+    * `"strict"`: enforces exactly one space before or after colons in object literals.
+    * `"strict"`: 强制在冒号前后只有一个空格
+    * `"minimum"`: enforces one or more spaces before or after colons in object literals.
+    * `"minimum"`: 要求在冒号前后最少有一个空格
+* `"align": "value" | "colon"`
+* `"align": "value" | "colon"`
+    * `"value"`: enforces horizontal alignment of values in object literals.
+    * `"value"`: 要求对象字面量中的值水平对齐
+    * `"colon"` enforces horizontal alignment of both colons and values in object literals.
+    * `"colon"` 要求对象字面量中的冒号和值都水平对齐
 * `"align"` with an object value allows for fine-grained spacing when values are being aligned in object literals.
 * `"align"` 允许细粒度的控制对象字面量值的间距直到对齐
 * `"singleLine"` specifies a spacing style for single-line object literals.

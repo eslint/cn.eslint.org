@@ -18,9 +18,9 @@ This rule can help you locate potential ReferenceErrors resulting from misspelli
 
 ## Rule Details
 
-Any reference to an undeclared variable causes a warning, unless the variable is explicitly mentioned in a `/*global ...*/` comment.
+Any reference to an undeclared variable causes a warning, unless the variable is explicitly mentioned in a `/*global ...*/` comment, or specified in the [`globals` key in the configuration file](https://eslint.org/docs/user-guide/configuring#specifying-globals). A common use case for these is if you intentionally use globals that are defined elsewhere (e.g. in a script sourced from HTML).
 
-对任何未声明的变量的引用都会引起一个警告，除非显式地在 `/*global ...*/` 注释中指定。
+对任何未声明的变量的引用都会引起一个警告，除非显式地在 `/*global ...*/` 注释中指定，或在 [`globals` key in the configuration file](https://eslint.org/docs/user-guide/configuring#specifying-globals) 中指定。另一个常见的用例是，你有意使用定义在其他地方的全局变量(例如来自 HTML 的脚本)。
 
 Examples of **incorrect** code for this rule:
 
@@ -110,9 +110,9 @@ if(typeof a === "string"){}
 
 ## Environments
 
-For convenience, ESLint provides shortcuts that pre-define global variables exposed by popular libraries and runtime environments. This rule supports these environments, as listed in [Specifying Environments](http://eslint.org/docs/user-guide/configuring#specifying-environments).  A few examples are given below.
+For convenience, ESLint provides shortcuts that pre-define global variables exposed by popular libraries and runtime environments. This rule supports these environments, as listed in [Specifying Environments](../user-guide/configuring).  A few examples are given below.
 
-为了方便，ESlint 提供了预定义流行类库和运行时环境暴露的全局变量的快捷方式。该规则支持这些[环境](http://eslint.org/docs/user-guide/configuring#specifying-environments)。使用如下：
+为了方便，ESlint 提供了预定义流行类库和运行时环境暴露的全局变量的快捷方式。该规则支持这些环境，如 [指定 Environments](../user-guide/configuring) 中列出的。使用如下：
 
 ### browser
 
@@ -129,7 +129,7 @@ setTimeout(function() {
 });
 ```
 
-### node
+### Node.js
 
 Examples of **correct** code for this rule with `node` environment:
 
@@ -153,13 +153,9 @@ If explicit declaration of global variables is not to your taste.
 
 ## Compatibility
 
-This rule provides compatibility with treatment of global variables in [JSHint](http://www.jshint.com) and [JSLint](http://www.jslint.com).
+This rule provides compatibility with treatment of global variables in [JSHint](http://jshint.com/) and [JSLint](http://www.jslint.com).
 
 该规则提供了合适对待全局变量的方法。 它在 [JSHint](http://www.jshint.com) 和[JSLint](http://www.jslint.com)。
-
-## Further Reading
-
-* ['{a}' is not defined](http://jslinterrors.com/a-is-not-defined)
 
 ## Version
 

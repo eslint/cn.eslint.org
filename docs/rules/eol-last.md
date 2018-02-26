@@ -26,7 +26,7 @@ of non-empty files.
 该规则要求在非空文件末尾至少存在一行空行（或缺少换行）。
 
 Prior to v0.16.0 this rule also enforced that there was only a single line at
-the end of the file. If you still want this behaviour, consider enabling
+the end of the file. If you still want this behavior, consider enabling
 [no-multiple-empty-lines](no-multiple-empty-lines) with `maxEOF` and/or
 [no-trailing-spaces](no-trailing-spaces).
 

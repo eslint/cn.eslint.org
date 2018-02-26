@@ -16,10 +16,10 @@ It is considered good practice to use the type-safe equality operators `===` and
 
 使用类型安全的 `===` 和 `!==` 操作符代替 `==` 和 `!=` 操作符是一个很好的实践。
 
-The reason for this is that `==` and `!=` do type coercion which follows the rather obscure [Abstract Equality Comparison Algorithm](http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3).
+The reason for this is that `==` and `!=` do type coercion which follows the rather obscure [Abstract Equality Comparison Algorithm](https://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3).
 For instance, the following statements are all considered `true`:
 
-这样做的原因是，`==` 和 `!=` 遵循 [Abstract Equality Comparison Algorithm](http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3) 作强制转型。例如，以下语句被认为是 `true`。
+这样做的原因是，`==` 和 `!=` 遵循 [Abstract Equality Comparison Algorithm](https://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3) 作强制转型。例如，以下语句被认为是 `true`。
 
 * `[] == false`
 * `[] == false`
@@ -162,9 +162,9 @@ foo == null
 
 ### allow-null
 
-**Deprecated:** Instead of using this option use "always" and pass a "null" option property with value "ignore". This will tell eslint to always enforce strict equality except when comparing with the `null` literal.
+**Deprecated:** Instead of using this option use "always" and pass a "null" option property with value "ignore". This will tell ESLint to always enforce strict equality except when comparing with the `null` literal.
 
-**弃用：** 使用 "always"，然后传一个 "null" 选项，属性值为 "ignore" 代替。这将告诉 eslint 除了与 `null` 字面量进行比较时，总是强制使用绝对相等。
+**弃用：** 使用 "always"，然后传一个 "null" 选项，属性值为 "ignore" 代替。这将告诉 ESLint 除了与 `null` 字面量进行比较时，总是强制使用绝对相等。
 
 ```js
 ["error", "always", {"null": "ignore"}]

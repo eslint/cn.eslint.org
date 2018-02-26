@@ -1,6 +1,7 @@
 ---
 title: About
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/about/index.md
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -22,8 +23,8 @@ ESLint is written using Node.js to provide a fast runtime environment and easy i
 
 ESLint 使用 Node.js 编写，这样既可以有一个快速的运行环境的同时也便于安装。
 
-[linting]: http://en.wikipedia.org/wiki/Lint_(software)
-[npm]: http://npmjs.org/
+[linting]: https://en.wikipedia.org/wiki/Lint_(software)
+[npm]: https://npmjs.org/
 
 ## Philosophy
 

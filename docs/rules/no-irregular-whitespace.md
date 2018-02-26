@@ -16,9 +16,9 @@ Invalid or irregular whitespace causes issues with ECMAScript 5 parsers and also
 
 无效的或不规则的空白会导致 ECMAScript 5 解析问题，也会使代码难以调试（类似于混合 tab 和空格的情况）。
 
-Various whitespace characters can be inputted by programmers by mistake for example from copying or keyboard shortcuts. Pressing Alt + Space on OS X adds in a non breaking space character for example.
+Various whitespace characters can be inputted by programmers by mistake for example from copying or keyboard shortcuts. Pressing Alt + Space on macOS adds in a non breaking space character for example.
 
-各种空白字符可能是由程序员误输入的，比如拷贝或键盘快捷键。例如，在 OS X 系统按下 Alt + Space，增加了一个不间断空格。
+各种空白字符可能是由程序员误输入的，比如拷贝或键盘快捷键。例如，在 macOS 按下 Alt + Space，增加了一个不间断空格。
 
 Known issues these spaces cause:
 
@@ -28,7 +28,7 @@ Known issues these spaces cause:
 * 零宽空格
     * Is NOT considered a separator for tokens and is often parsed as an `Unexpected token ILLEGAL`
     * 不被认为是分隔符，经常被解析为 `Unexpected token ILLEGAL`
-    * Is NOT shown in modern browsers making code repository software expected to resolve the visualisation
+    * Is NOT shown in modern browsers making code repository software expected to resolve the visualization
     * 不在现代浏览器中显示，期待使用代码存储软件解决其可视化问题
 * Line Separator
 * 行分隔符
