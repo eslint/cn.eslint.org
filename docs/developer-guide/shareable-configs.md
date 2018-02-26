@@ -6,13 +6,13 @@ layout: doc
 
 # Shareable Configs
 
-The configuration that you have in your `.eslintrc` file is an important part of your project, and as such, you may want to share it with other projects or people. Shareable configs allow you to publish your configuration settings on [npm](https://npmjs.com) and have others download and use it in their ESLint projects.
+The configuration that you have in your `.eslintrc` file is an important part of your project, and as such, you may want to share it with other projects or people. Shareable configs allow you to publish your configuration settings on [npm](https://www.npmjs.com/) and have others download and use it in their ESLint projects.
 
-包含配置信息的 `.eslintrc` 文件是你的项目中重要的部分，正因为这样，你可能想要将你的配置信息分享给其他项目或人。可分享的配置允许你在 [npm](https://npmjs.com) 发布你的配置设置并且其他人可以在他的 ESLint 项目中下载使用这些配置。
+包含配置信息的 `.eslintrc` 文件是你的项目中重要的部分，正因为这样，你可能想要将你的配置信息分享给其他项目或人。可分享的配置允许你在 [npm](https://www.npmjs.com/) 发布你的配置设置并且其他人可以在他的 ESLint 项目中下载使用这些配置。
 
 ## Creating a Shareable Config
 
-Shareable configs are simply npm packages that export a configuration object. To start, [create a Node.js module](https://docs.npmjs.com/getting-started/creating-node-modules) like you normally would. Make sure the module name begins with `eslint-config-`, such as `eslint-config-myconfig`. 
+Shareable configs are simply npm packages that export a configuration object. To start, [create a Node.js module](https://docs.npmjs.com/getting-started/creating-node-modules) like you normally would. Make sure the module name begins with `eslint-config-`, such as `eslint-config-myconfig`.
 
 可分享的配置只是导出一个配置对象 npm 包 。首先，像你通常做的那样 [创建一个 Node.js 模块](https://docs.npmjs.com/getting-started/creating-node-modules)。确保模块名称以 `eslint-config-` 开头，例如 `eslint-config-myconfig`。
 
@@ -48,13 +48,13 @@ Once your shareable config is ready, you can [publish to npm](https://docs.npmjs
 
 一旦可分享的配置设置好，你可以 [发布到 npm](https://docs.npmjs.com/getting-started/publishing-npm-packages) 分享给其他人。我们建议使用 `eslint` 和 `eslintconfig` 关键字方便其他人很容易的找到你的模块。
 
-You should declare your dependency on eslint in `package.json` using the [peerDependencies](https://docs.npmjs.com/files/package.json#peerdependencies) field. The recommended way to declare a dependency for future proof compatibility is with the ">=" range syntax, using the lowest required eslint version. For example:
+You should declare your dependency on ESLint in `package.json` using the [peerDependencies](https://docs.npmjs.com/files/package.json#peerdependencies) field. The recommended way to declare a dependency for future proof compatibility is with the ">=" range syntax, using the lowest required ESLint version. For example:
 
-你应该在 `package.json` 中用 [peerDependencies](https://docs.npmjs.com/files/package.json#peerdependencies) 字段声明你依赖的 eslint。推荐使用 ">=" 范围语法，即使用最低要求的 eslint 版本，声明该
+你应该在 `package.json` 中用 [peerDependencies](https://docs.npmjs.com/files/package.json#peerdependencies) 字段声明你依赖的 ESLint。推荐使用 ">=" 范围语法，即使用最低要求的 eslint 版本，声明该
 依赖以向后兼容。
 
 ```
-peerDependencies: {
+"peerDependencies": {
     "eslint": ">= 3"
 }
 ```

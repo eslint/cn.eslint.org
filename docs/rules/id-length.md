@@ -231,7 +231,7 @@ Examples of **incorrect** code for this rule with the `{ "max": 10 }` option:
 选项 `{ "max": 10 }` 的 **错误** 代码示例：
 
 ```js
-/*eslint id-length: ["error", { "max": "10" }]*/
+/*eslint id-length: ["error", { "max": 10 }]*/
 /*eslint-env es6*/
 
 var reallyLongVarName = 5;
@@ -251,7 +251,7 @@ Examples of **correct** code for this rule with the `{ "max": 10 }` option:
 选项 `{ "max": 10 }` 的 **正确** 代码示例：
 
 ```js
-/*eslint id-length: ["error", { "max": "10" }]*/
+/*eslint id-length: ["error", { "max": 10 }]*/
 /*eslint-env es6*/
 
 var varName = 5;

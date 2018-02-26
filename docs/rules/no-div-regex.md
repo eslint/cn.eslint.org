@@ -4,7 +4,7 @@ layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Regexs That Look Like Division (no-div-regex)
+# Disallow Regular Expressions That Look Like Division (no-div-regex)
 
 # 禁止使用看起来像除法的正则表达式 (no-div-regex)
 

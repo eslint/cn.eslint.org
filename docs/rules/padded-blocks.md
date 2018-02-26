@@ -418,6 +418,11 @@ You can turn this rule off if you are not concerned with the consistency of padd
 
 如果你并不关心块内填充的一致性，你可以关闭此规则。
 
+## Related Rules
+
+* [lines-between-class-members](lines-between-class-members)
+* [padding-line-between-statements](padding-line-between-statements)
+
 ## Version
 
 This rule was introduced in ESLint 0.9.0.

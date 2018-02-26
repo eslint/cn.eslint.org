@@ -51,8 +51,16 @@ This rule has an object option:
 * `"allowArrayStart": true` 允许注释出现在数组字面量的开始位置
 * `"allowArrayEnd": true` allows comments to appear at the end of array literals
 * `"allowArrayEnd": true` 允许注释出现在数组字面量的结束位置
+* `"allowClassStart": true` allows comments to appear at the start of classes
+* `"allowClassStart": true` 允许注释出现在类的开始位置
+* `"allowClassEnd": true` allows comments to appear at the end of classes
+* `"allowClassEnd": true` 允许注释出现在类的结束位置
 * `"applyDefaultIgnorePatterns"` enables or disables the default comment patterns to be ignored by the rule
+* `"applyDefaultIgnorePatterns"` 启用或禁用该规则忽略的默认注释模式
 * `"ignorePattern"` custom patterns to be ignored by the rule
+* `"ignorePattern"` 被该规则忽略的自定义模式
+
+
 ### beforeBlockComment
 
 Examples of **incorrect** code for this rule with the default `{ "beforeBlockComment": true }` option:
@@ -222,6 +230,117 @@ function foo(){
 
     /* what a great and wonderful day */
 }
+```
+
+### allowClassStart
+
+Examples of **incorrect** code for this rule with the `{ "beforeLineComment": true, "allowClassStart": false }` option:
+
+选项 `{ "beforeLineComment": true, "allowClassStart": false }` 的 **错误** 代码示例：
+
+```js
+/*eslint lines-around-comment: ["error", { "beforeLineComment": true, "allowClassStart": false }]*/
+
+class foo {
+    // what a great and wonderful day
+    day() {}
+};
+```
+
+Examples of **correct** code for this rule with the `{ "beforeLineComment": true, "allowClassStart": false }` option:
+
+选项 `{ "beforeLineComment": true, "allowClassStart": false }` 的 **正确** 代码示例：
+
+```js
+/*eslint lines-around-comment: ["error", { "beforeLineComment": true, "allowClassStart": false }]*/
+
+class foo {
+
+    // what a great and wonderful day
+    day() {}
+};
+```
+
+Examples of **correct** code for this rule with the `{ "beforeLineComment": true, "allowClassStart": true }` option:
+
+选项 `{ "beforeLineComment": true, "allowClassStart": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint lines-around-comment: ["error", { "beforeLineComment": true, "allowClassStart": true }]*/
+
+class foo {
+    // what a great and wonderful day
+    day() {}
+};
+```
+
+Examples of **incorrect** code for this rule with the `{ "beforeBlockComment": true, "allowClassStart": false }` option:
+
+选项 `{ "beforeBlockComment": true, "allowClassStart": false }` 的 **错误** 代码示例：
+
+```js
+/*eslint lines-around-comment: ["error", { "beforeBlockComment": true, "allowClassStart": false }]*/
+
+class foo {
+    /* what a great and wonderful day */
+    day() {}
+};
+```
+
+Examples of **correct** code for this rule with the `{ "beforeBlockComment": true, "allowClassStart": false }` option:
+
+选项 `{ "beforeBlockComment": true, "allowClassStart": false }` 的 **正确** 代码示例：
+
+```js
+/*eslint lines-around-comment: ["error", { "beforeBlockComment": true, "allowClassStart": false }]*/
+
+class foo {
+
+    /* what a great and wonderful day */
+    day() {}
+};
+```
+
+Examples of **correct** code for this rule with the `{ "beforeBlockComment": true, "allowClassStart": true }` option:
+
+选项 `{ "beforeBlockComment": true, "allowClassStart": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint lines-around-comment: ["error", { "beforeBlockComment": true, "allowClassStart": true }]*/
+
+class foo {
+    /* what a great and wonderful day */
+    day() {}
+};
+```
+
+### allowClassEnd
+
+Examples of **correct** code for this rule with the `{ "afterLineComment": true, "allowClassEnd": true }` option:
+
+选项 `{ "afterLineComment": true, "allowClassEnd": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint lines-around-comment: ["error", { "afterLineComment": true, "allowClassEnd": true }]*/
+
+class foo {
+    day() {}
+    // what a great and wonderful day
+};
+```
+
+Examples of **correct** code for this rule with the `{ "afterBlockComment": true, "allowClassEnd": true }` option:
+
+选项 `{ "afterBlockComment": true, "allowClassEnd": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint lines-around-comment: ["error", { "afterBlockComment": true, "allowClassEnd": true }]*/
+
+class foo {
+    day() {}
+
+    /* what a great and wonderful day */
+};
 ```
 
 ### allowObjectStart
@@ -410,7 +529,11 @@ const [
 
 By default this rule ignores comments starting with the following words: `eslint`, `jshint`, `jslint`, `istanbul`, `global`, `exported`, `jscs`. An alternative regular expression can be provided.
 
+默认情况下，该规则忽略以 `eslint`、`jshint`、`jslint`、`istanbul`、`global`、`exported`、`jscs` 开头的注释。可以提供另一种正则表达式。
+
 Examples of **correct** code for the `ignorePattern` option:
+
+选项 `ignorePattern` 的 **正确** 代码示例：
 
 ```js
 /*eslint lines-around-comment: ["error"]*/
@@ -428,6 +551,8 @@ foo();
 
 Examples of **incorrect** code for the `ignorePattern` option:
 
+选项 `ignorePattern` 的 **错误** 代码示例：
+
 ```js
 /*eslint lines-around-comment: ["error", { "ignorePattern": "pragma" }] */
 
@@ -439,7 +564,11 @@ Examples of **incorrect** code for the `ignorePattern` option:
 
 Default ignore patterns are applied even when `ignorePattern` is provided. If you want to omit default patterns, set this option to `false`.
 
+即使提供了 `ignorePattern`，也应用默认的忽略模式。如果你想省略默认模式，请将此选项设置为 `false`。
+
 Examples of **correct** code for the `{ "applyDefaultIgnorePatterns": false }` option:
+
+选项 `{ "applyDefaultIgnorePatterns": false }` 的 **正确** 代码示例：
 
 ```js
 /*eslint lines-around-comment: ["error", { "ignorePattern": "pragma", applyDefaultIgnorePatterns: false }] */
@@ -449,6 +578,8 @@ foo();
 ```
 
 Examples of **incorrect** code for the `{ "applyDefaultIgnorePatterns": false }` option:
+
+选项 `{ "applyDefaultIgnorePatterns": false }` 的 **错误** 代码示例：
 
 ```js
 /*eslint lines-around-comment: ["error", { "applyDefaultIgnorePatterns": false }] */

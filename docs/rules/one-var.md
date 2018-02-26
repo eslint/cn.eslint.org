@@ -79,6 +79,9 @@ Object option:
 * `"const": "always"` 要求每个块有一个 `const` 声明
 * `"const": "never"` requires multiple `const` declarations per block
 * `"const": "never"` 要求每个块有多个 `const` 声明
+* `"separateRequires": true` enforces `requires` to be separate from declarations
+* `"separateRequires": true` 强制 `requires` 分开声明
+
 
 Alternate object option:
 
@@ -308,6 +311,32 @@ function foo() {
 }
 ```
 
+Examples of **incorrect** code for this rule with the `{ separateRequires: true }` option:
+
+选项 `{ separateRequires: true }` 的 **错误** 代码示例：
+
+```js
+/*eslint one-var: ["error", { separateRequires: true, var: "always" }]*/
+/*eslint-env node*/
+
+var foo = require("foo"),
+    bar = "bar";
+```
+
+Examples of **correct** code for this rule with the `{ separateRequires: true }` option:
+
+选项 `{ separateRequires: true }` 的 **正确** 代码示例：
+
+```js
+/*eslint one-var: ["error", { separateRequires: true, var: "always" }]*/
+/*eslint-env node*/
+
+var foo = require("foo");
+var bar = "bar";
+
+var foo = require("foo"),
+    bar = require("bar");
+```
 
 ### initialized and uninitialized
 
@@ -383,7 +412,8 @@ function foo() {
 ## Compatibility
 
 * **JSHint**: This rule maps to the `onevar` JSHint rule, but allows `let` and `const` to be configured separately.
-* **JSCS**: This rule roughly maps to [disallowMultipleVarDecl](http://jscs.info/rule/disallowMultipleVarDecl)
+* **JSCS**: This rule roughly maps to [disallowMultipleVarDecl](http://jscs.info/rule/disallowMultipleVarDecl).
+* **JSCS**: This rule option `separateRequires` roughly maps to [requireMultipleVarDecl](http://jscs.info/rule/requireMultipleVarDecl).
 
 ## Version
 

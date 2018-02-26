@@ -27,9 +27,39 @@ This rule allows you to specify global variable names that you don't want to use
 
 ## Options
 
-This rule takes a list of strings which are the global variable names.
+This rule takes a list of strings, where each string is a global to be restricted:
 
-该规则使用全局变量名的字符串列表作为选项。
+该规则包含一个字符串列表，每个字符串都是全局受限的。
+
+```json
+{
+    "rules": {
+        "no-restricted-globals": ["error", "event", "fdescribe"]
+    }
+}
+```
+
+Alternatively, the rule also accepts objects, where the global name and an optional custom message are specified:
+
+另外，该规则也接收一个对象选项，指定全局变量名和可选的自定义消息：
+
+```json
+{
+    "rules": {
+        "no-restricted-globals": [
+            "error",
+            {
+                "name": "event",
+                "message": "Use local parameter instead."
+            },
+            {
+                "name": "fdescribe",
+                "message": "Do not commit fdescribe. Use describe instead."
+            }
+        ]
+    }
+}
+```
 
 Examples of **incorrect** code for sample `"event", "fdescribe"` global variable names:
 
@@ -63,6 +93,19 @@ import event from "event-module";
 /*eslint no-restricted-globals: ["error", "event"]*/
 
 var event = 1;
+```
+
+Examples of **incorrect** code for a sample `"event"` global variable name, along with a custom error message:
+
+`"event"` 全局变量名和一个自定义的错误消息的 **错误** 代码示例：
+
+```js
+/*global event*/
+/* eslint no-restricted-globals: ["error", { name: "error", message: "Use local parameter instead." }] */
+
+function onClick() {
+    console.log(event);    // Unexpected global variable 'event'. Use local parameter instead.
+}
 ```
 
 ## Related Rules

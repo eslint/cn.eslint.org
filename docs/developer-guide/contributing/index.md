@@ -20,11 +20,11 @@ ESLint welcomes contributions from everyone and adheres to the [JS Foundation Co
 
 ESLint 欢迎所有人参与贡献，遵守 [JS 基金会行为准则](https://js.foundation/community/code-of-conduct)。在你参与贡献之前请先阅读我们的行为准则。
 
-## [Signing the CLA](https://contribute.jquery.org/cla)
+## [Signing the CLA](https://js.foundation/CLA)
 
-In order to submit code or documentation to an ESLint project, please electronically sign the [Contributor License Agreement](https://contribute.jquery.org/cla). The CLA is you giving us permission to use your contribution.
+In order to submit code or documentation to an ESLint project, you will need to electronically sign our [Contributor License Agreement](https://cla.js.foundation/eslint/eslint). The CLA is you giving us permission to use your contribution.
 
-为了给 ESLint 项目提交代码或文档，请先签署[贡献者许可协议](https://contribute.jquery.org/cla)。 这份 CLA 表示你授权我们可以使用你的贡献。
+为了给 ESLint 项目提交代码或文档，你需要签署我们的[贡献者许可协议](https://cla.js.foundation/eslint/eslint)。 这份 CLA 表示你授权我们可以使用你的贡献。
 
 ## [Bug Reporting](reporting-bugs)
 

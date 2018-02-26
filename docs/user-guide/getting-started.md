@@ -1,6 +1,7 @@
 ---
 title: Getting Started with ESLint
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/getting-started.md
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -30,6 +31,10 @@ Note that, for some reason, not everyone can see the vedio on <a href="https://y
 **注：**由于某些未知原因，你可能看不到 <a href="https://youtu.be/hppJw2REb8g">youtube</a> 的视频，所以只放了<a href="http://t.cn/RSkK9KS">视频</a>截图。
 
 ## Installation and Usage
+
+Prerequisites: [Node.js](https://nodejs.org/en/) (>=4.x), npm version 2+.
+
+先决条件：[Node.js](https://nodejs.org/en/) (>=4.x), npm version 2+。
 
 There are two ways to install ESLint: globally and locally.
 
@@ -101,7 +106,7 @@ Any plugins or shareable configs that you use must also be installed globally to
 
 ## Configuration
 
-**Note:** If you are coming from a version before 1.0.0 please see the [migration guide](http://eslint.org/docs/user-guide/migrating-to-1.0.0).
+**Note:** If you are coming from a version before 1.0.0 please see the [migration guide](migrating-to-1.0.0).
 
 **注意：**如果你之前使用的版本低于 1.0.0，请查看 [迁移指南](migrating-to-1.0.0)。
 
@@ -118,9 +123,9 @@ After running `eslint --init`, you'll have a `.eslintrc` file in your directory.
 }
 ```
 
-The names `"semi"` and `"quotes"` are the names of [rules](http://eslint.org/docs/rules) in ESLint. The first value is the error level of the rule and can be one of these values:
+The names `"semi"` and `"quotes"` are the names of [rules](/docs/rules) in ESLint. The first value is the error level of the rule and can be one of these values:
 
-`"semi"` 和 `"quotes"` 是 ESLint 中 [规则](../rules) 的名称。第一个值是错误级别，可以使下面的值之一：
+`"semi"` 和 `"quotes"` 是 ESLint 中 [规则](/docs/rules) 的名称。第一个值是错误级别，可以使下面的值之一：
 
 * `"off"` or `0` - turn the rule off
 * `"off"` or `0` - 关闭规则
@@ -141,9 +146,9 @@ Your `.eslintrc` configuration file will also include the line:
     "extends": "eslint:recommended"
 ```
 
-Because of this line, all of the rules marked "(recommended)" on the [rules page](../rules) will be turned on.  Alternatively, you can use configurations that others have created by searching for "eslint-config" on [npmjs.com](https://www.npmjs.com/search?q=eslint-config).  ESLint will not lint your code unless you extend from a shared configuration or explicitly turn rules on in your configuration.
+Because of this line, all of the rules marked "(recommended)" on the [rules page](/docs/rules) will be turned on.  Alternatively, you can use configurations that others have created by searching for "eslint-config" on [npmjs.com](https://www.npmjs.com/search?q=eslint-config).  ESLint will not lint your code unless you extend from a shared configuration or explicitly turn rules on in your configuration.
 
-由于这行，所有在 [规则页面](../rules) 被标记为 "(recommended)" 的规则将会默认开启。另外，你可以在 [npmjs.com](https://www.npmjs.com/search?q=eslint-config) 搜索 "eslint-config" 使用别人创建好的配置。只有在你的配置文件中扩展了一个可分享的配置或者明确开启一个规则，ESLint 才会去校验你的代码。
+由于这行，所有在 [规则页面](/docs/rules) 被标记为 "(recommended)" 的规则将会默认开启。另外，你可以在 [npmjs.com](https://www.npmjs.com/search?q=eslint-config) 搜索 "eslint-config" 使用别人创建好的配置。只有在你的配置文件中扩展了一个可分享的配置或者明确开启一个规则，ESLint 才会去校验你的代码。
 
 ---
 
@@ -155,7 +160,7 @@ Because of this line, all of the rules marked "(recommended)" on the [rules page
 * 熟悉 [命令行选项](command-line-interface)。
 * Explore [ESLint integrations](integrations) into other tools like editors, build systems, and more.
 * 探索将 [ESLint 集成](integrations) 到其它工具，比如 编辑器，构建工具等等。
-* Can't find just the right rule?  Make your own [custom rule](../developer-guide/working-with-rules).
-* 没有找到适合的规则？创建[自定义规则](../developer-guide/working-with-rules)。
-* Make ESLint even better by [contributing](../developer-guide/contributing).
-* 通过 [贡献代码](../developer-guide/contributing) 让 ESLint 变得更好。
+* Can't find just the right rule?  Make your own [custom rule](/docs/developer-guide/working-with-rules).
+* 没有找到适合的规则？创建[自定义规则](/docs/developer-guide/working-with-rules)。
+* Make ESLint even better by [contributing](/docs/developer-guide/contributing/).
+* 通过 [贡献代码](/docs/developer-guide/contributing) 让 ESLint 变得更好。

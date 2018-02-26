@@ -4,11 +4,11 @@ layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require Camelcase (camelcase)
+# Require CamelCase (camelcase)
 
 # 要求使用骆驼拼写法 (camelcase)
 
-When it comes to naming variables, style guides generally fall into one of two camps: camelcase (`variableName`) and underscores (`variable_name`). This rule focuses on using the camelcase approach. If your style guide calls for camelcasing your variable names, then this rule is for you!
+When it comes to naming variables, style guides generally fall into one of two camps: camelcase (`variableName`) and underscores (`variable_name`). This rule focuses on using the camelcase approach. If your style guide calls for camelCasing your variable names, then this rule is for you!
 
 当命名变量时，风格指南一般会分为骆驼拼写法 (`variableName`) 和下划线拼写法 (`variable_name`) 两大阵营。该规则主要关注骆驼拼写法的用法。如果你的风格指南要求变量名称以驼峰的形式书写，此规则正适合于你。
 
@@ -50,9 +50,27 @@ obj.do_something = function() {
     // ...
 };
 
+function foo({ no_camelcased }) {
+    // ...
+};
+
+function foo({ isCamelcased: no_camelcased }) {
+    // ...
+}
+
+function foo({ no_camelcased = 'default value' }) {
+    // ...
+};
+
 var obj = {
     my_pref: 1
 };
+
+var { category_id = 1 } = query;
+
+var { foo: no_camelcased } = bar;
+
+var { foo: bar_baz = 1 } = quz;
 ```
 
 Examples of **correct** code for this rule with the default `{ "properties": "always" }` option:
@@ -76,6 +94,25 @@ do_something();
 new do_something();
 
 var { category_id: category } = query;
+
+function foo({ isCamelCased }) {
+    // ...
+};
+
+function foo({ isCamelCased: isAlsoCamelCased }) {
+    // ...
+}
+
+function foo({ isCamelCased = 'default value' }) {
+    // ...
+};
+
+var { categoryId = 1 } = query;
+
+var { foo: isCamelCased } = bar;
+
+var { foo: isCamelCased = 1 } = quz;
+
 ```
 
 ### never

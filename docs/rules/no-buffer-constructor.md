@@ -6,13 +6,21 @@ layout: doc
 
 # disallow use of the Buffer() constructor (no-buffer-constructor)
 
+# 禁用 Buffer() 构造函数 (no-buffer-constructor)
+
 In Node.js, the behavior of the `Buffer` constructor is different depending on the type of its argument. Passing an argument from user input to `Buffer()` without validating its type can lead to security vulnerabilities such as remote memory disclosure and denial of service. As a result, the `Buffer` constructor has been deprecated and should not be used. Use the producer methods `Buffer.from`, `Buffer.alloc`, and `Buffer.allocUnsafe` instead.
+
+在 Node.js 中，`Buffer` 构造函数的行为取决于其参数的类型。将用户输入的参数传递给 `Buffer()`，而不验证其类型，会导致安全漏洞，比如远程内存泄漏和拒绝服务。因此，`Buffer` 构造函数已经被弃用，不应该再使用。使用 `Buffer.from`、`Buffer.alloc` 和 `Buffer.allocUnsafe` 生成器方法代替。
 
 ## Rule Details
 
 This rule disallows calling and constructing the `Buffer()` constructor.
 
+该规则禁止调用 `Buffer()` 构造函数。
+
 Examples of **incorrect** code for this rule:
+
+**错误** 代码示例：
 
 ```js
 new Buffer(5);
@@ -27,6 +35,8 @@ new Buffer(res.body.values);
 
 Examples of **correct** code for this rule:
 
+**正确** 代码示例：
+
 ```js
 Buffer.alloc(5);
 Buffer.allocUnsafe(5);
@@ -40,6 +50,8 @@ Buffer.from(res.body.values);
 
 If you don't use Node.js, or you still need to support versions of Node.js that lack methods like `Buffer.from`, then you should not enable this rule.
 
+如果你不使用 Node.js，或你仍需要支持缺少像 `Buffer.from` 的方法的 Node.js 的版本，你不应该启用此规则。
+
 ## Further Reading
 
 * [Buffer API documentation](https://nodejs.org/api/buffer.html)
@@ -49,6 +61,8 @@ If you don't use Node.js, or you still need to support versions of Node.js that 
 ## Version
 
 This rule was introduced in ESLint 4.0.0-alpha.0.
+
+该规则在 ESLint 4.0.0-alpha.0 中被引入。
 
 ## Resources
 

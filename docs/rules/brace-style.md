@@ -12,9 +12,9 @@ layout: doc
 
 (fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
-Brace style is closely related to [indent style](http://en.wikipedia.org/wiki/Indent_style) in programming and describes the placement of braces relative to their control statement and body. There are probably a dozen, if not more, brace styles in the world.
+Brace style is closely related to [indent style](https://en.wikipedia.org/wiki/Indent_style) in programming and describes the placement of braces relative to their control statement and body. There are probably a dozen, if not more, brace styles in the world.
 
-在编程过程中，大括号风格与[缩进风格](http://en.wikipedia.org/wiki/Indent_style)紧密联系，用来描述大括号相对控制语句和代码块的位置，少说也有十几种。
+在编程过程中，大括号风格与[缩进风格](https://en.wikipedia.org/wiki/Indent_style)紧密联系，用来描述大括号相对控制语句和代码块的位置，少说也有十几种。
 
 The *one true brace style* is one of the most common brace styles in JavaScript, in which the opening brace of a block is placed on the same line as its corresponding statement or declaration. For example:
 
@@ -354,7 +354,7 @@ If you don't want to enforce a particular brace style, don't enable this rule.
 
 ## Further Reading
 
-* [Indent style](http://en.wikipedia.org/wiki/Indent_style)
+* [Indent style](https://en.wikipedia.org/wiki/Indent_style)
 
 ## Version
 

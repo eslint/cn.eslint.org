@@ -8,6 +8,10 @@ layout: doc
 
 # 强制使用有效的 JSDoc 注释 (valid-jsdoc)
 
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+
 [JSDoc](http://usejsdoc.org) generates application programming interface (API) documentation from specially-formatted comments in JavaScript code. For example, this is a JSDoc comment for a function:
 
 [JSDoc](http://usejsdoc.org) 根据 JavaScript 代码中的特殊格式的注释生成应用程序接口（API）文档。例如，下面的是一个函数的 JSDoc 注释：

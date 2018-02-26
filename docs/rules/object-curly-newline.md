@@ -39,21 +39,23 @@ Or an object option:
 
 * `"multiline": true` (default) requires line breaks if there are line breaks inside properties or between properties
 * `"multiline": true` (默认)如果在属性内部或属性之间有换行符，就要求有换行符
-* `"minProperties"` requires line breaks if the number of properties is more than the given integer. By default, an error will also be reported if an object contains linebreaks and has fewer properties than the given integer. However, the second behavior is disabled if the `consistent` option is set to `true`
-* `"minProperties"` 如果属性的数量超过了给定的数值，要求有换行符。默认情况下，如果一个对象包含换行符并且属性的数量少于给定的数量，该规则也会报错误。然而，如果设置 `consistent` 选项为 `true`，则该选项将不起作用。
+* `"minProperties"` requires line breaks if the number of properties is at least the given integer. By default, an error will also be reported if an object contains linebreaks and has fewer properties than the given integer. However, the second behavior is disabled if the `consistent` option is set to `true`
+* `"minProperties"` 如果属性的数量至少为给定的数值，要求有换行符。默认情况下，如果一个对象包含换行符并且属性的数量少于给定的数量，该规则也会报错误。然而，如果设置 `consistent` 选项为 `true`，则该选项将不起作用。
 * `"consistent": true` requires that either both curly braces, or neither, directly enclose newlines. Note that enabling this option will also change the behavior of the `minProperties` option. (See `minProperties` above for more information)
 * `"consistent": true` 要求使用花括号，或者不使用或括号直接使用换行。注意启用该选项将改变 `minProperties` 选项的行为。(查看上面的 `minProperties`，获取更多信息)
 
 
-You can specify different options for object literals and destructuring assignments:
+You can specify different options for object literals, destructuring assignments, and named imports and exports:
 
-你可以为字面量和解构赋值指定不同的选项：
+你可以为字面量、解构赋值和命名的导入导出指定不同的选项：
 
 ```json
 {
     "object-curly-newline": ["error", {
         "ObjectExpression": "always",
-        "ObjectPattern": { "multiline": true }
+        "ObjectPattern": { "multiline": true },
+        "ImportDeclaration": "never",
+        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
     }]
 }
 ```
@@ -62,6 +64,10 @@ You can specify different options for object literals and destructuring assignme
 * `"ObjectExpression"` 对象字面量的配置。
 * `"ObjectPattern"` configuration for object patterns of destructuring assignments
 * `"ObjectPattern"` 对象的解构赋值模式的配置。
+* `"ImportDeclaration"` configuration for named imports
+* `"ImportDeclaration"` 配置命名的导入
+* `"ExportDeclaration"` configuration for named exports
+* `"ExportDeclaration"` 配置命名的导出
 
 ### always
 
@@ -515,6 +521,52 @@ let {i,
 let {k = function() {
     dosomething();
 }} = obj;
+```
+
+### ImportDeclaration and ExportDeclaration
+
+Examples of **incorrect** code for this rule with the `{ "ImportDeclaration": "always", "ExportDeclaration": "never" }` options:
+
+选项 `{ "ImportDeclaration": "always", "ExportDeclaration": "never" }` 的 **错误** 代码示例：
+
+```js
+/*eslint object-curly-newline: ["error", { "ImportDeclaration": "always", "ExportDeclaration": "never" }]*/
+/*eslint-env es6*/
+
+import {foo, bar} from 'foo-bar';
+import {foo as f, bar} from 'foo-bar';
+import {foo,
+    bar} from 'foo-bar';
+
+export {
+   foo,
+   bar
+};
+export {
+   foo as f,
+   bar
+} from 'foo-bar';
+```
+
+Examples of **correct** code for this rule with the `{ "ImportDeclaration": "always", "ExportDeclaration": "never" }` options:
+
+选项 `{ "ImportDeclaration": "always", "ExportDeclaration": "never" }` 的 **正确** 代码示例：
+
+```js
+/*eslint object-curly-newline: ["error", { "ImportDeclaration": "always", "ExportDeclaration": "never" }]*/
+/*eslint-env es6*/
+
+import {
+    foo,
+    bar
+} from 'foo-bar';
+import {
+    foo as f,
+    bar
+} from 'foo-bar';
+
+export { foo, bar } from 'foo-bar';
+export { foo as f, bar } from 'foo-bar';
 ```
 
 ## Compatibility

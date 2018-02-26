@@ -1,12 +1,16 @@
 ---
 title: no-multi-assign - Rules
-layout: doc_en
+layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow Use of Chained Assignment Expressions (no-multi-assign)
 
+# 禁止连续赋值 (no-multi-assign)
+
 Chaining the assignment of variables can lead to unexpected results and be difficult to read.
+
+对变量连续赋值可能会导致意想不到的结果，而且难以阅读。
 
 ```js
 a = b = c = d;
@@ -16,7 +20,11 @@ a = b = c = d;
 
 This rule disallows using multiple assignments within a single statement.
 
+该规则禁止在单行语句中使用多个赋值。
+
 Examples of **incorrect** code for this rule:
+
+**错误** 代码示例：
 
 ```js
 /*eslint no-multi-assign: "error"*/
@@ -31,6 +39,8 @@ var a =
 ```
 
 Examples of **correct** code for this rule:
+
+**正确** 代码示例：
 
 ```js
 /*eslint no-multi-assign: "error"*/
@@ -52,6 +62,8 @@ var b = c;
 ## Version
 
 This rule was introduced in ESLint 3.14.0.
+
+该规则在 ESLint 3.14.0 中被引入。
 
 ## Resources
 

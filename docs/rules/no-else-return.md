@@ -8,13 +8,13 @@ layout: doc
 
 # 禁止在 else 前有 return (no-else-return)
 
-If an `if` block contains a `return` statement, the `else` block becomes unnecessary. Its contents can be placed outside of the block.
-
-如果 `if` 块中包含了一个 `return` 语句，`else` 块就成了多余的了。可以将其内容移至块外。
-
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
 (fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+
+If an `if` block contains a `return` statement, the `else` block becomes unnecessary. Its contents can be placed outside of the block.
+
+如果 `if` 块中包含了一个 `return` 语句，`else` 块就成了多余的了。可以将其内容移至块外。
 
 ```js
 function foo() {
@@ -31,6 +31,27 @@ function foo() {
 This rule is aimed at highlighting an unnecessary block of code following an `if` containing a return statement. As such, it will warn when it encounters an `else` following a chain of `if`s, all of them containing a `return` statement.
 
 该规则旨在突出含有 return 语句的 `if` 语句后的不必要的代码。因此，当`else` 语句出现在含有 return 语句的 `if` 语句之后，该规则将发出警告。
+
+## Options
+
+This rule has an object option:
+
+该规则有一个对象选项：
+
+```json
+{
+    "no-else-return": ["error", { "allowElseIf": true }],
+    // or
+    "no-else-return": ["error", { "allowElseIf": false }]
+}
+```
+
+* `allowElseIf: true` (default) allows `else if` blocks after a return
+* `allowElseIf: true` (默认) 允许在 return 之后有 `else if` 块
+* `allowElseIf: false` disallows `else if` blocks after a return
+* `allowElseIf: false` 禁止在 return 之后有 `else if` 块
+
+### `allowElseIf: true`
 
 Examples of **incorrect** code for this rule:
 
@@ -65,6 +86,16 @@ function foo() {
     }
 
     return t;
+}
+
+function foo() {
+    if (error) {
+        return 'It failed';
+    } else {
+        if (loading) {
+            return "It's still loading";
+        }
+    }
 }
 
 // Two warnings for nested occurrences
@@ -113,6 +144,50 @@ function foo() {
         }
     } else {
         return z;
+    }
+}
+
+function foo() {
+    if (error) {
+        return 'It failed';
+    } else if (loading) {
+        return "It's still loading";
+    }
+}
+```
+
+### `allowElseIf: false`
+
+Examples of **incorrect** code for this rule:
+
+**错误** 代码示例：
+
+```js
+/*eslint no-else-return: ["error", {allowElseIf: false}]*/
+
+function foo() {
+    if (error) {
+        return 'It failed';
+    } else if (loading) {
+        return "It's still loading";
+    }
+}
+```
+
+Examples of **correct** code for this rule:
+
+**正确** 代码示例：
+
+```js
+/*eslint no-else-return: ["error", {allowElseIf: false}]*/
+
+function foo() {
+    if (error) {
+        return 'It failed';
+    }
+
+    if (loading) {
+        return "It's still loading";
     }
 }
 ```

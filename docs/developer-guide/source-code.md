@@ -6,11 +6,11 @@ layout: doc
 
 # Source Code
 
-ESLint is hosted at [GitHub](https://github.com/eslint/eslint) and uses [Git](http://git-scm.com/) for source control. In order to obtain the source code, you must first install Git on your system. Instructions for installing and setting up Git can be found at [http://help.github.com/set-up-git-redirect](http://help.github.com/set-up-git-redirect).
+ESLint is hosted at [GitHub](https://github.com/eslint/eslint) and uses [Git](https://git-scm.com/) for source control. In order to obtain the source code, you must first install Git on your system. Instructions for installing and setting up Git can be found at [https://help.github.com/articles/set-up-git/](https://help.github.com/articles/set-up-git/).
 
-ESLint 托管在 [GitHub](http://www.github.com)，使用 [Git](http://git-scm.com/) 作为版本控制工具。
+ESLint 托管在 [GitHub](https://github.com/eslint/eslint)，使用 [Git](https://git-scm.com/) 作为版本控制工具。
 你必须先在操作系统中安装 [Git](http://git-scm.com/) ，才能获取到源码。
-你可以在 [http://help.github.com/set-up-git-redirect](http://help.github.com/set-up-git-redirect) 找到关于如何安装和配置 Git 的教程。
+你可以在 [https://help.github.com/articles/set-up-git/](https://help.github.com/articles/set-up-git/) 找到关于如何安装和配置 Git 的教程。
 
 If you simply want to create a local copy of the source to play with, you can clone the main repository using this command:
 
@@ -18,10 +18,10 @@ If you simply want to create a local copy of the source to play with, you can cl
 
     git clone git://github.com/eslint/eslint.git
 
-If you're planning on contributing to ESLint, then it's a good idea to fork the repository. You can find instructions for forking a repository at [http://help.github.com/fork-a-repo/](http://help.github.com/fork-a-repo/). After forking the ESLint repository, you'll want to create a local copy of your fork.
+If you're planning on contributing to ESLint, then it's a good idea to fork the repository. You can find instructions for forking a repository at [https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/). After forking the ESLint repository, you'll want to create a local copy of your fork.
 
 如果计划向 ESLint 贡献代码，那么 fork 这个仓库是一个好的选择。
-你可以在 [http://help.github.com/fork-a-repo/](http://help.github.com/fork-a-repo/) 找到关于如何 fork 仓库的教程。
+你可以在 [https://help.github.com/articles/fork-a-repo/](https://help.github.com/articles/fork-a-repo/) 找到关于如何 fork 仓库的教程。
 当你 fork ESLint 仓库后，可以拷贝你的 fork 到本地。
 
 ## Start Developing
@@ -30,10 +30,10 @@ Before you can get started developing, you'll need to have a couple of things in
 
 在你开始开发之前，你需要安装以下工具：
 
-* [Node.JS](http://nodejs.org)
-* [Node.JS](http://nodejs.org)
-* [npm](http://npmjs.org)
-* [npm](http://npmjs.org)
+* [Node.JS](https://nodejs.org)
+* [Node.JS](https://nodejs.org)
+* [npm](https://www.npmjs.com/)
+* [npm](https://www.npmjs.com/)
 
 Once you have a local copy and have Node.JS and npm installed, you'll need to install the ESLint dependencies:
 

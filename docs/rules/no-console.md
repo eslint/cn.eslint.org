@@ -78,6 +78,52 @@ If you're using Node.js, however, `console` is used to output information to the
 
 如果你在使用 Node.js，然后，`console` 主要用来向用户输出信息，所以不是严格用于调试目的。如果你正在做 Node.js 开发，那么你很可能不想启用此规则。
 
+Another case where you might not use this rule is if you want to enforce console calls and not console overwrites. For example:
+
+另一个可能不使用此规则的情况是，如果你想执行控制台调用，而不是控制台重写。例如:
+
+```js
+/*eslint no-console: ["error", { allow: ["warn"] }] */
+console.error = function (message) {
+  throw new Error(message);
+};
+```
+
+With the `no-console` rule in the above example, ESLint will report an error. For the above example, you can disable the rule:
+
+在上面使用 `no-console` 规则的示例中，ESLint 将报告一个错误。对于上面的例子，你可以禁用该规则:
+
+```js
+// eslint-disable-next-line no-console
+console.error = function (message) {
+  throw new Error(message);
+};
+
+// or
+
+console.error = function (message) {  // eslint-disable-line no-console
+  throw new Error(message);
+};
+```
+
+However, you might not want to manually add `eslint-disable-next-line` or `eslint-disable-line`. You can achieve the effect of only receiving errors for console calls with the `no-restricted-syntax` rule:
+
+然而，你可能不希望手动添加 `eslint-disable-next-line` 或 `eslint-disable-line`。你可以使用 `no-restricted-syntax` 规则来实现控制台调用仅接收错误的效果:
+
+```json
+{
+    "rules": {
+        "no-restricted-syntax": [
+            "error",
+            {
+                "selector": "CallExpression[callee.object.name='console'][callee.property.name=/^(log|warn|error|info|trace)$/]",
+                "message": "Unexpected property on console object was called"
+            }
+        ]
+    }
+}
+```
+
 ## Related Rules
 
 * [no-alert](no-alert)

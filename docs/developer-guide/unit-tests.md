@@ -6,9 +6,9 @@ layout: doc
 
 # Unit Tests
 
-Most parts of ESLint have unit tests associated with them. Unit tests are written using [Mocha](http://mochajs.org/) and are required when making contributions to ESLint. You'll find all of the unit tests in the `tests` directory.
+Most parts of ESLint have unit tests associated with them. Unit tests are written using [Mocha](https://mochajs.org/) and are required when making contributions to ESLint. You'll find all of the unit tests in the `tests` directory.
 
-ESLint 大多部分都有与其相关的单元测试。单元测试是用[Mocha](http://mochajs.org/)写的，也是对 ESLint 做出贡献所要求的。你会在 `tests` 目录下发现所有的单元测试。
+ESLint 大多部分都有与其相关的单元测试。单元测试是用[Mocha](https://mochajs.org/)写的，也是对 ESLint 做出贡献所要求的。你会在 `tests` 目录下发现所有的单元测试。
 
 When you first get the source code, you need to run `npm install` once initially to set ESLint for development. Once you've done that, you can run the tests via:
 

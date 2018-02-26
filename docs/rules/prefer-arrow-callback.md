@@ -4,113 +4,144 @@ layout: doc
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Suggest using arrow functions as callbacks. (prefer-arrow-callback)
+# Require using arrow functions for callbacks (prefer-arrow-callback)
 
-# 推荐使用箭头函数作为回调。 (prefer-arrow-callback)
+# 要求使用箭头函数作为回调 (prefer-arrow-callback)
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
 
 (fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
-Arrow functions are suited to callbacks, because:
+Arrow functions can be an attractive alternative to function expressions for callbacks or function arguments.
 
-箭头函数适合做回调函数，因为：
+对于回调函数和函数参数，箭头函数是一个很有吸引力的替代。
 
-- `this` keywords in arrow functions bind to the upper scope's.
-- `this` 关键字再箭头函数中绑定到了外层的作用域的 this。
-- The notation of the arrow function is shorter than function expression's.
-- 箭头函数的符号比函数表达式的短。
+For example, arrow functions are automatically bound to their surrounding scope/context. This provides an alternative to the pre-ES6 standard of explicitly binding function expressions to achieve similar behavior.
+
+例如，箭头函数自动绑定到其周围作用域/上下文。这为 ES6 之前的标准的显式绑定函数表达式提供了一个替代，来实现类似的行为。
+
+Additionally, arrow functions are:
+
+另外，箭头函数：
+
+- less verbose, and easier to reason about.
+- 简洁，易推理。
+- bound lexically regardless of where or when they are invoked.
+- 无论何时何地调用它，都是作用域绑定的。
 
 ## Rule Details
 
-This rule is aimed to flag usage of function expressions in an argument list.
+This rule locates function expressions used as callbacks or function arguments. An error will be produced for any that could be replaced by an arrow function without changing the result.
 
-该规则旨在标记函数表达式在参数列表中的用法。
+该规则定位用于回调函数或函数参数的函数表达式。任何可以被不改变结果的箭头函数替代的函数表达式都将报出错误。
 
-The following patterns are considered problems:
+The following examples **will** be flagged:
 
-以下模式被认为是有问题的：
+下面的示例将被标记为：
 
 ```js
-/*eslint prefer-arrow-callback: "error"*/
+/* eslint prefer-arrow-callback: "error" */
 
-foo(function(a) { return a; });
-foo(function() { return this.a; }.bind(this));
+foo(function(a) { return a; }); // ERROR
+// prefer: foo(a => a)
+
+foo(function() { return this.a; }.bind(this)); // ERROR
+// prefer: foo(() => this.a)
 ```
 
-The following patterns are not considered problems:
+Instances where an arrow function would not produce identical results will be ignored.
 
-以下模式本认为是没有问题的：
+如果一个箭头函数不能产生相同的结果，将被忽略。
+
+The following examples **will not** be flagged:
+
+下面的示例不会被标记：
 
 ```js
-/*eslint prefer-arrow-callback: "error"*/
-/*eslint-env es6*/
+/* eslint prefer-arrow-callback: "error" */
+/* eslint-env es6 */
 
-foo(a => a);
-foo(function*() { yield; });
+// arrow function callback
+foo(a => a); // OK
 
-// this is not a callback.
-var foo = function foo(a) { return a; };
+// generator as callback
+foo(function*() { yield; }); // OK
 
-// using `this` without `.bind(this)`.
-foo(function() { return this.a; });
+// function expression not used as callback or function argument
+var foo = function foo(a) { return a; }; // OK
 
-// recursively.
-foo(function bar(n) { return n && n + bar(n - 1); });
+// unbound function expression callback
+foo(function() { return this.a; }); // OK
+
+// recursive named function callback
+foo(function bar(n) { return n && n + bar(n - 1); }); // OK
 ```
 
 ## Options
 
-This rule takes one optional argument, an object which is an options object.
+Access further control over this rule's behavior via an options object.
 
-该规则有个对象选项。
+通过一个对象选项来进一步控制该规则的行为。
+
+Default: `{ allowNamedFunctions: false, allowUnboundThis: true }`
+
+默认：`{ allowNamedFunctions: false, allowUnboundThis: true }`
 
 ### allowNamedFunctions
 
-This is a `boolean` option and it is `false` by default. When set to `true`, the rule doesn't warn on named functions used as callbacks.
+By default `{ "allowNamedFunctions": false }`, this `boolean` option prohibits using named functions as callbacks or function arguments.
 
-这是一个布尔选项，默认为 `false`。当设置为 `true`，该规则不对作为回调函数的命名函数发出警告。
+默认 `{ "allowNamedFunctions": false }`，该 `boolean` 选项禁止使用命名的函数作为回调函数或函数参数。
 
-Examples of **correct** code for the `{ "allowNamedFunctions": true }` option:
+Changing this value to `true` will reverse this option's behavior by allowing use of named functions without restriction.
 
-选项 `{ "allowNamedFunctions": true }` 的 **正确** 代码示例：
+将此值改为 `true`，将反转此选项的行为，允许使用命名的函数作为回调函数或函数参数。
+
+`{ "allowNamedFunctions": true }` **will not** flag the following example:
+
+`{ "allowNamedFunctions": true }` 将不会标记以下示例：
 
 ```js
-/*eslint prefer-arrow-callback: ["error", { "allowNamedFunctions": true }]*/
+/* eslint prefer-arrow-callback: [ "error", { "allowNamedFunctions": true } ] */
 
 foo(function bar() {});
 ```
 
 ### allowUnboundThis
 
-This is a `boolean` option and it is `true` by default. When set to `false`, this option allows the use of `this` without restriction and checks for dynamically assigned `this` values such as when using `Array.prototype.map` with a `context` argument. Normally, the rule will flag the use of `this` whenever a function does not use `bind()` to specify the value of `this` constantly.
+By default `{ "allowUnboundThis": true }`, this `boolean` option allows function expressions containing `this` to be used as callbacks, as long as the function in question has not been explicitly bound.
 
-这是一个布尔选项，默认为 `true`。当设置为 `false`，该选项允许不受限制地使用 `this`，检测动态地分配 `this`，比如使用带有 `context` 的 `Array.prototype.map`。通常，该规则将标记 `this` 的使用，只要函数不使用 `bind()` 指定 `this` 的值。
+默认 `{ "allowUnboundThis": true }`，该 `boolean` 选项允许包含 `this` 的函数表达式被用作回调函数，只要问题函数没有被显式绑定。
 
-Examples of **incorrect** code for the `{ "allowUnboundThis": false }` option:
+When set to `false` this option prohibits the use of function expressions as callbacks or function arguments entirely, without exception.
 
-选项 `{ "allowUnboundThis": false }` 的 **错误** 代码示例：
+当设置为 `false` 时，该选项完全禁止函数表达式作为回调函数或函数参数，无一例外。
+
+`{ "allowUnboundThis": false }` **will** flag the following examples:
+
+`{ "allowUnboundThis": false }` 将标记以下示例：
 
 ```js
-/*eslint prefer-arrow-callback: ["error", { "allowUnboundThis": false }]*/
-/*eslint-env es6*/
+/* eslint prefer-arrow-callback: [ "error", { "allowUnboundThis": false } ] */
+/* eslint-env es6 */
 
 foo(function() { this.a; });
 
 foo(function() { (() => this); });
 
-someArray.map(function (itm) { return this.doSomething(itm); }, someObject);
+someArray.map(function(itm) { return this.doSomething(itm); }, someObject);
 ```
 
 ## When Not To Use It
 
-This rule should not be used in ES3/5 environments.
+- In environments that have not yet adopted ES6 language features (ES3/5).
+- 在未采用 ES6 语言特性的环境(ES3/5)中。
+- In ES6+ environments that allow the use of function expressions when describing callbacks or function arguments.
+- 在允许使用函数表达式描述回调函数或函数参数的 ES6+ 环境中。
 
-此规则不应在 ES3/5 环境中使用。
+## Further Reading
 
-In ES2015 (ES6) or later, if you don't want to be notified about function expressions in an argument list, you can safely disable this rule.
-
-在 ES2015 (ES6) 或以后的版本中，如果你不希望收到关于函数表达式出现在参数列表中通知，关闭此规则即可。
+- [More on ES6 arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 ## Version
 

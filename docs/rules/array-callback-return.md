@@ -30,26 +30,26 @@ This rule finds callback functions of the following methods, then checks usage o
 
 该规则发现以下方法的回调函数，然后检查`return`语句的使用。
 
-* [`Array.from`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.from)
-* [`Array.from`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.from)
-* [`Array.prototype.every`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.every)
-* [`Array.prototype.every`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.every)
-* [`Array.prototype.filter`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.filter)
-* [`Array.prototype.filter`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.filter)
-* [`Array.prototype.find`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.find)
-* [`Array.prototype.find`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.find)
-* [`Array.prototype.findIndex`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.findIndex )
-* [`Array.prototype.findIndex`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.findIndex )
-* [`Array.prototype.map`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.map)
-* [`Array.prototype.map`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.map)
-* [`Array.prototype.reduce`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduce)
-* [`Array.prototype.reduce`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduce)
-* [`Array.prototype.reduceRight`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduceRight)
-* [`Array.prototype.reduceRight`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduceRight)
-* [`Array.prototype.some`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.some)
-* [`Array.prototype.some`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.some)
-* [`Array.prototype.sort`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.sort)
-* [`Array.prototype.sort`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.sort)
+* [`Array.from`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.from)
+* [`Array.from`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.from)
+* [`Array.prototype.every`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.every)
+* [`Array.prototype.every`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.every)
+* [`Array.prototype.filter`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.filter)
+* [`Array.prototype.filter`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.filter)
+* [`Array.prototype.find`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.find)
+* [`Array.prototype.find`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.find)
+* [`Array.prototype.findIndex`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.findIndex )
+* [`Array.prototype.findIndex`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.findIndex )
+* [`Array.prototype.map`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.map)
+* [`Array.prototype.map`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.map)
+* [`Array.prototype.reduce`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduce)
+* [`Array.prototype.reduce`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduce)
+* [`Array.prototype.reduceRight`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduceRight)
+* [`Array.prototype.reduceRight`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduceRight)
+* [`Array.prototype.some`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.some)
+* [`Array.prototype.some`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.some)
+* [`Array.prototype.sort`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.sort)
+* [`Array.prototype.sort`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.sort)
 * And above of typed arrays.
 * 以上类型的数据。
 
@@ -100,6 +100,26 @@ var foo = Array.from(nodes, function(node) {
 });
 
 var bar = foo.map(node => node.getAttribute("id"));
+```
+
+## Options
+
+This rule has an object option:
+
+该规则有一个对象选项：
+
+* `"allowImplicit": false` (default) When set to true, allows implicitly returning `undefined` with a `return` statement containing no expression.
+* `"allowImplicit": false` (默认) 当设置为 `true` 时，允许隐式使用 `return` 不包含任何表达式地返回 `undefined`。
+
+Examples of **correct** code for the `{ "allowImplicit": true }` option:
+
+选项 `{ "allowImplicit": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint array-callback-return: ["error", { allowImplicit: true }]*/
+var undefAllTheThings = myArray.map(function(item) {
+    return;
+});
 ```
 
 ## Known Limitations

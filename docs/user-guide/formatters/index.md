@@ -1,51 +1,31 @@
 ---
 title: Documentation
-layout: doc
+layout: doc_en
 ---
 # ESLint Formatters
 
 ESLint comes with several built-in formatters to control the appearance of the linting results, and supports third-party formatters as well.
 
-ESLint 由几种内置的格式化工具组成，以便控制检查结果的样式和支持第三方格式化工具。
-
 You can specify a formatter using the `--format` or `-f` flag on the command line. For example, `--format codeframe` uses the `codeframe` formatter.
-
-你可以在命令行上使用 `--format` 或 `-f` 标记来指定一个格式化器。比如，`--format codeframe` 使用 `codeframe` 格式化器。
 
 The built-in formatter options are:
 
-内置的格式化工具列举如下：
-
-* [checkstyle](#checkstyle)
 * [checkstyle](#checkstyle)
 * [codeframe](#codeframe)
-* [codeframe](#codeframe)
-* [compact](#compact)
 * [compact](#compact)
 * [html](#html)
-* [html](#html)
-* [jslint-xml](#jslint-xml)
 * [jslint-xml](#jslint-xml)
 * [json](#json)
-* [json](#json)
-* [junit](#junit)
 * [junit](#junit)
 * [stylish](#stylish)
-* [stylish](#stylish)
-* [table](#table)
 * [table](#table)
 * [tap](#tap)
-* [tap](#tap)
 * [unix](#unix)
-* [unix](#unix)
-* [visualstudio](#visualstudio)
 * [visualstudio](#visualstudio)
 
 ## Example Source
 
 Examples of each formatter were created from linting `fullOfProblems.js` using the `.eslintrc` configuration shown below.
-
-每一种格式化工具从 `fullOfProblems.js z` 使用 `.eslintrc` 例如如下配置
 
 ### `fullOfProblems.js`
 
@@ -193,7 +173,7 @@ error: Unnecessary semicolon (no-extra-semi) at fullOfProblems.js:7:2:
 
 ### json
 ```
-[{"filePath":"/var/lib/jenkins/workspace/Releases/ESLint Release/eslint/fullOfProblems.js","messages":[{"ruleId":"no-unused-vars","severity":2,"message":"'addOne' is defined but never used.","line":1,"column":10,"nodeType":"Identifier","source":"function addOne(i) {"},{"ruleId":"use-isnan","severity":2,"message":"Use the isNaN function to compare with NaN.","line":2,"column":9,"nodeType":"BinaryExpression","source":"    if (i != NaN) {"},{"ruleId":"space-unary-ops","severity":2,"message":"Unexpected space before unary operator '++'.","line":3,"column":16,"nodeType":"UpdateExpression","source":"        return i ++","fix":{"range":[57,58],"text":""}},{"ruleId":"semi","severity":1,"message":"Missing semicolon.","line":3,"column":20,"nodeType":"ReturnStatement","source":"        return i ++","fix":{"range":[60,60],"text":";"}},{"ruleId":"no-else-return","severity":1,"message":"Unnecessary 'else' after 'return'.","line":4,"column":12,"nodeType":"BlockStatement","source":"    } else {","fix":{"range":[0,94],"text":"function addOne(i) {\n    if (i != NaN) {\n        return i ++\n    } \n      return\n    \n}"}},{"ruleId":"indent","severity":1,"message":"Expected indentation of 8 spaces but found 6.","line":5,"column":1,"nodeType":"Keyword","source":"      return","endLine":5,"endColumn":7,"fix":{"range":[74,80],"text":"        "}},{"ruleId":"consistent-return","severity":2,"message":"Function 'addOne' expected a return value.","line":5,"column":7,"nodeType":"ReturnStatement","source":"      return"},{"ruleId":"semi","severity":1,"message":"Missing semicolon.","line":5,"column":13,"nodeType":"ReturnStatement","source":"      return","fix":{"range":[86,86],"text":";"}},{"ruleId":"no-extra-semi","severity":2,"message":"Unnecessary semicolon.","line":7,"column":2,"nodeType":"EmptyStatement","source":"};","fix":{"range":[93,95],"text":"}"}}],"errorCount":5,"warningCount":4,"fixableErrorCount":2,"fixableWarningCount":4,"source":"function addOne(i) {\n    if (i != NaN) {\n        return i ++\n    } else {\n      return\n    }\n};"}]
+[{"filePath":"/var/lib/jenkins/workspace/Releases/ESLint Release/eslint/fullOfProblems.js","messages":[{"ruleId":"no-unused-vars","severity":2,"message":"'addOne' is defined but never used.","line":1,"column":10,"nodeType":"Identifier","source":"function addOne(i) {","endLine":1,"endColumn":16},{"ruleId":"use-isnan","severity":2,"message":"Use the isNaN function to compare with NaN.","line":2,"column":9,"nodeType":"BinaryExpression","source":"    if (i != NaN) {","endLine":2,"endColumn":17},{"ruleId":"space-unary-ops","severity":2,"message":"Unexpected space before unary operator '++'.","line":3,"column":16,"nodeType":"UpdateExpression","source":"        return i ++","endLine":3,"endColumn":20,"fix":{"range":[57,58],"text":""}},{"ruleId":"semi","severity":1,"message":"Missing semicolon.","line":3,"column":20,"nodeType":"ReturnStatement","source":"        return i ++","fix":{"range":[60,60],"text":";"}},{"ruleId":"no-else-return","severity":1,"message":"Unnecessary 'else' after 'return'.","line":4,"column":12,"nodeType":"BlockStatement","source":"    } else {","messageId":"unexpected","endLine":6,"endColumn":6,"fix":{"range":[0,94],"text":"function addOne(i) {\n    if (i != NaN) {\n        return i ++\n    } \n      return\n    \n}"}},{"ruleId":"indent","severity":1,"message":"Expected indentation of 8 spaces but found 6.","line":5,"column":1,"nodeType":"Keyword","source":"      return","endLine":5,"endColumn":7,"fix":{"range":[74,80],"text":"        "}},{"ruleId":"consistent-return","severity":2,"message":"Function 'addOne' expected a return value.","line":5,"column":7,"nodeType":"ReturnStatement","source":"      return","messageId":"missingReturnValue","endLine":5,"endColumn":13},{"ruleId":"semi","severity":1,"message":"Missing semicolon.","line":5,"column":13,"nodeType":"ReturnStatement","source":"      return","fix":{"range":[86,86],"text":";"}},{"ruleId":"no-extra-semi","severity":2,"message":"Unnecessary semicolon.","line":7,"column":2,"nodeType":"EmptyStatement","source":"};","messageId":"unexpected","endLine":7,"endColumn":3,"fix":{"range":[93,95],"text":"}"}}],"errorCount":5,"warningCount":4,"fixableErrorCount":2,"fixableWarningCount":4,"source":"function addOne(i) {\n    if (i != NaN) {\n        return i ++\n    } else {\n      return\n    }\n};"}]
 ```
 
 ### junit

@@ -159,9 +159,9 @@ If you use a pattern such as [UMD][4] where the `require`d modules are not loade
 
 如果你使用了类似 [UMD][4] 的模式，其 `require` 的模块在变量声明时不会被加载，该规则明显对你没什么用。
 
-[1]: http://nodejs.org/api/modules.html#modules_core_modules
-[2]: http://nodejs.org/api/modules.html#modules_file_modules
-[3]: http://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders
+[1]: https://nodejs.org/api/modules.html#modules_core_modules
+[2]: https://nodejs.org/api/modules.html#modules_file_modules
+[3]: https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders
 [4]: https://github.com/umdjs/umd
 
 ## Version

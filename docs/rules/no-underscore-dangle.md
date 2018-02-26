@@ -67,6 +67,8 @@ This rule has an object option:
 * `"allowAfterThis": false` (默认) 禁止在 `this` 对象的成员变量上使用悬空下划线
 * `"allowAfterSuper": false` (default) disallows dangling underscores in members of the `super` object
 * `"allowAfterSuper": false` (默认) 禁止在 `super` 对象的成员变量上使用悬空下划线
+* `"enforceInMethodNames": false` (default) allows dangling underscores in method names
+* `"enforceInMethodNames": false` (默认) 允许在方法名中使用悬空下划线
 
 ### allow
 
@@ -105,6 +107,32 @@ Examples of **correct** code for this rule with the `{ "allowAfterSuper": true }
 
 var a = super.foo_;
 super._bar();
+```
+
+### enforceInMethodNames
+
+Examples of **incorrect** code for this rule with the `{ "enforceInMethodNames": true }` option:
+
+选项 `{ "enforceInMethodNames": true }` 的 **错误** 代码示例：
+
+```js
+/*eslint no-underscore-dangle: ["error", { "enforceInMethodNames": true }]*/
+
+class Foo {
+  _bar() {}
+}
+
+class Foo {
+  bar_() {}
+}
+
+const o = {
+  _bar() {}
+};
+
+const o = {
+  bar_() = {}
+};
 ```
 
 ## When Not To Use It

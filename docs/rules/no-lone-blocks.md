@@ -60,9 +60,9 @@ function bar() {
 }
 ```
 
-Examples of **correct** code for this rule with es6 environment:
+Examples of **correct** code for this rule with ES6 environment:
 
-**正确** 代码示例：
+ES6 环境下 **正确** 代码示例：
 
 ```js
 /*eslint no-lone-blocks: "error"*/
@@ -98,9 +98,9 @@ aLabel: {
 }
 ```
 
-Examples of **correct** code for this rule with es6 environment and strict mode via `"parserOptions": { "sourceType": "module" }` in the ESLint configuration or `"use strict"` directive in the code:
+Examples of **correct** code for this rule with ES6 environment and strict mode via `"parserOptions": { "sourceType": "module" }` in the ESLint configuration or `"use strict"` directive in the code:
 
-在严格模式下，设置 `ecmaFeatures: { blockBindings: true }`，以下的模式不会发出警告：
+在 ES6 环境和严格模式下，设置 `ecmaFeatures: { blockBindings: true }` 或在代码中使用 `"use strict"` 指令的 **正确** 代码示例：
 
 ```js
 /*eslint no-lone-blocks: "error"*/

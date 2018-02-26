@@ -56,7 +56,7 @@ while (typeof x) {
     doSomethingForever();
 }
 
-do{
+do {
     doSomethingForever();
 } while (x = -1);
 
@@ -82,7 +82,7 @@ while (typeof x === "undefined") {
     doSomething();
 }
 
-do{
+do {
     doSomething();
 } while (x);
 

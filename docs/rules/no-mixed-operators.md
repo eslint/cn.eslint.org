@@ -19,6 +19,28 @@ var foo = (a && b) || c || d;  /*GOOD*/
 var foo = a && (b || c || d);  /*GOOD*/
 ```
 
+**Note:**
+
+**注意：**
+
+It is expected for this rule to emit one error for each mixed operator in a pair. As a result, for each two consecutive mixed operators used, a distinct error will be displayed, pointing to where the specific operator that breaks the rule is used:
+
+该规则期望对一对混合操作符发出一个错误。因此，对于使用的每两个连续混合操作符，将显示一个明显的错误，指向特定的破坏该规则的操作符:
+
+```js
+var foo = a && b || c || d;
+```
+
+will generate
+
+将生成：
+
+```sh
+1:13  Unexpected mix of '&&' and '||'. (no-mixed-operators)
+1:18  Unexpected mix of '&&' and '||'. (no-mixed-operators)
+```
+
+
 ## Rule Details
 
 This rule checks `BinaryExpression` and `LogicalExpression`.
@@ -80,14 +102,10 @@ This rule has 2 options.
 
 该规则有两个选项。
 
-* `groups` (`string[][]`) - specifies groups to compare operators.
-  When this rule compares two operators, if both operators are included in a same group, this rule checks it. Otherwise, this rule ignores it.
-  This value is a list of groups. The group is a list of binary operators.
-  Default is the groups for each kind of operators.
-* `groups` (`string[][]`) - 指定要比较的操作符分组。
-  当该规则比较两个操作符时，，如果操作符在同一分组内，该规则会进行检查。否则这规则忽略它。它值是个列表组。这个组是二元操作符列表。默认为各种操作符的组。
-* `allowSamePrecedence` (`boolean`) - specifies to allow mix of 2 operators if those have the same precedence. Default is `true`.
-* `allowSamePrecedence` (`boolean`) - 指定允许使用混合的两个操作符，前提是它们有同样的优先级。 默认为 `true`.
+* `groups` (`string[][]`) - specifies operator groups to be checked. The `groups` option is a list of groups, and a group is a list of binary operators. Default operator groups are defined as arithmetic, bitwise, comparison, logical, and relational operators.
+* `groups` (`string[][]`) - 指定要检查的操作符分组。`groups` 选项是分组的列表，分组是二进制运算符的列表。默认操作符分组定义为算术、位、比较、逻辑和关系运算符。
+* `allowSamePrecedence` (`boolean`) - specifies whether to allow mixed operators if they are of equal precedence. Default is `true`.
+* `allowSamePrecedence` (`boolean`) - 指定是否允许混合运算符具有相同的优先级。默认为 `true`。
 
 ### groups
 
@@ -106,19 +124,15 @@ The following operators can be used in `groups` option:
 * Relational Operators: `"in"`, `"instanceof"`
 * 关系操作符：`"in"`、`"instanceof"`
 
-Now, considers about `{"groups": [["&", "|", "^", "~", "<<", ">>", ">>>"], ["&&", "||"]]}` configure.
+Now, consider the following group configuration: `{"groups": [["&", "|", "^", "~", "<<", ">>", ">>>"], ["&&", "||"]]}`.
+There are 2 groups specified in this configuration: bitwise operators and logical operators.
+This rule checks if the operators belong to the same group only.
+In this case, this rule checks if bitwise operators and logical operators are mixed, but ignores all other operators.
 
-现在，考虑一下 `{"groups": [["&", "|", "^", "~", "<<", ">>", ">>>"], ["&&", "||"]]}` 配置。
-
-This configure has 2 groups: bitwise operators and logical operators.
-This rule checks only if both operators are included in a same group.
-So, in this case, this rule comes to check between bitwise operators and between logical operators.
-
-该配置有两个分组：位操作符和逻辑操作符。该规则只检查同一分组内的操作符。所以，在这种情况下，该规则检查位操作符和逻辑操作符。
-
-This rule ignores other operators.
-
-该规则忽略其它操作符。
+现在，考虑以下分组配置：`{"groups": [["&", "|", "^", "~", "<<", ">>", ">>>"], ["&&", "||"]]}`。
+在这个配置中指定了两个组: 位操作符和逻辑运算符。
+该规则检查操作符是否仅属于同一组。
+在这种情况下，该规则检查是否混合了位操作符和逻辑运算符，但忽略了所有其他操作符。
 
 Examples of **incorrect** code for this rule with `{"groups": [["&", "|", "^", "~", "<<", ">>", ">>>"], ["&&", "||"]]}` option:
 
@@ -171,6 +185,17 @@ Examples of **incorrect** code for this rule with `{"allowSamePrecedence": false
 
 // + and - have the same precedence.
 var foo = a + b - c;
+```
+
+Examples of **correct** code for this rule with `{"allowSamePrecedence": false}` option:
+
+选项 `{"allowSamePrecedence": false}` 的 **正确** 代码示例：
+
+```js
+/*eslint no-mixed-operators: ["error", {"allowSamePrecedence": false}]*/
+
+// + and - have the same precedence.
+var foo = (a + b) - c;
 ```
 
 ## When Not To Use It

@@ -1,8 +1,9 @@
- - algolia.svg 10.7KB 391x124
+ - algolia.svg 4.4KB 1366x362
  - alianza.png 5.95KB 500x200
  - angular-formly.png 8.81KB 200x200
  - atlassian.svg 8.36KB 792x168
  - box.png 16KB 800x441
+ - buddy.svg 4KB 570x168
  - brigade.svg 2.44KB 250x137
  - cerner.png 3KB 240x65
  - cocktailjs.png 4.78KB 228x150
@@ -14,6 +15,7 @@
  - fingerproof.png 2.32KB 200x200
  - geekpark.png 12.5KB 800x172
  - getable.png 22.3KB 785x200
+ - hasura.svg 20KB 500x200
  - kahoot.png 11.4KB 800x600
  - millenium.svg 2.83KB 1745x513
  - paypal.png 11.3KB 800x260

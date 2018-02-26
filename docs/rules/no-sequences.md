@@ -84,8 +84,17 @@ while ((val = foo(), val < 42));
 ## When Not To Use It
 
 Disable this rule if sequence expressions with the comma operator are acceptable.
+Another case is where you might want to report all usages of the comma operator, even if they are wrapped in parentheses or in a for loop. You can achieve this using rule `no-restricted-syntax`:
 
-如果逗号操作符在有序的表达式中使用是可接受的，禁用此规则。
+如果逗号操作符在有序的表达式中使用是可接受的，禁用此规则。另一种情况是，你可能希望报告逗号操作符的所有用法，即使它们是用在括号或for 循环中。你可以使用 `no-restricted-syntax` 规则实现此功能：
+
+```js
+{
+    "rules": {
+        "no-restricted-syntax": ["error", "SequenceExpression"]
+    }
+}
+```
 
 ## Version
 

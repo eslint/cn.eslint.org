@@ -12,6 +12,10 @@ JavaScript has a lot of language features, and not everyone likes all of them. A
 
 JavaScript 有很多语言特征，并不是每个人都喜欢所有的特征。因此，一些项目选择完全禁用某些特定的语言特征。例如，你可以禁止 `try-catch` 或 `class` 的使用，或者你可以决定是否禁用 `in` 操作符。
 
+Rather than creating separate rules for every language feature you want to turn off, this rule allows you to configure the syntax elements you want to restrict use of. These elements are represented by their [ESTree](https://github.com/estree/estree) node types. For example, a function declaration is represented by `FunctionDeclaration` and the `with` statement is represented by `WithStatement`. You may find the full list of AST node names you can use [on GitHub](https://github.com/eslint/espree/blob/master/lib/ast-node-types.js) and use the [online parser](https://eslint.org/parser/) to see what type of nodes your code consists of.
+
+这个规则不是为你想要关闭的每个语言特性创建单独的规则，而是允许您配置你想要限制使用的语法元素。这些元素为(ESTree)(https://github.com/estree/estree)的节点类型。例如，函数声明由 `FunctionDeclaration` 表示，`with` 语句由 `WithStatement` 表示。你会发现 AST 节点名称的完整列表可以使用 (GitHub)(https://github.com/eslint/espree/blob/master/lib/ast-node-types.js) 和使用(在线解析器)(https://eslint.org/parser/)，查看代码包含什么类型的节点。
+
 You can also specify [AST selectors](../developer-guide/selectors) to restrict, allowing much more precise control over syntax patterns.
 
 你也可以指定[AST 选择器](../developer-guide/selectors)来进行限制，允许对语法模式进行更精确的控制。

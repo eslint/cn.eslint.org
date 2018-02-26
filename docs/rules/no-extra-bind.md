@@ -30,7 +30,7 @@ This code is an example of a good use of `bind()` for setting the value of `this
 
 Sometimes during the course of code maintenance, the `this` value is removed from the function body. In that case, you can end up with a call to `bind()` that doesn't accomplish anything:
 
-有时，在代码维护过程中，`this` 值从函数体中被移除。在这种情况下，你可以结束 `bind()`的调用，因为它没有做任何事情。
+有时，在代码维护过程中，`bind()` 不再传入 `this`。在这种情况下，你可以不调用 `bind()`，因为它没有做任何事情。
 
 ```js
 // useless bind
@@ -113,7 +113,7 @@ If you are not concerned about unnecessary calls to `bind()`, you can safely dis
 ## Further Reading
 
 * [Function.prototype.bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
-* [Understanding JavaScript's Function.prototype.bind](http://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/)
+* [Understanding JavaScript's Function.prototype.bind](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/)
 
 ## Version
 

@@ -24,3 +24,13 @@
 .rules .radio+.radio, .rules .checkbox+.checkbox {
     margin-top: inherit;
 }
+
+.demo-config-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.eslint-version-info {
+    color: grey;
+}

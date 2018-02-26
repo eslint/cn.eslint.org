@@ -12,13 +12,13 @@ ESLint 有一个让更新代码非常快速简单而且非常轻量级的开发�
 
 ## Step 1: Install Node.js
 
-Go to <http://nodejs.org/> to download and install the latest stable version for your operating system.
+Go to <https://nodejs.org/> to download and install the latest stable version for your operating system.
 
-到 <http://nodejs.org/> 为你的操作系统下载并安装最新的稳定版。
+到 <https://nodejs.org/> 为你的操作系统下载并安装最新的稳定版。
 
-Most of the installers come with [npm](http://npmjs.org/) already installed, but if for some reason it doesn't work on your system, you can install it manually using the instructions on the website.
+Most of the installers come with [npm](https://www.npmjs.com/) already installed, but if for some reason it doesn't work on your system, you can install it manually using the instructions on the site.
 
-大多数的安装都会自动安装 [npm](http://npmjs.org/)，但是由于某些原因它不能在你的系统中工作，你可以根据网站上的说明手动安装。
+大多数的安装都会自动安装 [npm](http://www.npmjs.com/)，但是由于某些原因它不能在你的系统中工作，你可以根据网站上的说明手动安装。
 
 ## Step 2: Fork and checkout your own ESLint repository
 
@@ -38,6 +38,10 @@ $ npm install
 You must be connected to the Internet for this step to work. You'll see a lot of utilities being downloaded.
 
 这一步必须联网才能工作。你会看到下载了大量的工具。
+
+If you have an ESLint configuration file in your home directory (such as `~/.eslintrc.js`), either delete or rename it. This will help ensure that all the tests in Step 5 pass. It will also prevent ESLint from running with an incorrect configuration in case the configuration file in your development environment becomes misnamed, moved, or deleted.
+
+如果在你的主目录下有 ESLint 配置文件（比如 `~/.eslintrc.js`），可以删除或重命名它。这将确保在步骤 5 的测试用例都通过测试。假如在你的开发环境下，配置文件命名错误、被移除或删除，它会防止 ESLint 使用错误的配置运行。
 
 ## Step 3: Add the upstream source
 
@@ -85,17 +89,25 @@ Running the tests is the best way to ensure you have correctly set up your devel
 npm test
 ```
 
-The testing takes a few seconds to complete. If any tests fail, that likely means one or more parts of the environment setup didn't complete correctly. The upstream tests always pass.
+The testing takes a few minutes to complete. If any tests fail, that likely means one or more parts of the environment setup didn't complete correctly. The upstream tests always pass.
 
-测试需要花费几秒钟的时间完成，如果有任何的测试失败，意味着开发环境有一个或多个地方没有正确的完成设置。上游资源库是一直能通过测试的。
+测试需要花费几分钟的时间完成，如果有任何的测试失败，意味着开发环境有一个或多个地方没有正确的完成设置。上游资源库是一直能通过测试的。
 
-## Build Scripts
+## Reference Information
+
+### Workflow
+
+Once you have your development environment installed, you can make and submit changes to the ESLint source files. Doing this successfully requires careful adherence to our [pull-request submission workflow](contributing/pull-requests).
+
+一旦你在开发环境进行了安装，你可以编译和提交修改 ESLint 的源文件。请仔细遵守我们的 [pull-request submission workflow](contributing/pull-requests)，以确保成功运行。
+
+### Build Scripts
 
 ESLint has several build scripts that help with various parts of development.
 
 ESLint 有几个构建脚本用于开发的各个部分。
 
-### npm test
+#### npm test
 
 The primary script to use is `npm test`, which does several things:
 
@@ -120,25 +132,25 @@ Be sure to run this after making changes and before sending a pull request with 
 
 **注意：**完整的代码覆盖率报告输出到 `/coverage`。
 
-### npm run lint
+#### npm run lint
 
 Runs just the JavaScript and JSON linting on the repository
 
 只运行仓库中的 JavaScript 和 JSON 文件进行检测
 
-### npm run browserify
+#### npm run browserify
 
 Generates `build/eslint.js`, a version of ESLint for use in the browser
 
 生成 `build/eslint.js`，在浏览器端使用的 ESLint 版本。
 
-### npm run docs
+#### npm run docs
 
 Generates JSDoc documentation and places it into `/jsdoc`.
 
 生成 JSDoc 文档并放在 `/jsdoc`。
 
-### npm run profile
+#### npm run profile
 
 This command is used for intensive profiling of ESLint using Chrome Developer Tools. It starts a development server that runs through three profiles:
 
@@ -163,18 +175,3 @@ Your browser should automatically open to the page in question. When that happen
 You should start to see profiles for each run show up on the left side. If not, reload the page in the browser. Once all three profiles have completed, they will be available for inspection.
 
 每一次运行的时候一开始你都会在左侧看到分析器。如果没有，则在浏览器中重新加载页面。一旦所有的分析已经完成，就可以提供查阅了。
-
-## Workflow
-
-Whenever you make changes to the ESLint source files, you'll need to run `npm test` to rerun the tests. The workflow is:
-
-只要你对 ESLint 的源文件做了修改，都必须运行 `npm test` 做回归测试。流程如下：
-
-1. Make changes
-1. 对源文件更改
-2. Run `npm test` to run tests on the command line
-2. 在命令行运行 `npm test` 做回归测试
-
-You'll have to do this each time you make a change. The tests are run automatically whenever a pull request is received, so make sure to verify your changes work before submitting them.
-
-在每次修改后你必须做这些操作。当接收到一个 pull request 时，这些测试都会自动运行，因此在提交前确保你的修改运行正常。

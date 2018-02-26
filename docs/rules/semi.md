@@ -108,12 +108,23 @@ String option:
 * `"never"` disallows semicolons as the end of statements (except to disambiguate statements beginning with `[`, `(`, `/`, `+`, or `-`)
 * `"never"` 禁止在语句末尾使用分号 (除了消除以 `[`、`(`、`/`、`+` 或 `-` 开始的语句的歧义)
 
-Object option:
+Object option (when `"always"`):
 
-对象选项：
+对象选项（当为 `"always"` 时）：
 
 * `"omitLastInOneLineBlock": true` ignores the last semicolon in a block in which its braces (and therefore the content of the block) are in the same line
 * `"omitLastInOneLineBlock": true` 忽略花括号在同一行（内容也就在同一行了）的语句块中的最后一个分号
+
+Object option (when `"never"`):
+
+对象选项（当为 `"never"` 时）：
+
+* `"beforeStatementContinuationChars": "any"` (default) ignores semicolons (or lacking semicolon) at the end of statements if the next line starts with `[`, `(`, `/`, `+`, or `-`.
+* `"beforeStatementContinuationChars": "any"` (默认) 如果下一句以 `[`、`(`、`/`、`+` 或 `-` 开头，忽略句末分号 (或缺少分号)。
+* `"beforeStatementContinuationChars": "always"` requires semicolons at the end of statements if the next line starts with `[`, `(`, `/`, `+`, or `-`.
+* `"beforeStatementContinuationChars": "always"` 如果下一句以 `[`、`(`、`/`、`+` 或 `-` 开头，要求句末有分号。
+* `"beforeStatementContinuationChars": "never"` disallows semicolons as the end of statements if it doesn't make ASI hazard even if the next line starts with `[`, `(`, `/`, `+`, or `-`.
+* `"beforeStatementContinuationChars": "never"` 如果下一句以 `[`、`(`、`/`、`+` 或 `-` 开头，禁止末尾有分号。
 
 ### always
 
@@ -173,17 +184,19 @@ var name = "ESLint"
 object.method = function() {
     // ...
 }
-```
-
-Even in `"never"` mode, semicolons are still allowed to disambiguate statements beginning with `[`, `(`, `/`, `+`, or `-`:
-
-即使是在 `"never"` 方式下，分号仍然是被允许的，用来消除以`[`、`(`、`/`、`+` 或 `-`开头的语句的歧义：
-
-```js
-/*eslint semi: ["error", "never"]*/
 
 var name = "ESLint"
 
+;(function() {
+    // ...
+})()
+
+import a from "a"
+(function() {
+    // ...
+})()
+
+import b from "b"
 ;(function() {
     // ...
 })()
@@ -201,6 +214,34 @@ Examples of additional **correct** code for this rule with the `"always", { "omi
 if (foo) { bar() }
 
 if (foo) { bar(); baz() }
+```
+
+#### beforeStatementContinuationChars
+
+Examples of additional **incorrect** code for this rule with the `"never", { "beforeStatementContinuationChars": "always" }` options:
+
+选项 `"never", { "beforeStatementContinuationChars": "always" }` 的 **错误** 代码示例：
+
+```js
+/*eslint semi: ["error", "never", { "beforeStatementContinuationChars": "always"}] */
+import a from "a"
+
+(function() {
+    // ...
+})()
+```
+
+Examples of additional **incorrect** code for this rule with the `"never", { "beforeStatementContinuationChars": "never" }` options:
+
+选项 `"never", { "beforeStatementContinuationChars": "never" }` 的 **错误** 代码示例：
+
+```js
+/*eslint semi: ["error", "never", { "beforeStatementContinuationChars": "never"}] */
+import a from "a"
+
+;(function() {
+    // ...
+})()
 ```
 
 ## When Not To Use It

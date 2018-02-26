@@ -113,9 +113,9 @@ do_something(__dirname);
 
 ## When Not To Use It
 
-If your rules are too complex, it is possible that you encounter performance issues due to the nature of the job.
+If you don't want to enforce any particular naming convention for all identifiers, or your naming convention is too complex to be enforced by configuring this rule, then you should not enable this rule.
 
-如果你的规则太复杂，你很有可能会遇到性能问题，关闭此规则即可。
+如果你不想为所有的标识符强制任何特定的命名约定，或如果你的命名约定太复杂，不启用此规则即可。
 
 ## Version
 

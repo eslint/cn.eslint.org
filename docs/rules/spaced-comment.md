@@ -48,7 +48,9 @@ The rule takes two options.
     ```
     "spaced-comment": ["error", "always", { "exceptions": ["-", "+"] }]
     ```
-    * The `"markers"` value is an array of string patterns which are considered markers for docblock-style comments, such as an additional `/`, used to denote documentation read by doxygen, vsdoc, etc. which must have additional characters. The `"markers"` array will apply regardless of the value of the first argument, e.g. `"always"` or `"never"`.
+    * The `"markers"` value is an array of string patterns which are considered markers for docblock-style comments,
+    such as an additional `/`, used to denote documentation read by doxygen, vsdoc, etc. which must have additional characters.
+    The `"markers"` array will apply regardless of the value of the first argument, e.g. `"always"` or `"never"`.
     * `"markers"`的值是一个字符串形式的数组，这些字符串也就是块级注释的标记，例如一个额外的 `/`，被用来表示是由 doxygen、vsdoc 等系统读取的文档，这些系统必须有额外的字符。
     不管第一个参数是 `"always"` 还是 `"never"`、`"markers"`数组都会起作用。
     ```

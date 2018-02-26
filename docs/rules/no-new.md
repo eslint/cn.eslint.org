@@ -6,7 +6,7 @@ layout: doc
 
 # Disallow new For Side Effects (no-new)
 
-# 禁止使用new产生副作用 (no-new)
+# 禁止使用 new 以避免产生副作用 (no-new)
 
 The goal of using `new` with a constructor is typically to create an object of a particular type and store that object in a variable, such as:
 

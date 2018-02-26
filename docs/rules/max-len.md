@@ -60,7 +60,7 @@ Examples of **incorrect** code for this rule with the default `{ "code": 80 }` o
 默认选项 `{ "code": 80 }` 的 **错误** 代码示例：
 
 ```js
-/*eslint max-len: ["error", 80]*/
+/*eslint max-len: ["error", { "code": 80 }]*/
 
 var foo = { "bar": "This is a bar.", "baz": { "qux": "This is a qux" }, "difficult": "to read" };
 ```
@@ -70,7 +70,7 @@ Examples of **correct** code for this rule with the default `{ "code": 80 }` opt
 默认选项 `{ "code": 80 }` 的 **正确** 代码示例：
 
 ```js
-/*eslint max-len: ["error", 80]*/
+/*eslint max-len: ["error", { "code": 80 }]*/
 
 var foo = {
   "bar": "This is a bar.",
@@ -86,7 +86,7 @@ Examples of **incorrect** code for this rule with the default `{ "tabWidth": 4 }
 默认选项 `{ "tabWidth": 4 }` 的 **错误** 代码示例：
 
 ```js
-/*eslint max-len: ["error", 80, 4]*/
+/*eslint max-len: ["error", { "code": 80, "tabWidth": 4 }]*/
 
 \t  \t  var foo = { "bar": "This is a bar.", "baz": { "qux": "This is a qux" } };
 ```
@@ -96,7 +96,7 @@ Examples of **correct** code for this rule with the default `{ "tabWidth": 4 }` 
 默认选项 `{ "tabWidth": 4 }` 的 **正确** 代码示例：
 
 ```js
-/*eslint max-len: ["error", 80, 4]*/
+/*eslint max-len: ["error", { "code": 80, "tabWidth": 4 }]*/
 
 \t  \t  var foo = {
 \t  \t  \t  \t  "bar": "This is a bar.",
@@ -194,12 +194,12 @@ var longRegExpLiteral = /this is a really really really really really long regul
 
 ### ignorePattern
 
-Examples of **correct** code for this rule with the `{ "ignorePattern": true }` option:
+Examples of **correct** code for this rule with the `ignorePattern` option:
 
-选项 `{ "ignorePattern": true }` 的 **正确** 代码示例：
+选项 `ignorePattern` 的 **正确** 代码示例：
 
 ```js
-/*eslint max-len: ["error", { "ignorePattern": "^\\s*var\\s.+=\\s*require\\s*\\(/" }]*/
+/*eslint max-len: ["error", { "ignorePattern": "^\\s*var\\s.+=\\s*require\\s*\\(" }]*/
 
 var dep = require('really/really/really/really/really/really/really/really/long/module');
 ```

@@ -55,10 +55,6 @@ In more advanced cases where you really need to use the `Function` constructor.
 
 在一些更高级的情况下，你确实需要使用 `Function` 构造函数。
 
-## Further Reading
-
-* [The Function constructor is eval](http://jslinterrors.com/the-function-constructor-is-eval/)
-
 ## Version
 
 This rule was introduced in ESLint 0.0.7.

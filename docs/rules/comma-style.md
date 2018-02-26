@@ -78,10 +78,13 @@ This rule also accepts an additional `exceptions` object:
     * `"ObjectPattern": true` 忽略对象的解构赋值中的逗号风格
     * `"VariableDeclaration": true` ignores comma style in variable declarations
     * `"VariableDeclaration": true` 忽略变量声明的逗号风格
+    * `"NewExpression": true` ignores comma style in the parameters of constructor expressions
+    * `"NewExpression": true` 忽略构造函数表达式参数中的逗号风格
 
-A way to determine the node types as defined by [ESTree](https://github.com/estree/estree) is to use the [online demo](http://eslint.org/parser).
 
-可以使用 [online demo](http://eslint.org/parser) 来确定 [ESTree](https://github.com/estree/estree) 定义的节点类型。
+A way to determine the node types as defined by [ESTree](https://github.com/estree/estree) is to use the [online demo](https://eslint.org/parser).
+
+可以使用 [online demo](https://eslint.org/parser) 来确定 [ESTree](https://github.com/estree/estree) 定义的节点类型。
 
 ### last
 

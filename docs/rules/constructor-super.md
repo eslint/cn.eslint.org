@@ -14,9 +14,9 @@ layout: doc
 
 Constructors of derived classes must call `super()`.
 Constructors of non derived classes must not call `super()`.
-If this is not observed, the javascript engine will raise a runtime error.
+If this is not observed, the JavaScript engine will raise a runtime error.
 
-派生类中的构造函数必须调用 `super()`。非派生类的构造函数不能调用 `super()`。如果没有观察到，javascript 引擎将引发一个运行时错误
+派生类中的构造函数必须调用 `super()`。非派生类的构造函数不能调用 `super()`JavaScript 引擎将引发一个运行时错误
 
 This rule checks whether or not there is a valid `super()` call.
 

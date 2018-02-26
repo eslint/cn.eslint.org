@@ -18,9 +18,21 @@ ESLint 有几个关键部分：
 
 * `lib/cli.js` - 这个是 ESLint CLI 的核心。它需要一个参数数组，然后使用 `eslint` 去执行相应的命令。通过保持这个文件作为一个单独的应用程序，它允许其他人在另外的 Node.js 程序中有效的调用 ESLint，就好像是在命令行上操作的一样。它最重要的函数是 `cli.execute()` 。它也扮演着读取文件、遍历目录，输入和输出的角色。
 
-* `lib/eslint.js` - this is the core `eslint` object that does code verifying based on configuration options. This file does no file I/O and does not interact with the `console` at all. For other Node.js programs that have JavaScript text to verify, they would be able to use this interface directly.
+* `lib/linter.js` - this is the core Linter class that does code verifying based on configuration options. This file does no file I/O and does not interact with the `console` at all. For other Node.js programs that have JavaScript text to verify, they would be able to use this interface directly.
 
-* `lib/eslint.js` - 这个是核心的`eslint`对象，负责根据配置选项进行代码验证。这个文件没有文件 I/O 操作，也不与 `console`打交道。对于其他需要验证 JavaScript 文本的 Node.js 程序而已，它们可以直接使用这个接口。
+* `lib/linter.js` - 这是核心的 Linter 类，它根据配置选项进行代码验证。该文件不进行文件 I/O 操作，也不直接与命令行进行交互。对于其他需要进行 JavaScript 文本验证的 Node.js 程序，可以直接使用此接口。
+
+* `lib/api.js` - this exposes an object that contains Linter, CLIEngine, RuleTester, and SourceCode.
+
+* `lib/api.js` - 输出一个对象，包括 Linter、CLIEngine、RuleTester 和 SourceCode。
+
+* `lib/testers/rule-tester.js` - this is a wrapper around Mocha, so that rules can be unit tested. This class lets us write consistently formatted tests for each rule that is implemented and be confident that each of the rules work. The RuleTester interface was modeled after Mocha and works with Mocha's global testing methods. RuleTester can also be modified to work with other testing frameworks.
+
+* `lib/testers/rule-tester.js` - 对 Mocha 进行了包装，以便对规则进行单元测试。这个类允许我们对每个规则编写一致的格式化的测试，以确保规则运行正常。RuleTester 接口参照了 Mocha，兼容 Mocha 全局测试方法。RuleTester 也可以与其他测试框架一起使用。
+
+* `lib/util/source-code.js` - this contains a SourceCode class that is used to represent the parsed source code. It takes in source code and the Program node of the AST representing the code.
+
+* `lib/util/source-code.js` - 它包含了一个 SourceCode 类，用来展现解析后的源代码。它使用源码和 AST 作为参数。
 
 ## The `cli` object
 

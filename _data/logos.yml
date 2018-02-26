@@ -1,3 +1,11 @@
+- url: https://daofx.com
+  src: /img/logos/daofx.svg
+  name: DaoFx Inc.
+
+- url: https://sina.cn
+  src: /img/logos/sina-mobile.png
+  name: Sina News
+
 - url: http://m.sm.cn
   src: /img/logos/sm.png
   name: sm.cn
@@ -157,3 +165,15 @@
 - url: https://netflix.com
   src: /img/logos/netflix.svg
   name: Netflix
+
+- url: https://bluecore.com
+  src: /img/logos/bluecore.svg
+  name: Bluecore
+
+- url: https://camptocamp.com
+  src: /img/logos/camptocamp.svg
+  name: Camptocamp
+
+- url: https://buddy.works
+  src: /img/logos/buddy.svg
+  name: Buddy
