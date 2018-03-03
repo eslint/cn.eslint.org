@@ -69,6 +69,8 @@ You may also specify a custom message for any paths you want to restrict as foll
 
 or like this:
 
+或像这样：
+
 ```json
 "no-restricted-imports": ["error", {
   "paths": [{

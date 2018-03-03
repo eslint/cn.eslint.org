@@ -121,16 +121,16 @@
     }
 }
 
-p.incorrect + p + div + div + div > pre, /* vars-on-top */
-p.incorrect + p + div + div + div > pre, /* vars-on-top */
-p.incorrect + p + div + div > pre, /* no-continue */
-p.incorrect + p + div > pre {
+p.incorrect + p + div + div + div .highlight, /* vars-on-top */
+p.incorrect + p + div + div + div .highlight, /* vars-on-top */
+p.incorrect + p + div + div .highlight, /* no-continue */
+p.incorrect + p + div .highlight {
   background-color: #fff6f6; /* light red hsl(0,100%,98%) */
 }
 
-p.correct + p + div + div + div > pre, /* vars-on-top */
-p.correct + p + div + div > pre, /* no-continue */
-p.correct + p + div > pre {
+p.correct + p + div + div + div .highlight, /* vars-on-top */
+p.correct + p + div + div .highlight, /* no-continue */
+p.correct + p + div .highlight {
   background-color: #f6fff6; /* light green hsl(120,100%,98%) */
 }
 
