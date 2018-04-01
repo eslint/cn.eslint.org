@@ -143,7 +143,7 @@ agenda item and sending it as a pull request after the meeting.
 ## Consensus Seeking Process
 
 The TSC follows a
-[Consensus Seeking](https://en.wikipedia.org/wiki/Consensus-seeking_decision-making)
+[Consensus Seeking](http://en.wikipedia.org/wiki/Consensus-seeking_decision-making)
 decision making model.
 
 When an agenda item has appeared to reach a consensus, the moderator
@@ -159,4 +159,4 @@ or else the discussion will continue. Simple majority wins.
 
 This work is a derivative of [YUI Contributor Model](https://github.com/yui/yui3/wiki/Contributor-Model) and the [Node.js Project Governance Model](https://github.com/nodejs/node/blob/master/GOVERNANCE.md).
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 2.0 UK: England & Wales License](https://creativecommons.org/licenses/by-sa/2.0/uk/).
+This work is licensed under a [Creative Commons Attribution-ShareAlike 2.0 UK: England & Wales License](http://creativecommons.org/licenses/by-sa/2.0/uk/).

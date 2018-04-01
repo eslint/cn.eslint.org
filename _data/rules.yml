@@ -171,7 +171,7 @@ categories:
         recommended: true
       - description: enforce valid JSDoc comments
         description_zh: 强制使用有效的 JSDoc 注释
-        fixable: false
+        fixable: true
         name: valid-jsdoc
         recommended: false
       - description: enforce comparing `typeof` expressions against valid strings
@@ -655,8 +655,8 @@ categories:
         fixable: false
         name: handle-callback-err
         recommended: false
-      - description: disallow use of the Buffer() constructor
-        description_zh: 禁用 Buffer() 构造函数
+      - description: disallow use of the `Buffer()` constructor
+        description_zh: 禁用 `Buffer()` 构造函数
         fixable: false
         name: no-buffer-constructor
         recommended: false
