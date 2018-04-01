@@ -74,8 +74,8 @@ String option:
 * `"always"` (默认) 要求对象字面量属性名称都使用引号
 * `"as-needed"` disallows quotes around object literal property names that are not strictly required
 * `"as-needed"` 当没有严格要求时，禁止对象字面量属性名称使用引号
-* `"consistent"` enforces a consistent quote style requires quotes around object literal property names
-* `"consistent"` 要求对象字面量属性名称使用一致的引号
+* `"consistent"` enforces a consistent quote style; in a given object, either all of the properties should be quoted, or none of the properties should be quoted
+* `"consistent"` 要求对象字面量属性名称使用一致的引号，要么全部用引号，要么都不用
 * `"consistent-as-needed"` requires quotes around all object literal property names if any name strictly requires quotes, otherwise disallows quotes around object property names
 * `"consistent-as-needed"` 如果有属性名称要求使用引号，则所有的属性名称都要使用引号；否则，禁止所有的属性名称使用引号
 
