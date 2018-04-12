@@ -823,7 +823,7 @@ The complete configuration hierarchy, from highest precedence to lowest preceden
 
 A configuration file can extend the set of enabled rules from base configurations.
 
-一个配置文件可以被基础配置中的已启用的规则继承。
+一个配置文件可以从基础配置中继承已启用的规则。
 
 The `extends` property value is either:
 
