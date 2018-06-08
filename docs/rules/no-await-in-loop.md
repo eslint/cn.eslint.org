@@ -12,7 +12,7 @@ Performing an operation on each element of an iterable is a common task. However
 `await` as part of each operation is an indication that the program is not taking full advantage of
 the parallelization benefits of `async`/`await`.
 
-在迭代器的每个元素上执行运算是个常见的人物。然而，每次运算都执行 `await`，意味着该程序并没有充分利用 `async`/`await` 并行的好处。
+在迭代器的每个元素上执行运算是个常见的任务。然而，每次运算都执行 `await`，意味着该程序并没有充分利用 `async`/`await` 并行的好处。
 
 Usually, the code should be refactored to create all the promises at once, then get access to the
 results using `Promise.all()`. Otherwise, each successive operation will not start until the
