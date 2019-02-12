@@ -40,7 +40,7 @@ module.exports = {
 
 Since `index.js` is just JavaScript, you can optionally read these settings from a file or generate them dynamically.
 
-因为 `index.js` 只是 JavaScript，你可以选择从文件读取读取这些配置或者动态生成它们。
+因为 `index.js` 只是 JavaScript，你可以选择从文件读取这些配置或者动态生成它们。
 
 ## Publishing a Shareable Config
 
