@@ -2,6 +2,7 @@
 title: Developer Guide
 layout: doc
 edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/README.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -63,14 +64,20 @@ You've developed library-specific rules for ESLint and you want to share it with
 
 你为ESLint开发了特定的规则，想分享到社区。你在npm上发布一个ESLint插件。
 
-## Section 6: [Node.js API](nodejs-api)
+## Section 6: [Working with Custom Parsers](working-with-custom-parsers)
+
+If you aren't going to use the default parser of ESLint, this section explains about using custom parsers.
+
+如果您不打算使用ESLint的默认解析器，本节将解释如何使用自定义解析器。
+
+## Section 7: [Node.js API](nodejs-api)
 
 If you're interested in writing a tool that uses ESLint, then you can use the Node.js API to get programmatic access to functionality.
 
-如果你很感兴趣使用ESLint写一个工具，你可以使用Node.js API。
+如果你很感兴趣使用ESLint写一个工具，你可以使用 Node.js API。
 
-## Section 7: [Contributing](contributing/)
+## Section 8: [Contributing](contributing/)
 
 Once you've made changes that you want to share with the community, the next step is to submit those changes back via a pull request.
 
-一旦你做出改变，想分享到社区，下一步就是通过发送请求提交这些改变。
+一旦你做出了与社区共享的更改，下一步就是通过发送 pull 请求提交这些更改。

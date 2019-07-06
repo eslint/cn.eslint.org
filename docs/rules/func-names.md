@@ -1,6 +1,8 @@
 ---
 title: func-names - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/func-names.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -38,6 +40,25 @@ This rule has a string option:
 * `"as-needed"` 如果 在 ES6 环境中，这个函数名无法自动被赋值，要求函数表达式有一个名字
 * `"never"` disallows named function expressions, except in recursive functions, where a name is needed
 * `"never"` 禁止命名函数表达式，除非在递归函数中，名字是需要的
+
+This rule has an object option:
+
+这个规则有一个对象选项:
+
+`"generators": "always" | "as-needed" | "never"`
+
+`"generators": "always" | "as-needed" | "never"`
+
+* `"always"` require named generators
+* `"always"` 要求命名的生成器函数 。
+* `"as-needed"` require named generators if the name cannot be assigned automatically in an ES6 environment.
+* `"as-needed"` 如果无法在ES6环境中自动分配名称，则需要命名的生成器函数。
+* `"never"` disallow named generators where possible.
+* `"never"` 尽肯能地禁止命名的生成器函数。
+
+When a value for `generators` is not provided the behavior for generator functions falls back to the base option.
+
+当没有为 `generators` 提供值时，生成器函数的行为将回退到基本选项。
 
 ### always
 
@@ -133,6 +154,90 @@ Foo.prototype.bar = function() {};
 }())
 ```
 
+### generators
+
+Examples of **incorrect** code for this rule with the `"always", { "generators": "as-needed" }` options:
+
+选项 `"always", { "generators": "as-needed" }` 的 **错误** 代码示例：
+
+```js
+/*eslint func-names: ["error", "always", { "generators": "as-needed" }]*/
+
+(function*() {
+    // ...
+}())
+```
+
+Examples of **correct** code for this rule with the `"always", { "generators": "as-needed" }` options:
+
+选项 `"always", { "generators": "as-needed" }` 的 **正确** 代码示例：
+
+```js
+/*eslint func-names: ["error", "always", { "generators": "as-needed" }]*/
+
+var foo = function*() {};
+```
+
+Examples of **incorrect** code for this rule with the `"always", { "generators": "never" }` options:
+
+选项 `"always", { "generators": "never" }` 的 **错误** 代码示例：
+
+```js
+/*eslint func-names: ["error", "always", { "generators": "never" }]*/
+
+var foo = bar(function *baz() {});
+```
+
+Examples of **correct** code for this rule with the `"always", { "generators": "never" }` options:
+
+选项 `"always", { "generators": "never" }` 的 **正确** 代码示例：
+
+```js
+/*eslint func-names: ["error", "always", { "generators": "never" }]*/
+
+var foo = bar(function *() {});
+```
+
+Examples of **incorrect** code for this rule with the `"as-needed", { "generators": "never" }` options:
+
+选项 `"as-needed", { "generators": "never" }` 的 **错误** 代码示例：
+
+```js
+/*eslint func-names: ["error", "as-needed", { "generators": "never" }]*/
+
+var foo = bar(function *baz() {});
+```
+
+Examples of **correct** code for this rule with the `"as-needed", { "generators": "never" }` options:
+
+选项 `"as-needed", { "generators": "never" }` 的 **正确** 代码示例：
+
+```js
+/*eslint func-names: ["error", "as-needed", { "generators": "never" }]*/
+
+var foo = bar(function *() {});
+```
+
+Examples of **incorrect** code for this rule with the `"never", { "generators": "always" }` options:
+
+选项 `"never", { "generators": "always" }` 的 **错误** 代码示例：
+
+```js
+/*eslint func-names: ["error", "never", { "generators": "always" }]*/
+
+var foo = bar(function *() {});
+```
+
+Examples of **correct** code for this rule with the `"never", { "generators": "always" }` options:
+
+选项 `"never", { "generators": "always" }` 的 **正确** 代码示例：
+
+```js
+/*eslint func-names: ["error", "never", { "generators": "always" }]*/
+
+var foo = bar(function *baz() {});
+```
+
 ## Further Reading
 
 * [Functions Explained](http://markdaggett.com/blog/2013/02/15/functions-explained/)
@@ -140,8 +245,8 @@ Foo.prototype.bar = function() {};
 
 ## Compatibility
 
-* **JSCS**: [requireAnonymousFunctions](http://jscs.info/rule/requireAnonymousFunctions)
-* **JSCS**: [disallowAnonymousFunctions](http://jscs.info/rule/disallowAnonymousFunctions)
+* **JSCS**: [requireAnonymousFunctions](https://jscs-dev.github.io/rule/requireAnonymousFunctions)
+* **JSCS**: [disallowAnonymousFunctions](https://jscs-dev.github.io/rule/disallowAnonymousFunctions)
 
 ## Version
 

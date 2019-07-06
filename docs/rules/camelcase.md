@@ -1,6 +1,8 @@
 ---
 title: camelcase - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/camelcase.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -28,8 +30,14 @@ This rule has an object option:
 * `"properties": "always"` (默认) 强制属性名称为驼峰风格
 * `"properties": "never"` does not check property names
 * `"properties": "never"` 不检查属性名称
+* `"ignoreDestructuring": false` (default) enforces camelcase style for destructured identifiers
+* `"ignoreDestructuring": false` (默认) 对解构标识符强制使用驼峰风格
+* `"ignoreDestructuring": true` does not check destructured identifiers
+* `"ignoreDestructuring": true` 不检查解构标识符
+* `allow` (`string[]`) list of properties to accept. Accept regex.
+* `allow` (`string[]`) 接受的属性列表。运行正则表达式。
 
-### always
+### properties: "always"
 
 Examples of **incorrect** code for this rule with the default `{ "properties": "always" }` option:
 
@@ -115,7 +123,7 @@ var { foo: isCamelCased = 1 } = quz;
 
 ```
 
-### never
+### properties: "never"
 
 Examples of **correct** code for this rule with the `{ "properties": "never" }` option:
 
@@ -127,6 +135,80 @@ Examples of **correct** code for this rule with the `{ "properties": "never" }` 
 var obj = {
     my_pref: 1
 };
+```
+
+### ignoreDestructuring: false
+
+Examples of **incorrect** code for this rule with the default `{ "ignoreDestructuring": false }` option:
+
+选项 `{ "ignoreDestructuring": false }` 的 **错误** 代码示例：
+
+```js
+/*eslint camelcase: "error"*/
+
+var { category_id } = query;
+
+var { category_id = 1 } = query;
+
+var { category_id: category_id } = query;
+
+var { category_id: category_alias } = query;
+
+var { category_id: categoryId, ...other_props } = query;
+```
+
+### ignoreDestructuring: true
+
+Examples of **incorrect** code for this rule with the `{ "ignoreDestructuring": true }` option:
+
+选项 `{ "ignoreDestructuring": true }` 的 **错误** 代码示例：
+
+```js
+/*eslint camelcase: ["error", {ignoreDestructuring: true}]*/
+
+var { category_id: category_alias } = query;
+
+var { category_id, ...other_props } = query;
+```
+
+Examples of **correct** code for this rule with the `{ "ignoreDestructuring": true }` option:
+
+选项 `{ "ignoreDestructuring": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint camelcase: ["error", {ignoreDestructuring: true}]*/
+
+var { category_id } = query;
+
+var { category_id = 1 } = query;
+
+var { category_id: category_id } = query;
+```
+
+## allow
+
+Examples of **correct** code for this rule with the `allow` option:
+
+选项 `allow` 的 **正确** 代码示例：
+
+```js
+/*eslint camelcase: ["error", {allow: ["UNSAFE_componentWillMount"]}]*/
+
+function UNSAFE_componentWillMount() {
+    // ...
+}
+```
+
+```js
+/*eslint camelcase: ["error", {allow: ["^UNSAFE_"]}]*/
+
+function UNSAFE_componentWillMount() {
+    // ...
+}
+
+function UNSAFE_componentWillMount() {
+    // ...
+}
 ```
 
 ## When Not To Use It

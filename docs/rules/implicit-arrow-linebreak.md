@@ -1,6 +1,8 @@
 ---
 title: implicit-arrow-linebreak - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/implicit-arrow-linebreak.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 强制隐式返回的箭头函数体的位置 (implicit-arrow-linebreak)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 An arrow function body can contain an implicit return as an expression instead of a block body. It can be useful to enforce a consistent location for the implicitly returned expression.
 

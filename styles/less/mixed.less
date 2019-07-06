@@ -1,0 +1,171 @@
+.mixed-default {
+    opacity: 0.36;
+    -webkit-transition: opacity 200ms ease;
+    transition: opacity 200ms ease;
+}
+.glyphicon-ok:before {
+    color: #37ab00;
+}
+.glyphicon-wrench:before {
+    color: #f29900;
+}
+.navbar-left {
+    display: none;
+}
+.lang-chooser {
+    font-size: 14px;
+}
+.lang-mixed {
+    h1 {
+        &:nth-of-type(2n+1) {
+            .mixed-default;
+        }
+    }
+    
+    blockquote:nth-of-type(2n+1),
+    p:nth-of-type(2n+1),
+    li:nth-of-type(2n+1),
+    li:nth-of-type(2n+1) p:only-of-type {
+        .mixed-default;
+    }
+
+    h1:nth-of-type(2n+1):only-of-type,
+    h1:nth-of-type(2n+1):hover,
+    p:nth-of-type(2n+1):hover,
+    p:only-of-type,
+    li:nth-of-type(2n+1):hover {
+        opacity: 1;
+    }
+    li:nth-of-type(2n+1):hover {
+        p:only-of-type {
+            opacity: 1;
+        }
+    }
+
+    #further-reading ~ ul,
+    #compatibility ~ ul,
+    #related-rules ~ ul,
+    #resources ~ ul {
+        li {
+            opacity: 1;
+        }
+    }
+}
+.lang-zh {
+    // h1, h2, h3 {
+    h1 {
+        &:nth-of-type(2n+1):not(:only-of-type) {
+            display: none;
+        }
+    }
+    blockquote:nth-of-type(2n+1),
+    p:nth-of-type(2n+1):not(:only-of-type),
+    li:nth-of-type(2n+1) {
+        display: none;
+    } 
+    #further-reading ~ ul,
+    #compatibility ~ ul,
+    #related-rules ~ ul,
+    #resources ~ ul {
+        li {
+            opacity: 1;
+            display: list-item;
+        }
+    }
+    tr.rule-en {
+        display: none;
+    }
+    .table-striped.inuse-rules>tbody>tr:nth-of-type(4n) {
+        background-color: #f9f9f9;
+    }
+}
+
+.lang-en {
+    h1 {
+        &:nth-of-type(2n) {
+            display: none;
+        }
+
+        &:nth-of-type(2n+1) {
+            color: #333;
+        }
+    }
+    blockquote:nth-of-type(2n+1),
+    p:nth-of-type(2n+1),
+    li:nth-of-type(2n+1),
+    li:nth-of-type(2n+1) p:only-of-type {
+        color: #333;
+    }
+    blockquote:nth-of-type(2n),
+    p:nth-of-type(2n),
+    li:nth-of-type(2n) {
+        display: none;
+    }
+
+    #further-reading ~ ul,
+    #compatibility ~ ul,
+    #related-rules ~ ul,
+    #resources ~ ul {
+        li {
+            display: list-item;
+        }
+    }
+    tr.rule-zh {
+        display: none;
+    }
+    .table-striped.inuse-rules>tbody>tr:nth-of-type(4n+3) {
+        background-color: #fff;
+    }
+}
+
+p.incorrect + p + div + div + div pre, /* vars-on-top */
+p.incorrect + p + div + div + div pre, /* vars-on-top */
+p.incorrect + p + div + div pre, /* no-continue */
+p.incorrect + p + div pre {
+  background-color: #fff6f6; /* light red hsl(0,100%,98%) */
+}
+
+p.correct + p + div + div + div pre, /* vars-on-top */
+p.correct + p + div + div pre, /* no-continue */
+p.correct + p + div pre {
+  background-color: #f6fff6; /* light green hsl(120,100%,98%) */
+}
+
+p.icon + p {
+  position:relative;
+}
+
+p.icon + p:before {
+  position: absolute;
+  left: -1.5em; /* negative padding-left of ul */
+  font-family: "Glyphicons Halflings";
+  color: #4d4d4d; /* hsl(0,0%,30%) is 10% lighter gray than text */
+}
+
+p.removed + p ~ p.fixable:before {
+  color: #ccc; /* hsl(0,0%,80%) light gray */
+}
+
+p.recommended + p:before {
+  color: #37ab00;
+  content: "\e013"; /* ok */
+}
+
+p.removed + p:before {
+  content: "\e014"; /* remove */
+}
+
+p.fixable + p:before {
+  color: #f29900;
+  content: "\e136"; /* wrench */
+}
+
+p.incorrect + p:before {
+  color: #dc143c;
+  content: "\e126"; /* thumbs-down */
+}
+
+p.correct + p:before {
+  color: #228b22;
+  content: "\e125"; /* thumbs-up */
+}

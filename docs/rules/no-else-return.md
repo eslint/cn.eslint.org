@@ -1,6 +1,8 @@
 ---
 title: no-else-return - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-else-return.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 禁止在 else 前有 return (no-else-return)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 If an `if` block contains a `return` statement, the `else` block becomes unnecessary. Its contents can be placed outside of the block.
 
@@ -37,14 +39,6 @@ This rule is aimed at highlighting an unnecessary block of code following an `if
 This rule has an object option:
 
 该规则有一个对象选项：
-
-```json
-{
-    "no-else-return": ["error", { "allowElseIf": true }],
-    // or
-    "no-else-return": ["error", { "allowElseIf": false }]
-}
-```
 
 * `allowElseIf: true` (default) allows `else if` blocks after a return
 * `allowElseIf: true` (默认) 允许在 return 之后有 `else if` 块

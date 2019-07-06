@@ -1,6 +1,8 @@
 ---
 title: no-regex-spaces - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-regex-spaces.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -12,9 +14,9 @@ layout: doc
 
 (recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 Regular expressions can be very complex and difficult to understand, which is why it's important to keep them as simple as possible in order to avoid mistakes. One of the more error-prone things you can do with a regular expression is to use more than one space, such as:
 
@@ -69,10 +71,6 @@ var re = new RegExp("foo {3}bar");
 If you want to allow multiple spaces in a regular expression, then you can safely turn this rule off.
 
 如果你允许多个空格出现在正则表达式中，你可以关闭此规则。
-
-## Further Reading
-
-* [Spaces are hard to count](http://jslinterrors.com/spaces-are-hard-to-count-use-a/)
 
 ## Related Rules
 

@@ -2,6 +2,7 @@
 title: Integrations
 layout: doc_en
 edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/integrations.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -12,14 +13,17 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/integrat
 * Sublime Text 3:
     * [SublimeLinter-eslint](https://github.com/roadhump/SublimeLinter-eslint)
     * [Build Next](https://github.com/albertosantini/sublimetext-buildnext)
-* [Vim](https://github.com/vim-syntastic/syntastic/tree/master/syntax_checkers/javascript)
+* Vim:
+    * [ALE](https://github.com/w0rp/ale)
+    * [Syntastic](https://github.com/vim-syntastic/syntastic/tree/master/syntax_checkers/javascript)
 * Emacs: [Flycheck](http://www.flycheck.org/) supports ESLint with the [javascript-eslint](http://www.flycheck.org/en/latest/languages.html#javascript) checker.
 * Eclipse Orion: ESLint is the [default linter](https://dev.eclipse.org/mhonarc/lists/orion-dev/msg02718.html)
-* Eclipse IDE with [Tern ESLint linter](https://github.com/angelozerr/tern.java/wiki/Tern-Linter-ESLint)
-* [TextMate 2](https://github.com/natesilva/javascript-eslint.tmbundle)
+* Eclipse IDE: [Tern ESLint linter](https://github.com/angelozerr/tern.java/wiki/Tern-Linter-ESLint)
+* TextMate 2: [ESLint Bundle](https://github.com/natesilva/javascript-eslint.tmbundle)
 * Atom: [linter-eslint](https://atom.io/packages/linter-eslint)
-* [IntelliJ IDEA, RubyMine, WebStorm, PhpStorm, PyCharm, AppCode, Android Studio, 0xDBE](https://plugins.jetbrains.com/plugin/7494-eslint)
-* [Visual Studio Code](https://code.visualstudio.com) with the [ESLint Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* IntelliJ IDEA, RubyMine, WebStorm, PhpStorm, PyCharm, AppCode, Android Studio, 0xDBE: [ESLint Plugin](https://plugins.jetbrains.com/plugin/7494-eslint)
+* Visual Studio Code: [ESLint Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* Brackets: Included and [Brackets ESLint](https://github.com/brackets-userland/brackets-eslint)
 
 ## Build tools
 
@@ -32,7 +36,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/integrat
 * Rollup: [rollup-plugin-eslint](https://www.npmjs.com/package/rollup-plugin-eslint)
 * Ember-cli: [ember-cli-eslint](https://www.npmjs.com/package/ember-cli-eslint)
 * Sails.js: [sails-hook-lint](https://www.npmjs.com/package/sails-hook-lint), [sails-eslint](https://www.npmjs.com/package/sails-eslint)
-* Start: [start-eslint](https://www.npmjs.com/package/start-eslint)
+* Start: [@start/plugin-lib-eslint](https://www.npmjs.com/package/@start/plugin-lib-eslint)
 * Brunch: [eslint-brunch](https://www.npmjs.com/package/eslint-brunch)
 
 ## Command Line Tools

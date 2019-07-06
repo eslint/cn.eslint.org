@@ -1,6 +1,8 @@
 ---
 title: no-prototype-builtins - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-prototype-builtins.md
+rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,20 @@ layout: doc
 
 # 禁止直接使用 Object.prototypes 的内置属性 (no-prototype-builtins)
 
-In ECMAScript 5.1, `Object.create` was added, which enables the creation of objects with a specified `[[Prototype]]`. `Object.create(null)` is a common pattern used to create objects that will be used as a Map. This can lead to errors when it is assumed that objects will have properties from `Object.prototype`. This rule prevents calling `Object.prototype` methods directly from an object.
 
-ECMAScript 5.1 新增了 `Object.create`，可以通过它创建带有指定的 `[[Prototype]]` 的对象。`Object.create(null)` 是的一种常见模式，用来创建键值对对象。当创建的对象有从 `Object.prototype` 继承来的属性时，可能会导致错误出现。该规则防止在一个对象中直接调用 `Object.prototype` 的方法。
+In ECMAScript 5.1, `Object.create` was added, which enables the creation of objects with a specified `[[Prototype]]`. `Object.create(null)` is a common pattern used to create objects that will be used as a Map. This can lead to errors when it is assumed that objects will have properties from `Object.prototype`. This rule prevents calling some `Object.prototype` methods directly from an object.
+
+在ECMAScript 5.1中，新增了 `Object.create`，它支持使用指定的 `[[Prototype]]` 创建对象。`Object.create(null)` 是一种常见的模式，用于创建将用作映射的对象。当假定对象将包含来自`Object.prototype` 的属性时，这可能会导致错误。该规则防止直接从一个对象调用某些 `Object.prototype` 的方法。
+
+
+Additionally, objects can have properties that shadow the builtins on `Object.prototype`, potentially causing unintended behavior or denial-of-service security vulnerabilities. For example, it would be unsafe for a webserver to parse JSON input from a client and call `hasOwnProperty` directly on the resulting object, because a malicious client could send a JSON value like `{"hasOwnProperty": 1}` and cause the server to crash.
+
+此外，对象可以具有属性，这些属性可以将 `Object.prototype` 的内建函数隐藏，可能导致意外行为或拒绝服务安全漏洞。例如，web 服务器解析来自客户机的 JSON 输入并直接在结果对象上调用 `hasOwnProperty` 是不安全的，因为恶意客户机可能发送一个JSON值，如 `{"hasOwnProperty": 1}`，并导致服务器崩溃。
+
+To avoid subtle bugs like this, it's better to always call these methods from `Object.prototype`. For example, `foo.hasOwnProperty("bar")` should be replaced with `Object.prototype.hasOwnProperty.call(foo, "bar")`.
+
+为了避免这种细微的 bug，最好总是从 `Object.prototype` 调用这些方法。例如，`foo.hasOwnProperty("bar")` 应该替换为 `Object.prototype.hasOwnProperty.call(foo, "bar")`。
+
 
 ## Rule Details
 
@@ -50,7 +63,9 @@ var barIsEnumerable = {}.propertyIsEnumerable.call(foo, "bar");
 
 You may want to turn this rule off if you will never use an object that shadows an `Object.prototype` method or which does not inherit from `Object.prototype`.
 
-如果你从不使用覆盖了 `Object.prototype` 方法的对象或不是从 `Object.prototype` 继承来的方法，你可能想关闭此规则。
+You may want to turn this rule off if your code only touches objects with hardcoded keys, and you will never use an object that shadows an `Object.prototype` method or which does not inherit from `Object.prototype`.
+
+如果你的代码只接触带有硬编码键的对象，并且你永远不会使用遮蔽 `Object.prototype` 的方法或者不是继承自 `Object.prototype` 的方法，那么你可能想要关闭此规则。
 
 ## Version
 

@@ -1,6 +1,8 @@
 ---
 title: spaced-comment - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/spaced-comment.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 要求或禁止在注释前有空白 (space 或 tab) (spaced-comment)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 Some style guides require or disallow a whitespace immediately after the initial `//` or `/*` of a comment.
 
@@ -23,7 +25,8 @@ On the other hand, commenting out code is easier without having to put a whitesp
 
 ## Rule Details
 
-This rule will enforce consistency of spacing after the start of a comment `//` or `/*`. It also provides several exceptions for various documentation styles.
+This rule will enforce consistency of spacing after the start of a comment `//` or `/*`. It also provides several
+exceptions for various documentation styles.
 
 该规则强制注释中 `//` 或 `/*` 后空格的一致性。它还为各种文档风格提供了一些例外情况。
 

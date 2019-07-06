@@ -1,6 +1,8 @@
 ---
 title: space-infix-ops - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/space-infix-ops.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 要求中缀操作符周围有空格 (space-infix-ops)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 While formatting preferences are very personal, a number of style guides require spaces around operators, such as:
 
@@ -101,6 +103,12 @@ var {a = 0} = bar;
 
 function foo(a = 0) { }
 ```
+
+## When Not To Use It
+
+You can turn this rule off if you are not concerned with the consistency of spacing around infix operators.
+
+如果不关心中缀运算符前后间距的一致性，可以关闭此规则。
 
 ## Version
 

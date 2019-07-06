@@ -1,6 +1,8 @@
 ---
 title: no-mixed-requires - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-mixed-requires.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -148,10 +150,10 @@ var async = require('async'),
 ## Known Limitations
 
 * The implementation is not aware of any local functions with the name `require` that may shadow Node.js' global `require`.
-* 该规则的实现不考虑本地名为`require`的函数可能会遮蔽 Node.js 的全局的`require`。
+* 该规则的实现不考虑本地名为 `require` 的函数可能会遮蔽 Node.js 的全局的 `require`。
 * Internally, the list of core modules is retrieved via `require("repl")._builtinLibs`. If you use different versions of Node.js for ESLint and your application, the list of core modules for each version may be different.
   The above mentioned `_builtinLibs` property became available in 0.8, for earlier versions a hardcoded list of module names is used as a fallback. If your version of Node.js is older than 0.6 that list may be inaccurate.
-* 在内部，核心模块列表是通过`require("repl")._builtinLibs`检索的。如果你在 ESLint 和你的应用中使用不同的 Node.js 版本，每个版本的核心模块列表可能会不一样。上面提到的 `_builtinLibs` 在 0.8 版本中有效，在更早的版本中，将模块名一一列出作为一种回退机制。如果你的 Node.js 版本低于 0.6，则那个模块列表可能是不准确的。
+* 在内部，核心模块列表是通过 `require("repl")._builtinLibs`检索的。如果你在 ESLint 和你的应用中使用不同的 Node.js 版本，每个版本的核心模块列表可能会不一样。上面提到的 `_builtinLibs` 在 0.8 版本中有效，在更早的版本中，将模块名一一列出作为一种回退机制。如果你的 Node.js 版本低于 0.6，则那个模块列表可能是不准确的。
 
 ## When Not To Use It
 

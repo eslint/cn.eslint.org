@@ -1,6 +1,8 @@
 ---
 title: operator-linebreak - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/operator-linebreak.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 强制操作符使用一致的换行符风格 (operator-linebreak)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 When a statement is too long to fit on a single line, line breaks are generally inserted next to the operators separating expressions. The first style coming to mind would be to place the operator at the end of the line, following the English punctuation rules.
 
@@ -224,8 +226,9 @@ Examples of additional **correct** code for this rule with the `{ "overrides": {
 ```js
 /*eslint operator-linebreak: ["error", "after", { "overrides": { "+=": "before" } }]*/
 
-var thing
-  += 'thing';
+var thing = 'thing';
+thing
+  += 's';
 ```
 
 Examples of additional **correct** code for this rule with the `{ "overrides": { "?": "ignore", ":": "ignore" } }` option:

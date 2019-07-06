@@ -1,4 +1,6 @@
 name: "ESLint中文"
+title: "ESLint中文"
+repository: "eslint/cn.eslint.org"
 exclude: [
   'node_modules',
   'bower_components',
@@ -6,37 +8,11 @@ exclude: [
 ]
 keywords: "ESLint中文, ESLint中文网, ESLint规则, ESLint配置, 代码检测, 代码质量, JavaScript, Linter, Linting, Pluggable, Configurable, Code Quality"
 description: "ESLint中文官网, ESLint中英文对照, JavaScript代码检测, JavaScript代码风格检测, JavaScript代码自动格式化,A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease."
-url: http://cn.eslint.org
+url: https://cn.eslint.org
 permalink: /blog/:year/:month/:title
-gems:
+plugins:
     - jekyll-sitemap
     - jekyll-redirect-from
-    - algoliasearch-jekyll
 kramdown:
   input: GFM
   toc_levels: 2..3
-algolia:
-  application_id: 'XWXG7MEBSB'
-  index_name:     'eslint'
-  record_css_selector: p,li,tr,h1,h2,h3,h4,h5,h6
-  settings:
-    advancedSyntax: true
-    highlightPostTag: </mark>
-    highlightPreTag: <mark>
-    minWordSizefor1Typo: 3
-    minWordSizefor2Typos: 7
-    attributesToIndex:
-      - title
-      - text
-      - category,subcategory,display_title # Needed for the highlight
-    attributesToHighlight:
-      - category
-      - subcategory
-      - display_title
-      - text
-    customRanking:
-      - desc(weight.type)
-      - desc(weight.tag_name)
-      - asc(weight.position)
-    attributesToSnippet:
-      - text:20

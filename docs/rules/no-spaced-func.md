@@ -1,12 +1,14 @@
 ---
 title: no-spaced-func - Rules
 layout: doc_en
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-spaced-func.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # disallow spacing between function identifiers and their applications (no-spaced-func)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 This rule was **deprecated** in ESLint v3.3.0 and replaced by the [func-call-spacing](func-call-spacing) rule.
 

@@ -1,6 +1,8 @@
 ---
 title: no-loop-func - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-loop-func.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,7 +12,7 @@ layout: doc
 
 Writing functions within loops tends to result in errors due to the way the function creates a closure around the loop. For example:
 
-在循环中创建函数往往会出现错误，因为这种情况下，函数会创建一个闭包。例如：
+由于函数在循环中创建闭包的方式不同，在循环中编写函数往往会导致错误。例如:
 
 ```js
 for (var i = 0; i < 10; i++) {
@@ -40,14 +42,18 @@ for (let i = 0; i < 10; i++) {
 
 In this case, each function created within the loop returns a different number as expected.
 
-在这个例子中，在循环中创建的每一个函数会如你期望的那样返回一个不同的数字。
+在本例中，循环中创建的每个函数都返回一个与预期不同的数字。
 
 ## Rule Details
 
 This error is raised to highlight a piece of code that may not work as you expect it to and could also indicate a misunderstanding of how the language works. Your code may run without any problems if you do not fix this error, but in some situations it could behave unexpectedly.
 
-这个错误的出现会导致代码不能如你期望的那样运行，也表明你对 JavaScript 这门语言存在误解。
-如果你不修复这个错误，你的代码可能会正常运行，带在某些情况下，可能会出现意想不到的行为。
+这个错误的出现会导致代码可能无法像你期望的那样运行，还可能表示对该语言的工作方式存在误解。
+如果不修复此错误，代码可能会正常运行，但在某些情况下，可能会出现意想不到的行为。
+
+This rule disallows any function within a loop that contains unsafe references (e.g. to modified variables from the outer scope).
+
+此规则禁止在循环中包含不安全引用的任何函数(例如，在外部作用域中修改变量)。
 
 Examples of **incorrect** code for this rule:
 
@@ -72,11 +78,17 @@ do {
 } while (i);
 
 let foo = 0;
-for (let i=10; i; i--) {
-    // Bad, function is referencing block scoped variable in the outer scope.
-    var a = function() { return foo; };
-    a();
+for (let i = 0; i < 10; ++i) {
+    //Bad, `foo` is not in the loop-block's scope and `foo` is modified in/after the loop
+    setTimeout(() => console.log(foo));
+    foo += 1;
 }
+
+for (let i = 0; i < 10; ++i) {
+    //Bad, `foo` is not in the loop-block's scope and `foo` is modified in/after the loop
+    setTimeout(() => console.log(foo));
+}
+foo = 100;
 ```
 
 Examples of **correct** code for this rule:
@@ -111,10 +123,6 @@ for (let i=10; i; i--) {
 }
 //... no modifications of foo after this loop ...
 ```
-
-## Further Reading
-
-* [Don't make functions within a loop](http://jslinterrors.com/dont-make-functions-within-a-loop/)
 
 ## Version
 

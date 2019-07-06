@@ -1,6 +1,8 @@
 ---
 title: no-use-before-define - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-use-before-define.md
+rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -41,7 +43,6 @@ function g() {
 }
 var b = 1;
 
-// With blockBindings: true
 {
     alert(c);
     let c = 1;
@@ -68,7 +69,6 @@ function g() {
     return b;
 }
 
-// With blockBindings: true
 {
     let c;
     c++;

@@ -1,6 +1,8 @@
 ---
 title: prefer-rest-params - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-rest-params.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,7 +10,8 @@ layout: doc
 
 # 建议使用剩余参数代替 `arguments` (prefer-rest-params)
 
-There are rest parameters in ES2015. We can use that feature for variadic functions instead of the `arguments` variable.
+There are rest parameters in ES2015.
+We can use that feature for variadic functions instead of the `arguments` variable.
 
 ES2015 里有剩余参数。我们可以利用这个特性代替变参函数的 `arguments` 变量。
 

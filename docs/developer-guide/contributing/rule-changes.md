@@ -1,6 +1,8 @@
 ---
 title: Rule Changes
 layout: doc_en
+edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/contributing/rule-changes.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -18,7 +20,7 @@ We need all of this information in order to determine whether or not the change 
 
 In order for a rule change to be accepted into ESLint, it must:
 
-1. Adhere to the [Core Rule Guidelines](new-rules)
+1. Adhere to the [Core Rule Guidelines](new-rules#core-rule-guidelines)
 1. Have an ESLint team member champion the change
 1. Be important enough that rule is deemed incomplete without this change
 

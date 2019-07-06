@@ -2,6 +2,7 @@
 title: Maintainer Guide
 layout: doc_en
 edit_link: https://github.com/eslint/eslint/edit/master/docs/maintainer-guide/README.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -24,3 +25,7 @@ Describes how to do an ESLint project release.
 ## [Governance](governance)
 
 Describes the governance policy for ESLint, including the rights and privileges of individuals inside the project.
+
+## [Working Groups](working-groups)
+
+Describes how working groups are created and how they function within the ESLint project.

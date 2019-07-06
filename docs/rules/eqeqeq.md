@@ -1,6 +1,8 @@
 ---
 title: eqeqeq - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/eqeqeq.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 要求使用 === 和 !== (eqeqeq)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 It is considered good practice to use the type-safe equality operators `===` and `!==` instead of their regular counterparts `==` and `!=`.
 
@@ -54,7 +56,7 @@ if (obj.getStuff() != undefined) { }
 
 The `--fix` option on the command line automatically fixes some problems reported by this rule. A problem is only fixed if one of the operands is a `typeof` expression, or if both operands are literals with the same type.
 
-[命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复该规则报告的一些问题。该规则唯一问题是只修复操作数之一是 `typeof` 表达式的或操作数是相同类型的字面量。
+[命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复该规则报告的一些问题。该规则唯一问题是只修复操作数之一是 `typeof` 表达式的或操作数是相同类型的字面量。
 
 ## Options
 

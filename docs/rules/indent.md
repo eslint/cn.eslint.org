@@ -1,6 +1,8 @@
 ---
 title: indent - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/indent.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 强制使用一致的缩进 (indent)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 There are several common guidelines which require specific indentation of nested blocks and statements, like:
 
@@ -104,8 +106,8 @@ This rule has an object option:
 
 * `"SwitchCase"` (default: 0) enforces indentation level for `case` clauses in `switch` statements
 * `"SwitchCase"` (默认：0) 强制 `switch` 语句中的 `case` 子句的缩进级别
-* `"VariableDeclarator"` (default: 1) enforces indentation level for `var` declarators; can also take an object to define separate rules for `var`, `let` and `const` declarations.
-* `"VariableDeclarator"` (默认：1) 强制 `var` 声明的缩进级别；也可以使用一个对象为 `var`、`let` 和 `const` 声明分别定义。
+* `"VariableDeclarator"` (default: 1) enforces indentation level for `var` declarators; can also take an object to define separate rules for `var`, `let` and `const` declarations. It can also be `"first"`, indicating all the declarators should be aligned with the first declarator.
+* `"VariableDeclarator"` (默认：1) 强制 `var` 声明的缩进级别；也可以使用一个对象为 `var`、`let` 和 `const` 声明分别定义。也可以是 `"first"`，表示所有声明符应与第一个声明符对齐。
 * `"outerIIFEBody"` (default: 1) enforces indentation level for file-level IIFEs.
 * `"outerIIFEBody"` (默认: 1) 强制文件级别的 IIFE 的缩进
 * `"MemberExpression"` (default: 1) enforces indentation level for multi-line property chains. This can also be set to `"off"` to disable checking for MemberExpression indentation.
@@ -137,7 +139,7 @@ This rule has an object option:
 * `"ignoredNodes"` accepts an array of [selectors](/docs/developer-guide/selectors). If an AST node is matched by any of the selectors, the indentation of tokens which are direct children of that node will be ignored. This can be used as an escape hatch to relax the rule if you disagree with the indentation that it enforces for a particular syntactic pattern.
 * `"ignoredNodes"` 接受一组 [selectors](/docs/developer-guide/selectors)。如果任何选择器匹配了一个 AST 节点，其子节点的 token 的缩进将被忽略。如果你不同意它为特定的语法模式强制执行缩进，可以将此选项作为规避该规则的选项。
 * `"ignoreComments"` (default: false) can be used when comments do not need to be aligned with nodes on the previous or next line.
-* `"ignoreComments"` (默认: false) 当主食不需要与前一行或下一行的注释对齐，可以使用此选项。
+* `"ignoreComments"` (默认: false) 当注释不需要与前一行或下一行的注释对齐，可以使用此选项。
 
 Level of indentation denotes the multiple of the indent specified. Example:
 
@@ -293,6 +295,44 @@ let a,
 const a = 1,
     b = 2,
     c = 3;
+```
+
+Examples of **incorrect** code for this rule with the `2, { "VariableDeclarator": "first" }` options:
+
+选项 `2, { "VariableDeclarator": "first" }` 的 **错误** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "VariableDeclarator": "first" }]*/
+/*eslint-env es6*/
+
+var a,
+  b,
+  c;
+let a,
+  b,
+  c;
+const a = 1,
+  b = 2,
+  c = 3;
+```
+
+Examples of **correct** code for this rule with the `2, { "VariableDeclarator": "first" }` options:
+
+选项 `2, { "VariableDeclarator": "first" }` 的 **正确** 代码示例：
+
+```js
+/*eslint indent: ["error", 2, { "VariableDeclarator": "first" }]*/
+/*eslint-env es6*/
+
+var a,
+    b,
+    c;
+let a,
+    b,
+    c;
+const a = 1,
+      b = 2,
+      c = 3;
 ```
 
 Examples of **correct** code for this rule with the `2, { "VariableDeclarator": { "var": 2, "let": 2, "const": 3 } }` options:
@@ -662,6 +702,8 @@ var foo = { bar: 1,
 
 Examples of **correct** code for this rule with the `4, { "ImportDeclaration": 1 }` option (the default):
 
+默认选项 `4, { "ImportDeclaration": 1 }` 的 **正确** 代码示例：
+
 ```js
 /*eslint indent: ["error", 4, { ImportDeclaration: 1 }]*/
 
@@ -679,6 +721,8 @@ import {
 
 Examples of **incorrect** code for this rule with the `4, { ImportDeclaration: "first" }` option:
 
+选项 `4, { ImportDeclaration: "first" }` 的 **错误** 代码示例：
+
 ```js
 /*eslint indent: ["error", 4, { ImportDeclaration: "first" }]*/
 
@@ -689,6 +733,8 @@ import { foo,
 ```
 
 Examples of **correct** code for this rule with the `4, { ImportDeclaration: "first" }` option:
+
+选项 `4, { ImportDeclaration: "first" }` 的 **正确** 代码示例：
 
 ```js
 /*eslint indent: ["error", 4, { ImportDeclaration: "first" }]*/
@@ -703,6 +749,8 @@ import { foo,
 
 Examples of **incorrect** code for this rule with the default `4, { "flatTernaryExpressions": false }` option:
 
+默认选项 `4, { "flatTernaryExpressions": false }` 的 **错误** 代码示例：
+
 ```js
 /*eslint indent: ["error", 4, { "flatTernaryExpressions": false }]*/
 
@@ -713,6 +761,8 @@ var a =
 ```
 
 Examples of **correct** code for this rule with the default `4, { "flatTernaryExpressions": false }` option:
+
+选项 `4, { "flatTernaryExpressions": false }` 的 **正确** 代码示例：
 
 ```js
 /*eslint indent: ["error", 4, { "flatTernaryExpressions": false }]*/
@@ -725,6 +775,8 @@ var a =
 
 Examples of **incorrect** code for this rule with the `4, { "flatTernaryExpressions": true }` option:
 
+选项 `4, { "flatTernaryExpressions": true }` 的 **错误** 代码示例：
+
 ```js
 /*eslint indent: ["error", 4, { "flatTernaryExpressions": true }]*/
 
@@ -735,6 +787,8 @@ var a =
 ```
 
 Examples of **correct** code for this rule with the `4, { "flatTernaryExpressions": true }` option:
+
+选项 `4, { "flatTernaryExpressions": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint indent: ["error", 4, { "flatTernaryExpressions": true }]*/
@@ -749,7 +803,11 @@ var a =
 
 The following configuration ignores the indentation of `ConditionalExpression` ("ternary expression") nodes:
 
+下面的配置忽略 `ConditionalExpression` (三元表达式)节点的缩进:
+
 Examples of **correct** code for this rule with the `4, { "ignoredNodes": ["ConditionalExpression"] }` option:
+
+选项 `4, { "ignoredNodes": ["ConditionalExpression"] }` 的 **正确** 代码示例：
 
 ```js
 /*eslint indent: ["error", 4, { "ignoredNodes": ["ConditionalExpression"] }]*/
@@ -765,7 +823,11 @@ var a = foo
 
 The following configuration ignores indentation in the body of IIFEs.
 
+下面的配置忽略了 IIFE 中的缩进。
+
 Examples of **correct** code for this rule with the `4, { "ignoredNodes": ["CallExpression > FunctionExpression.callee > BlockStatement.body"] }` option:
+
+选项 `4, { "ignoredNodes": ["CallExpression > FunctionExpression.callee > BlockStatement.body"] }` 的 **正确** 代码示例：
 
 ```js
 /*eslint indent: ["error", 4, { "ignoredNodes": ["CallExpression > FunctionExpression.callee > BlockStatement.body"] }]*/
@@ -781,6 +843,8 @@ bar();
 ### ignoreComments
 
 Examples of additional **correct** code for this rule with the `4, { "ignoreComments": true }` option:
+
+选项 `4, { "ignoreComments": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint indent: ["error", 4, { "ignoreComments": true }] */

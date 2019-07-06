@@ -1,6 +1,8 @@
 ---
 title: array-callback-return - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/array-callback-return.md
+rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -9,9 +11,10 @@ layout: doc
 # 强制数组方法的回调函数中有 return 语句 (array-callback-return)
 
 `Array` has several methods for filtering, mapping, and folding.
-If we forget to write `return` statement in a callback of those, it's probably a mistake.
 
-`Array`有一些方法用来过滤、映射和折叠。如果你忘记了在它们的回调函数中写`return`语句，这种情况可能是个错误。
+If we forget to write `return` statement in a callback of those, it's probably a mistake. If you don't want to use a return or don't need the returned results, consider using [.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) instead.
+
+`Array`有一些方法用来过滤、映射和折叠。如果你忘记了在它们的回调函数中写`return`语句，这种情况可能是个错误。如果不想使用返回或者不需要返回的结果，可以考虑使用 [.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
 ```js
 // example: convert ['a', 'b', 'c'] --> {a: 0, b: 1, c: 2}

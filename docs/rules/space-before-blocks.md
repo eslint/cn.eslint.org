@@ -1,6 +1,8 @@
 ---
 title: space-before-blocks - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/space-before-blocks.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 要求或禁止语句块之前的空格 (space-before-blocks)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 Consistency is an important part of any style guide.
 While it is a personal preference where to put the opening brace of blocks,
@@ -32,9 +34,13 @@ This rule will enforce consistency of spacing before blocks. It is only applied 
 
 ## Options
 
-This rule takes one argument. If it is `"always"` then blocks must always have at least one preceding space. If `"never"` then all blocks should never have any preceding space. If different spacing is desired for function blocks, keyword blocks and classes, an optional configuration object can be passed as the rule argument to configure the cases separately. ( e.g. `{ "functions": "never", "keywords": "always", "classes": "always" }` )
+This rule takes one argument. If it is `"always"` then blocks must always have at least one preceding space. If `"never"`
+then all blocks should never have any preceding space. If different spacing is desired for function
+blocks, keyword blocks and classes, an optional configuration object can be passed as the rule argument to
+configure the cases separately. If any value in the configuration object is `"off"`, then neither style will be enforced for blocks of that kind.
+( e.g. `{ "functions": "never", "keywords": "always", "classes": "always" }` )
 
-该规则有一个参数。如果为 `"always"`，块语句必须总是至少有一个前置空格。如果为`"never"`，所有的块永远不会有前置空格。如果函数块和关键字块要求不同的空格类型，可以单独传递一个可选配置的对象作为该规则的参数来配置这种情况。(比如：`{ "functions": "never", "keywords": "always", classes: "always" } `)
+该规则有一个参数。如果为 `"always"`，块语句必须总是至少有一个前置空格。如果为`"never"`，所有的块永远不会有前置空格。如果函数块、关键字块和类要求不同的空格类型，可以单独传递一个可选配置的对象作为该规则的参数来配置这种情况。如果配置对象中的任何值是 `"off"`，那么这两种类型的块都不会强制执行。 (比如：`{ "functions": "never", "keywords": "always", classes: "always" } `)
 
 The default is `"always"`.
 
@@ -172,7 +178,7 @@ describe(function(){
   // ...
 });
 
-class Foo {
+class Foo{
   constructor(){}
 }
 ```

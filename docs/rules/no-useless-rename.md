@@ -1,6 +1,8 @@
 ---
 title: no-useless-rename - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-useless-rename.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 禁止在 import 和 export 和解构赋值时将引用重命名为相同的名字 (no-useless-rename)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 ES2015 allows for the renaming of references in import and export statements as well as destructuring assignments. This gives programmers a concise syntax for performing these operations while renaming these references:
 
@@ -48,23 +50,30 @@ This rule disallows the renaming of import, export, and destructured assignments
 
 这条规则进行在 import 和 export 和解构赋值时将引用重命名为相同的名字
 
+See Also:
+
+查看：
+
+- [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand) which can enforce this behavior for properties in object literals.
+- [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand) 可以对对象的属性强制执行此行为。
+
 ## Options
 
 This rule allows for more fine-grained control with the following options:
 
 这条规则支持用下面的选项进行更细粒度的配置：
 
-* `ignoreImport`: When set to `true`, this rule does not check imports
+- `ignoreImport`: When set to `true`, this rule does not check imports
 
-* `ignoreImport`: 当设置为 `true`，这条规则不会检查 imports
+- `ignoreImport`: 当设置为 `true`，这条规则不会检查 imports
 
-* `ignoreExport`: When set to `true`, this rule does not check exports
+- `ignoreExport`: When set to `true`, this rule does not check exports
 
-* `ignoreExport`: 当设置为 `true`，这条规则不会检查 exports
+- `ignoreExport`: 当设置为 `true`，这条规则不会检查 exports
 
-* `ignoreDestructuring`: When set to `true`, this rule does not check destructuring assignments
+- `ignoreDestructuring`: When set to `true`, this rule does not check destructuring assignments
 
-* `ignoreDestructuring`: 当设置为 `true`, 这条规则不会检查解构赋值
+- `ignoreDestructuring`: 当设置为 `true`, 这条规则不会检查解构赋值
 
 By default, all options are set to `false`:
 
@@ -161,7 +170,7 @@ You can safely disable this rule if you do not care about redundantly renaming i
 
 ## Compatibility
 
-* **JSCS**: [disallowIdenticalDestructuringNames](http://jscs.info/rule/disallowIdenticalDestructuringNames)
+- **JSCS**: [disallowIdenticalDestructuringNames](https://jscs-dev.github.io/rule/disallowIdenticalDestructuringNames)
 
 ## Version
 

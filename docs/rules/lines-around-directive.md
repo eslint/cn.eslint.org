@@ -1,16 +1,18 @@
 ---
 title: lines-around-directive - Rules
 layout: doc_en
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/lines-around-directive.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # require or disallow newlines around directives (lines-around-directive)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 This rule was **deprecated** in ESLint v4.0.0 and replaced by the [padding-line-between-statements](padding-line-between-statements) rule.
 
-Directives are used in JavaScript to indicate to the execution environment that a script would like to opt into a feature such as `"strict mode"`. Directives are grouped together in a [directive prologue](http://www.ecma-international.org/ecma-262/7.0/#directive-prologue) at the top of either a file or function block and are applied to the scope in which they occur.
+Directives are used in JavaScript to indicate to the execution environment that a script would like to opt into a feature such as `"strict mode"`. Directives are grouped together in a [directive prologue](https://www.ecma-international.org/ecma-262/7.0/#directive-prologue) at the top of either a file or function block and are applied to the scope in which they occur.
 
 ```js
 // Strict mode is invoked for the entire script
@@ -326,8 +328,8 @@ You can safely disable this rule if you do not have any strict conventions about
 
 ## Compatibility
 
-* **JSCS**: [requirePaddingNewLinesAfterUseStrict](http://jscs.info/rule/requirePaddingNewLinesAfterUseStrict)
-* **JSCS**: [disallowPaddingNewLinesAfterUseStrict](http://jscs.info/rule/disallowPaddingNewLinesAfterUseStrict)
+* **JSCS**: [requirePaddingNewLinesAfterUseStrict](https://jscs-dev.github.io/rule/requirePaddingNewLinesAfterUseStrict)
+* **JSCS**: [disallowPaddingNewLinesAfterUseStrict](https://jscs-dev.github.io/rule/disallowPaddingNewLinesAfterUseStrict)
 
 ## Version
 

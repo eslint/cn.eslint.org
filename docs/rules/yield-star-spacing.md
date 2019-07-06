@@ -1,6 +1,8 @@
 ---
 title: yield-star-spacing - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/yield-star-spacing.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 强制在 `yield*` 表达式中 `*` 周围使用空格  (yield-star-spacing)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 ## Rule Details
 
@@ -18,11 +20,11 @@ This rule enforces spacing around the `*` in `yield*` expressions.
 
 该规则强制在 `yield*` 表达式中 `*` 左右使用空格。
 
-To use this rule you either need to [use the `es6` environment](../user-guide/configuring) or
-[set `ecmaVersion` to `6` in `parserOptions`](../user-guide/configuring).
+To use this rule you either need to [use the `es6` environment](../user-guide/configuring#specifying-environments) or
+[set `ecmaVersion` to `6` in `parserOptions`](../user-guide/configuring#specifying-parser-options).
 
-使用此规则，你需要[使用 `es6` 环境](../user-guide/configuring) 或
-[在 `parserOptions`中设置 `ecmaVersion` 为 `6`](../user-guide/configuring)。
+使用此规则，你需要[使用 `es6` 环境](../user-guide/configuring#specifying-environments) 或
+[在 `parserOptions`中设置 `ecmaVersion` 为 `6`](../user-guide/configuring#specifying-parser-options)。
 
 ## Options
 

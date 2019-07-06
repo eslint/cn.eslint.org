@@ -1,6 +1,8 @@
 ---
 title: callback-return - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/callback-return.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -9,7 +11,7 @@ layout: doc
 # 强制返回callback函数 (callback-return)
 
 The callback pattern is at the heart of most I/O and event-driven programming
-in JavaScript.
+ in JavaScript.
  
 在 JavaScript 中，回调模式是大多数 I/O 和事件驱动编程的核心。
 

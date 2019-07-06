@@ -1,6 +1,8 @@
 ---
 title: space-unary-ops - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/space-unary-ops.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 要求或禁止在一元操作符之前或之后存在空格 (space-unary-ops)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 Some style guides require or disallow spaces before or after unary operators. This is mainly a stylistic issue, however, some JavaScript expressions can be written without spacing which makes it harder to read and maintain.
 
@@ -86,9 +88,9 @@ In this case, spacing will be disallowed after a `new` operator and required bef
 
 在这个例子中，`new` 操作符之后禁用空格，`++` 操作左右要求有空格。
 
-Examples of **incorrect** code for this rule with the `{"words": true, "nonwords": false}` option:
+Examples of **incorrect** code for this rule with the default `{"words": true, "nonwords": false}` option:
 
-选项 `{"words": true, "nonwords": false}` 的 **错误** 代码示例：
+默认选项 `{"words": true, "nonwords": false}` 的 **错误** 代码示例：
 
 ```js
 /*eslint space-unary-ops: "error"*/

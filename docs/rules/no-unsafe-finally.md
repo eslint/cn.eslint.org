@@ -1,6 +1,8 @@
 ---
 title: no-unsafe-finally - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-unsafe-finally.md
+rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -63,7 +65,7 @@ JavaScript 暂停 `try` 和 `catch` 语句块中的控制流语句，直到 `fin
 // We expect this function to return 0 from try block.
 (() => {
   label: try {
-    return 0; // 1 is returned but suspended until finally block ends
+    return 0; // 0 is returned but suspended until finally block ends
   } finally {
     break label; // It breaks out the try-finally block, before 0 is returned.
   }

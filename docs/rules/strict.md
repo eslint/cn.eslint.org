@@ -1,6 +1,8 @@
 ---
 title: strict - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/strict.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 要求或禁止使用严格模式指令 (strict)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 A strict mode directive is a `"use strict"` literal at the beginning of a script or function body. It enables strict mode semantics.
 
@@ -66,9 +68,9 @@ This rule requires or disallows strict mode directives.
 
 该规则要求或禁止严格模式指令。
 
-This rule disallows strict mode directives, no matter which option is specified, if ESLint configuration specifies either of the following as [parser options](/docs/user-guide/configuring):
+This rule disallows strict mode directives, no matter which option is specified, if ESLint configuration specifies either of the following as [parser options](/docs/user-guide/configuring#specifying-parser-options):
 
-该规则禁止严格模式指令，无论指定了下面的哪个选项 [parser options](/docs/user-guide/configuring)：
+该规则禁止严格模式指令，无论指定了下面的哪个选项 [parser options](/docs/user-guide/configuring#specifying-parser-options)：
 
 * `"sourceType": "module"` that is, files are **ECMAScript** modules
 * `"sourceType": "module"` 也就是说，文件是 **ECMAScript** 模块
@@ -108,10 +110,10 @@ The `"safe"` option corresponds to the `"global"` option if ESLint considers a f
 
 如果 ESLint 认为一个文件是 **Node.js** 或 **CommonJS** 模块，`"safe"` 选项就对应 `"global"` 选项，因为配置指定了下面中的一个：
 
-* `node` or `commonjs` [environments](/docs/user-guide/configuring)
-* `node` 或 `commonjs` [environments](/docs/user-guide/configuring)
-* `"globalReturn": true` property in the `ecmaFeatures` object of [parser options](/docs/user-guide/configuring)
-* `"globalReturn": true` [parser options](/docs/user-guide/configuring) 的 `ecmaFeatures` 对象中的属性
+* `node` or `commonjs` [environments](/docs/user-guide/configuring#specifying-environments)
+* `node` 或 `commonjs` [environments](/docs/user-guide/configuring#specifying-environments)
+* `"globalReturn": true` property in the `ecmaFeatures` object of [parser options](/docs/user-guide/configuring#specifying-parser-options)
+* `"globalReturn": true` [parser options](/docs/user-guide/configuring#specifying-parser-options) 的 `ecmaFeatures` 对象中的属性
 
 Otherwise the `"safe"` option corresponds to the `"function"` option. Note that if `"globalReturn": false` is explicitly specified in the configuration, the `"safe"` option will correspond to the `"function"` option regardless of the specified environment.
 
@@ -271,6 +273,69 @@ Examples of **correct** code for this rule with the `"never"` option:
 
 function foo() {
 }
+```
+
+### earlier default (removed)
+
+(removed) The default option (that is, no string option specified) for this rule was **removed** in ESLint v1.0. The `"function"` option is most similar to the removed option.
+
+(removed) 该规则的默认选项(即没有指定字符串选项)在 ESLint v1.0中 **被移除**。`"function"` 选项最类似于已删除的选项。
+
+This option ensures that all functions are executed in strict mode. A strict mode directive must be present in global code or in every top-level function declaration or expression. It does not concern itself with unnecessary strict mode directives in nested functions that are already strict, nor with multiple strict mode directives at the same level.
+
+此选项确保所有函数都在严格模式下执行。严格模式指令必须出现在全局代码中，或者在每个顶级函数声明或表达式中。它不关心嵌套函数中已经严格的不必要的严格模式指令，也不关心同一级别的多个严格模式指令。
+
+Examples of **incorrect** code for this rule with the earlier default option which has been removed:
+
+已被删除的早期默认选项 **错误** 代码示例:
+
+```js
+// "strict": "error"
+
+function foo() {
+}
+```
+
+```js
+// "strict": "error"
+
+(function() {
+    function bar() {
+        "use strict";
+    }
+}());
+```
+
+Examples of **correct** code for this rule with the earlier default option which has been removed:
+
+已被删除的早期默认选项 **正确** 代码示例:
+
+```js
+// "strict": "error"
+
+"use strict";
+
+function foo() {
+}
+```
+
+```js
+// "strict": "error"
+
+function foo() {
+    "use strict";
+}
+```
+
+```js
+// "strict": "error"
+
+(function() {
+    "use strict";
+    function bar() {
+        "use strict";
+    }
+}());
 ```
 
 ## When Not To Use It

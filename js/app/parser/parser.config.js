@@ -13,7 +13,9 @@ module.exports = {
         5: false,
         6: true,
         7: false,
-        8: false
+        8: false,
+        9: false,
+        10: false
     },
     sourceType: {
         script: false,
@@ -22,7 +24,6 @@ module.exports = {
     ecmaFeatures: {
         jsx: true,
         globalReturn: true,
-        impliedStrict: false,
-        experimentalObjectRestSpread: true
+        impliedStrict: false
     }
 };

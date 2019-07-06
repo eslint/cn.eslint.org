@@ -177,3 +177,23 @@
 - url: https://buddy.works
   src: /img/logos/buddy.svg
   name: Buddy
+
+- url: https://hasura.io
+  src: /img/logos/hasura.svg
+  name: Hasura
+
+- url: https://www.mongodb.com/
+  src: /img/logos/mongodb.svg
+  name: MongoDB
+
+- url: https://www.directlyrics.com/
+  src: /img/logos/directlyrics.svg
+  name: Directlyrics
+
+- url: https://www.gandi.net/
+  src: /img/logos/gandi.svg
+  name: Gandi.net
+
+- url: https://weave.works/
+  src: /img/logos/weaveworks.svg
+  name: Weaveworks

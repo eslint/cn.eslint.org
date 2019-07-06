@@ -1,6 +1,8 @@
 ---
 title: nonblock-statement-body-position - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/nonblock-statement-body-position.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 强制单个语句的位置 (nonblock-statement-body-position)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 When writing `if`, `else`, `while`, `do-while`, and `for` statements, the body can be a single statement instead of a block. It can be useful to enforce a consistent location for these single statements.
 
@@ -202,7 +204,7 @@ If you're not concerned about consistent locations of single-line statements, yo
 
 ## Further Reading
 
-* JSCS: [requireNewlineBeforeSingleStatementsInIf](http://jscs.info/rule/requireNewlineBeforeSingleStatementsInIf)
+* JSCS: [requireNewlineBeforeSingleStatementsInIf](https://jscs-dev.github.io/rule/requireNewlineBeforeSingleStatementsInIf)
 
 ## Version
 

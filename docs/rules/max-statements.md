@@ -1,6 +1,8 @@
 ---
 title: max-statements - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/max-statements.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -164,6 +166,8 @@ function foo() {
 * [complexity](complexity)
 * [max-depth](max-depth)
 * [max-len](max-len)
+* [max-lines](max-lines)
+* [max-lines-per-function](max-lines-per-function)
 * [max-nested-callbacks](max-nested-callbacks)
 * [max-params](max-params)
 

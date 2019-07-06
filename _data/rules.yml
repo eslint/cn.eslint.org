@@ -9,11 +9,16 @@ categories:
         description_zh: 强制 “for” 循环中更新子句的计数器朝着正确的方向移动 
         fixable: false
         name: for-direction
-        recommended: false
+        recommended: true
       - description: enforce `return` statements in getters
         description_zh: 强制 getter 函数中出现 `return` 语句
         fixable: false
         name: getter-return
+        recommended: true
+      - description: disallow using an async function as a Promise executor
+        description_zh: 禁止使用异步函数作为 Promise executor
+        fixable: false
+        name: no-async-promise-executor
         recommended: false
       - description: disallow `await` inside of loops
         description_zh: 禁止在循环中出现 `await`
@@ -47,7 +52,7 @@ categories:
         recommended: true
       - description: disallow the use of `debugger`
         description_zh: 禁用 `debugger`
-        fixable: true
+        fixable: false
         name: no-debugger
         recommended: true
       - description: disallow duplicate arguments in `function` definitions
@@ -75,7 +80,6 @@ categories:
         fixable: false
         name: no-empty-character-class
         recommended: true
-      
       - description: disallow reassigning exceptions in `catch` clauses
         description_zh: 禁止对 `catch` 子句的参数重新赋值
         fixable: false
@@ -111,11 +115,18 @@ categories:
         fixable: false
         name: no-invalid-regexp
         recommended: true
-      - description: disallow irregular whitespace outside of strings and comments
-        description_zh: 禁止在字符串和注释之外不规则的空白
+      - description: disallow irregular whitespace
+        description_zh: 禁止不规则的空白
         fixable: false
         name: no-irregular-whitespace
         recommended: true
+      - description: >-
+          disallow characters which are made with multiple code points in
+          character class syntax
+        description_zh: 不允许在字符类语法中出现由多个代码点组成的字符
+        fixable: false
+        name: no-misleading-character-class
+        recommended: false
       - description: disallow calling global object properties as functions
         description_zh: 禁止把全局对象作为函数调用
         fixable: false
@@ -149,8 +160,7 @@ categories:
       - description: >-
           disallow unreachable code after `return`, `throw`, `continue`, and
           `break` statements
-        description_zh: >-
-          禁止在`return`、`throw`、`continue` 和 `break` 语句之后出现不可达代码
+        description_zh: 禁止在 `return`、`throw`、`continue` 和 `break` 语句之后出现不可达代码
         fixable: false
         name: no-unreachable
         recommended: true
@@ -164,16 +174,18 @@ categories:
         fixable: true
         name: no-unsafe-negation
         recommended: true
+      - description: >-
+          disallow assignments that can lead to race conditions due to usage of
+          `await` or `yield`
+        description_zh: 禁止由于 `await` 或 `yield`的使用而可能导致出现竞态条件的赋值
+        fixable: false
+        name: require-atomic-updates
+        recommended: false
       - description: require calls to `isNaN()` when checking for `NaN`
         description_zh: 要求使用 `isNaN()` 检查 `NaN`
         fixable: false
         name: use-isnan
         recommended: true
-      - description: enforce valid JSDoc comments
-        description_zh: 强制使用有效的 JSDoc 注释
-        fixable: false
-        name: valid-jsdoc
-        recommended: false
       - description: enforce comparing `typeof` expressions against valid strings
         description_zh: 强制 `typeof` 表达式与有效的字符串进行比较
         fixable: false
@@ -182,8 +194,7 @@ categories:
   - description: >-
       These rules relate to better ways of doing things to help you avoid
       problems:
-    description_zh: >-
-     这些规则是关于最佳实践的，帮助你避免一些问题:
+    description_zh: 这些规则是关于最佳实践的，帮助你避免一些问题
     name: Best Practices
     rules:
       - description: enforce getter and setter pairs in objects
@@ -246,6 +257,11 @@ categories:
         fixable: false
         name: guard-for-in
         recommended: false
+      - description: enforce a maximum number of classes per file
+        description_zh: 强制每个文件中包含的的类的最大数量
+        fixable: false
+        name: max-classes-per-file
+        recommended: false
       - description: 'disallow the use of `alert`, `confirm`, and `prompt`'
         description_zh: '禁用 `alert`、`confirm` 和 `prompt`'
         fixable: false
@@ -264,8 +280,7 @@ categories:
       - description: >-
           disallow division operators explicitly at the beginning of regular
           expressions
-        description_zh: >-
-          禁止除法操作符显式的出现在正则表达式开始的位置
+        description_zh: 禁止除法操作符显式的出现在正则表达式开始的位置
         fixable: false
         name: no-div-regex
         recommended: false
@@ -360,10 +375,9 @@ categories:
         name: no-lone-blocks
         recommended: false
       - description: >-
-          disallow `function` declarations and expressions inside loop
-          statements
-        description_zh: >-
-          禁止在循环中出现 `function` 声明和表达式
+          disallow function declarations that contain unsafe references inside
+          loop statements
+        description_zh: 禁止在循环语句中出现包含不安全引用的函数声明
         fixable: false
         name: no-loop-func
         recommended: false
@@ -395,8 +409,7 @@ categories:
       - description: >-
           disallow `new` operators with the `String`, `Number`, and `Boolean`
           objects
-        description_zh: >-
-          禁止对 `String`，`Number` 和 `Boolean` 使用 `new` 操作符
+        description_zh: 禁止对 `String`，`Number` 和 `Boolean` 使用 `new` 操作符
         fixable: false
         name: no-new-wrappers
         recommended: false
@@ -485,6 +498,11 @@ categories:
         fixable: false
         name: no-useless-call
         recommended: false
+      - description: disallow unnecessary `catch` clauses
+        description_zh: 禁止不必要的 `catch` 子句
+        fixable: false
+        name: no-useless-catch
+        recommended: false
       - description: disallow unnecessary concatenation of literals or template literals
         description_zh: 禁止不必要的字符串字面量或模板字面量的连接
         fixable: false
@@ -515,6 +533,11 @@ categories:
         fixable: false
         name: no-with
         recommended: false
+      - description: enforce using named capture group in regular expression
+        description_zh: 建议在正则表达式中使用命名捕获组
+        fixable: false
+        name: prefer-named-capture-group
+        recommended: false
       - description: require using Error objects as Promise rejection reasons
         description_zh: 要求使用 Error 对象作为 Promise 拒绝的原因
         fixable: false
@@ -523,8 +546,7 @@ categories:
       - description: >-
           enforce the consistent use of the radix argument when using
           `parseInt()`
-        description_zh: >-
-          强制在`parseInt()`使用基数参数
+        description_zh: 强制在 `parseInt()` 使用基数参数
         fixable: false
         name: radix
         recommended: false
@@ -533,11 +555,15 @@ categories:
         fixable: false
         name: require-await
         recommended: false
+      - description: enforce the use of `u` flag on RegExp
+        description_zh: 强制在 RegExp 上使用 `u` 标志
+        fixable: false
+        name: require-unicode-regexp
+        recommended: false
       - description: >-
           require `var` declarations be placed at the top of their containing
           scope
-        description_zh: >-
-          要求所有的 `var` 声明出现在它们所在的作用域顶部
+        description_zh: 要求所有的 `var` 声明出现在它们所在的作用域顶部
         fixable: false
         name: vars-on-top
         recommended: false
@@ -568,14 +594,6 @@ categories:
         description_zh: 要求或禁止 `var` 声明中的初始化
         fixable: false
         name: init-declarations
-        recommended: false
-      - description: >-
-          disallow `catch` clause parameters from shadowing variables in the
-          outer scope
-        description_zh: >-
-          禁止 `catch` 子句的参数与外层作用域中的变量同名
-        fixable: false
-        name: no-catch-shadow
         recommended: false
       - description: disallow deleting variables
         description_zh: 禁止删除变量
@@ -655,8 +673,8 @@ categories:
         fixable: false
         name: handle-callback-err
         recommended: false
-      - description: disallow use of the Buffer() constructor
-        description_zh: 禁用 Buffer() 构造函数
+      - description: disallow use of the `Buffer()` constructor
+        description_zh: 禁用 `Buffer()` 构造函数
         fixable: false
         name: no-buffer-constructor
         recommended: false
@@ -885,6 +903,11 @@ categories:
         fixable: false
         name: max-lines
         recommended: false
+      - description: enforce a maximum number of line of code in a function
+        description_zh: 强制函数最大代码行数
+        fixable: false
+        name: max-lines-per-function
+        recommended: false
       - description: enforce a maximum depth that callbacks can be nested
         description_zh: 强制回调函数最大嵌套深度
         fixable: false
@@ -1055,7 +1078,7 @@ categories:
           functions
         description_zh: >-
           强制函数中的变量要么一起声明要么分开声明
-        fixable: false
+        fixable: true
         name: one-var
         recommended: false
       - description: require or disallow newlines around variable declarations
@@ -1083,6 +1106,13 @@ categories:
         fixable: true
         name: padding-line-between-statements
         recommended: false
+      - description: >-
+          disallow using Object.assign with an object literal as the first
+          argument and prefer the use of object spread instead.
+        description_zh: 禁止使用以对象字面量作为第一个参数的 Object.assign，优先使用对象扩展。
+        fixable: true
+        name: prefer-object-spread
+        recommended: false
       - description: require quotes around object literal property names
         description_zh: 要求对象字面量属性名称用引号括起来
         fixable: true
@@ -1095,11 +1125,6 @@ categories:
           强制使用一致的反勾号、双引号或单引号
         fixable: true
         name: quotes
-        recommended: false
-      - description: require JSDoc comments
-        description_zh: 要求使用 JSDoc 注释
-        fixable: false
-        name: require-jsdoc
         recommended: false
       - description: require or disallow semicolons instead of ASI
         description_zh: 要求或禁止使用分号代替 ASI
@@ -1296,7 +1321,7 @@ categories:
         recommended: false
       - description: require destructuring from arrays and/or objects
         description_zh: 优先使用数组和对象解构
-        fixable: false
+        fixable: true
         name: prefer-destructuring
         recommended: false
       - description: >-
@@ -1313,7 +1338,7 @@ categories:
         recommended: false
       - description: require spread operators instead of `.apply()`
         description_zh: 要求使用扩展运算符而非 `.apply()`
-        fixable: true
+        fixable: false
         name: prefer-spread
         recommended: false
       - description: require template literals instead of string concatenation
@@ -1374,6 +1399,9 @@ deprecated:
     - name: newline-before-return
       replacedBy:
         - padding-line-between-statements
+    - name: no-catch-shadow
+      replacedBy:
+        - no-shadow
     - name: no-native-reassign
       replacedBy:
         - no-global-assign
@@ -1384,6 +1412,10 @@ deprecated:
       replacedBy:
         - func-call-spacing
     - name: prefer-reflect
+      replacedBy: []
+    - name: require-jsdoc
+      replacedBy: []
+    - name: valid-jsdoc
       replacedBy: []
 removed:
   description: >-

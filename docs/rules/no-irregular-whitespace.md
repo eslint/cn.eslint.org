@@ -1,6 +1,8 @@
 ---
 title: no-irregular-whitespace - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-irregular-whitespace.md
+rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -19,6 +21,8 @@ Invalid or irregular whitespace causes issues with ECMAScript 5 parsers and also
 Various whitespace characters can be inputted by programmers by mistake for example from copying or keyboard shortcuts. Pressing Alt + Space on macOS adds in a non breaking space character for example.
 
 各种空白字符可能是由程序员误输入的，比如拷贝或键盘快捷键。例如，在 macOS 按下 Alt + Space，增加了一个不间断空格。
+
+A simple fix for this problem could be to rewrite the offending line from scratch. This might also be a problem introduced by the text editor: if rewriting the line does not fix it, try using a different editor.
 
 Known issues these spaces cause:
 

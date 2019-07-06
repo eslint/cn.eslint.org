@@ -1,6 +1,8 @@
 ---
 title: Configuring ESLint
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configuring.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -43,21 +45,20 @@ ESLint 允许你指定你想要支持的 JavaScript 语言选项。默认情况�
 
 Please note that supporting JSX syntax is not the same as supporting React. React applies specific semantics to JSX syntax that ESLint doesn't recognize. We recommend using [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react) if you are using React and want React semantics.
 
-请注意，对 JSX 语法的支持不用于对 React 的支持。React 使用了一些特定的 ESLint 无法识别的 JSX 语法。如果你正在使用 React 并且想要 React 语义支持，我们推荐你使用 [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)。
+请注意，支持 JSX 语法并不等同于支持 React。React 对 ESLint 无法识别的JSX语法应用特定的语义。如果你正在使用 React 并且想要 React 语义支持，我们建议你使用 [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)。
 
 By the same token, supporting ES6 syntax is not the same as supporting new ES6 globals (e.g., new types such as
 `Set`).
-For ES6 syntax, use `{ "parserOptions": { "ecmaVersion": 6 } }`; for new ES6 global variables, use `{ "env":
-{ "es6": true } }` (this setting enables ES6 syntax automatically).
+For ES6 syntax, use `{ "parserOptions": { "ecmaVersion": 6 } }`; for new ES6 global variables, use `{ "env": { "es6": true } }`. `{ "env": { "es6": true } }` enables ES6 syntax automatically, but `{ "parserOptions": { "ecmaVersion": 6 } }` does not enable ES6 globals automatically.
 
-同样的，支持 ES6 语法并不意味着同时支持新的 ES6 全局变量或类型（比如 `Set` 等新类型）。使用 `{ "parserOptions": { "ecmaVersion": 6 } }` 来启用 ES6 语法支持；要额外支持新的 ES6 全局变量，使用 `{ "env":{ "es6": true } }`(这个设置会同时自动启用 ES6 语法支持)。
+同样的，支持 ES6 语法并不意味着同时支持新的 ES6 全局变量或类型（比如 `Set` 等新类型）。对于 ES6 语法，使用 `{ "parserOptions": { "ecmaVersion": 6 } }`；对于新的 ES6 全局变量，使用 `{ "env":{ "es6": true } }`. `{ "env": { "es6": true } }` 自动启用es6语法，但 `{ "parserOptions": { "ecmaVersion": 6 } }` 不自动启用es6全局变量。
 
 Parser options are set in your `.eslintrc.*` file by using the `parserOptions` property. The available options are:
 
 解析器选项可以在 `.eslintrc.*` 文件使用 `parserOptions` 属性设置。可用的选项有：
 
-* `ecmaVersion` - set to 3, 5 (default), 6, 7, 8, or 9 to specify the version of ECMAScript syntax you want to use. You can also set to 2015 (same as 6), 2016 (same as 7), 2017 (same as 8), or 2018 (same as 9) to use the year-based naming.
-* `ecmaVersion` - 默认设置为3，5（默认）， 你可以使用 6、7、8 或 9 来指定你想要使用的 ECMAScript 版本。你也可以用使用年份命名的版本号指定为 2015（同 6），2016（同 7），或 2017（同 8）或 2018（同 9）
+* `ecmaVersion` - set to 3, 5 (default), 6, 7, 8, 9, or 10 to specify the version of ECMAScript syntax you want to use. You can also set to 2015 (same as 6), 2016 (same as 7), 2017 (same as 8), 2018 (same as 9), or 2019 (same as 10) to use the year-based naming.
+* `ecmaVersion` - 默认设置为 3，5（默认）， 你可以使用 6、7、8、9 或 10 来指定你想要使用的 ECMAScript 版本。你也可以用使用年份命名的版本号指定为 2015（同 6），2016（同 7），或 2017（同 8）或 2018（同 9）或 2019 (same as 10) 
 * `sourceType` - set to `"script"` (default) or `"module"` if your code is in ECMAScript modules.
 * `sourceType` - 设置为 `"script"` (默认) 或 `"module"`（如果你的代码是 ECMAScript 模块)。
 * `ecmaFeatures` - an object indicating which additional language features you'd like to use:
@@ -86,7 +87,7 @@ Here's an example `.eslintrc.json` file:
         }
     },
     "rules": {
-        "semi": 2
+        "semi": "error"
     }
 }
 ```
@@ -138,8 +139,8 @@ The following parsers are compatible with ESLint:
 * [Esprima](https://www.npmjs.com/package/esprima)
 * [Babel-ESLint](https://www.npmjs.com/package/babel-eslint) - A wrapper around the [Babel](https://babeljs.io) parser that makes it compatible with ESLint.
 * [Babel-ESLint](https://www.npmjs.com/package/babel-eslint) - 一个对[Babel](https://babeljs.io)解析器的包装，使其能够与 ESLint 兼容。
-* [typescript-eslint-parser(Experimental)](https://www.npmjs.com/package/typescript-eslint-parser) - A parser that converts TypeScript into an ESTree-compatible form so it can be used in ESLint. The goal is to allow TypeScript files to be parsed by ESLint (though not necessarily pass all ESLint rules).
-* [typescript-eslint-parser(实验)](https://www.npmjs.com/package/typescript-eslint-parser) - 一个把 TypeScript 转换为 ESTree 兼容格式的解析器，这样它就可以在 ESLint 中使用了。这样做的目的是通过 ESLint 来解析 TypeScript 文件（尽管不一定必须通过所有的 ESLint 规则）。
+* [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) - A parser that converts TypeScript into an ESTree-compatible form so it can be used in ESLint.
+* [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) - 将 TypeScript 转换成与 estree 兼容的形式，以便在ESLint中使用。
 
 Note when using a custom parser, the `parserOptions` configuration property is still required for ESLint to work properly with features not in ECMAScript 5 by default. Parsers are all passed `parserOptions` and may or may not use them to determine which features to enable.
 
@@ -319,23 +320,23 @@ To specify globals using a comment inside of your JavaScript file, use the follo
 /* global var1, var2 */
 ```
 
-This defines two global variables, `var1` and `var2`. If you want to optionally specify that these global variables should never be written to (only read), then you can set each with a `false` flag:
+This defines two global variables, `var1` and `var2`. If you want to optionally specify that these global variables can be written to (rather than only being read), then you can set each with a `"writable"` flag:
 
-这里定义了两个全局变量：`var1` 和 `var2`。如果你想指定这些变量不应被重写（只读），你可以将它们设置为 `false`：
+这定义了两个全局变量，`var1` 和 `var2`。如果你想选择性地指定这些全局变量可以被写入(而不是只被读取)，那么你可以用一个 `"writable"` 的标志来设置它们:
 
 ```js
-/* global var1:false, var2:false */
+/* global var1:writable, var2:writable */
 ```
 
-To configure global variables inside of a configuration file, use the `globals` key and indicate the global variables you want to use. Set each global variable name equal to `true` to allow the variable to be overwritten or `false` to disallow overwriting. For example:
+To configure global variables inside of a configuration file, set the `globals` configuration property to an object containing keys named for each of the global variables you want to use. For each global variable key, set the corresponding value equal to `"writable"` to allow the variable to be overwritten or `"readonly"` to disallow overwriting. For example:
 
-在配置文件里配置全局变量时，使用 `globals` 指出你要使用的全局变量。将变量设置为 `true` 将允许变量被重写，或 `false` 将不允许被重写。比如：
+要在配置文件中配置全局变量，请将 `globals` 配置属性设置为一个对象，该对象包含以你希望使用的每个全局变量。对于每个全局变量键，将对应的值设置为 `"writable"` 以允许重写变量，或 `"readonly"` 不允许重写变量。例如：
 
 ```json
 {
     "globals": {
-        "var1": true,
-        "var2": false
+        "var1": "writable",
+        "var2": "readonly"
     }
 }
 ```
@@ -347,13 +348,32 @@ And in YAML:
 ```yaml
 ---
   globals:
-    var1: true
-    var2: false
+    var1: writable
+    var2: readonly
 ```
 
 These examples allow `var1` to be overwritten in your code, but disallow it for `var2`.
 
 在这些例子中 `var1` 允许被重写，`var2` 不允许被重写。
+
+Globals can be disabled with the string `"off"`. For example, in an environment where most ES2015 globals are available but `Promise` is unavailable, you might use this config:
+
+可以使用字符串 `"off"` 禁用全局变量。例如，在大多数 ES2015 全局变量可用但 `Promise` 不可用的环境中，你可以使用以下配置:
+
+```json
+{
+    "env": {
+        "es6": true
+    },
+    "globals": {
+        "Promise": "off"
+    }
+}
+```
+
+For historical reasons, the boolean value `false` and the string value `"readable"` are equivalent to `"readonly"`. Similarly, the boolean value `true` and the string value `"writeable"` are equivalent to `"writable"`. However, the use of older values is deprecated.
+
+由于历史原因，布尔值 `false` 和字符串值 `"readable"` 等价于 `"readonly"`。类似地，布尔值 `true` 和字符串值 `"writeable"` 等价于 `"writable"`。但是，不建议使用旧值。
 
 **Note:** Enable the [no-global-assign](../rules/no-global-assign) rule to disallow modifications to read-only global variables in your code.
 
@@ -406,6 +426,8 @@ ESLint 附带有大量的规则。你可以使用注释或配置文件修改你�
 * `"error"` or `2` - turn the rule on as an error (exit code is 1 when triggered)
 * `"error"` 或 `2` - 开启规则，使用错误级别的错误：`error` (当被触发的时候，程序会退出)
 
+### Using Configuration Comments
+
 To configure rules inside of a file using configuration comments, use a comment in the following format:
 
 为了在文件注释里配置规则，使用以下格式的注释：
@@ -437,6 +459,8 @@ If a rule has additional options, you can specify them using array literal synta
 This comment specifies the "double" option for the [`quotes`](../rules/quotes) rule. The first item in the array is always the rule severity (number or string).
 
 这条注释为规则 [`quotes`](../rules/quotes) 指定了 "double"选项。数组的第一项总是规则的严重程度（数字或字符串）。
+
+### Using Configuration Files
 
 To configure rules inside of a configuration file, use the `rules` key along with an error level and any options you want to use. For example:
 
@@ -622,6 +646,26 @@ foo(); /* eslint-disable-line example/rule-name */
 **Note:** Comments that disable warnings for a portion of a file tell ESLint not to report rule violations for the disabled code. ESLint still parses the entire file, however, so disabled code still needs to be syntactically valid JavaScript.
 
 **注意：**为文件的某部分禁用警告的注释，告诉 ESLint 不要对禁用的代码报告规则的冲突。ESLint 仍解析整个文件，然而，禁用的代码仍需要是有效的 JavaScript 语法。
+
+### Disabling Rules Only for a Group of Files
+
+To disable rules inside of a configuration file for a group of files, use the `overrides` key along with a `files` key. For example:
+
+若要禁用一组文件的配置文件中的规则，请使用 `overrides` 和 `files`。例如:
+
+```json
+{
+  "rules": {...},
+  "overrides": [
+    {
+      "files": ["*-test.js","*.spec.js"],
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
+}
+```
 
 ## Adding Shared Settings
 
@@ -816,7 +860,7 @@ The complete configuration hierarchy, from highest precedence to lowest preceden
     1. 与要检测的文件在同一目录下的 `.eslintrc.*` 或 `package.json` 文件 
     1. Continue searching for `.eslintrc` and `package.json` files in ancestor directories (parent has highest precedence, then grandparent, etc.), up to and including the root directory or until a config with `"root": true` is found.
     1. 继续在父级目录寻找 `.eslintrc` 或 `package.json`文件，直到根目录（包括根目录）或直到发现一个有`"root": true`的配置。
-1. In the absence of any configuration from (1) thru (3), fall back to a personal default configuration in `~/.eslintrc`.
+1. In the absence of any configuration from (1) through (3), fall back to a personal default configuration in `~/.eslintrc`.
 1. 如果不是（1）到（3）中的任何一种情况，退回到 `~/.eslintrc` 中自定义的默认配置。
 
 ## Extending Configuration Files
@@ -1043,9 +1087,9 @@ module.exports = {
 
 ## Configuration Based on Glob Patterns
 
-Sometimes a more fine-controlled configuration is necessary, for example if the configuration for files within the same directory has to be different. Therefore you can provide configurations under the `overrides` key that will only apply to files that match specific glob patterns, using the same format you would pass on the command line (e.g., `app/**/*.test.js`).
+<b>v4.1.0+.</b> Sometimes a more fine-controlled configuration is necessary, for example if the configuration for files within the same directory has to be different. Therefore you can provide configurations under the `overrides` key that will only apply to files that match specific glob patterns, using the same format you would pass on the command line (e.g., `app/**/*.test.js`).
 
-有时，你可能需要更精细的配置，比如，如果同一个目录下的文件需要有不同的配置。因此，你可以在配置中使用  `overrides` 键，它只适用于匹配特定的 glob 模式的文件，使用你在命令行上传递的格式 (e.g., `app/**/*.test.js`)。
+<b>v4.1.0+.</b> 有时，你可能需要更精细的配置，比如，如果同一个目录下的文件需要有不同的配置。因此，你可以在配置中使用  `overrides` 键，它只适用于匹配特定的 glob 模式的文件，使用你在命令行上传递的格式 (e.g., `app/**/*.test.js`)。
 
 ### How it works
 
@@ -1093,15 +1137,15 @@ In your `.eslintrc.json`:
 ```json
 {
   "rules": {
-    "quotes": [ 2, "double" ]
+    "quotes": ["error", "double"]
   },
 
   "overrides": [
     {
-      "files": [ "bin/*.js", "lib/*.js" ],
+      "files": ["bin/*.js", "lib/*.js"],
       "excludedFiles": "*.test.js",
       "rules": {
-        "quotes": [ 2, "single" ]
+        "quotes": ["error", "single"]
       }
     }
   ]
@@ -1135,6 +1179,8 @@ Currently the sole method for telling ESLint which file extensions to lint is by
 
 ## Ignoring Files and Directories
 
+### `.eslintignore`
+
 You can tell ESLint to ignore specific files and directories by creating an `.eslintignore` file in your project's root directory. The `.eslintignore` file is a plain text file where each line is a glob pattern indicating which paths should be omitted from linting. For example, the following will omit all JavaScript files:
 
 你可以通过在项目根目录创建一个 `.eslintignore` 文件告诉 ESLint 去忽略特定的文件和目录。`.eslintignore` 文件是一个纯文本文件，其中的每一行都是一个 glob 模式表明哪些路径应该忽略检测。例如，以下将忽略所有的 JavaScript 文件：
@@ -1153,28 +1199,50 @@ Globs 匹配使用 [node-ignore](https://github.com/kaelzhang/node-ignore)，所
 
 * Lines beginning with `#` are treated as comments and do not affect ignore patterns.
 * 以 `#` 开头的行被当作注释，不影响忽略模式。
-* Paths are relative to `.eslintignore` location or the current working directory. This also influences paths passed via `--ignore-pattern`.
-* 路径是相对于 `.eslintignore` 的位置或当前工作目录。这也会影响通过 `--ignore-pattern`传递的路径。
+* Paths are relative to `.eslintignore` location or the current working directory. This is also true of paths passed in via the `--ignore-pattern` [command](./command-line-interface#--ignore-pattern).
+* 路径是相对于 `.eslintignore` 的位置或当前工作目录。通过 `--ignore-pattern` [command](./command-line-interface#--ignore-pattern) 传递的路径也是如此。
 * Ignore patterns behave according to the `.gitignore` [specification](https://git-scm.com/docs/gitignore)
 * 忽略模式同 `.gitignore` [规范](https://git-scm.com/docs/gitignore)
 * Lines preceded by `!` are negated patterns that re-include a pattern that was ignored by an earlier pattern.
 * 以 `!` 开头的行是否定模式，它将会重新包含一个之前被忽略的模式。
+* Ignore patterns behave according to the `.gitignore` [specification](https://git-scm.com/docs/gitignore).
+* 忽略模式依照 `.gitignore` [规范](https://git-scm.com/docs/gitignore).
+
+Of particular note is that like `.gitignore` files, all paths used as patterns for both `.eslintignore` and `--ignore-pattern` must use forward slashes as their path separators.
+
+特别值得注意的是，就像 `.gitignore` 文件，所有用作 `.eslintignore` 和 `--ignore-pattern` 模式的路径必须使用前斜杠作为它们的路径分隔符。
+
+```text
+# Valid
+/root/src/*.js
+
+# Invalid
+\root\src\*.js
+```
+
+Please see `.gitignore`'s specification for further examples of valid syntax.
+
+请参参阅 `.gitignore` 规范查看有关有效语法的更多示例。
 
 In addition to any patterns in a `.eslintignore` file, ESLint always ignores files in `/node_modules/*` and `/bower_components/*`.
 
 除了 `.eslintignore` 文件中的模式，ESLint总是忽略 `/node_modules/*` 和 `/bower_components/*` 中的文件。
 
-For example, placing the following `.eslintignore` file in the current working directory will ignore all of `node_modules`, `bower_components` and anything in the `build/` directory except `build/index.js`:
+For example, placing the following `.eslintignore` file in the current working directory will ignore all of `node_modules`, `bower_components` in the project root and anything in the `build/` directory except `build/index.js`:
 
-例如：把下面 `.eslintignore` 文件放到当前工作目录里，将忽略 `node_modules`，`bower_components` 以及 `build/`  目录下除了 `build/index.js` 的所有文件。
+例如：把下面 `.eslintignore` 文件放到当前工作目录里，将忽略项目根目录下的 `node_modules`，`bower_components` 以及 `build/`  目录下除了 `build/index.js` 的所有文件。
 
 ```text
-# /node_modules/* and /bower_components/* ignored by default
+# /node_modules/* and /bower_components/* in the project root are ignored by default
 
 # Ignore built files except build/index.js
 build/*
 !build/index.js
 ```
+
+**Important**: Note that `node_modules` directories in, for example, a `packages` directory in a mono repo are *not* ignored by default and need to be added to `.eslintignore` explicitly.
+
+**重要：**注意代码库的 `node_modules` 目录，比如，一个 `packages` 目录，默认情况下不会被忽略，需要手动添加到 `.eslintignore`。
 
 ### Using an Alternate File
 

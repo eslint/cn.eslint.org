@@ -1,7 +1,8 @@
 ---
 title: Rule Deprecation
-layout: doc
+layout: doc_en
 edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/rule-deprecation.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 

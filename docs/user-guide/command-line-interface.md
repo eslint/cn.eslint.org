@@ -1,6 +1,8 @@
 ---
 title: Command Line Interface
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/command-line-interface.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -68,6 +70,7 @@ Specifying rules and plugins:
 Fixing problems:
   --fix                          Automatically fix problems
   --fix-dry-run                  Automatically fix problems without saving the changes to the file system
+  --fix-type Array               Specify the types of fixes to apply (problem, suggestion, layout)
 
 Ignoring files:
   --ignore-path path::String     Specify path of ignore file
@@ -237,44 +240,6 @@ Examples:
     echo '3 ** 4' | eslint --stdin --parser-options=ecmaVersion:6 # will fail with a parsing error
     echo '3 ** 4' | eslint --stdin --parser-options=ecmaVersion:7 # succeeds, yay!
 
-### Caching
-
-#### `--cache`
-
-Store the info about processed files in order to only operate on the changed ones. The cache is stored in `.eslintcache` by default. Enabling this option can dramatically improve ESLint's running time by ensuring that only changed files are linted.
-
-存储处理过的文件的信息以便只对有改变的文件进行操作。缓存默认被存储在 `.eslintcache`。启用这个选项可以显著改善 ESLint 的运行时间，确保只对有改变的文件进行检测。
-
-**Note:** If you run ESLint with `--cache` and then run ESLint without `--cache`, the `.eslintcache` file will be deleted. This is necessary because the results of the lint might change and make `.eslintcache` invalid. If you want to control when the cache file is deleted, then use `--cache-location` to specify an alternate location for the cache file.
-
-**注意：**如果你运行 ESLint `--cache`，然后又运行 ESLint 不带 `--cache`，`.eslintcache` 文件将被删除。这是必要的，因为检测的结果可能会改变，使 `.eslintcache` 无效。如果你想控制缓存文件何时被删除，那么使用 `--cache-location` 来指定一个缓存文件的位置。
-
-#### `--cache-file`
-
-Path to the cache file. If none specified `.eslintcache` will be used. The file will be created in the directory where the `eslint` command is executed. **Deprecated**: Use `--cache-location` instead.
-
-缓存文件的路径。如果没有指定，则使用 `.eslintcache`。这个文件会在 `eslint` 命令行被执行的文件目录中被创建。
-**已弃用：** 请使用 `--cache-location`。
-
-#### `--cache-location`
-
-Path to the cache location. Can be a file or a directory. If no location is specified, `.eslintcache` will be used. In that case, the file will be created in the directory where the `eslint` command is executed.
-
-缓存文件的路径。可以是一个文件或者一个目录。如果没有指定，则使用 `.eslintcache` 。这个文件会在 `eslint` 命令行被执行的文件目录中被创建。
-
-If a directory is specified, a cache file will be created inside the specified folder. The name of the file will be based on the hash of the current working directory (CWD). e.g.: `.cache_hashOfCWD`
-
-如果指定一个目录，缓存文件将在指定的文件夹下被创建。文件名将基于当前工作目录（CWD) 的  hash 值，比如：`.cache_hashOfCWD`。
-
-**Important note:** If the directory for the cache does not exist make sure you add a trailing `/` on \*nix systems or `\` in windows. Otherwise the path will be assumed to be a file.
-
-**重要提示：**如果不存在缓存文件的目录，请确保在尾部添加 `/`（\*nix 系统）或 `\`（windows 系统）。否则该路径将被假定为是一个文件。
-
-Example:
-
-示例：
-
-    eslint "src/**/*.js" --cache --cache-location "/Users/user/.eslintcache/"
 
 ### Specifying rules and plugins
 
@@ -335,6 +300,68 @@ Examples:
     eslint --rule 'guard-for-in: 2' --rule 'brace-style: [2, 1tbs]'
     eslint --rule 'jquery/dollar-sign: 2'
 
+### Fixing problems
+
+#### `--fix`
+
+This option instructs ESLint to try to fix as many issues as possible. The fixes are made to the actual files themselves and only the remaining unfixed issues are output. Not all problems are fixable using this option, and the option does not work in these situations:
+
+该选项指示 ESLint 试图修复尽可能多的问题。修复只针对实际文件本身，而且剩下的未修复的问题才会输出。不是所有的问题都能使用这个选项进行修复，该选项在以下情形中不起作用：
+
+1. This option throws an error when code is piped to ESLint.
+1. 当代码传递给 ESLint 时，这个选项抛出一个错误。
+1. This option has no effect on code that uses a processor, unless the processor opts into allowing autofixes.
+1. 该选项对使用处理器的代码没有影响，除非处理器选择允许自动修复。
+
+If you want to fix code from `stdin` or otherwise want to get the fixes without actually writing them to the file, use the [`--fix-dry-run`](#--fix-dry-run) option.
+
+如果你想从 `stdin` 修复代码或希望在不实际写入到文件的情况下进行修复，使用 [`--fix-dry-run`](#--fix-dry-run) 选项。
+
+#### `--fix-dry-run`
+
+This option has the same effect as `--fix` with one difference: the fixes are not saved to the file system. This makes it possible to fix code from `stdin` (when used with the `--stdin` flag).
+
+该选项与 `--fix` 有相同的效果，唯一一点不同是，修复不会保存到文件系统中。这也是从 `stdin`（当使用 `--stdin` 标记时）修复代码成为可能。
+
+Because the default formatter does not output the fixed code, you'll have to use another one (e.g. `json`) to get the fixes. Here's an example of this pattern:
+
+因为默认的格式化器不会输出修复的代码，你必须使用另外一个（比如 `json`）进行修复。下面是这个模式的一个例子：
+
+```
+getSomeText | eslint --stdin --fix-dry-run --format=json
+```
+
+This flag can be useful for integrations (e.g. editor plugins) which need to autofix text from the command line without saving it to the filesystem.
+
+该标记对集成（比如，编辑器插件）很有用，它需要从命令行进行自动修复，而不需要保存到文件系统。
+
+#### `--fix-type`
+
+This option allows you to specify the type of fixes to apply when using either `--fix` or `--fix-dry-run`. The three types of fixes are:
+
+此选项允许你在使用 `--fix` 或 `--fix-dry-run` 时指定要应用的修复的类型。修复的三种类型是:
+
+1. `problem` - fix potential errors in the code
+1. `problem` - 修复代码中的潜在错误
+1. `suggestion` - apply fixes to the code that improve it
+1. `suggestion` - 对改进它的代码应用修复
+1. `layout` - apply fixes that do not change the program structure (AST)
+1. `layout` - 应用不改变程序结构 (AST) 的修复
+
+You can specify one or more fix type on the command line. Here are some examples:
+
+你可以在命令行上指定一个或多个fix类型。下面是一些例子:
+
+```
+eslint --fix --fix-type suggestion .
+eslint --fix --fix-type suggestion --fix-type problem .
+eslint --fix --fix-type suggestion,layout .
+```
+
+This option is helpful if you are using another program to format your code but you would still like ESLint to apply other types of fixes.
+
+如果你正在使用另一个程序来格式化代码，但仍然希望 ESLint 应用其他类型的修复程序，则此选项非常有用。
+
 ### Ignoring files
 
 #### `--ignore-path`
@@ -364,16 +391,15 @@ Example:
 
 #### `--ignore-pattern`
 
-This option allows you to specify patterns of files to ignore (in addition to those in `.eslintignore`). You can repeat the option to provide multiple patterns. The supported syntax is the same as in the `.eslintignore` file. You should quote your patterns in order to avoid shell interpretation of glob patterns.
+This option allows you to specify patterns of files to ignore (in addition to those in `.eslintignore`). You can repeat the option to provide multiple patterns. The supported syntax is the same as for `.eslintignore` [files](./configuring#.eslintignore), which use the same patterns as the `.gitignore` [specification](https://git-scm.com/docs/gitignore). You should quote your patterns in order to avoid shell interpretation of glob patterns.
 
-该选项允许你指定要忽略的文件模式(除了那些在 `.eslintignore` 的)。你可以重复该选项已提供多个模式。语法同 `.eslintignore` 文件中的相同。你应该将你的模式用引号括起来，以避免命令行解析器的解析。
+该选项允许你指定要忽略的文件模式(除了 `.eslintignore` 中的模式之外)。你可以重复该选项以提供多个模式。所支持的语法同 `.eslintignore` [文件](./configuring#.eslintignore) 中的相同，即使用同 `.gitignore` [规范](https://git-scm.com/docs/gitignore) 相同的模式。你应该将你的模式用引号括起来，以避免对glob模式进行shell解释。
 
 Example:
 
 示例：
 
     eslint --ignore-pattern '/lib/' --ignore-pattern '/src/vendor/*' .
-
 
 ### Using stdin
 
@@ -455,30 +481,30 @@ This option specifies the output format for the console. Possible formats are:
 
 这个选项指定了控制台的输出格式。可用的格式是：
  
-* [checkstyle](formatters)
-* [checkstyle](formatters)
-* [codeframe](formatters)
-* [codeframe](formatters)
-* [compact](formatters)
-* [compact](formatters)
-* [html](formatters)
-* [html](formatters)
-* [jslint-xml](formatters)
-* [jslint-xml](formatters)
-* [json](formatters)
-* [json](formatters)
-* [junit](formatters)
-* [junit](formatters)
-* [stylish](formatters) (the default)
-* [stylish](formatters) (默认)
-* [table](formatters)
-* [table](formatters)
-* [tap](formatters)
-* [tap](formatters)
-* [unix](formatters)
-* [unix](formatters)
-* [visualstudio](formatters)
-* [visualstudio](formatters)
+* [checkstyle](formatters/#checkstyle)
+* [checkstyle](formatters/#checkstyle)
+* [codeframe](formatters/#codeframe)
+* [codeframe](formatters/#codeframe)
+* [compact](formatters/#compact)
+* [compact](formatters/#compact)
+* [html](formatters/#html)
+* [html](formatters/#html)
+* [jslint-xml](formatters/#jslint-xml)
+* [jslint-xml](formatters/#jslint-xml)
+* [json](formatters/#json)
+* [json](formatters/#json)
+* [junit](formatters/#junit)
+* [junit](formatters/#junit)
+* [stylish](formatters/#stylish) (the default)
+* [stylish](formatters/#stylish) (默认)
+* [table](formatters/#table)
+* [table](formatters/#table)
+* [tap](formatters/#tap)
+* [tap](formatters/#tap)
+* [unix](formatters/#unix)
+* [unix](formatters/#unix)
+* [visualstudio](formatters/#visualstudio)
+* [visualstudio](formatters/#visualstudio)
 
 
 Example:
@@ -535,72 +561,7 @@ Examples:
     eslint --color file.js | cat
     eslint --no-color file.js
 
-### Miscellaneous
-
-#### `--init`
-
-This option will start config initialization wizard. It's designed to help new users quickly create .eslintrc file by answering a few questions, choosing a popular style guide, or inspecting your source files and attempting to automatically generate a suitable configuration.
-
-这个选项将会配置初始化向导。它被用来帮助新用户快速地创建 `.eslintrc` 文件，用户通过回答一些问题，选择一个流行的风格指南，或检查你的源文件，自动生成一个合适的配置。
-
-The resulting configuration file will be created in the current directory.
-
-生成的配置文件将被创建在当前目录。
-
-#### `--fix`
-
-This option instructs ESLint to try to fix as many issues as possible. The fixes are made to the actual files themselves and only the remaining unfixed issues are output. Not all problems are fixable using this option, and the option does not work in these situations:
-
-该选项指示 ESLint 试图修复尽可能多的问题。修复只针对实际文件本身，而且剩下的未修复的问题才会输出。不是所有的问题都能使用这个选项进行修复，该选项在以下情形中不起作用：
-
-1. This option throws an error when code is piped to ESLint.
-1. 当代码传递给 ESLint 时，这个选项抛出一个错误。
-1. This option has no effect on code that uses processors.
-1. 这个选项对使用处理器的代码不起作用。
-1. This option has no effect on code that uses a processor, unless the processor opts into allowing autofixes.
-1. 该选项对使用处理器的代码没有影响，除非处理器选择允许自动修复。
-
-If you want to fix code from `stdin` or otherwise want to get the fixes without actually writing them to the file, use the [`--fix-dry-run`](#--fix-dry-run) option.
-
-如果你想从 `stdin` 修复代码或希望在不实际写入到文件的情况下进行修复，使用 [`--fix-dry-run`](#--fix-dry-run) 选项。
-
-#### `--fix-dry-run`
-
-This option has the same effect as `--fix` with one difference: the fixes are not saved to the file system. This makes it possible to fix code from `stdin` (when used with the `--stdin` flag).
-
-该选项与 `--fix` 有相同的效果，唯一一点不同是，修复不会保存到文件系统中。这也是从 `stdin`（当使用 `--stdin` 标记时）修复代码成为可能。
-
-Because the default formatter does not output the fixed code, you'll have to use another one (e.g. `json`) to get the fixes. Here's an example of this pattern:
-
-因为默认的格式化器不会输出修复的代码，你必须使用另外一个（比如 `json`）进行修复。下面是这个模式的一个例子：
-
-```
-getSomeText | eslint --stdin --fix-dry-run --format=json
-```
-
-This flag can be useful for integrations (e.g. editor plugins) which need to autofix text from the command line without saving it to the filesystem.
-
-该标记对集成（比如，编辑器插件）很有用，它需要从命令行进行自动修复，而不需要保存到文件系统。
-
-
-#### `--debug`
-
-This option outputs debugging information to the console. This information is useful when you're seeing a problem and having a hard time pinpointing it. The ESLint team may ask for this debugging information to help solve bugs.
-
-这个选项将调试信息输出到控制台。当你看到一个问题并且很难定位它时，这些调试信息会很有用。ESLint 团队可能会通过询问这些调试信息帮助你解决 bug。
-
-#### `-h`, `--help`
-
-This option outputs the help menu, displaying all of the available options. All other options are ignored when this is present.
-
-这个选项会输出帮助菜单，显示所有可用的选项。当有这个选项时，忽略其他所有选项。
-
-#### `-v`, `--version`
-
-This option outputs the current ESLint version onto the console. All other options are ignored when this is present.
-
-这个选项在控制台输出当前 ESlint 的版本。当有这个标记时，忽略其他所有标记。
-
+### Inline configuration comments
 
 #### `--no-inline-config`
 
@@ -647,6 +608,80 @@ Example:
 
     eslint --report-unused-disable-directives file.js
 
+### Caching
+
+#### `--cache`
+
+Store the info about processed files in order to only operate on the changed ones. The cache is stored in `.eslintcache` by default. Enabling this option can dramatically improve ESLint's running time by ensuring that only changed files are linted.
+
+存储处理过的文件的信息以便只对有改变的文件进行操作。缓存默认被存储在 `.eslintcache`。启用这个选项可以显著改善 ESLint 的运行时间，确保只对有改变的文件进行检测。
+
+**Note:** If you run ESLint with `--cache` and then run ESLint without `--cache`, the `.eslintcache` file will be deleted. This is necessary because the results of the lint might change and make `.eslintcache` invalid. If you want to control when the cache file is deleted, then use `--cache-location` to specify an alternate location for the cache file.
+
+**注意：**如果你运行 ESLint `--cache`，然后又运行 ESLint 不带 `--cache`，`.eslintcache` 文件将被删除。这是必要的，因为检测的结果可能会改变，使 `.eslintcache` 无效。如果你想控制缓存文件何时被删除，那么使用 `--cache-location` 来指定一个缓存文件的位置。
+
+**Note:** Autofixed files are not placed in the cache. Subsequent linting that does not trigger an autofix will place it in the cache.
+
+**注意：**自动修复的文件不放在缓存中。不触发自动修复的后续检测将把它放在缓存中。
+
+#### `--cache-file`
+
+Path to the cache file. If none specified `.eslintcache` will be used. The file will be created in the directory where the `eslint` command is executed. **Deprecated**: Use `--cache-location` instead.
+
+缓存文件的路径。如果没有指定，则使用 `.eslintcache`。这个文件会在 `eslint` 命令行被执行的文件目录中被创建。
+**已弃用：** 请使用 `--cache-location`。
+
+#### `--cache-location`
+
+Path to the cache location. Can be a file or a directory. If no location is specified, `.eslintcache` will be used. In that case, the file will be created in the directory where the `eslint` command is executed.
+
+缓存文件的路径。可以是一个文件或者一个目录。如果没有指定，则使用 `.eslintcache` 。这个文件会在 `eslint` 命令行被执行的文件目录中被创建。
+
+If a directory is specified, a cache file will be created inside the specified folder. The name of the file will be based on the hash of the current working directory (CWD). e.g.: `.cache_hashOfCWD`
+
+如果指定一个目录，缓存文件将在指定的文件夹下被创建。文件名将基于当前工作目录（CWD) 的  hash 值，比如：`.cache_hashOfCWD`。
+
+**Important note:** If the directory for the cache does not exist make sure you add a trailing `/` on \*nix systems or `\` in windows. Otherwise the path will be assumed to be a file.
+
+**重要提示：**如果不存在缓存文件的目录，请确保在尾部添加 `/`（\*nix 系统）或 `\`（windows 系统）。否则该路径将被假定为是一个文件。
+
+Example:
+
+示例：
+
+    eslint "src/**/*.js" --cache --cache-location "/Users/user/.eslintcache/"
+
+### Miscellaneous
+
+#### `--init`
+
+This option will start config initialization wizard. It's designed to help new users quickly create .eslintrc file by answering a few questions, choosing a popular style guide, or inspecting your source files and attempting to automatically generate a suitable configuration.
+
+这个选项将会配置初始化向导。它被用来帮助新用户快速地创建 `.eslintrc` 文件，用户通过回答一些问题，选择一个流行的风格指南，或检查你的源文件，自动生成一个合适的配置。
+
+The resulting configuration file will be created in the current directory.
+
+生成的配置文件将被创建在当前目录。
+
+
+#### `--debug`
+
+This option outputs debugging information to the console. This information is useful when you're seeing a problem and having a hard time pinpointing it. The ESLint team may ask for this debugging information to help solve bugs.
+
+这个选项将调试信息输出到控制台。当你看到一个问题并且很难定位它时，这些调试信息会很有用。ESLint 团队可能会通过询问这些调试信息帮助你解决 bug。
+
+#### `-h`, `--help`
+
+This option outputs the help menu, displaying all of the available options. All other options are ignored when this is present.
+
+这个选项会输出帮助菜单，显示所有可用的选项。当有这个选项时，忽略其他所有选项。
+
+#### `-v`, `--version`
+
+This option outputs the current ESLint version onto the console. All other options are ignored when this is present.
+
+这个选项在控制台输出当前 ESlint 的版本。当有这个标记时，忽略其他所有标记。
+
 #### `--print-config`
 
 This option outputs the configuration to be used for the file passed. When present, no linting is performed and only config-related options are valid.
@@ -668,7 +703,19 @@ ESLint supports `.eslintignore` files to exclude files from the linting process 
     node_modules/*
     **/vendor/*.js
 
-A more detailed breakdown of supported patterns and directories ESLint ignores by default can be found in [Configuring ESLint](configuring).
+A more detailed breakdown of supported patterns and directories ESLint ignores by default can be found in [Configuring ESLint](configuring#ignoring-files-and-directories).
 
-ESLint 默认忽略的模式分解和目录的更多详细信息可以在 [Configuring ESLint](configuring) 中找到。
+在 [Configuring ESLint](configuring#ignoring-files-and-directories) 中可以找到更多关于 ESLint  默认忽略的受支持模式和目录的详细信息。
 
+## Exit codes
+
+When linting files, ESLint will exit with one of the following exit codes:
+
+当检测文件时，ESLint 将使用以下退出代码之一退出:
+
+* `0`: Linting was successful and there are no linting errors. If the `--max-warnings` flag is set to `n`, the number of linting warnings is at most `n`.
+* `0`: 检测成功，没有错误。如果 `--max-warnings` 标志被设置为 `n`，那么警告数量最多为`n`。
+* `1`: Linting was successful and there is at least one linting error, or there are more linting warnings than allowed by the `--max-warnings` option.
+* `1`: 检测成功，并且至少有一个错误，或者警告多于 `--max-warnings` 选项所允许的警告。
+* `2`: Linting was unsuccessful due to a configuration problem or an internal error.
+* `2`: 由于配置问题或内部错误，检测未能成功。

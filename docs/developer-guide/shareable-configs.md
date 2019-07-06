@@ -1,6 +1,8 @@
 ---
 title: Shareable Configs
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/shareable-configs.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -154,7 +156,7 @@ As an example, you can create a file called `my-special-config.js` in the root o
 ```js
 module.exports = {
     rules: {
-        quotes: [2, "double"];
+        quotes: [2, "double"]
     }
 };
 ```

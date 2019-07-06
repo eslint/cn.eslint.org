@@ -1,6 +1,8 @@
 ---
 title: no-useless-concat - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-useless-concat.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -38,8 +40,9 @@ Examples of **incorrect** code for this rule:
 /*eslint no-useless-concat: "error"*/
 /*eslint-env es6*/
 
-// these are the same as "10"
 var a = `some` + `string`;
+
+// these are the same as "10"
 var a = '1' + '0';
 var a = '1' + `0`;
 var a = `1` + '0';

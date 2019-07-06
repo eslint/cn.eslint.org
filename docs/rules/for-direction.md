@@ -1,12 +1,18 @@
 ---
 title: for-direction - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/for-direction.md
+rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Enforce "for" loop update clause moving the counter in the right direction. (for-direction)
 
 # 强制 "for" 循环中更新子句的计数器朝着正确的方向移动 (for-direction)
+
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(推荐) 配置文件中的 `"extends": "eslint:recommended"` 属性启用此规则。
 
 ## Rule Details
 

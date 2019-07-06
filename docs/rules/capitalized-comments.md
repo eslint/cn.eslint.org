@@ -1,6 +1,8 @@
 ---
 title: capitalized-comments - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/capitalized-comments.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 强制或禁止对注释的第一个字母大写 (capitalized-comments)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 Comments are useful for leaving information for future developers. In order for that information to be useful and not distracting, it is sometimes desirable for comments to follow a particular style. One element of comment formatting styles is whether the first word of a comment should be capitalized or lowercase.
 
@@ -235,7 +237,7 @@ Examples of **correct** code with `ignoreConsecutiveComments` set to `true`:
 选项 `{ "ignoreConsecutiveComments": true }` 的 **正确** 代码示例：
 
 ```js
-/* eslint capitalize-comments: ["error", "always", { "ignoreConsecutiveComments": true }] */
+/* eslint capitalized-comments: ["error", "always", { "ignoreConsecutiveComments": true }] */
 
 // This comment is valid since it has the correct capitalization.
 // this comment is ignored since it follows another comment,
@@ -253,7 +255,7 @@ Examples of **incorrect** code with `ignoreConsecutiveComments` set to `true`:
 选项 `{ "ignoreConsecutiveComments": true }` 的 **错误** 代码示例：
 
 ```js
-/* eslint capitalize-comments: ["error", "always", { "ignoreConsecutiveComments": true }] */
+/* eslint capitalized-comments: ["error", "always", { "ignoreConsecutiveComments": true }] */
 
 // this comment is invalid, but only on this line.
 // this comment does NOT get reported, since it is a consecutive comment.
@@ -315,7 +317,8 @@ This rule can be disabled if you do not care about the grammatical style of comm
 
 ## Compatibility
 
-* **JSCS**: [requireCapitalizedComments](http://jscs.info/rule/requireCapitalizedComments) and [disallowCapitalizedComments](http://jscs.info/rule/disallowCapitalizedComments)
+* **JSCS**: [requireCapitalizedComments](https://jscs-dev.github.io/rule/requireCapitalizedComments)
+* **JSCS**: [disallowCapitalizedComments](https://jscs-dev.github.io/rule/disallowCapitalizedComments)
 
 ## Version
 

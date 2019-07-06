@@ -1,6 +1,8 @@
 ---
 title: no-mixed-spaces-and-tabs - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-mixed-spaces-and-tabs.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -63,8 +65,8 @@ This rule has a string option.
 
 该规则有一个字符串选项。
 
-* `"smart-tabs"` allows mixed spaces and tabs when the latter are used for alignment.
-* `"smart-tabs"` 当 tab 是为了对齐，允许混合使用空格和 tab。
+* `"smart-tabs"` allows mixed tabs and spaces when the spaces are used for alignment.
+* `"smart-tabs"` 当空格用于对齐时，允许混合制表符和空格。
 
 ### smart-tabs
 

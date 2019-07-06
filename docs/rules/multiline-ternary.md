@@ -1,6 +1,8 @@
 ---
 title: multiline-ternary - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/multiline-ternary.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -179,7 +181,7 @@ You can safely disable this rule if you do not have any strict conventions about
 
 ## Compatibility
 
-* **JSCS**: [requireMultiLineTernary](http://jscs.info/rule/requireMultiLineTernary)
+* **JSCS**: [requireMultiLineTernary](https://jscs-dev.github.io/rule/requireMultiLineTernary)
 
 ## Version
 

@@ -1,6 +1,8 @@
 ---
 title: array-element-newline - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/array-element-newline.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 强制数组元素间出现换行 (array-element-newline)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 A number of style guides require or disallow line breaks between array elements.
 
@@ -32,6 +34,8 @@ This rule has either a string option:
 * `"always"` (默认) 要求在数组元素间换行
 * `"never"` disallows line breaks between array elements
 * `"never"` 禁止在数组元素间换行
+* `"consistent"` requires consistent usage of linebreaks between array elements
+* `"consistent"` 需要一致地使用数组元素之间的换行符
 
 Or an object option (Requires line breaks if any of properties is satisfied. Otherwise, disallows line breaks):
 
@@ -129,6 +133,73 @@ var e = [
     function foo() {
         dosomething();
     }, function bar() {
+        dosomething();
+    }
+];
+```
+
+### consistent
+
+Examples of **incorrect** code for this rule with the `"consistent"` option:
+
+选项 `"consistent"` 的 **错误** 代码示例：
+
+```js
+/*eslint array-element-newline: ["error", "consistent"]*/
+
+var a = [
+    1, 2,
+    3
+];
+var b = [
+    function foo() {
+        dosomething();
+    }, function bar() {
+        dosomething();
+    },
+    function baz() {
+        dosomething();
+    }
+];
+```
+
+Examples of **correct** code for this rule with the `"consistent"` option:
+
+选项 `"consistent"` 的 **正确** 代码示例：
+
+```js
+/*eslint array-element-newline: ["error", "consistent"]*/
+
+var a = [];
+var b = [1];
+var c = [1, 2];
+var d = [1, 2, 3];
+var e = [
+    1,
+    2
+];
+var f = [
+    1,
+    2,
+    3
+];
+var g = [
+    function foo() {
+        dosomething();
+    }, function bar() {
+        dosomething();
+    }, function baz() {
+        dosomething();
+    }
+];
+var h = [
+    function foo() {
+        dosomething();
+    },
+    function bar() {
+        dosomething();
+    },
+    function baz() {
         dosomething();
     }
 ];
@@ -272,7 +343,7 @@ If you don't want to enforce linebreaks between array elements, don't enable thi
 
 ## Compatibility
 
-* **JSCS:** [validateNewlineAfterArrayElements](http://jscs.info/rule/validateNewlineAfterArrayElements)
+* **JSCS:** [validateNewlineAfterArrayElements](https://jscs-dev.github.io/rule/validateNewlineAfterArrayElements)
 
 ## Related Rules
 

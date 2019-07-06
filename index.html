@@ -31,7 +31,7 @@ homepage: true
 
         <p>了解更多关于 ESLint 以及 它为什么会出现和它背后的原理</p>
 
-        <p><a class="btn btn-default" href="/docs/about/" role="button">了解更多 »</a></p>
+        <p><a class="btn btn-default" href="{{ site.url }}/docs/about/" role="button">了解更多 »</a></p>
     </div>
     <div class="col-sm-6 col-md-6">
         <h3>规则</h3>
@@ -48,14 +48,14 @@ homepage: true
 
         <p>ESLint 主要在命令行中使用。在这里了解它的用法。 </p>
 
-        <p><a class="btn btn-default" href="/docs/user-guide/command-line-interface" role="button">CLI 详情 »</a></p>
+        <p><a class="btn btn-default" href="{{ site.url }}/docs/user-guide/command-line-interface" role="button">CLI 详情 »</a></p>
     </div>
     <div class="col-sm-6 col-md-6">
         <h3>开发指南</h3>
 
         <p>喜欢 ESLint、想要帮助它变得更棒吗? 我们有让你开始的所有细节。</p>
 
-        <p><a class="btn btn-default" href="/docs/developer-guide/" role="button">Start Hacking »</a></p>
+        <p><a class="btn btn-default" href="{{ site.url }}/docs/developer-guide/" role="button">Start Hacking »</a></p>
     </div>
 </div>
 
@@ -63,12 +63,20 @@ homepage: true
 
 <div class="row">
   <div class="col-sm-12">
-    <h2 class="text-center">谁在使用 ESLint?</h2>
-    <div class="logos row">
-    </div>
-    <div class="expender row text-center">
-      查看更多 <span class="caret"></span>
-    </div>
+    <h2 class="text-center">Sponsors</h2>
+    <p class="text-center">The following companies, organizations, and individuals support ESLint's ongoing maintenance and development.</p>
+    {% assign tiers = "gold,silver,bronze" | split: "," %}
+    {% for tier in tiers %}
+        {% if site.data.sponsors[tier].size > 0 %}
+        <h3 class="text-center">{{ tier | capitalize }} Sponsors</h3>
+        <div class="sponsors text-center">
+            {% for sponsor in site.data.sponsors[tier] %}
+                <a href="{{ sponsor.url }}" title="{{ sponsor.name }}" rel="noopener nofollow" target="_blank"><img class="lazyload {{ tier }}-sponsor" data-src="{{ sponsor.image }}" alt="{{ sponsor.name }}"></a>
+            {% endfor %}
+        </div>
+        <p class="text-center"><a class="btn btn-default" href="https://opencollective.com/eslint">Become a Sponsor</a></p>
+        {% endif %}
+    {% endfor %}
   </div>
 </div>
 

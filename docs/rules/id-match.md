@@ -1,6 +1,8 @@
 ---
 title: id-match - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/id-match.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -41,22 +43,6 @@ For example, to enforce a camelcase naming convention:
 }
 ```
 
-Examples of **correct** code for this rule with the `"^[a-z]+([A-Z][a-z]+)*$"` option:
-
-选项 `"^[a-z]+([A-Z][a-z]+)*$"` 的 **正确** 代码示例：
-
-```js
-/*eslint id-match: ["error", "^[a-z]+([A-Z][a-z]+)*$"]*/
-
-var myFavoriteColor   = "#112C85";
-var foo = bar.baz_boom;
-var foo = { qux: bar.baz_boom };
-do_something();
-var obj = {
-    my_pref: 1
-};
-```
-
 Examples of **incorrect** code for this rule with the `"^[a-z]+([A-Z][a-z]+)*$"` option:
 
 选项 `"^[a-z]+([A-Z][a-z]+)*$"` 的 **错误** 代码示例：
@@ -76,6 +62,22 @@ obj.do_something = function() {
 };
 ```
 
+Examples of **correct** code for this rule with the `"^[a-z]+([A-Z][a-z]+)*$"` option:
+
+选项 `"^[a-z]+([A-Z][a-z]+)*$"` 的 **正确** 代码示例：
+
+```js
+/*eslint id-match: ["error", "^[a-z]+([A-Z][a-z]+)*$"]*/
+
+var myFavoriteColor   = "#112C85";
+var foo = bar.baz_boom;
+var foo = { qux: bar.baz_boom };
+do_something();
+var obj = {
+    my_pref: 1
+};
+```
+
 This rule has an object option:
 
 该规则有一个对象选项：
@@ -84,6 +86,12 @@ This rule has an object option:
 * `"properties": true` 要求对象属性匹配特定的正则表达式
 * `"onlyDeclarations": true` requires only `var`, `function`, and `class` declarations to match the specified regular expression
 * `"onlyDeclarations": true` 只要求 `var`、`function` 和 `class` 声明匹配特定的正则表达式
+* `"onlyDeclarations": false` requires all variable names to match the specified regular expression
+* `"onlyDeclarations": false` 要求所有的变量名匹配特定的正则表达式
+* `"ignoreDestructuring": false` (default) enforces `id-match` for destructured identifiers
+* `"ignoreDestructuring": false` (默认) 强制对解构标识符应用 `id-match`
+* `"ignoreDestructuring": true` does not check destructured identifiers
+* `"ignoreDestructuring": true` 不检测解构标识符
 
 ### properties
 
@@ -109,6 +117,54 @@ Examples of **correct** code for this rule with the `"^[a-z]+([A-Z][a-z]+)*$", {
 /*eslint id-match: [2, "^[a-z]+([A-Z][a-z]+)*$", { "onlyDeclarations": true }]*/
 
 do_something(__dirname);
+```
+
+### ignoreDestructuring: false
+
+Examples of **incorrect** code for this rule with the default `"^[^_]+$", { "ignoreDestructuring": false }` option:
+
+默认选项 `"^[^_]+$", { "ignoreDestructuring": false }` 的 **错误** 代码示例：
+
+```js
+/*eslint id-match: [2, "^[^_]+$", { "ignoreDestructuring": false }]*/
+
+var { category_id } = query;
+
+var { category_id = 1 } = query;
+
+var { category_id: category_id } = query;
+
+var { category_id: category_alias } = query;
+
+var { category_id: categoryId, ...other_props } = query;
+```
+
+### ignoreDestructuring: true
+
+Examples of **incorrect** code for this rule with the `"^[^_]+$", { "ignoreDestructuring": true }` option:
+
+选项 `"^[^_]+$", { "ignoreDestructuring": true }` 的 **错误** 代码示例：
+
+```js
+/*eslint id-match: [2, "^[^_]+$", { "ignoreDestructuring": true }]*/
+
+var { category_id: category_alias } = query;
+
+var { category_id, ...other_props } = query;
+```
+
+Examples of **correct** code for this rule with the `"^[^_]+$", { "ignoreDestructuring": true }` option:
+
+选项 `"^[^_]+$", { "ignoreDestructuring": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint id-match: [2, "^[^_]+$", { "ignoreDestructuring": true }]*/
+
+var { category_id } = query;
+
+var { category_id = 1 } = query;
+
+var { category_id: category_id } = query;
 ```
 
 ## When Not To Use It

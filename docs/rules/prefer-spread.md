@@ -1,16 +1,14 @@
 ---
 title: prefer-spread - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-spread.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Suggest using the spread operator instead of `.apply()`. (prefer-spread)
+# Suggest using spread syntax instead of `.apply()`. (prefer-spread)
 
-# 建议使用扩展运算符而非`.apply()` (prefer-spread)
-
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
-
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+# 建议使用扩展语法而非`.apply()` (prefer-spread)
 
 Before ES2015, one must use `Function.prototype.apply()` to call variadic functions.
 
@@ -21,9 +19,9 @@ var args = [1, 2, 3, 4];
 Math.max.apply(Math, args);
 ```
 
-In ES2015, one can use the spread operator to call variadic functions.
+In ES2015, one can use spread syntax to call variadic functions.
 
-在 ES2015 中，可以使用扩展运算符调用可变参数函数。
+在 ES2015 中，可以使用扩展语法调用可变参数函数。
 
 ```js
 /*eslint-env es6*/
@@ -34,7 +32,9 @@ Math.max(...args);
 
 ## Rule Details
 
-This rule is aimed to flag usage of `Function.prototype.apply()` in situations where the spread operator could be used instead.
+This rule is aimed to flag usage of `Function.prototype.apply()` in situations where spread syntax could be used instead.
+
+这个规则的目的是在可以使用扩展语法的情况下标记出使用 `Function.prototype.apply()` 的情况。
 
 ## Examples
 
@@ -57,7 +57,7 @@ Examples of **correct** code for this rule:
 ```js
 /*eslint prefer-spread: "error"*/
 
-// Using the spread operator
+// Using spread syntax
 foo(...args);
 obj.foo(...args);
 

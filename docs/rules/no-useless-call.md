@@ -1,6 +1,8 @@
 ---
 title: no-useless-call - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-useless-call.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -53,6 +55,7 @@ obj.foo.call(otherObj, 1, 2, 3);
 obj.foo.apply(otherObj, [1, 2, 3]);
 
 // The argument list is variadic.
+// Those are warned by the `prefer-spread` rule.
 foo.apply(undefined, args);
 foo.apply(null, args);
 obj.foo.apply(obj, args);
@@ -90,6 +93,10 @@ a[++i].foo.call(a[i], 1, 2, 3);
 If you don't want to be notified about unnecessary `.call()` and `.apply()`, you can safely disable this rule.
 
 如果你不想收到关于不必要的 `.call()` 和 `.apply()`的通知，你可以禁用此规则。
+
+## Related Rules
+
+* [prefer-spread](prefer-spread)
 
 ## Version
 

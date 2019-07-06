@@ -1,6 +1,8 @@
 ---
 title: no-self-assign - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-self-assign.md
+rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -59,6 +61,20 @@ let foo = foo;
 
 // The default values have an effect.
 [foo = 1] = [foo];
+
+// non-self-assignments with properties.
+obj.a = obj.b;
+obj.a.b = obj.c.b;
+obj.a.b = obj.a.c;
+obj[a] = obj["a"];
+
+// This ignores if there is a function call.
+obj.a().b = obj.a().b;
+a().b = a().b;
+
+// Known limitation: this does not support computed properties except single literal or single identifier.
+obj[a + b] = obj[a + b];
+obj["a" + "b"] = obj["a" + "b"];
 ```
 
 ## Options
@@ -69,49 +85,27 @@ This rule has the option to check properties as well.
 
 ```json
 {
-    "no-self-assign": ["error", {"props": false}]
+    "no-self-assign": ["error", {"props": true}]
 }
 ```
 
-- `props` - if this is `true`, `no-self-assign` rule warns self-assignments of properties. Default is `false`.
-- `props` - 如果为 `true`，`no-self-assign` 规则将对属性的自我赋值发出警告。默认为 `false`.
+- `props` - if this is `true`, `no-self-assign` rule warns self-assignments of properties. Default is `true`.
+- `props` - 如果为 `true`，`no-self-assign` 规则将对属性的自我赋值发出警告。默认为 `true`.
 
 ### props
 
-Examples of **incorrect** code for the `{ "props": true }` option:
+Examples of **correct** code with the `{ "props": false }` option:
 
-选项 `{ "props": true }` 的 **错误** 代码示例：
+选项 `{ "props": false }` 的 **正确** 代码示例：
 
 ```js
-/*eslint no-self-assign: [error, {props: true}]*/
+/*eslint no-self-assign: ["error", {"props": false}]*/
 
 // self-assignments with properties.
 obj.a = obj.a;
 obj.a.b = obj.a.b;
 obj["a"] = obj["a"];
 obj[a] = obj[a];
-```
-
-Examples of **correct** code for the `{ "props": true }` option:
-
-选项 `{ "props": true }` 的 **正确** 代码示例：
-
-```js
-/*eslint no-self-assign: [error, {props: true}]*/
-
-// non-self-assignments with properties.
-obj.a = obj.b;
-obj.a.b = obj.c.b;
-obj.a.b = obj.a.c;
-obj[a] = obj["a"]
-
-// This ignores if there is a function call.
-obj.a().b = obj.a().b
-a().b = a().b
-
-// Known limitation: this does not support computed properties except single literal or single identifier.
-obj[a + b] = obj[a + b];
-obj["a" + "b"] = obj["a" + "b"];
 ```
 
 ## When Not To Use It

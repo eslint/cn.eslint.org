@@ -1,6 +1,8 @@
 ---
 title: lines-between-class-members - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/lines-between-class-members.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 要求或禁止在类成员之间出现空行 (lines-between-class-members)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 This rule improves readability by enforcing lines between class members. It will not check empty lines before the first member and after the last member, since that is already taken care of by padded-blocks.
 
@@ -139,8 +141,11 @@ If you don't want to enforce empty lines between class members, you can disable 
 
 * [padded-blocks](padded-blocks)
 * [padding-line-between-statements](padding-line-between-statements)
-* [requirePaddingNewLinesAfterBlocks](http://jscs.info/rule/requirePaddingNewLinesAfterBlocks)
-* [disallowPaddingNewLinesAfterBlocks](http://jscs.info/rule/disallowPaddingNewLinesAfterBlocks)
+
+## Compatibility
+
+* [requirePaddingNewLinesAfterBlocks](https://jscs-dev.github.io/rule/requirePaddingNewLinesAfterBlocks)
+* [disallowPaddingNewLinesAfterBlocks](https://jscs-dev.github.io/rule/disallowPaddingNewLinesAfterBlocks)
 
 ## Version
 

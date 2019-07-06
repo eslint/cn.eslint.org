@@ -1,39 +1,45 @@
 {
-  "name": "cn.eslint.org",
-  "version": "1.0.0",
-  "private": true,
-  "description": "This contains the code running on eslint.org.",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "build": "browserify -x espree js/app/parser/index.js > js/app/parser/index.built.js",
-    "start": "bundle exec jekyll serve --watch --incremental",
-    "lint": "eslint js/app/ --ext=.js,.jsx",
-    "test": "npm run lint",
-    "less": "lessc styles/less/main.less styles/main.css -x --source-map=styles/main.css.map"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eslint/cn.eslint.org.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/eslint/cn.eslint.org/issues"
-  },
-  "homepage": "https://github.com/eslint/cn.eslint.org#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "bootstrap": "^3.3.6",
-    "browserify": "^11.0.1",
-    "eslint": "^4.5.0",
-    "eslint-config-eslint": "^4.0.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.3.0",
-    "json-loader": "^0.5.2",
-    "less": "^2.7.1",
-    "node-libs-browser": "^0.5.2"
-  }
+    "name": "cn.eslint.org",
+    "version": "1.0.0",
+    "private": true,
+    "description": "This contains the code running on eslint.org.",
+    "main": "index.js",
+    "directories": {
+        "doc": "docs"
+    },
+    "scripts": {
+        "serve": "bundle exec jekyll serve --config _config.yml,_config.dev.yml",
+        "build": "browserify js/app/parser/index.js > js/app/parser/index.built.js",
+        "start": "bundle exec jekyll serve --config _config.yml,_config.dev.yml",
+        "lint": "eslint js/app/ --ext=.js,.jsx",
+        "test": "npm run lint",
+        "less": "lessc styles/less/main.less styles/main.css -x --source-map=styles/main.css.map",
+        "less2": "lessc styles/less/mixed.less styles/mixed.css -x --source-map=styles/mixed.css.map"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eslint/cn.eslint.org.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/eslint/cn.eslint.org/issues"
+    },
+    "homepage": "https://github.com/eslint/cn.eslint.org#readme",
+    "dependencies": {
+        "moment": "^2.24.0"
+    },
+    "devDependencies": {
+        "@octokit/rest": "^16.16.0",
+        "bootstrap": "^3.4.1",
+        "browserify": "^16.2.3",
+        "eslint": "^4.5.0",
+        "eslint-config-eslint": "^4.0.0",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-react": "^7.12.4",
+        "json-loader": "^0.5.2",
+        "less": "^2.7.1",
+        "node-fetch": "^2.3.0",
+        "node-libs-browser": "^0.5.2"
+    }
 }

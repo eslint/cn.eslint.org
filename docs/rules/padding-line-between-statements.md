@@ -1,6 +1,8 @@
 ---
 title: padding-line-between-statements - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/padding-line-between-statements.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 要求或禁止在语句间填充空行 (padding-line-between-statements)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 This rule requires or disallows blank lines between the given 2 kinds of statements.
 Properly blank lines help developers to understand the code.
@@ -36,14 +38,14 @@ function foo() {
 
 ## Rule Details
 
-This rule does nothing if no configuration.
+This rule does nothing if no configurations are provided.
 
-如果没有配置，该规则不生效。
+如果没有提供配置，则此规则不执行任何操作。
 
-A configuration is an object which has 3 properties; `blankLine`, `prev` and `next`. For example, `{ blankLine: "always", prev: "var", next: "return" }` means "it requires one or more blank lines between a variable declaration and a `return` statement."
+A configuration is an object which has 3 properties; `blankLine`, `prev` and `next`. For example, `{ blankLine: "always", prev: "var", next: "return" }` means "one or more blank lines are required between a variable declaration and a `return` statement."
 You can supply any number of configurations. If a statement pair matches multiple configurations, the last matched configuration will be used.
 
-该规则有一个对象配置，有三个属性：`blankLine`、`prev` 和 `next`。例如 `{ blankLine: "always", prev: "var", next: "return" }` 意为 “要求在变量声明和 `return` 语句之间有一行或多行空行。”你可以在配置中提供任意数量。如果语句匹配多个配置，则使用最后匹配的配置。
+配置是具有三个属性的对象：：`blankLine`、`prev` 和 `next`。例如，`{ blankLine: "always", prev: "var", next: "return" }` 表示 “要求在变量声明和 `return` 语句之间有一行或多行空行空白”。你可以提供任意数量的配置。如果语句对匹配多个配置，则将使用最后匹配的配置。
 
 ```json
 {
@@ -73,20 +75,20 @@ You can supply any number of configurations. If a statement pair matches multipl
     - `"*"` 通配符。匹配任何语句。
     - `"block"` is lonely blocks.
     - `"block"` 是单个块。
-    - `"block-like"` is block like statements. This matches statements that the last token is the closing brace of blocks; e.g. `{ }`, `if (a) { }`, and `while (a) { }`.
-    - `"block-like"` 像块的语句。匹配语句的最后一个 token 是闭括号的块；如 `{ }`、`if (a) { }` 和 `while (a) { }`.
+    - `"block-like"` is block like statements. This matches statements that the last token is the closing brace of blocks; e.g. `{ }`, `if (a) { }`, and `while (a) { }`. Also matches immediately invoked function expression statements.
+    - `"block-like"` 像块的语句。匹配语句的最后一个 token 是闭括号的块；如 `{ }`、`if (a) { }` 和 `while (a) { }`。也匹配立即调用的函数表达式语句。
     - `"break"` is `break` statements.
     - `"break"` 是 `break` 语句。
     - `"case"` is `case` labels.
     - `"case"` 是 `case` 标签。
-    - `"cjs-export"` is `export` statements of CommonJS; e.g. `module.exports = 0`, `module.exports.foo = 1`, and `exports.foo = 2`. This is the special cases of assignment.
+    - `"cjs-export"` is `export` statements of CommonJS; e.g. `module.exports = 0`, `module.exports.foo = 1`, and `exports.foo = 2`. This is a special case of assignment.
     - `"cjs-export"` 是 CommonJS 的 `export` 语句；如 `module.exports = 0`、`module.exports.foo = 1` 和 `exports.foo = 2`。这是一种特殊的赋值。
-    - `"cjs-import"` is `import` statements of CommonJS; e.g. `const foo = require("foo")`. This is the special cases of variable declarations.
+    - `"cjs-import"` is `import` statements of CommonJS; e.g. `const foo = require("foo")`. This is a special case of variable declarations.
     - `"cjs-import"` 是 CommonJS 的 `import` 语句; 如 `const foo = require("foo")`。这是一种特殊的变量声明。
     - `"class"` is `class` declarations.
     - `"class"` 是 `class` 声明。
-    - `"const"` is `const` variable declarations.
-    - `"const"` 是 `const` 变量声明。
+    - `"const"` is `const` variable declarations, both single-line and multiline.
+    - `"const"` 是 `const` 变量声明，包括单行和多行。
     - `"continue"` is `continue` statements.
     - `"continue"` 是 `continue` 语句。
     - `"debugger"` is `debugger` statements.
@@ -109,24 +111,38 @@ You can supply any number of configurations. If a statement pair matches multipl
     - `"function"` 是函数声明。
     - `"if"` is `if` statements.
     - `"if"` 是 `if` 语句。
+    - `"iife"` is immediately invoked function expression statements. This matches calls on a function expression, optionally prefixed with a unary operator.
+    - `"iife"` 是立即调用的函数表达式语句。这将匹配对函数表达式的调用，函数表达式可选前缀为一元运算符。
     - `"import"` is `import` declarations.
     - `"import"` 是 `import` 语句。
-    - `"let"` is `let` variable declarations.
-    - `"let"` 是 `let` 变量声明。
+    - `"let"` is `let` variable declarations, both single-line and multiline.
+    - `"let"` 是 `let` 变量声明，包括单行和多行。
     - `"multiline-block-like"` is block like statements. This is the same as `block-like` type, but only if the block is multiline.
     - `"multiline-block-like"` 是像块的语句。它和 `block-like` 类型相同，但只应用于多行块。
+    - `"multiline-const"` is multiline `const` variable declarations.
+    - `"multiline-const"` 是多行 `const` 变量声明。
     - `"multiline-expression"` is expression statements. This is the same as `expression` type, but only if the statement is multiline.
     - `"multiline-expression"` 是表达式语句。同 `expression` 类型一下，但只应用于多行语句。
+    - `"multiline-let"` is multiline `let` variable declarations.
+    - `"multiline-let"` 是多行 `let` 变量声明。
+    - `"multiline-var"` is multiline `var` variable declarations.
+    - `"multiline-var"` 是多行 `var` 变量声明。
     - `"return"` is `return` statements.
     - `"return"` 是 `return` 语句。
+    - `"singleline-const"` is single-line `const` variable declarations.
+    - `"singleline-const"` 是单行 `const` 变量声明。
+    - `"singleline-let"` is single-line `let` variable declarations.
+    - `"singleline-let"` 是单行 `let` 变量声明。
+    - `"singleline-var"` is single-line `var` variable declarations.
+    - `"singleline-var"` 是单行 `var` 变量声明。
     - `"switch"` is `switch` statements.
     - `"switch"` 是 `switch` 语句。
     - `"throw"` is `throw` statements.
     - `"throw"` 是 `throw` 语句。
     - `"try"` is `try` statements.
     - `"try"` 是 `try` 语句。
-    - `"var"` is `var` variable declarations.
-    - `"var"` 是 `var` 变量声明。
+    - `"var"` is `var` variable declarations, both single-line and multiline.
+    - `"var"` 是 `var` 变量声明，包括单行和多行。
     - `"while"` is `while` loop statements.
     - `"while"` 是 `while` 循环。
     - `"with"` is `with` statements.
@@ -300,15 +316,15 @@ If you don't want to notify warnings about linebreaks, then it's safe to disable
 [lines-around-directive]: https://eslint.org/docs/rules/lines-around-directive
 [newline-after-var]: https://eslint.org/docs/rules/newline-after-var
 [newline-before-return]: https://eslint.org/docs/rules/newline-before-return
-[requirePaddingNewLineAfterVariableDeclaration]: http://jscs.info/rule/requirePaddingNewLineAfterVariableDeclaration
-[requirePaddingNewLinesAfterBlocks]: http://jscs.info/rule/requirePaddingNewLinesAfterBlocks
-[disallowPaddingNewLinesAfterBlocks]: http://jscs.info/rule/disallowPaddingNewLinesAfterBlocks
-[requirePaddingNewLinesAfterUseStrict]: http://jscs.info/rule/requirePaddingNewLinesAfterUseStrict
-[disallowPaddingNewLinesAfterUseStrict]: http://jscs.info/rule/disallowPaddingNewLinesAfterUseStrict
-[requirePaddingNewLinesBeforeExport]: http://jscs.info/rule/requirePaddingNewLinesBeforeExport
-[disallowPaddingNewLinesBeforeExport]: http://jscs.info/rule/disallowPaddingNewLinesBeforeExport
-[requirePaddingNewlinesBeforeKeywords]: http://jscs.info/rule/requirePaddingNewlinesBeforeKeywords
-[disallowPaddingNewlinesBeforeKeywords]: http://jscs.info/rule/disallowPaddingNewlinesBeforeKeywords
+[requirePaddingNewLineAfterVariableDeclaration]: https://jscs-dev.github.io/rule/requirePaddingNewLineAfterVariableDeclaration
+[requirePaddingNewLinesAfterBlocks]: https://jscs-dev.github.io/rule/requirePaddingNewLinesAfterBlocks
+[disallowPaddingNewLinesAfterBlocks]: https://jscs-dev.github.io/rule/disallowPaddingNewLinesAfterBlocks
+[requirePaddingNewLinesAfterUseStrict]: https://jscs-dev.github.io/rule/requirePaddingNewLinesAfterUseStrict
+[disallowPaddingNewLinesAfterUseStrict]: https://jscs-dev.github.io/rule/disallowPaddingNewLinesAfterUseStrict
+[requirePaddingNewLinesBeforeExport]: https://jscs-dev.github.io/rule/requirePaddingNewLinesBeforeExport
+[disallowPaddingNewLinesBeforeExport]: https://jscs-dev.github.io/rule/disallowPaddingNewLinesBeforeExport
+[requirePaddingNewlinesBeforeKeywords]: https://jscs-dev.github.io/rule/requirePaddingNewlinesBeforeKeywords
+[disallowPaddingNewlinesBeforeKeywords]: https://jscs-dev.github.io/rule/disallowPaddingNewlinesBeforeKeywords
 
 ## Version
 

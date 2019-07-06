@@ -1,6 +1,8 @@
 ---
 title: no-undef - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-undef.md
+rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -110,9 +112,9 @@ if(typeof a === "string"){}
 
 ## Environments
 
-For convenience, ESLint provides shortcuts that pre-define global variables exposed by popular libraries and runtime environments. This rule supports these environments, as listed in [Specifying Environments](../user-guide/configuring).  A few examples are given below.
+For convenience, ESLint provides shortcuts that pre-define global variables exposed by popular libraries and runtime environments. This rule supports these environments, as listed in [Specifying Environments](../user-guide/configuring#specifying-environments).  A few examples are given below.
 
-为了方便，ESlint 提供了预定义流行类库和运行时环境暴露的全局变量的快捷方式。该规则支持这些环境，如 [指定 Environments](../user-guide/configuring) 中列出的。使用如下：
+为了方便，ESlint 提供了预定义流行类库和运行时环境暴露的全局变量的快捷方式。该规则支持这些环境，如 [指定 Environments](../user-guide/configuring#specifying-environments) 中列出的。使用如下：
 
 ### browser
 

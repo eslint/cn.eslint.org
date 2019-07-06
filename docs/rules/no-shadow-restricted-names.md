@@ -1,6 +1,8 @@
 ---
 title: no-shadow-restricted-names - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-shadow-restricted-names.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 关键字不能被遮蔽 (no-shadow-restricted-names)
 
-ES5 §15.1.1 Value Properties of the Global Object (`NaN`, `Infinity`, `undefined`) as well as strict mode restricted identifiers `eval` and `arguments` are considered to be restricted names in JavaScript. Defining them to mean something else can have unintended consequences and confuse others reading the code. For example, there's nothing prevent you from writing:
+ES5 §15.1.1 Value Properties of the Global Object (`NaN`, `Infinity`, `undefined`) as well as strict mode restricted identifiers `eval` and `arguments` are considered to be restricted names in JavaScript. Defining them to mean something else can have unintended consequences and confuse others reading the code. For example, there's nothing preventing you from writing:
 
-ES5 §15.1.1 中全局对象的属性值 (`NaN`、`Infinity`、`undefined`)和严格模式下被限定的标识符 `eval`、`arguments` 也被认为是关键字。重定义关键字会产生意想不到的后果且易迷惑其他读者。比如：
+ES5 §15.1.1 中全局对象的属性值 (`NaN`、`Infinity`、`undefined`)和严格模式下被限定的标识符 `eval`、`arguments` 在 JavaScript 中被认为是受限制的名称。将它们定义为其他含义可能会产生意想不到的结果，并使阅读代码的其他人感到困惑。比如：
 
 ```js
 var undefined = "foo";
@@ -18,7 +20,7 @@ var undefined = "foo";
 
 Then any code used within the same scope would not get the global `undefined`, but rather the local version with a very different meaning.
 
-以上不能得到全局 `undefined`，但在本作用域中却具有不同于全局的意思。
+那么，在相同范围内使用的任何代码都不会得到全局的 `undefined`，而是得到具有非常不同含义的本地版本。
 
 ## Rule Details
 
@@ -33,7 +35,7 @@ function NaN(){}
 
 !function(Infinity){};
 
-var undefined;
+var undefined = 5;
 
 try {} catch(eval){}
 ```
@@ -48,6 +50,9 @@ Examples of **correct** code for this rule:
 var Object;
 
 function f(a, b){}
+
+// Exception: `undefined` may be shadowed if the variable is never assigned a value.
+var undefined;
 ```
 
 ## Further Reading

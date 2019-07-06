@@ -1,6 +1,8 @@
 ---
 title: quotes - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/quotes.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 强制使用一致的反勾号、双引号或单引号 (quotes)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 JavaScript allows you to define strings in one of three ways: double quotes, single quotes, and backticks (as of ECMAScript 6). For example:
 
@@ -201,6 +203,10 @@ Examples of additional **correct** code for this rule with the `"single", { "all
 var single = 'single';
 var single = `single`;
 ```
+
+`{ "allowTemplateLiterals": false }` will not disallow the usage of all template literals. If you want to forbid any instance of template literals, use [no-restricted-syntax](https://eslint.org/docs/rules/no-restricted-syntax) and target the `TemplateLiteral` selector.
+
+`{ "allowTemplateLiterals": false }` 不会禁止使用所有模板文字。如果你想禁止任何模板字面量的实例，请使用 [no-restricted-syntax](/docs/rules/no-restricted-syntax)，并将目标指向  `TemplateLiteral`。
 
 ## When Not To Use It
 

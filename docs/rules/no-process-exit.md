@@ -1,6 +1,8 @@
 ---
 title: no-process-exit - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-process-exit.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -32,6 +34,10 @@ if (somethingBadHappened) {
 By throwing an error in this way, other parts of the application have an opportunity to handle the error rather than stopping the application altogether. If the error bubbles all the way up to the process without being handled, then the process will exit and a non-zero exit code will returned, so the end result is the same.
 
 以这种方式抛出错误，应用程序的其他部分有机会处理错误，而不是全部终止程序。如果这个错误向上回退到进程顶部而未被处理，进程将退出并返回异常退出的错误码，所以最终的结果是一样的。
+
+If you are using `process.exit()` only for specifying the exit code, you can set [`process.exitCode`](https://nodejs.org/api/process.html#process_process_exitcode) (introduced in Node.js 0.11.8) instead.
+
+如果只使用 `process.exit()` 指定退出代码，则可以设置 [`process.exitCode`](https://nodejs.org/api/process.html#process_process_exitcode) (在 Node.js 0.11.8 中引入)。
 
 ## Rule Details
 

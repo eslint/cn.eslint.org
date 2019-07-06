@@ -1,6 +1,8 @@
 ---
 title: Code Conventions
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/code-conventions.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -199,7 +201,7 @@ Operators with two operands must be preceded and followed by a single space to m
 
 ## Parentheses Spacing
 
-When parentheses are used, there should be no white space immediately after the opening paren or immediately before the closing paren.
+When parentheses are used, there should be no whitespace immediately after the opening paren or immediately before the closing paren.
 
 当使用括号的时候，在开括号后或闭括号前 不应该有空格。
 
@@ -1040,7 +1042,7 @@ The `try` class of statements should have the following form:
         statements
     }
 
-## White Space
+## Whitespace
 
 Blank lines improve readability by setting off sections of code that are logically related.
 

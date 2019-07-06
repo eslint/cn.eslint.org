@@ -1,6 +1,8 @@
 ---
 title: no-console - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-console.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -113,10 +115,11 @@ However, you might not want to manually add `eslint-disable-next-line` or `eslin
 ```json
 {
     "rules": {
+        "no-console": "off",
         "no-restricted-syntax": [
             "error",
             {
-                "selector": "CallExpression[callee.object.name='console'][callee.property.name=/^(log|warn|error|info|trace)$/]",
+                "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
                 "message": "Unexpected property on console object was called"
             }
         ]

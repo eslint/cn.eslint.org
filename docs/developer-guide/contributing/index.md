@@ -1,6 +1,8 @@
 ---
 title: Contributing
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/contributing/README.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -49,6 +51,12 @@ Want to make a change to an existing rule? This section explains the process and
 If you'd like to request a change other than a bug fix or new rule, this section explains that process.
 
 如果你想要请求的变更不是是 bug 修复或新的规则，这部分解释了这一过程。
+
+## Reporting a security vulnerability
+
+To report a security vulnerability in ESLint, please use our [HackerOne program](https://hackerone.com/eslint).
+
+要报告一个 ESLint 中的安全漏洞，请使用 [HackerOne program](https://hackerone.com/eslint)。
 
 ## [Working on Issues](working-on-issues)
 

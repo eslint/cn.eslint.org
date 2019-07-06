@@ -1,6 +1,8 @@
 ---
 title: dot-location - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/dot-location.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 强制在点号之前或之后换行 (dot-location)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 JavaScript allows you to place newlines before or after a dot in a member expression.
 
@@ -40,9 +42,9 @@ The rule takes one option, a string:
 
 该规则有个字符串选项：
 
-* If it is `"object"`, the dot in a member expression should be on the same line as the object portion. The default is `"object"`.
+* If it is `"object"` (default), the dot in a member expression should be on the same line as the object portion.
 
-* 如果它的值是 `"object"`，表达式中的点号操作符应该和对象部分在同一行。默认是 `"object"`。
+* 如果它的值是 `"object"` (默认)，表达式中的点号操作符应该和对象部分在同一行。
 
 * If it is `"property"`, the dot in a member expression should be on the same line as the property portion.
 

@@ -1,6 +1,8 @@
 ---
 title: object-curly-newline - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/object-curly-newline.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 强制在花括号内使用一致的换行符 (object-curly-newline)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 A number of style guides require or disallow line breaks inside of object braces and other tokens.
 
@@ -37,12 +39,12 @@ Or an object option:
 
 或一个对象选项：
 
-* `"multiline": true` (default) requires line breaks if there are line breaks inside properties or between properties
-* `"multiline": true` (默认)如果在属性内部或属性之间有换行符，就要求有换行符
+* `"multiline": true` requires line breaks if there are line breaks inside properties or between properties
+* `"multiline": true` 如果在属性内部或属性之间有换行符，就要求有换行符
 * `"minProperties"` requires line breaks if the number of properties is at least the given integer. By default, an error will also be reported if an object contains linebreaks and has fewer properties than the given integer. However, the second behavior is disabled if the `consistent` option is set to `true`
 * `"minProperties"` 如果属性的数量至少为给定的数值，要求有换行符。默认情况下，如果一个对象包含换行符并且属性的数量少于给定的数量，该规则也会报错误。然而，如果设置 `consistent` 选项为 `true`，则该选项将不起作用。
-* `"consistent": true` requires that either both curly braces, or neither, directly enclose newlines. Note that enabling this option will also change the behavior of the `minProperties` option. (See `minProperties` above for more information)
-* `"consistent": true` 要求使用花括号，或者不使用或括号直接使用换行。注意启用该选项将改变 `minProperties` 选项的行为。(查看上面的 `minProperties`，获取更多信息)
+* `"consistent": true` (default) requires that either both curly braces, or neither, directly enclose newlines. Note that enabling this option will also change the behavior of the `minProperties` option. (See `minProperties` above for more information)
+* `"consistent": true` (默认)要求使用花括号，或者不使用或括号直接使用换行。注意启用该选项将改变 `minProperties` 选项的行为。(查看上面的 `minProperties`，获取更多信息)
 
 
 You can specify different options for object literals, destructuring assignments, and named imports and exports:
@@ -219,9 +221,9 @@ let {k = function() {
 
 ### multiline
 
-Examples of **incorrect** code for this rule with the default `{ "multiline": true }` option:
+Examples of **incorrect** code for this rule with the `{ "multiline": true }` option:
 
-默认选项 `{ "multiline": true }` 的 **错误** 代码示例：
+选项 `{ "multiline": true }` 的 **错误** 代码示例：
 
 ```js
 /*eslint object-curly-newline: ["error", { "multiline": true }]*/
@@ -256,9 +258,9 @@ let {k = function() {
 }} = obj;
 ```
 
-Examples of **correct** code for this rule with the default `{ "multiline": true }` option:
+Examples of **correct** code for this rule with the `{ "multiline": true }` option:
 
-默认选项 `{ "multiline": true }` 的 **正确** 代码示例：
+选项 `{ "multiline": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint object-curly-newline: ["error", { "multiline": true }]*/
@@ -367,9 +369,9 @@ let {k = function() {
 
 ### consistent
 
-Examples of **incorrect** code for this rule with the `{ "consistent": true }` option:
+Examples of **incorrect** code for this rule with the default `{ "consistent": true }` option:
 
-选项 `{ "consistent": true }` 的 **错误** 代码示例：
+默认选项 `{ "consistent": true }` 的 **错误** 代码示例：
 
 ```js
 /*eslint object-curly-newline: ["error", { "consistent": true }]*/
@@ -404,9 +406,9 @@ let {o = function() {
 }} = obj;
 ```
 
-Examples of **correct** code for this rule with the `{ "consistent": true }` option:
+Examples of **correct** code for this rule with the default `{ "consistent": true }` option:
 
-选项 `{ "consistent": true }` 的 **正确** 代码示例：
+默认选项 `{ "consistent": true }` 的 **正确** 代码示例：
 
 ```js
 /*eslint object-curly-newline: ["error", { "consistent": true }]*/
@@ -571,7 +573,8 @@ export { foo as f, bar } from 'foo-bar';
 
 ## Compatibility
 
-* **JSCS**: [requirePaddingNewLinesInObjects](http://jscs.info/rule/requirePaddingNewLinesInObjects) and [disallowPaddingNewLinesInObjects](http://jscs.info/rule/disallowPaddingNewLinesInObjects)
+* **JSCS**: [requirePaddingNewLinesInObjects](https://jscs-dev.github.io/rule/requirePaddingNewLinesInObjects)
+* **JSCS**: [disallowPaddingNewLinesInObjects](https://jscs-dev.github.io/rule/disallowPaddingNewLinesInObjects)
 
 ## When Not To Use It
 

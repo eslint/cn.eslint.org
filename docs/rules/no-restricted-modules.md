@@ -1,6 +1,8 @@
 ---
 title: no-restricted-modules - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-restricted-modules.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -57,10 +59,10 @@ You may also specify a custom message for any paths you want to restrict as foll
 你还可以为您想要限制的路径指定一个自定义消息:
 
 ```json
-"no-restricted-modules": ["error", [{
+"no-restricted-modules": ["error", {
   "name": "foo-module",
   "message": "Please use bar-module instead."
-  }]
+  }
 ]
 ```
 
@@ -95,9 +97,9 @@ To restrict the use of all Node.js core modules (via https://github.com/nodejs/n
 
 ## Examples
 
-Examples of **incorrect** code for this rule  with sample `"fs", "cluster","loadash"` restricted modules:
+Examples of **incorrect** code for this rule  with sample `"fs", "cluster", "lodash"` restricted modules:
 
-限制 `"fs", "cluster","loadash"` 模块的 **错误** 代码示例：
+限制 `"fs", "cluster", "lodash"` 模块的 **错误** 代码示例：
 
 ```js
 /*eslint no-restricted-modules: ["error", "fs", "cluster"]*/
@@ -118,9 +120,9 @@ var cluster = require('cluster');
 var pick = require('lodash/pick');
 ```
 
-Examples of **correct** code for this rule with sample `"fs", "cluster","loadash"` restricted modules:
+Examples of **correct** code for this rule with sample `"fs", "cluster", "lodash"` restricted modules:
 
-限制 `"fs", "cluster","loadash"` 模块的 **正确** 代码示例：
+限制 `"fs", "cluster", "lodash"` 模块的 **正确** 代码示例：
 
 ```js
 /*eslint no-restricted-modules: ["error", "fs", "cluster"]*/

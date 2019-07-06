@@ -1,6 +1,8 @@
 ---
 title: func-call-spacing - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/func-call-spacing.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 要求或禁止在函数标识符和其调用之间有空格 (func-call-spacing)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 When calling a function, developers may insert optional whitespace between the function's name and the parentheses that invoke it. The following pairs of function calls are equivalent:
 
@@ -139,8 +141,8 @@ This rule can safely be turned off if your project does not care about enforcing
 
 ## Compatibility
 
-- **JSCS**: [disallowSpacesInCallExpression](http://jscs.info/rule/disallowSpacesInCallExpression)
-- **JSCS**: [requireSpacesInCallExpression](http://jscs.info/rule/requireSpacesInCallExpression)
+- **JSCS**: [disallowSpacesInCallExpression](https://jscs-dev.github.io/rule/disallowSpacesInCallExpression)
+- **JSCS**: [requireSpacesInCallExpression](https://jscs-dev.github.io/rule/requireSpacesInCallExpression)
 
 ## Version
 

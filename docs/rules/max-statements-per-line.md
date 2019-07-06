@@ -1,6 +1,8 @@
 ---
 title: max-statements-per-line - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/max-statements-per-line.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -13,7 +15,7 @@ A line of code containing too many statements can be difficult to read. Code is 
 一行代码中包含太多的语句会很难阅读。代码通常是从上往下阅读，尤其是浏览时，所以，限制单行中所允许的语句数量可以提高可读性和维护性。
 
 ```js
-function () { var bar; if (condition) { bar = 1; } else { bar = 2; } return true; } // too many statements
+function foo () { var bar; if (condition) { bar = 1; } else { bar = 2; } return true; } // too many statements
 ```
 
 ## Rule Details
@@ -104,6 +106,8 @@ You can turn this rule off if you are not concerned with the number of statement
 
 * [max-depth](max-depth)
 * [max-len](max-len)
+* [max-lines](max-lines)
+* [max-lines-per-function](max-lines-per-function)
 * [max-nested-callbacks](max-nested-callbacks)
 * [max-params](max-params)
 * [max-statements](max-statements)

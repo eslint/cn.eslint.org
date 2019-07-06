@@ -1,6 +1,8 @@
 ---
 title: sort-imports - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/sort-imports.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # import 排序 (sort-imports)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 The import statement is used to import members (functions, objects or primitives) that have been exported from an external module. Using a specific member syntax:
 
@@ -58,6 +60,8 @@ This rule accepts an object with its properties as
 
 * `ignoreCase` (default: `false`)
 * `ignoreCase` (默认：`false`)
+* `ignoreDeclarationSort` (default: `false`)
+* `ignoreDeclarationSort` (默认: `false`)
 * `ignoreMemberSort` (default: `false`)
 * `ignoreMemberSort` (默认：`false`)
 * `memberSyntaxSortOrder` (default: `["none", "all", "multiple", "single"]`); all 4 items must be present in the array, but you can change the order:
@@ -79,6 +83,7 @@ Default option settings are:
 {
     "sort-imports": ["error", {
         "ignoreCase": false,
+        "ignoreDeclarationSort": false,
         "ignoreMemberSort": false,
         "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
     }]
@@ -175,6 +180,42 @@ Examples of **correct** code for this rule with the `{ "ignoreCase": true }` opt
 import a from 'foo.js';
 import B from 'bar.js';
 import c from 'baz.js';
+```
+
+Default is `false`.
+
+默认为 `false`。
+
+### `ignoreDeclarationSort`
+
+Ignores the sorting of import declaration statements.
+
+忽略 import 声明语句的排序。
+
+Examples of **incorrect** code for this rule with the default `{ "ignoreDeclarationSort": false }` option:
+
+默认选项 `{ "ignoreDeclarationSort": false }` 的 **错误** 代码示例：
+
+```js
+/*eslint sort-imports: ["error", { "ignoreDeclarationSort": false }]*/
+import b from 'foo.js'
+import a from 'bar.js'
+```
+
+Examples of **correct** code for this rule with the `{ "ignoreDeclarationSort": true }` option:
+
+选项 `{ "ignoreDeclarationSort": true }` 的 **正确** 代码示例：
+
+```js
+/*eslint sort-imports: ["error", { "ignoreDeclarationSort": true }]*/
+import a from 'foo.js'
+import b from 'bar.js'
+```
+
+```js
+/*eslint sort-imports: ["error", { "ignoreDeclarationSort": true }]*/
+import b from 'foo.js'
+import a from 'bar.js'
 ```
 
 Default is `false`.

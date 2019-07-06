@@ -1,6 +1,8 @@
 ---
 title: sort-keys - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/sort-keys.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -68,6 +70,9 @@ let obj = {a: 1, [c + d]: 3, b: 2};
 let obj = {a: 1, ["c" + "d"]: 3, b: 2};
 let obj = {a: 1, [`${c}`]: 3, b: 2};
 let obj = {a: 1, [tag`c`]: 3, b: 2};
+
+// This rule does not report unsorted properties that are separated by a spread property.
+let obj = {b: 1, ...c, a: 2};
 ```
 
 ## Options
@@ -225,7 +230,7 @@ If you don't want to notify about properties' order, then it's safe to disable t
 
 ## Compatibility
 
-* **JSCS:** [validateOrderInObjectKeys](http://jscs.info/rule/validateOrderInObjectKeys)
+* **JSCS:** [validateOrderInObjectKeys](https://jscs-dev.github.io/rule/validateOrderInObjectKeys)
 
 ## Version
 

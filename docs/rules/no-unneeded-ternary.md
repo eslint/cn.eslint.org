@@ -1,6 +1,8 @@
 ---
 title: no-unneeded-ternary - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-unneeded-ternary.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 禁止可以表达为更简单结构的三元操作符 (no-unneeded-ternary)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 It's a common mistake in JavaScript to use a conditional expression to select between two Boolean values instead of using ! to convert the test to a Boolean.
 Here are some examples:
@@ -43,10 +45,10 @@ Here is an example:
 
 ```js
 // Bad
-var foo = bar ? bar : 1;
+foo(bar ? bar : 1);
 
 // Good
-var foo = bar || 1;
+foo(bar || 1);
 ```
 
 ## Rule Details
@@ -65,6 +67,8 @@ Examples of **incorrect** code for this rule:
 var a = x === 2 ? true : false;
 
 var a = x ? true : false;
+
+var a = f(x ? x : 1);
 ```
 
 Examples of **correct** code for this rule:
@@ -82,7 +86,7 @@ var a = x ? "Yes" : "No";
 
 var a = x ? y : x;
 
-var a = x ? x : 1;
+var a = x ? x : 1;  // Note that this is only allowed as it on the right hand side of an assignment; this type of ternary is disallowed everywhere else. See defaultAssignment option below for more details.
 ```
 
 ## Options
@@ -97,6 +101,10 @@ This rule has an object option:
 * `"defaultAssignment": false` 禁止条件表达式作为默认的赋值模式
 
 ### defaultAssignment
+
+The defaultAssignment option allows expressions of the form `x ? x : expr` (where `x` is any identifier and `expr` is any expression) as the right hand side of assignments (but nowhere else).
+
+defaultAssignment 选项允许 `x ? x : expr` 形式的表达式(其中 `x` 是任何标识符，`expr` 是任何表达式)作为赋值的右侧(但没有其他地方)。
 
 Examples of additional **incorrect** code for this rule with the `{ "defaultAssignment": false }` option:
 

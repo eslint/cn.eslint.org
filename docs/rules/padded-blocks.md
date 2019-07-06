@@ -1,6 +1,8 @@
 ---
 title: padded-blocks - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/padded-blocks.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 要求或禁止块内填充 (padded-blocks)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 Some style guides require block statements to start and end with blank lines. The goal is
 to improve readability by visually separating the block content and the surrounding code.
@@ -38,9 +40,12 @@ This rule enforces consistent empty line padding within blocks.
 
 ## Options
 
-This rule has one option, which can be a string option or an object option.
+This rule has two options, the first one can be a string option or an object option.
+The second one is an object option, it can allow exceptions.
 
-该规则有一个选项，可以是字符串或对象。
+此规则有两个选项，第一个可以是字符串选项或对象选项。第二个是对象选项，它允许异常。
+
+### First option
 
 String option:
 
@@ -62,6 +67,11 @@ Object option:
 * `"switches"` require or disallow padding within `switch` statements
 * `"switches"` 要求或禁止在 `switch` 语句中填充
 
+### Second option
+
+* `"allowSingleLineBlocks": true` allows single-line blocks
+* `"allowSingleLineBlocks": true` 允许单行块
+
 ### always
 
 Examples of **incorrect** code for this rule with the default `"always"` option:
@@ -79,11 +89,6 @@ if (a) { b(); }
 
 if (a)
 {
-    b();
-}
-
-if (a) {
-
     b();
 }
 
@@ -404,6 +409,46 @@ Examples of **correct** code for this rule with the `{ "switches": "never" }` op
 switch (a) {
     case 0: foo();
 }
+
+if (a) {
+
+    b();
+
+}
+```
+
+### always + allowSingleLineBlocks
+
+Examples of **incorrect** code for this rule with the `"always", {"allowSingleLineBlocks": true}` options:
+
+选项 `"always", {"allowSingleLineBlocks": true}` 的 **错误** 代码示例：
+
+```js
+/*eslint padded-blocks: ["error", "always", { allowSingleLineBlocks: true }]*/
+
+if (a) {
+    b();
+}
+
+if (a) {
+
+    b();
+}
+
+if (a) {
+    b();
+
+}
+```
+
+Examples of **correct** code for this rule with the `"always", {"allowSingleLineBlocks": true}` options:
+
+选项 `"always", {"allowSingleLineBlocks": true}` 的 **正确** 代码示例：
+
+```js
+/*eslint padded-blocks: ["error", "always", { allowSingleLineBlocks: true }]*/
+
+if (a) { b(); }
 
 if (a) {
 

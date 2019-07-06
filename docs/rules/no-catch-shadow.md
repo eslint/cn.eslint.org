@@ -1,12 +1,19 @@
 ---
 title: no-catch-shadow - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-catch-shadow.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow Shadowing of Variables Inside of catch (no-catch-shadow)
 
 # 不允许在 catch 语句中遮盖变量 (no-catch-shadow)
+
+This rule was **deprecated** in ESLint v5.1.0.
+
+该规则在 ESLint v5.1.0 中 **已弃用**。
+
 
 In IE 8 and earlier, the catch clause parameter can overwrite the value of a variable in the outer scope, if that variable has the same name as the catch clause parameter.
 

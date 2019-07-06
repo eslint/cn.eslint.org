@@ -1,6 +1,8 @@
 ---
 title: rest-spread-spacing - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/rest-spread-spacing.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,13 +10,13 @@ layout: doc
 
 # 强制剩余和扩展运算符及其表达式之间有空格 (rest-spread-spacing)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 ES2015 introduced the rest and spread operators, which expand an iterable structure into its individual parts. Some examples of their usage are as follows:
 
-ES2015 引入了剩余和扩展运算符，用于将可遍历结构扩展为单个个体。其用法举例如下：
+ES2015引入了rest和spread操作符，它们将可迭代结构扩展到各个部分。它们的一些用法例子如下:
 
 ```js
 let numArr = [1, 2, 3];
@@ -59,17 +61,14 @@ As with other operators, whitespace is allowed between the rest or spread operat
 
 ## Rule Details
 
-This rule aims to enforce consistent spacing between rest and spread operators and their expressions. The rule also supports the currently experimental object rest and spread properties when enabled:
+This rule aims to enforce consistent spacing between rest and spread operators and their expressions. The rule also supports object rest and spread properties in ES2018:
 
-该规则旨在强制剩余和扩展运算符及其表达式之间的空格一致。该规则被启用时还支持仍在实验中的对象的剩余和扩展属性：
+该规则旨在强制剩余和扩展运算符及其表达式之间保持一致的间距。该规则还支持 ES2018中的 对象剩余和扩展属性:
 
 ```json
 {
     "parserOptions": {
-        "ecmaVersion": 6,
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true
-        }
+        "ecmaVersion": 2018
     }
 }
 ```

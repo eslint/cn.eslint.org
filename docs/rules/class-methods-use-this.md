@@ -1,6 +1,8 @@
 ---
 title: class-methods-use-this - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/class-methods-use-this.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -116,10 +118,9 @@ class A {
 "class-methods-use-this": [<enabled>, { "exceptMethods": [<...exceptions>] }]
 ```
 
-The `exceptMethods` option allows you to pass an array of method names for which you would like to ignore warnings.
+The `exceptMethods` option allows you to pass an array of method names for which you would like to ignore warnings. For example, you might have a spec from an external library that requires you to overwrite a method as a regular function (and not as a static method) and does not use `this` inside the function body. In this case, you can add that method to ignore in the warnings.
 
-`exceptMethods` 选项允许你传递一个你想要忽略警告的方法名的数组。
-
+`exceptMethods` 选项允许你传递一个你想要忽略警告的方法名的数组。例如，你可能有一个来自外部库的规范，它要求你将方法作为常规函数(而不是静态方法)重写，并且在函数体中不使用 `this` 。在本例中，可以将该方法添加到警告中来忽略。
 
 Examples of **incorrect** code for this rule when used without exceptMethods:
 

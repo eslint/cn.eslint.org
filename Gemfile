@@ -1,9 +1,4 @@
-source 'https://ruby.taobao.org'
+source https://rubygems.org/
+# source 'https://gems.ruby-china.com/'
 
-gem 'jekyll', '~> 3.0.1'
-
-group :jekyll_plugins do
-  gem 'algoliasearch-jekyll', '~> 0.7.0'
-  gem 'jekyll-sitemap', '~> 0.10.0'
-  gem 'jekyll-redirect-from', '~> 0.9.1'
-end
+gem 'github-pages', group: :jekyll_plugins

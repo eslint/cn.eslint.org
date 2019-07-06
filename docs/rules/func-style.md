@@ -1,6 +1,8 @@
 ---
 title: func-style - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/func-style.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -85,8 +87,8 @@ This rule has an object option for an exception:
 
 该规则对表达式有一个对象选项：
 
-* `"allowArrowFunctions": true` (default `false`) allows the use of arrow functions
-* `"allowArrowFunctions": true` (默认为 `false`) 允许使用箭头函数
+* `"allowArrowFunctions": true` (default `false`) allows the use of arrow functions (honoured only when using `declaration`)
+* `"allowArrowFunctions": true` (默认为 `false`) 允许使用箭头函数 (仅在使用 `declaration` 时启用)
 
 ### expression
 

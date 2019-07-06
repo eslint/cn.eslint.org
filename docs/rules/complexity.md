@@ -1,6 +1,8 @@
 ---
 title: complexity - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/complexity.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -95,7 +97,7 @@ If you can't determine an appropriate complexity limit for your code, then it's 
 ## Further Reading
 
 * [Cyclomatic Complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
-* [Complexity Analysis of JavaScript Code](http://ariya.ofilabs.com/2012/12/complexity-analysis-of-javascript-code.html)
+* [Complexity Analysis of JavaScript Code](https://ariya.io/2012/12/complexity-analysis-of-javascript-code)
 * [More about Complexity in JavaScript](https://craftsmanshipforsoftware.com/2015/05/25/complexity-for-javascript/)
 * [About Complexity](https://web.archive.org/web/20160808115119/http://jscomplexity.org/complexity)
 * [Discussion about Complexity in ESLint and more links](https://github.com/eslint/eslint/issues/4808#issuecomment-167795140)
@@ -104,6 +106,8 @@ If you can't determine an appropriate complexity limit for your code, then it's 
 
 * [max-depth](max-depth)
 * [max-len](max-len)
+* [max-lines](max-lines)
+* [max-lines-per-function](max-lines-per-function)
 * [max-nested-callbacks](max-nested-callbacks)
 * [max-params](max-params)
 * [max-statements](max-statements)

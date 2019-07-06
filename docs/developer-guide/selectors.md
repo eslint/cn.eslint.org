@@ -1,6 +1,8 @@
 ---
 title: Selectors
 layout: doc_en
+edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/selectors.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -38,7 +40,7 @@ The following selectors are supported:
 * attribute existence: `[attr]`
 * attribute value: `[attr="foo"]` or `[attr=123]`
 * attribute regex: `[attr=/foo.*/]`
-* attribute conditons: `[attr!="foo"]`, `[attr>2]`, `[attr<3]`, `[attr>=2]`, or `[attr<=3]`
+* attribute conditions: `[attr!="foo"]`, `[attr>2]`, `[attr<3]`, `[attr>=2]`, or `[attr<=3]`
 * nested attribute: `[attr.level2="foo"]`
 * field: `FunctionDeclaration > Identifier.id`
 * First or last child: `:first-child` or `:last-child`

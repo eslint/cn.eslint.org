@@ -1,12 +1,18 @@
 ---
 title: getter-return - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/getter-return.md
+rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Enforces that a return statement is present in property getters (getter-return)
 
 # 强制在 getter 属性中出现一个 return 语句 (getter-return)
+
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
 
 The get syntax binds an object property to a function that will be called when that property is looked up. It was first introduced in ECMAScript 5:
 
@@ -94,8 +100,8 @@ This rule has an object option:
 
 该规则有一个对象选项：
 
-* `"allowImplicit": false` (default) disallows implicitly returning undefined with a return; statement.
-* `"allowImplicit": false` (默认) 禁止在 return 语句中隐式地返回未定义。
+* `"allowImplicit": false` (default) disallows implicitly returning `undefined` with a `return` statement.
+* `"allowImplicit": false` (默认) 禁止在 `return` 语句中隐式地返回 `undefined`。
 
 Examples of **correct** code for the `{ "allowImplicit": true }` option:
 

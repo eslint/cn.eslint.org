@@ -2,6 +2,7 @@
 title: object-property-newline - Rules
 layout: doc
 edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/object-property-newline.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -9,9 +10,9 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/object-proper
 
 # 强制将对象的属性放在不同的行上 (object-property-newline)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 This rule permits you to restrict the locations of property specifications in object literals. You may prohibit any part of any property specification from appearing on the same line as any part of any other property specification. You may make this prohibition absolute, or, by invoking an object option, you may allow an exception, permitting an object literal to have all parts of all of its property specifications on a single line.
 
@@ -324,7 +325,7 @@ You can turn this rule off if you want to decide, case-by-case, whether to place
 
 ## Compatibility
 
-- **JSCS**: This rule provides partial compatibility with [requireObjectKeysOnNewLine](http://jscs.info/rule/requireObjectKeysOnNewLine).
+- **JSCS**: This rule provides partial compatibility with [requireObjectKeysOnNewLine](https://jscs-dev.github.io/rule/requireObjectKeysOnNewLine).
 
 ## Related Rules
 

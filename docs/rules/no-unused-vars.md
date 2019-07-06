@@ -1,6 +1,8 @@
 ---
 title: no-unused-vars - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-unused-vars.md
+rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -18,24 +20,24 @@ Variables that are declared and not used anywhere in the code are most likely an
 
 ## Rule Details
 
-This rule is aimed at eliminating unused variables, functions, and parameters of functions.
+This rule is aimed at eliminating unused variables, functions, and function parameters.
 
-此规则旨在消除未使用过的变量，方法和方法中的参数名，当发现这些存在，发出警告。
+此规则旨在消除未使用的变量、函数和函数参数。
 
-A variable is considered to be used if any of the following are true:
+A variable `foo` is considered to be used if any of the following are true:
 
-符合下面条件的变量被认为是可以使用的:
+下列任何一项为真，则视为使用了变量 `foo`：
 
-* It represents a function that is called (`doSomething()`)
-* 作为回调函数
-* It is read (`var y = x`)
+* It is called (`foo()`) or constructed (`new foo()`)
+* 被调用 (`foo()`) 或 作为构造函数 (`new foo()`)
+* It is read (`var bar = foo`)
 * 被读取 (`var y = x`)
-* It is passed into a function as an argument (`doSomething(x)`)
-* 传入函数中作为argument对象(`doSomething(x)`)
+* It is passed into a function as an argument (`doSomething(foo)`)
+* 作为参数传递给函数 (`doSomething(foo)`)
 * It is read inside of a function that is passed to another function (`doSomething(function() { foo(); })`)
-* 在传入到另一个函数的函数中被读取
+* 在一个函数的内部读取，这个函数被传递给另一个函数 (`doSomething(function() { foo(); })`)
 
-A variable is *not* considered to be used if it is only ever assigned to (`var x = 5`) or declared.
+A variable is *not* considered to be used if it is only ever declared (`var foo = 5`) or assigned to (`foo = 7`).
 
 一个变量仅仅是被赋值为 (`var x = 5`) 或者是被声明过，则认为它是没被考虑使用。
 
@@ -205,8 +207,8 @@ The `args` option has three settings:
 
 `args` 选项有三个值：
 
-* `after-used` - only the last argument must be used. This allows you, for instance, to have two named parameters to a function and as long as you use the second argument, ESLint will not warn you about the first. This is the default setting.
-* `after-used` - 最后一个参数必须使用。如：一个函数有两个参数，你使用了第二个参数，ESLint 不会报警告。
+* `after-used` - unused positional arguments that occur before the last used argument will not be checked, but all named arguments and all positional arguments after the last used argument will be checked.
+* `after-used` - 不检查最后一个使用的参数之前出现的未使用的位置参数，但是检查最后一个使用的参数之后的所有命名参数和所有位置参数。
 * `all` - all named arguments must be used.
 * `all` - 所有命名参数必须使用。
 * `none` - do not check arguments.
@@ -221,9 +223,10 @@ Examples of **incorrect** code for the default `{ "args": "after-used" }` option
 ```js
 /*eslint no-unused-vars: ["error", { "args": "after-used" }]*/
 
-// 1 error
+// 2 errors, for the parameters after the last used parameter (bar)
 // "baz" is defined but never used
-(function(foo, bar, baz) {
+// "qux" is defined but never used
+(function(foo, bar, baz, qux) {
     return bar;
 })();
 ```
@@ -235,8 +238,8 @@ Examples of **correct** code for the default `{ "args": "after-used" }` option:
 ```js
 /*eslint no-unused-vars: ["error", {"args": "after-used"}]*/
 
-(function(foo, bar, baz) {
-    return baz;
+(function(foo, bar, baz, qux) {
+    return qux;
 })();
 ```
 

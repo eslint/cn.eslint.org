@@ -1,6 +1,8 @@
 ---
 title: no-implied-eval - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-implied-eval.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -12,7 +14,7 @@ It's considered a good practice to avoid using `eval()` in JavaScript. There are
 
 在 JavaScript 中避免使用 `eval()` 被认为是一个很好的实践。这么做是考虑到安全性和性能的影响，这也是为什么很多检查工具（包括 ESLint ）推荐禁用 `eval()`。然而，也有一些其它方式，通过传递一个字符串，并将它解析为 JavaScript 代码，也有类似的问题。
 
-The first is using `setTimeout()`, `setInterval()` or `execScript()` (Internet Explorer only), both of which can accept a string of JavaScript code as their first argument. For example:
+The first is using `setTimeout()`, `setInterval()` or `execScript()` (Internet Explorer only), all of which can accept a string of JavaScript code as their first argument. For example:
 
 首当其冲的就是 `setTimeout()`、`setInterval()` 或者 `execScript()` (仅限IE浏览器)，它们都可以接受一个 JavaScript 字符串代码作为第一个参数。例如：
 

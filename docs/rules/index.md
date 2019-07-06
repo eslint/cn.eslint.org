@@ -13,9 +13,9 @@ No rules are enabled by default. The `"extends": "eslint:recommended"` property 
 
 所有的规则默认都是禁用的。在[配置文件](../user-guide/configuring#extending-configuration-files)中，使用 `"extends": "eslint:recommended"` 来启用推荐的规则，报告一些常见的问题，在下文中这些推荐的规则都带有一个(recommended)标记。
 
-The `--fix` option on the [command line](../user-guide/command-line-interface#fix) automatically fixes problems (currently mostly whitespace) reported by rules which have a wrench (fixable) below.
+The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) automatically fixes problems (currently mostly whitespace) reported by rules which have a wrench (fixable) below.
 
-[命令行](../user-guide/command-line-interface#fix)的 `--fix` 选项用来自动修复规则所报告的问题（目前，大部分是对空白的修复），在下文中会有一个(fixable)的图标。
+[命令行](../user-guide/command-line-interface#fixing-problems)的 `--fix` 选项用来自动修复规则所报告的问题（目前，大部分是对空白的修复），在下文中会有一个(fixable)的图标。
 
 {% for category in site.data.rules.categories %}
 

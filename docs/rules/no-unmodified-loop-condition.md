@@ -1,6 +1,8 @@
 ---
 title: no-unmodified-loop-condition - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-unmodified-loop-condition.md
+rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -33,7 +35,8 @@ variables of those references are modified in the loop.
 
 该规则发现循环条件的引用，检查这些引用的变量在循环过程中是否发生改变。
 
-If a reference is inside of a binary expression or a ternary expression, this rule checks the result of the expression instead.
+If a reference is inside of a binary expression or a ternary expression, this rule checks the result of
+the expression instead.
 
 如果一个引用是在一个二元表达式或三元表达式中，该规则改为检查表达式结果。
 

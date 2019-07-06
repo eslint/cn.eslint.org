@@ -1,6 +1,8 @@
 ---
 title: no-unsafe-negation - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-unsafe-negation.md
+rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -12,9 +14,9 @@ layout: doc
 
 (recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 Just as developers might type `-a + b` when they mean `-(a + b)` for the negative of a sum, they might type `!key in object` by mistake when they almost certainly mean `!(key in object)` to test that a key is not in an object. `!obj instanceof Ctor` is similar.
 
@@ -74,12 +76,6 @@ if(("" + !key) in object) {
     // in a rare situation when that is the intended meaning
 }
 ```
-
-## Options
-
-Nothing.
-
-无。
 
 ## When Not To Use It
 

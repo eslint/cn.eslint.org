@@ -1,6 +1,8 @@
 ---
 title: max-lines - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/max-lines.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -144,13 +146,14 @@ You can turn this rule off if you are not concerned with the number of lines in 
 
 * [complexity](complexity)
 * [max-depth](max-depth)
+* [max-lines-per-function](max-lines-per-function)
 * [max-nested-callbacks](max-nested-callbacks)
 * [max-params](max-params)
 * [max-statements](max-statements)
 
 ## Compatibility
 
-* **JSCS**: [maximumNumberOfLines](http://jscs.info/rule/maximumNumberOfLines)
+* **JSCS**: [maximumNumberOfLines](https://jscs-dev.github.io/rule/maximumNumberOfLines)
 
 ## Version
 

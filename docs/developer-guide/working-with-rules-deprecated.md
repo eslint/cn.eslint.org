@@ -1,6 +1,8 @@
 ---
 title: Working with Rules
 layout: doc_en
+edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/working-with-rules-deprecated.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -38,7 +40,7 @@ module.exports.schema = []; // no options
 
 ## Rule Basics
 
-`schema` (array) specifies the [options](#options-schemas) so ESLint can prevent invalid [rule configurations](../user-guide/configuring)
+`schema` (array) specifies the [options](#options-schemas) so ESLint can prevent invalid [rule configurations](../user-guide/configuring#configuring-rules)
 
 `create` (function) returns an object with methods that ESLint calls to "visit" nodes while traversing the abstract syntax tree (AST as defined by [ESTree](https://github.com/estree/estree)) of JavaScript code:
 
@@ -78,7 +80,7 @@ module.exports = function(context) {
 
 The `context` object contains additional functionality that is helpful for rules to do their jobs. As the name implies, the `context` object contains information that is relevant to the context of the rule. The `context` object has the following properties:
 
-* `parserOptions` - the parser options configured for this run (more details [here](../user-guide/configuring)).
+* `parserOptions` - the parser options configured for this run (more details [here](../user-guide/configuring#specifying-parser-options)).
 * `id` - the rule ID.
 * `options` - an array of rule options.
 * `settings` - the `settings` from configuration.
@@ -482,7 +484,7 @@ valid: [
 ]
 ```
 
-The options available and the expected syntax for `parserOptions` is the same as those used in [configuration](../user-guide/configuring).
+The options available and the expected syntax for `parserOptions` is the same as those used in [configuration](../user-guide/configuring#specifying-parser-options).
 
 ### Write Several Tests
 

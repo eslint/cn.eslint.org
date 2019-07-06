@@ -1,6 +1,8 @@
 ---
 title: no-return-await - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-return-await.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,10 @@ layout: doc
 
 # 禁用不必要的 `return await` (no-return-await)
 
-Inside an `async function`, `return await` is useless. Since the return value of an `async function` is always wrapped in `Promise.resolve`, `return await` doesn't actually do anything except add extra time before the overarching Promise resolves or rejects. This pattern is almost certainly due to programmer ignorance of the return semantics of `async function`s.
+Inside an `async function`, `return await` is seldom useful. Since the return value of an `async function` is always wrapped in `Promise.resolve`, `return await` doesn’t actually do anything except add extra time before the overarching Promise resolves or rejects. The only valid exception is if `return await` is used in a try/catch statement to catch errors from another Promise-based function.
 
-在 `async function`， `return await` 是没有用的 。因为 `async function` 的返回值总是包裹在 `Promise.resolve`，在 Promise resolve 或 reject 之前，`return await` 实际上不会做任何事情。这种模式几乎可以肯定是由于程序员不知道 `async function` 语法的返回值造成的。
+在 `async function`， `return await` 很少有用。因为 `async function` 的返回值总是封装在 `Promise.resolve`，`return await` 实际上并没有做任何事情，只是在 Promise resolve 或 reject 之前增加了额外的时间。唯一有效是，如果 try/catch 语句中使用 `return await` 来捕获另一个基于 Promise 的函数的错误，则会出现异常。
+
 
 ## Rule Details
 
@@ -24,7 +27,7 @@ Examples of **incorrect** code for this rule:
 
 ```js
 async function foo() {
-  return await bar();
+    return await bar();
 }
 ```
 
@@ -34,23 +37,23 @@ Examples of **correct** code for this rule:
 
 ```js
 async function foo() {
-  return bar();
+    return bar();
 }
 
 async function foo() {
-  await bar();
-  return;
+    await bar();
+    return;
 }
 
 async function foo() {
-  const x = await bar();
-  return x;
+    const x = await bar();
+    return x;
 }
 
 async function foo() {
-  try {
-    return await bar();
-  } catch (error) {}
+    try {
+        return await bar();
+    } catch (error) {}
 }
 ```
 

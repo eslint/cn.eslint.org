@@ -1,6 +1,8 @@
 ---
 title: prefer-numeric-literals - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-numeric-literals.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 禁用 `parseInt()` 和 `Number.parseInt()`，使用二进制，八进制和十六进制字面量 (prefer-numeric-literals)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-（可修复的）`--fix` [命令行](../user-guide/command-line-interface#fix)选项可自动修复一些该规则反映的问题。
+（可修复的）`--fix` [命令行](../user-guide/command-line-interface#fixing-problems)选项可自动修复一些该规则反映的问题。
 
 The `parseInt()` and `Number.parseInt()` functions can be used to turn binary, octal, and hexadecimal strings into integers. As binary, octal, and hexadecimal literals are supported in ES6, this rule encourages use of those numeric literals instead of `parseInt()` or `Number.parseInt()`.
 
@@ -75,7 +77,7 @@ If you want to allow use of `parseInt()` or `Number.parseInt()` for binary, octa
 
 ## Compatibility
 
-* **JSCS**: [requireNumericLiterals](http://jscs.info/rule/requireNumericLiterals)
+* **JSCS**: [requireNumericLiterals](https://jscs-dev.github.io/rule/requireNumericLiterals)
 
 ## Version
 

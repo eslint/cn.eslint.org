@@ -2,6 +2,33 @@
   margin-top: 30px;
 }
 
+.anchorjs-link {
+  opacity: 0;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*:hover > .anchorjs-link,
+.anchorjs-link:focus  {
+  opacity: 1;
+}
+
+@font-face {
+  font-family:'anchorjs-icons';
+  src: url('@{icon-font-path}@{icon-font-name}.eot');
+  src: url('@{icon-font-path}@{icon-font-name}.eot?#iefix') format('embedded-opentype'),
+  url('@{icon-font-path}@{icon-font-name}.woff2') format('woff2'),
+  url('@{icon-font-path}@{icon-font-name}.woff') format('woff'),
+  url('@{icon-font-path}@{icon-font-name}.ttf') format('truetype'),
+  url('@{icon-font-path}@{icon-font-name}.svg#@{icon-font-svg-id}') format('svg');
+}
+
+[data-anchorjs-icon]::after {
+  content: '\e144';
+  font-size: 24px;
+}
+
 /* We need to push the content because of the fixed header */
 body {
   padding-top: 80px;
@@ -21,27 +48,39 @@ body {
 }
 
 p {
-  &.incorrect + div + div + div > pre, /* vars-on-top */
-  &.incorrect + div + div > pre, /* no-continue */
-  &.incorrect + div > pre {
+  &.incorrect + div + div + div pre, /* vars-on-top */
+  &.incorrect + div + div pre, /* no-continue */
+  &.incorrect + div pre {
     background-color: #fff6f6; /* hsl(0,100%,98%) light red */
   }
 
-  &.correct + div + div + div > pre, /* vars-on-top */
-  &.correct + div + div > pre, /* no-continue */
-  &.correct + div > pre {
+  &.correct + div + div + div pre, /* vars-on-top */
+  &.correct + div + div pre, /* no-continue */
+  &.correct + div pre {
     background-color: #f6fff6; /* hsl(120,100%,98%) light green */
   }
 
   &.icon {
     position:relative;
+
+    &.correct:before {
+      color: #228b22; /* use green color stand for *correct* */
+    }
+
+    &.incorrect:before {
+      color: #dc143c; /* use red color stand for *incorrect* */
+    }
   }
 
   &.icon:before {
     position: absolute;
     left: -1.5em; /* negative padding-left of ul */
     font-family: "Glyphicons Halflings";
-    color: #4d4d4d; /* hsl(0,0%,30%) is 10% lighter gray than text */
+
+    @media (max-width: @screen-xs-max) {
+      position: static;
+      margin-right: 0.5em;
+    }
   }
 
   &.removed ~ p.fixable:before {

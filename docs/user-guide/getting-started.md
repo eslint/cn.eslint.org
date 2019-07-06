@@ -2,6 +2,7 @@
 title: Getting Started with ESLint
 layout: doc
 edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/getting-started.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -32,9 +33,9 @@ Note that, for some reason, not everyone can see the vedio on <a href="https://y
 
 ## Installation and Usage
 
-Prerequisites: [Node.js](https://nodejs.org/en/) (>=4.x), npm version 2+.
+Prerequisites: [Node.js](https://nodejs.org/en/) (>=6.14), npm version 3+.
 
-先决条件：[Node.js](https://nodejs.org/en/) (>=4.x), npm version 2+。
+先决条件：[Node.js](https://nodejs.org/en/) (>=6.14), npm version 3+。
 
 There are two ways to install ESLint: globally and locally.
 
@@ -65,6 +66,18 @@ After that, you can run ESLint in your project's root directory like this:
 ```
 $ ./node_modules/.bin/eslint yourfile.js
 ```
+
+Instead of navigating to `./node_modules/.bin/` you may also use `npx` to run `eslint`:
+
+除了导航到 `./node_modules/.bin/`，你也可以使用 `npx` 运行 `eslint` ：
+
+```
+$ npx eslint
+```
+
+**Note:** If ESLint wasn't manually installed (via `npm`), `npx` will install `eslint` to a temporary directory and execute it.
+
+**注意：**如果 ESLint 不是手动安装的(通过 `npm`)， `npx` 将安装 `eslint` 到一个临时目录并执行它。
 
 Any plugins or shareable configs that you use must also be installed locally to work with a locally-installed ESLint.
 

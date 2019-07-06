@@ -1,6 +1,8 @@
 ---
 title: comma-dangle - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/comma-dangle.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 要求或禁止使用拖尾逗号 (comma-dangle)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 Trailing commas in object literals are valid according to the ECMAScript 5 (and ECMAScript 3!) spec. However, IE8 (when not in IE8 document mode) and below will throw an error when it encounters trailing commas in JavaScript.
 
@@ -110,12 +112,16 @@ The default for each option is `"never"` unless otherwise specified.
 * `imports` 针对 ES 模块的 import 声明。 (比如 `import {a,} from "foo";`)
 * `exports` is for export declarations of ES Modules. (e.g. `export {a,};`)
 * `exports` 针对 ES 模块的 export 声明。 (比如 `export {a,};`)
-* `functions` is for function declarations and function calls. (e.g. `(function(a,){ })(b,);`)<br>
-* `functions` 针对函数声明和函数调用。 (比如 `(function(a,){ })(b,);`)<br>
-  
+* `functions` is for function declarations and function calls. (e.g. `(function(a,){ })(b,);`)
+* `functions` 针对函数声明和函数调用。 (比如 `(function(a,){ })(b,);`)
+    
 `functions` is set to `"ignore"` by default for consistency with the string option.
 
-`functions` 默认设置为 `"ignore"` 以与字符串选项保持一致。
+`functions` 默认设置为 `"ignore"` 以便与字符串选项保持一致。
+
+`functions` should only be enabled when linting ECMAScript 2017 or higher.
+
+`functions` 应该只在检测 ECMAScript 2017 或 更高版本时启用。
 
 ### never
 

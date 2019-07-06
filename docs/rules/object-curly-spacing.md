@@ -1,6 +1,8 @@
 ---
 title: object-curly-spacing - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/object-curly-spacing.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -8,9 +10,9 @@ layout: doc
 
 # 强制在花括号中使用一致的空格 (object-curly-spacing)
 
-(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fix) can automatically fix some of the problems reported by this rule.
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-(fixable) [命令行](../user-guide/command-line-interface#fix)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
 
 While formatting preferences are very personal, a number of style guides require
 or disallow spaces between curly braces in the following situations:
@@ -34,7 +36,7 @@ export { foo };
 
 ## Rule Details
 
-This rule enforce consistent spacing inside braces of object literals, destructuring assignments, and import/export specifiers.
+This rule enforces consistent spacing inside braces of object literals, destructuring assignments, and import/export specifiers.
 
 该规则强制在对象字面量、解构赋值 和 import/export 说明符的花括号中使用一致的空格。
 
@@ -197,9 +199,10 @@ You can turn this rule off if you are not concerned with the consistency of spac
 
 ## Related Rules
 
+* [array-bracket-spacing](array-bracket-spacing)
 * [comma-spacing](comma-spacing)
+* [computed-property-spacing](computed-property-spacing)
 * [space-in-parens](space-in-parens)
-* [space-in-brackets](space-in-brackets) (deprecated)
 
 ## Version
 

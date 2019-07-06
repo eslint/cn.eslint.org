@@ -1,6 +1,8 @@
 ---
 title: line-comment-position - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/line-comment-position.md
+rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -145,7 +147,7 @@ If you aren't concerned about having different line comment styles, then you can
 
 ## Compatibility
 
-**JSCS**: [validateCommentPosition](http://jscs.info/rule/validateCommentPosition)
+**JSCS**: [validateCommentPosition](https://jscs-dev.github.io/rule/validateCommentPosition)
 
 ## Version
 

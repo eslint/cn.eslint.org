@@ -1,6 +1,8 @@
 ---
 title: no-unused-expressions - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-unused-expressions.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -10,21 +12,21 @@ layout: doc
 
 An unused expression which has no effect on the state of the program indicates a logic error.
 
-未使用过的表达式在程序中不起任何作用，通常是个逻辑错误。
+对程序状态没有影响的未使用表达式往往是个逻辑错误。
 
-For example, `n + 1;` is not a syntax error, but it might be a typing mistake where a programmer meant an assignment statement `n += 1;` instead.
+For example, `n + 1;` is not a syntax error, but it might be a typing mistake where a programmer meant an assignment statement `n += 1;` instead. Sometimes, such unused expressions may be eliminated by some build tools in production environment, which possibly breaks application logic.
 
-例如，`n + 1;` 不是语法错误，但它可能是程序员的书写错误，原本是想写赋值语句 `n += 1;`。
+例如，`n + 1;` 不是语法错误，但它可能是程序员的书写错误，原本是想写赋值语句 `n += 1;`。有时，生产环境中的一些构建工具可能会消除这些未使用的表达式，这可能会破坏应用程序逻辑。
 
 ## Rule Details
 
 This rule aims to eliminate unused expressions which have no effect on the state of the program.
 
-此规则的目的在于消除未使用过的表达式，它们在程序中不起任何作用。 
+此规则旨在消除不使用的表达式，这些表达式对程序的状态没有影响。
 
 This rule does not apply to function calls or constructor calls with the `new` operator, because they could have *side effects* on the state of the program.
 
-该规则不适用于使用 `new` 操作符的函数或构造函数调用，因为它们可能会有副作用。
+此规则不适用于函数调用或带有 `new` 操作符的构造函数调用，因为它们可能对程序的状态产生“副作用”。
 
 ```js
 var i = 0;

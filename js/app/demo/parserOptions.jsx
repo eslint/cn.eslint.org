@@ -16,9 +16,10 @@ define(["react"], function(React) {
                     >
                         <option value="3">3</option>
                         <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
+                        <option value="6">2015</option>
+                        <option value="7">2016</option>
+                        <option value="8">2017</option>
+                        <option value="9">2018</option>
                     </select>
                 </div>
                 <div className="col-md-4">
@@ -39,7 +40,7 @@ define(["react"], function(React) {
                     <h3>ECMA Features</h3>
                     <div className="ecmaFeatures list">
                         {
-                            ["jsx", "globalReturn", "impliedStrict", "experimentalObjectRestSpread"].map(function(ecmaFeature) {
+                            ["jsx", "globalReturn", "impliedStrict"].map(function(ecmaFeature) {
                                 return (
                                     <div className="checkbox" key={ecmaFeature}>
                                         <label htmlFor={ecmaFeature}>

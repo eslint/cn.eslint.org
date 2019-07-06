@@ -1,6 +1,8 @@
 ---
 title: no-await-in-loop - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-await-in-loop.md
+rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -88,12 +90,13 @@ async function foo(things) {
 
 ## When Not To Use It
 
-In many cases the iterations of a loop are not actually independent of each other. For example, the
+In many cases the iterations of a loop are not actually independent of each-other. For example, the
 output of one iteration might be used as the input to another. Or, loops may be used to retry
-asynchronous operations that were unsuccessful. In such cases it makes sense to use `await` within a
+asynchronous operations that were unsuccessful. Or, loops may be used to prevent your code from sending
+an excessive amount of requests in parallel. In such cases it makes sense to use `await` within a
 loop and it is recommended to disable the rule via a standard ESLint disable comment.
 
-在许多情况下，一个循环的迭代实际上并不是相互独立的。例如，一次迭代的输出可能是另一次迭代的输入。或者，循环可以重试不成功的异步操作。在这种情况下，在循环中使用 `await` 是有意义的，并建议使用标准的 ESLint 禁用注释禁用规则。
+在许多情况下，一个循环的迭代实际上并不是相互独立的。例如，一次迭代的输出可能是另一次迭代的输入。或者，循环可以重试不成功的异步操作。或者，循环可用来防止代码发送并行处理过多的请求。在这种情况下，在循环中使用 `await` 是有意义的，并建议使用标准的 ESLint 禁用注释来禁用规则。
 
 ## Version
 

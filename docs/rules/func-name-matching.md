@@ -1,6 +1,8 @@
 ---
 title: func-name-matching - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/func-name-matching.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -113,6 +115,65 @@ module.exports = function foo(name) {};
 module['exports'] = function foo(name) {};
 ```
 
+## Options
+
+This rule takes an optional string of "always" or "never" (when omitted, it defaults to "always"), and an optional options object with two properties `considerPropertyDescriptor` and `includeCommonJSModuleExports`.
+
+该规则接受一个可选字符串 `always` 或 `never` (省略时默认为 `always`)，以及一个可选选项对象，该对象具有两个属性`considerPropertyDescriptor` 和 `includeCommonJSModuleExports`。
+
+### considerPropertyDescriptor
+
+A boolean value that defaults to `false`. If `considerPropertyDescriptor` is set to true, the check will take into account the use of `Object.create`, `Object.defineProperty`, `Object.defineProperties`, and `Reflect.defineProperty`.
+
+是个布尔值，默认为 `false`。如果 `considerPropertyDescriptor` 设置为 `true`，那么该规则将检测 `Object.create`、`Object.defineProperty`、`Object.defineProperties` 和 `Reflect.defineProperty` 的使用。
+
+Examples of **correct** code for the `{ considerPropertyDescriptor: true }` option:
+
+选项 `{ considerPropertyDescriptor: true }` 的 **正确** 代码示例：
+
+```js
+/*eslint func-name-matching: ["error", { "considerPropertyDescriptor": true }]*/
+/*eslint func-name-matching: ["error", "always", { "considerPropertyDescriptor": true }]*/ // these are equivalent
+var obj = {};
+Object.create(obj, {foo:{value: function foo() {}}});
+Object.defineProperty(obj, 'bar', {value: function bar() {}});
+Object.defineProperties(obj, {baz:{value: function baz() {} }});
+Reflect.defineProperty(obj, 'foo', {value: function foo() {}});
+```
+
+Examples of **incorrect** code for the `{ considerPropertyDescriptor: true }` option:
+
+选项 `{ considerPropertyDescriptor: true }` 的 **错误** 代码示例：
+
+```js
+/*eslint func-name-matching: ["error", { "considerPropertyDescriptor": true }]*/
+/*eslint func-name-matching: ["error", "always", { "considerPropertyDescriptor": true }]*/ // these are equivalent
+var obj = {};
+Object.create(obj, {foo:{value: function bar() {}}});
+Object.defineProperty(obj, 'bar', {value: function baz() {}});
+Object.defineProperties(obj, {baz:{value: function foo() {} }});
+Reflect.defineProperty(obj, 'foo', {value: function value() {}});
+```
+
+### includeCommonJSModuleExports
+
+A boolean value that defaults to `false`. If `includeCommonJSModuleExports` is set to true, `module.exports` and `module["exports"]` will be checked by this rule.
+
+是个布尔值，默认为 `false`。如果 `includeCommonJSModuleExports` 设置为 `true`，那么该规则将检测 `module.exports` 、`module["exports"]`。
+
+
+Examples of **incorrect** code for the `{ includeCommonJSModuleExports: true }` option:
+
+选项 `{ includeCommonJSModuleExports: true }` 的 **错误** 代码示例：
+
+```js
+/*eslint func-name-matching: ["error", { "includeCommonJSModuleExports": true }]*/
+/*eslint func-name-matching: ["error", "always", { "includeCommonJSModuleExports": true }]*/ // these are equivalent
+
+module.exports = function foo(name) {};
+module['exports'] = function foo(name) {};
+```
+
 ## When Not To Use It
 
 Do not use this rule if you want to allow named functions to have different names from the variable or property to which they are assigned.
@@ -121,7 +182,7 @@ Do not use this rule if you want to allow named functions to have different name
 
 ## Compatibility
 
-* **JSCS**: [requireMatchingFunctionName](http://jscs.info/rule/requireMatchingFunctionName)
+* **JSCS**: [requireMatchingFunctionName](https://jscs-dev.github.io/rule/requireMatchingFunctionName)
 
 ## Version
 

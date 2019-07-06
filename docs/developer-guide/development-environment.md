@@ -1,6 +1,8 @@
 ---
 title: Development Environment
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/development-environment.md
+
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -138,7 +140,7 @@ Runs just the JavaScript and JSON linting on the repository
 
 只运行仓库中的 JavaScript 和 JSON 文件进行检测
 
-#### npm run browserify
+#### npm run webpack
 
 Generates `build/eslint.js`, a version of ESLint for use in the browser
 

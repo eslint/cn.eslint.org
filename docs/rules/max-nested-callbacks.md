@@ -1,6 +1,8 @@
 ---
 title: max-nested-callbacks - Rules
 layout: doc
+edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/max-nested-callbacks.md
+rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
@@ -100,6 +102,8 @@ function handleFoo4() {
 * [complexity](complexity)
 * [max-depth](max-depth)
 * [max-len](max-len)
+* [max-lines](max-lines)
+* [max-lines-per-function](max-lines-per-function)
 * [max-params](max-params)
 * [max-statements](max-statements)
 
