@@ -61,6 +61,7 @@ Basic configuration:
   --global [String]              Define global variables
   --parser String                Specify the parser to be used
   --parser-options Object        Specify parser options
+  --resolve-plugins-relative-to path::String  A folder where plugins should be resolved from, CWD by default
 
 Specifying rules and plugins:
   --rulesdir [path::String]      Use additional rules from this directory
@@ -149,20 +150,6 @@ This example uses the configuration file at `~/my-eslint.json`.
 
 这个例子使用了 `~/my-eslint.json` 作为配置文件。
 
-It also accepts a module ID of a [sharable config](../developer-guide/shareable-configs).
-
-它还接受 [sharable config](../developer-guide/shareable-configs) 的一个模块的 ID。
-
-Example:
-
-示例：
-
-    eslint -c myconfig file.js
-
-This example directly uses the sharable config `eslint-config-myconfig`.
-
-这个例子直接使用可共享的配置 `eslint-config-myconfig`。
-
 If `.eslintrc.*` and/or `package.json` files are also used for configuration (i.e., `--no-eslintrc` was not specified), the configurations will be merged. Options from this configuration file have precedence over the options from `.eslintrc.*` and `package.json` files.
 
 如果 `.eslintrc.*` 和/或 `package.json` 文件也用于配置（比如，不指定 `--no-eslintrc`），配置将被合并。此配置文件中的选项优先于 `.eslintrc.*` 和 `package.json` 文件中的选项。
@@ -240,6 +227,16 @@ Examples:
     echo '3 ** 4' | eslint --stdin --parser-options=ecmaVersion:6 # will fail with a parsing error
     echo '3 ** 4' | eslint --stdin --parser-options=ecmaVersion:7 # succeeds, yay!
 
+#### `--resolve-plugins-relative-to`
+
+Changes the folder where plugins are resolved from. By default, plugins are resolved from the current working directory. This option should be used when plugins were installed by someone other than the end user. It should be set to the project directory of the project that has a dependency on the necessary plugins. For example:
+
+更改插件解析所在的文件夹。默认情况下，插件从当前工作目录解析。当插件不是由其他人而非最终用户安装的时候，应该使用这个选项。它应该设置为依赖于必要插件的项目的项目目录。例如：
+
+* When using a config file that is located outside of the current project (with the `--config` flag), if the config uses plugins which are installed locally to itself, `--resolve-plugins-relative-to` should be set to the directory containing the config file.
+* 当使用位于当前项目外部的配置文件(带有 `--config` 标志)时，如果配置使用本地安装的插件，`--resolve-plugins-relative-to` 应该设置为包含配置文件的目录。
+* If an integration has dependencies on ESLint and a set of plugins, and the tool invokes ESLint on behalf of the user with a preset configuration, the tool should set `--resolve-plugins-relative-to` to the top-level directory of the tool.
+* 如果集成依赖于 ESLint 和一组插件，并且该工具使用预先设置的配置代表用户调用 ESLint，则该工具应将`--resolve-plugins-relative-to` 设置为工具的顶层目录。
 
 ### Specifying rules and plugins
 

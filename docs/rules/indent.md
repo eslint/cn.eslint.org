@@ -705,7 +705,7 @@ Examples of **correct** code for this rule with the `4, { "ImportDeclaration": 1
 默认选项 `4, { "ImportDeclaration": 1 }` 的 **正确** 代码示例：
 
 ```js
-/*eslint indent: ["error", 4, { ImportDeclaration: 1 }]*/
+/*eslint indent: ["error", 4, { "ImportDeclaration": 1 }]*/
 
 import { foo,
     bar,
@@ -719,12 +719,12 @@ import {
 } from 'qux';
 ```
 
-Examples of **incorrect** code for this rule with the `4, { ImportDeclaration: "first" }` option:
+Examples of **incorrect** code for this rule with the `4, { "ImportDeclaration": "first" }` option:
 
-选项 `4, { ImportDeclaration: "first" }` 的 **错误** 代码示例：
+选项 `4, { "ImportDeclaration": "first" }` 的 **错误** 代码示例：
 
 ```js
-/*eslint indent: ["error", 4, { ImportDeclaration: "first" }]*/
+/*eslint indent: ["error", 4, { "ImportDeclaration": "first" }]*/
 
 import { foo,
     bar,
@@ -732,12 +732,12 @@ import { foo,
 } from 'qux';
 ```
 
-Examples of **correct** code for this rule with the `4, { ImportDeclaration: "first" }` option:
+Examples of **correct** code for this rule with the `4, { "ImportDeclaration": "first" }` option:
 
-选项 `4, { ImportDeclaration: "first" }` 的 **正确** 代码示例：
+选项 `4, { "ImportDeclaration": "first" }` 的 **正确** 代码示例：
 
 ```js
-/*eslint indent: ["error", 4, { ImportDeclaration: "first" }]*/
+/*eslint indent: ["error", 4, { "ImportDeclaration": "first" }]*/
 
 import { foo,
          bar,
@@ -861,7 +861,7 @@ if (foo) {
 ## Compatibility
 
 * **JSHint**: `indent`
-* **JSCS**: [validateIndentation](http://jscs.info/rule/validateIndentation)
+* **JSCS**: [validateIndentation](https://jscs-dev.github.io/rule/validateIndentation)
 
 ## Version
 

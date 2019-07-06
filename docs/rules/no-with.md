@@ -10,6 +10,10 @@ rule_type: suggestion
 
 # 禁用 `with` 语句 (no-with)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 The `with` statement is potentially problematic because it adds members of an object to the current scope, making it impossible to tell what a variable inside the block actually refers to.
 
 `with` 是潜在的问题，因为它会在当前的域中增加对象成员，使得区分实际块中的变量指的是什么变的不可能。

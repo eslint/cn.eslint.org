@@ -10,6 +10,10 @@ rule_type: suggestion
 
 # 禁止使用看起来像除法的正则表达式 (no-div-regex)
 
+(fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+(fixable) [命令行](../user-guide/command-line-interface#fixing-problems)中的 `--fix` 选项可以自动修复一些该规则报告的问题。
+
 Require regex literals to escape division operators.
 
 要求正则表达式字面量避开除法操作符。
@@ -41,7 +45,7 @@ Examples of **correct** code for this rule:
 ```js
 /*eslint no-div-regex: "error"*/
 
-function bar() { return /\=foo/; }
+function bar() { return /[=]foo/; }
 ```
 
 ## Related Rules

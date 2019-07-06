@@ -10,6 +10,10 @@ rule_type: suggestion
 
 # 禁止不必要的 `catch` 子句 (no-useless-catch)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 A `catch` clause that only rethrows the original error is redundant, and has no effect on the runtime behavior of the program. These redundant clauses can be a source of confusion and code bloat, so it's better to disallow these unnecessary `catch` clauses.
 
 只重新抛出原始错误的 `catch` 子句是冗余的，对程序的运行时行为没有影响。这些冗余子句可能会导致混乱和代码膨胀，所以最好不要使用这些不必要的 `catch` 子句。

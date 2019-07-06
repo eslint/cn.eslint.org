@@ -10,6 +10,10 @@ rule_type: problem
 
 # 禁止使用异步函数作为 Promise executor (no-async-promise-executor)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 The `new Promise` constructor accepts an *executor* function as an argument, which has `resolve` and `reject` parameters that can be used to control the state of the created Promise. For example:
 
 `new Promise` 构造函数接收一个 *executor* 函数作为参数，该函数具有 `resolve` 和 `reject` 两个参数，可用于控制创建的 Promise 的状态。例如:

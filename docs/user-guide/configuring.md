@@ -96,23 +96,16 @@ Setting parser options helps ESLint determine what is a parsing error. All langu
 
 设置解析器选项能帮助 ESLint 确定什么是解析错误，所有语言选项默认都是 `false`。
 
-### Deprecated
-
-* `ecmaFeatures.experimentalObjectRestSpread` - enable support for the experimental [object rest/spread properties](https://github.com/tc39/proposal-object-rest-spread). This syntax has been supported in `ecmaVersion: 2018`. This option will be removed in the future.
-* `ecmaFeatures.experimentalObjectRestSpread` - 启用对实验性的 [object rest/spread properties](https://github.com/tc39/proposal-object-rest-spread) 支持。该语法在 `ecmaVersion: 2018` 中得到支持。该选项在未来将被移除。
-
 ## Specifying Parser
 
 By default, ESLint uses [Espree](https://github.com/eslint/espree) as its parser. You can optionally specify that a different parser should be used in your configuration file so long as the parser meets the following requirements:
 
 ESLint 默认使用[Espree](https://github.com/eslint/espree)作为其解析器，你可以在配置文件中指定一个不同的解析器，只要该解析器符合下列要求：
 
-1. It must be an npm module installed locally.
-1. 它必须是本地安装的一个 npm 模块。
-1. It must have an Esprima-compatible interface (it must export a `parse()` method).
-1. 它必须有兼容 Esprima 的接口（它必须输出一个 `parse()` 方法）
-1. It must produce Esprima-compatible AST and token objects.
-1. 它必须产出兼容 Esprima 的 AST 和 token 对象。
+1. It must be a Node module loadable from the config file where it appears. Usually, this means you should install the parser package separately using npm.
+1. 它必须是一个 Node 模块，可以从它出现的配置文件中加载。通常，这意味着应该使用 npm 单独安装解析器包。
+1. It must conform to the [parser interface](/docs/developer-guide/working-with-plugins#working-with-custom-parsers).
+1. 它必须符合 [parser interface](/docs/developer-guide/working-with-plugins#working-with-custom-parsers)。
 
 Note that even with these compatibilities, there are no guarantees that an external parser will work correctly with ESLint and ESLint will not fix bugs related to incompatibilities with other parsers.
 
@@ -145,6 +138,65 @@ The following parsers are compatible with ESLint:
 Note when using a custom parser, the `parserOptions` configuration property is still required for ESLint to work properly with features not in ECMAScript 5 by default. Parsers are all passed `parserOptions` and may or may not use them to determine which features to enable.
 
 注意，在使用自定义解析器时，为了让 ESLint 在处理非 ECMAScript 5 特性时正常工作，配置属性 `parserOptions` 仍然是必须的。解析器会被传入 `parserOptions`，但是不一定会使用它们来决定功能特性的开关。
+
+## Specifying Processor
+
+Plugins may provide processors. Processors can extract JavaScript code from another kind of files, then lets ESLint lint the JavaScript code. Or processors can convert JavaScript code in preprocessing for some purpose.
+
+插件可以提供处理器。处理器可以从另一种文件中提取 JavaScript 代码，然后让 ESLint 检测 JavaScript 代码。或者处理器可以在预处理中转换 JavaScript 代码。
+
+To specify processors in a configuration file, use the `processor` key with the concatenated string of a plugin name and a processor name by a slash. For example, the following enables the processor `a-processor` that the plugin `a-plugin` provided:
+
+若要在配置文件中指定处理器，请使用 `processor` 键，并使用由插件名和处理器名组成的串接字符串加上斜杠。例如，下面的选项启用插件 `a-plugin` 提供的处理器 `a-processor`：
+
+```json
+{
+    "plugins": ["a-plugin"],
+    "processor": "a-plugin/a-processor"
+}
+```
+
+To specify processors for a specific kind of files, use the combination of the `overrides` key and the `processor` key. For example, the following uses the processor `a-plugin/markdown` for `*.md` files.
+
+要为特定类型的文件指定处理器，请使用 `overrides` 键和 `processor` 键的组合。例如，下面对 `*.md` 文件使用处理器 `a-plugin/markdown`。
+
+```json
+{
+    "plugins": ["a-plugin"],
+    "overrides": [
+        {
+            "files": ["*.md"],
+            "processor": "a-plugin/markdown"
+        }
+    ]
+}
+```
+
+Processors may make named code blocks such as `0.js` and `1.js`. ESLint handles such a named code block as a child file of the original file. You can specify additional configurations for named code blocks in the `overrides` section of the config. For example, the following disables `strict` rule for the named code blocks which end with `.js` in markdown files.
+
+处理器可以生成命名的代码块，如 `0.js` 和 `1.js`。ESLint 将这样的命名代码块作为原始文件的子文件处理。你可以在配置的 `overrides` 部分为已命名的代码块指定附加配置。例如，下面的命令对以 `.js` 结尾的 markdown 文件中的已命名代码块禁用 `strict` 规则。
+
+```json
+{
+    "plugins": ["a-plugin"],
+    "overrides": [
+        {
+            "files": ["*.md"],
+            "processor": "a-plugin/markdown"
+        },
+        {
+            "files": ["**/*.md/*.js"],
+            "rules": {
+                "strict": "off"
+            }
+        }
+    ]
+}
+```
+
+ESLint checks the file extension of named code blocks then ignores those if [`--ext` CLI option](../user-guide/command-line-interface#--ext) didn't include the file extension. Be sure to specify the `--ext` option if you wanted to lint named code blocks other than `*.js`.
+
+ESLint 检查指定代码块的文件扩展名，如果 [`--ext` CLI option](../user-guide/command-line-interface#--ext) 不包含文件扩展名，则忽略这些扩展名。如果您想要删除除 `*.js` 之外的已命名代码块，请确保指定 `--ext` 选项。
 
 ## Specifying Environments
 
@@ -381,7 +433,7 @@ For historical reasons, the boolean value `false` and the string value `"readabl
 
 ## Configuring Plugins
 
-ESLint supports the use of third-party plugins. Before using the plugin you have to install it using npm.
+ESLint supports the use of third-party plugins. Before using the plugin, you have to install it using npm.
 
 ESLint 支持使用第三方插件。在使用插件之前，你必须使用 npm 安装它。
 
@@ -409,9 +461,9 @@ And in YAML:
     - eslint-plugin-plugin2
 ```
 
-**Note:** Due to the behavior of Node's `require` function, a globally-installed instance of ESLint can only use globally-installed ESLint plugins, and locally-installed version can only use *locally-installed* plugins. Mixing local and global plugins is not supported.
+**Note:** Plugins are resolved relative to the current working directory of the ESLint process. In other words, ESLint will load the same plugin as a user would obtain by running `require('eslint-plugin-pluginname')` in a Node REPL from their project root.
 
-**注意：**由于 Node.js 的 `require` 函数的行为，全局安装的 ESLint 实例只能使用全局安装的 ESLint 插件，本地安装的版本，只能用 *本地安装* 的插件。不支持混合本地和全局插件。
+**注意：**插件是相对于 ESLint 进程的当前工作目录解析的。换句话说，ESLint 将加载与用户通过从项目 Node 交互解释器运行 `('eslint-plugin-pluginname')` 获得的相同的插件。
 
 ## Configuring Rules
 
@@ -873,14 +925,14 @@ The `extends` property value is either:
 
 `extends` 属性值可以是：
 
-* a string that specifies a configuration
-* 在配置中指定的一个字符串
+* a string that specifies a configuration (either a path to a config file, the name of a shareable config, `eslint:recommended`, or `eslint:all`)
+* 指定配置的字符串(配置文件的路径、可共享配置的名称、`eslint:recommended` 或 `eslint:all`)
 * an array of strings: each additional configuration extends the preceding configurations
 * 字符串数组：每个配置继承它前面的配置
 
-ESLint extends configurations recursively so a base configuration can also have an `extends` property.
+ESLint extends configurations recursively, so a base configuration can also have an `extends` property. Relative paths and shareable config names in an `extends` property are resolved from the location of the config file where they appear.
 
-ESLint 递归地进行扩展配置，所以一个基础的配置也可以有一个 `extends` 属性。
+ESLint递归地扩展配置，因此基本配置也可以具有 `extends` 属性。`extends` 属性中的相对路径和可共享配置名从配置文件中出现的位置解析。
 
 The `rules` property can do any of the following to extend (or override) the set of rules:
 
@@ -1016,7 +1068,9 @@ JSON 格式的一个配置文件的例子：
 
 The `extends` property value can be an absolute or relative path to a base [configuration file](#using-configuration-files).
 
-`extends` 属性值可以是基本[配置文件](#using-configuration-files)的绝对路径或相对路径。
+The `extends` property value can be an absolute or relative path to a base [configuration file](#using-configuration-files). ESLint resolves a relative path to a base configuration file relative to the configuration file that uses it.
+
+`extends` 属性值可以是到基本[配置文件](#using-configuration-files)的绝对路径，也可以是相对路径。ESLint 解析一个相对于使用它的配置文件的基本配置文件的相对路径。
 
 ESLint resolves a relative path to a base configuration file relative to the configuration file that uses it **unless** that file is in your home directory or a directory that isn't an ancestor to the directory in which ESLint is installed (either locally or globally). In those cases, ESLint resolves the relative path to the base file relative to the linted **project** directory (typically the current working directory).
 
@@ -1099,8 +1153,12 @@ module.exports = {
 * 模式应用于相对于配置文件的目录的文件路径。 比如，如果你的配置文件的路径为 `/Users/john/workspace/any-project/.eslintrc.js` 而你要检测的路径为  `/Users/john/workspace/any-project/lib/util.js`，那么你在 `.eslintrc.js` 中提供的模式是相对于 ` lib/util.js` 来执行的.
 * Glob pattern overrides have higher precedence than the regular configuration in the same config file. Multiple overrides within the same config are applied in order. That is, the last override block in a config file always has the highest precedence.
 * 在相同的配置文件中，Glob 模式覆盖比其他常规配置具有更高的优先级。 同一个配置中的多个覆盖将按顺序被应用。也就是说，配置文件中的最后一个覆盖会有最高优先级。
-* A glob specific configuration works almost the same as any other ESLint config. Override blocks can contain any configuration options that are valid in a regular config, with the exception of `extends`, `overrides`, and `root`.
-* 一个 glob 特定的配置几乎与 ESLint 的其他配置相同。覆盖块可以包含常规配置中的除了 `extends`、`overrides` 和 `root` 之外的其他任何有效配置选项，
+* A glob specific configuration works almost the same as any other ESLint config. Override blocks can contain any configuration options that are valid in a regular config, with the exception of `root`.
+* 一个 glob 特定的配置几乎与 ESLint 的其他配置相同。覆盖块可以包含常规配置中的除了 `root` 之外的其他任何有效配置选项，
+    * A glob specific configuration can have `extends` setting, but the `root` property in the extended configs is ignored.
+    * 一个 glob 特定的配置可以有 `extends` 设置，但是会忽略扩展配置中的 `root` 属性。
+    * Nested `overrides` setting will be applied only if the glob patterns of both of the parent config and the child config matched. This is the same when the extended configs have `overrides` setting.
+    * 只有当父配置和子配置的 glob 模式匹配时，才会应用嵌套的 `overrides` 设置。当扩展配置具有 `overrides` 设置时也是如此。
 * Multiple glob patterns can be provided within a single override block. A file must match at least one of the supplied patterns for the configuration to apply.
 * 可以在单个覆盖块中提供多个 glob 模式。一个文件必须匹配至少一个配置中提供的模式。
 * Override blocks can also specify patterns to exclude from matches. If a file matches any of the excluded patterns, the configuration won't apply.

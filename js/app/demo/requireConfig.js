@@ -4,8 +4,8 @@
 
 requirejs.config({
     paths: {
-        react: "https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.min",
-        reactDom: "https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react-dom.min",
+        react: "../../vendor/react.min",
+        reactDom: "../../vendor/react-dom.min",
         text: "../../vendor/text",
         JSXTransformer: "../../vendor/JSXTransformer",
         jsx: "../../vendor/jsx",

@@ -7,7 +7,12 @@ rule_type: problem
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Disallow assignments that can lead to race conditions due to usage of `await` or `yield` (require-atomic-updates)
+
 # 禁止由于 `await` 或 `yield`的使用而可能导致出现竞态条件的赋值。(require-atomic-updates)
+
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
 
 When writing asynchronous code, it is possible to create subtle race condition bugs. Consider the following example:
 

@@ -24,13 +24,26 @@ var person = new Person;
 
 ## Rule Details
 
-This rule requires parentheses when invoking a constructor with no arguments using the `new` keyword in order to increase code clarity.
+This rule can enforce or disallow parentheses when invoking a constructor with no arguments using the `new` keyword.
 
-该规则目的在于，当通过 `new` 关键字调用构造函数时，要求使用圆括号，以此提高代码的清晰度。
+当使用 `new` 关键字调用没有参数的构造函数时，此规则可以强制或禁止括号。
 
-Examples of **incorrect** code for this rule:
+## Options
 
-**错误** 代码示例：
+This rule takes one option.
+
+此规则接受一个选项。
+
+- `"always"` enforces parenthesis after a new constructor with no arguments (default)
+- `"always"` 强制括号后的新构造函数没有参数（默认）
+- `"never"` enforces no parenthesis after a new constructor with no arguments
+- `"never"` 强制在没有参数的新构造函数后不出现任何圆括号
+
+### always
+
+Examples of **incorrect** code for this rule with the `"always"` option:
+
+选项 `"always"` 的 **错误** 代码示例：
 
 ```js
 /*eslint new-parens: "error"*/
@@ -39,15 +52,40 @@ var person = new Person;
 var person = new (Person);
 ```
 
-Examples of **correct** code for this rule:
+Examples of **correct** code for this rule with the `"always"` option:
 
-**正确** 代码示例：
+选项 `"always"` 的 **正确** 代码示例：
 
 ```js
 /*eslint new-parens: "error"*/
 
 var person = new Person();
 var person = new (Person)();
+```
+
+### never
+
+Examples of **incorrect** code for this rule with the `"never"` option:
+
+选项 `"never"` 的 **错误** 代码示例：
+
+```js
+/*eslint new-parens: ["error", "never"]*/
+
+var person = new Person();
+var person = new (Person)();
+```
+
+Examples of **correct** code for this rule with the `"never"` option:
+
+选项 `"never"` 的 **正确** 代码示例：
+
+```js
+/*eslint new-parens: ["error", "never"]*/
+
+var person = new Person;
+var person = (new Person);
+var person = new Person("Name");
 ```
 
 ## Version

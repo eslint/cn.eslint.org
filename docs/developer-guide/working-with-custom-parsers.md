@@ -1,6 +1,6 @@
 ---
 title: Working with Custom Parsers
-layout: doc
+layout: doc_en
 edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/working-with-custom-parsers.md
 
 ---

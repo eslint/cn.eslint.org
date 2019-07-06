@@ -1,6 +1,6 @@
 ---
 title: "Who's Using ESLint?"
-layout: doc
+layout: doc_en
 edit_link: https://github.com/eslint/eslint.github.io/edit/master/users/index.md
 ---
 

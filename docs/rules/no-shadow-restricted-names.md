@@ -10,6 +10,10 @@ rule_type: suggestion
 
 # 关键字不能被遮蔽 (no-shadow-restricted-names)
 
+(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
+
 ES5 §15.1.1 Value Properties of the Global Object (`NaN`, `Infinity`, `undefined`) as well as strict mode restricted identifiers `eval` and `arguments` are considered to be restricted names in JavaScript. Defining them to mean something else can have unintended consequences and confuse others reading the code. For example, there's nothing preventing you from writing:
 
 ES5 §15.1.1 中全局对象的属性值 (`NaN`、`Infinity`、`undefined`)和严格模式下被限定的标识符 `eval`、`arguments` 在 JavaScript 中被认为是受限制的名称。将它们定义为其他含义可能会产生意想不到的结果，并使阅读代码的其他人感到困惑。比如：

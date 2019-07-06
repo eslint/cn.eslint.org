@@ -47,6 +47,7 @@ Wondering if ESLint will work with your favorite editor or build system? This se
 The ESLint team is committed to making upgrading as easy and painless as possible. This section outlines the guidelines the team has set in place for the deprecation of rules in future releases.
 
 ESLint 团队致力于尽可能精简的无痛升级。本章节概述了该团队设置的在未来版本要弃用的规则的指南。
+
 ## Migrating
 
 If you were using a prior version of ESLint, you can get help with the transition by reading:
@@ -57,3 +58,5 @@ If you were using a prior version of ESLint, you can get help with the transitio
 - [migrating-to-2.0.0](migrating-to-2.0.0)
 - [migrating-to-3.0.0](migrating-to-3.0.0)
 - [migrating-to-4.0.0](migrating-to-4.0.0)
+- [migrating-to-5.0.0](migrating-to-5.0.0)
+- [migrating-to-6.0.0](migrating-to-6.0.0)

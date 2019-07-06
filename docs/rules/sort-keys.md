@@ -79,7 +79,7 @@ let obj = {b: 1, ...c, a: 2};
 
 ```json
 {
-    "sort-keys": ["error", "asc", {"caseSensitive": true, "natural": false}]
+    "sort-keys": ["error", "asc", {"caseSensitive": true, "natural": false, "minKeys": 2}]
 }
 ```
 
@@ -92,12 +92,14 @@ The 1st option is `"asc"` or `"desc"`.
 * `"desc"` - enforce properties to be in descending order.
 * `"desc"` - 强制所有属性按降序排列。
 
-The 2nd option is an object which has 2 properties.
+The 2nd option is an object which has 3 properties.
 
-第二个选项是个对象，有 2 个属性。
+第二个选项是个对象，有 3 个属性。
 
 * `caseSensitive` - if `true`, enforce properties to be in case-sensitive order. Default is `true`.
 * `caseSensitive` - 如果为 `true`，强制所有属性排序区分大小写。默认为 `true`。
+* `minKeys` - Specifies the minimum number of keys that an object should have in order for the object's unsorted keys to produce an error. Default is `2`, which means by default all objects with unsorted keys will result in lint errors.
+* `minKeys` - 指定对象的未排序键产生错误所需的最小键数。默认值为 `2`，这意味着在默认情况下，所有键未排序的对象都会导致检测错误。
 * `natural` - if `true`, enforce properties to be in natural order. Default is `false`. Natural Order compares strings containing combination of letters and numbers in the way a human being would sort. It basically sorts numerically, instead of sorting alphabetically. So the number 10 comes after the number 3 in Natural Sorting.
 * `natural` - 如果为 `true` 强制所有属性按自然顺序排列。默认为 `false`。自然顺序以人的排序方式进行排序，比较包含字母和数字的字符串。它基本上上是按数字排序的，而不是按字母顺序排序。所以在自然顺序排序中数字 10 排在数字 3。
 
@@ -215,6 +217,56 @@ Examples of **correct** code for the `{natural: true}` option:
 /*eslint-env es6*/
 
 let obj = {1: a, 2: b, 10: c};
+```
+
+### minKeys
+
+Examples of **incorrect** code for the `{minKeys: 4}` option:
+
+选项 `{minKeys: 4}` 的 **错误** 代码示例：
+
+```js
+/*eslint sort-keys: ["error", "asc", {minKeys: 4}]*/
+/*eslint-env es6*/
+
+// 4 keys
+let obj = {
+    b: 2,
+    a: 1, // not sorted correctly (should be 1st key)
+    c: 3,
+    d: 4,
+};
+
+// 5 keys
+let obj = {
+    2: 'a',
+    1: 'b', // not sorted correctly (should be 1st key)
+    3: 'c',
+    4: 'd',
+    5: 'e',
+};
+```
+
+Examples of **correct** code for the `{minKeys: 4}` option:
+
+选项 `{minKeys: 4}` 的 **正确** 代码示例：
+
+```js
+/*eslint sort-keys: ["error", "asc", {minKeys: 4}]*//
+/*eslint-env es6*/
+
+// 3 keys
+let obj = {
+    b: 2,
+    a: 1,
+    c: 3,
+};
+
+// 2 keys
+let obj = {
+    2: 'b',
+    1: 'a',
+};
 ```
 
 ## When Not To Use It

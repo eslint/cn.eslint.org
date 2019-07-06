@@ -42,6 +42,15 @@ The rule has a second object with a single key, `enforceForRenamedProperties`, w
 
 该规则有一个第二对象，包含一个键，`enforceForRenamedProperties` 用来决定 `object` 解构是否应用于重命名的变量。
 
+**Note**: It is not possible to determine if a variable will be referring to an object or an array at runtime. This rule therefore guesses the assignment type by checking whether the key being accessed is an integer. This can lead to the following possibly confusing situations:
+
+**注意**：不可能在运行时确定变量是否引用对象或数组。因此，该规则通过检查被访问的键是否是整数来猜测赋值类型。这可能导致以下可能令人困惑的情况:
+
+- Accessing an object property whose key is an integer will fall under the category `array` destructuring.
+- 访问键值为整数的对象属性将属于 `array` 析构的类别。
+- Accessing an array element through a computed index will fall under the category `object` destructuring.
+- 通过计算索引访问数组元素属于 `object` 析构的类别。
+
 Examples of **incorrect** code for this rule:
 
 **错误** 代码示例：

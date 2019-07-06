@@ -10,15 +10,15 @@ rule_type: suggestion
 
 # 禁用`__proto__`（no-proto）
 
-`__proto__` property has been deprecated as of ECMAScript 3.1 and shouldn't be used in the code. Use `getPrototypeOf` method instead.
+`__proto__` property has been deprecated as of ECMAScript 3.1 and shouldn't be used in the code. Use `Object.getPrototypeOf` and `Object.setPrototypeOf` instead.
 
-`__proto__` 属性在 ECMAScript 3.1 中已经被弃用，并且不应该在代码中使用。使用 `getPrototypeOf` 方法替代 `__proto__`。
+`__proto__` 属性在 ECMAScript 3.1 中已经被弃用，并且不应该在代码中使用。使用 `Object.getPrototypeOf` 和 `Object.setPrototypeOf` 代替。
 
 ## Rule Details
 
-When an object is created `__proto__` is set to the original prototype property of the object’s constructor function. `getPrototypeOf` is the preferred method of getting "the prototype".
+When an object is created with the `new` operator, `__proto__` is set to the original "prototype" property of the object's constructor function. `Object.getPrototypeOf` is the preferred method of getting the object's prototype. To change an object's prototype, use `Object.setPrototypeOf`.
 
-当一个对象被创建，`__proto__` 被设置为对象构造方法的原始原型属性。`getPrototypeOf`是获取原型的首选方法。
+当使用 `new` 操作符创建对象时，将 `__proto__` 设置为对象构造函数的原始 “prototype” 属性。`Object.getPrototypeOf` 是获取对象原型的首选方法。要更改对象的原型，请使用 `Object.setPrototypeOf`。
 
 Examples of **incorrect** code for this rule:
 
@@ -30,6 +30,10 @@ Examples of **incorrect** code for this rule:
 var a = obj.__proto__;
 
 var a = obj["__proto__"];
+
+obj.__proto__ = b;
+
+obj["__proto__"] = b;
 ```
 
 Examples of **correct** code for this rule:
@@ -40,13 +44,20 @@ Examples of **correct** code for this rule:
 /*eslint no-proto: "error"*/
 
 var a = Object.getPrototypeOf(obj);
+
+Object.setPrototypeOf(obj, b);
+
+var c = { __proto__: a };
 ```
 
 ## When Not To Use It
 
 If you need to support legacy browsers, you might want to turn this rule off, since support for `getPrototypeOf` is not yet universal.
 
-如果你需要支持老版本的浏览器，你可能会想要关闭此规则，因为 `getPrototypeOf` 还没有被广泛支持。
+You might want to turn this rule off if you need to support legacy browsers which implement the
+`__proto__` property but not `Object.getPrototypeOf` or `Object.setPrototypeOf`.
+
+如果需要支持实现 `__proto__` 而不是 `Object.getPrototypeOf` 或 `Object.setPrototypeOf` 的遗留浏览器，则可能需要关闭此规则。
 
 ## Further Reading
 

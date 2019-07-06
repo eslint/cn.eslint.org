@@ -78,8 +78,8 @@ String options are:
 
 * `"always"` (default) requires parens around arguments in all cases.
 * `"always"` (默认) 要求在所有情况下使用圆括号将参数括起来。
-* `"as-needed"` allows omitting parens when there is only one argument.
-* `"as-needed"` 当只有一个参数时允许省略圆括号。
+* `"as-needed"` enforces no braces where they can be omitted.
+* `"as-needed"` 在可以省略括号的地方强制不使用括号
 
 Object properties for variants of the `"as-needed"` option:
 

@@ -19,7 +19,7 @@ categories:
         description_zh: 禁止使用异步函数作为 Promise executor
         fixable: false
         name: no-async-promise-executor
-        recommended: false
+        recommended: true
       - description: disallow `await` inside of loops
         description_zh: 禁止在循环中出现 `await`
         fixable: false
@@ -39,7 +39,7 @@ categories:
         description_zh: 禁用 `console`
         fixable: false
         name: no-console
-        recommended: true
+        recommended: false
       - description: disallow constant expressions in conditions
         description_zh: 禁止在条件中使用常量表达式
         fixable: false
@@ -126,7 +126,7 @@ categories:
         description_zh: 不允许在字符类语法中出现由多个代码点组成的字符
         fixable: false
         name: no-misleading-character-class
-        recommended: false
+        recommended: true
       - description: disallow calling global object properties as functions
         description_zh: 禁止把全局对象作为函数调用
         fixable: false
@@ -136,7 +136,7 @@ categories:
         description_zh: 禁止直接调用 `Object.prototypes` 的内置属性
         fixable: false
         name: no-prototype-builtins
-        recommended: false
+        recommended: true
       - description: disallow multiple spaces in regular expressions
         description_zh: 禁止正则表达式字面量中出现多个空格
         fixable: true
@@ -180,7 +180,7 @@ categories:
         description_zh: 禁止由于 `await` 或 `yield`的使用而可能导致出现竞态条件的赋值
         fixable: false
         name: require-atomic-updates
-        recommended: false
+        recommended: true
       - description: require calls to `isNaN()` when checking for `NaN`
         description_zh: 要求使用 `isNaN()` 检查 `NaN`
         fixable: false
@@ -281,7 +281,7 @@ categories:
           disallow division operators explicitly at the beginning of regular
           expressions
         description_zh: 禁止除法操作符显式的出现在正则表达式开始的位置
-        fixable: false
+        fixable: true
         name: no-div-regex
         recommended: false
       - description: disallow `else` blocks after `return` statements in `if` statements
@@ -502,7 +502,7 @@ categories:
         description_zh: 禁止不必要的 `catch` 子句
         fixable: false
         name: no-useless-catch
-        recommended: false
+        recommended: true
       - description: disallow unnecessary concatenation of literals or template literals
         description_zh: 禁止不必要的字符串字面量或模板字面量的连接
         fixable: false
@@ -532,7 +532,7 @@ categories:
         description_zh: 禁用 `with` 语句
         fixable: false
         name: no-with
-        recommended: false
+        recommended: true
       - description: enforce using named capture group in regular expression
         description_zh: 建议在正则表达式中使用命名捕获组
         fixable: false
@@ -622,7 +622,7 @@ categories:
         description_zh: 禁止将标识符定义为受限的名字
         fixable: false
         name: no-shadow-restricted-names
-        recommended: false
+        recommended: true
       - description: >-
           disallow the use of undeclared variables unless mentioned in `/*global
           */` comments
@@ -943,8 +943,10 @@ categories:
         fixable: false
         name: new-cap
         recommended: false
-      - description: require parentheses when invoking a constructor with no arguments
-        description_zh: 要求调用无参构造函数时有圆括号
+      - description: >-
+          enforce or disallow parentheses when invoking a constructor with no
+          arguments
+        description_zh: 强制或禁止调用无参构造函数时有圆括号
         fixable: true
         name: new-parens
         recommended: false

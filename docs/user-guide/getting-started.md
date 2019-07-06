@@ -37,21 +37,15 @@ Prerequisites: [Node.js](https://nodejs.org/en/) (>=6.14), npm version 3+.
 
 先决条件：[Node.js](https://nodejs.org/en/) (>=6.14), npm version 3+。
 
-There are two ways to install ESLint: globally and locally.
+You can install ESLint using npm:
 
-有两种方式安装 ESLint： 全局安装和本地安装。
-
-### Local Installation and Usage
-
-If you want to include ESLint as part of your project's build system, we recommend installing it locally. You can do so using npm:
-
-如果你想让 ESLint 成为你项目构建系统的一部分，我们建议在本地安装。你可以使用 npm：
+你可以使用 npm 安装 ESLint：
 
 ```
 $ npm install eslint --save-dev
 ```
 
-You should then setup a configuration file:
+You should then set up a configuration file:
 
 紧接着你应该设置一个配置文件：
 
@@ -59,63 +53,17 @@ You should then setup a configuration file:
 $ ./node_modules/.bin/eslint --init
 ```
 
-After that, you can run ESLint in your project's root directory like this:
+After that, you can run ESLint on any file or directory like this:
 
-之后，你可以在你项目根目录运行 ESLint：
+之后，你可以在任何文件或目录上运行ESLint如下：
 
 ```
 $ ./node_modules/.bin/eslint yourfile.js
 ```
 
-Instead of navigating to `./node_modules/.bin/` you may also use `npx` to run `eslint`:
+It is also possible to install ESLint globally rather than locally (using `npm install eslint --global`). However, any plugins or shareable configs that you use must be installed locally in either case.
 
-除了导航到 `./node_modules/.bin/`，你也可以使用 `npx` 运行 `eslint` ：
-
-```
-$ npx eslint
-```
-
-**Note:** If ESLint wasn't manually installed (via `npm`), `npx` will install `eslint` to a temporary directory and execute it.
-
-**注意：**如果 ESLint 不是手动安装的(通过 `npm`)， `npx` 将安装 `eslint` 到一个临时目录并执行它。
-
-Any plugins or shareable configs that you use must also be installed locally to work with a locally-installed ESLint.
-
-使用本地安装的 ESLint 时，你使用的任何插件或可分享的配置也都必须在本地安装。
-
-### Global Installation and Usage
-
-If you want to make ESLint available to tools that run across all of your projects, we recommend installing ESLint globally. You can do so using npm:
-
-如果你想使 ESLint 适用于你所有的项目，我们建议你全局安装 ESLint。你可以使用 npm：
-
-```
-$ npm install -g eslint
-```
-
-You should then setup a configuration file:
-
-紧接着你应该设置一个配置文件：
-
-```
-$ eslint --init
-```
-
-After that, you can run ESLint on any file or directory like this:
-
-之后，你可以在任何文件或目录运行 ESLint：
-
-```
-$ eslint yourfile.js
-```
-
-Any plugins or shareable configs that you use must also be installed globally to work with a globally-installed ESLint.
-
-使用全局安装的 ESLint 时，你使用的任何插件或可分享的配置也都必须在全局安装。
-
-**Note:** `eslint --init` is intended for setting up and configuring ESLint on a per-project basis and will perform a local installation of ESLint and its plugins in the directory in which it is run. If you prefer using a global installation of ESLint, any plugins used in your configuration must also be installed globally.
-
-**注意：**`eslint --init`适用于对某个项目进行设置和配置 ESLint，并在其运行的的目录执行本地安装的 ESLint 及 插件。如果你倾向于使用全局安装的 ESLint，你配置中使用的任何插件也必须是全局安装的。
+也可以在全局而不是本地安装 ESLint (使用 `npm install eslint --global`)。但是，你使用的任何插件或可共享配置都必须安装在本地。
 
 ## Configuration
 

@@ -74,7 +74,7 @@ This rule has a string option or an object option:
         "objects": "never",
         "imports": "never",
         "exports": "never",
-        "functions": "ignore"
+        "functions": "never"
     }]
 }
 ```
@@ -87,10 +87,6 @@ This rule has a string option or an object option:
 * `"always-multiline"` 当最后一个元素或属性与闭括号 `]` 或 `}` 在 *不同的行*时，要求使用拖尾逗号；当在 *同一行*时，禁止使用拖尾逗号。
 * `"only-multiline"` allows (but does not require) trailing commas when the last element or property is in a *different* line than the closing `]` or `}` and disallows trailing commas when the last element or property is on the *same* line as the closing `]` or `}`
 * `"only-multiline"` 当最后一个元素或属性与闭括号 `]` 或 `}` 在 *不同的行*时，允许（但不要求）使用拖尾逗号；当在 *同一行*时，禁止使用拖尾逗号。
-
-Trailing commas in function declarations and function calls are valid syntax since ECMAScript 2017; however, the string option does not check these situations for backwards compatibility.
-
-从ECMAScript 2017开始，拖尾逗号在函数声明和函数调用中是有效的语法；然而，字符串选项不会检查这种情况以向后兼容。
 
 You can also use an object option to configure this rule for each type of syntax.
 
@@ -115,10 +111,6 @@ The default for each option is `"never"` unless otherwise specified.
 * `functions` is for function declarations and function calls. (e.g. `(function(a,){ })(b,);`)
 * `functions` 针对函数声明和函数调用。 (比如 `(function(a,){ })(b,);`)
     
-`functions` is set to `"ignore"` by default for consistency with the string option.
-
-`functions` 默认设置为 `"ignore"` 以便与字符串选项保持一致。
-
 `functions` should only be enabled when linting ECMAScript 2017 or higher.
 
 `functions` 应该只在检测 ECMAScript 2017 或 更高版本时启用。

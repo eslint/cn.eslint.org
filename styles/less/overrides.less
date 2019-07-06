@@ -48,15 +48,15 @@ body {
 }
 
 p {
-  &.incorrect + div + div + div pre, /* vars-on-top */
-  &.incorrect + div + div pre, /* no-continue */
-  &.incorrect + div pre {
+  &.incorrect + div + div + div > pre, /* vars-on-top */
+  &.incorrect + div + div > pre, /* no-continue */
+  &.incorrect + div > pre {
     background-color: #fff6f6; /* hsl(0,100%,98%) light red */
   }
 
-  &.correct + div + div + div pre, /* vars-on-top */
-  &.correct + div + div pre, /* no-continue */
-  &.correct + div pre {
+  &.correct + div + div + div > pre, /* vars-on-top */
+  &.correct + div + div > pre, /* no-continue */
+  &.correct + div > pre {
     background-color: #f6fff6; /* hsl(120,100%,98%) light green */
   }
 

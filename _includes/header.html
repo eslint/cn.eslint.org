@@ -6,20 +6,27 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="keywords" content="{{ site.keywords }}">
   <meta name="description" content="{{ site.description }}">
+  <meta name="theme-color" content="#463fd4"/>
   <meta property="og:locale" content="zh_CN">
-  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:title" content="{{ page.title }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:image" content="{{ site.url }}/img/favicon.512x512.png">
-  
-{% if page.title != site.name %}
+
+  <meta name="twitter:site" content="@geteslint">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{{ site.description }}">
+  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="{{ site.url }}/img/favicon.512x512.png">
+{% if page.title != site.title %}
     {% if page.title != "ESLint" %}
-        <title>{{ page.title }} - {{ site.name }}</title>
+        <title>{{ page.title }} - {{ site.title }}</title>
     {% else %}
-        <title>{{ site.name }}</title>
+        <title>{{ site.title }}</title>
     {% endif %}
 {% else %}
-  <title>{{ site.name }}</title>
+  <title>{{ site.title }}</title>
 {% endif %}
 
   <link href="{{ site.url }}{{ page.url }}" rel="canonical" />
@@ -27,10 +34,10 @@
   {% if include.multi == "true" %}
   <link rel="stylesheet" href="/styles/mixed.css"/>
   {% endif %}
-  <link rel="icon" href="/img/favicon.512x512.png">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
-
-  <script src="https://cdn.jsdelivr.net/g/lodash@3.10.1,hogan.js@3.0.2,algoliasearch@3.8.1,autocomplete.js@0.12.0(autocomplete.min.js)"></script>
-
+  <link rel='manifest' href='{{ site.url }}/manifest.json'>
+  <link rel="icon" href="{{ site.url }}/img/favicon.512x512.png">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}/feed.xml">
+  <!-- at the end of the HEAD -->
+  <link rel="stylesheet" href="{{ site.url }}/styles/vendor/docsearch.min.css" />
 </head>
 <body>

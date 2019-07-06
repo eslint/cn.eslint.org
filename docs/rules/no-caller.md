@@ -22,9 +22,9 @@ function foo() {
 
 ## Rule Details
 
-This rule is aimed at discouraging the use of deprecated and sub-optimal code, but disallowing the use of `arguments.caller` and `arguments.callee`. As such, it will warn when `arguments.caller` and `arguments.callee` are used.
+This rule is aimed at discouraging the use of deprecated and sub-optimal code by disallowing the use of `arguments.caller` and `arguments.callee`. As such, it will warn when `arguments.caller` and `arguments.callee` are used.
 
-此规则目的在于阻止使用已弃用的代码和次优的代码，而且禁止使用 `arguments.caller` 和 `arguments.callee`。因此，当 `arguments.caller` 和 `arguments.callee` 被使用时，该规则将会发出警告。
+这个规则的目的是通过禁止使用 `arguments.caller` 和 `arguments.callee`来阻止使用不推荐的和次优化的代码。因此，当 `arguments.caller` 和 `arguments.callee` 被使用时，该规则将会发出警告。
 
 Examples of **incorrect** code for this rule:
 
