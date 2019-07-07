@@ -82,20 +82,20 @@
         if (fragment) {
           logosNode.appendChild(fragment);
         }
-      }
 
-      var expenderNode = document.querySelector('.expender');
-      expenderNode && expenderNode.addEventListener('click', function() {
-        if (hasClass('.logos', 'expended')) {
-          logosNode.classList.remove('expended');
-          logosNode.style['max-height'] = '150px';
-          expenderNode.innerHTML = 'see more <span class="caret"/>';
-        } else {
-          logosNode.classList.add('expended');
-          logosNode.style['max-height'] = '5000px';
-          expenderNode.innerHTML = 'see less <span class="dropup"><span class="caret"></span></span>';
-        }
-      });
+        var expenderNode = document.querySelector('.expender');
+        expenderNode && expenderNode.addEventListener('click', function() {
+          if (hasClass('.logos', 'expended')) {
+            logosNode.classList.remove('expended');
+            logosNode.style['max-height'] = '150px';
+            expenderNode.innerHTML = 'see more <span class="caret"/>';
+          } else {
+            logosNode.classList.add('expended');
+            logosNode.style['max-height'] = '5000px';
+            expenderNode.innerHTML = 'see less <span class="dropup"><span class="caret"></span></span>';
+          }
+        });
+      }
 
       ImageObserver.createObserver();
     {% endif %}
