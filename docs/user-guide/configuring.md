@@ -1066,8 +1066,6 @@ JSON 格式的一个配置文件的例子：
 
 ### Using a configuration file
 
-The `extends` property value can be an absolute or relative path to a base [configuration file](#using-configuration-files).
-
 The `extends` property value can be an absolute or relative path to a base [configuration file](#using-configuration-files). ESLint resolves a relative path to a base configuration file relative to the configuration file that uses it.
 
 `extends` 属性值可以是到基本[配置文件](#using-configuration-files)的绝对路径，也可以是相对路径。ESLint 解析一个相对于使用它的配置文件的基本配置文件的相对路径。
