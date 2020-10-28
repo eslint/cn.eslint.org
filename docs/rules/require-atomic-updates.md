@@ -10,10 +10,6 @@ rule_type: problem
 
 # 禁止由于 `await` 或 `yield`的使用而可能导致出现竞态条件的赋值。(require-atomic-updates)
 
-(recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
-
-(recommended) 配置文件中的 `"extends": "eslint:recommended"` 属性启用了此规则。
-
 When writing asynchronous code, it is possible to create subtle race condition bugs. Consider the following example:
 
 在编写异步代码时，可能会产生细微的竞争条件错误。考虑下面的例子：
