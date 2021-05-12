@@ -17,10 +17,11 @@ Each rule in ESLint has three files named with its identifier (for example, `no-
 ESLint 中的每个规则都有三个文件，以它的 ID 命名（例如，`no-extra-semi`）。
 
 * in the `lib/rules` directory: a source file (for example, `no-extra-semi.js`)
-* `lib/rules` 目录：源码文件 (例如，`no-extra-semi.js`)
+* `lib/rules` 目录：源码文件（例如，`no-extra-semi.js`）
 * in the `tests/lib/rules` directory: a test file (for example, `no-extra-semi.js`)
-* `tests/lib/rules` 目录：测试文件 (例如，`no-extra-semi.js`)
+* `tests/lib/rules` 目录：测试文件（例如，`no-extra-semi.js`）
 * in the `docs/rules` directory: a Markdown documentation file (for example, `no-extra-semi`)
+* `docs/rules` 目录：Markdown 文档文件（例如，`no-extra-semi`）
 
 **Important:** If you submit a **core** rule to the ESLint repository, you **must** follow some conventions explained below.
 
@@ -67,24 +68,24 @@ module.exports = {
 
 The source file for a rule exports an object with the following properties.
 
-一个规则的源文件输出一个对象，包含以下属性。
+一个规则的源文件将导出一个具有以下属性的对象。
 
 `meta` (object) contains metadata for the rule:
 
-`meta`（对象）包含规则的元数据：
+`meta`(object) 包含规则的元数据：
 
 * `type` (string) indicates the type of rule, which is one of `"problem"`, `"suggestion"`, or `"layout"`:
-* `type` (string) 指示规则的类型，值为 `"problem"`、`"suggestion"` 或 `"layout"`：
+* `type` (string) 表明规则的类型，值为 `"problem"`、`"suggestion"` 或 `"layout"`：
     * `"problem"` means the rule is identifying code that either will cause an error or may cause a confusing behavior. Developers should consider this a high priority to resolve.
-    * `"problem"` 指的是该规则识别的代码要么会导致错误，要么可能会导致令人困惑的行为。开发人员应该优先考虑解决这个问题。
+    * `"problem"` 意味着该规则识别的代码要么会导致错误，要么可能会导致令人困惑的行为。开发人员应该优先考虑解决这个问题。
     * `"suggestion"` means the rule is identifying something that could be done in a better way but no errors will occur if the code isn't changed.
-    * `"suggestion"` 意味着规则确定了一些可以用更好的方法来完成的事情，但是如果代码没有更改，就不会发生错误。
+    * `"suggestion"` 意味着规则确定了一些可以用更好的方法来完成的事情，但是即使代码没有更改，也不会发生错误。
     * `"layout"` means the rule cares primarily about whitespace, semicolons, commas, and parentheses, all the parts of the program that determine how the code looks rather than how it executes. These rules work on parts of the code that aren't specified in the AST.
     * `"layout"` 意味着规则主要关心空格、分号、逗号和括号，以及程序中决定代码外观而不是执行方式的所有部分。这些规则适用于AST中没有指定的代码部分。
 * `docs` (object) is required for core rules of ESLint:
 * `docs` (object) 对 ESLint 核心规则来说是必需的:
     * `description` (string) provides the short description of the rule in the [rules index](../rules/)
-    * `description` (字符串) 提供规则的简短描述在[规则首页](../rules/)展示
+    * `description` (string) 提供简短的规则描述在[规则首页](../rules/)展示
     * `category` (string) specifies the heading under which the rule is listed in the [rules index](../rules/)
     * `category` (string) 指定规则在[规则首页](../rules/)处于的分类
     * `recommended` (boolean) is whether the `"extends": "eslint:recommended"` property in a [configuration file](../user-guide/configuring#extending-configuration-files) enables the rule
@@ -101,6 +102,7 @@ The source file for a rule exports an object with the following properties.
 * `fixable` (string) 标示[命令行](../user-guide/command-line-interface#fix) 选项 `--fix` 自动修复规则报告的问题。
 
     **Important:** Without the `fixable` property, ESLint does not [apply fixes](#applying-fixes) even if the rule implements `fix` functions. Omit the `fixable` property if the rule is not fixable.
+
     **重要：**如果没有 `fixable` 属性，即使规则实现了 `fix` 功能，ESLint 也不会[进行修复](#applying-fixes)。如果规则不是可修复的，就省略 `fixable` 属性。
 
 * `schema` (array) specifies the [options](#options-schemas) so ESLint can prevent invalid [rule configurations](../user-guide/configuring#configuring-rules)
@@ -115,11 +117,11 @@ The source file for a rule exports an object with the following properties.
 `create` (function) 返回一个对象，其中包含了 ESLint 在遍历 JavaScript 代码的抽象语法树 AST ([ESTree](https://github.com/estree/estree) 定义的 AST) 时，用来访问节点的方法。
 
 * if a key is a node type or a [selector](./selectors), ESLint calls that **visitor** function while going **down** the tree
-* 如果一个 key 是个节点类型或 [selector](./selectors)，在 **向下** 遍历树时，ESLint 调用 **visitor** 函数
+* 如果 key 是节点类型或 [selector](./selectors)，在 **向下** 遍历树时，ESLint 调用 **visitor** 函数
 * if a key is a node type or a [selector](./selectors) plus `:exit`, ESLint calls that **visitor** function while going **up** the tree
-* 如果一个 key 是个节点类型或 [selector](./selectors)，并带有 `:exit`，在 **向上** 遍历树时，ESLint 调用 **visitor** 函数
+* 如果 key 是节点类型或 [selector](./selectors)，并带有 `:exit`，在 **向上** 遍历树时，ESLint 调用 **visitor** 函数
 * if a key is an event name, ESLint calls that **handler** function for [code path analysis](./code-path-analysis)
-* 如果一个 key 是个事件名字，ESLint 为[代码路径分析](./code-path-analysis)调用 **handler** 函数
+* 如果 key 是事件名字，ESLint 调用 **handler** 函数进行[代码路径分析](./code-path-analysis)
 
 A rule can use the current node and its surrounding tree to report or fix problems.
 
@@ -173,7 +175,7 @@ The `context` object contains additional functionality that is helpful for rules
 * `parserPath` - the name of the `parser` from configuration.
 * `parserPath` - 配置中的 `parser` 的名称。
 * `parserServices` - an object containing parser-provided services for rules. The default parser does not provide any services. However, if a rule is intended to be used with a custom parser, it could use `parserServices` to access anything provided by that parser. (For example, a TypeScript parser could provide the ability to get the computed type of a given node.)
-* `parserServices` - 包含由解析器为规则提供的服务的对象。默认解析器不提供任何服务。然而，如果规则打算与自定义解析器一起使用，则可以使用 `parserServices` 访问该解析器提供的任何内容。(例如，TypeScript 解析器可以提供获取给定节点的计算类型的能力。)。
+* `parserServices` - 包含由解析器为规则提供的服务的对象。默认解析器不提供任何服务。然而，如果规则打算与自定义解析器一起使用，则可以使用 `parserServices` 访问该解析器提供的任何内容。(例如，TypeScript 解析器可以提供获取给定节点的计算类型的能力。)
 
 Additionally, the `context` object has the following methods:
 
@@ -215,7 +217,7 @@ Additionally, the `context` object has the following methods:
 
 **Note:** Earlier versions of ESLint supported additional methods on the `context` object. Those methods were removed in the new format and should not be relied upon.
 
-**注意：**ESLint 的早期版本支持 `context` 对象的额外的方法。这些方法在新的格式中已被移除，不应该再使用。
+**注意：** ESLint 的早期版本支持 `context` 对象的额外的方法。这些方法在新的格式中已被移除，不应该再使用。
 
 ### context.getScope()
 
@@ -407,7 +409,7 @@ Here, the `fix()` function is used to insert a semicolon after the node. Note th
 
 **Important:** Unless the rule [exports](#rule-basics) the `meta.fixable` property, ESLint does not apply fixes even if the rule implements `fix` functions.
 
-**重要：**除非规则[输出](#rule-basics) `meta.fixable` 属性，ESLint 不会进行修复，即使该规则实现了 `fix` 函数。
+**重要：** 除非规则[输出](#rule-basics) `meta.fixable` 属性，否则 ESLint 不会进行修复，即使该规则实现了 `fix` 函数。
 
 The `fixer` object has the following methods:
 
@@ -697,7 +699,7 @@ To learn more about JSON Schema, we recommend looking at some examples in [websi
 
 **Note:** Currently you need to use full JSON Schema object rather than array in case your schema has references ($ref), because in case of array format ESLint transforms this array into a single schema without updating references that makes them incorrect (they are ignored).
 
-**注意：**目前，如果你的模式有引用 ($ref)，你需要使用完整的 JSON Schema 对象而不是数组，因为在数组格式的情况下，ESLint 将该数组转换为单个模式，而不更新其引用，导致错误(它们将被忽略)。
+**注意：** 目前，如果你的模式有引用 ($ref)，你需要使用完整的 JSON Schema 对象而不是数组，因为在数组格式的情况下，ESLint 将该数组转换为单个模式，而不更新其引用，导致错误(它们将被忽略)。
 
 ### Getting the Source
 
@@ -863,7 +865,7 @@ ESLint 的规则命名约定相当简单：
 
 The thing that makes ESLint different from other linters is the ability to define custom rules at runtime. This is perfect for rules that are specific to your project or company and wouldn't make sense for ESLint to ship with. With runtime rules, you don't have to wait for the next version of ESLint or be disappointed that your rule isn't general enough to apply to the larger JavaScript community, just write your rules and include them at runtime.
 
-使 ESLint 有别于其他检查工具的东西是，它可以在运行时定义自定义的规则。This is perfect for rules that are specific to your project or company and wouldn't make sense for ESLint to ship with.有了运行时规则，你不需要等待 ESLint 的下一个版本或为你的规则不够太通用以至不能适用于大的 JavaScript 社区而感到失望，写出你的规则并将它们在运行时引入即可。
+使 ESLint 有别于其他检查工具的东西是，它可以在运行时定义自定义的规则。这对于在你的项目或公司中添加特定的、对 ESLint 没有影响的规则来说是完美的。有了运行时规则，你不需要等待 ESLint 的下一个版本或为你的规则不够太通用以至不能适用于大的 JavaScript 社区而感到失望，写出你的规则并将它们在运行时引入即可。
 
 Runtime rules are written in the same format as all other rules. Create your rule as you would any other and then follow these steps:
 
@@ -872,6 +874,6 @@ Runtime rules are written in the same format as all other rules. Create your rul
 1. Place all of your runtime rules in the same directory (i.e., `eslint_rules`).
 1. 把你所有的运行时规则放在同一个目录下 (例如, `eslint_rules`)。
 2. Create a [configuration file](../user-guide/configuring) and specify your rule ID error level under the `rules` key. Your rule will not run unless it has a value of `1` or `2` in the configuration file.
-2. 创建一个[配置文件](../user-guide/configuring)，在 `rules` 键下指定你的规则 ID、错误级别。你的规则将不会运行，除非在配置文件中有一个 `1` 或 `2` 的值
-3. Run the [command line interface](../user-guide/command-line-interface) using the `--rulesdir` option to specify the location of your runtime rules.
-3. 运行[命令行](../user-guide/command-line-interface) 使用 `--rulesdir` 选项指定你的运行时规则的位置。
+3. 创建一个[配置文件](../user-guide/configuring)，在 `rules` 键下指定你的规则 ID、错误级别。除非在配置文件中规则的值为 `1` 或 `2`, 否则你的规则将不会运行。
+4. Run the [command line interface](../user-guide/command-line-interface) using the `--rulesdir` option to specify the location of your runtime rules.
+5. 运行[命令行](../user-guide/command-line-interface) 使用 `--rulesdir` 选项指定你的运行时规则的位置。
