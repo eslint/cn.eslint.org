@@ -1,50 +1,41 @@
 [![Build Status](https://travis-ci.org/eslint/website.svg?branch=master)](https://travis-ci.org/eslint/website)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cefb59aa-729a-4f8e-be36-b981fda399c0/deploy-status)](https://app.netlify.com/sites/eslint/deploys)
 
-# ESLint Web Site
+# ESLint 中文文档
 
-This contains the code running on [eslint.org](https://eslint.org).
+此仓库的代码会部署在 [cn.eslint.org](https://cn.eslint.org) 域名下。
 
 ## Pull Requests
 
-Please note that all HTML documentation is split between this repository and the main [ESLint repository](https://github.com/eslint/eslint). Documentation for rules and APIs is located in the core repository, the rest is located in this repository. You can easily determine if original documentation file is native to website repository by checking for `<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->` comment just below the header of the markdown file. If that header is present, this file is located in the core ESLint repository and any pull requests should be sent there. Otherwise, file is native to this site repository and can be fixed by creating a pull request in this repository.
+请注意，此仓库只包含 eslint 中文文档的全部内容。
 
-## How to add your company/project logo to the site
+如果你对文章内容存在疑问，请先阅读英文文档，查看是不是翻译问题。
 
-* Create a fork of this repository.
-* Clone it locally.
-* Create a new branch.
-* Add your logo image to `/assets/img/logos/` directory. Logo should be at least 150px of height. Name your logo with your company/project name.
-* Update `/_data/logos.yml` file and add an entry for your company with the name, url and src (should point to the logo you just added).
-* Commit your changes to your fork and create a pull request into the main repository.
+如果属于翻译问题，请直接 PR 到本仓库；如果非翻译问题，请移步至 [eslint/website](https://github.com/eslint/website) 仓库，使用英文发起 PR 或者提交 issue。
 
-## Developer Setup
+## 开发
 
-This website is built with [Eleventy](https://www.11ty.io) and is hosted on [Netlify](https://www.netlify.com).
+此站点基于 [Eleventy](https://www.11ty.io) 构建，并部署在 [Netlify](https://www.netlify.com)。
 
-### Local development
+### 本地调试
 
-To set up a local development environment, install [Node.js](https://nodejs.org/) (be sure to follow the instructions for your platform) and follow the steps below:
+如下本地调试，请根据你的运行环境安装 [Node.js](https://nodejs.org/)，并进行如下操作：
 
 ```sh
-# Clone the repository
+# 克隆本仓库
 git clone git@github.com:eslint/website.git eslint-website
 
-# Navigate to the root directory
+# 进入仓库根目录
 cd eslint-website
 
-# Install dependencies
+# 安装依赖
 npm install
 ```
 
-Once you have set up your environment, you can run a copy of the website locally using this command:
+执行完上述操作，即可进行本地调试：
 
 ```sh
 $ npm start
 ```
 
-This will watch for changes to the source code and rebuild the website, which will be hosted at `http://localhost:8080/`.
-
-## License
-
-[MIT License](LICENSE)
+启动后会部署在 `http://localhost:8080/` 域名下，并会根据源码的变化进行热更新。
