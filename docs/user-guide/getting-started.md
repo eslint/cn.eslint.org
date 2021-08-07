@@ -8,7 +8,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/getting-
 
 # 快速开始 {#getting-started-with-eslint}
 
-ESLint 是用来识别 ECMAScript/JavaScript 并按照规则给出报告的代码检测工具，使用它可以使代码更加统一同时还可以规避错误。在许多方面，它与 JSLint 和 JSHint 相似，但存在差异：
+ESLint 是用来识别 ECMAScript/JavaScript 并按照规则给出报告的代码检测工具，使用它在可以使代码更加统一的同时还可以规避错误。在许多方面，它与 JSLint 和 JSHint 相似，但存在差异：
 
 * ESLint 使用 [Espree](https://github.com/eslint/espree) 解析 JavaScript。
 * ESLint 采用 AST 分析代码的模式。
@@ -50,7 +50,7 @@ $ npx eslint yourfile.js
 $ yarn run eslint yourfile.js
 ```
 
-当然，你也可以在全局安装 ESLint（使用 `npm install eslint --global`），但是，并不推荐你这么做，因为你所使用的任何插件或可共享的配置无论何种情况下都必须安装在本地。
+当然，你也可以在全局安装 ESLint（使用 `npm install eslint --global`），但是，不建议这样做，因为你所使用的任何插件或可共享的配置无论何种情况下都必须安装在本地。
 
 ## 配置 {#configuration}
 
