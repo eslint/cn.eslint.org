@@ -559,6 +559,15 @@
             "tier": "backer"
         },
         {
+            "name": "Ayush Sachdeva",
+            "url": null,
+            "image": "https://images.opencollective.com/ayush000/avatar.png",
+            "monthlyDonation": 500,
+            "totalDonations": 3500,
+            "source": "opencollective",
+            "tier": "backer"
+        },
+        {
             "name": "Nathan Friedly",
             "url": "http://www.nfriedly.com",
             "image": "https://images.opencollective.com/nfriedly/c7be1d5/avatar.png",
@@ -867,14 +876,6 @@
             "name": "Jordan Harband",
             "image": "https://avatars.githubusercontent.com/u/45469?u=6ab74b3b934f9659a90b588062c2c4328e40c6be&v=4",
             "url": "https://github.com/ljharb",
-            "monthlyDonation": 500,
-            "source": "github",
-            "tier": "backer"
-        },
-        {
-            "name": "Marcel Eichner",
-            "image": "https://avatars.githubusercontent.com/u/73654?u=cad7f6e133b38d6825e04625940d565cd47a4e32&v=4",
-            "url": "http://www.marceleichner.de",
             "monthlyDonation": 500,
             "source": "github",
             "tier": "backer"
