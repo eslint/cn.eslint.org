@@ -12,7 +12,7 @@ ESLint 是用来识别 ECMAScript/JavaScript 并按照规则给出报告的代�
 
 * ESLint 使用 [Espree](https://github.com/eslint/espree) 解析 JavaScript。
 * ESLint 采用 AST 分析代码的模式。
-* ESLint 是完全插件化的，每一条规则都是一个插件，同时你可以在运行时添加更多的插件。
+* ESLint 是完全插件化的，每一条规则都是一个插件，并且你可以在运行时添加更多的插件。
 
 ## 安装及使用 {#installation-and-usage}
 
