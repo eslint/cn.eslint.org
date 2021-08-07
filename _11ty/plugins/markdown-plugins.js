@@ -26,6 +26,7 @@ module.exports = function syntaxHighlighting(eleventyConfig) {
 
     // Replace the default Markdown engine with a new one that creates ID in headings
     // See: https://github.com/eslint/website/issues/747
+    md = md.use(require("markdown-it-attrs"));
     md = md.use(require("markdown-it-anchor"), {
         slugify(text) {
 
