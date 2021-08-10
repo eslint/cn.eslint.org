@@ -145,7 +145,7 @@ var global_var = 42;
 
 This rule takes one argument which can be a string or an object. The string settings are the same as those of the `vars` property (explained below).
 
-该规则接受一个字符串或者对像类型的参数。字符串设置正如同 `vars` 一样（如下所示）。
+该规则接受一个字符串或者对象类型的参数。字符串设置正如同 `vars` 一样（如下所示）。
 
 By default this rule is enabled with `all` option for variables and `after-used` for arguments.
 
