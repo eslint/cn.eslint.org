@@ -5,6 +5,16 @@
 
 此仓库的代码会部署在 [cn.eslint.org](https://cn.eslint.org) 域名下。
 
+## 任务认领
+
+参与翻译，请参考 [issues](https://github.com/eslint/cn.eslint.org/issues)。
+
+阅读顺序：
+
+1. 翻译流程说明
+2. 翻译任务认领
+3. 规则任务认领
+
 ## Pull Requests
 
 请注意，此仓库只包含 eslint 中文文档的全部内容。
