@@ -452,14 +452,6 @@
             "tier": "backer"
         },
         {
-            "name": "Spaceship",
-            "image": "https://avatars.githubusercontent.com/u/58706594?v=4",
-            "url": "https://spaceship.run",
-            "monthlyDonation": 1000,
-            "source": "github",
-            "tier": "backer"
-        },
-        {
             "name": "Mesh Payments",
             "url": "https://meshpayments.com/",
             "image": "https://images.opencollective.com/meshpayments/e216d5a/logo.png",
@@ -1258,14 +1250,6 @@
             "tier": "backer"
         },
         {
-            "name": "Hugh Chocart",
-            "image": "https://avatars.githubusercontent.com/u/24587702?u=77d38b49118964f816fbf43115e7daf699dad2ae&v=4",
-            "url": "hugh.sh",
-            "monthlyDonation": 500,
-            "source": "github",
-            "tier": "backer"
-        },
-        {
             "name": "Takanori Hirano",
             "image": "https://avatars.githubusercontent.com/u/24761092?u=7732326bd20100013d0bffca01c2fd8c575ab399&v=4",
             "url": "https://hrntknr.net",
@@ -1324,7 +1308,7 @@
         {
             "name": "Michael R.",
             "image": "https://avatars.githubusercontent.com/u/47695475?u=16c26c488cf1cc4f03da1a9e48a47d1dbf2bd397&v=4",
-            "url": "https://safethishome.com",
+            "url": "https://rehnert.co",
             "monthlyDonation": 500,
             "source": "github",
             "tier": "backer"
