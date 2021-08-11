@@ -6,7 +6,7 @@ layout: doc
 
 ESLint 本身内置了一些 formatter 来控制 lint 结果的外观，同时支持第三方 formatter。
 
-你可以在命令行中使用 `--format` 或 `--f` 参数指定 formatter。比如说 `--format codeframe` 就是将 `codeframe` 指定为 formatter。
+你可以在命令行中使用 `--format` 或 `-f` 参数指定 formatter。比如说 `--format codeframe` 就是将 `codeframe` 指定为 formatter。
 
 内置 formatter 选项有：
 
