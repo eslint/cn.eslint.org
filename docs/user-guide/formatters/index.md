@@ -1,14 +1,14 @@
 ---
-title: Documentation
+title: 文档
 layout: doc
 ---
-# ESLint Formatters
+# ESLint Formatters {#eslint-formatters}
 
-ESLint comes with several built-in formatters to control the appearance of the linting results, and supports third-party formatters as well.
+ESLint 本身内置了一些 formatter 来控制 lint 结果的外观，同时支持第三方 formatter。
 
-You can specify a formatter using the `--format` or `-f` flag on the command line. For example, `--format codeframe` uses the `codeframe` formatter.
+你可以在命令行中使用 `--format` 或 `-f` 参数指定 formatter。比如说 `--format codeframe` 就是将 `codeframe` 指定为 formatter。
 
-The built-in formatter options are:
+内置 formatter 有：
 
 * [checkstyle](#checkstyle)
 * [codeframe](#codeframe)
@@ -24,9 +24,9 @@ The built-in formatter options are:
 * [unix](#unix)
 * [visualstudio](#visualstudio)
 
-## Example Source
+## 示例源码 {#example-source}
 
-Examples of each formatter were created from linting `fullOfProblems.js` using the `.eslintrc` configuration shown below.
+以下所有 formatter 都是通过使用 `.eslintrc` 去 lint `fullOfProblems.js` 创建的。
 
 ### `fullOfProblems.js`
 
@@ -55,7 +55,7 @@ function addOne(i) {
 }
 ```
 
-## Output Examples
+## 输出示例 {#output-examples}
 
 ### checkstyle
 ```
