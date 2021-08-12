@@ -1,5 +1,5 @@
 ---
-title: Documentation
+title: 文档
 layout: doc
 ---
 # ESLint Formatters {#eslint-formatters}
