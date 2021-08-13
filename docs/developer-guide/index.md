@@ -1,55 +1,55 @@
 ---
-title: Developer Guide
+title: 开发者指南
 layout: doc
 edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/README.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Developer Guide
+# 开发者指南 {#developer-guide}
 
-This guide is intended for those who wish to:
+本指南旨在帮助希望进行如下操作的开发者：
 
-* Contribute code to ESLint
-* Create their own rules for ESLint
+* 贡献代码到 ESLint
+* 创建自己的 ESLint 规则
 
-In order to work with ESLint as a developer, it's recommended that:
+为了你能够作为开发者参与到 ESLint 项目中，建议你能够满足如下要求：
 
-* You know JavaScript, since ESLint is written in JavaScript.
-* You have some familiarity with Node.js, since ESLint runs on it.
-* You're comfortable with command-line programs.
-* You understand unit tests and why they're important.
+* 理解 JavaScript，因为 ESLint 是用 JavaScript 写的。
+* 对 Node.js 有一定了解，因为 ESLint 运行在 Node.js 环境中。
+* 熟悉命令行程序。
+* 理解单元测试以及其重要性。
 
-If that sounds like you, then continue reading to get started.
+如果你满足上述条件，那么请继续阅读。
 
-## Section 1: Get the [Source Code](source-code)
+## 第 1 节：获取[源代码](source-code) {#section-1-get-the-source-code}
 
-Before you can get started, you'll need to get a copy of the ESLint source code. This section explains how to do that and a little about the source code structure.
+在开始之前，你需要获取一份 ESLint 的源代码。这一节会介绍如何获取源代码以及源码结构。
 
-## Section 2: Set up a [Development Environment](development-environment)
+## 第 2 节：设置[开发环境](development-environment) {#section-2-set-up-a-development-environment}
 
-Developing for ESLint is a bit different than running it on the command line. This section shows you how to set up a development environment and get you ready to write code.
+ESLint 开发和在命令行中运行有些不同。本节会向你展示如何设置开发环境，让你做好编码的准备。
 
-## Section 3: Run the [Unit Tests](unit-tests)
+## 第 3 节：运行[单元测试](unit-tests) {#section-3-run-the-unit-tests}
 
-There are a lot of unit tests included with ESLint to make sure that we're keeping on top of code quality. This section explains how to run the unit tests.
+ESLint 中的很多单元测试都是为了确保高质量的代码。本节会解释如何运行单元测试。
 
-## Section 4: [Working with Rules](working-with-rules)
+## 第 4 节：[使用规则](working-with-rules) {#section-4-working-with-rules}
 
-You're finally ready to start working with rules. You may want to fix an existing rule or create a new one. This section explains how to do all of that.
+终于可以开始编写规则了。你可能想要修复一个现有规则或者创建一个新规则，本节会告诉你如何做到这些。
 
-## Section 5: [Working with Plugins](working-with-plugins)
+## 第 5 节：[使用插件](working-with-plugins) {#section-5-working-with-plugins}
 
-You've developed library-specific rules for ESLint and you want to share it with the community. You can publish an ESLint plugin on npm.
+你开发好了特定的 ESLint 规则，想要分享到社区。你可以在 npm 上将其发布成为一个 ESLint 插件。
 
-## Section 6: [Working with Custom Parsers](working-with-custom-parsers)
+## 第 6 节：[使用自定义解析器](working-with-custom-parsers) {#section-6-working-with-custom-parsers}
 
-If you aren't going to use the default parser of ESLint, this section explains about using custom parsers.
+如果你不想使用 ESLint 的默认解析器，本节会解释如何使用自定义解析器。
 
-## Section 7: [Node.js API](nodejs-api)
+## 第 7 节：[Node.js API](nodejs-api) {#section-7-nodejs-api}
 
-If you're interested in writing a tool that uses ESLint, then you can use the Node.js API to get programmatic access to functionality.
+如果你对编写使用 ESLint 的工具感兴趣，那么你可以使用 Node.js API 以编程方式调用 ESLint 的相关功能。
 
-## Section 8: [Contributing](contributing/)
+## 第 8 节：[贡献](contributing/) {#section-8-contributing}
 
-Once you've made changes that you want to share with the community, the next step is to submit those changes back via a pull request.
+如果你希望和社区分享你的代码改动，下一步就是通过使用 pull request 来提交这些改动。
