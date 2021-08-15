@@ -52,4 +52,4 @@ ESLint 中的很多单元测试都是为了确保高质量的代码。本节会�
 
 ## 第 8 节：[贡献](contributing/) {#section-8-contributing}
 
-如果你希望和社区分享你的代码改动，下一步就是通过使用 pull request 来提交这些改动。
+如果你希望和社区分享你的代码改动，下一步就是通过 pull request 来提交这些改动。
