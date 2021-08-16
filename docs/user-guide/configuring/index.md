@@ -8,7 +8,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configur
 
 # 配置 ESLint {#configuring-eslint}
 
-ESLint 被设计为可以根据你的使用情况灵活配置。你可以关闭任何一个规则，只运行基本的语法验证；或者将 ESLint 默认绑定的规则与你的自定义规则混合使用，以适应你的实际项目需求。有以下两种主要方式来配置 ESLint：
+ESLint 被设计为可以根据你的使用情况灵活配置。你可以关闭任何一个规则，只运行基本的语法验证；也可以将 ESLint 默认绑定的规则与你的自定义规则混合使用，以适应你的实际项目需求。有以下两种主要方式来配置 ESLint：
 
 1. **Configuration Comments** - 使用 JavaScript 注释将配置信息直接注入到源代码文件中。
 1. **Configuration Files** - 你可以使用 JavaScript，JSON 或者是 YAML 文件来指定整个目录及其所有子目录的配置信息。其形式可以是以 [`.eslintrc.*`](./configuration-files#configuration-file-formats) 命名的文件，也可以是 [`package.json`](https://docs.npmjs.com/files/package.json) 文件中的 `eslintConfig` 字段，这两种形式会被 ESLint 自动寻找并读取，除此之外，你还可以通过 [命令行](https://eslint.org/docs/user-guide/command-line-interface) 指定一个配置文件。
