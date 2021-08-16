@@ -12,11 +12,11 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/README.m
 
 ## [快速开始](getting-started) {#getting-started}
 
-想要跳过开头直接开始使用 ESLint 吗？本章节给出了一个关于安装，设置和配置选项的高层次概述。
+想跳过前面的步骤直接开始使用 ESLint 吗？本章节给出了一个关于安装、设置和配置选项的高层次概述。
 
 ## [规则](../rules) {#rules}
 
-ESLint 有很多规则，你可以配置这些规则做出相应的调整来配合你的项目。本章节详细的列举了每个规则并且链接到每个规则的文档。
+ESLint 有很多规则，你可以配置这些规则以配合你的项目。本章节详细地列举了每个规则及每个规则的文档链接。
 
 ## [配置ESLint](configuring/) {#configuring}
 
@@ -24,7 +24,7 @@ ESLint 有很多规则，你可以配置这些规则做出相应的调整来配�
 
 ## [命令行界面](command-line-interface) {#command-line-interface}
 
-ESLint 有很多命令行标识，本章节将一一解释它们的作用。
+ESLint 有很多命令行标志，本章节将一一解释它们的作用。
 
 ## [集成](integrations) {#integrations}
 
@@ -32,11 +32,11 @@ ESLint 有很多命令行标识，本章节将一一解释它们的作用。
 
 ## [规则弃用](rule-deprecation) {#rule-deprecation}
 
-ESLint 团队致力于尽可能精简的无痛升级。本节概述了团队为在未来版本中弃用规则而制定的准则。
+ESLint 团队致力于使升级尽可能精简并无痛。本章节概述了团队为在未来版本中弃用规则而制定的准则。
 
 ## 迁移 {#migrating}
 
-如果你在使用 ESLint 之前的版本，你可以通过阅读以下内容来获得版本过渡的帮助：
+如果你在使用早期版本的 ESLint，你可以通过阅读以下内容来获得版本过渡方面的帮助：
 
 - [迁移至 v1.0.0](migrating-to-1.0.0)
 - [迁移至 v2.0.0](migrating-to-2.0.0)
