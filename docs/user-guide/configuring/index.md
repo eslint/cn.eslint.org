@@ -1,5 +1,5 @@
 ---
-title: Configuring ESLint
+title: 配置 ESLint
 layout: doc
 edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configuring/README.md
 
@@ -40,10 +40,10 @@ ESLint 被设计为可以根据你的使用情况灵活配置。你可以关闭�
 * [指定全局变量](./language-options#specifying-globals)
 * [指定解析器配置项](./language-options#specifying-parser-options)
 
-[**Rules**](rules)
+[**规则**](rules)
 
-* [配置 Rules](./rules#configuring-rules)
-* [禁用 Rules](./rules#disabling-rules)
+* [配置规则](./rules#configuring-rules)
+* [禁用规则](./rules#disabling-rules)
 
 [**插件**](plugins)
 
