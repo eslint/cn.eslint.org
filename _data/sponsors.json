@@ -204,6 +204,14 @@
             "tier": "backer"
         },
         {
+            "name": "New Relic",
+            "image": "https://avatars.githubusercontent.com/u/31739?v=4",
+            "url": "https://opensource.newrelic.com",
+            "monthlyDonation": 10000,
+            "source": "github",
+            "tier": "backer"
+        },
+        {
             "name": "Principal Financial Group",
             "url": "https://www.principal.com/about-us",
             "image": "https://images.opencollective.com/principal/431e690/logo.png",
@@ -1035,7 +1043,7 @@
         },
         {
             "name": "Kelp",
-            "image": "https://avatars.githubusercontent.com/u/1680868?u=9cc8d19368770784b7b96dda1b9e7dee9503fa5a&v=4",
+            "image": "https://avatars.githubusercontent.com/u/1680868?u=0a111786a32d6d31a83e803a1f0328692eb28049&v=4",
             "url": "https://meetpet.org",
             "monthlyDonation": 500,
             "source": "github",
