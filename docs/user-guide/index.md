@@ -6,7 +6,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/README.m
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# 用户指南{#user-guide}
+# 用户指南 {#user-guide}
 
 本指南面向 ESLint 的终端用户。如果你正在探索如何扩展 ESLint 或者使用 ESLint 的源代码，请参阅 [开发者指南](../developer-guide)。
 
@@ -18,7 +18,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/README.m
 
 ESLint 有很多规则，你可以配置这些规则以配合你的项目。本章节详细地列举了每个规则及每个规则的文档链接。
 
-## [配置ESLint](configuring/) {#configuring}
+## [配置 ESLint](configuring/) {#configuring}
 
 一旦开始运行 ESLint，你也许想调整配置以更好地适应你的项目。本章节解释了配置 ESLint 的所有方法。
 
