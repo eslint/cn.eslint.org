@@ -16,7 +16,7 @@ ESLint 的大多数部分都有与之相关的单元测试。单元测试是用 
 
 这个指令会自动启动 Mocha 并运行 `tests` 目录下的所有测试。你只需要把你的测试添加进去，在运行测试时他们就会自动被选中。
 
-## 运行独立测试
+## 运行独立测试 {#running-individual-tests}
 
 如果你想快速运行一个测试文件，你可以通过直接运行 Mocha 并传入文件名来实现。比如说：
 
@@ -42,6 +42,6 @@ ruleTester.run("my-rule", myRule, {
 
 运行单个测试在你在处理一个特定的 bug 并迭代解决方案时很有用。所以在提交 pull request 之前，你得确保你运行了 `npm test`。`npm test` 指令使用了 Mocha 的 `--forbid-only` 命令行标志来防止 `only` 测试通过完整测试运行。
 
-## 对单元测试的更多控制
+## 对单元测试的更多控制 {#more-control-on-unit-testing}
 
 `npm run test:cli` 是 `./node_modules/.bin/mocha` 路径下的 Mocha cli 的别名。可以提供 [选项](https://mochajs.org/#command-line-usage)，以帮助更好地控制要运行的测试。
