@@ -45,4 +45,3 @@ ruleTester.run("my-rule", myRule, {
 ## 对单元测试的更多控制
 
 `npm run test:cli` 是 `./node_modules/.bin/mocha` 路径下的 Mocha cli 的别名。可以提供 [选项](https://mochajs.org/#command-line-usage)，以帮助更好地控制要运行的测试。
-
