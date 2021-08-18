@@ -6,7 +6,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/uni
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# 单元测试
+# 单元测试 {#unit-tests}
 
 ESLint 的大多数部分都有与之相关的单元测试。单元测试是用 [Mocha](https://mochajs.org/) 编写的，在为 ESLint 做贡献时需要用到。你可以在 `tests` 目录下找到所有的单元测试。
 
