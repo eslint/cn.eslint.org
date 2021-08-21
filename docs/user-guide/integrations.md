@@ -65,9 +65,11 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/integrat
 * [Jasmine](https://github.com/tlvince/eslint-plugin-jasmine)
 * [React](https://github.com/yannickcr/eslint-plugin-react)
 
-… 
+… 使用 [eslintplugin](https://www.npmjs.com/browse/keyword/eslintplugin) 关键字，查看更多发布在 npm 上的 ESLint 插件。
 
-使用 [eslintplugin](https://www.npmjs.com/browse/keyword/eslintplugin) 关键字，查看更多发布在 npm 上的 ESLint 插件。
+## 其他集成列表 {#other-integration-lists}
+
+您可以在 [awesome-eslint](https://github.com/dustinspecker/awesome-eslint) GitHub 存储库中找到其他流行 ESLint 集成的精选列表。
 
 ## 其他集成列表 {#other-integration-lists}
 
