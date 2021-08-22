@@ -69,4 +69,4 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/integrat
 
 ## 其他集成列表 {#other-integration-lists}
 
-您可以在 [awesome-eslint](https://github.com/dustinspecker/awesome-eslint) GitHub 存储库中找到其他流行 ESLint 集成的精选列表。
+你可以在 [awesome-eslint](https://github.com/dustinspecker/awesome-eslint) 仓库中找到 ESLint 精选的其他流行集成列表。
