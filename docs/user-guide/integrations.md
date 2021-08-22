@@ -52,7 +52,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/integrat
 * [Git Precommit Hook](https://coderwall.com/p/zq8jlq/eslint-pre-commit-hook)
 * [只对分阶段进行更改的 Git pre-commit hook](https://gist.github.com/dahjelle/8ddedf0aebd488208a9a7c829f19b9e8)
 * [overcommit Git hook manager](https://github.com/brigade/overcommit)
-* [Mega-Linter](https://nvuillam.github.io/mega-linter): 用于 CI 的 Lints 聚合器， [embedding eslint](https://nvuillam.github.io/mega-linter/descriptors/javascript_eslint/)
+* [Mega-Linter](https://nvuillam.github.io/mega-linter): 用于 CI 的 Linter 聚合器， [embedding eslint](https://nvuillam.github.io/mega-linter/descriptors/javascript_eslint/)
 
 ## 测试 {#testing}
 
