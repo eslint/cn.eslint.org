@@ -1,46 +1,46 @@
 ---
-title: About
+title: 关于
 layout: doc
 edit_link: https://github.com/eslint/eslint/edit/master/docs/about/index.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# About
+# 关于
 
-ESLint is an open source JavaScript linting utility originally created by Nicholas C. Zakas in June 2013. Code [linting][] is a type of static analysis that is frequently used to find problematic patterns or code that doesn't adhere to certain style guidelines. There are code linters for most programming languages, and compilers sometimes incorporate linting into the compilation process.
+ESLint 是一个开源的 JavaScript lint 工具，由 Nicholas C. Zakas 在 2013 年 6 月创建。[lint][] 是一种静态分析，经常被用来寻找有问题的或不遵守某些风格准则的代码。大多数编程语言都有相对应的 linter，而编译器有时会在编译过程中执行 lint 操作。
 
-JavaScript, being a dynamic and loosely-typed language, is especially prone to developer error. Without the benefit of a compilation process, JavaScript code is typically executed in order to find syntax or other errors. Linting tools like ESLint allow developers to discover problems with their JavaScript code without executing it.
+JavaScript 作为一种动态并弱类型的语言，开发时很容易出错。在不编译的情况下，为了找到语法或其他错误，我们通常就得要执行 JavaScript 代码。而有了像 ESLint 这样的 linter，开发者在不执行代码的情况下也可以发现问题了。
 
-The primary reason ESLint was created was to allow developers to create their own linting rules. ESLint is designed to have all rules completely pluggable. The default rules are written just like any plugin rules would be. They can all follow the same pattern, both for the rules themselves as well as tests. While ESLint will ship with some built-in rules to make it useful from the start, you'll be able to dynamically load rules at any point in time.
+创建 ESLint 的主要原因是允许开发者创建他们自己的 lint 规则。ESLint 被设计成所有的规则都是可插拔的：默认规则的编写就像任何插件规则一样。他们都可以遵循相同的模式，无论是规则本身还是测试。虽然 ESLint 会有一些开箱即用的内置规则，但不管什么时候你都可以动态地加载规则。
 
-ESLint is written using Node.js to provide a fast runtime environment and easy installation via [npm][].
+ESLint 是用 Node.js 写的，因而是一个快速的运行环境，并可以通过 [npm][] 轻松安装。
 
-[linting]: https://en.wikipedia.org/wiki/Lint_(software)
+[lint]: https://en.wikipedia.org/wiki/Lint_(software)
 [npm]: https://npmjs.org/
 
-## Philosophy
+## 理念
 
-Everything is pluggable:
+一切都是可插拔的。
 
-* Rule API is used both by bundled and custom rules
-* Formatter API is used both by bundled and custom formatters
-* Additional rules and formatters can be specified at runtime
-* Rules and formatters don't have to be bundled to be used
+* 规则 API 被捆绑的以及自定义的规则使用
+* 捆绑式和自定义格式化器都使用了格式化器 API
+* 可以在运行时指定额外的规则和格式器
+* 规则和格式化器不一定要捆绑在一起才能使用
 
-Every rule:
+每个规则：
 
-* Is standalone
-* Can be turned off or on (nothing can be deemed "too important to turn off")
-* Can be set to a warning or error individually
+* 都是独立的
+* 都可以开关（没什么 “我太重要了你不能把我关掉” 之流）
+* 都可以被设置成报警或报错
 
-Additionally:
+并且：
 
-* Rules are "agenda free" - ESLint does not promote any particular coding style
-* Any bundled rules are generalizable
+* 规则是 “不拘泥形式” 的 - ESLint 不提倡任何特定的编码风格
+* 任何捆绑好的规则都是可以通用的
 
-The project:
+此项目:
 
-* Values documentation and clear communication
-* Is as transparent as possible
-* Believes in the importance of testing
+* 重视文件和清晰的沟通
+* 尽可能的透明
+* 相信测试的重要性
