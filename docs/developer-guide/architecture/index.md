@@ -63,7 +63,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/arc
 
 ## `Linter` 对象 {#the-linter-object}
 
-`Linter` 对象的主要方法是 `verify()`，它接收两个参数：要验证的源码文本和一个配置对象（通过准备好的配置文件与命令行的操作）。该方法首先使用 `espree`（或者配置的解析器） 解析获取的文本，并检索 AST。AST 可以用来产生行/列和范围的位置，这对于报告问题的位置和检索与 AST 节点有关的源文本是很有帮助的。
+`Linter` 对象的主要方法是 `verify()`，它接收两个参数：要验证的源码文本和一个配置对象（通过准备好的配置文件与命令行的操作）。该方法首先使用 `espree`（或者配置的解析器）解析获取的文本，并检索 AST。AST 可以用来产生行/列和范围的位置，这对于报告问题的位置和检索与 AST 节点有关的源文本是很有帮助的。
 
 一旦 AST 是可用的，`estraverse` 被用来从上到下遍历 AST。在每个节点，`Linter` 对象触发与该节点类型同名的一个事件（即 “Identifier”，”WithStatement” 等）。在回退到子树上时，一个带有 AST 类型名称和 “:exit” 后缀的事件被触发，比如 “Identifier:exit” - 这允许规则在正向和逆向遍历开始起作用。每个事件在恰当的 AST 节点可用时触发。
 
