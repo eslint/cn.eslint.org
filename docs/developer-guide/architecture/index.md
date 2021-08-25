@@ -16,7 +16,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/arc
 * `lib/api.js` - 这个文件是 `require("eslint")` 的入口，它暴露出一个包含 `Linter`、`CLIEngine`、`RuleTester` 和 `SourceCode` 这些公有类的对象。
 * `lib/cli.js` -这个文件是 ESLint CLI 的核心，它接受一个参数的数组，并使用 `eslint` 来执行命令，通过将它保持为一个独立的程序，它允许其他程序从另一个 Node.js 程序中有效地调用 ESLint，就像在命令行上一样。它主要的调用方法是 `cli.execute()` ，而这也是完成所有文件读取、目录遍历、输入和输出的部分。
 * `lib/init/` - 该模块包含为用户初始化一个配置文件的 `--init` 的功能。
-* `lib/cli-engine/` - 这个模块包含了 `CLIEngine` 的类，这个类会用来查找源代码文件和配置文件，然后给 `Linter` 类进行代码的检查。 这个模块包括一些配置文件、解析器、插件和格式化能力的加载逻辑。
+* `lib/cli-engine/` - 这个模块包含了 `CLIEngine` 的类，这个类会用来查找源代码文件和配置文件，然后给 `Linter` 类进行代码的检查。这个模块包括一些配置文件、解析器、插件和格式化能力的加载逻辑。
 * `lib/linter/` - 它包含了 `Linter` 的核心类，它根据配置上的选项进行代码检查。该文件不进行文件 I/O 操作，也不直接与命令行进行交互。对于其他需要进行 JavaScript 文本验证的 Node.js 程序，可以直接调用此接口。
 * `lib/rule-tester/` - 它包含了 `RuleTester` 的类，通过封装 `Mocha` 来对一些规则进行单元测试。这个类允许我们对每个规则编写一致的格式化的测试，以确保规则运行正常。RuleTester 接口参照了 Mocha，兼容了 Mocha 全部的测试方法。RuleTester 也可以被修改来与其他测试框架一起工作。
 * `lib/source-code/` - 它包含了 `SourceCode` 的类，它可以用来代表解析后的源代码。它接收源代码，以及表示代码的 AST 节点，用来展现解析后的源代码。它使用源码和 AST 作为参数。
