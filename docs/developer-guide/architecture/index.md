@@ -20,7 +20,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/arc
 * `lib/linter/` - 它包含了 `Linter` 的核心类，它根据配置上的选项进行代码检查。该文件不进行文件 I/O 操作，也不直接与命令行进行交互。对于其他需要进行 JavaScript 文本验证的 Node.js 程序，可以直接调用此接口。
 * `lib/rule-tester/` - 它包含了 `RuleTester` 的类，通过封装 `Mocha` 来对一些规则进行单元测试。这个类允许我们对每个规则编写一致的格式化的测试，以确保规则运行正常。RuleTester 接口参照了 Mocha，兼容了 Mocha 全部的测试方法。RuleTester 也可以被修改来与其他测试框架一起工作。
 * `lib/source-code/` - 它包含了 `SourceCode` 的类，它可以用来代表解析后的源代码。它接收源代码，以及表示代码的 AST 节点，用来展现解析后的源代码。它使用源码和 AST 作为参数。
-* `lib/rules/` - - 这个模块包含验证源代码的内置规则。
+* `lib/rules/` - 这个模块包含验证源代码的内置规则。
 
 ## `cli` 对象 {#the-cli-object}
 
