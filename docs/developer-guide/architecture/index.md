@@ -92,6 +92,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/arc
 * 当发现特定的模式时，报告警告
 
 这个对象不能：
+
 * 直接调用 `process.exit()`
 * 执行任何异步操作
 * 使用 Node.js 特定的功能
