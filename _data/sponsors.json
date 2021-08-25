@@ -498,7 +498,7 @@
             "url": null,
             "image": "https://images.opencollective.com/toan-nguyen1/avatar.png",
             "monthlyDonation": 500,
-            "totalDonations": 1000,
+            "totalDonations": 1500,
             "source": "opencollective",
             "tier": "backer"
         },
@@ -1261,6 +1261,14 @@
             "name": "Gustavo Alfaro",
             "image": "https://avatars.githubusercontent.com/u/21284308?u=c16ab1206e16039c4898999d61e45220a5644ded&v=4",
             "url": "https://github.com/gustavoalfaro",
+            "monthlyDonation": 500,
+            "source": "github",
+            "tier": "backer"
+        },
+        {
+            "name": "Mikl Wolfe",
+            "image": "https://avatars.githubusercontent.com/u/22719398?u=bc3c4b778b857bc98a9037c408a5714091c0ed05&v=4",
+            "url": "linkedin.com/in/miklwolfe/",
             "monthlyDonation": 500,
             "source": "github",
             "tier": "backer"
