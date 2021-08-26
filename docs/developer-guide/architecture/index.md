@@ -75,12 +75,12 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/arc
 * 报告执行的结果
 
 这个对象不能：
+
 * 直接调用 `process.exit()`
 * 执行任何异步操作
 * 使用 Node.js 特定的功能
 * 访问文件系统
 * 调用 `console.log()` 或其他任何类似方法
-
 
 ## 规则 {#rules}
 
