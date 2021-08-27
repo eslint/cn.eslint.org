@@ -21,7 +21,7 @@ ESLint 的开发环境非常轻量级，使得更新代码快速而简单。本�
 
 进入 <https://github.com/eslint/eslint>，点击 “Fork” 按钮。Fork 和 clone 的教程在 [GitHub 文档](https://help.github.com/articles/fork-a-repo) 中。
 
-当你 clone 好了 Eslint 仓库，运行 `npm install` 以安装所需的依赖：
+当你 clone 好了 ESLint 仓库，运行 `npm install` 以安装所需的依赖：
 
 ```
 $ cd eslint
@@ -56,7 +56,7 @@ git remote add upstream git@github.com:eslint/eslint.git
 
 ## 第五步：运行测试 {#step-5-run-the-tests}
 
-请参阅[生成器文档](https://github.com/eslint/generator-eslint)，了解如何使用它的说明。
+请参阅 [生成器文档](https://github.com/eslint/generator-eslint)，了解如何使用它的说明。
 
 ```
 npm test
