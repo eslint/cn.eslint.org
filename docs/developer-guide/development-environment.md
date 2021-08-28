@@ -16,7 +16,6 @@ ESLint 的开发环境非常轻量级，使得更新代码快速而简单。本�
 
 大多数 Node.js 安装包会自带 [npm](https://www.npmjs.com/)，但如果由于某些原因 npm 在你的系统上有问题，你也可以参考网站上的说明手动安装它。
 
-
 ## 第二步: Fork 然后 checkout 你自己的 Eslint 仓库 {step-2-fork-and-checkout-your-own-eslint-repository}
 
 进入 <https://github.com/eslint/eslint>，点击 “Fork” 按钮。Fork 和 clone 的教程在 [GitHub 文档](https://help.github.com/articles/fork-a-repo) 中。
