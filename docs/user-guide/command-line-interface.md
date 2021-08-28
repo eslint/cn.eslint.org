@@ -1,38 +1,38 @@
 ---
-title: Command Line Interface
+title: 命令行界面
 layout: doc
 edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/command-line-interface.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Command Line Interface
+# 命令行界面 {#command-line-interface}
 
-To run ESLint on Node.js, you must have npm installed. If npm is not installed, follow the instructions here: https://www.npmjs.com/
+要在 Node.js 中运行 ESLint，你必须安装 npm。如果未安装 npm，请按照此处的说明进行操作：https://www.npmjs.com/
 
-Once npm is installed, run the following
+安装 npm 后，运行以下命令
 
     npm i -g eslint
 
-This installs the ESLint CLI from the npm repository. To run ESLint, use the following format:
+这将从 npm 安装 ESLint CLI。要运行 ESLint，请使用以下格式：
 
     eslint [options] [file|dir|glob]*
 
-Such as:
+例如：
 
     eslint file1.js file2.js
 
-or:
+或者：
 
     eslint lib/**
 
-Please note that when passing a glob as a parameter, it will be expanded by your shell. The results of the expansion can vary depending on your shell, and its configuration. If you want to use node `glob` syntax, you have to quote your parameter (using double quotes if you need it to run in Windows), as follows:
+请注意，当传递一个 glob 作为参数时，它会被你的 shell 扩展。扩展的结果可能因你的 shell 及其配置而异。如果你想使用 node `glob` 语法，你必须使用双引号包裹参数（如果你需要它在 Windows 中运行，请使用双引号），如下所示：
 
     eslint "lib/**"
 
-## Options
+##  选项 {#options}
 
-The command line utility has several options. You can view the options by running `eslint -h`.
+命令行工具有一些选项。你可以通过运行 `eslint -h` 来查看选项。
 
 ```text
 eslint [options] file.js [file.js] [dir]
@@ -96,165 +96,165 @@ Miscellaneous:
   --print-config path::String    Print the configuration for the given file
 ```
 
-Options that accept array values can be specified by repeating the option or with a comma-delimited list (other than `--ignore-pattern` which does not allow the second style).
+可以通过重复选项或使用逗号分隔的列表来指定接受数组值的选项（除了不允许第二种样式的 `--ignore-pattern`）。
 
-Example:
+示例:
 
     eslint --ext .jsx --ext .js lib/
 
     eslint --ext .jsx,.js lib/
 
-### Basic configuration
+### 基础配置 {#basic-configuration}
 
-#### `--no-eslintrc`
+#### `--no-eslintrc` {#no-eslintrc}
 
-Disables use of configuration from `.eslintrc.*` and `package.json` files.
+不使用来自 `.eslintrc.*` 和 `package.json` 文件中的配置。
 
-Example:
+示例:
 
     eslint --no-eslintrc file.js
 
-#### `-c`, `--config`
+#### `-c`, `--config` {#c-config}
 
-This option allows you to specify an additional configuration file for ESLint (see [Configuring ESLint](configuring) for more).
+此选项允许你为 ESLint 指定一个额外的配置文件（更多信息请参阅 [配置 ESLint](configuring)）。
 
-Example:
+示例:
 
     eslint -c ~/my-eslint.json file.js
 
-This example uses the configuration file at `~/my-eslint.json`.
+这个示例使用了位于 `~/my-eslint.json` 的配置文件。
 
-If `.eslintrc.*` and/or `package.json` files are also used for configuration (i.e., `--no-eslintrc` was not specified), the configurations will be merged. Options from this configuration file have precedence over the options from `.eslintrc.*` and `package.json` files.
+如果 `.eslintrc.*` 或 `package.json` 文件中同样进行了配置（即未指定 `--no-eslintrc`），则配置将会被合并。来自这个配置文件的配置优先级高于来自 `.eslintrc.*` 或 `package.json` 文件的配置。
 
-#### `--env`
+#### `--env` {#env}
 
-This option enables specific environments. Details about the global variables defined by each environment are available on the [Specifying Environments](configuring/language-options#specifying-environments) documentation. This option only enables environments; it does not disable environments set in other configuration files. To specify multiple environments, separate them using commas, or use the option multiple times.
+此选项启用特定环境。有关每个环境定义的全局变量的详细信息，请参阅 [指定环境](configuring/language-options#specifying-environments) 文档。此选项仅启用环境，不会禁用在其他配置文件中设置的环境。要指定多个环境，请使用逗号分隔，或多次使用该选项。
 
-Examples:
+示例:
 
     eslint --env browser,node file.js
     eslint --env browser --env node file.js
 
-#### `--ext`
+#### `--ext` {#ext}
 
-This option allows you to specify which file extensions ESLint will use when searching for target files in the directories you specify.
-By default, ESLint lints `*.js` files and the files that match the `overrides` entries of your configuration.
+此选项允许你指定哪些拓展名的文件会在 ESLint 搜索你指定的文件夹中的目标文件时被命中。
+默认情况下，ESLint 会命中 `*.js` 文件和你配置中 `overrides` 包含的文件。
 
-Examples:
+实例:
 
-    # Use only .ts extension
+    # 只命中 .ts
     eslint . --ext .ts
 
-    # Use both .js and .ts
+    # 同时命中 .js 和 .ts
     eslint . --ext .js --ext .ts
 
-    # Also use both .js and .ts
+    # 也是同时命中 .js 和 .ts
     eslint . --ext .js,.ts
 
-**Note:** `--ext` is only used when the arguments are directories. If you use glob patterns or file names, then `--ext` is ignored.
+**注意：**`--ext` 只有在参数为文件夹时生效。如果你使用 glob 模式或者文件名匹配文件，`--ext` 会被忽略。
 
-For example, `eslint lib/* --ext .js` will match all files within the `lib/` directory, regardless of extension.
+例如，`eslint lib/* --ext .js` 会匹配 `lib/` 文件夹下的所有文件，无论什么拓展名。
 
-#### `--global`
+#### `--global` {#global}
 
-This option defines global variables so that they will not be flagged as undefined by the `no-undef` rule. Any specified global variables are assumed to be read-only by default, but appending `:true` to a variable's name ensures that `no-undef` will also allow writes. To specify multiple global variables, separate them using commas, or use the option multiple times.
+此选项用于定义全局变量，以避免它们被 `no-undef` 规则识别为 undefined。默认情况下，所有指定的全局变量会被标记为只读，但是添加 `:true` 到全局变量后可以确保 `no-undef` 规则也允许写入该全局变量。要指定多个全局变量，请使用逗号分隔，或多次使用该选项。
 
-Examples:
+示例:
 
     eslint --global require,exports:true file.js
     eslint --global require --global exports:true
 
-#### `--parser`
+#### `--parser` {#parser}
 
-This option allows you to specify a parser to be used by ESLint. By default, `espree` will be used.
+此选项允许你指定一个被 ESLint 使用的解析器。默认情况下，ESLint 将会使用 `espree`。
 
-#### `--parser-options`
+#### `--parser-options` {#parser-options}
 
-This option allows you to specify parser options to be used by ESLint. Note that the available parser options are determined by the parser being used.
+此选项允许你指定一个被 ESLint 使用的解析器选项。注意，可用的解析器选项由所使用的解析器决定。
 
-Examples:
+示例:
 
-    echo '3 ** 4' | eslint --stdin --parser-options=ecmaVersion:6 # will fail with a parsing error
-    echo '3 ** 4' | eslint --stdin --parser-options=ecmaVersion:7 # succeeds, yay!
+    echo '3 ** 4' | eslint --stdin --parser-options=ecmaVersion:6 # 解析错误导致失败
+    echo '3 ** 4' | eslint --stdin --parser-options=ecmaVersion:7 # 成功，耶！
 
-#### `--resolve-plugins-relative-to`
+#### `--resolve-plugins-relative-to` {#resolve-plugins-relative-to}
 
-Changes the folder where plugins are resolved from. By default, plugins are resolved from the current working directory. This option should be used when plugins were installed by someone other than the end user. It should be set to the project directory of the project that has a dependency on the necessary plugins. For example:
+更改插件的解析文件夹。默认情况下，插件会从当前工作文件夹中解析。此选项应该在插件被最终用户以外的人安装时使用。它应该设置为依赖插件的项目目录。例如：
 
-* When using a config file that is located outside of the current project (with the `--config` flag), if the config uses plugins which are installed locally to itself, `--resolve-plugins-relative-to` should be set to the directory containing the config file.
-* If an integration has dependencies on ESLint and a set of plugins, and the tool invokes ESLint on behalf of the user with a preset configuration, the tool should set `--resolve-plugins-relative-to` to the top-level directory of the tool.
+* 当使用位于当前项目之外的配置文件（带有 `--config` 标志）时，如果配置使用本地安装的插件，则 `--resolve-plugins-relative-to` 应设置为包含配置文件的文件夹。
+* 如果集成工具依赖 ESLint 和一组插件，并且该工具使用预设配置代替用户调用 ESLint，则该工具应将 `--resolve-plugins-relative-to` 设置为该工具的顶级目录。
 
-### Specifying rules and plugins
+### 指定规则和插件 {#specifying-rules-and-plugins}
 
-#### `--rulesdir`
+#### `--rulesdir` {#rulesdir}
 
-This option allows you to specify another directory from which to load rules files. This allows you to dynamically load new rules at run time. This is useful when you have custom rules that aren't suitable for being bundled with ESLint.
+此选项允许你指定其他文件夹用于加载规则。它将允许你在运行时动态加载新的规则。如果你有不适合与 ESLint 耦合的自定义规则，此选项将非常有用。
 
-Example:
+示例:
 
     eslint --rulesdir my-rules/ file.js
 
-The rules in your custom rules directory must follow the same format as bundled rules to work properly. You can also specify multiple locations for custom rules by including multiple `--rulesdir` options:
+自定义规则目录中的规则必须遵循与耦合规则相同的格式才能正常工作。你还可以通过包含多个 `--rulesdir` 选项来为自定义规则指定多个位置：
 
     eslint --rulesdir my-rules/ --rulesdir my-other-rules/ file.js
 
-Note that, as with core rules and plugin rules, you still need to enable the rules in configuration or via the `--rule` CLI option in order to actually run those rules during linting. Specifying a rules directory with `--rulesdir` does not automatically enable the rules within that directory.
+注意，与核心规则和插件规则一样，你仍然需要在配置中或通过 `--rule` CLI 选项启用规则，以便在 lint 期间运行这些规则。使用 `--rulesdir` 指定规则目录不会自动启用该目录中的规则。
 
-#### `--plugin`
+#### `--plugin` {#plugin}
 
-This option specifies a plugin to load. You can omit the prefix `eslint-plugin-` from the plugin name.
+此选项用于指定一个需要加载的插件。你可以省略插件名中的的前缀 `eslint-plugin-`。
 
-Before using the plugin, you have to install it using npm.
+在使用指定的插件之前，你需要使用 npm 安装它。
 
-Examples:
+示例:
 
     eslint --plugin jquery file.js
     eslint --plugin eslint-plugin-mocha file.js
 
-#### `--rule`
+#### `--rule` {#rule}
 
-This option specifies rules to be used. These rules will be merged with any rules specified with configuration files. (You can use `--no-eslintrc` to change that behavior.) To define multiple rules, separate them using commas, or use the option multiple times. The [levn](https://github.com/gkz/levn#levn--) format is used for specifying the rules.
+此选项用于指定一个需要采用的规则。这些规则会与配置文件中指定的其他规则合并。（你可以使用 `--no-eslintrc` 来改变这个行为。）要指定多个规则，请使用逗号分隔，或多次使用该选项。
 
-If the rule is defined within a plugin, you have to prefix the rule ID with the plugin name and a `/`.
+如果规则是由插件定义的，那么你需要将插件名作为规则的前缀并使用 `/` 隔开。
 
-Examples:
+示例:
 
     eslint --rule 'quotes: [2, double]'
     eslint --rule 'guard-for-in: 2' --rule 'brace-style: [2, 1tbs]'
     eslint --rule 'jquery/dollar-sign: 2'
 
-### Fixing problems
+### 修复问题 {#fixing-problems}
 
-#### `--fix`
+#### `--fix` {#fix}
 
-This option instructs ESLint to try to fix as many issues as possible. The fixes are made to the actual files themselves and only the remaining unfixed issues are output. Not all problems are fixable using this option, and the option does not work in these situations:
+此选项指使 ESLint 尝试修复尽可能多的问题。修复是针对实际文件本身进行的，仅输出剩余的未修复问题。并非所有问题都可以使用此选项修复，并且该选项在以下情况下不起作用：
 
-1. This option throws an error when code is piped to ESLint.
-1. This option has no effect on code that uses a processor, unless the processor opts into allowing autofixes.
+1. 当代码通过管道传输到 ESLint 时，此选项会引发错误。
+2. 此选项对使用处理器的代码没有影响，除非处理器选择允许自动修复。
 
-If you want to fix code from `stdin` or otherwise want to get the fixes without actually writing them to the file, use the [`--fix-dry-run`](#--fix-dry-run) option.
+如果你想修复从 `stdin` 输入的代码或者其他你想要修复当并不想将修复后的代码写入源文件时，请使用 [`--fix-dry-run`](#--fix-dry-run) 选项。
 
-#### `--fix-dry-run`
+#### `--fix-dry-run` {#fix-dry-run}
 
-This option has the same effect as `--fix` with one difference: the fixes are not saved to the file system. This makes it possible to fix code from `stdin` (when used with the `--stdin` flag).
+此选项与 `--fix` 能力一致，除了一点：修复后的代码不会被保存至文件系统中。这将允许你能够修复从 `stdin` 输入的代码（当使用 `--stdin` 标志）。
 
-Because the default formatter does not output the fixed code, you'll have to use another one (e.g. `json`) to get the fixes. Here's an example of this pattern:
+因为默认的格式化工具不会输出修复后的代码，你需要其他格式化工具（例如 `json`）来获取修复的代码。下面是这种方式的一个例子：
 
 ```
 getSomeText | eslint --stdin --fix-dry-run --format=json
 ```
 
-This flag can be useful for integrations (e.g. editor plugins) which need to autofix text from the command line without saving it to the filesystem.
+此标志对于需要从命令行自动修复文本而不将其保存到文件系统的集成工具（例如编辑器插件）很有用。
 
-#### `--fix-type`
+#### `--fix-type` {#fix-type}
 
-This option allows you to specify the type of fixes to apply when using either `--fix` or `--fix-dry-run`. The three types of fixes are:
+此选项允许你在使用 `--fix` 或 `--fix-dry-run` 时指定要应用的修复类型。三种类型的修复是：
 
-1. `problem` - fix potential errors in the code
-1. `suggestion` - apply fixes to the code that improve it
-1. `layout` - apply fixes that do not change the program structure (AST)
+1. `problem` - 修复代码中潜在的错误
+2. `suggestion` - 应用可以改进代码的修复
+3. `layout` - 应用不改变代码结构（AST）的修复
 
-You can specify one or more fix type on the command line. Here are some examples:
+你可以使用命令行指定一种或多种修复类型。这里列举了一些示例：
 
 ```
 eslint --fix --fix-type suggestion .
@@ -262,7 +262,7 @@ eslint --fix --fix-type suggestion --fix-type problem .
 eslint --fix --fix-type suggestion,layout .
 ```
 
-This option is helpful if you are using another program to format your code but you would still like ESLint to apply other types of fixes.
+如果你使用另一个程序来格式化你的代码，但你仍然希望 ESLint 应用其他类型的修复，那么此选项很有用。
 
 ### Ignoring files
 
