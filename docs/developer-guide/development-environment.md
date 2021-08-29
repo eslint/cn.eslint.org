@@ -55,7 +55,7 @@ git remote add upstream git@github.com:eslint/eslint.git
 
 ## 第五步：运行测试 {#step-5-run-the-tests}
 
-请参阅 [生成器文档](https://github.com/eslint/generator-eslint)，了解如何使用它的说明。
+运行测试是检验你是否正确地配置了你的开发环境的最好方式。确保你是在 `eslint` 目录下之后，运行：
 
 ```
 npm test
