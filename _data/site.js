@@ -15,8 +15,8 @@ function calculateUrl() {
 }
 
 module.exports = {
-    title: "ESLint - Pluggable JavaScript linter",
-    description: "A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript. Maintain your code quality with ease.",
+    title: "ESLint - 可插拔的 JavaScript linter",
+    description: "一个可插拔和可配置的 linter 工具，用于识别和报告 JavaScript 格式。轻松维护你的代码质量。",
     banner: {
         text: null,
         foregroundColor: "#ffffff",
