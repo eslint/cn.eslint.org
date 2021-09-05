@@ -14,8 +14,6 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/con
 
 ## 阅读[行为准则](https://eslint.org/conduct) {#read-the-code-of-conduct}
 
-ESLint welcomes contributions from everyone and adheres to the [OpenJS Foundation Code of Conduct](https://eslint.org/conduct). We kindly request that you read over our code of conduct before contributing.
-
 ESLint 欢迎每个人的贡献，并遵守 [OpenJS 基金会行为守则](https://eslint.org/conduct)。我们恳请您在贡献之前阅读我们的行为守则。
 
 ## [签署 CLA](https://openjsf.org/about/the-openjs-foundation-cla/) {#signing-the-cla}
