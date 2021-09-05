@@ -6,7 +6,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/con
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# 变更请求
+# 变更请求{#change-requests}
 
 如果你想请求更改 ESLint，请在 GitHub 上[创建一个新 issue](https://github.com/eslint/eslint/issues/new?template=CHANGE.md)。请务必包含以下信息：
 
