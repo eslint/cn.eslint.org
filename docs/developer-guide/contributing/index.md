@@ -44,6 +44,6 @@ ESLint 欢迎每个人的贡献，并遵守 [OpenJS 基金会行为守则](https
 
 有一些额外的时间并且想要贡献? 本节讲述了处理 Issue 的过程。
 
-## 提交[合并请求](pull-requests) {#submitting-a-pull-request}
+## 提交 [合并请求](pull-requests) {#submitting-a-pull-request}
 
 我们一直在寻求来自社区的贡献。本节解释合并请求（pull request）的要求和提供代码的过程。
