@@ -1,49 +1,49 @@
 ---
-title: Contributing
+title: 贡献
 layout: doc
 edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/contributing/README.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Contributing
+# 贡献 {#contributing}
 
-One of the great things about open source projects is that anyone can contribute in any number of meaningful ways. ESLint couldn't exist without the help of the many contributors it's had since the project began, and we want you to feel like you can contribute and make a difference as well.
+开源项目的一个伟大之处在于任何人都可以以任何有意义的方式作出贡献。自从项目开始以来，如果没有众多贡献者的帮助，ESLint 是不可能存在的，我们希望你能感觉到自己也可以贡献，也可以有所作为。
 
-This guide is intended for anyone who wants to contribute to an ESLint project. Please read it carefully as it answers a lot of the questions many newcomers have when first working with our projects.
+本指南适用于任何想要为 ESLint 项目做贡献的人。请仔细阅读它，因为它回答了许多新人在第一次使用我们的项目时遇到的许多问题。
 
-## Read the [Code of Conduct](https://eslint.org/conduct)
+## 阅读 [行为准则](https://eslint.org/conduct) {#read-the-code-of-conduct}
 
-ESLint welcomes contributions from everyone and adheres to the [OpenJS Foundation Code of Conduct](https://eslint.org/conduct). We kindly request that you read over our code of conduct before contributing.
+ESLint 欢迎每个人的贡献，并遵守 [OpenJS 基金会行为守则](https://eslint.org/conduct)。我们恳请您在贡献之前阅读我们的行为守则。
 
-## [Signing the CLA](https://openjsf.org/about/the-openjs-foundation-cla/)
+## [签署 CLA](https://openjsf.org/about/the-openjs-foundation-cla/) {#signing-the-cla}
 
-In order to submit code or documentation to an ESLint project, you will need to electronically sign our [Contributor License Agreement](https://cla.js.foundation/eslint/eslint). The CLA is you giving us permission to use your contribution.
+为了向 ESLint 项目提交代码或文档，你需要以电子方式签署我们的 [贡献者许可协议](https://cla.js.foundation/eslint/eslint)。这个 CLA 就是你给我们使用你的贡献的许可。
 
-## [Bug Reporting](reporting-bugs)
+## [错误报告](reporting-bugs) {#bug-reporting}
 
-Think you found a problem? We'd love to hear about it. This section explains how to submit a bug, the type of information we need to properly verify it, and the overall process.
+你觉得你发现问题了吗？我们很乐意听听。本节将解释如何提交 bug，我们需要什么样的信息来正确验证它，以及整个过程。
 
-## Proposing a [New Rule](new-rules)
+## 提出 [新规则](new-rules) {#proposing-a-new-rule}
 
-We get a lot of proposals for new rules in ESLint. This section explains how we determine which rules are accepted and what information you should provide to help us evaluate your proposal.
+我们收到了很多关于 ESLint 新规则的建议。本节解释我们如何确定哪些规则被接受，以及您应该提供哪些信息来帮助我们评估您的建议。
 
-## Proposing a [Rule Change](rule-changes)
+## 提出 [修改规则](rule-changes) {#proposing-a-rule-change}
 
-Want to make a change to an existing rule? This section explains the process and how we evaluate such proposals.
+想要改变现有的规则吗? 本节解释了这个过程以及我们如何评估这些建议。
 
-## Requesting a [Change](changes)
+## 请求 [更改](changes) {#requesting-a-change}
 
-If you'd like to request a change other than a bug fix or new rule, this section explains that process.
+如果您希望请求更改而不是 bug 修复或提出新规则，本节将解释这一过程。
 
-## Reporting a security vulnerability
+## 报告安全漏洞 {#reporting-a-security-vulnerability}
 
-To report a security vulnerability in ESLint, please use our [HackerOne program](https://hackerone.com/eslint).
+要报告 ESLint 的安全漏洞，请使用我们的 [HackerOne program](https://hackerone.com/eslint)。
 
-## [Working on Issues](working-on-issues)
+## [处理问题](working-on-issues) {#working-on-issues}
 
-Have some extra time and want to contribute? This section talks about the process of working on issues.
+有一些额外的时间并且想要贡献? 本节讲述了处理 Issue 的过程。
 
-## Submitting a [Pull Request](pull-requests)
+## 提交 [合并请求](pull-requests) {#submitting-a-pull-request}
 
-We're always looking for contributions from the community. This section explains the requirements for pull requests and the process of contributing code.
+我们一直在寻求来自社区的贡献。本节解释合并请求（pull request）的要求和提供代码的过程。
