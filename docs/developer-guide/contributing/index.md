@@ -12,7 +12,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/con
 
 本指南适用于任何想要为 ESLint 项目做贡献的人。请仔细阅读它，因为它回答了许多新人在第一次使用我们的项目时遇到的许多问题。
 
-## 阅读[行为准则](https://eslint.org/conduct) {#read-the-code-of-conduct}
+## 阅读 [行为准则](https://eslint.org/conduct) {#read-the-code-of-conduct}
 
 ESLint 欢迎每个人的贡献，并遵守 [OpenJS 基金会行为守则](https://eslint.org/conduct)。我们恳请您在贡献之前阅读我们的行为守则。
 
