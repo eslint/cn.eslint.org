@@ -32,7 +32,7 @@ ESLint 欢迎每个人的贡献，并遵守 [OpenJS 基金会行为守则](https
 
 想要改变现有的规则吗? 本节解释了这个过程以及我们如何评估这些建议。
 
-## 请求[更改](changes) {#requesting-a-change}
+## 请求 [更改](changes) {#requesting-a-change}
 
 如果您希望请求更改而不是 bug 修复或提出新规则，本节将解释这一过程。
 
