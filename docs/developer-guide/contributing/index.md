@@ -28,7 +28,7 @@ ESLint 欢迎每个人的贡献，并遵守 [OpenJS 基金会行为守则](https
 
 我们收到了很多关于 ESLint 新规则的建议。本节解释我们如何确定哪些规则被接受，以及您应该提供哪些信息来帮助我们评估您的建议。
 
-## 提出[修改规则](rule-changes) {#proposing-a-rule-change}
+## 提出 [修改规则](rule-changes) {#proposing-a-rule-change}
 
 想要改变现有的规则吗? 本节解释了这个过程以及我们如何评估这些建议。
 
