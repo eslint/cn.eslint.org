@@ -4,10 +4,10 @@ layout: doc
 ad: text
 ---
 
-<h1>Team</h1>
-<p>These are the people who build and maintain ESLint.</p>
-<h2>Technical Steering Committee</h2>
-<p>The people who manage releases, review feature requests, and meet regularly to ensure ESLint is properly maintained.</p>
+<h1>团队</h1>
+<p>这些都是建立和维护 ESLint 的人。</p>
+<h2>技术指导委员会</h2>
+<p>他们负责管理发行版、审查功能请求、并定期开会以确保 ESLint 得到适当维护。</p>
 <div class="container-fluid">
     <div class="row">
         {% for person in team.tsc %}
@@ -19,8 +19,8 @@ ad: text
     </div>
 </div>
 {% if team.reviewers.size > 0 %}
-    <h2>Reviewers</h2>
-    <p>The people who review and implement new features.</p>
+    <h2>审核者</h2>
+    <p>审查和实现新功能的人。</p>
     <div class="container-fluid">
         <div class="row">
             {% for person in team.reviewers %}
@@ -33,8 +33,8 @@ ad: text
     </div>
 {% endif %}
 {% if team.committers.size > 0 %}
-    <h2>Committers</h2>
-    <p>The people who review and fix bugs and help triage issues.</p>
+    <h2>提交者</h2>
+    <p>审查和修复错误以及帮助分流问题的人。</p>
     <div class="container-fluid">
         <div class="row">
             {% for person in team.committers %}
@@ -47,8 +47,8 @@ ad: text
     </div>
 {% endif %}
 {% if team.alumni.size > 0 %}
-    <h2>Alumni</h2>
-    <p>Former TSC members and committers who previously helped maintain ESLint.</p>
+    <h2>历史贡献者</h2>
+    <p>前 TSC 成员和以前帮助维护 ESLint 的提交者。</p>
     <div class="container-fluid">
         <div class="row">
         {% for person in team.alumni %}
