@@ -12,27 +12,27 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/con
 
 本指南适用于任何想要为 ESLint 项目做贡献的人。请仔细阅读它，因为它回答了许多新人在第一次使用我们的项目时遇到的许多问题。
 
-## 阅读[行为准则](https://eslint.org/conduct) {#read-the-code-of-conduct}
+## 阅读 [行为准则](https://eslint.org/conduct) {#read-the-code-of-conduct}
 
 ESLint 欢迎每个人的贡献，并遵守 [OpenJS 基金会行为守则](https://eslint.org/conduct)。我们恳请您在贡献之前阅读我们的行为守则。
 
 ## [签署 CLA](https://openjsf.org/about/the-openjs-foundation-cla/) {#signing-the-cla}
 
-为了向 ESLint 项目提交代码或文档，你需要以电子方式签署我们的[贡献者许可协议](https://cla.js.foundation/eslint/eslint)。这个 CLA 就是你给我们使用你的贡献的许可。
+为了向 ESLint 项目提交代码或文档，你需要以电子方式签署我们的 [贡献者许可协议](https://cla.js.foundation/eslint/eslint)。这个 CLA 就是你给我们使用你的贡献的许可。
 
 ## [错误报告](reporting-bugs) {#bug-reporting}
 
 你觉得你发现问题了吗？我们很乐意听听。本节将解释如何提交 bug，我们需要什么样的信息来正确验证它，以及整个过程。
 
-## 提出[新规则](new-rules) {#proposing-a-new-rule}
+## 提出 [新规则](new-rules) {#proposing-a-new-rule}
 
 我们收到了很多关于 ESLint 新规则的建议。本节解释我们如何确定哪些规则被接受，以及您应该提供哪些信息来帮助我们评估您的建议。
 
-## 提出[修改规则](rule-changes) {#proposing-a-rule-change}
+## 提出 [修改规则](rule-changes) {#proposing-a-rule-change}
 
 想要改变现有的规则吗? 本节解释了这个过程以及我们如何评估这些建议。
 
-## 请求[更改](changes) {#requesting-a-change}
+## 请求 [更改](changes) {#requesting-a-change}
 
 如果您希望请求更改而不是 bug 修复或提出新规则，本节将解释这一过程。
 
@@ -44,6 +44,6 @@ ESLint 欢迎每个人的贡献，并遵守 [OpenJS 基金会行为守则](https
 
 有一些额外的时间并且想要贡献? 本节讲述了处理 Issue 的过程。
 
-## 提交[合并请求](pull-requests) {#submitting-a-pull-request}
+## 提交 [合并请求](pull-requests) {#submitting-a-pull-request}
 
 我们一直在寻求来自社区的贡献。本节解释合并请求（pull request）的要求和提供代码的过程。

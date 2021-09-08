@@ -7,7 +7,7 @@ homepage: true
 
 <div class="row">
     <div class="col-md-4">
-        <h3>寻找问题</h3>
+        <h3>查找问题</h3>
         <p>ESLint 会静态分析你的代码，以快速发现代码中存在的问题。ESLint 内置在大部分文本编辑器中，你可以把 ESLint 作为 CI 流程中的一部分运行。</p>
     </div>
     <div class="col-md-4">
@@ -36,14 +36,14 @@ homepage: true
 
 <div class="sponsors row">
   <div class="col-sm-12">
-    <h2 class="text-center">Sponsors</h2>
+    <h2 class="text-center">赞助商</h2>
     <p class="sponsor-desc text-center">总数为 {{ supportersCount }} 的公司，组织和个人目前每月会捐赠 <b>${{ monthlyTotal }}</b> 以支持 ESLint 的持续维护与发展</p>
-    <p class="sponsor-btn text-center"><a class="btn btn-default" href="https://opencollective.com/eslint">成为 Sponsors！</a></p>
+    <p class="sponsor-btn text-center"><a class="btn btn-default" href="https://opencollective.com/eslint">成为赞助商！</a></p>
     <div class="sponsor-tiers">
       {% assign tiers = "platinum,gold,silver,bronze" | split: "," %}
       {% for tier in tiers %}
           {% if sponsors[tier].size > 0 %}
-              <h4 class="sponsor-heading text-center">{{ tier | capitalize }} Sponsors</h4>
+              <h4 class="sponsor-heading text-center">{{ tier | capitalize }} 赞助商 </h4>
               <div class="sponsor-tier text-center">
                   {% for sponsor in sponsors[tier] %}
                     <a class="sponsor-link" href="{{ sponsor.url }}" title="{{ sponsor.name }}" rel="noopener nofollow sponsored" target="_blank">
@@ -55,7 +55,7 @@ homepage: true
               </div>
           {% endif %}
       {% endfor %}
-      <h4 class="sponsor-heading text-center">Technology Sponsors</h4>
+      <h4 class="sponsor-heading text-center">技术赞助商</h4>
       <div class="sponsor-tier text-center">
         {% for sponsor in techsponsors %}
         <a class="sponsor-link" href="{{ sponsor.url }}" title="{{ sponsor.name }}" rel="noopener nofollow sponsored" target="_blank">
@@ -68,7 +68,7 @@ homepage: true
         {% endfor %}
       </div>
     </div>
-    <p class="sponsor-btn text-center"><a class="btn btn-default" href="https://opencollective.com/eslint">Become a Sponsor today!</a></p>
+    <p class="sponsor-btn text-center"><a class="btn btn-default" href="https://opencollective.com/eslint">现在就成为赞助商吧！</a></p>
   </div>
 </div>
 
@@ -76,6 +76,6 @@ homepage: true
 
 <div class="row">
     <div class="col-sm-12">
-        ESLint 依赖 <a href="http://nodejs.org">Node.js</a>，并且可以运行在 <span itemprop="operatingSystem">Windows</span>，<span itemprop="operatingSystem">Mac</span> 和 <span itemprop="operatingSystem">Linux</span> 之上。
+        ESLint 基于 <a href="http://nodejs.org">Node.js</a>，所以可以运行在 <span itemprop="operatingSystem">Windows</span>，<span itemprop="operatingSystem">Mac</span> 和 <span itemprop="operatingSystem">Linux</span> 之上。
     </div>
 </div>
