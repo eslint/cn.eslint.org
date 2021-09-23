@@ -12,6 +12,10 @@
       <div class="col-md-8">
         <main class="blog">
           <article>
+            <h1>{{ title }}</h1>
+            <em>{{ page.date | dateFormat: "d LLLL yyyy" }}</em>
+            <br />
+            <br />
             {{ content }}
             <footer>
               <p class="text-center">ESLint 依赖于个人和公司的支持。<a class="btn btn-default" href="https://opencollective.com/eslint">成为赞助商</a></p>
