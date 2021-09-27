@@ -254,7 +254,7 @@ if (propertyNode.key === propertyNode.value) {
 
 **相关 issue：** [RFC80](https://github.com/eslint/rfcs/tree/main/designs/2021-package-exports)，[#14716](https://github.com/eslint/eslint/pull/14716)，[#13654](https://github.com/eslint/eslint/issues/13654)
 
-## <a name="remove-linter"></a> The `linter` object has been removed {#remove-linter}
+## <a name="remove-linter"></a> 移除 `linter` 对象 {#remove-linter}
 
 在 v8.0.0 中，废弃的 `linter` 对象已从 ESLint 包中移除。
 
