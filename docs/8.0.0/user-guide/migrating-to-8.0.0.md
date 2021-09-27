@@ -1,7 +1,7 @@
 ---
 title: v8.0.0 迁移指南
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/migrating-to-8.0.0.md
+edit_link: https://github.com/eslint/cn.eslint.org/edit/main/docs/8.0.0/user-guide/migrating-to-8.0.0.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
