@@ -8,7 +8,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/migratin
 
 # v8.0.0 迁移指南 {#migrating-to-v8-0-0}
 
-ESLint v8.0.0 是 ESLint 的重要版本，我们在该版本中引入了一些重大更新。本指南旨在帮助你了解这些重大更新。
+ESLint v8.0.0 是 ESLint 的重要版本，我们在该版本中引入了一些重大更新。本指南旨在帮助你了解这些更新。
 
 下面列表中会列出大部分变化，每项变化按照预计影响用户范围进行了排序，其中第一项对使用者影响最大。
 
