@@ -591,15 +591,6 @@
             "tier": "backer"
         },
         {
-            "name": "Sasha Sushko",
-            "url": "https://sushko.me",
-            "image": "https://images.opencollective.com/sashasushko/5b221d8/avatar.png",
-            "monthlyDonation": 500,
-            "totalDonations": 5000,
-            "source": "opencollective",
-            "tier": "backer"
-        },
-        {
             "name": "Ayush Sachdeva",
             "url": null,
             "image": "https://images.opencollective.com/ayush000/avatar.png",
@@ -934,6 +925,14 @@
             "tier": "backer"
         },
         {
+            "name": "Kobayashi Kazuhiro",
+            "image": "https://avatars.githubusercontent.com/u/548508?v=4",
+            "url": "https://kzhrk.dev/",
+            "monthlyDonation": 500,
+            "source": "github",
+            "tier": "backer"
+        },
+        {
             "name": "Loëck Vézien",
             "image": "https://avatars.githubusercontent.com/u/582703?u=a831045fcea633942aee6996b982c27b20e35e2d&v=4",
             "url": "https://loeck.me/",
@@ -1257,6 +1256,14 @@
             "name": "The GraphQL Guide",
             "image": "https://avatars.githubusercontent.com/u/23441982?v=4",
             "url": "https://graphql.guide",
+            "monthlyDonation": 500,
+            "source": "github",
+            "tier": "backer"
+        },
+        {
+            "name": "Hugh",
+            "image": "https://avatars.githubusercontent.com/u/24587702?u=004f9f0717317bf07948bf53475435af69e8196c&v=4",
+            "url": "hugh.sh",
             "monthlyDonation": 500,
             "source": "github",
             "tier": "backer"
