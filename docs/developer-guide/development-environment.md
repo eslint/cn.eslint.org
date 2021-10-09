@@ -89,12 +89,20 @@ ESLint 有几个构建脚本可以帮助开发的各个部分。
 
 #### npm run lint {#npm-run-lint}
 
+<<<<<<< HEAD
 只对 JavaScript 和 JSON 进行 lint。
+=======
+Runs just the JavaScript and JSON linting on the repository.
+>>>>>>> c97f95b8ad4aa6e6bdaee25de0474045a143a5f0
 
 #### npm run webpack {#npm-run-webpack}
 
+<<<<<<< HEAD
 生成 `build/eslint.js`，一个可在浏览器中使用的 ESLint 版本。
 
 #### npm run docs {#npm-run-docs}
 
 生成 JSDoc 文档并把它放入 `/jsdoc` 目录。
+=======
+Generates `build/eslint.js`, a version of ESLint for use in the browser.
+>>>>>>> c97f95b8ad4aa6e6bdaee25de0474045a143a5f0

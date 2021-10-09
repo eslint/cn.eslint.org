@@ -38,6 +38,7 @@ ESLint 团队致力于使升级尽可能精简并无痛。本章节概述了团�
 
 如果你在使用早期版本的 ESLint，你可以通过阅读以下内容来获得版本过渡方面的帮助：
 
+<<<<<<< HEAD
 - [迁移至 v1.0.0](migrating-to-1.0.0)
 - [迁移至 v2.0.0](migrating-to-2.0.0)
 - [迁移至 v3.0.0](migrating-to-3.0.0)
@@ -46,3 +47,12 @@ ESLint 团队致力于使升级尽可能精简并无痛。本章节概述了团�
 - [迁移至 v6.0.0](migrating-to-6.0.0)
 - [迁移至 v7.0.0](migrating-to-7.0.0)
 - [迁移至 v8.0.0](migrating-to-8.0.0)
+=======
+- [migrating-to-1.0.0](migrating-to-1.0.0)
+- [migrating-to-2.0.0](migrating-to-2.0.0)
+- [migrating-to-3.0.0](migrating-to-3.0.0)
+- [migrating-to-4.0.0](migrating-to-4.0.0)
+- [migrating-to-5.0.0](migrating-to-5.0.0)
+- [migrating-to-6.0.0](migrating-to-6.0.0)
+- [migrating-to-7.0.0](migrating-to-7.0.0)
+>>>>>>> c97f95b8ad4aa6e6bdaee25de0474045a143a5f0
