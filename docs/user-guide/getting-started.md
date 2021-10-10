@@ -16,11 +16,7 @@ ESLint 是用来识别 ECMAScript/JavaScript 并按照规则给出报告的代�
 
 ## 安装及使用 {#installation-and-usage}
 
-<<<<<<< HEAD
-前置依赖：[Node.js](https://nodejs.org/en/) (`^10.12.0`, or `>=12.0.0`) 内置对 SSL 的支持。（如果你使用的是 Node.js 的官方正式版，那 SSL 已被内置。）
-=======
-Prerequisites: [Node.js](https://nodejs.org/en/) (`^12.22.0`, `^14.17.0`, or `>=16.0.0`) built with SSL support. (If you are using an official Node.js distribution, SSL is always built in.)
->>>>>>> c97f95b8ad4aa6e6bdaee25de0474045a143a5f0
+前置依赖：[Node.js](https://nodejs.org/en/) (`^12.22.0`，`^14.17.0` 或 `>=16.0.0`) 内置对 SSL 的支持。（如果你使用的是 Node.js 的官方正式版，那 SSL 已被内置。）
 
 你可以通过 npm 或 yarn 来安装 ESLint：
 

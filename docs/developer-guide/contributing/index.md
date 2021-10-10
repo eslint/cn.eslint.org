@@ -18,11 +18,7 @@ ESLint 欢迎每个人的贡献，并遵守 [OpenJS 基金会行为守则](https
 
 ## [签署 CLA](https://openjsf.org/about/the-openjs-foundation-cla/) {#signing-the-cla}
 
-<<<<<<< HEAD
-为了向 ESLint 项目提交代码或文档，你需要以电子方式签署我们的 [贡献者许可协议](https://cla.js.foundation/eslint/eslint)。这个 CLA 就是你给我们使用你的贡献的许可。
-=======
-In order to submit code or documentation to an ESLint project, you will need to electronically sign our [Contributor License Agreement](https://github.com/openjs-foundation/easycla). The CLA is the commonly used Apache-style template, and is you giving us permission to use your contribution. You only need to sign the CLA once for any OpenJS Foundation projects that use EasyCLA.
->>>>>>> c97f95b8ad4aa6e6bdaee25de0474045a143a5f0
+为了向 ESLint 项目提交代码或文档，你需要以电子方式签署我们的 [贡献者许可协议](https://github.com/openjs-foundation/easycla)。CLA 是较为常见的 Apache 风格模板，也就是你给我们使用你贡献的许可。对于任何使用 EasyCLA 的 OpenJS 基金会项目来说，你只需签署一次 CLA。
 
 ## [错误报告](reporting-bugs) {#bug-reporting}
 
