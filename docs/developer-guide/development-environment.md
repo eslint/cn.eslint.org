@@ -93,8 +93,4 @@ ESLint 有几个构建脚本可以帮助开发的各个部分。
 
 #### npm run webpack {#npm-run-webpack}
 
-生成 `build/eslint.js`，一个可在浏览器中使用的 ESLint 版本。
-
-#### npm run docs {#npm-run-docs}
-
-生成 JSDoc 文档并把它放入 `/jsdoc` 目录。
+生成 `build/eslint.js`，一个在浏览器中使用的 ESLint 版本。
