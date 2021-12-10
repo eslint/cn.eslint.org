@@ -1,7 +1,7 @@
 ---
 title: padding-line-between-statements - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/padding-line-between-statements.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/padding-line-between-statements.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -157,6 +157,13 @@ function foo() {
     const a = 0;
     bar();
 }
+
+class C {
+    static {
+        let a = 0;
+        bar();
+    }
+}
 ```
 
 Examples of **correct** code for the `[{ blankLine: "always", prev: ["const", "let", "var"], next: "*"}, { blankLine: "any", prev: ["const", "let", "var"], next: ["const", "let", "var"]}]` configuration:
@@ -187,6 +194,15 @@ function foo() {
     const b = 0;
 
     bar();
+}
+
+class C {
+    static {
+        let a = 0;
+        let b = 0;
+
+        bar();
+    }
 }
 ```
 
@@ -306,5 +322,6 @@ This rule was introduced in ESLint 4.0.0-beta.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/padding-line-between-statements.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/padding-line-between-statements.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/padding-line-between-statements.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/padding-line-between-statements.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/padding-line-between-statements.md)

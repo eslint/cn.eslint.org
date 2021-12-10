@@ -1,7 +1,7 @@
 ---
 title: prefer-promise-reject-errors - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-promise-reject-errors.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/prefer-promise-reject-errors.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -9,7 +9,6 @@ rule_type: suggestion
 # require using Error objects as Promise rejection reasons (prefer-promise-reject-errors)
 
 It is considered good practice to only pass instances of the built-in `Error` object to the `reject()` function for user-defined errors in Promises. `Error` objects automatically store a stack trace, which can be used to debug an error by determining where it came from. If a Promise is rejected with a non-`Error` value, it can be difficult to determine where the rejection occurred.
-
 
 ## Rule Details
 
@@ -92,5 +91,6 @@ This rule was introduced in ESLint 3.14.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-promise-reject-errors.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-promise-reject-errors.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-promise-reject-errors.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-promise-reject-errors.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/prefer-promise-reject-errors.md)
