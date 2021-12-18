@@ -1,7 +1,7 @@
 ---
 title: linebreak-style - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/linebreak-style.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/linebreak-style.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -28,7 +28,6 @@ This rule has a string option:
 
 * `"unix"` (default) enforces the usage of Unix line endings: `\n` for LF.
 * `"windows"` enforces the usage of Windows line endings: `\r\n` for CRLF.
-
 
 ### unix
 
@@ -83,7 +82,7 @@ Version control systems sometimes have special behavior for linebreaks. To make 
 
 For example, the default behavior of [git](https://git-scm.com/) on Windows systems is to convert LF linebreaks to CRLF when checking out files, but to store the linebreaks as LF when committing a change. This will cause the `linebreak-style` rule to report errors if configured with the `"unix"` setting, because the files that ESLint sees will have CRLF linebreaks. If you use git, you may want to add a line to your [`.gitattributes` file](https://git-scm.com/docs/gitattributes) to prevent git from converting linebreaks in `.js` files:
 
-```
+```pt
 *.js text eol=lf
 ```
 
@@ -101,5 +100,6 @@ This rule was introduced in ESLint 0.21.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/linebreak-style.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/linebreak-style.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/linebreak-style.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/linebreak-style.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/linebreak-style.md)
