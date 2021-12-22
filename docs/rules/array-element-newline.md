@@ -1,7 +1,7 @@
 ---
 title: array-element-newline - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/array-element-newline.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/array-element-newline.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -52,7 +52,12 @@ Examples of **incorrect** code for this rule with the default `"always"` option:
 
 var c = [1, 2];
 var d = [1, 2, 3];
-var e = [
+var e = [1, 2, 3
+];
+var f = [
+  1, 2, 3
+];
+var g = [
     function foo() {
         dosomething();
     }, function bar() {
@@ -73,6 +78,11 @@ var c = [1,
 var d = [1,
     2,
     3];
+var d = [
+  1, 
+  2, 
+  3
+];
 var e = [
     function foo() {
         dosomething();
@@ -119,6 +129,11 @@ var b = [1];
 var c = [1, 2];
 var d = [1, 2, 3];
 var e = [
+    1, 2, 3];
+var f = [
+  1, 2, 3
+];
+var g = [
     function foo() {
         dosomething();
     }, function bar() {
@@ -390,5 +405,6 @@ This rule was introduced in ESLint 4.0.0-rc.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/array-element-newline.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/array-element-newline.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/array-element-newline.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/array-element-newline.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/array-element-newline.md)

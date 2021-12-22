@@ -1,7 +1,7 @@
 ---
 title: no-unused-expressions - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-unused-expressions.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-unused-expressions.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -70,16 +70,6 @@ injectGlobal`body{ color: red; }`
 
 ```
 
-Note that one or more string expression statements (with or without semi-colons) will only be considered as unused if they are not in the beginning of a script, module, or function (alone and uninterrupted by other statements). Otherwise, they will be treated as part of a "directive prologue", a section potentially usable by JavaScript engines. This includes "strict mode" directives.
-
-```js
-"use strict";
-"use asm"
-"use stricter";
-"use babel"
-"any other strings like this in the prologue";
-```
-
 Examples of **correct** code for the default `{ "allowShortCircuit": false, "allowTernary": false }` options:
 
 ```js
@@ -102,6 +92,50 @@ new C
 delete a.b
 
 void a
+```
+
+Note that one or more string expression statements (with or without semi-colons) will only be considered as unused if they are not in the beginning of a script, module, or function (alone and uninterrupted by other statements). Otherwise, they will be treated as part of a "directive prologue", a section potentially usable by JavaScript engines. This includes "strict mode" directives.
+
+Examples of **correct** code for this rule in regard to directives:
+
+```js
+/*eslint no-unused-expressions: "error"*/
+
+"use strict";
+"use asm"
+"use stricter";
+"use babel"
+"any other strings like this in the directive prologue";
+"this is still the directive prologue";
+
+function foo() {
+    "bar";
+}
+
+class Foo {
+    someMethod() {
+        "use strict";
+    }
+}
+```
+
+Examples of **incorrect** code for this rule in regard to directives:
+
+```js
+/*eslint no-unused-expressions: "error"*/
+
+doSomething();
+"use strict"; // this isn't in a directive prologue, because there is a non-directive statement before it
+
+function foo() {
+    "bar" + 1;
+}
+
+class Foo {
+    static {
+        "use strict"; // class static blocks do not have directive prologues
+    }
+}
 ```
 
 ### allowShortCircuit
@@ -201,5 +235,6 @@ This rule was introduced in ESLint 0.1.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-unused-expressions.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-unused-expressions.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-unused-expressions.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-unused-expressions.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-unused-expressions.md)
