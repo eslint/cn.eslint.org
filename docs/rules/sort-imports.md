@@ -1,7 +1,7 @@
 ---
 title: sort-imports - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/sort-imports.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/sort-imports.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -31,7 +31,6 @@ import "my-module.js"
 ```
 
 When declaring multiple imports, a sorted list of import declarations make it easier for developers to read the code and find necessary imports later. This rule is purely a matter of style.
-
 
 ## Rule Details
 
@@ -300,5 +299,6 @@ This rule was introduced in ESLint 2.0.0-beta.1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/sort-imports.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/sort-imports.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/sort-imports.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/sort-imports.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/sort-imports.md)
