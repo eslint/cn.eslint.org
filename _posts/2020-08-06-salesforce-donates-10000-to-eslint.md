@@ -1,11 +1,17 @@
 ---
-title: "Salesforce donates $10,000 to ESLint"
+layout: post
+title: Salesforce donates $10,000 to ESLint
 tags:
   - Open Source
   - Funding
   - Open Collective
   - Sponsors
   - Backers
+authors:
+  - nzakas
+  - mdjermanovic
+categories: 
+  - Sponsorships
 ---
 
 <p class="text-center">

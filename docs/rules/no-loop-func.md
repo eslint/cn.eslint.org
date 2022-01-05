@@ -1,7 +1,7 @@
 ---
 title: no-loop-func - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-loop-func.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-loop-func.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -33,7 +33,6 @@ for (let i = 0; i < 10; i++) {
 ```
 
 In this case, each function created within the loop returns a different number as expected.
-
 
 ## Rule Details
 
@@ -111,5 +110,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-loop-func.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-loop-func.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-loop-func.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-loop-func.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-loop-func.md)
