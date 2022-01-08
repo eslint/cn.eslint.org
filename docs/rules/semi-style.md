@@ -1,7 +1,7 @@
 ---
 title: semi-style - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/semi-style.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/semi-style.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -24,8 +24,8 @@ This rule has an option.
 }
 ```
 
-- `"last"` (Default) enforces that semicolons are at the end of statements.
-- `"first"` enforces that semicolons are at the beginning of statements. Semicolons of `for` loop heads (`for(a;b;c){}`) should be at the end of lines even if you use this option.
+* `"last"` (Default) enforces that semicolons are at the end of statements.
+* `"first"` enforces that semicolons are at the beginning of statements. Semicolons of `for` loop heads (`for(a;b;c){}`) should be at the end of lines even if you use this option.
 
 Examples of **incorrect** code for this rule with `"last"` option:
 
@@ -41,6 +41,13 @@ for (
     ; ++i
 ) {
     foo()
+}
+
+class C {
+    static {
+        foo()
+        ;bar()
+    }
 }
 ```
 
@@ -59,6 +66,13 @@ for (
 ) {
     foo()
 }
+
+class C {
+    static {
+        foo();
+        bar()
+    }
+}
 ```
 
 Examples of **incorrect** code for this rule with `"first"` option:
@@ -75,6 +89,13 @@ for (
     ; ++i
 ) {
     foo()
+}
+
+class C {
+    static {
+        foo();
+        bar()
+    }
 }
 ```
 
@@ -93,17 +114,24 @@ for (
 ) {
     foo()
 }
+
+class C {
+    static {
+        foo()
+        ;bar()
+    }
+}
 ```
 
 ## When Not To Use It
 
 If you don't want to notify the location of semicolons, then it's safe to disable this rule.
 
-## Related rules
+## Related Rules
 
-- [no-extra-semi](./no-extra-semi)
-- [semi](./semi)
-- [semi-spacing](./semi-spacing)
+* [no-extra-semi](./no-extra-semi)
+* [semi](./semi)
+* [semi-spacing](./semi-spacing)
 
 ## Version
 
@@ -111,5 +139,6 @@ This rule was introduced in ESLint 4.0.0-beta.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/semi-style.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/semi-style.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/semi-style.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/semi-style.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/semi-style.md)
