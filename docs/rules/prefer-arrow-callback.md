@@ -1,7 +1,7 @@
 ---
 title: prefer-arrow-callback - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-arrow-callback.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/prefer-arrow-callback.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -16,9 +16,9 @@ For example, arrow functions are automatically bound to their surrounding scope/
 
 Additionally, arrow functions are:
 
-- less verbose, and easier to reason about.
+* less verbose, and easier to reason about.
 
-- bound lexically regardless of where or when they are invoked.
+* bound lexically regardless of where or when they are invoked.
 
 ## Rule Details
 
@@ -101,13 +101,13 @@ someArray.map(function(item) { return this.doSomething(item); }, someObject);
 
 ## When Not To Use It
 
-- In environments that have not yet adopted ES6 language features (ES3/5).
+* In environments that have not yet adopted ES6 language features (ES3/5).
 
-- In ES6+ environments that allow the use of function expressions when describing callbacks or function arguments.
+* In ES6+ environments that allow the use of function expressions when describing callbacks or function arguments.
 
 ## Further Reading
 
-- [More on ES6 arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+* [More on ES6 arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 ## Version
 
@@ -115,5 +115,6 @@ This rule was introduced in ESLint 1.2.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-arrow-callback.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-arrow-callback.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-arrow-callback.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-arrow-callback.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/prefer-arrow-callback.md)
