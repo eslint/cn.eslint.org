@@ -1,7 +1,7 @@
 ---
 title: block-spacing - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/block-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/block-spacing.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -33,6 +33,10 @@ if (foo) { bar = 0;}
 function baz() {let i = 0;
     return i;
 }
+
+class C {
+    static {this.bar = 0;}
+}
 ```
 
 Examples of **correct** code for this rule with the default `"always"` option:
@@ -42,6 +46,10 @@ Examples of **correct** code for this rule with the default `"always"` option:
 
 function foo() { return true; }
 if (foo) { bar = 0; }
+
+class C {
+    static { this.bar = 0; }
+}
 ```
 
 ### never
@@ -53,6 +61,10 @@ Examples of **incorrect** code for this rule with the `"never"` option:
 
 function foo() { return true; }
 if (foo) { bar = 0;}
+
+class C {
+    static { this.bar = 0; }
+}
 ```
 
 Examples of **correct** code for this rule with the `"never"` option:
@@ -62,6 +74,10 @@ Examples of **correct** code for this rule with the `"never"` option:
 
 function foo() {return true;}
 if (foo) {bar = 0;}
+
+class C {
+    static {this.bar = 0;}
+}
 ```
 
 ## When Not To Use It
@@ -74,5 +90,6 @@ This rule was introduced in ESLint 1.2.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/block-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/block-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/block-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/block-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/block-spacing.md)
