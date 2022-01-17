@@ -1,7 +1,7 @@
 ---
 title: no-useless-rename - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-useless-rename.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-useless-rename.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -38,17 +38,13 @@ let { foo } = bar;
 
 This rule disallows the renaming of import, export, and destructured assignments to the same name.
 
-See Also:
-
-- [`object-shorthand`](https://eslint.org/docs/rules/object-shorthand) which can enforce this behavior for properties in object literals.
-
 ## Options
 
 This rule allows for more fine-grained control with the following options:
 
-- `ignoreImport`: When set to `true`, this rule does not check imports
-- `ignoreExport`: When set to `true`, this rule does not check exports
-- `ignoreDestructuring`: When set to `true`, this rule does not check destructuring assignments
+* `ignoreImport`: When set to `true`, this rule does not check imports
+* `ignoreExport`: When set to `true`, this rule does not check exports
+* `ignoreDestructuring`: When set to `true`, this rule does not check destructuring assignments
 
 By default, all options are set to `false`:
 
@@ -66,8 +62,11 @@ Examples of **incorrect** code for this rule by default:
 /*eslint no-useless-rename: "error"*/
 
 import { foo as foo } from "bar";
+import { "foo" as foo } from "bar";
 export { foo as foo };
+export { foo as "foo" };
 export { foo as foo } from "bar";
+export { "foo" as "foo" } from "bar";
 let { foo: foo } = bar;
 let { 'foo': foo } = bar;
 function foo({ bar: bar }) {}
@@ -82,10 +81,13 @@ Examples of **correct** code for this rule by default:
 import * as foo from "foo";
 import { foo } from "bar";
 import { foo as bar } from "baz";
+import { "foo" as bar } from "baz";
 
 export { foo };
 export { foo as bar };
+export { foo as "bar" };
 export { foo as bar } from "foo";
+export { "foo" as "bar" } from "foo";
 
 let { foo } = bar;
 let { foo: bar } = baz;
@@ -129,9 +131,13 @@ function foo({ bar: bar }) {}
 
 You can safely disable this rule if you do not care about redundantly renaming import, export, and destructuring assignments.
 
+## Related Rules
+
+* [`object-shorthand`](object-shorthand) which can enforce this behavior for properties in object literals.
+
 ## Compatibility
 
-- **JSCS**: [disallowIdenticalDestructuringNames](https://jscs-dev.github.io/rule/disallowIdenticalDestructuringNames)
+* **JSCS**: [disallowIdenticalDestructuringNames](https://jscs-dev.github.io/rule/disallowIdenticalDestructuringNames)
 
 ## Version
 
@@ -139,5 +145,6 @@ This rule was introduced in ESLint 2.11.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-useless-rename.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-useless-rename.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-useless-rename.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-useless-rename.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-useless-rename.md)
