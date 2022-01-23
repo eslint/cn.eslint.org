@@ -1,7 +1,7 @@
 ---
 title: no-restricted-imports - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-restricted-imports.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-restricted-imports.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -99,7 +99,18 @@ or like this if you want to apply a custom message to pattern matches:
 
 The custom message will be appended to the default error message.
 
-To restrict the use of all Node.js core imports (via https://github.com/nodejs/node/tree/master/lib):
+Pattern matches can also be configured to be case-sensitive:
+
+```json
+"no-restricted-imports": ["error", {
+    "patterns": [{
+      "group": ["import1/private/prefix[A-Z]*"],
+      "caseSensitive": true
+    }]
+}]
+```
+
+To restrict the use of all Node.js core imports (via <https://github.com/nodejs/node/tree/master/lib>):
 
 ```json
     "no-restricted-imports": ["error",
@@ -158,7 +169,11 @@ import DisallowedObject from "foo";
     message: "Please import 'DisallowedObject' from '/bar/baz/' instead."
 }]}]*/
 
+import { DisallowedObject } from "foo";
+
 import { DisallowedObject as AllowedObject } from "foo";
+
+import { "DisallowedObject" as AllowedObject } from "foo";
 ```
 
 ```js
@@ -178,6 +193,15 @@ import * as Foo from "foo";
 }]}]*/
 
 import pick from 'lodash/pick';
+```
+
+```js
+/*eslint no-restricted-imports: ["error", { patterns: [{
+    group: ["foo[A-Z]*"],
+    caseSensitive: true
+}]}]*/
+
+import pick from 'fooBar';
 ```
 
 Examples of **correct** code for this rule:
@@ -222,6 +246,15 @@ import { AllowedObject as DisallowedObject } from "foo";
 import lodash from 'lodash';
 ```
 
+```js
+/*eslint no-restricted-imports: ["error", { patterns: [{
+    group: ["foo[A-Z]*"],
+    caseSensitive: true
+}]}]*/
+
+import pick from 'food';
+```
+
 ## When Not To Use It
 
 Don't use this rule or don't include a module in the list for this rule if you want to be able to import a module in your project without an ESLint error or warning.
@@ -232,5 +265,6 @@ This rule was introduced in ESLint 2.0.0-alpha-1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-restricted-imports.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-restricted-imports.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-restricted-imports.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-restricted-imports.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-restricted-imports.md)
