@@ -1,8 +1,16 @@
 ---
+layout: post
 title: JSCS End of Life
+teaser: "JSCS has reached its end of life and its developers will now work on ESLint. We share what this means for JSCS and how we plan to facilitate the switch from JSCS to ESLint. Meanwhile, we recommend to wait for most compatibility work to be complete before switching."
 tags:
   - jscs
   - end of life
+authors:
+  - nzakas
+  - not-an-aardvark
+  - kaicataldo
+categories:
+  - Announcements
 ---
 
 When we announced that [JSCS was joining ESLint](https://eslint.org/blog/2016/04/welcoming-jscs-to-eslint), it was with a stated support period for JSCS of three months. Those three months have now passed and JSCS is now considered fully deprecated.
