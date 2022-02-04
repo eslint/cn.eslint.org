@@ -1,12 +1,14 @@
 ---
 title: no-multi-str - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-multi-str.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-multi-str.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Multiline Strings (no-multi-str)
+# no-multi-str
+
+Disallows multiline strings.
 
 It's possible to create multiline strings in JavaScript by using a slash before a newline, such as:
 
@@ -47,5 +49,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-multi-str.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-multi-str.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-multi-str.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-multi-str.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-multi-str.md)
