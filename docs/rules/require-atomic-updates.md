@@ -1,12 +1,14 @@
 ---
 title: require-atomic-updates - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/require-atomic-updates.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/require-atomic-updates.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow assignments that can lead to race conditions due to usage of `await` or `yield` (require-atomic-updates)
+# require-atomic-updates
+
+Disallows assignments that can lead to race conditions due to usage of `await` or `yield`.
 
 When writing asynchronous code, it is possible to create subtle race condition bugs. Consider the following example:
 
@@ -46,11 +48,22 @@ Promise.all([getPageLength(1), getPageLength(2)]).then(pageLengths => {
 
 ## Rule Details
 
-This rule aims to report assignments to variables or properties where all of the following are true:
+This rule aims to report assignments to variables or properties in cases where the assignments may be based on outdated values.
 
-* A variable or property is reassigned to a new value which is based on its old value.
-* A `yield` or `await` expression interrupts the assignment after the old value is read, and before the new value is set.
-* The rule cannot easily verify that the assignment is safe (e.g. if an assigned variable is local and would not be readable from anywhere else while the function is paused).
+### Variables
+
+This rule reports an assignment to a variable when it detects the following execution flow in a generator or async function:
+
+1. The variable is read.
+2. A `yield` or `await` pauses the function.
+3. After the function is resumed, a value is assigned to the variable from step 1.
+
+The assignment in step 3 is reported because it may be incorrectly resolved because the value of the variable from step 1 may have changed between steps 2 and 3. In particular, if the variable can be accessed from other execution contexts (for example, if it is not a local variable and therefore other functions can change it), the value of the variable may have changed elsewhere while the function was paused in step 2.
+
+Note that the rule does not report the assignment in step 3 in any of the following cases:
+
+* If the variable is read again between steps 2 and 3.
+* If the variable cannot be accessed while the function is paused (for example, if it's a local variable).
 
 Examples of **incorrect** code for this rule:
 
@@ -58,20 +71,27 @@ Examples of **incorrect** code for this rule:
 /* eslint require-atomic-updates: error */
 
 let result;
+
 async function foo() {
-  result += await somethingElse;
-
-  result = result + await somethingElse;
-
-  result = result + doSomething(await somethingElse);
+    result += await something;
 }
 
-function* bar() {
-  result += yield;
+async function bar() {
+    result = result + await something;
+}
 
-  result = result + (yield somethingElse);
+async function baz() {
+    result = result + doSomething(await somethingElse);
+}
 
-  result = result + doSomething(yield somethingElse);
+async function qux() {
+    if (!result) {
+        result = await initialize();
+    }
+}
+
+function* generator() {
+    result += yield;
 }
 ```
 
@@ -81,22 +101,89 @@ Examples of **correct** code for this rule:
 /* eslint require-atomic-updates: error */
 
 let result;
-async function foo() {
-  result = await somethingElse + result;
 
-  let tmp = await somethingElse;
-  result += tmp;
-
-  let localVariable = 0;
-  localVariable += await somethingElse;
+async function foobar() {
+    result = await something + result;
 }
 
-function* bar() {
-  result = (yield) + result;
+async function baz() {
+    const tmp = doSomething(await somethingElse);
+    result += tmp;
+}
 
-  result = (yield somethingElse) + result;
+async function qux() {
+    if (!result) {
+        const tmp = await initialize();
+        if (!result) {
+            result = tmp;
+        }
+    }
+}
 
-  result = doSomething(yield somethingElse, result);
+async function quux() {
+    let localVariable = 0;
+    localVariable += await something;
+}
+
+function* generator() {
+    result = (yield) + result;
+}
+```
+
+### Properties
+
+This rule reports an assignment to a property through a variable when it detects the following execution flow in a generator or async function:
+
+1. The variable or object property is read.
+2. A `yield` or `await` pauses the function.
+3. After the function is resumed, a value is assigned to a property.
+
+This logic is similar to the logic for variables, but stricter because the property in step 3 doesn't have to be the same as the property in step 1. It is assumed that the flow depends on the state of the object as a whole.
+
+Example of **incorrect** code for this rule:
+
+```js
+/* eslint require-atomic-updates: error */
+
+async function foo(obj) {
+    if (!obj.done) {
+        obj.something = await getSomething();
+    }
+}
+```
+
+Example of **correct** code for this rule:
+
+```js
+/* eslint require-atomic-updates: error */
+
+async function foo(obj) {
+    if (!obj.done) {
+        const tmp = await getSomething();
+        if (!obj.done) {
+            obj.something = tmp;
+        }
+    }
+}
+```
+
+## Options
+
+This rule has an object option:
+
+* `"allowProperties"`: When set to `true`, the rule does not report assignments to properties. Default is `false`.
+
+### allowProperties
+
+Example of **correct** code for this rule with the `{ "allowProperties": true }` option:
+
+```js
+/* eslint require-atomic-updates: ["error", { "allowProperties": true }] */
+
+async function foo(obj) {
+    if (!obj.done) {
+        obj.something = await getSomething();
+    }
 }
 ```
 
@@ -110,5 +197,6 @@ This rule was introduced in ESLint 5.3.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/require-atomic-updates.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/require-atomic-updates.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/require-atomic-updates.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/require-atomic-updates.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/require-atomic-updates.md)
