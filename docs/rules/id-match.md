@@ -1,12 +1,14 @@
 ---
 title: id-match - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/id-match.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/id-match.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require identifiers to match a specified regular expression (id-match)
+# id-match
+
+Requires identifiers to match a specified regular expression.
 
 > "There are only two hard things in Computer Science: cache invalidation and naming things." — Phil Karlton
 
@@ -184,5 +186,6 @@ This rule was introduced in ESLint 1.0.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/id-match.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/id-match.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/id-match.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/id-match.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/id-match.md)

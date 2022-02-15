@@ -1,14 +1,16 @@
 ---
 title: no-floating-decimal - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-floating-decimal.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-floating-decimal.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Floating Decimals (no-floating-decimal)
+# no-floating-decimal
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows leading or trailing decimal points in numeric literals.
 
 Float values in JavaScript contain a decimal point, and there is no requirement that the decimal point be preceded or followed by a number. For example, the following are all valid JavaScript numbers:
 
@@ -58,5 +60,6 @@ This rule was introduced in ESLint 0.0.6.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-floating-decimal.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-floating-decimal.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-floating-decimal.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-floating-decimal.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-floating-decimal.md)
