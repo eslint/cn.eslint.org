@@ -1,12 +1,14 @@
 ---
 title: max-classes-per-file - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/max-classes-per-file.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/max-classes-per-file.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce a maximum number of classes per file (max-classes-per-file)
+# max-classes-per-file
+
+Enforces a maximum number of classes per file.
 
 Files containing multiple classes can often result in a less navigable
 and poorly structured codebase. Best practice is to keep each file
@@ -40,8 +42,8 @@ This rule may be configured with either an object or a number.
 
 If the option is an object, it may contain one or both of:
 
--   `ignoreExpressions`: a boolean option (defaulted to `false`) to ignore class expressions.
--   `max`: a numeric option (defaulted to 1) to specify the maximum number of classes.
+* `ignoreExpressions`: a boolean option (defaulted to `false`) to ignore class expressions.
+* `max`: a numeric option (defaulted to 1) to specify the maximum number of classes.
 
 For example:
 
@@ -91,5 +93,6 @@ This rule was introduced in ESLint 5.0.0-alpha.3.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/max-classes-per-file.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/max-classes-per-file.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/max-classes-per-file.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/max-classes-per-file.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/max-classes-per-file.md)
