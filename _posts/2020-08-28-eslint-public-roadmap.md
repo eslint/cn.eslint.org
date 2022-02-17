@@ -1,10 +1,16 @@
 ---
-title: "Announcing ESLint's public roadmap"
+layout: post
+title: Announcing ESLint's public roadmap
+teaser: "We are happy to announce the first public roadmap of ESLint. Thanks to donations and involved contributors, we have been able to plan development time and future expectations. We hope that this will help to give a better idea of our ongoing resource allocation and how your donations contribute to the project."
 tags:
   - Sponsorships
   - Donations
   - Roadmap
   - Planning
+authors:
+  - nzakas 
+categories:
+  - Announcements
 ---
 
 When ESLint [first started accepting donations](https://eslint.org/blog/2019/02/funding-eslint-future), we listed several ways that the project intended to spend the money donated:

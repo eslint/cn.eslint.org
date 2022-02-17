@@ -1,12 +1,14 @@
 ---
 title: no-shadow - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-shadow.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-shadow.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow variable declarations from shadowing variables declared in the outer scope (no-shadow)
+# no-shadow
+
+Disallows variable declarations from shadowing variables declared in the outer scope.
 
 Shadowing is the process by which a local variable shares the same name as a variable in its containing scope. For example:
 
@@ -172,13 +174,13 @@ foo(function (err, result) {
 });
 ```
 
-## Further Reading
-
-* [Variable Shadowing](https://en.wikipedia.org/wiki/Variable_shadowing)
-
 ## Related Rules
 
 * [no-shadow-restricted-names](no-shadow-restricted-names)
+
+## Further Reading
+
+* [Variable Shadowing](https://en.wikipedia.org/wiki/Variable_shadowing)
 
 ## Version
 
@@ -186,5 +188,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-shadow.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-shadow.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-shadow.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-shadow.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-shadow.md)
