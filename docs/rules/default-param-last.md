@@ -1,12 +1,14 @@
 ---
 title: default-param-last - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/default-param-last.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/default-param-last.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce default parameters to be last (default-param-last)
+# default-param-last
+
+Enforces default parameters to be last.
 
 Putting default parameter at last allows function calls to omit optional tail arguments.
 
@@ -48,5 +50,6 @@ This rule was introduced in ESLint 6.4.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/default-param-last.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/default-param-last.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/default-param-last.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/default-param-last.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/default-param-last.md)
