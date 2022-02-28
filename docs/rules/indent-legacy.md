@@ -1,14 +1,16 @@
 ---
 title: indent-legacy - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/indent-legacy.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/indent-legacy.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce consistent indentation (indent-legacy)
+# indent-legacy
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces consistent indentation.
 
 This rule was **deprecated** in ESLint v4.0.0.
 
@@ -549,5 +551,6 @@ This rule was introduced in ESLint 4.0.0-alpha.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/indent-legacy.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/indent-legacy.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/indent-legacy.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/indent-legacy.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/indent-legacy.md)
