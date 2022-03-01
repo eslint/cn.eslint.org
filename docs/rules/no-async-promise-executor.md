@@ -1,14 +1,16 @@
 ---
 title: no-async-promise-executor - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-async-promise-executor.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-async-promise-executor.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow using an async function as a Promise executor (no-async-promise-executor)
+# no-async-promise-executor
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows using an async function as a Promise executor.
 
 The `new Promise` constructor accepts an *executor* function as an argument, which has `resolve` and `reject` parameters that can be used to control the state of the created Promise. For example:
 
@@ -77,5 +79,6 @@ This rule was introduced in ESLint 5.3.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-async-promise-executor.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-async-promise-executor.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-async-promise-executor.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-async-promise-executor.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-async-promise-executor.md)
