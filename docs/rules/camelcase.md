@@ -1,12 +1,14 @@
 ---
 title: camelcase - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/camelcase.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/camelcase.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require CamelCase (camelcase)
+# camelcase
+
+Enforces camelcase naming convention.
 
 When it comes to naming variables, style guides generally fall into one of two camps: camelcase (`variableName`) and underscores (`variable_name`). This rule focuses on using the camelcase approach. If your style guide calls for camelCasing your variable names, then this rule is for you!
 
@@ -249,7 +251,7 @@ Examples of **correct** code for this rule with the `{ "ignoreGlobals": true }` 
 const foo = no_camelcased;
 ```
 
-## allow
+### allow
 
 Examples of **correct** code for this rule with the `allow` option:
 
@@ -283,5 +285,6 @@ This rule was introduced in ESLint 0.0.2.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/camelcase.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/camelcase.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/camelcase.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/camelcase.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/camelcase.md)
