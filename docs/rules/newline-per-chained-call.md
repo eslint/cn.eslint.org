@@ -1,14 +1,16 @@
 ---
 title: newline-per-chained-call - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/newline-per-chained-call.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/newline-per-chained-call.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require a newline after each call in a method chain (newline-per-chained-call)
+# newline-per-chained-call
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires a newline after each call in a method chain.
 
 Chained method calls on a single line without line breaks are harder to read, so some developers place a newline character after each method call in the chain to make it more readable and easy to maintain.
 
@@ -133,5 +135,6 @@ This rule was introduced in ESLint 2.0.0-rc.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/newline-per-chained-call.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/newline-per-chained-call.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/newline-per-chained-call.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/newline-per-chained-call.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/newline-per-chained-call.md)
