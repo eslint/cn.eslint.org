@@ -1,14 +1,16 @@
 ---
 title: no-cond-assign - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-cond-assign.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-cond-assign.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow assignment operators in conditional statements (no-cond-assign)
+# no-cond-assign
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows assignment operators in conditional statements.
 
 In conditional statements, it is very easy to mistype a comparison operator (such as `==`) as an assignment operator (such as `=`). For example:
 
@@ -142,5 +144,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-cond-assign.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-cond-assign.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-cond-assign.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-cond-assign.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-cond-assign.md)
