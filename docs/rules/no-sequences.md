@@ -1,12 +1,14 @@
 ---
 title: no-sequences - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-sequences.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-sequences.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Use of the Comma Operator (no-sequences)
+# no-sequences
+
+Disallows use of the comma operator.
 
 The comma operator includes multiple expressions where only one is expected. It evaluates each operand from left to right and returns the value of the last operand. However, this frequently obscures side effects, and its use is often an accident. Here are some examples of sequences:
 
@@ -156,5 +158,6 @@ This rule was introduced in ESLint 0.5.1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-sequences.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-sequences.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-sequences.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-sequences.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-sequences.md)
