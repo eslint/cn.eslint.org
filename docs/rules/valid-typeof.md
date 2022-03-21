@@ -1,14 +1,18 @@
 ---
 title: valid-typeof - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/valid-typeof.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/valid-typeof.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce comparing `typeof` expressions against valid strings (valid-typeof)
+# valid-typeof
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+(hasSuggestions) Some problems reported by this rule are manually fixable by editor [suggestions](../developer-guide/working-with-rules#providing-suggestions).
+
+Enforces comparing `typeof` expressions against valid strings.
 
 For a vast majority of use cases, the result of the `typeof` operator is one of the following string literals: `"undefined"`, `"object"`, `"boolean"`, `"number"`, `"string"`, `"function"`, `"symbol"`, and `"bigint"`. It is usually a typing mistake to compare the result of a `typeof` operator to other string literals.
 
@@ -82,5 +86,6 @@ This rule was introduced in ESLint 0.5.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/valid-typeof.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/valid-typeof.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/valid-typeof.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/valid-typeof.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/valid-typeof.md)
