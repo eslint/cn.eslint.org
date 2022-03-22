@@ -1,7 +1,7 @@
 ---
 title: 规则弃用
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/rule-deprecation.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/user-guide/rule-deprecation.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
