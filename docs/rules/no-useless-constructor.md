@@ -1,12 +1,14 @@
 ---
 title: no-useless-constructor - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-useless-constructor.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-useless-constructor.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow unnecessary constructor (no-useless-constructor)
+# no-useless-constructor
+
+Disallows unnecessary constructors.
 
 ES2015 provides a default class constructor if one is not specified. As such, it is unnecessary to provide an empty constructor or one that simply delegates into its parent class, as in the following examples:
 
@@ -84,5 +86,6 @@ This rule was introduced in ESLint 2.0.0-beta.1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-useless-constructor.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-useless-constructor.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-useless-constructor.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-useless-constructor.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-useless-constructor.md)
