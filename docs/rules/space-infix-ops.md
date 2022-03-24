@@ -1,14 +1,16 @@
 ---
 title: space-infix-ops - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/space-infix-ops.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/space-infix-ops.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require spacing around infix operators (space-infix-ops)
+# space-infix-ops
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires spacing around infix operators.
 
 While formatting preferences are very personal, a number of style guides require spaces around operators, such as:
 
@@ -94,5 +96,6 @@ This rule was introduced in ESLint 0.2.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/space-infix-ops.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/space-infix-ops.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/space-infix-ops.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/space-infix-ops.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/space-infix-ops.md)
