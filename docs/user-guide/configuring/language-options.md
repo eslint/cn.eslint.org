@@ -1,13 +1,12 @@
 ---
 title: Language Options
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configuring/language-options.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/user-guide/configuring/language-options.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Language Options
-
 
 * [Specifying Environments](#specifying-environments)
 * [Specifying Globals](#specifying-globals)
@@ -22,9 +21,13 @@ An environment provides predefined global variables. The available environments 
 * `commonjs` - CommonJS global variables and CommonJS scoping (use this for browser-only code that uses Browserify/WebPack).
 * `shared-node-browser` - Globals common to both Node.js and Browser.
 * `es6` - enable all ECMAScript 6 features except for modules (this automatically sets the `ecmaVersion` parser option to 6).
+* `es2016` - adds all ECMAScript 2016 globals and automatically sets the `ecmaVersion` parser option to 7.
 * `es2017` - adds all ECMAScript 2017 globals and automatically sets the `ecmaVersion` parser option to 8.
+* `es2018` - adds all ECMAScript 2018 globals and automatically sets the `ecmaVersion` parser option to 9.
+* `es2019` - adds all ECMAScript 2019 globals and automatically sets the `ecmaVersion` parser option to 10.
 * `es2020` - adds all ECMAScript 2020 globals and automatically sets the `ecmaVersion` parser option to 11.
 * `es2021` - adds all ECMAScript 2021 globals and automatically sets the `ecmaVersion` parser option to 12.
+* `es2022` - adds all ECMAScript 2022 globals and automatically sets the `ecmaVersion` parser option to 13.
 * `worker` - web workers global variables.
 * `amd` - defines `require()` and `define()` as global variables as per the [amd](https://github.com/amdjs/amdjs-api/wiki/AMD) spec.
 * `mocha` - adds all of the Mocha testing global variables.
@@ -182,7 +185,6 @@ Globals can be disabled with the string `"off"`. For example, in an environment 
 
 For historical reasons, the boolean value `false` and the string value `"readable"` are equivalent to `"readonly"`. Similarly, the boolean value `true` and the string value `"writeable"` are equivalent to `"writable"`. However, the use of older values is deprecated.
 
-
 ## Specifying Parser Options
 
 ESLint allows you to specify the JavaScript language options you want to support. By default, ESLint expects ECMAScript 5 syntax. You can override that setting to enable support for other ECMAScript versions as well as JSX by using parser options.
@@ -197,6 +199,7 @@ Parser options are set in your `.eslintrc.*` file by using the `parserOptions` p
 
 * `ecmaVersion` - set to 3, 5 (default), 6, 7, 8, 9, 10, 11, 12, or 13 to specify the version of ECMAScript syntax you want to use. You can also set to 2015 (same as 6), 2016 (same as 7), 2017 (same as 8), 2018 (same as 9), 2019 (same as 10), 2020 (same as 11), 2021 (same as 12), or 2022 (same as 13) to use the year-based naming. You can also set "latest" to use the most recently supported version.
 * `sourceType` - set to `"script"` (default) or `"module"` if your code is in ECMAScript modules.
+* `allowReserved` - allow the use of reserved words as identifiers (if `ecmaVersion` is 3).
 * `ecmaFeatures` - an object indicating which additional language features you'd like to use:
     * `globalReturn` - allow `return` statements in the global scope
     * `impliedStrict` - enable global [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) (if `ecmaVersion` is 5 or greater)
