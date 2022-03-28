@@ -1,12 +1,14 @@
 ---
 title: guard-for-in - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/guard-for-in.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/guard-for-in.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require Guarding for-in (guard-for-in)
+# guard-for-in
+
+Requires `for in` loops to include an `if` statement.
 
 Looping over objects with a `for in` loop will include properties that are inherited through the prototype chain. This behavior can lead to unexpected items in your for loop.
 
@@ -65,5 +67,6 @@ This rule was introduced in ESLint 0.0.6.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/guard-for-in.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/guard-for-in.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/guard-for-in.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/guard-for-in.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/guard-for-in.md)
