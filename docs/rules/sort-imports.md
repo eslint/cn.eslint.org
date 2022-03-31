@@ -1,20 +1,23 @@
 ---
 title: sort-imports - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/sort-imports.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/sort-imports.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Import Sorting (sort-imports)
+# sort-imports
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces sorted import declarations within modules.
 
 The import statement is used to import members (functions, objects or primitives) that have been exported from an external module. Using a specific member syntax:
 
 ```js
 // single - Import single member.
 import myMember from "my-module.js";
+import {myOtherMember} from "my-other-module.js";
 
 // multiple - Import multiple members.
 import {foo, bar} from "my-module.js";
@@ -31,7 +34,6 @@ import "my-module.js"
 ```
 
 When declaring multiple imports, a sorted list of import declarations make it easier for developers to read the code and find necessary imports later. This rule is purely a matter of style.
-
 
 ## Rule Details
 
@@ -81,7 +83,7 @@ import * as foo from 'foo.js';
 import {alpha, beta} from 'alpha.js';
 import {delta, gamma} from 'delta.js';
 import a from 'baz.js';
-import b from 'qux.js';
+import {b} from 'qux.js';
 
 /*eslint sort-imports: "error"*/
 import a from 'foo.js';
@@ -93,6 +95,7 @@ import 'foo.js'
 import * as bar from 'bar.js';
 import {a, b} from 'baz.js';
 import c from 'qux.js';
+import {d} from 'quux.js';
 
 /*eslint sort-imports: "error"*/
 import {a, b, c} from 'foo.js'
@@ -115,6 +118,10 @@ import {a, b} from 'bar.js';
 
 /*eslint sort-imports: "error"*/
 import a from 'foo.js';
+import {b, c} from 'bar.js';
+
+/*eslint sort-imports: "error"*/
+import {a} from 'foo.js';
 import {b, c} from 'bar.js';
 
 /*eslint sort-imports: "error"*/
@@ -300,5 +307,6 @@ This rule was introduced in ESLint 2.0.0-beta.1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/sort-imports.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/sort-imports.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/sort-imports.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/sort-imports.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/sort-imports.md)
