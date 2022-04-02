@@ -1,14 +1,16 @@
 ---
 title: space-before-function-paren - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/space-before-function-paren.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/space-before-function-paren.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require or disallow a space before function parenthesis (space-before-function-paren)
+# space-before-function-paren
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallows a space before function parenthesis.
 
 When formatting a function, whitespace is allowed between the function name or `function` keyword and the opening paren. Named functions also require a space between the `function` keyword and the function name, but anonymous functions require no whitespace. For example:
 
@@ -383,5 +385,6 @@ This rule was introduced in ESLint 0.18.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/space-before-function-paren.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/space-before-function-paren.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/space-before-function-paren.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/space-before-function-paren.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/space-before-function-paren.md)
