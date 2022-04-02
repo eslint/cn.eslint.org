@@ -1,14 +1,16 @@
 ---
 title: no-dupe-else-if - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-dupe-else-if.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-dupe-else-if.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow duplicate conditions in `if-else-if` chains (no-dupe-else-if)
+# no-dupe-else-if
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows duplicate conditions in `if-else-if` chains.
 
 `if-else-if` chains are commonly used when there is a need to execute only one branch (or at most one branch) out of several possible branches, based on certain conditions.
 
@@ -193,5 +195,6 @@ This rule was introduced in ESLint 6.7.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-dupe-else-if.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-dupe-else-if.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-dupe-else-if.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-dupe-else-if.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-dupe-else-if.md)

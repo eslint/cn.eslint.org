@@ -1,14 +1,16 @@
 ---
 title: lines-between-class-members - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/lines-between-class-members.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/lines-between-class-members.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require or disallow an empty line between class members (lines-between-class-members)
+# lines-between-class-members
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallows an empty line between class members.
 
 This rule improves readability by enforcing lines between class members. It will not check empty lines before the first member and after the last member, since that is already taken care of by padded-blocks.
 
@@ -146,5 +148,6 @@ This rule was introduced in ESLint 4.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/lines-between-class-members.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/lines-between-class-members.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/lines-between-class-members.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/lines-between-class-members.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/lines-between-class-members.md)
