@@ -1,11 +1,17 @@
 ---
-title: "Funding ESLint's Future: November Update"
+layout: post
+title: 'Funding ESLint''s Future: November Update'
+teaser: "We are happy to announce that we are currently sponsored at just under $10,000 per month. We share how we've used the money and what our sponsors are telling us. Thanks to the ESLint Collective, we are looking forward to a brighter future for ESLint."
 tags:
   - Open Source
   - Funding
   - Open Collective
   - Sponsors
   - Backers
+authors:
+  - kaicataldo
+categories:
+  - Financials
 ---
 
 Back in February, we [announced](https://eslint.org/blog/2019/02/funding-eslint-future) the creation of the [ESLint Collective](https://opencollective.com/eslint) to raise funds for the ongoing maintenance and development of ESLint. Our goal was to raise $20,000 each month to support the project, and since then, we've been grateful for contributions from nearly 150 companies, projects, and individuals towards that goal.
