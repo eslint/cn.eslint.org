@@ -1,11 +1,17 @@
 ---
-title: "Automattic becomes ESLint's first platinum sponsor"
+layout: post
+title: Automattic becomes ESLint's first platinum sponsor
+teaser: "We are happy to announce that Automattic is the first platinum sponsor of ESLint. It is an honor to be supported by Automattic. We are grateful to the engineers using ESLint, and specially to Sarah Gooding of WPTavern for covering ESLint in her article about funding open source projects."
 tags:
   - Open Source
   - Funding
   - Open Collective
   - Sponsors
   - Backers
+authors:
+  - nzakas
+categories:
+  - Sponsorships
 ---
 
 <p class="text-center" style="margin-top: 100px; margin-bottom: 100px">

@@ -1,14 +1,16 @@
 ---
 title: no-misleading-character-class - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-misleading-character-class.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-misleading-character-class.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow characters which are made with multiple code points in character class syntax (no-misleading-character-class)
+# no-misleading-character-class
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows characters which are made with multiple code points in character class syntax.
 
 Unicode includes the characters which are made with multiple code points.
 RegExp character class syntax (`/[abc]/`) cannot handle characters which are made by multiple code points as a character; those characters will be dissolved to each code point. For example, `❇️` is made by `❇` (`U+2747`) and VARIATION SELECTOR-16 (`U+FE0F`). If this character is in RegExp character class, it will match to either `❇` (`U+2747`) or VARIATION SELECTOR-16 (`U+FE0F`) rather than `❇️`.
@@ -88,5 +90,6 @@ This rule was introduced in ESLint 5.3.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-misleading-character-class.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-misleading-character-class.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-misleading-character-class.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-misleading-character-class.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-misleading-character-class.md)
