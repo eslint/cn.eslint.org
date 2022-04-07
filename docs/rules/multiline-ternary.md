@@ -1,14 +1,16 @@
 ---
 title: multiline-ternary - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/multiline-ternary.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/multiline-ternary.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce or disallow newlines between operands of ternary expressions (multiline-ternary)
+# multiline-ternary
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces or disallows newlines between operands of ternary expressions.
 
 JavaScript allows operands of ternary expressions to be separated by newlines, which can improve the readability of your program.
 
@@ -168,5 +170,6 @@ This rule was introduced in ESLint 3.1.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/multiline-ternary.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/multiline-ternary.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/multiline-ternary.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/multiline-ternary.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/multiline-ternary.md)
