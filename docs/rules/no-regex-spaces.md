@@ -1,16 +1,18 @@
 ---
 title: no-regex-spaces - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-regex-spaces.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-regex-spaces.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow multiple spaces in regular expression literals (no-regex-spaces)
+# no-regex-spaces
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows multiple spaces in regular expression literals.
 
 Regular expressions can be very complex and difficult to understand, which is why it's important to keep them as simple as possible in order to avoid mistakes. One of the more error-prone things you can do with a regular expression is to use more than one space, such as:
 
@@ -63,5 +65,6 @@ This rule was introduced in ESLint 0.4.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-regex-spaces.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-regex-spaces.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-regex-spaces.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-regex-spaces.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-regex-spaces.md)
