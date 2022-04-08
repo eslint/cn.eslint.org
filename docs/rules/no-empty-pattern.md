@@ -1,14 +1,16 @@
 ---
 title: no-empty-pattern - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-empty-pattern.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-empty-pattern.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow empty destructuring patterns (no-empty-pattern)
+# no-empty-pattern
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows empty destructuring patterns.
 
 When using destructuring, it's possible to create a pattern that has no effect. This happens when empty curly braces are used to the right of an embedded object destructuring pattern, such as:
 
@@ -69,5 +71,6 @@ This rule was introduced in ESLint 1.7.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-empty-pattern.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-empty-pattern.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-empty-pattern.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-empty-pattern.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-empty-pattern.md)

@@ -1,12 +1,14 @@
 ---
 title: no-negated-condition - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-negated-condition.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-negated-condition.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow negated conditions (no-negated-condition)
+# no-negated-condition
+
+Disallows negated conditions.
 
 Negated conditions are more difficult to understand. Code can be made more readable by inverting the condition instead.
 
@@ -71,5 +73,6 @@ This rule was introduced in ESLint 1.6.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-negated-condition.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-negated-condition.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-negated-condition.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-negated-condition.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-negated-condition.md)

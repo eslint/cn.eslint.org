@@ -1,16 +1,16 @@
 ---
 title: no-negated-in-lhs - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-negated-in-lhs.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-negated-in-lhs.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow negating the left operand in `in` expressions (no-negated-in-lhs)
+# no-negated-in-lhs
+
+Disallows negating the left operand in `in` expressions.
 
 This rule was **deprecated** in ESLint v3.3.0 and replaced by the [no-unsafe-negation](no-unsafe-negation) rule.
-
-## Rule Details
 
 Just as developers might type `-a + b` when they mean `-(a + b)` for the negative of a sum, they might type `!key in object` by mistake when they almost certainly mean `!(key in object)` to test that a key is not in an object.
 
@@ -54,5 +54,6 @@ This rule was introduced in ESLint 0.1.2.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-negated-in-lhs.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-negated-in-lhs.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-negated-in-lhs.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-negated-in-lhs.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-negated-in-lhs.md)

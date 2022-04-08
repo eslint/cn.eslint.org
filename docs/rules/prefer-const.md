@@ -1,14 +1,16 @@
 ---
 title: prefer-const - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-const.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/prefer-const.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Suggest using `const` (prefer-const)
+# prefer-const
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires `const` declarations for variables that are never reassigned after declared.
 
 If a variable is never reassigned, using the `const` declaration is better.
 
@@ -22,7 +24,6 @@ Examples of **incorrect** code for this rule:
 
 ```js
 /*eslint prefer-const: "error"*/
-/*eslint-env es6*/
 
 // it's initialized and never reassigned.
 let a = 3;
@@ -31,6 +32,14 @@ console.log(a);
 let a;
 a = 0;
 console.log(a);
+
+class C {
+    static {
+        let a;
+        a = 0;
+        console.log(a);
+    }
+}
 
 // `i` is redefined (not reassigned) on each loop step.
 for (let i in [1, 2, 3]) {
@@ -47,7 +56,6 @@ Examples of **correct** code for this rule:
 
 ```js
 /*eslint prefer-const: "error"*/
-/*eslint-env es6*/
 
 // using const.
 const a = 0;
@@ -68,6 +76,15 @@ if (true) {
     a = 0;
 }
 console.log(a);
+
+// it's initialized in a different scope.
+let a;
+class C {
+    #x;
+    static {
+        a = obj => obj.#x;
+    }
+}
 
 // it's initialized at a place that we cannot write a variable declaration.
 let a;
@@ -220,5 +237,6 @@ This rule was introduced in ESLint 0.23.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-const.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-const.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-const.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-const.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/prefer-const.md)
