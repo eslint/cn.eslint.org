@@ -1,7 +1,7 @@
 ---
 title: Working with Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/working-with-rules.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/developer-guide/working-with-rules.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -32,9 +32,7 @@ Here is the basic format of the source file for a rule:
 // Rule Definition
 //------------------------------------------------------------------------------
 
-/**
- * @type {import('eslint').Rule.RuleModule}
- */
+/** @type {import('eslint').Rule.RuleModule} */
 module.exports = {
     meta: {
         type: "suggestion",
@@ -329,6 +327,8 @@ The `fixer` object has the following methods:
 * `replaceText(nodeOrToken, text)` - replaces the text in the given node or token
 * `replaceTextRange(range, text)` - replaces the text in the given range
 
+A range is a two-item array containing character indices inside of the source code. The first item is the start of the range (inclusive) and the second item is the end of the range (exclusive). Every node and token has a `range` property to identify the source code range they represent.
+
 The above methods return a `fixing` object.
 The `fix()` function can return the following values:
 
@@ -537,7 +537,7 @@ module.exports = {
 };
 ```
 
-Once you have an instance of `SourceCode`, you can use the methods on it to work with the code:
+Once you have an instance of `SourceCode`, you can use the following methods on it to work with the code:
 
 * `getText(node)` - returns the source code for the given node. Omit `node` to get the whole source.
 * `getAllComments()` - returns an array of all comments in the source.
@@ -703,8 +703,8 @@ To keep the linting process efficient and unobtrusive, it is useful to verify th
 When developing in the ESLint core repository, the `npm run perf` command gives a high-level overview of ESLint running time with all core rules enabled.
 
 ```bash
-$ git checkout master
-Switched to branch 'master'
+$ git checkout main
+Switched to branch 'main'
 
 $ npm run perf
 CPU Speed is 2200 with multiplier 7500000

@@ -1,12 +1,14 @@
 ---
 title: class-methods-use-this - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/class-methods-use-this.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/class-methods-use-this.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce that class methods utilize `this` (class-methods-use-this)
+# class-methods-use-this
+
+Enforces that class methods utilize `this`.
 
 If a class method does not use `this`, it can *sometimes* be made into a static function. If you do convert the method into a static function, instances of the class that call that particular method have to be converted to a static call as well (`MyClass.callStaticMethod()`)
 
@@ -91,6 +93,10 @@ class A {
     static foo() {
         // OK. static methods aren't expected to use this.
     }
+
+    static {
+        // OK. static blocks are exempt.
+    }
 }
 ```
 
@@ -103,7 +109,7 @@ This rule has two options:
 
 ### exceptMethods
 
-```
+```js
 "class-methods-use-this": [<enabled>, { "exceptMethods": [<...exceptions>] }]
 ```
 
@@ -133,9 +139,9 @@ class A {
 }
 ```
 
-## enforceForClassFields
+### enforceForClassFields
 
-```
+```js
 "class-methods-use-this": [<enabled>, { "enforceForClassFields": true | false }]
 ```
 
@@ -182,5 +188,6 @@ This rule was introduced in ESLint 3.4.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/class-methods-use-this.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/class-methods-use-this.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/class-methods-use-this.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/class-methods-use-this.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/class-methods-use-this.md)
