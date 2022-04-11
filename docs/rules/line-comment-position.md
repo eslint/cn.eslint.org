@@ -1,12 +1,14 @@
 ---
 title: line-comment-position - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/line-comment-position.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/line-comment-position.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce position of line comments (line-comment-position)
+# line-comment-position
+
+Enforces position of line comments.
 
 Line comments can be positioned above or beside code. This rule helps teams maintain a consistent style.
 
@@ -18,7 +20,6 @@ var foo = "bar";  // beside comment
 ## Rule Details
 
 This rule enforces consistent position of line comments. Block comments are not affected by this rule. By default, this rule ignores comments starting with the following words: `eslint`, `jshint`, `jslint`, `istanbul`, `global`, `exported`, `jscs`, `falls through`.
-
 
 ## Options
 
@@ -41,7 +42,6 @@ Examples of **correct** code for the `{ "position": "above" }` option:
 1 + 1;
 ```
 
-
 Examples of **incorrect** code for the `{ "position": "above" }` option:
 
 ```js
@@ -57,7 +57,6 @@ Examples of **correct** code for the `{ "position": "beside" }` option:
 /*eslint line-comment-position: ["error", { "position": "beside" }]*/
 1 + 1; // valid comment
 ```
-
 
 Examples of **incorrect** code for the `{ "position": "beside" }` option:
 
@@ -119,5 +118,6 @@ This rule was introduced in ESLint 3.5.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/line-comment-position.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/line-comment-position.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/line-comment-position.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/line-comment-position.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/line-comment-position.md)

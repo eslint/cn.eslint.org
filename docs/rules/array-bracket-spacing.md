@@ -1,14 +1,16 @@
 ---
 title: array-bracket-spacing - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/array-bracket-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/array-bracket-spacing.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow or enforce spaces inside of brackets (array-bracket-spacing)
+# array-bracket-spacing
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows or enforce spaces inside of brackets.
 
 A number of style guides require or disallow spaces between array brackets and other tokens. This rule
 applies to both array literals and destructuring assignments (ECMAScript 6).
@@ -238,5 +240,6 @@ This rule was introduced in ESLint 0.24.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/array-bracket-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/array-bracket-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/array-bracket-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/array-bracket-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/array-bracket-spacing.md)

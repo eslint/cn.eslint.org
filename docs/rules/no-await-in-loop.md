@@ -1,12 +1,14 @@
 ---
 title: no-await-in-loop - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-await-in-loop.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-await-in-loop.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow `await` inside of loops (no-await-in-loop)
+# no-await-in-loop
+
+Disallows `await` inside of loops.
 
 Performing an operation on each element of an iterable is a common task. However, performing an
 `await` as part of each operation is an indication that the program is not taking full advantage of
@@ -92,5 +94,6 @@ This rule was introduced in ESLint 3.12.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-await-in-loop.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-await-in-loop.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-await-in-loop.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-await-in-loop.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-await-in-loop.md)
