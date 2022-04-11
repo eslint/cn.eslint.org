@@ -1,12 +1,14 @@
 ---
 title: func-names - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/func-names.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/func-names.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require or disallow named `function` expressions (func-names)
+# func-names
+
+Requires or disallows named `function` expressions.
 
 A pattern that's becoming more common is to give function expressions names to aid in debugging. For example:
 
@@ -214,15 +216,15 @@ Examples of **correct** code for this rule with the `"never", { "generators": "a
 var foo = bar(function *baz() {});
 ```
 
-## Further Reading
-
-* [Functions Explained](http://markdaggett.com/blog/2013/02/15/functions-explained/)
-* [Function Names in ES6](http://2ality.com/2015/09/function-names-es6.html)
-
 ## Compatibility
 
 * **JSCS**: [requireAnonymousFunctions](https://jscs-dev.github.io/rule/requireAnonymousFunctions)
 * **JSCS**: [disallowAnonymousFunctions](https://jscs-dev.github.io/rule/disallowAnonymousFunctions)
+
+## Further Reading
+
+* [Functions Explained](http://markdaggett.com/blog/2013/02/15/functions-explained/)
+* [Function Names in ES6](http://2ality.com/2015/09/function-names-es6.html)
 
 ## Version
 
@@ -230,5 +232,6 @@ This rule was introduced in ESLint 0.4.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/func-names.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/func-names.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/func-names.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/func-names.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/func-names.md)
