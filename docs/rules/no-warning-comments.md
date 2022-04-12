@@ -1,12 +1,14 @@
 ---
 title: no-warning-comments - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-warning-comments.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-warning-comments.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Warning Comments (no-warning-comments)
+# no-warning-comments
+
+Disallows specified warning terms in comments.
 
 Developers often add comments to code which is not complete or needs review. Most likely you want to fix or review the code, and then remove the comment, before you consider the code to be production ready.
 
@@ -98,5 +100,6 @@ This rule was introduced in ESLint 0.4.4.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-warning-comments.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-warning-comments.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-warning-comments.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-warning-comments.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-warning-comments.md)
