@@ -1,14 +1,16 @@
 ---
 title: operator-linebreak - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/operator-linebreak.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/operator-linebreak.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce consistent linebreak style for operators (operator-linebreak)
+# operator-linebreak
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces consistent linebreak style for operators.
 
 When a statement is too long to fit on a single line, line breaks are generally inserted next to the operators separating expressions. The first style coming to mind would be to place the operator at the end of the line, following the English punctuation rules.
 
@@ -351,5 +353,6 @@ This rule was introduced in ESLint 0.19.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/operator-linebreak.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/operator-linebreak.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/operator-linebreak.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/operator-linebreak.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/operator-linebreak.md)
