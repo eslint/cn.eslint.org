@@ -1,14 +1,16 @@
 ---
 title: comma-dangle - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/comma-dangle.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/comma-dangle.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require or disallow trailing commas (comma-dangle)
+# comma-dangle
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallows trailing commas.
 
 Trailing commas in object literals are valid according to the ECMAScript 5 (and ECMAScript 3!) spec. However, IE8 (when not in IE8 document mode) and below will throw an error when it encounters trailing commas in JavaScript.
 
@@ -330,5 +332,6 @@ This rule was introduced in ESLint 0.16.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/comma-dangle.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/comma-dangle.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/comma-dangle.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/comma-dangle.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/comma-dangle.md)
