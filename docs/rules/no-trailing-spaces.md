@@ -1,14 +1,16 @@
 ---
 title: no-trailing-spaces - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-trailing-spaces.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-trailing-spaces.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow trailing whitespace at the end of lines (no-trailing-spaces)
+# no-trailing-spaces
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows trailing whitespace at the end of lines.
 
 Sometimes in the course of editing files, you can end up with extra whitespace at the end of lines. These whitespace differences can be picked up by source control systems and flagged as diffs, causing frustration for developers. While this extra whitespace causes no functional issues, many code conventions require that trailing spaces be removed before check-in.
 
@@ -78,5 +80,6 @@ This rule was introduced in ESLint 0.7.1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-trailing-spaces.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-trailing-spaces.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-trailing-spaces.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-trailing-spaces.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-trailing-spaces.md)

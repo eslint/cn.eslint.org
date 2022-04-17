@@ -1,12 +1,14 @@
 ---
 title: no-empty-function - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-empty-function.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-empty-function.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow empty functions (no-empty-function)
+# no-empty-function
+
+Disallows empty functions.
 
 Empty functions can reduce readability because readers need to guess whether it's intentional or not.
 So writing a clear comment for empty functions is a good practice.
@@ -188,7 +190,7 @@ This rule has an option to allow specific kinds of functions to be empty.
     * `"asyncFunctions"` - Async functions.
     * `"asyncMethods"` - Async class methods and method shorthands of object literals.
 
-#### allow: functions
+### allow: functions
 
 Examples of **correct** code for the `{ "allow": ["functions"] }` option:
 
@@ -204,7 +206,7 @@ var obj = {
 };
 ```
 
-#### allow: arrowFunctions
+### allow: arrowFunctions
 
 Examples of **correct** code for the `{ "allow": ["arrowFunctions"] }` option:
 
@@ -215,7 +217,7 @@ Examples of **correct** code for the `{ "allow": ["arrowFunctions"] }` option:
 var foo = () => {};
 ```
 
-#### allow: generatorFunctions
+### allow: generatorFunctions
 
 Examples of **correct** code for the `{ "allow": ["generatorFunctions"] }` option:
 
@@ -232,7 +234,7 @@ var obj = {
 };
 ```
 
-#### allow: methods
+### allow: methods
 
 Examples of **correct** code for the `{ "allow": ["methods"] }` option:
 
@@ -250,7 +252,7 @@ class A {
 }
 ```
 
-#### allow: generatorMethods
+### allow: generatorMethods
 
 Examples of **correct** code for the `{ "allow": ["generatorMethods"] }` option:
 
@@ -268,7 +270,7 @@ class A {
 }
 ```
 
-#### allow: getters
+### allow: getters
 
 Examples of **correct** code for the `{ "allow": ["getters"] }` option:
 
@@ -286,7 +288,7 @@ class A {
 }
 ```
 
-#### allow: setters
+### allow: setters
 
 Examples of **correct** code for the `{ "allow": ["setters"] }` option:
 
@@ -304,7 +306,7 @@ class A {
 }
 ```
 
-#### allow: constructors
+### allow: constructors
 
 Examples of **correct** code for the `{ "allow": ["constructors"] }` option:
 
@@ -317,7 +319,7 @@ class A {
 }
 ```
 
-#### allow: asyncFunctions
+### allow: asyncFunctions
 
 Examples of **correct** code for the `{ "allow": ["asyncFunctions"] }` options:
 
@@ -328,7 +330,7 @@ Examples of **correct** code for the `{ "allow": ["asyncFunctions"] }` options:
 async function a(){}
 ```
 
-#### allow: asyncMethods
+### allow: asyncMethods
 
 Examples of **correct** code for the `{ "allow": ["asyncMethods"] }` options:
 
@@ -360,5 +362,6 @@ This rule was introduced in ESLint 2.0.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-empty-function.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-empty-function.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-empty-function.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-empty-function.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-empty-function.md)

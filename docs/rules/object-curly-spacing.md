@@ -1,14 +1,16 @@
 ---
 title: object-curly-spacing - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/object-curly-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/object-curly-spacing.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce consistent spacing inside braces (object-curly-spacing)
+# object-curly-spacing
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces consistent spacing inside braces.
 
 While formatting preferences are very personal, a number of style guides require
 or disallow spaces between curly braces in the following situations:
@@ -171,5 +173,6 @@ This rule was introduced in ESLint 0.22.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/object-curly-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/object-curly-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/object-curly-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/object-curly-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/object-curly-spacing.md)
