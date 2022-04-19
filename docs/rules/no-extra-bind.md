@@ -1,14 +1,16 @@
 ---
 title: no-extra-bind - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-extra-bind.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-extra-bind.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow unnecessary function binding (no-extra-bind)
+# no-extra-bind
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows unnecessary function binding.
 
 The `bind()` method is used to create functions with specific `this` values and, optionally, binds arguments to specific values. When used to specify the value of `this`, it's important that the function actually uses `this` in its function body. For example:
 
@@ -101,5 +103,6 @@ This rule was introduced in ESLint 0.8.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-extra-bind.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-extra-bind.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-extra-bind.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-extra-bind.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-extra-bind.md)

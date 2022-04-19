@@ -1,14 +1,16 @@
 ---
 title: rest-spread-spacing - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/rest-spread-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/rest-spread-spacing.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce spacing between rest and spread operators and their expressions (rest-spread-spacing)
+# rest-spread-spacing
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces spacing between rest and spread operators and their expressions.
 
 ES2015 introduced the rest and spread operators, which expand an iterable structure into its individual parts. Some examples of their usage are as follows:
 
@@ -155,5 +157,6 @@ This rule was introduced in ESLint 2.12.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/rest-spread-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/rest-spread-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/rest-spread-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/rest-spread-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/rest-spread-spacing.md)
