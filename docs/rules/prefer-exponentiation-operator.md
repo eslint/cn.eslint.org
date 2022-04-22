@@ -1,14 +1,15 @@
 ---
-title: prefer-exponentiation-operator - Rules
+title: prefer-exponentiation-operator
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-exponentiation-operator.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/prefer-exponentiation-operator.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow the use of `Math.pow` in favor of the `**` operator (prefer-exponentiation-operator)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows the use of `Math.pow` in favor of the `**` operator.
 
 Introduced in ES2016, the infix exponentiation operator `**` is an alternative for the standard `Math.pow` function.
 
@@ -61,5 +62,6 @@ This rule was introduced in ESLint 6.7.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-exponentiation-operator.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-exponentiation-operator.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-exponentiation-operator.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-exponentiation-operator.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/prefer-exponentiation-operator.md)

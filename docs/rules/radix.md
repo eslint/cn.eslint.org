@@ -1,14 +1,15 @@
 ---
-title: radix - Rules
+title: radix
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/radix.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/radix.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require Radix Parameter (radix)
+
 
 (hasSuggestions) Some problems reported by this rule are manually fixable by editor [suggestions](../developer-guide/working-with-rules#providing-suggestions).
+
+Enforces the consistent use of the radix argument when using `parseInt()`.
 
 When using the `parseInt()` function it is common to omit the second argument, the radix, and let the function try to determine from the first argument what type of number it is. By default, `parseInt()` will autodetect decimal and hexadecimal (via `0x` prefix). Prior to ECMAScript 5, `parseInt()` also autodetected octal literals, which caused problems because many developers assumed a leading `0` would be ignored.
 
@@ -38,7 +39,6 @@ There are two options for this rule:
 
 * `"always"` enforces providing a radix (default)
 * `"as-needed"` disallows providing the `10` radix
-
 
 ### always
 
@@ -110,5 +110,6 @@ This rule was introduced in ESLint 0.0.7.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/radix.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/radix.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/radix.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/radix.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/radix.md)

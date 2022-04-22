@@ -1,14 +1,15 @@
 ---
-title: no-undef-init - Rules
+title: no-undef-init
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-undef-init.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-undef-init.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Initializing to undefined (no-undef-init)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows initializing variables to `undefined`.
 
 In JavaScript, a variable that is declared and not initialized to any value automatically gets the value of `undefined`. For example:
 
@@ -25,7 +26,6 @@ var foo = undefined;
 ```
 
 It's considered a best practice to avoid initializing variables to `undefined`.
-
 
 ## Rule Details
 
@@ -143,5 +143,6 @@ This rule was introduced in ESLint 0.0.6.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-undef-init.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-undef-init.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-undef-init.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-undef-init.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-undef-init.md)
