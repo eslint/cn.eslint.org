@@ -1,29 +1,30 @@
 ---
-title: getter-return - Rules
+title: getter-return
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/getter-return.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/getter-return.md
 rule_type: problem
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforces that a return statement is present in property getters (getter-return)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Enforces that a `return` statement is present in property getters.
 
 The get syntax binds an object property to a function that will be called when that property is looked up. It was first introduced in ECMAScript 5:
 
 ```js
-    var p = {
-        get name(){
-            return "nicholas";
-        }
-    };
+var p = {
+    get name(){
+        return "nicholas";
+    }
+};
 
-    Object.defineProperty(p, "age", {
-        get: function (){
-            return 17;
-        }
-    });
+Object.defineProperty(p, "age", {
+    get: function (){
+        return 17;
+    }
+});
 ```
 
 Note that every `getter` is expected to return a value.
@@ -112,5 +113,6 @@ This rule was introduced in ESLint 4.2.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/getter-return.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/getter-return.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/getter-return.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/getter-return.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/getter-return.md)

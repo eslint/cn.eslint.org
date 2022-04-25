@@ -1,12 +1,11 @@
 ---
-title: no-multi-assign - Rules
+title: no-multi-assign
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-multi-assign.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-multi-assign.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Use of Chained Assignment Expressions (no-multi-assign)
+Disallows use of chained assignment expressions.
 
 Chaining the assignment of variables can lead to unexpected results and be difficult to read.
 
@@ -112,5 +111,6 @@ This rule was introduced in ESLint 3.14.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-multi-assign.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-multi-assign.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-multi-assign.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-multi-assign.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-multi-assign.md)
