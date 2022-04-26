@@ -1,12 +1,11 @@
 ---
-title: no-ternary - Rules
+title: no-ternary
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-ternary.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-ternary.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow ternary operators (no-ternary)
+Disallows ternary operators.
 
 The ternary operator is used to conditionally assign a value to a variable. Some believe that the use of ternary operators leads to unclear code.
 
@@ -63,5 +62,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-ternary.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-ternary.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-ternary.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-ternary.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-ternary.md)

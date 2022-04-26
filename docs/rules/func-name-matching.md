@@ -1,12 +1,11 @@
 ---
-title: func-name-matching - Rules
+title: func-name-matching
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/func-name-matching.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/func-name-matching.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require function names to match the name of the variable or property to which they are assigned (func-name-matching)
+Requires function names to match the name of the variable or property to which they are assigned.
 
 ## Rule Details
 
@@ -191,5 +190,6 @@ This rule was introduced in ESLint 3.8.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/func-name-matching.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/func-name-matching.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/func-name-matching.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/func-name-matching.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/func-name-matching.md)
