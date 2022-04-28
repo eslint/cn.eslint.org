@@ -1,12 +1,11 @@
 ---
-title: complexity - Rules
+title: complexity
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/complexity.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/complexity.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Limit Cyclomatic Complexity (complexity)
+Enforces a maximum cyclomatic complexity.
 
 Cyclomatic complexity measures the number of linearly independent paths through a program's source code. This rule allows setting a cyclomatic complexity threshold.
 
@@ -65,7 +64,7 @@ function b() {
 }
 ```
 
-Class field initializers are implicit functions. Therefore, their complexity is calculated separately for each initializer, and it doesn't contribute to the complexity of the enclosing code.
+Class field initializers and class static blocks are implicit functions. Therefore, their complexity is calculated separately for each initializer and each static block, and it doesn't contribute to the complexity of the enclosing code.
 
 Examples of additional **incorrect** code for a maximum of 2:
 
@@ -74,6 +73,14 @@ Examples of additional **incorrect** code for a maximum of 2:
 
 class C {
     x = a || b || c; // this initializer has complexity = 3
+}
+
+class D { // this static block has complexity = 3
+    static {
+        if (foo) {
+            bar = baz || qux;
+        }
+    }
 }
 ```
 
@@ -90,6 +97,16 @@ function foo() { // this function has complexity = 1
 
         static p = g || h; // this initializer has complexity = 2
         static q = i ? j : k; // this initializer has complexity = 2
+
+        static { // this static block has complexity = 2
+            if (foo) {
+                baz = bar;
+            }
+        }
+
+        static { // this static block has complexity = 2
+            qux = baz || quux;
+        }
     }
 }
 ```
@@ -114,14 +131,6 @@ is equivalent to
 
 If you can't determine an appropriate complexity limit for your code, then it's best to disable this rule.
 
-## Further Reading
-
-* [Cyclomatic Complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
-* [Complexity Analysis of JavaScript Code](https://ariya.io/2012/12/complexity-analysis-of-javascript-code)
-* [More about Complexity in JavaScript](https://craftsmanshipforsoftware.com/2015/05/25/complexity-for-javascript/)
-* [About Complexity](https://web.archive.org/web/20160808115119/http://jscomplexity.org/complexity)
-* [Discussion about Complexity in ESLint and more links](https://github.com/eslint/eslint/issues/4808#issuecomment-167795140)
-
 ## Related Rules
 
 * [max-depth](max-depth)
@@ -132,11 +141,20 @@ If you can't determine an appropriate complexity limit for your code, then it's 
 * [max-params](max-params)
 * [max-statements](max-statements)
 
+## Further Reading
+
+* [Cyclomatic Complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
+* [Complexity Analysis of JavaScript Code](https://ariya.io/2012/12/complexity-analysis-of-javascript-code)
+* [More about Complexity in JavaScript](https://craftsmanshipforsoftware.com/2015/05/25/complexity-for-javascript/)
+* [About Complexity](https://web.archive.org/web/20160808115119/http://jscomplexity.org/complexity)
+* [Discussion about Complexity in ESLint and more links](https://github.com/eslint/eslint/issues/4808#issuecomment-167795140)
+
 ## Version
 
 This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/complexity.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/complexity.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/complexity.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/complexity.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/complexity.md)

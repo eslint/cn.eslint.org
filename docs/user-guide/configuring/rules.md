@@ -1,13 +1,9 @@
 ---
 title: Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configuring/rules.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/configuring/rules.md
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
-
-# Rules
-
 
 * [Configuring Rules](#configuring-rules)
 * [Disabling Rules](#disabling-rules)
@@ -153,6 +149,8 @@ console.log('bar');
 /* eslint-enable no-alert, no-console */
 ```
 
+**Note:** `/* eslint-enable */` without any specific rules listed will cause all disabled rules to be re-enabled.
+
 To disable rule warnings in an entire file, put a `/* eslint-disable */` block comment at the top of the file:
 
 ```js
@@ -165,6 +163,14 @@ You can also disable or enable specific rules for an entire file:
 
 ```js
 /* eslint-disable no-alert */
+
+alert('foo');
+```
+
+To ensure that a rule is never applied (regardless of any future enable/disable lines):
+
+```js
+/* eslint no-alert: "off" */
 
 alert('foo');
 ```
@@ -209,6 +215,13 @@ alert('foo'); /* eslint-disable-line no-alert, quotes, semi */
 
 /* eslint-disable-next-line no-alert, quotes, semi */
 alert('foo');
+
+/* eslint-disable-next-line 
+  no-alert, 
+  quotes, 
+  semi 
+*/
+alert('foo');
 ```
 
 All of the above methods also work for plugin rules. For example, to disable `eslint-plugin-example`'s `rule-name` rule, combine the plugin's name (`example`) and the rule's name (`rule-name`) into `example/rule-name`:
@@ -222,6 +235,12 @@ Configuration comments can include descriptions to explain why the comment is ne
 
 ```js
 // eslint-disable-next-line no-console -- Here's a description about why this configuration is necessary.
+console.log('hello');
+
+/* eslint-disable-next-line no-console --
+ * Here's a very long description about why this configuration is necessary
+ * along with some additional information
+**/
 console.log('hello');
 ```
 
