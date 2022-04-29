@@ -1,12 +1,9 @@
 ---
 title: Code Path Analysis Details
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/code-path-analysis.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/developer-guide/code-path-analysis.md
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
-
-# Code Path Analysis Details
 
 ESLint's rules can use code paths.
 The code path is execution routes of programs.
@@ -35,7 +32,7 @@ This has references of both the initial segment and the final segments of a code
 `CodePath` has the following properties:
 
 * `id` (`string`) - A unique string. Respective rules can use `id` to save additional information for each code path.
-* `origin` (`string`) - The reason that the code path was started. May be `"program"`, `"function"`, or `"class-field-initializer"`.
+* `origin` (`string`) - The reason that the code path was started. May be `"program"`, `"function"`, `"class-field-initializer"`, or `"class-static-block"`.
 * `initialSegment` (`CodePathSegment`) - The initial segment of this code path.
 * `finalSegments` (`CodePathSegment[]`) - The final segments which includes both returned and thrown.
 * `returnedSegments` (`CodePathSegment[]`) - The final segments which includes only returned.
@@ -197,8 +194,6 @@ bar();
 
    ![Loop Event's Example 5](./code-path-analysis/loop-event-example-for-5.svg)
 
-
-
 ## Usage Examples
 
 ### To check whether or not this is reachable
@@ -234,9 +229,9 @@ module.exports = function(context) {
 ```
 
 See Also:
-[no-unreachable](https://github.com/eslint/eslint/blob/master/lib/rules/no-unreachable.js),
-[no-fallthrough](https://github.com/eslint/eslint/blob/master/lib/rules/no-fallthrough.js),
-[consistent-return](https://github.com/eslint/eslint/blob/master/lib/rules/consistent-return.js)
+[no-unreachable](https://github.com/eslint/eslint/blob/HEAD/lib/rules/no-unreachable.js),
+[no-fallthrough](https://github.com/eslint/eslint/blob/HEAD/lib/rules/no-fallthrough.js),
+[consistent-return](https://github.com/eslint/eslint/blob/HEAD/lib/rules/consistent-return.js)
 
 ### To check state of a code path
 
@@ -332,8 +327,8 @@ module.exports = function(context) {
 ```
 
 See Also:
-[constructor-super](https://github.com/eslint/eslint/blob/master/lib/rules/constructor-super.js),
-[no-this-before-super](https://github.com/eslint/eslint/blob/master/lib/rules/no-this-before-super.js)
+[constructor-super](https://github.com/eslint/eslint/blob/HEAD/lib/rules/constructor-super.js),
+[no-this-before-super](https://github.com/eslint/eslint/blob/HEAD/lib/rules/no-this-before-super.js)
 
 ## Code Path Examples
 

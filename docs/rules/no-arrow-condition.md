@@ -1,12 +1,11 @@
 ---
-title: no-arrow-condition - Rules
+title: no-arrow-condition
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-arrow-condition.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-arrow-condition.md
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# no-arrow-condition: disallow arrow functions where test conditions are expected
+Disallows arrow functions where test conditions are expected.
 
 (removed) This rule was **removed** in ESLint v2.0 and **replaced** by a combination of the [no-confusing-arrow](no-confusing-arrow) and [no-constant-condition](no-constant-condition) rules.
 
@@ -61,4 +60,4 @@ This rule was introduced in ESLint 1.8.0 and removed in 2.0.0-beta.3.
 
 ## Resources
 
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-arrow-condition.md)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-arrow-condition.md)
