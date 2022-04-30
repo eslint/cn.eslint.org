@@ -1,12 +1,11 @@
 ---
-title: no-nested-ternary - Rules
+title: no-nested-ternary
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-nested-ternary.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-nested-ternary.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow nested ternary expressions (no-nested-ternary)
+Disallows nested ternary expressions.
 
 Nesting ternary expressions can make code more difficult to understand.
 
@@ -57,5 +56,6 @@ This rule was introduced in ESLint 0.2.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-nested-ternary.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-nested-ternary.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-nested-ternary.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-nested-ternary.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-nested-ternary.md)

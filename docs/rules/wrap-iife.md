@@ -1,14 +1,15 @@
 ---
-title: wrap-iife - Rules
+title: wrap-iife
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/wrap-iife.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/wrap-iife.md
 rule_type: layout
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require IIFEs to be Wrapped (wrap-iife)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires IIFEs to be wrapped.
 
 You can immediately invoke function expressions, but not function declarations. A common technique to create an immediately-invoked function expression (IIFE) is to wrap a function declaration in parentheses. The opening parentheses causes the contained function to be parsed as an expression, rather than a declaration.
 
@@ -123,5 +124,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/wrap-iife.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/wrap-iife.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/wrap-iife.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/wrap-iife.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/wrap-iife.md)
