@@ -1,14 +1,15 @@
 ---
-title: template-tag-spacing - Rules
+title: template-tag-spacing
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/template-tag-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/template-tag-spacing.md
 rule_type: layout
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require or disallow spacing between template tags and their literals (template-tag-spacing)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallow spacing between template tags and their literals.
 
 With ES6, it's possible to create functions called [tagged template literals](#further-reading) where the function parameters consist of a template literal's strings and expressions.
 
@@ -91,5 +92,6 @@ This rule was introduced in ESLint 3.15.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/template-tag-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/template-tag-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/template-tag-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/template-tag-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/template-tag-spacing.md)
