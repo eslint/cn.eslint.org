@@ -1,12 +1,14 @@
 ---
 title: 配置 ESLint
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configuring/README.md
-
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/configuring/README.md
 ---
+<<<<<<< HEAD
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # 配置 ESLint {#configuring-eslint}
+=======
+>>>>>>> f0fe29b02052b4c24e8f0c28a3eba61424730473
 
 ESLint 被设计为可以根据你的使用情况灵活配置。你可以关闭任何一个规则，只运行基本的语法验证；也可以将 ESLint 默认绑定的规则与你的自定义规则混合使用，以适应你的实际项目需求。有以下两种主要方式来配置 ESLint：
 
