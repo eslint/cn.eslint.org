@@ -1,12 +1,11 @@
 ---
-title: no-space-before-semi - Rules
+title: no-space-before-semi
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-space-before-semi.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-space-before-semi.md
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# no-space-before-semi: disallow spaces before semicolons
+Disallows spaces before semicolons.
 
 (removed) This rule was **removed** in ESLint v1.0 and **replaced** by the [semi-spacing](semi-spacing) rule.
 
@@ -56,4 +55,4 @@ This rule was introduced in ESLint 0.4.3 and removed in 1.0.0-rc-1.
 
 ## Resources
 
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-space-before-semi.md)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-space-before-semi.md)

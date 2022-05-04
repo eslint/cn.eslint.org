@@ -1,14 +1,15 @@
 ---
-title: no-useless-computed-key - Rules
+title: no-useless-computed-key
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-useless-computed-key.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-useless-computed-key.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow unnecessary computed property keys in objects and classes (no-useless-computed-key)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows unnecessary computed property keys in objects and classes.
 
 It's unnecessary to use computed properties with literals such as:
 
@@ -141,5 +142,6 @@ This rule was introduced in ESLint 2.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-useless-computed-key.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-useless-computed-key.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-useless-computed-key.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-useless-computed-key.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-useless-computed-key.md)
