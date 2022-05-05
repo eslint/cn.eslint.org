@@ -1,14 +1,15 @@
 ---
-title: arrow-body-style - Rules
+title: arrow-body-style
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/arrow-body-style.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/arrow-body-style.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require braces in arrow function body (arrow-body-style)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires braces in arrow function bodies.
 
 Arrow functions have two syntactic forms for their function bodies.  They may be defined with a *block* body (denoted by curly braces) `() => { ... }` or with a single expression `() => ...`, whose value is implicitly returned.
 
@@ -155,5 +156,6 @@ This rule was introduced in ESLint 1.8.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/arrow-body-style.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/arrow-body-style.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/arrow-body-style.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/arrow-body-style.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/arrow-body-style.md)
