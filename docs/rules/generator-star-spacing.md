@@ -1,14 +1,15 @@
 ---
-title: generator-star-spacing - Rules
+title: generator-star-spacing
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/generator-star-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/generator-star-spacing.md
 rule_type: layout
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce spacing around the * in generator functions (generator-star-spacing)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces spacing around the `*` in generator functions.
 
 Generators are a new type of function in ECMAScript 6 that can return multiple values over time.
 These special functions are indicated by placing an `*` after the `function` keyword.
@@ -222,5 +223,6 @@ This rule was introduced in ESLint 0.17.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/generator-star-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/generator-star-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/generator-star-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/generator-star-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/generator-star-spacing.md)
