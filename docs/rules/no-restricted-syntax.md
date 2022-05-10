@@ -1,16 +1,15 @@
 ---
-title: no-restricted-syntax - Rules
+title: no-restricted-syntax
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-restricted-syntax.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-restricted-syntax.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow specified syntax (no-restricted-syntax)
+Disallows specified syntax.
 
 JavaScript has a lot of language features, and not everyone likes all of them. As a result, some projects choose to disallow the use of certain language features altogether. For instance, you might decide to disallow the use of `try-catch` or `class`, or you might decide to disallow the use of the `in` operator.
 
-Rather than creating separate rules for every language feature you want to turn off, this rule allows you to configure the syntax elements you want to restrict use of. These elements are represented by their [ESTree](https://github.com/estree/estree) node types. For example, a function declaration is represented by `FunctionDeclaration` and the `with` statement is represented by `WithStatement`. You may find the full list of AST node names you can use [on GitHub](https://github.com/eslint/espree/blob/master/lib/ast-node-types.js) and use [AST Explorer](https://astexplorer.net/) with the espree parser to see what type of nodes your code consists of.
+Rather than creating separate rules for every language feature you want to turn off, this rule allows you to configure the syntax elements you want to restrict use of. These elements are represented by their [ESTree](https://github.com/estree/estree) node types. For example, a function declaration is represented by `FunctionDeclaration` and the `with` statement is represented by `WithStatement`. You may find the full list of AST node names you can use [on GitHub](https://github.com/eslint/eslint-visitor-keys/blob/main/lib/visitor-keys.js) and use [AST Explorer](https://astexplorer.net/) with the espree parser to see what type of nodes your code consists of.
 
 You can also specify [AST selectors](../developer-guide/selectors) to restrict, allowing much more precise control over syntax patterns.
 
@@ -97,5 +96,6 @@ This rule was introduced in ESLint 1.4.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-restricted-syntax.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-restricted-syntax.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-restricted-syntax.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-restricted-syntax.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-restricted-syntax.md)
