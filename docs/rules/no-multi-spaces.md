@@ -1,14 +1,15 @@
 ---
-title: no-multi-spaces - Rules
+title: no-multi-spaces
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-multi-spaces.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-multi-spaces.md
 rule_type: layout
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow multiple spaces (no-multi-spaces)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows multiple consecutive spaces.
 
 Multiple spaces in a row that are not used for indentation are typically mistakes. For example:
 
@@ -186,5 +187,6 @@ This rule was introduced in ESLint 0.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-multi-spaces.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-multi-spaces.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-multi-spaces.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-multi-spaces.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-multi-spaces.md)

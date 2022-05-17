@@ -1,12 +1,11 @@
 ---
-title: no-useless-concat - Rules
+title: no-useless-concat
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-useless-concat.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-useless-concat.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow unnecessary concatenation of strings (no-useless-concat)
+Disallows unnecessary concatenation of strings.
 
 It's unnecessary to concatenate two strings together, such as:
 
@@ -64,5 +63,6 @@ This rule was introduced in ESLint 1.3.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-useless-concat.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-useless-concat.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-useless-concat.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-useless-concat.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-useless-concat.md)
