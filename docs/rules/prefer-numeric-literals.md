@@ -1,14 +1,15 @@
 ---
-title: prefer-numeric-literals - Rules
+title: prefer-numeric-literals
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-numeric-literals.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/prefer-numeric-literals.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals (prefer-numeric-literals)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals.
 
 The `parseInt()` and `Number.parseInt()` functions can be used to turn binary, octal, and hexadecimal strings into integers. As binary, octal, and hexadecimal literals are supported in ES6, this rule encourages use of those numeric literals instead of `parseInt()` or `Number.parseInt()`.
 
@@ -72,5 +73,6 @@ This rule was introduced in ESLint 3.5.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-numeric-literals.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-numeric-literals.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-numeric-literals.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-numeric-literals.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/prefer-numeric-literals.md)
