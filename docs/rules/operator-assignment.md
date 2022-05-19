@@ -1,14 +1,15 @@
 ---
-title: operator-assignment - Rules
+title: operator-assignment
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/operator-assignment.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/operator-assignment.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require or disallow assignment operator shorthand where possible (operator-assignment)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallows assignment operator shorthand where possible.
 
 JavaScript provides shorthand operators that combine variable assignment and some simple mathematical operations. For example, `x = x + 4` can be shortened to `x += 4`. The supported shorthand forms are as follows:
 
@@ -99,5 +100,6 @@ This rule was introduced in ESLint 0.10.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/operator-assignment.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/operator-assignment.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/operator-assignment.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/operator-assignment.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/operator-assignment.md)
