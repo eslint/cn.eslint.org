@@ -1,14 +1,15 @@
 ---
-title: one-var-declaration-per-line - Rules
+title: one-var-declaration-per-line
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/one-var-declaration-per-line.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/one-var-declaration-per-line.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require or disallow newlines around variable declarations (one-var-declaration-per-line)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallows newlines around variable declarations.
 
 Some developers declare multiple var statements on the same line:
 
@@ -104,5 +105,6 @@ This rule was introduced in ESLint 2.0.0-beta.3.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/one-var-declaration-per-line.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/one-var-declaration-per-line.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/one-var-declaration-per-line.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/one-var-declaration-per-line.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/one-var-declaration-per-line.md)
