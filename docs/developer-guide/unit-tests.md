@@ -1,12 +1,20 @@
 ---
 title: 单元测试
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/unit-tests.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/developer-guide/unit-tests.md
+eleventyNavigation:
+    key: run the tests
+    parent: developer guide
+    title: Run the Tests
+    order: 3
 
 ---
+<<<<<<< HEAD
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # 单元测试 {#unit-tests}
+=======
+>>>>>>> 89e00f09130e293304ebf600bbaf1885c7cd77a2
 
 ESLint 的大多数部分都有与之相关的单元测试。单元测试是用 [Mocha](https://mochajs.org/) 编写的，在为 ESLint 做贡献时需要用到。你可以在 `tests` 目录下找到所有的单元测试。
 
@@ -20,7 +28,7 @@ ESLint 的大多数部分都有与之相关的单元测试。单元测试是用 
 
 如果你想快速运行一个测试文件，你可以通过直接运行 Mocha 并传入文件名来实现。比如说：
 
-    npm run test:cli tests/lib/rules/no-wrap-func.js
+    npm run test:cli tests/lib/rules/no-undef.js
 
 如果你想只运行一个或一个子集的 `RuleTester` 测试用例，那么在每个测试用例中添加 `only: true` 就好了；或者用 `RuleTester.only(...)` 把测试用例包裹起来，这样就可以自动添加它了：
 
@@ -44,4 +52,12 @@ ruleTester.run("my-rule", myRule, {
 
 ## 对单元测试的更多控制 {#more-control-on-unit-testing}
 
+<<<<<<< HEAD
 `npm run test:cli` 是 `./node_modules/.bin/mocha` 路径下的 Mocha cli 的别名。可以提供 [选项](https://mochajs.org/#command-line-usage)，以帮助更好地控制要运行的测试。
+=======
+`npm run test:cli` is an alias of the Mocha cli in `./node_modules/.bin/mocha`. [Options](https://mochajs.org/#command-line-usage) are available to be provided to help to better control the test to run.
+
+The default timeout for tests in `npm test` is 10000ms. You may change the timeout by providing `ESLINT_MOCHA_TIMEOUT` environment variable, for example:
+
+    ESLINT_MOCHA_TIMEOUT=20000 npm test
+>>>>>>> 89e00f09130e293304ebf600bbaf1885c7cd77a2
