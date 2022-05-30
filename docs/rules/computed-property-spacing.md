@@ -1,14 +1,19 @@
 ---
-title: computed-property-spacing - Rules
+title: computed-property-spacing
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/computed-property-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/computed-property-spacing.md
 rule_type: layout
+related_rules:
+- array-bracket-spacing
+- comma-spacing
+- space-in-parens
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow or enforce spaces inside of computed properties (computed-property-spacing)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows or enforces spaces inside of computed properties.
 
 While formatting preferences are very personal, a number of style guides require
 or disallow spaces between computed properties in the following situations:
@@ -24,6 +29,10 @@ var a = "prop";
 var obj = {
   [a]: "value" // computed property key in object literal (ECMAScript 6)
 };
+
+var obj = { prop: "value" };
+var a = "prop";
+var { [a]: x } = obj; // computed property key in object destructuring pattern (ECMAScript 6)
 ```
 
 ## Rule Details
@@ -58,6 +67,9 @@ obj[foo ]
 obj[ 'foo']
 var x = {[ b ]: a}
 obj[foo[ bar ]]
+
+const { [ a ]: someProp } = obj;
+({ [ b ]: anotherProp } = anotherObj);
 ```
 
 Examples of **correct** code for this rule with the default `"never"` option:
@@ -70,6 +82,9 @@ obj[foo]
 obj['foo']
 var x = {[b]: a}
 obj[foo[bar]]
+
+const { [a]: someProp } = obj;
+({ [b]: anotherProp } = anotherObj);
 ```
 
 ### always
@@ -86,6 +101,8 @@ obj[ foo]
 obj['foo' ]
 obj[foo[ bar ]]
 var x = {[ b]: a}
+const { [a]: someProp } = obj;
+({ [b ]: anotherProp } = anotherObj);
 ```
 
 Examples of **correct** code for this rule with the `"always"` option:
@@ -98,6 +115,8 @@ obj[ foo ]
 obj[ 'foo' ]
 var x = {[ b ]: a}
 obj[ foo[ bar ] ]
+const { [ a ]: someProp } = obj;
+({ [ b ]: anotherProp } = anotherObj);
 ```
 
 #### enforceForClassMembers
@@ -168,17 +187,12 @@ const Bar = class {
 
 You can turn this rule off if you are not concerned with the consistency of computed properties.
 
-## Related Rules
-
-* [array-bracket-spacing](array-bracket-spacing)
-* [comma-spacing](comma-spacing)
-* [space-in-parens](space-in-parens)
-
 ## Version
 
 This rule was introduced in ESLint 0.23.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/computed-property-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/computed-property-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/computed-property-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/computed-property-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/computed-property-spacing.md)

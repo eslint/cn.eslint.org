@@ -1,12 +1,16 @@
 ---
-title: space-in-brackets - Rules
+title: space-in-brackets
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/space-in-brackets.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/space-in-brackets.md
 
+related_rules:
+- array-bracket-spacing
+- object-curly-spacing
+- space-in-parens
+- computed-property-spacing
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# space-in-brackets: enforce consistent spacing inside braces of object literals and brackets of array literals
+Enforces consistent spacing inside braces of object literals and brackets of array literals.
 
 (removed) This rule was **removed** in ESLint v1.0 and **replaced** by the [object-curly-spacing](object-curly-spacing) and [array-bracket-spacing](array-bracket-spacing) rules.
 
@@ -240,7 +244,6 @@ var arr = [ {
 
 Examples of **correct** code when `"objectsInArrays"` is set to `false`:
 
-
 ```js
 var arr = [{ 'foo': 'bar' }];
 var arr = [{
@@ -308,17 +311,10 @@ var foo = obj[0, 1];
 
 You can turn this rule off if you are not concerned with the consistency of spacing between brackets.
 
-## Related Rules
-
-* [array-bracket-spacing](array-bracket-spacing)
-* [object-curly-spacing](object-curly-spacing)
-* [space-in-parens](space-in-parens)
-* [computed-property-spacing](computed-property-spacing)
-
 ## Version
 
 This rule was introduced in ESLint 0.4.1 and removed in 1.0.0-rc-1.
 
 ## Resources
 
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/space-in-brackets.md)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/space-in-brackets.md)
