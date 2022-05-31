@@ -1,12 +1,23 @@
 ---
-title: max-nested-callbacks - Rules
+title: max-nested-callbacks
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/max-nested-callbacks.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/max-nested-callbacks.md
 rule_type: suggestion
+related_rules:
+- complexity
+- max-depth
+- max-len
+- max-lines
+- max-lines-per-function
+- max-params
+- max-statements
+further_reading:
+- http://book.mixu.net/node/ch7.html
+- https://web.archive.org/web/20220104141150/https://howtonode.org/control-flow
+- https://web.archive.org/web/20220127215850/https://howtonode.org/control-flow-part-ii
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce a maximum depth that callbacks can be nested (max-nested-callbacks)
+Enforces a maximum depth that callbacks can be nested.
 
 Many JavaScript libraries use the callback pattern to manage asynchronous operations. A program of any complexity will most likely need to manage several asynchronous operations at various levels of concurrency. A common pitfall that is easy to fall into is nesting callbacks, which makes code more difficult to read the deeper the callbacks are nested.
 
@@ -76,27 +87,12 @@ function handleFoo4() {
 }
 ```
 
-## Further Reading
-
-* [Control flow in Node.js](http://book.mixu.net/node/ch7.html)
-* [Control Flow in Node](https://howtonode.org/control-flow)
-* [Control Flow in Node Part II](https://howtonode.org/control-flow-part-ii)
-
-## Related Rules
-
-* [complexity](complexity)
-* [max-depth](max-depth)
-* [max-len](max-len)
-* [max-lines](max-lines)
-* [max-lines-per-function](max-lines-per-function)
-* [max-params](max-params)
-* [max-statements](max-statements)
-
 ## Version
 
 This rule was introduced in ESLint 0.2.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/max-nested-callbacks.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/max-nested-callbacks.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/max-nested-callbacks.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/max-nested-callbacks.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/max-nested-callbacks.md)
