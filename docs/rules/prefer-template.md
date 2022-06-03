@@ -1,14 +1,18 @@
 ---
-title: prefer-template - Rules
+title: prefer-template
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-template.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/prefer-template.md
 rule_type: suggestion
+related_rules:
+- no-useless-concat
+- quotes
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Suggest using template literals instead of string concatenation. (prefer-template)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Suggests using template literals instead of string concatenation.
 
 In ES2015 (ES6), we can use template literals instead of string concatenation.
 
@@ -57,16 +61,12 @@ This rule should not be used in ES3/5 environments.
 
 In ES2015 (ES6) or later, if you don't want to be notified about string concatenation, you can safely disable this rule.
 
-## Related Rules
-
-* [no-useless-concat](no-useless-concat)
-* [quotes](quotes)
-
 ## Version
 
 This rule was introduced in ESLint 1.2.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-template.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-template.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-template.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-template.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/prefer-template.md)
