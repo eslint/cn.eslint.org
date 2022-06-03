@@ -1,12 +1,13 @@
 ---
-title: symbol-description - Rules
+title: symbol-description
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/symbol-description.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/symbol-description.md
 rule_type: suggestion
+further_reading:
+- https://www.ecma-international.org/ecma-262/6.0/#sec-symbol-description
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require symbol description (symbol-description)
+Requires symbol descriptions.
 
 The `Symbol` function may have an optional description:
 
@@ -16,7 +17,6 @@ var foo = Symbol("some description");
 var someString = "some description";
 var bar = Symbol(someString);
 ```
-
 
 Using `description` promotes easier debugging: when a symbol is logged the description is used:
 
@@ -29,11 +29,9 @@ var foo = Symbol("some description");
 
 It may facilitate identifying symbols when one is observed during debugging.
 
-
 ## Rule Details
 
 This rules requires a description when creating symbols.
-
 
 ## Examples
 
@@ -58,15 +56,10 @@ var someString = "some description";
 var bar = Symbol(someString);
 ```
 
-
 ## When Not To Use It
 
 This rule should not be used in ES3/5 environments.
 In addition, this rule can be safely turned off if you don't want to enforce presence of `description` when creating Symbols.
-
-## Further Reading
-
-* [Symbol Objects specification: Symbol description](https://www.ecma-international.org/ecma-262/6.0/#sec-symbol-description)
 
 ## Version
 
@@ -74,5 +67,6 @@ This rule was introduced in ESLint 3.4.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/symbol-description.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/symbol-description.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/symbol-description.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/symbol-description.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/symbol-description.md)
