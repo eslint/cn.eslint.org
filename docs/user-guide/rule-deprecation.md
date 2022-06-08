@@ -1,12 +1,15 @@
 ---
 title: 规则弃用
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/rule-deprecation.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/rule-deprecation.md
 
 ---
+<<<<<<< HEAD
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # 规则弃用 {#rule-deprecation}
+=======
+>>>>>>> bff7a6d9abde2a1bfca9882ce65e9bee4da9de45
 
 权衡改善工具和这种改善所可能带来的挫折是一项艰巨的任务。那么其中一个影响到我们用户的关键领域在于规则的删减。
 
