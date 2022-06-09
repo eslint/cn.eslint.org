@@ -1,12 +1,20 @@
 ---
 title: 开发环境
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/development-environment.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/developer-guide/development-environment.md
+eleventyNavigation:
+    key: set up a development environment
+    parent: developer guide
+    title: Set Up a Development Environment
+    order: 2
 
 ---
+<<<<<<< HEAD
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # 开发环境 {#development-environment}
+=======
+>>>>>>> 327d60a109a3d6a4e7ba2727f7038535aac001db
 
 ESLint 的开发环境非常轻量级，使得更新代码快速而简单。本篇是一个建立本地开发环境的分步指南，以便你回馈项目。
 
@@ -22,9 +30,9 @@ ESLint 的开发环境非常轻量级，使得更新代码快速而简单。本�
 
 当你 clone 好了 ESLint 仓库，运行 `npm install` 以安装所需的依赖：
 
-```
-$ cd eslint
-$ npm install
+```shell
+cd eslint
+npm install
 ```
 
 这个指令只有在你连接着网络时才会起作用。你会看到很多包被下载。
@@ -35,7 +43,7 @@ $ npm install
 
 要添加 ESLint 的上游源，请在你的仓库中运行以下指令：
 
-```
+```shell
 git remote add upstream git@github.com:eslint/eslint.git
 ```
 
@@ -57,7 +65,7 @@ git remote add upstream git@github.com:eslint/eslint.git
 
 运行测试是检验你是否正确地配置了你的开发环境的最好方式。确保你是在 `eslint` 目录下之后，运行：
 
-```
+```shell
 npm test
 ```
 

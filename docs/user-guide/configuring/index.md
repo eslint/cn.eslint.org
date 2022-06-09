@@ -1,17 +1,30 @@
 ---
 title: 配置 ESLint
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configuring/README.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/configuring/index.md
+eleventyNavigation:
+    key: configuring
+    parent: user guide
+    title: Configuring
+    order: 2
 
 ---
+<<<<<<< HEAD
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # 配置 ESLint {#configuring-eslint}
+=======
+>>>>>>> 327d60a109a3d6a4e7ba2727f7038535aac001db
 
 ESLint 被设计为可以根据你的使用情况灵活配置。你可以关闭任何一个规则，只运行基本的语法验证；也可以将 ESLint 默认绑定的规则与你的自定义规则混合使用，以适应你的实际项目需求。有以下两种主要方式来配置 ESLint：
 
+<<<<<<< HEAD
 1. **Configuration Comments** - 使用 JavaScript 注释将配置信息直接注入到源代码文件中。
 1. **Configuration Files** - 你可以使用 JavaScript，JSON 或者是 YAML 文件来指定整个目录及其所有子目录的配置信息。其形式可以是以 [`.eslintrc.*`](./configuration-files#configuration-file-formats) 命名的文件，也可以是 [`package.json`](https://docs.npmjs.com/files/package.json) 文件中的 `eslintConfig` 字段，这两种形式会被 ESLint 自动寻找并读取，除此之外，你还可以通过 [命令行](https://eslint.org/docs/user-guide/command-line-interface) 指定一个配置文件。
+=======
+1. **Configuration Comments** - use JavaScript comments to embed configuration information directly into a file.
+1. **Configuration Files** - use a JavaScript, JSON, or YAML file to specify configuration information for an entire directory and all of its subdirectories. This can be in the form of a [`.eslintrc.*`](./configuration-files#configuration-file-formats) file or an `eslintConfig` field in a [`package.json`](https://docs.npmjs.com/files/package.json) file, both of which ESLint will look for and read automatically, or you can specify a configuration file on the [command line](https://eslint.org/docs/user-guide/command-line-interface).
+>>>>>>> 327d60a109a3d6a4e7ba2727f7038535aac001db
 
 以下是你可以在 ESLint 中可以使用的配置项：
 
