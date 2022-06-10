@@ -1,12 +1,13 @@
 ---
-title: require-jsdoc - Rules
+title: require-jsdoc
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/require-jsdoc.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/require-jsdoc.md
 rule_type: suggestion
+related_rules:
+- valid-jsdoc
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require JSDoc comments (require-jsdoc)
+Requires JSDoc comments.
 
 This rule was [**deprecated**](https://eslint.org/blog/2018/11/jsdoc-end-of-life) in ESLint v5.10.0.
 
@@ -192,15 +193,12 @@ setTimeout(() => {}, 10); // since it's an anonymous arrow function
 
 If you do not require JSDoc for your functions, then you can leave this rule off.
 
-## Related Rules
-
-* [valid-jsdoc](valid-jsdoc)
-
 ## Version
 
 This rule was introduced in ESLint 1.4.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/require-jsdoc.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/require-jsdoc.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/require-jsdoc.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/require-jsdoc.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/require-jsdoc.md)
