@@ -1,14 +1,17 @@
 ---
 title: 变更请求
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/contributing/changes.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/developer-guide/contributing/changes.md
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
+<<<<<<< HEAD
 # 变更请求{#change-requests}
 
 如果你想请求更改 ESLint，请在 GitHub 上[创建一个新 issue](https://github.com/eslint/eslint/issues/new?template=CHANGE.md)。请务必包含以下信息：
+=======
+If you'd like to request a change to ESLint, please [create a new issue](https://github.com/eslint/eslint/issues/new/choose) on GitHub. Be sure to include the following information:
+>>>>>>> 701fbee467b3a2d0278b54c324638fd0bf482f64
 
 1. 你正在使用的 ESLint 版本。
 1. 你想解决的问题。

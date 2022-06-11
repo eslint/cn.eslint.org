@@ -1,12 +1,15 @@
 ---
-title: prefer-reflect - Rules
+title: prefer-reflect
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-reflect.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/prefer-reflect.md
 rule_type: suggestion
+related_rules:
+- no-useless-call
+- prefer-spread
+- no-delete-var
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Suggest using Reflect methods where applicable (prefer-reflect)
+Suggest using Reflect methods where applicable.
 
 This rule was **deprecated** in ESLint v3.9.0 and will not be replaced. The original intent of this rule now seems misguided as we have come to understand that `Reflect` methods are not actually intended to replace the `Object` counterparts the rule suggests, but rather exist as low-level primitives to be used with proxies in order to replicate the default behavior of various previously existing functionality.
 
@@ -27,7 +30,7 @@ The prefer-reflect rule will flag usage of any older method, suggesting to inste
 
 ### Exceptions
 
-```
+```js
 "prefer-reflect": [<enabled>, { "exceptions": [<...exceptions>] }]
 ```
 
@@ -340,17 +343,12 @@ This rule should not be used in ES3/5 environments.
 
 In ES2015 (ES6) or later, if you don't want to be notified about places where Reflect could be used, you can safely disable this rule.
 
-## Related Rules
-
-* [no-useless-call](no-useless-call)
-* [prefer-spread](prefer-spread)
-* [no-delete-var](no-delete-var)
-
 ## Version
 
 This rule was introduced in ESLint 1.0.0-rc-2.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-reflect.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-reflect.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-reflect.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-reflect.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/prefer-reflect.md)
