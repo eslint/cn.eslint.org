@@ -1,14 +1,18 @@
 ---
-title: dot-location - Rules
+title: dot-location
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/dot-location.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/dot-location.md
 rule_type: layout
+related_rules:
+- newline-after-var
+- dot-notation
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce newline before and after dot (dot-location)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces newline before and after dots.
 
 JavaScript allows you to place newlines before or after a dot in a member expression.
 
@@ -89,16 +93,12 @@ var bar = object.property;
 
 You can turn this rule off if you are not concerned with the consistency of newlines before or after dots in member expressions.
 
-## Related Rules
-
-* [newline-after-var](newline-after-var)
-* [dot-notation](dot-notation)
-
 ## Version
 
 This rule was introduced in ESLint 0.21.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/dot-location.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/dot-location.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/dot-location.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/dot-location.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/dot-location.md)

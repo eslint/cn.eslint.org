@@ -1,14 +1,20 @@
 ---
-title: function-call-argument-newline - Rules
+title: function-call-argument-newline
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/function-call-argument-newline.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/function-call-argument-newline.md
 rule_type: layout
+related_rules:
+- function-paren-newline
+- func-call-spacing
+- object-property-newline
+- array-element-newline
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce line breaks between arguments of a function call (function-call-argument-newline)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces line breaks between arguments of a function call.
 
 A number of style guides require or disallow line breaks between arguments of a function call.
 
@@ -23,7 +29,6 @@ This rule has a string option:
 * `"always"` (default) requires line breaks between arguments
 * `"never"` disallows line breaks between arguments
 * `"consistent"` requires consistent usage of line breaks between arguments
-
 
 ### always
 
@@ -78,7 +83,6 @@ baz(
     }
 );
 ```
-
 
 ### never
 
@@ -199,17 +203,9 @@ baz(
 );
 ```
 
-
 ## When Not To Use It
 
 If you don't want to enforce line breaks between arguments, don't enable this rule.
-
-## Related Rules
-
-* [function-paren-newline](function-paren-newline)
-* [func-call-spacing](func-call-spacing)
-* [object-property-newline](object-property-newline)
-* [array-element-newline](array-element-newline)
 
 ## Version
 
@@ -217,5 +213,6 @@ This rule was introduced in ESLint 6.2.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/function-call-argument-newline.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/function-call-argument-newline.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/function-call-argument-newline.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/function-call-argument-newline.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/function-call-argument-newline.md)
