@@ -1,12 +1,16 @@
 ---
-title: callback-return - Rules
+title: callback-return
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/callback-return.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/callback-return.md
 rule_type: suggestion
+related_rules:
+- handle-callback-err
+further_reading:
+- https://github.com/maxogden/art-of-node#callbacks
+- https://web.archive.org/web/20171224042620/https://docs.nodejitsu.com/articles/errors/what-are-the-error-conventions/
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce Return After Callback (callback-return)
+Enforces return after callback.
 
 This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
 
@@ -173,21 +177,12 @@ There are some cases where you might want to call a callback function more than 
  may lead to incorrect behavior. In those cases you may want to reserve a special name for those callbacks and
  not include that in the list of callbacks that trigger warnings.
 
-
-## Further Reading
-
-* [The Art Of Node: Callbacks](https://github.com/maxogden/art-of-node#callbacks)
-* [Nodejitsu: What are the error conventions?](https://docs.nodejitsu.com/articles/errors/what-are-the-error-conventions/)
-
-## Related Rules
-
-* [handle-callback-err](handle-callback-err)
-
 ## Version
 
 This rule was introduced in ESLint 1.0.0-rc-1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/callback-return.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/callback-return.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/callback-return.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/callback-return.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/callback-return.md)
