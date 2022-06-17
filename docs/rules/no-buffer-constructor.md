@@ -1,12 +1,15 @@
 ---
-title: no-buffer-constructor - Rules
+title: no-buffer-constructor
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-buffer-constructor.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-buffer-constructor.md
 rule_type: problem
+further_reading:
+- https://nodejs.org/api/buffer.html
+- https://github.com/ChALkeR/notes/blob/master/Lets-fix-Buffer-API.md
+- https://github.com/nodejs/node/issues/4660
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow use of the Buffer() constructor (no-buffer-constructor)
+Disallows use of the `Buffer()` constructor.
 
 This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
 
@@ -44,17 +47,12 @@ Buffer.from(res.body.values);
 
 If you don't use Node.js, or you still need to support versions of Node.js that lack methods like `Buffer.from`, then you should not enable this rule.
 
-## Further Reading
-
-* [Buffer API documentation](https://nodejs.org/api/buffer.html)
-* [Let's fix Node.js Buffer API](https://github.com/ChALkeR/notes/blob/master/Lets-fix-Buffer-API.md)
-* [Buffer(number) is unsafe](https://github.com/nodejs/node/issues/4660)
-
 ## Version
 
 This rule was introduced in ESLint 4.0.0-alpha.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-buffer-constructor.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-buffer-constructor.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-buffer-constructor.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-buffer-constructor.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-buffer-constructor.md)

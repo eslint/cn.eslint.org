@@ -13,9 +13,29 @@
         <main class="blog">
           <article>
             <h1>{{ title }}</h1>
-            <em>{{ page.date | dateFormat: "d LLLL yyyy" }}</em>
+            {% if author != null %}
+              by <a href="https://github.com/{{ author }}"><b>{{ all_authors[author].name }}</b></a><em> - </em>
+            {% elsif authors != null %}
+              by 
+                  {% for member in authors %}
+                    {% if forloop.last == true %}
+                      <a href="https://github.com/{{ member }}"><b>{{ all_authors[member].name }}</b></a>
+                    {% else %}
+                      <a href="https://github.com/{{ member }}"><b>{{ all_authors[member].name }},</b></a>
+                    {% endif %}
+                  {% endfor %}
+              <em> - </em>
+            {% endif %}<em>{{ page.date | dateFormat: "d LLLL yyyy" }}</em>
             <br />
+            {% if original %}
             <br />
+              This post originally appeared on <a href={{original.site.url}}>{{ original.site.name }}</a> on <a href={{original.url}}>{{ original.date | dateFormat: "d LLLL yyyy" }}</a>.
+            <br />
+            {% endif %}
+            <br />
+            {% if teaser %}
+            <p>{{ teaser }}</p>
+            {% endif %}
             {{ content }}
             <footer>
               <p class="text-center">ESLint 依赖于个人和公司的支持。<a class="btn btn-default" href="https://opencollective.com/eslint">成为赞助商</a></p>
