@@ -1,14 +1,18 @@
 ---
-title: no-extra-bind - Rules
+title: no-extra-bind
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-extra-bind.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-extra-bind.md
 rule_type: suggestion
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
+- https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow unnecessary function binding (no-extra-bind)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows unnecessary function binding.
 
 The `bind()` method is used to create functions with specific `this` values and, optionally, binds arguments to specific values. When used to specify the value of `this`, it's important that the function actually uses `this` in its function body. For example:
 
@@ -90,16 +94,12 @@ var x = function (a) {
 
 If you are not concerned about unnecessary calls to `bind()`, you can safely disable this rule.
 
-## Further Reading
-
-* [Function.prototype.bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
-* [Understanding JavaScript's Function.prototype.bind](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/)
-
 ## Version
 
 This rule was introduced in ESLint 0.8.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-extra-bind.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-extra-bind.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-extra-bind.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-extra-bind.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-extra-bind.md)

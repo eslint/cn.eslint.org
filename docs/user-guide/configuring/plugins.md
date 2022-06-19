@@ -1,13 +1,14 @@
 ---
 title: Plugins
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configuring/plugins.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/configuring/plugins.md
+eleventyNavigation:
+    key: configuring plugins
+    parent: configuring
+    title: Configuring Plugins
+    order: 4
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
-
-# Plugins
-
 
 * [Specifying Parser](#specifying-parser)
 * [Specifying Processor](#specifying-processor)
@@ -18,7 +19,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configur
 By default, ESLint uses [Espree](https://github.com/eslint/espree) as its parser. You can optionally specify that a different parser should be used in your configuration file so long as the parser meets the following requirements:
 
 1. It must be a Node module loadable from the config file where the parser is used. Usually, this means you should install the parser package separately using npm.
-1. It must conform to the [parser interface](https://eslint.org/docs/developer-guide/working-with-custom-parsers).
+1. It must conform to the [parser interface](../../developer-guide/working-with-custom-parsers).
 
 Note that even with these compatibilities, there are no guarantees that an external parser will work correctly with ESLint and ESLint will not fix bugs related to incompatibilities with other parsers.
 
