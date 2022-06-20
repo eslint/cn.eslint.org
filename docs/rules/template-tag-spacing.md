@@ -1,14 +1,18 @@
 ---
-title: template-tag-spacing - Rules
+title: template-tag-spacing
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/template-tag-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/template-tag-spacing.md
 rule_type: layout
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals
+- https://exploringjs.com/es6/ch_template-literals.html#_examples-of-using-tagged-template-literals
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require or disallow spacing between template tags and their literals (template-tag-spacing)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallow spacing between template tags and their literals.
 
 With ES6, it's possible to create functions called [tagged template literals](#further-reading) where the function parameters consist of a template literal's strings and expressions.
 
@@ -78,18 +82,12 @@ func `Hello world`;
 
 If you don't want to be notified about usage of spacing between tag functions and their template literals, then it's safe to disable this rule.
 
-## Further Reading
-
-If you want to learn more about tagged template literals, check out the links below:
-
-* [Template literals (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals)
-* [Examples of using tagged template literals (Exploring ES6)](http://exploringjs.com/es6/ch_template-literals.html#_examples-of-using-tagged-template-literals)
-
 ## Version
 
 This rule was introduced in ESLint 3.15.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/template-tag-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/template-tag-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/template-tag-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/template-tag-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/template-tag-spacing.md)

@@ -1,14 +1,17 @@
 ---
-title: no-obj-calls - Rules
+title: no-obj-calls
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-obj-calls.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-obj-calls.md
 rule_type: problem
+further_reading:
+- https://es5.github.io/#x15.8
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow calling global object properties as functions (no-obj-calls)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows calling global object properties as functions.
 
 ECMAScript provides several global objects that are intended to be used as-is. Some of these objects look as if they could be constructors due their capitalization (such as `Math` and `JSON`) but will throw an error if you try to execute them as functions.
 
@@ -70,15 +73,12 @@ var value = Reflect.get({ x: 1, y: 2 }, "x");
 var first = Atomics.load(foo, 0);
 ```
 
-## Further Reading
-
-* [The Math Object](https://es5.github.io/#x15.8)
-
 ## Version
 
 This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-obj-calls.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-obj-calls.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-obj-calls.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-obj-calls.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-obj-calls.md)

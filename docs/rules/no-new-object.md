@@ -1,12 +1,14 @@
 ---
-title: no-new-object - Rules
+title: no-new-object
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-new-object.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-new-object.md
 rule_type: suggestion
+related_rules:
+- no-array-constructor
+- no-new-wrappers
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow `Object` constructors (no-new-object)
+Disallows `new` operators with the `Object` object.
 
 The `Object` constructor is used to create new generic objects in JavaScript, such as:
 
@@ -55,16 +57,12 @@ new Object();
 
 If you wish to allow the use of the `Object` constructor, you can safely turn this rule off.
 
-## Related Rules
-
-* [no-array-constructor](no-array-constructor)
-* [no-new-wrappers](no-new-wrappers)
-
 ## Version
 
 This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-new-object.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-new-object.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-new-object.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-new-object.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-new-object.md)
