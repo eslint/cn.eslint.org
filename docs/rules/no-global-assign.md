@@ -1,14 +1,19 @@
 ---
-title: no-global-assign - Rules
+title: no-global-assign
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-global-assign.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-global-assign.md
 rule_type: suggestion
+related_rules:
+- no-extend-native
+- no-redeclare
+- no-shadow
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow assignment to native objects or read-only global variables (no-global-assign)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows assignment to native objects or read-only global variables.
 
 JavaScript environments contain a number of built-in global variables, such as `window` in browsers and `process` in Node.js. In almost all cases, you don't want to assign a value to these global variables as doing so could result in losing access to important functionality. For example, you probably don't want to do this in browser code:
 
@@ -92,17 +97,12 @@ This rule accepts an `exceptions` option, which can be used to specify a list of
 
 If you are trying to override one of the native objects.
 
-## Related Rules
-
-* [no-extend-native](no-extend-native)
-* [no-redeclare](no-redeclare)
-* [no-shadow](no-shadow)
-
 ## Version
 
 This rule was introduced in ESLint 3.3.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-global-assign.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-global-assign.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-global-assign.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-global-assign.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-global-assign.md)
