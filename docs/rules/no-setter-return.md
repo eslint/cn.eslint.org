@@ -1,14 +1,19 @@
 ---
-title: no-setter-return - Rules
+title: no-setter-return
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-setter-return.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-setter-return.md
 rule_type: problem
+related_rules:
+- getter-return
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow returning values from setters (no-setter-return)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows returning values from setters.
 
 Setters cannot return values.
 
@@ -102,19 +107,12 @@ Object.defineProperty(foo, "bar", {
 });
 ```
 
-## Further Reading
-
-* [MDN setter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
-
-## Related Rules
-
-* [getter-return](getter-return)
-
 ## Version
 
 This rule was introduced in ESLint 6.7.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-setter-return.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-setter-return.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-setter-return.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-setter-return.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-setter-return.md)

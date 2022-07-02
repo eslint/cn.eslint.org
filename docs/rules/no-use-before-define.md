@@ -1,12 +1,11 @@
 ---
-title: no-use-before-define - Rules
+title: no-use-before-define
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-use-before-define.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-use-before-define.md
 rule_type: problem
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Early Use (no-use-before-define)
+Disallows the use of variables before they are defined.
 
 In JavaScript, prior to ES6, variable and function declarations are hoisted to the top of a scope, so it's possible to use identifiers before their formal declarations in code. This can be confusing and some believe it is best to always declare variables and functions before using them.
 
@@ -20,7 +19,6 @@ Examples of **incorrect** code for this rule:
 
 ```js
 /*eslint no-use-before-define: "error"*/
-/*eslint-env es6*/
 
 alert(a);
 var a = 10;
@@ -37,13 +35,40 @@ var b = 1;
     alert(c);
     let c = 1;
 }
+
+{
+    class C extends C {}
+}
+
+{
+    class C {
+        static x = "foo";
+        [C.x]() {}
+    }
+}
+
+{
+    const C = class {
+        static x = C;
+    }
+}
+
+{
+    const C = class {
+        static {
+            C.x = "foo";
+        }
+    }
+}
+
+export { foo };
+const foo = 1;
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
 /*eslint no-use-before-define: "error"*/
-/*eslint-env es6*/
 
 var a;
 a = 10;
@@ -61,13 +86,47 @@ function g() {
     let c;
     c++;
 }
+
+{
+    class C {
+        static x = C;
+    }
+}
+
+{
+    const C = class C {
+        static x = C;
+    }
+}
+
+{
+    const C = class {
+        x = C;
+    }
+}
+
+{
+    const C = class C {
+        static {
+            C.x = "foo";
+        }
+    }
+}
+
+const foo = 1;
+export { foo };
 ```
 
 ## Options
 
 ```json
 {
-    "no-use-before-define": ["error", { "functions": true, "classes": true }]
+    "no-use-before-define": ["error", {
+        "functions": true,
+        "classes": true,
+        "variables": true,
+        "allowNamedExports": false
+    }]
 }
 ```
 
@@ -88,9 +147,13 @@ function g() {
   If this is `true`, the rule warns every reference to a variable before the variable declaration.
   Otherwise, the rule ignores a reference if the declaration is in an upper scope, while still reporting the reference if it's in the same scope as the declaration.
   Default is `true`.
+* `allowNamedExports` (`boolean`) -
+  If this flag is set to `true`, the rule always allows references in `export {};` declarations.
+  These references are safe even if the variables are declared later in the code.
+  Default is `false`.
 
 This rule accepts `"nofunc"` string as an option.
-`"nofunc"` is the same as `{ "functions": false, "classes": true, "variables": true }`.
+`"nofunc"` is the same as `{ "functions": false, "classes": true, "variables": true, "allowNamedExports": false }`.
 
 ### functions
 
@@ -111,10 +174,34 @@ Examples of **incorrect** code for the `{ "classes": false }` option:
 
 ```js
 /*eslint no-use-before-define: ["error", { "classes": false }]*/
-/*eslint-env es6*/
 
 new A();
 class A {
+}
+
+{
+    class C extends C {}
+}
+
+{
+    class C extends D {}
+    class D {}
+}
+
+{
+    class C {
+        static x = "foo";
+        [C.x]() {}
+    }
+}
+
+{
+    class C {
+        static {
+            new D();
+        }
+    }
+    class D {}
 }
 ```
 
@@ -122,7 +209,6 @@ Examples of **correct** code for the `{ "classes": false }` option:
 
 ```js
 /*eslint no-use-before-define: ["error", { "classes": false }]*/
-/*eslint-env es6*/
 
 function foo() {
     return new A();
@@ -147,6 +233,28 @@ const f = () => {};
 
 g();
 const g = function() {};
+
+{
+    const C = class {
+        static x = C;
+    }
+}
+
+{
+    const C = class {
+        static x = foo;
+    }
+    const foo = 1;
+}
+
+{
+    class C {
+        static {
+            this.x = foo;
+        }
+    }
+    const foo = 1;
+}
 ```
 
 Examples of **correct** code for the `{ "variables": false }` option:
@@ -166,6 +274,48 @@ const f = () => {};
 
 const e = function() { return g(); }
 const g = function() {}
+
+{
+    const C = class {
+        x = foo;
+    }
+    const foo = 1;
+}
+```
+
+### allowNamedExports
+
+Examples of **correct** code for the `{ "allowNamedExports": true }` option:
+
+```js
+/*eslint no-use-before-define: ["error", { "allowNamedExports": true }]*/
+
+export { a, b, f, C };
+
+const a = 1;
+
+let b;
+
+function f () {}
+
+class C {}
+```
+
+Examples of **incorrect** code for the `{ "allowNamedExports": true }` option:
+
+```js
+/*eslint no-use-before-define: ["error", { "allowNamedExports": true }]*/
+
+export default a;
+const a = 1;
+
+const b = c;
+export const c = 1;
+
+export function foo() {
+    return d;
+}
+const d = 1;
 ```
 
 ## Version
@@ -174,5 +324,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-use-before-define.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-use-before-define.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-use-before-define.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-use-before-define.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-use-before-define.md)
