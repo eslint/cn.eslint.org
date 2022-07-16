@@ -1,14 +1,22 @@
 ---
-title: semi - Rules
+title: semi
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/semi.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/semi.md
 rule_type: layout
+related_rules:
+- no-extra-semi
+- no-unexpected-multiline
+- semi-spacing
+further_reading:
+- https://blog.izs.me/2010/12/an-open-letter-to-javascript-leaders-regarding/
+- https://web.archive.org/web/20200420230322/http://inimino.org/~inimino/blog/javascript_semicolons
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require or disallow semicolons instead of ASI (semi)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallows semicolons instead of ASI.
 
 JavaScript doesn't require semicolons at the end of each statement. In many cases, the JavaScript engine can determine that a semicolon should be in a certain spot and will automatically add it. This feature is known as **automatic semicolon insertion (ASI)** and is considered one of the more controversial features of JavaScript. For example, the following lines are both valid:
 
@@ -92,6 +100,8 @@ Object option (when `"never"`):
 
 Examples of **incorrect** code for this rule with the default `"always"` option:
 
+::: incorrect
+
 ```js
 /*eslint semi: ["error", "always"]*/
 
@@ -106,7 +116,11 @@ class Foo {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"always"` option:
+
+::: correct
 
 ```js
 /*eslint semi: "error"*/
@@ -122,9 +136,13 @@ class Foo {
 }
 ```
 
+:::
+
 ### never
 
 Examples of **incorrect** code for this rule with the `"never"` option:
+
+::: incorrect
 
 ```js
 /*eslint semi: ["error", "never"]*/
@@ -140,7 +158,11 @@ class Foo {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"never"` option:
+
+::: correct
 
 ```js
 /*eslint semi: ["error", "never"]*/
@@ -172,9 +194,13 @@ class Foo {
 }
 ```
 
+:::
+
 #### omitLastInOneLineBlock
 
 Examples of additional **correct** code for this rule with the `"always", { "omitLastInOneLineBlock": true }` options:
+
+::: correct
 
 ```js
 /*eslint semi: ["error", "always", { "omitLastInOneLineBlock": true}] */
@@ -182,11 +208,23 @@ Examples of additional **correct** code for this rule with the `"always", { "omi
 if (foo) { bar() }
 
 if (foo) { bar(); baz() }
+
+function f() { bar(); baz() }
+
+class C {
+    foo() { bar(); baz() }
+
+    static { bar(); baz() }
+}
 ```
+
+:::
 
 #### beforeStatementContinuationChars
 
 Examples of additional **incorrect** code for this rule with the `"never", { "beforeStatementContinuationChars": "always" }` options:
+
+::: incorrect
 
 ```js
 /*eslint semi: ["error", "never", { "beforeStatementContinuationChars": "always"}] */
@@ -197,7 +235,11 @@ import a from "a"
 })()
 ```
 
+:::
+
 Examples of additional **incorrect** code for this rule with the `"never", { "beforeStatementContinuationChars": "never" }` options:
+
+::: incorrect
 
 ```js
 /*eslint semi: ["error", "never", { "beforeStatementContinuationChars": "never"}] */
@@ -208,20 +250,11 @@ import a from "a"
 })()
 ```
 
+:::
+
 ## When Not To Use It
 
 If you do not want to enforce semicolon usage (or omission) in any particular way, then you can turn this rule off.
-
-## Further Reading
-
-* [An Open Letter to JavaScript Leaders Regarding Semicolons](http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding)
-* [JavaScript Semicolon Insertion](http://inimino.org/~inimino/blog/javascript_semicolons)
-
-## Related Rules
-
-* [no-extra-semi](no-extra-semi)
-* [no-unexpected-multiline](no-unexpected-multiline)
-* [semi-spacing](semi-spacing)
 
 ## Version
 
@@ -229,5 +262,6 @@ This rule was introduced in ESLint 0.0.6.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/semi.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/semi.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/semi.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/semi.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/semi.md)
