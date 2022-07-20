@@ -1,9 +1,2 @@
-**/node_modules/
-_site/
-npm-debug.log
-assets/build
-.idea
-_data/logos.json
-_data/rules.json
-_data/rules4.json
-src/js/demo/package-lock.json
+node_modules
+_site
