@@ -1,12 +1,11 @@
 ---
-title: no-bitwise - Rules
+title: no-bitwise
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-bitwise.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-bitwise.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow bitwise operators (no-bitwise)
+Disallows bitwise operators.
 
 The use of bitwise operators in JavaScript is very rare and often `&` or `|` is simply a mistyped `&&` or `||`, which will lead to unexpected behavior.
 
@@ -99,5 +98,6 @@ This rule was introduced in ESLint 0.0.2.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-bitwise.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-bitwise.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-bitwise.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-bitwise.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-bitwise.md)
