@@ -1,14 +1,15 @@
 ---
-title: no-prototype-builtins - Rules
+title: no-prototype-builtins
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-prototype-builtins.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-prototype-builtins.md
 rule_type: problem
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow use of Object.prototypes builtins directly (no-prototype-builtins)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows calling some `Object.prototype` methods directly on objects.
 
 In ECMAScript 5.1, `Object.create` was added, which enables the creation of objects with a specified `[[Prototype]]`. `Object.create(null)` is a common pattern used to create objects that will be used as a Map. This can lead to errors when it is assumed that objects will have properties from `Object.prototype`. This rule prevents calling some `Object.prototype` methods directly from an object.
 
@@ -54,5 +55,6 @@ This rule was introduced in ESLint 2.11.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-prototype-builtins.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-prototype-builtins.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-prototype-builtins.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-prototype-builtins.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-prototype-builtins.md)

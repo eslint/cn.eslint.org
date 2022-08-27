@@ -1,12 +1,14 @@
 ---
 title: Governance
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/maintainer-guide/governance.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/maintainer-guide/governance.md
+eleventyNavigation:
+    key: governance
+    parent: maintainer guide
+    title: Governance
+    order: 4
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
-
-# Governance
 
 ESLint is an open source project that depends on contributions from the community. Anyone may contribute to the project at any time by submitting code, participating in discussions, making suggestions, or any other contribution they see fit. This document describes how various types of contributors work within the ESLint project.
 
@@ -28,7 +30,7 @@ As Contributors gain experience and familiarity with the project, their profile 
 
 ### Committers
 
-Committers are community members who have shown that they are committed to the continued development of the project through ongoing engagement with the community. Committers are given push access to the project's GitHub repos and must abide by the project's [Contribution Guidelines](../developer-guide/contributing).
+Committers are community members who have shown that they are committed to the continued development of the project through ongoing engagement with the community. Committers are given push access to the project's GitHub repos and must abide by the project's [Contribution Guidelines](../developer-guide/contributing/).
 
 Committers:
 
@@ -120,7 +122,7 @@ A Reviewer is invited to become a TSC member by existing TSC members. A nominati
 
 1. Add the GitHub user to the "ESLint TSC" GitHub team
 1. Set the GitHub user to be have the "Owner" role for the ESLint organization
-1. Send a welcome email with a link to the [maintainer guide](./) and the [npm 2FA guide](./npm-2fa).
+1. Send a welcome email with a link to the [maintainer guide](./) and instructions for npm 2FA.
 1. Invite to the Discord TSC channel
 1. Make the TSC member an admin on the ESLint team mailing list
 1. Add the TSC member to the recurring TSC meeting event on Google Calendar
