@@ -1,12 +1,13 @@
 ---
-title: no-proto - Rules
+title: no-proto
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-proto.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-proto.md
 rule_type: suggestion
+further_reading:
+- https://johnresig.com/blog/objectgetprototypeof/
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Use of `__proto__` (no-proto)
+Disallows the use of the `__proto__` property.
 
 `__proto__` property has been deprecated as of ECMAScript 3.1 and shouldn't be used in the code. Use `Object.getPrototypeOf` and `Object.setPrototypeOf` instead.
 
@@ -45,15 +46,12 @@ var c = { __proto__: a };
 You might want to turn this rule off if you need to support legacy browsers which implement the
 `__proto__` property but not `Object.getPrototypeOf` or `Object.setPrototypeOf`.
 
-## Further Reading
-
-* [Object.getPrototypeOf](http://ejohn.org/blog/objectgetprototypeof/)
-
 ## Version
 
 This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-proto.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-proto.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-proto.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-proto.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-proto.md)

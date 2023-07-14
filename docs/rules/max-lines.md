@@ -1,12 +1,20 @@
 ---
-title: max-lines - Rules
+title: max-lines
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/max-lines.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/max-lines.md
 rule_type: suggestion
+related_rules:
+- complexity
+- max-depth
+- max-lines-per-function
+- max-nested-callbacks
+- max-params
+- max-statements
+further_reading:
+- https://web.archive.org/web/20160725154648/http://www.mind2b.com/component/content/article/24-software-module-size-and-file-size
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce a maximum file length (max-lines)
+Enforces a maximum file length.
 
 Some people consider large files a code smell. Large files tend to do a lot of things and can make it hard following what's going. While there is not an objective maximum number of lines considered acceptable in a file, most people would agree it should not be in the thousands. Recommendations usually range from 100 to 500 lines.
 
@@ -117,19 +125,6 @@ var a,
 
 You can turn this rule off if you are not concerned with the number of lines in your files.
 
-## Further reading
-
-* [Software Module size and file size](https://web.archive.org/web/20160725154648/http://www.mind2b.com/component/content/article/24-software-module-size-and-file-size)
-
-## Related Rules
-
-* [complexity](complexity)
-* [max-depth](max-depth)
-* [max-lines-per-function](max-lines-per-function)
-* [max-nested-callbacks](max-nested-callbacks)
-* [max-params](max-params)
-* [max-statements](max-statements)
-
 ## Compatibility
 
 * **JSCS**: [maximumNumberOfLines](https://jscs-dev.github.io/rule/maximumNumberOfLines)
@@ -140,5 +135,6 @@ This rule was introduced in ESLint 2.12.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/max-lines.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/max-lines.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/max-lines.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/max-lines.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/max-lines.md)

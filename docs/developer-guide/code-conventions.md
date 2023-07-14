@@ -1,12 +1,15 @@
 ---
 title: 编码惯例
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/code-conventions.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/developer-guide/code-conventions.md
 
 ---
+<<<<<<< HEAD
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # 编码惯例 {#code-conventions}
+=======
+>>>>>>> 3167796efea23d89ed2f3381cc7a825d96f12b13
 
 Eslint 的编码惯例是由
 [eslint-config-eslint](https://www.npmjs.com/package/eslint-config-eslint) 决定的。
