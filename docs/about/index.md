@@ -1,12 +1,15 @@
 ---
 title: 关于
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/about/index.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/about/index.md
 
 ---
+<<<<<<< HEAD
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # 关于 {#about}
+=======
+>>>>>>> 327d60a109a3d6a4e7ba2727f7038535aac001db
 
 ESLint 是一个开源的 JavaScript lint 工具，由 Nicholas C. Zakas 在 2013 年 6 月创建。[lint][] 是一种静态分析，经常被用来寻找有问题的或不遵守某些风格准则的代码。大多数编程语言都有相对应的 linter，而编译器有时会在编译过程中执行 lint 操作。
 
