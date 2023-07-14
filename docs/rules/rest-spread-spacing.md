@@ -1,14 +1,17 @@
 ---
-title: rest-spread-spacing - Rules
+title: rest-spread-spacing
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/rest-spread-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/rest-spread-spacing.md
 rule_type: layout
+further_reading:
+- https://github.com/tc39/proposal-object-rest-spread
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce spacing between rest and spread operators and their expressions (rest-spread-spacing)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces spacing between rest and spread operators and their expressions.
 
 ES2015 introduced the rest and spread operators, which expand an iterable structure into its individual parts. Some examples of their usage are as follows:
 
@@ -145,15 +148,12 @@ let n = { x, y, ... z };
 
 You can safely disable this rule if you do not care about enforcing consistent spacing between spread operators and their expressions.
 
-## Further Reading
-
-* [Object Rest/Spread Properties for ECMAScript](https://github.com/tc39/proposal-object-rest-spread)
-
 ## Version
 
 This rule was introduced in ESLint 2.12.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/rest-spread-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/rest-spread-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/rest-spread-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/rest-spread-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/rest-spread-spacing.md)
