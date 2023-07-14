@@ -1,12 +1,14 @@
 ---
 title: Reviewing Pull Requests
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/maintainer-guide/pullrequests.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/maintainer-guide/pullrequests.md
+eleventyNavigation:
+    key: reviewing pull requests
+    parent: maintainer guide 
+    title: Reviewing Pull Requests
+    order: 2
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
-
-# Reviewing Pull Requests
 
 Pull requests are submitted frequently and represent our best opportunity to interact with the community. As such, it's important that pull requests are well-reviewed before being merged and that interactions on pull requests are positive.
 

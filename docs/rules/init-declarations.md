@@ -1,12 +1,11 @@
 ---
-title: init-declarations - Rules
+title: init-declarations
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/init-declarations.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/init-declarations.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require or disallow initialization in variable declarations (init-declarations)
+Requires or disallows initialization in variable declarations.
 
 In JavaScript, variables can be assigned during declaration, or at any point afterwards using an assignment statement. For example, in the following code, `foo` is initialized during declaration, while `bar` is initialized later.
 
@@ -144,5 +143,6 @@ This rule was introduced in ESLint 1.0.0-rc-1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/init-declarations.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/init-declarations.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/init-declarations.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/init-declarations.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/init-declarations.md)
