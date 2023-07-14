@@ -1,3 +1,9 @@
+⚠️ This project has been archived and replaced by [zh-hans.docs.eslint.org](https://github.com/eslint/zh-hans.docs.eslint.org).
+
+⚠️ 此项目已归档并被 [zh-hans.docs.eslint.org](https://github.com/eslint/zh-hans.docs.eslint.org) 所取代。
+
+---
+
 [![Build Status](https://github.com/eslint/website/actions/workflows/ci.yml/badge.svg)](https://github.com/eslint/website/actions/workflows/ci.yml?query=branch%3Amaster)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cefb59aa-729a-4f8e-be36-b981fda399c0/deploy-status)](https://app.netlify.com/sites/eslint/deploys)
 
