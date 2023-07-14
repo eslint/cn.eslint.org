@@ -1,13 +1,14 @@
 ---
 title: Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configuring/rules.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/configuring/rules.md
+eleventyNavigation:
+    key: configuring rules
+    parent: configuring
+    title: Configuring Rules
+    order: 3
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
-
-# Rules
-
 
 * [Configuring Rules](#configuring-rules)
 * [Disabling Rules](#disabling-rules)
@@ -28,7 +29,7 @@ To configure rules inside of a file using configuration comments, use a comment 
 /* eslint eqeqeq: "off", curly: "error" */
 ```
 
-In this example, [`eqeqeq`](https://eslint.org/docs/rules/eqeqeq) is turned off and [`curly`](https://eslint.org/docs/rules/curly) is turned on as an error. You can also use the numeric equivalent for the rule severity:
+In this example, [`eqeqeq`](../../rules/eqeqeq) is turned off and [`curly`](../../rules/curly) is turned on as an error. You can also use the numeric equivalent for the rule severity:
 
 ```js
 /* eslint eqeqeq: 0, curly: 2 */
@@ -42,7 +43,7 @@ If a rule has additional options, you can specify them using array literal synta
 /* eslint quotes: ["error", "double"], curly: 2 */
 ```
 
-This comment specifies the "double" option for the [`quotes`](https://eslint.org/docs/rules/quotes) rule. The first item in the array is always the rule severity (number or string).
+This comment specifies the "double" option for the [`quotes`](../../rules/quotes) rule. The first item in the array is always the rule severity (number or string).
 
 Configuration comments can include descriptions to explain why the comment is necessary. The description must occur after the configuration and is separated from the configuration by two or more consecutive `-` characters. For example:
 
@@ -153,6 +154,8 @@ console.log('bar');
 /* eslint-enable no-alert, no-console */
 ```
 
+**Note:** `/* eslint-enable */` without any specific rules listed will cause all disabled rules to be re-enabled.
+
 To disable rule warnings in an entire file, put a `/* eslint-disable */` block comment at the top of the file:
 
 ```js
@@ -165,6 +168,14 @@ You can also disable or enable specific rules for an entire file:
 
 ```js
 /* eslint-disable no-alert */
+
+alert('foo');
+```
+
+To ensure that a rule is never applied (regardless of any future enable/disable lines):
+
+```js
+/* eslint no-alert: "off" */
 
 alert('foo');
 ```
@@ -209,6 +220,13 @@ alert('foo'); /* eslint-disable-line no-alert, quotes, semi */
 
 /* eslint-disable-next-line no-alert, quotes, semi */
 alert('foo');
+
+/* eslint-disable-next-line
+  no-alert,
+  quotes,
+  semi
+*/
+alert('foo');
 ```
 
 All of the above methods also work for plugin rules. For example, to disable `eslint-plugin-example`'s `rule-name` rule, combine the plugin's name (`example`) and the rule's name (`rule-name`) into `example/rule-name`:
@@ -222,6 +240,12 @@ Configuration comments can include descriptions to explain why the comment is ne
 
 ```js
 // eslint-disable-next-line no-console -- Here's a description about why this configuration is necessary.
+console.log('hello');
+
+/* eslint-disable-next-line no-console --
+ * Here's a very long description about why this configuration is necessary
+ * along with some additional information
+**/
 console.log('hello');
 ```
 
@@ -256,7 +280,7 @@ To disable all inline config comments, use the `noInlineConfig` setting. For exa
 }
 ```
 
-This setting is similar to [--no-inline-config](https://eslint.org/docs/user-guide/command-line-interface#--no-inline-config) CLI option.
+This setting is similar to [--no-inline-config](../command-line-interface#--no-inline-config) CLI option.
 
 #### Report unused `eslint-disable` comments
 
@@ -269,4 +293,4 @@ To report unused `eslint-disable` comments, use the `reportUnusedDisableDirectiv
 }
 ```
 
-This setting is similar to [--report-unused-disable-directives](https://eslint.org/docs/user-guide/command-line-interface#--report-unused-disable-directives) CLI option, but doesn't fail linting (reports as `"warn"` severity).
+This setting is similar to [--report-unused-disable-directives](../command-line-interface#--report-unused-disable-directives) CLI option, but doesn't fail linting (reports as `"warn"` severity).

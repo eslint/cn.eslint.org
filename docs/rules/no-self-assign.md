@@ -1,14 +1,15 @@
 ---
-title: no-self-assign - Rules
+title: no-self-assign
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-self-assign.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-self-assign.md
 rule_type: problem
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Self Assignment (no-self-assign)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows assignments where both sides are exactly the same.
 
 Self assignments have no effect, so probably those are an error due to incomplete refactoring.
 Those indicate that what you should do is still remaining.
@@ -34,6 +35,10 @@ foo = foo;
 [a, ...b] = [x, ...b];
 
 ({a, b} = {a, x});
+
+foo &&= foo;
+foo ||= foo;
+foo ??= foo;
 ```
 
 Examples of **correct** code for this rule:
@@ -60,6 +65,10 @@ obj[a] = obj["a"];
 obj.a().b = obj.a().b;
 a().b = a().b;
 
+// `&=` and `|=` have an effect on non-integers.
+foo &= foo;
+foo |= foo;
+
 // Known limitation: this does not support computed properties except single literal or single identifier.
 obj[a + b] = obj[a + b];
 obj["a" + "b"] = obj["a" + "b"];
@@ -75,7 +84,7 @@ This rule has the option to check properties as well.
 }
 ```
 
-- `props` - if this is `true`, `no-self-assign` rule warns self-assignments of properties. Default is `true`.
+* `props` - if this is `true`, `no-self-assign` rule warns self-assignments of properties. Default is `true`.
 
 ### props
 
@@ -101,5 +110,6 @@ This rule was introduced in ESLint 2.0.0-rc.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-self-assign.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-self-assign.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-self-assign.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-self-assign.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-self-assign.md)
