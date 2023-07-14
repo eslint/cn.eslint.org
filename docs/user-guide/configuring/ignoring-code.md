@@ -1,13 +1,14 @@
 ---
 title: Ignoring Code
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configuring/ignoring-code.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/configuring/ignoring-code.md
+eleventyNavigation:
+    key: ignoring code
+    parent: configuring
+    title: Ignoring Code
+    order: 5
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
-
-# Ignoring Code
-
 
 * [`ignorePatterns` in Config Files](#ignorepatterns-in-config-files)
 * [The `.eslintignore` File](#the-eslintignore-file)
@@ -49,7 +50,7 @@ When ESLint is run, it looks in the current working directory to find an `.eslin
 Globs are matched using [node-ignore](https://github.com/kaelzhang/node-ignore), so a number of features are available:
 
 * Lines beginning with `#` are treated as comments and do not affect the ignore patterns.
-* Paths are relative to the current working directory. This is also true of paths passed in via the `--ignore-pattern` [command](https://eslint.org/docs/user-guide/command-line-interface#--ignore-pattern).
+* Paths are relative to the current working directory. This is also true of paths passed in via the `--ignore-pattern` [command](../command-line-interface#--ignore-pattern).
 * Lines preceded by `!` are negated patterns that re-include a pattern that was ignored by an earlier pattern.
 * Ignore patterns behave according to the `.gitignore` [specification](https://git-scm.com/docs/gitignore).
 
