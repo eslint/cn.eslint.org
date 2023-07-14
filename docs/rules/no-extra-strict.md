@@ -1,12 +1,13 @@
 ---
-title: no-extra-strict - Rules
+title: no-extra-strict
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-extra-strict.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-extra-strict.md
 
+further_reading:
+- https://es5.github.io/#C
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# no-extra-strict: disallow strict mode directives when already in strict mode
+Disallows strict mode directives when already in strict mode.
 
 (removed) This rule was **removed** in ESLint v1.0 and **replaced** by the [strict](strict) rule. The `"global"` or `"function"` options in the new rule are similar to the removed rule.
 
@@ -53,14 +54,10 @@ Examples of **correct** code for this rule:
 }());
 ```
 
-## Further Reading
-
-* [The ECMAScript 5 Annotated Specification - Strict Mode](https://es5.github.io/#C)
-
 ## Version
 
 This rule was introduced in ESLint 0.3.0 and removed in 1.0.0-rc-1.
 
 ## Resources
 
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-extra-strict.md)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-extra-strict.md)
