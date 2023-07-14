@@ -1,14 +1,15 @@
 ---
-title: multiline-comment-style - Rules
+title: multiline-comment-style
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/multiline-comment-style.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/multiline-comment-style.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce a particular style for multiline comments (multiline-comment-style)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces a particular style for multiline comments.
 
 Many style guides require a particular style for comments that span multiple lines. For example, some style guides prefer the use of a single block comment for multiline comments, whereas other style guides prefer consecutive line comments.
 
@@ -125,7 +126,6 @@ Examples of **correct** code for this rule with the `"separate-lines"` option:
 // calls foo()
 foo();
 
-
 ```
 
 ## When Not To Use It
@@ -138,5 +138,6 @@ This rule was introduced in ESLint 4.10.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/multiline-comment-style.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/multiline-comment-style.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/multiline-comment-style.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/multiline-comment-style.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/multiline-comment-style.md)
