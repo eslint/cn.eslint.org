@@ -1,12 +1,13 @@
 ---
-title: no-reserved-keys - Rules
+title: no-reserved-keys
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-reserved-keys.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-reserved-keys.md
 
+further_reading:
+- https://kangax.github.io/compat-table/es5/#Reserved_words_as_property_names
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# no-reserved-keys: disallow unquoted reserved words as property names in object literals
+Disallows unquoted reserved words as property names in object literals.
 
 (removed) This rule was **removed** in ESLint v1.0 and **replaced** by the [quote-props](quote-props) rule.
 
@@ -56,14 +57,10 @@ var values = {
 
 If your code is only going to be executed in an ECMAScript 5 or higher environment, then you can safely leave this rule off.
 
-## Further Reading
-
-* [Reserved words as property names](https://kangax.github.io/compat-table/es5/#Reserved_words_as_property_names)
-
 ## Version
 
 This rule was introduced in ESLint 0.8.0 and removed in 1.0.0.
 
 ## Resources
 
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-reserved-keys.md)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-reserved-keys.md)

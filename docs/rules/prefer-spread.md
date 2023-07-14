@@ -1,12 +1,13 @@
 ---
-title: prefer-spread - Rules
+title: prefer-spread
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-spread.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/prefer-spread.md
 rule_type: suggestion
+related_rules:
+- no-useless-call
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Suggest using spread syntax instead of `.apply()`. (prefer-spread)
+Suggests using spread syntax instead of `.apply()`.
 
 Before ES2015, one must use `Function.prototype.apply()` to call variadic functions.
 
@@ -81,15 +82,12 @@ This rule should not be used in ES3/5 environments.
 
 In ES2015 (ES6) or later, if you don't want to be notified about `Function.prototype.apply()` callings, you can safely disable this rule.
 
-## Related Rules
-
-* [no-useless-call](no-useless-call)
-
 ## Version
 
 This rule was introduced in ESLint 1.0.0-rc-1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-spread.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-spread.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-spread.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-spread.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/prefer-spread.md)
