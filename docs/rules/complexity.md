@@ -1,7 +1,7 @@
 ---
 title: complexity - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/complexity.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/complexity.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -65,7 +65,7 @@ function b() {
 }
 ```
 
-Class field initializers are implicit functions. Therefore, their complexity is calculated separately for each initializer, and it doesn't contribute to the complexity of the enclosing code.
+Class field initializers and class static blocks are implicit functions. Therefore, their complexity is calculated separately for each initializer and each static block, and it doesn't contribute to the complexity of the enclosing code.
 
 Examples of additional **incorrect** code for a maximum of 2:
 
@@ -74,6 +74,14 @@ Examples of additional **incorrect** code for a maximum of 2:
 
 class C {
     x = a || b || c; // this initializer has complexity = 3
+}
+
+class D { // this static block has complexity = 3
+    static {
+        if (foo) {
+            bar = baz || qux;
+        }
+    }
 }
 ```
 
@@ -90,6 +98,16 @@ function foo() { // this function has complexity = 1
 
         static p = g || h; // this initializer has complexity = 2
         static q = i ? j : k; // this initializer has complexity = 2
+
+        static { // this static block has complexity = 2
+            if (foo) {
+                baz = bar;
+            }
+        }
+
+        static { // this static block has complexity = 2
+            qux = baz || quux;
+        }
     }
 }
 ```
@@ -138,5 +156,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/complexity.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/complexity.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/complexity.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/complexity.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/complexity.md)

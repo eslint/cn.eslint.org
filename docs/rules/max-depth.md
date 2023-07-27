@@ -1,7 +1,7 @@
 ---
 title: max-depth - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/max-depth.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/max-depth.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -28,7 +28,6 @@ Examples of **incorrect** code for this rule with the default `{ "max": 4 }` opt
 
 ```js
 /*eslint max-depth: ["error", 4]*/
-/*eslint-env es6*/
 
 function foo() {
     for (;;) { // Nested 1 deep
@@ -48,13 +47,54 @@ Examples of **correct** code for this rule with the default `{ "max": 4 }` optio
 
 ```js
 /*eslint max-depth: ["error", 4]*/
-/*eslint-env es6*/
 
 function foo() {
     for (;;) { // Nested 1 deep
         while (true) { // Nested 2 deep
             if (true) { // Nested 3 deep
                 if (true) { // Nested 4 deep
+                }
+            }
+        }
+    }
+}
+```
+
+Note that class static blocks do not count as nested blocks, and that the depth in them is calculated separately from the enclosing context.
+
+Examples of **incorrect** code for this rule with `{ "max": 2 }` option:
+
+```js
+/*eslint max-depth: ["error", 2]*/
+
+function foo() {
+    if (true) { // Nested 1 deep
+        class C {
+            static {
+                if (true) { // Nested 1 deep
+                    if (true) { // Nested 2 deep
+                        if (true) { // Nested 3 deep
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+Examples of **correct** code for this rule with `{ "max": 2 }` option:
+
+```js
+/*eslint max-depth: ["error", 2]*/
+
+function foo() {
+    if (true) { // Nested 1 deep
+        class C {
+            static {
+                if (true) { // Nested 1 deep
+                    if (true) { // Nested 2 deep
+                    }
                 }
             }
         }
@@ -78,5 +118,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/max-depth.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/max-depth.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/max-depth.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/max-depth.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/max-depth.md)
