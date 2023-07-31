@@ -51,7 +51,7 @@ npm install
 执行完上述操作，即可进行本地调试：
 
 ```sh
-$ npm start
+npm start
 ```
 
 启动后会部署在 `http://localhost:8080/` 域名下，并会根据源码的变化进行热更新。
