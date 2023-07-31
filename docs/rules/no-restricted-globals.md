@@ -1,12 +1,11 @@
 ---
-title: no-restricted-globals - Rules
+title: no-restricted-globals
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-restricted-globals.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-restricted-globals.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow specific global variables (no-restricted-globals)
+Disallows specific global variables.
 
 Disallowing usage of specific global variables can be useful if you want to allow a set of global
 variables by enabling an environment, but still want to disallow some of those.
@@ -103,5 +102,6 @@ This rule was introduced in ESLint 2.3.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-restricted-globals.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-restricted-globals.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-restricted-globals.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-restricted-globals.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-restricted-globals.md)
