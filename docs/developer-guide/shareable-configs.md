@@ -1,12 +1,14 @@
 ---
 title: Shareable Configs
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/shareable-configs.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/developer-guide/shareable-configs.md
+eleventyNavigation:
+    key: shareable configs
+    parent: developer guide
+    title: Shareable Configs
+    order: 8
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
-
-# Shareable Configs
 
 The configuration that you have in your `.eslintrc` file is an important part of your project, and as such, you may want to share it with other projects or people. Shareable configs allow you to publish your configuration settings on [npm](https://www.npmjs.com/) and have others download and use it in their ESLint projects.
 
@@ -40,9 +42,11 @@ Once your shareable config is ready, you can [publish to npm](https://docs.npmjs
 
 You should declare your dependency on ESLint in `package.json` using the [peerDependencies](https://docs.npmjs.com/files/package.json#peerdependencies) field. The recommended way to declare a dependency for future proof compatibility is with the ">=" range syntax, using the lowest required ESLint version. For example:
 
-```
-"peerDependencies": {
-    "eslint": ">= 3"
+```json
+{
+    "peerDependencies": {
+        "eslint": ">= 3"
+    }
 }
 ```
 
@@ -83,7 +87,6 @@ You can also omit the `eslint-config-` and it will be automatically assumed by E
 ### npm scoped modules
 
 npm [scoped modules](https://docs.npmjs.com/misc/scope) are also supported in a number of ways.
-
 
 By using the module name:
 
