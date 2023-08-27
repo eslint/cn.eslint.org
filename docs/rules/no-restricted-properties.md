@@ -1,15 +1,13 @@
 ---
-title: no-restricted-properties - Rules
+title: no-restricted-properties
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-restricted-properties.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-restricted-properties.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow certain object properties (no-restricted-properties)
+Disallows certain object properties.
 
 Certain properties on objects may be disallowed in a codebase. This is useful for deprecating an API or restricting usage of a module's methods. For example, you may want to disallow using `describe.only` when using Mocha or telling people to use `Object.assign` instead of `_.extend`.
-
 
 ## Rule Details
 
@@ -138,5 +136,6 @@ This rule was introduced in ESLint 3.5.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-restricted-properties.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-restricted-properties.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-restricted-properties.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-restricted-properties.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-restricted-properties.md)

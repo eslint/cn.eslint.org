@@ -1,14 +1,15 @@
 ---
-title: no-unexpected-multiline - Rules
+title: no-unexpected-multiline
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-unexpected-multiline.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-unexpected-multiline.md
 rule_type: problem
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow confusing multiline expressions (no-unexpected-multiline)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows confusing multiline expressions.
 
 Semicolons are usually optional in JavaScript, because of automatic semicolon insertion (ASI). You can require or disallow semicolons with the [semi](./semi) rule.
 
@@ -89,5 +90,6 @@ This rule was introduced in ESLint 0.24.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-unexpected-multiline.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-unexpected-multiline.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-unexpected-multiline.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-unexpected-multiline.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-unexpected-multiline.md)
