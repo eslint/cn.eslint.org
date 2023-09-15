@@ -1,7 +1,7 @@
 ---
 title: 快速开始
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/getting-started.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/user-guide/getting-started.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -20,7 +20,7 @@ ESLint 是用来识别 ECMAScript/JavaScript 并按照规则给出报告的代�
 
 你可以通过 npm 或 yarn 来安装 ESLint：
 
-```
+```sh
 npm install eslint --save-dev
 
 # 或者
@@ -30,7 +30,7 @@ yarn add eslint --dev
 
 接着需要设置配置文件，最简单的方式就是使用 `--init` 选项来进行设置：
 
-```
+```sh
 $ npx eslint --init
 
 # 或者
@@ -42,7 +42,7 @@ $ yarn run eslint --init
 
 接着，可以对任意文件或目录执行 ESLint：
 
-```
+```sh
 $ npx eslint yourfile.js
 
 # 或者
