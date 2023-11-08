@@ -1,9 +1,15 @@
 ---
+layout: post
 title: ESLint Joins The jQuery Foundation
+teaser: "We are happy to announce that ESLint is now part of the jQuery Foundation. This is a huge step and we share what this means for the project. We're also looking forward to its growth throughout the open source community."
 date: 2016-04-19
 tags:
-- jQuery Foundation
-- Open Source
+  - jQuery Foundation
+  - Open Source
+authors:
+  - nzakas
+categories:
+  - Announcements
 ---
 
 I've believed for a while that once an open source project reaches a certain level of ubiquity, the maintainers have a responsibility to ensure its survival for the good of the community. Over the past couple of years, I watched as important projects hit roadblocks: YUI abruptly shut down, Node.js splintered before merging back together, and Express was left in a state of disarray. Communities were left scrambling, unsure what to rely on. During this time, I started formulating a plan for how to keep ESLint from falling into the same pattern.

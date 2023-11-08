@@ -1,10 +1,16 @@
 ---
+layout: post
 title: Welcoming JSCS To ESLint
+teaser: "We are happy to announce that, effectively immediately, the JSCS team is now part of the ESLint team. We would like to invite everyone to welcome Marat Dulin, Oleg Gaidarenko, Mike Sherov, Alexej Yaroshevich, and Henry Zhu, and we're looking forward to working with them all."
 date: 2016-04-14 17:13:45
 tags:
-- jscs
-- future
-- plans
+  - jscs
+  - future
+  - plans
+authors:
+  - nzakas
+categories:
+  - Announcements
 ---
 
 ESLint and [JSCS](https://jscs-dev.github.io/) started out at roughly the same time, just three weeks apart in 2013. Both teams had a similar idea: leverage the ecosystem of ESTree-compatible tools such as Esprima to create the next generation of static analysis tools for JavaScript. While ESLint's primary goal was to create a linter with pluggable rules, JSCS's primary goal was to codify style guides for easy verification and fixing. Both projects grew and became popular, and soon, we found ourselves playing catch up with each other for features.
