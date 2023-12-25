@@ -1,14 +1,16 @@
 ---
 title: no-unreachable - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-unreachable.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-unreachable.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow unreachable code after `return`, `throw`, `continue`, and `break` statements (no-unreachable)
+# no-unreachable
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows unreachable code after `return`, `throw`, `continue`, and `break` statements.
 
 Because the `return`, `throw`, `break`, and `continue` statements unconditionally exit a block of code, any statements after them cannot be executed. Unreachable statements are usually a mistake.
 
@@ -156,5 +158,6 @@ This rule was introduced in ESLint 0.0.6.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-unreachable.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-unreachable.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-unreachable.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-unreachable.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-unreachable.md)

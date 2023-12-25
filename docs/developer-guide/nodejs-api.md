@@ -1,7 +1,7 @@
 ---
 title: Node.js API
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/nodejs-api.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/developer-guide/nodejs-api.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -27,8 +27,9 @@ While ESLint is designed to be run on the command line, it's possible to use ESL
     * [static getErrorResults()][eslint-geterrorresults]
     * [LintResult type][lintresult]
     * [LintMessage type][lintmessage]
+    * [SuppressedLintMessage type][suppressedlintmessage]
     * [EditInfo type][editinfo]
-    * [Formatter type][formatter]
+    * [LoadedFormatter type][loadedformatter]
 * [SourceCode](#sourcecode)
     * [splitLines()](#sourcecodesplitlines)
 * [Linter](#linter)
@@ -294,8 +295,8 @@ This method loads a formatter. Formatters convert lint results to a human- or ma
 
 #### Return Value
 
-* (`Promise<Formatter>`)<br>
-  The promise that will be fulfilled with a [Formatter] object.
+* (`Promise<LoadedFormatter>`)<br>
+  The promise that will be fulfilled with a [LoadedFormatter] object.
 
 ### ◆ ESLint.version
 
@@ -355,6 +356,8 @@ The `LintResult` value is the information of the linting result of each file. Th
   The absolute path to the file of this result. This is the string `"<text>"` if the file path is unknown (when you didn't pass the `options.filePath` option to the [`eslint.lintText()`][eslint-linttext] method).
 * `messages` (`LintMessage[]`)<br>
   The array of [LintMessage] objects.
+* `suppressedMessages` (`SuppressedLintMessage[]`)<br>
+  The array of [SuppressedLintMessage] objects.
 * `fixableErrorCount` (`number`)<br>
   The number of errors that can be fixed automatically by the `fix` constructor option.
 * `fixableWarningCount` (`number`)<br>
@@ -397,6 +400,33 @@ The `LintMessage` value is the information of each linting error. The `messages`
 * `suggestions` (`{ desc: string; fix: EditInfo }[] | undefined`)<br>
   The list of suggestions. Each suggestion is the pair of a description and an [EditInfo] object to fix code. API users such as editor integrations can choose one of them to fix the problem of this message. This property is undefined if this message doesn't have any suggestions.
 
+### ◆ SuppressedLintMessage type
+
+The `SuppressedLintMessage` value is the information of each suppressed linting error. The `suppressedMessages` property of the [LintResult] type contains it. It has the following properties:
+
+* `ruleId` (`string` | `null`)<br>
+  Same as `ruleId` in [LintMessage] type.
+* `severity` (`1 | 2`)<br>
+  Same as `severity` in [LintMessage] type.
+* `fatal` (`boolean | undefined`)<br>
+  Same as `fatal` in [LintMessage] type.
+* `message` (`string`)<br>
+  Same as `message` in [LintMessage] type.
+* `line` (`number | undefined`)<br>
+  Same as `line` in [LintMessage] type.
+* `column` (`number | undefined`)<br>
+  Same as `column` in [LintMessage] type.
+* `endLine` (`number | undefined`)<br>
+  Same as `endLine` in [LintMessage] type.
+* `endColumn` (`number | undefined`)<br>
+  Same as `endColumn` in [LintMessage] type.
+* `fix` (`EditInfo | undefined`)<br>
+  Same as `fix` in [LintMessage] type.
+* `suggestions` (`{ desc: string; fix: EditInfo }[] | undefined`)<br>
+  Same as `suggestions` in [LintMessage] type.
+* `suppressions` (`{ kind: string; justification: string}[]`)<br>
+  The list of suppressions. Each suppression is the pair of a kind and a justification.
+
 ### ◆ EditInfo type
 
 The `EditInfo` value is information to edit text. The `fix` and `suggestions` properties of [LintMessage] type contain it. It has following properties:
@@ -408,11 +438,11 @@ The `EditInfo` value is information to edit text. The `fix` and `suggestions` pr
 
 This edit information means replacing the range of the `range` property by the `text` property value. It's like `sourceCodeText.slice(0, edit.range[0]) + edit.text + sourceCodeText.slice(edit.range[1])`. Therefore, it's an add if the `range[0]` and `range[1]` property values are the same value, and it's removal if the `text` property value is empty string.
 
-### ◆ Formatter type
+### ◆ LoadedFormatter type
 
-The `Formatter` value is the object to convert the [LintResult] objects to text. The [eslint.loadFormatter()][eslint-loadformatter] method returns it. It has the following method:
+The `LoadedFormatter` value is the object to convert the [LintResult] objects to text. The [eslint.loadFormatter()][eslint-loadformatter] method returns it. It has the following method:
 
-* `format` (`(results: LintResult[]) => string`)<br>
+* `format` (`(results: LintResult[]) => string | Promise<string>`)<br>
   The method to convert the [LintResult] objects to text.
 
 ---
@@ -481,7 +511,7 @@ const linter2 = new Linter();
 ```
 
 In this example, rules run on `linter1` will get `path/to/project` when calling `context.getCwd()`.
-Those run on `linter2` will get `process.cwd()` if the global `process` object is defined or `undefined` otherwise (e.g. on the browser https://eslint.org/demo).
+Those run on `linter2` will get `process.cwd()` if the global `process` object is defined or `undefined` otherwise (e.g. on the browser <https://eslint.org/demo>).
 
 ### Linter#verify
 
@@ -558,6 +588,22 @@ The information available for each linting message is:
 * `endLine` - the end line of the range on which the error occurred (this property is omitted if it's not range).
 * `fix` - an object describing the fix for the problem (this property is omitted if no fix is available).
 * `suggestions` - an array of objects describing possible lint fixes for editors to programmatically enable (see details in the [Working with Rules docs](./working-with-rules#providing-suggestions)).
+
+You can get the suppressed messages from the previous run by `getSuppressedMessages()` method. If there is not a previous run, `getSuppressedMessage()` will return an empty list.
+
+```js
+const Linter = require("eslint").Linter;
+const linter = new Linter();
+
+const messages = linter.verify("var foo = bar; // eslint-disable-line -- Need to suppress", {
+    rules: {
+        semi: ["error", "never"]
+    }
+}, { filename: "foo.js" });
+const suppressedMessages = linter.getSuppressedMessages();
+
+console.log(suppressedMessages[0].suppressions); // [{ "kind": "directive", "justification": "Need to suppress" }]
+```
 
 Linting message objects have a deprecated `source` property. This property **will be removed** from linting messages in an upcoming breaking release. If you depend on this property, you should now use the `SourceCode` instance provided by the linter.
 
@@ -758,6 +804,7 @@ The `RuleTester#run()` method is used to run the tests. It should be passed the 
 
 A test case is an object with the following properties:
 
+* `name` (string, optional): The name to use for the test case, to make it easier to find
 * `code` (string, required): The source code that the rule should be run on
 * `options` (array, optional): The options passed to the rule. The rule severity should not be included in this list.
 * `filename` (string, optional): The filename for the given case (useful for rules that make assertions about filenames).
@@ -790,7 +837,7 @@ Any additional properties of a test case will be passed directly to the linter a
 
 If a valid test case only uses the `code` property, it can optionally be provided as a string containing the code, rather than an object with a `code` key.
 
-#### Testing errors with `messageId`
+### Testing errors with `messageId`
 
 If the rule under test uses `messageId`s, you can use `messageId` property in a test case to assert reported error's `messageId` instead of its `message`.
 
@@ -812,7 +859,7 @@ For messages with placeholders, a test case can also use `data` property to addi
 
 Please note that `data` in a test case does not assert `data` passed to `context.report`. Instead, it is used to form the expected message text which is then compared with the received `message`.
 
-#### Testing Suggestions
+### Testing Suggestions
 
 Suggestions can be tested by defining a `suggestions` key on an errors object. The options to check for the suggestions are the following (all are optional):
 
@@ -919,6 +966,7 @@ ruleTester.run("my-rule", myRule, {
 [eslint-geterrorresults]: #-eslintgeterrorresultsresults
 [lintresult]: #-lintresult-type
 [lintmessage]: #-lintmessage-type
+[suppressedlintmessage]: #-suppressedlintmessage-type
 [editinfo]: #-editinfo-type
-[formatter]: #-formatter-type
+[loadedformatter]: #-loadedformatter-type
 [linter]: #linter
