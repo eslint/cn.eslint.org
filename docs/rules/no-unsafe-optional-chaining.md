@@ -1,14 +1,16 @@
 ---
 title: no-unsafe-optional-chaining - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-unsafe-optional-chaining.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-unsafe-optional-chaining.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow use of optional chaining in contexts where the `undefined` value is not allowed (no-unsafe-optional-chaining)
+# no-unsafe-optional-chaining
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows use of optional chaining in contexts where the `undefined` value is not allowed.
 
 The optional chaining (`?.`) expression can short-circuit with a return value of `undefined`. Therefore, treating an evaluated optional chaining expression as a function, object, number, etc., can cause TypeError or unexpected results. For example:
 
@@ -125,15 +127,15 @@ async function foo () {
 
 This rule has an object option:
 
-- `disallowArithmeticOperators`: Disallow arithmetic operations on optional chaining expressions (Default `false`). If this is `true`, this rule warns arithmetic operations on optional chaining expressions, which possibly result in `NaN`.
+* `disallowArithmeticOperators`: Disallow arithmetic operations on optional chaining expressions (Default `false`). If this is `true`, this rule warns arithmetic operations on optional chaining expressions, which possibly result in `NaN`.
 
 ### disallowArithmeticOperators
 
 With this option set to `true` the rule is enforced for:
 
-- Unary operators: `-`, `+`
-- Arithmetic operators: `+`, `-`, `/`, `*`, `%`, `**`
-- Assignment operators: `+=`, `-=`, `/=`, `*=`, `%=`, `**=`
+* Unary operators: `-`, `+`
+* Arithmetic operators: `+`, `-`, `/`, `*`, `%`, `**`
+* Assignment operators: `+=`, `-=`, `/=`, `*=`, `%=`, `**=`
 
 Examples of additional **incorrect** code for this rule with the `{ "disallowArithmeticOperators": true }` option:
 
@@ -170,5 +172,6 @@ This rule was introduced in ESLint 7.15.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-unsafe-optional-chaining.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-unsafe-optional-chaining.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-unsafe-optional-chaining.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-unsafe-optional-chaining.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-unsafe-optional-chaining.md)
