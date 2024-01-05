@@ -1,14 +1,16 @@
 ---
 title: no-irregular-whitespace - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-irregular-whitespace.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-irregular-whitespace.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow irregular whitespace (no-irregular-whitespace)
+# no-irregular-whitespace
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows irregular whitespace characters.
 
 Invalid or irregular whitespace causes issues with ECMAScript 5 parsers and also makes code harder to debug in a similar nature to mixed tabs and spaces.
 
@@ -187,5 +189,6 @@ This rule was introduced in ESLint 0.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-irregular-whitespace.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-irregular-whitespace.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-irregular-whitespace.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-irregular-whitespace.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-irregular-whitespace.md)
