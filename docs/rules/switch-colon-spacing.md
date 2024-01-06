@@ -1,7 +1,7 @@
 ---
 title: switch-colon-spacing - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/switch-colon-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/switch-colon-spacing.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -25,11 +25,10 @@ This rule has 2 options that are boolean value.
 }
 ```
 
-- `"after": true` (Default) requires one or more spaces after colons.
-- `"after": false` disallows spaces after colons.
-- `"before": true` requires one or more spaces before colons.
-- `"before": false` (Default) disallows before colons.
-
+* `"after": true` (Default) requires one or more spaces after colons.
+* `"after": false` disallows spaces after colons.
+* `"before": true` requires one or more spaces before colons.
+* `"before": false` (Default) disallows before colons.
 
 Examples of **incorrect** code for this rule:
 
@@ -95,5 +94,6 @@ This rule was introduced in ESLint 4.0.0-beta.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/switch-colon-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/switch-colon-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/switch-colon-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/switch-colon-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/switch-colon-spacing.md)
