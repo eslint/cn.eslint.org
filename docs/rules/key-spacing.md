@@ -1,14 +1,15 @@
 ---
-title: key-spacing - Rules
+title: key-spacing
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/key-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/key-spacing.md
 rule_type: layout
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce consistent spacing between keys and values in object literal properties (key-spacing)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces consistent spacing between keys and values in object literal properties.
 
 This rule enforces spacing around the colon in object literal properties. It can verify each property individually, or it can ensure horizontal alignment of adjacent properties in an object literal.
 
@@ -345,5 +346,6 @@ This rule was introduced in ESLint 0.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/key-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/key-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/key-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/key-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/key-spacing.md)
