@@ -1,12 +1,9 @@
 ---
 title: Migrating to v3.0.0
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/migrating-to-3.0.0.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/migrating-to-3.0.0.md
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
-
-# Migrating to v3.0.0
 
 ESLint v3.0.0 is the third major version release. We have made several breaking changes in this release, however, we believe the changes to be small enough that they should not require significant changes for ESLint users. This guide is intended to walk you through the changes.
 

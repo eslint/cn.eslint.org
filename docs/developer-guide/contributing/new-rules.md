@@ -1,12 +1,15 @@
 ---
 title: 新规则
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/contributing/new-rules.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/developer-guide/contributing/new-rules.md
 
 ---
+<<<<<<< HEAD
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # 新规则 {#new-rules}
+=======
+>>>>>>> 2d15c817685efa871e7aa93939d618d2eff0cd3b
 
 ESLint 的核心就是规则。在这个项目生命周期的大部分时间里，我们已经有了超过 200 条规则，而且数量还在持续增加。然而，我们不能一味地接受这些提出的规则，因为这些规则需要在一起能协同工作。因此，对于哪些规则可以成为 ESLint 核心的一部分，哪些规则更适合作为自定义的规则和插件，我们制定了一些准则。
 
@@ -27,7 +30,11 @@ ESLint 的核心就是规则。在这个项目生命周期的大部分时间里�
 
 ## 提出一项规则 {#proposing-a-rule}
 
+<<<<<<< HEAD
 如果你想提议一条新规则，请查看如何 [创建一个合并请求（pull request）](/docs/developer-guide/contributing/pull-requests)，或通过填写 [新规则模板](https://github.com/eslint/eslint/issues/new?template=NEW_RULE.md) 提交一个 issue。
+=======
+If you want to propose a new rule, please see how to [create a pull request](/docs/developer-guide/contributing/pull-requests) or submit an issue by filling out a [new rule template](https://github.com/eslint/eslint/issues/new/choose).
+>>>>>>> 2d15c817685efa871e7aa93939d618d2eff0cd3b
 
 我们需要所有这些信息来判断它是否满足核心规则的候选要求。
 
