@@ -1,7 +1,7 @@
 ---
 title: object-property-newline - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/object-property-newline.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/object-property-newline.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -100,9 +100,9 @@ will be prohibited, because two properties, but not all properties, appear on th
 
 This rule applies equally to all property specifications, regardless of notation, including:
 
-- `a: 1` (ES5)
-- `a` (ES2015 shorthand property)
-- ``[`prop${a}`]`` (ES2015 computed property name)
+* `a: 1` (ES5)
+* `a` (ES2015 shorthand property)
+* ``[`prop${a}`]`` (ES2015 computed property name)
 
 Thus, the rule (without the object option) prohibits both of these:
 
@@ -268,16 +268,16 @@ const obj3 = {
 
 You can turn this rule off if you want to decide, case-by-case, whether to place property specifications on separate lines.
 
-## Compatibility
-
-- **JSCS**: This rule provides partial compatibility with [requireObjectKeysOnNewLine](https://jscs-dev.github.io/rule/requireObjectKeysOnNewLine).
-
 ## Related Rules
 
-- [brace-style](brace-style)
-- [comma-dangle](comma-dangle)
-- [key-spacing](key-spacing)
-- [object-curly-spacing](object-curly-spacing)
+* [brace-style](brace-style)
+* [comma-dangle](comma-dangle)
+* [key-spacing](key-spacing)
+* [object-curly-spacing](object-curly-spacing)
+
+## Compatibility
+
+* **JSCS**: This rule provides partial compatibility with [requireObjectKeysOnNewLine](https://jscs-dev.github.io/rule/requireObjectKeysOnNewLine).
 
 ## Version
 
@@ -285,5 +285,6 @@ This rule was introduced in ESLint 2.10.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/object-property-newline.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/object-property-newline.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/object-property-newline.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/object-property-newline.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/object-property-newline.md)
