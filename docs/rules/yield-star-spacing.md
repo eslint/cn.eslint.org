@@ -1,14 +1,17 @@
 ---
-title: yield-star-spacing - Rules
+title: yield-star-spacing
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/yield-star-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/yield-star-spacing.md
 rule_type: layout
+further_reading:
+- https://leanpub.com/understandinges6/read/#leanpub-auto-generators
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce spacing around the `*` in `yield*` expressions (yield-star-spacing)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces spacing around the `*` in `yield*` expressions.
 
 ## Rule Details
 
@@ -99,15 +102,12 @@ function*generator() {
 
 If your project will not be using generators or you are not concerned with spacing consistency, you do not need this rule.
 
-## Further Reading
-
-* [Understanding ES6: Generators](https://leanpub.com/understandinges6/read/#leanpub-auto-generators)
-
 ## Version
 
 This rule was introduced in ESLint 2.0.0-alpha-1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/yield-star-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/yield-star-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/yield-star-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/yield-star-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/yield-star-spacing.md)

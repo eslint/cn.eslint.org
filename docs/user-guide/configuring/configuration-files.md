@@ -1,12 +1,14 @@
 ---
 title: Configuration Files
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configuring/configuration-files.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/configuring/configuration-files.md
+eleventyNavigation:
+    key: configuration files
+    parent: configuring
+    title: Configuration Files
+    order: 1
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
-
-# Configuration Files
 
 * [Configuration File Formats](#configuration-file-formats)
 * [Using Configuration Files](#using-configuration-files)
@@ -14,7 +16,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configur
 * [Cascading and Hierarchy](#cascading-and-hierarchy)
 * [Extending Configuration Files](#extending-configuration-files)
 * [Configuration Based on Glob Patterns](#configuration-based-on-glob-patterns)
-* [Personal Configuration Files](#personal-configuration-files)
+* [Personal Configuration Files](#personal-configuration-files-deprecated)
 
 ## Configuration File Formats
 
@@ -39,7 +41,7 @@ If there are multiple configuration files in the same directory, ESLint will onl
 
 There are two ways to use configuration files.
 
-The first way to use configuration files is via `.eslintrc.*` and `package.json` files. ESLint will automatically look for them in the directory of the file to be linted, and in successive parent directories all the way up to the root directory of the filesystem (unless `root: true` is specified). Configuration files can be useful when you want different configurations for different parts of a project or when you want others to be able to use ESLint directly without needing to remember to pass in the configuration file.
+The first way to use configuration files is via `.eslintrc.*` and `package.json` files. ESLint will automatically look for them in the directory of the file to be linted, and in successive parent directories all the way up to the root directory of the filesystem (`/`), the home directory of the current user (`~/`), or when `root: true` is specified. See [Cascading and Hierarchy](#cascading-and-hierarchy) below for more details on this. Configuration files can be useful when you want different configurations for different parts of a project or when you want others to be able to use ESLint directly without needing to remember to pass in the configuration file.
 
 The second way to use configuration files is to save the file wherever you would like and pass its location to the CLI using the `--config` option, such as:
 
@@ -154,7 +156,7 @@ your-project
   └── test.js
 ```
 
-If there is an `.eslintrc` and a `package.json` file found in the same directory, `.eslintrc` will take priority and `package.json` file will not be used.
+If there is a `.eslintrc` and a `package.json` file found in the same directory, `.eslintrc` will take priority and `package.json` file will not be used.
 
 By default, ESLint will look for configuration files in all parent folders up to the root directory. This can be useful if you want all of your projects to follow a certain convention, but can sometimes lead to unexpected results. To limit ESLint to a specific project, place `"root": true` inside the `.eslintrc.*` file or `eslintConfig` field of the `package.json` file or in the `.eslintrc.*` file at your project's root level. ESLint will stop looking in parent folders once it finds a configuration with `"root": true`.
 
@@ -199,6 +201,8 @@ The complete configuration hierarchy, from highest to lowest precedence, is as f
     1. `.eslintrc.*` or `package.json` file in the same directory as the linted file
     1. Continue searching for `.eslintrc.*` and `package.json` files in ancestor directories up to and including the root directory or until a config with `"root": true` is found.
 
+Please note that the [home directory of the current user on your preferred operating system](https://nodejs.org/api/os.html#os_os_homedir) (`~/`) is also considered a root directory in this context and searching for configuration files will stop there as well. And with the [removal of support for Personal Configuration Files](https://eslint.org/docs/user-guide/configuring/configuration-files#personal-configuration-files-deprecated) from the 8.0.0 release forward, configuration files present in that directory will be ignored.
+
 ## Extending Configuration Files
 
 A configuration file, once extended, can inherit all the traits of another configuration file (including rules, plugins, and language options) and modify all the options. As a result, there are three configurations, as defined below:
@@ -238,7 +242,7 @@ A [sharable configuration](https://eslint.org/docs/developer-guide/shareable-con
 
 The `extends` property value can omit the `eslint-config-` prefix of the package name.
 
-The `eslint --init` command can create a configuration so you can extend a popular style guide (for example, `eslint-config-standard`).
+The `npm init @eslint/config` command can create a configuration so you can extend a popular style guide (for example, `eslint-config-standard`).
 
 Example of a configuration file in YAML format:
 
@@ -364,6 +368,8 @@ module.exports = {
 
 <b>v4.1.0+.</b> Sometimes a more fine-controlled configuration is necessary, for example, if the configuration for files within the same directory has to be different. Therefore you can provide configurations under the `overrides` key that will only apply to files that match specific glob patterns, using the same format you would pass on the command line (e.g., `app/**/*.test.js`).
 
+Glob patterns in overrides use [minimatch syntax](https://github.com/isaacs/minimatch).
+
 ### How do overrides work?
 
 It is possible to override settings based on file glob patterns in your configuration by using the `overrides` key. An example of using the `overrides` key is as follows:
@@ -400,7 +406,7 @@ Here is how overrides work in a configuration file:
 
 ### Relative glob patterns
 
-```
+```txt
 project-root
 ├── app
 │   ├── lib
