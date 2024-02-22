@@ -1,12 +1,11 @@
 ---
-title: no-eval - Rules
+title: no-eval
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-eval.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-eval.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow eval() (no-eval)
+Disallows eval().
 
 JavaScript's `eval()` function is potentially dangerous and is often misused. Using `eval()` on untrusted code can open a program up to several different injection attacks. The use of `eval()` in most contexts can be substituted for a better, alternative approach to a problem.
 
@@ -73,6 +72,14 @@ class A {
     }
 
     eval() {
+    }
+
+    static {
+        // This is a user-defined static method.
+        this.eval("var a = 0");
+    }
+
+    static eval() {
     }
 }
 ```
@@ -145,14 +152,14 @@ global.eval("var a = 0");
   foo.eval("var a = 0");
   ```
 
-## Further Reading
-
-* [Eval is Evil, Part One](https://blogs.msdn.com/b/ericlippert/archive/2003/11/01/53329.aspx)
-* [How evil is eval](https://javascriptweblog.wordpress.com/2010/04/19/how-evil-is-eval/)
-
 ## Related Rules
 
 * [no-implied-eval](no-implied-eval)
+
+## Further Reading
+
+* [Eval is Evil, Part One](https://ericlippert.com/2003/11/01/eval-is-evil-part-one/)
+* [How evil is eval](https://javascriptweblog.wordpress.com/2010/04/19/how-evil-is-eval/)
 
 ## Version
 
@@ -160,5 +167,6 @@ This rule was introduced in ESLint 0.0.2.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-eval.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-eval.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-eval.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-eval.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-eval.md)
