@@ -1,7 +1,7 @@
 ---
 title: max-lines - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/max-lines.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/max-lines.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -117,10 +117,6 @@ var a,
 
 You can turn this rule off if you are not concerned with the number of lines in your files.
 
-## Further reading
-
-* [Software Module size and file size](https://web.archive.org/web/20160725154648/http://www.mind2b.com/component/content/article/24-software-module-size-and-file-size)
-
 ## Related Rules
 
 * [complexity](complexity)
@@ -134,11 +130,16 @@ You can turn this rule off if you are not concerned with the number of lines in 
 
 * **JSCS**: [maximumNumberOfLines](https://jscs-dev.github.io/rule/maximumNumberOfLines)
 
+## Further Reading
+
+* [Software Module size and file size](https://web.archive.org/web/20160725154648/http://www.mind2b.com/component/content/article/24-software-module-size-and-file-size)
+
 ## Version
 
 This rule was introduced in ESLint 2.12.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/max-lines.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/max-lines.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/max-lines.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/max-lines.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/max-lines.md)
