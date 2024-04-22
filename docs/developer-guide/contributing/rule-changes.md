@@ -1,7 +1,7 @@
 ---
 title: Rule Changes
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/contributing/rule-changes.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/developer-guide/contributing/rule-changes.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -12,7 +12,7 @@ Occasionally, a core ESLint rule needs to be changed. This is not necessarily a 
 
 ## Proposing a Rule Change
 
-To propose a change to an existing rule, [create a pull request](/docs/developer-guide/contributing/pull-requests) or [new issue](https://github.com/eslint/eslint/issues/new?template=RULE_CHANGE.md) and fill out the template.
+To propose a change to an existing rule, [create a pull request](/docs/developer-guide/contributing/pull-requests) or [new issue](https://github.com/eslint/eslint/issues/new/choose) and fill out the template.
 
 We need all of this information in order to determine whether or not the change is a good candidate for inclusion.
 
