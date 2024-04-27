@@ -1,14 +1,15 @@
 ---
-title: new-parens - Rules
+title: new-parens
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/new-parens.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/new-parens.md
 rule_type: layout
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require parentheses when invoking a constructor with no arguments (new-parens)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires parentheses when invoking a constructor with no arguments.
 
 JavaScript allows the omission of parentheses when invoking a function via the `new` keyword and the constructor has no arguments. However, some coders believe that omitting the parentheses is inconsistent with the rest of the language and thus makes code less clear.
 
@@ -24,8 +25,8 @@ This rule can enforce or disallow parentheses when invoking a constructor with n
 
 This rule takes one option.
 
-- `"always"` enforces parenthesis after a new constructor with no arguments (default)
-- `"never"` enforces no parenthesis after a new constructor with no arguments
+* `"always"` enforces parenthesis after a new constructor with no arguments (default)
+* `"never"` enforces no parenthesis after a new constructor with no arguments
 
 ### always
 
@@ -74,5 +75,6 @@ This rule was introduced in ESLint 0.0.6.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/new-parens.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/new-parens.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/new-parens.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/new-parens.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/new-parens.md)

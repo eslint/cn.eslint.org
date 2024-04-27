@@ -1,12 +1,14 @@
 ---
 title: Source Code
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/source-code.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/developer-guide/source-code.md
+eleventyNavigation:
+    key: getting the source code
+    parent: developer guide
+    title: Getting the Source Code
+    order: 1
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
-
-# Source Code
 
 ESLint is hosted at [GitHub](https://github.com/eslint/eslint) and uses [Git](https://git-scm.com/) for source control. In order to obtain the source code, you must first install Git on your system. Instructions for installing and setting up Git can be found at [https://help.github.com/articles/set-up-git/](https://help.github.com/articles/set-up-git/).
 

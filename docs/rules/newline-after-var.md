@@ -1,14 +1,15 @@
 ---
-title: newline-after-var - Rules
+title: newline-after-var
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/newline-after-var.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/newline-after-var.md
 rule_type: layout
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require or disallow an empty line after variable declarations (newline-after-var)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallows an empty line after variable declarations.
 
 This rule was **deprecated** in ESLint v4.0.0 and replaced by the [padding-line-between-statements](padding-line-between-statements) rule.
 
@@ -157,5 +158,6 @@ This rule was introduced in ESLint 0.18.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/newline-after-var.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/newline-after-var.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/newline-after-var.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/newline-after-var.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/newline-after-var.md)

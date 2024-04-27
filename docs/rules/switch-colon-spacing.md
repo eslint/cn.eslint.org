@@ -1,14 +1,15 @@
 ---
-title: switch-colon-spacing - Rules
+title: switch-colon-spacing
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/switch-colon-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/switch-colon-spacing.md
 rule_type: layout
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce spacing around colons of switch statements (switch-colon-spacing)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces spacing around colons of switch statements.
 
 Spacing around colons improves readability of `case`/`default` clauses.
 
@@ -25,11 +26,10 @@ This rule has 2 options that are boolean value.
 }
 ```
 
-- `"after": true` (Default) requires one or more spaces after colons.
-- `"after": false` disallows spaces after colons.
-- `"before": true` requires one or more spaces before colons.
-- `"before": false` (Default) disallows before colons.
-
+* `"after": true` (Default) requires one or more spaces after colons.
+* `"after": false` disallows spaces after colons.
+* `"before": true` requires one or more spaces before colons.
+* `"before": false` (Default) disallows before colons.
 
 Examples of **incorrect** code for this rule:
 
@@ -95,5 +95,6 @@ This rule was introduced in ESLint 4.0.0-beta.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/switch-colon-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/switch-colon-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/switch-colon-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/switch-colon-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/switch-colon-spacing.md)
