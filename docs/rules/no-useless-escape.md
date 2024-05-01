@@ -1,7 +1,7 @@
 ---
 title: no-useless-escape - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-useless-escape.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-useless-escape.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -38,7 +38,8 @@ Examples of **incorrect** code for this rule:
 `\#{foo}`;
 /\!/;
 /\@/;
-
+/[\[]/;
+/[a-z\-]/;
 ```
 
 Examples of **correct** code for this rule:
@@ -58,7 +59,9 @@ Examples of **correct** code for this rule:
 /\\/g;
 /\t/g;
 /\w\$\*\^\./;
-
+/[[]/;
+/[\]]/;
+/[a-z-]/;
 ```
 
 ## When Not To Use It
@@ -71,5 +74,6 @@ This rule was introduced in ESLint 2.5.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-useless-escape.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-useless-escape.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-useless-escape.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-useless-escape.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-useless-escape.md)

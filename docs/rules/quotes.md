@@ -1,7 +1,7 @@
 ---
 title: quotes - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/quotes.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/quotes.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -157,7 +157,7 @@ var single = 'single';
 var single = `single`;
 ```
 
-`{ "allowTemplateLiterals": false }` will not disallow the usage of all template literals. If you want to forbid any instance of template literals, use [no-restricted-syntax](https://eslint.org/docs/rules/no-restricted-syntax) and target the `TemplateLiteral` selector.
+`{ "allowTemplateLiterals": false }` will not disallow the usage of all template literals. If you want to forbid any instance of template literals, use [no-restricted-syntax](no-restricted-syntax) and target the `TemplateLiteral` selector.
 
 ## When Not To Use It
 
@@ -169,5 +169,6 @@ This rule was introduced in ESLint 0.0.7.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/quotes.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/quotes.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/quotes.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/quotes.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/quotes.md)

@@ -1,11 +1,16 @@
 ---
-title: "Google Chrome becomes ESLint gold sponsor"
+layout: post
+title: Google Chrome becomes ESLint gold sponsor
 tags:
   - Open Source
   - Funding
   - Open Collective
   - Sponsors
   - Backers
+authors:
+  - nzakas
+categories:
+  - Sponsorships
 ---
 
 <p class="text-center">
