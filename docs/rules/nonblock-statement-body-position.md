@@ -1,14 +1,17 @@
 ---
-title: nonblock-statement-body-position - Rules
+title: nonblock-statement-body-position
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/nonblock-statement-body-position.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/nonblock-statement-body-position.md
 rule_type: layout
+further_reading:
+- https://jscs-dev.github.io/rule/requireNewlineBeforeSingleStatementsInIf
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce the location of single-line statements (nonblock-statement-body-position)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces the location of single-line statements.
 
 When writing `if`, `else`, `while`, `do-while`, and `for` statements, the body can be a single statement instead of a block. It can be useful to enforce a consistent location for these single statements.
 
@@ -163,15 +166,12 @@ while (foo)
 
 If you're not concerned about consistent locations of single-line statements, you should not turn on this rule. You can also disable this rule if you're using the `"all"` option for the [`curly`](/docs/rules/curly) rule, because this will disallow single-line statements entirely.
 
-## Further Reading
-
-* JSCS: [requireNewlineBeforeSingleStatementsInIf](https://jscs-dev.github.io/rule/requireNewlineBeforeSingleStatementsInIf)
-
 ## Version
 
 This rule was introduced in ESLint 3.17.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/nonblock-statement-body-position.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/nonblock-statement-body-position.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/nonblock-statement-body-position.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/nonblock-statement-body-position.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/nonblock-statement-body-position.md)

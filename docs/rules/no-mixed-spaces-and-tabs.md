@@ -1,14 +1,17 @@
 ---
-title: no-mixed-spaces-and-tabs - Rules
+title: no-mixed-spaces-and-tabs
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-mixed-spaces-and-tabs.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-mixed-spaces-and-tabs.md
 rule_type: layout
+further_reading:
+- https://www.emacswiki.org/emacs/SmartTabs
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow mixed spaces and tabs for indentation (no-mixed-spaces-and-tabs)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows mixed spaces and tabs for indentation.
 
 Most code conventions require either tabs or spaces be used for indentation. As such, it's usually an error if a single line of code is indented with both tabs and spaces.
 
@@ -69,16 +72,12 @@ function main() {
 }
 ```
 
-
-## Further Reading
-
-* [Smart Tabs](https://www.emacswiki.org/emacs/SmartTabs)
-
 ## Version
 
 This rule was introduced in ESLint 0.7.1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-mixed-spaces-and-tabs.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-mixed-spaces-and-tabs.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-mixed-spaces-and-tabs.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-mixed-spaces-and-tabs.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-mixed-spaces-and-tabs.md)

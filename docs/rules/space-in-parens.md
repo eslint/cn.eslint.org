@@ -1,14 +1,19 @@
 ---
-title: space-in-parens - Rules
+title: space-in-parens
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/space-in-parens.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/space-in-parens.md
 rule_type: layout
+related_rules:
+- array-bracket-spacing
+- object-curly-spacing
+- computed-property-spacing
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow or enforce spaces inside of parentheses (space-in-parens)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows or enforce spaces inside of parentheses.
 
 Some style guides require or disallow spaces inside of parentheses:
 
@@ -295,17 +300,12 @@ foo({bar: 'baz'}, [1, 2]);
 
 You can turn this rule off if you are not concerned with the consistency of spacing between parentheses.
 
-## Related Rules
-
-* [array-bracket-spacing](array-bracket-spacing)
-* [object-curly-spacing](object-curly-spacing)
-* [computed-property-spacing](computed-property-spacing)
-
 ## Version
 
 This rule was introduced in ESLint 0.8.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/space-in-parens.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/space-in-parens.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/space-in-parens.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/space-in-parens.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/space-in-parens.md)

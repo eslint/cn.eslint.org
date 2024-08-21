@@ -1,12 +1,17 @@
 ---
-title: space-before-keywords - Rules
+title: space-before-keywords
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/space-before-keywords.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/space-before-keywords.md
 
+related_rules:
+- space-after-keywords
+- block-spacing
+- space-return-throw-case
+- space-unary-ops
+- space-infix-ops
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# space-before-keywords: enforce consistent spacing before keywords
+Enforces consistent spacing before keywords.
 
 (removed) This rule was **removed** in ESLint v2.0 and **replaced** by the [keyword-spacing](keyword-spacing) rule.
 
@@ -113,18 +118,10 @@ try{}catch(e) {}
 
 If you do not wish to enforce consistency on keyword spacing.
 
-## Related Rules
-
-* [space-after-keywords](space-after-keywords)
-* [block-spacing](block-spacing)
-* [space-return-throw-case](space-return-throw-case)
-* [space-unary-ops](space-unary-ops)
-* [space-infix-ops](space-infix-ops)
-
 ## Version
 
 This rule was introduced in ESLint 1.4.0 and removed in 2.0.0-beta.3.
 
 ## Resources
 
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/space-before-keywords.md)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/space-before-keywords.md)

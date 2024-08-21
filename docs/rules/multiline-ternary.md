@@ -1,14 +1,17 @@
 ---
-title: multiline-ternary - Rules
+title: multiline-ternary
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/multiline-ternary.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/multiline-ternary.md
 rule_type: layout
+related_rules:
+- operator-linebreak
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce or disallow newlines between operands of ternary expressions (multiline-ternary)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces or disallows newlines between operands of ternary expressions.
 
 JavaScript allows operands of ternary expressions to be separated by newlines, which can improve the readability of your program.
 
@@ -154,10 +157,6 @@ foo > bar ? (
 
 You can safely disable this rule if you do not have any strict conventions about whether the operands of a ternary expression should be separated by newlines.
 
-## Related Rules
-
-* [operator-linebreak](operator-linebreak)
-
 ## Compatibility
 
 * **JSCS**: [requireMultiLineTernary](https://jscs-dev.github.io/rule/requireMultiLineTernary)
@@ -168,5 +167,6 @@ This rule was introduced in ESLint 3.1.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/multiline-ternary.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/multiline-ternary.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/multiline-ternary.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/multiline-ternary.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/multiline-ternary.md)

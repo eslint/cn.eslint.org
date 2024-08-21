@@ -1,14 +1,19 @@
 ---
-title: valid-jsdoc - Rules
+title: valid-jsdoc
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/valid-jsdoc.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/valid-jsdoc.md
 rule_type: suggestion
+related_rules:
+- require-jsdoc
+further_reading:
+- https://jsdoc.app
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce valid JSDoc comments (valid-jsdoc)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces valid JSDoc comments.
 
 This rule was [**deprecated**](https://eslint.org/blog/2018/11/jsdoc-end-of-life) in ESLint v5.10.0.
 
@@ -394,19 +399,12 @@ function add(num1, num2) {
 
 If you aren't using JSDoc, then you can safely turn this rule off.
 
-## Further Reading
-
-* [JSDoc](http://usejsdoc.org)
-
-## Related Rules
-
-* [require-jsdoc](require-jsdoc)
-
 ## Version
 
 This rule was introduced in ESLint 0.4.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/valid-jsdoc.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/valid-jsdoc.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/valid-jsdoc.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/valid-jsdoc.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/valid-jsdoc.md)

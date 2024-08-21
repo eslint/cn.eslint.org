@@ -1,12 +1,13 @@
 ---
-title: no-extend-native - Rules
+title: no-extend-native
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-extend-native.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-extend-native.md
 rule_type: suggestion
+related_rules:
+- no-global-assign
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Extending of Native Objects (no-extend-native)
+Disallows extending of native objects.
 
 In JavaScript, you can extend any object, including builtin or "native" objects. Sometimes people change the behavior of these native objects in ways that break the assumptions made about them in other parts of the code.
 
@@ -78,15 +79,12 @@ window.Function.prototype.bind = 'tight';
 
 You may want to disable this rule when working with polyfills that try to patch older versions of JavaScript with the latest spec, such as those that might `Function.prototype.bind` or `Array.prototype.forEach` in a future-friendly way.
 
-## Related Rules
-
-* [no-global-assign](no-global-assign)
-
 ## Version
 
 This rule was introduced in ESLint 0.1.4.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-extend-native.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-extend-native.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-extend-native.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-extend-native.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-extend-native.md)

@@ -1,14 +1,19 @@
 ---
-title: object-shorthand - Rules
+title: object-shorthand
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/object-shorthand.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/object-shorthand.md
 rule_type: suggestion
+related_rules:
+- no-useless-rename
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require Object Literal Shorthand Syntax (object-shorthand)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallows method and property shorthand syntax for object literals.
 
 ECMAScript 6 provides a concise form for defining object literal methods and properties. This
 syntax can make defining complex object literals much cleaner.
@@ -53,7 +58,6 @@ properties defined where the key name matches name of the assigned variable.
 
 Each of the following properties would warn:
 
-
 ```js
 /*eslint object-shorthand: "error"*/
 /*eslint-env es6*/
@@ -92,20 +96,16 @@ var foo = {
 };
 ```
 
-See Also:
-
-- [`no-useless-rename`](https://eslint.org/docs/rules/no-useless-rename) which disallows renaming import, export, and destructured assignments to the same name.
-
 ## Options
 
 The rule takes an option which specifies when it should be applied. It can be set to one of the following values:
 
-- `"always"` (default) expects that the shorthand will be used whenever possible.
-- `"methods"` ensures the method shorthand is used (also applies to generators).
-- `"properties"` ensures the property shorthand is used (where the key and variable name match).
-- `"never"` ensures that no property or method shorthand is used in any object literal.
-- `"consistent"` ensures that either all shorthand or all long-form will be used in an object literal.
-- `"consistent-as-needed"` ensures that either all shorthand or all long-form will be used in an object literal, but ensures all shorthand whenever possible.
+* `"always"` (default) expects that the shorthand will be used whenever possible.
+* `"methods"` ensures the method shorthand is used (also applies to generators).
+* `"properties"` ensures the property shorthand is used (where the key and variable name match).
+* `"never"` ensures that no property or method shorthand is used in any object literal.
+* `"consistent"` ensures that either all shorthand or all long-form will be used in an object literal.
+* `"consistent-as-needed"` ensures that either all shorthand or all long-form will be used in an object literal, but ensures all shorthand whenever possible.
 
 You can set the option in configuration like this:
 
@@ -117,9 +117,9 @@ You can set the option in configuration like this:
 
 Additionally, the rule takes an optional object configuration:
 
-- `"avoidQuotes": true` indicates that long-form syntax is preferred whenever the object key is a string literal (default: `false`). Note that this option can only be enabled when the string option is set to `"always"`, `"methods"`, or `"properties"`.
-- `"ignoreConstructors": true` can be used to prevent the rule from reporting errors for constructor functions. (By default, the rule treats constructors the same way as other functions.) Note that this option can only be enabled when the string option is set to `"always"` or `"methods"`.
-- `"avoidExplicitReturnArrows": true` indicates that methods are preferred over explicit-return arrow functions for function properties. (By default, the rule allows either of these.) Note that this option can only be enabled when the string option is set to `"always"` or `"methods"`.
+* `"avoidQuotes": true` indicates that long-form syntax is preferred whenever the object key is a string literal (default: `false`). Note that this option can only be enabled when the string option is set to `"always"`, `"methods"`, or `"properties"`.
+* `"ignoreConstructors": true` can be used to prevent the rule from reporting errors for constructor functions. (By default, the rule treats constructors the same way as other functions.) Note that this option can only be enabled when the string option is set to `"always"` or `"methods"`.
+* `"avoidExplicitReturnArrows": true` indicates that methods are preferred over explicit-return arrow functions for function properties. (By default, the rule allows either of these.) Note that this option can only be enabled when the string option is set to `"always"` or `"methods"`.
 
 ### `avoidQuotes`
 
@@ -257,15 +257,12 @@ var foo = {
 Anyone not yet in an ES6 environment would not want to apply this rule. Others may find the terseness of the shorthand
 syntax harder to read and may not want to encourage it with this rule.
 
-## Further Reading
-
-[Object initializer - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer)
-
 ## Version
 
 This rule was introduced in ESLint 0.20.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/object-shorthand.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/object-shorthand.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/object-shorthand.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/object-shorthand.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/object-shorthand.md)

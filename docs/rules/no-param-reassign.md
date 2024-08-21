@@ -1,12 +1,13 @@
 ---
-title: no-param-reassign - Rules
+title: no-param-reassign
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-param-reassign.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-param-reassign.md
 rule_type: suggestion
+further_reading:
+- https://spin.atomicobject.com/2011/04/10/javascript-don-t-reassign-your-function-arguments/
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Reassignment of Function Parameters (no-param-reassign)
+Disallows reassignment of function parameters.
 
 Assignment to variables declared as function parameters can be misleading and lead to confusing behavior, as modifying function parameters will also mutate the `arguments` object. Often, assignment to function parameters is unintended and indicative of a mistake or programmer error.
 
@@ -158,14 +159,9 @@ function foo(barBaz) {
 }
 ```
 
-
 ## When Not To Use It
 
 If you want to allow assignment to function parameters, then you can safely disable this rule.
-
-## Further Reading
-
-* [JavaScript: Don’t Reassign Your Function Arguments](https://spin.atomicobject.com/2011/04/10/javascript-don-t-reassign-your-function-arguments/)
 
 ## Version
 
@@ -173,5 +169,6 @@ This rule was introduced in ESLint 0.18.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-param-reassign.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-param-reassign.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-param-reassign.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-param-reassign.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-param-reassign.md)

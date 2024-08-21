@@ -1,14 +1,21 @@
 ---
-title: no-useless-backreference - Rules
+title: no-useless-backreference
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-useless-backreference.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-useless-backreference.md
 rule_type: problem
+related_rules:
+- no-control-regex
+- no-empty-character-class
+- no-invalid-regexp
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow useless backreferences in regular expressions (no-useless-backreference)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows useless backreferences in regular expressions.
 
 In JavaScript regular expressions, it's syntactically valid to define a backreference to a group that belongs to another alternative part of the pattern, a backreference to a group that appears after the backreference, a backreference to a group that contains that backreference, or a backreference to a group that is inside a negative lookaround. However, by the specification, in any of these cases the backreference always ends up matching only zero-length (the empty string), regardless of the context in which the backreference and the group appear.
 
@@ -129,21 +136,12 @@ Examples of additional **correct** code for this rule:
 /^(a)\1\2$/.test("aa\x02"); // true. In this case, \1 is a backreference, \2 is an octal escape sequence.
 ```
 
-## Further Reading
-
-* [MDN: Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
-
-## Related Rules
-
-* [no-control-regex](no-control-regex)
-* [no-empty-character-class](no-empty-character-class)
-* [no-invalid-regexp](no-invalid-regexp)
-
 ## Version
 
 This rule was introduced in ESLint 7.0.0-alpha.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-useless-backreference.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-useless-backreference.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-useless-backreference.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-useless-backreference.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-useless-backreference.md)
