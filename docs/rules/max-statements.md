@@ -1,7 +1,7 @@
 ---
 title: max-statements - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/max-statements.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/max-statements.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -120,6 +120,30 @@ let foo = () => {
 }
 ```
 
+Note that this rule does not apply to class static blocks, and that statements in class static blocks do not count as statements in the enclosing function.
+
+Examples of **correct** code for this rule with `{ "max": 2 }` option:
+
+```js
+/*eslint max-statements: ["error", 2]*/
+
+function foo() {
+    let one;
+    let two = class {
+        static {
+            let three;
+            let four;
+            let five;
+            if (six) {
+                let seven;
+                let eight;
+                let nine;
+            }
+        }
+    };
+}
+```
+
 ### ignoreTopLevelFunctions
 
 Examples of additional **correct** code for this rule with the `{ "max": 10 }, { "ignoreTopLevelFunctions": true }` options:
@@ -158,5 +182,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/max-statements.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/max-statements.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/max-statements.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/max-statements.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/max-statements.md)
