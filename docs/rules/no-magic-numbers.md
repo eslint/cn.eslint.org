@@ -1,12 +1,11 @@
 ---
-title: no-magic-numbers - Rules
+title: no-magic-numbers
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-magic-numbers.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-magic-numbers.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Magic Numbers (no-magic-numbers)
+Disallows magic numbers.
 
 'Magic numbers' are numbers that occur multiple times in code without an explicit meaning.
 They should preferably be replaced by named constants.
@@ -210,5 +209,6 @@ This rule was introduced in ESLint 1.7.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-magic-numbers.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-magic-numbers.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-magic-numbers.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-magic-numbers.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-magic-numbers.md)
