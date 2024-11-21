@@ -1,7 +1,7 @@
 ---
 title: Command Line Interface
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/command-line-interface.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/user-guide/command-line-interface.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -219,9 +219,9 @@ If the rule is defined within a plugin, you have to prefix the rule ID with the 
 
 Examples:
 
-    eslint --rule 'quotes: [2, double]'
-    eslint --rule 'guard-for-in: 2' --rule 'brace-style: [2, 1tbs]'
-    eslint --rule 'jquery/dollar-sign: 2'
+    eslint --rule 'quotes: [error, double]'
+    eslint --rule 'guard-for-in: error' --rule 'brace-style: [error, 1tbs]'
+    eslint --rule 'jquery/dollar-sign: error'
 
 ### Fixing problems
 
