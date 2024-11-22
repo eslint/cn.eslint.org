@@ -1,12 +1,11 @@
 ---
-title: require-await - Rules
+title: require-await
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/require-await.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/require-await.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow async functions which have no `await` expression (require-await)
+Disallows async functions which have no `await` expression.
 
 Asynchronous functions in JavaScript behave differently than other functions in two important ways:
 
@@ -89,7 +88,6 @@ In this case, the `fail()` function throws an error that is intended to be caugh
 
 If you are throwing an error inside of an asynchronous function for this purpose, then you may want to disable this rule.
 
-
 ## Related Rules
 
 * [require-yield](require-yield)
@@ -100,5 +98,6 @@ This rule was introduced in ESLint 3.11.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/require-await.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/require-await.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/require-await.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/require-await.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/require-await.md)
