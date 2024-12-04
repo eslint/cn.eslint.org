@@ -1,0 +1,123 @@
+{
+    "nzakas": {
+        "username": "nzakas",
+        "name": "Nicholas C. Zakas",
+        "title": "ESLint Technical Steering Committee",
+        "website": "https://humanwhocodes.com",
+        "avatar_url": "https://avatars.githubusercontent.com/u/38546?v=4",
+        "bio": "Creator of ESLint, independent software developer, consultant, coach, and author.",
+        "twitter_username": "slicknet",
+        "github_username": "nzakas",
+        "location": "Mountain View, CA"
+    },
+    "okuryu": {
+        "username": "okuryu",
+        "name": "Ryuichi Okumura",
+        "title": "Guest Author",
+        "website": "https://www.okuryu.com/",
+        "avatar_url": "https://avatars.githubusercontent.com/u/34588?v=4",
+        "bio": "Contributor at @yahoo, @formatjs, @nodejs, and @yui.",
+        "twitter_username": "okuryu",
+        "github_username": "okuryu",
+        "location": "Tokyo"
+    },
+    "ilyavolodin": {
+        "username": "ilyavolodin",
+        "name": "Ilya Volodin",
+        "title": "ESLint Alumnus",
+        "website": "",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1380062?v=4",
+        "bio": null,
+        "twitter_username": null,
+        "github_username": "ilyavolodin",
+        "location": null
+    },
+    "kaicataldo": {
+        "username": "kaicataldo",
+        "name": "Kai Cataldo",
+        "title": "ESLint Alumnus",
+        "website": "kaicataldo.com",
+        "avatar_url": "https://avatars.githubusercontent.com/u/7041728?v=4",
+        "bio": "💻 🎺 🎮 ⌨️ 🐕 • he/him",
+        "twitter_username": "kai_cataldo",
+        "github_username": "kaicataldo",
+        "location": "Brooklyn, NY"
+    },
+    "btmills": {
+        "username": "btmills",
+        "name": "Brandon Mills",
+        "title": "ESLint Technical Steering Committee",
+        "website": "https://bmills.net",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1709537?v=4",
+        "bio": "I lead engineering @drivecapital and help maintain @eslint.",
+        "twitter_username": null,
+        "github_username": "btmills",
+        "location": "Columbus, Ohio"
+    },
+    "gyandeeps": {
+        "username": "gyandeeps",
+        "name": "Gyandeep Singh",
+        "title": "ESLint Alumnus",
+        "website": "https://gyandeeps.com",
+        "avatar_url": "https://avatars.githubusercontent.com/u/5554486?v=4",
+        "bio": "Talk--; Code++;",
+        "twitter_username": "gyandeeps",
+        "github_username": "gyandeeps",
+        "location": "Kansas City, USA"
+    },
+    "mysticatea": {
+        "username": "mysticatea",
+        "name": "Toru Nagashima",
+        "title": "ESLint Reviewer",
+        "website": "",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1937871?v=4",
+        "bio": "A member of ESLint, Babel, and Vue.js.",
+        "twitter_username": null,
+        "github_username": "mysticatea",
+        "location": "Shizuoka, Japan"
+    },
+    "not-an-aardvark": {
+        "username": "not-an-aardvark",
+        "name": "Teddy Katz",
+        "title": "ESLint Alumnus",
+        "website": "https://blog.teddykatz.com",
+        "avatar_url": "https://avatars.githubusercontent.com/u/11638619?v=4",
+        "bio": null,
+        "twitter_username": "not_an_aardvark",
+        "github_username": "not-an-aardvark",
+        "location": "New York, NY"
+    },
+    "platinumazure": {
+        "username": "platinumazure",
+        "name": "Kevin Partington",
+        "title": "ESLint Alumnus",
+        "website": "",
+        "avatar_url": "https://avatars.githubusercontent.com/u/284282?v=4",
+        "bio": "@eslint team alumnus. Currently stepping back a bit to try to get my life in order.",
+        "twitter_username": null,
+        "github_username": "platinumazure",
+        "location": null
+    },
+    "hzoo": {
+        "username": "hzoo",
+        "name": "Henry Zhu",
+        "title": "ESLint Alumnus",
+        "website": "https://henryzoo.com",
+        "avatar_url": "https://avatars.githubusercontent.com/u/588473?v=4",
+        "bio": "Learning to maintain stuff",
+        "twitter_username": "left_pad",
+        "github_username": "hzoo",
+        "location": null
+    },
+    "mdjermanovic": {
+        "username": "mdjermanovic",
+        "name": "Milos Djermanovic",
+        "title": "ESLint Technical Steering Committee",
+        "website": "",
+        "avatar_url": "https://avatars.githubusercontent.com/u/44349756?v=4",
+        "bio": null,
+        "twitter_username": null,
+        "github_username": "mdjermanovic",
+        "location": null
+    }
+}

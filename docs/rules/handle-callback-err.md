@@ -1,12 +1,14 @@
 ---
 title: handle-callback-err - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/handle-callback-err.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/handle-callback-err.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce Callback Error Handling (handle-callback-err)
+# handle-callback-err
+
+Enforces callback error handling.
 
 This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
 
@@ -96,5 +98,6 @@ This rule was introduced in ESLint 0.4.5.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/handle-callback-err.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/handle-callback-err.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/handle-callback-err.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/handle-callback-err.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/handle-callback-err.md)
