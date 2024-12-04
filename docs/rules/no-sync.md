@@ -1,12 +1,14 @@
 ---
 title: no-sync - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-sync.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-sync.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Synchronous Methods (no-sync)
+# no-sync
+
+Disallows synchronous methods.
 
 This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
 
@@ -74,5 +76,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-sync.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-sync.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-sync.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-sync.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-sync.md)
