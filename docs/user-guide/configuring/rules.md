@@ -1,13 +1,12 @@
 ---
 title: Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configuring/rules.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/user-guide/configuring/rules.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Rules
-
 
 * [Configuring Rules](#configuring-rules)
 * [Disabling Rules](#disabling-rules)
@@ -209,6 +208,13 @@ alert('foo'); /* eslint-disable-line no-alert, quotes, semi */
 
 /* eslint-disable-next-line no-alert, quotes, semi */
 alert('foo');
+
+/* eslint-disable-next-line 
+  no-alert, 
+  quotes, 
+  semi 
+*/
+alert('foo');
 ```
 
 All of the above methods also work for plugin rules. For example, to disable `eslint-plugin-example`'s `rule-name` rule, combine the plugin's name (`example`) and the rule's name (`rule-name`) into `example/rule-name`:
@@ -222,6 +228,12 @@ Configuration comments can include descriptions to explain why the comment is ne
 
 ```js
 // eslint-disable-next-line no-console -- Here's a description about why this configuration is necessary.
+console.log('hello');
+
+/* eslint-disable-next-line no-console --
+ * Here's a very long description about why this configuration is necessary
+ * along with some additional information
+**/
 console.log('hello');
 ```
 

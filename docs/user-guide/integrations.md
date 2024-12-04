@@ -1,7 +1,7 @@
 ---
 title: 集成
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/integrations.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/user-guide/integrations.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -23,8 +23,13 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/integrat
     * [eslint.tmbundle](https://github.com/ryanfitzer/eslint.tmbundle)
     * [javascript-eslint.tmbundle](https://github.com/natesilva/javascript-eslint.tmbundle)
 * Atom: [linter-eslint](https://atom.io/packages/linter-eslint)
+<<<<<<< HEAD
 * IntelliJ IDEA, RubyMine, WebStorm, PhpStorm, PyCharm, AppCode, Android Studio, 0xDBE: [ESLint 插件](https://plugins.jetbrains.com/plugin/7494-eslint)
 * Visual Studio Code: [ESLint 扩展插件](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+=======
+* IntelliJ IDEA, WebStorm, PhpStorm, PyCharm, RubyMine, and other JetBrains IDEs: [How to use ESLint](https://www.jetbrains.com/help/webstorm/eslint.html)
+* Visual Studio Code: [ESLint Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+>>>>>>> 694945312730624ab991cd1f5c6893b9492b0d46
 * Brackets: Included and [Brackets ESLint](https://github.com/brackets-userland/brackets-eslint)
 
 ## 构建工具 {#build-tools}

@@ -1,12 +1,14 @@
 ---
 title: no-native-reassign - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-native-reassign.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-native-reassign.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Reassignment of Native Objects (no-native-reassign)
+# no-native-reassign
+
+Disallows reassignment of native objects.
 
 This rule was **deprecated** in ESLint v3.3.0 and replaced by the [no-global-assign](no-global-assign) rule.
 
@@ -104,5 +106,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-native-reassign.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-native-reassign.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-native-reassign.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-native-reassign.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-native-reassign.md)
