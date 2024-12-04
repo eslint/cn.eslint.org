@@ -1,14 +1,16 @@
 ---
 title: semi-spacing - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/semi-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/semi-spacing.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce spacing before and after semicolons (semi-spacing)
+# semi-spacing
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces spacing before and after semicolons.
 
 JavaScript allows you to place unnecessary spaces before or after a semicolon.
 
@@ -124,5 +126,6 @@ This rule was introduced in ESLint 0.16.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/semi-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/semi-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/semi-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/semi-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/semi-spacing.md)

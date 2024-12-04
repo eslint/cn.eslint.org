@@ -1,12 +1,14 @@
 ---
 title: require-jsdoc - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/require-jsdoc.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/require-jsdoc.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require JSDoc comments (require-jsdoc)
+# require-jsdoc
+
+Requires JSDoc comments.
 
 This rule was [**deprecated**](https://eslint.org/blog/2018/11/jsdoc-end-of-life) in ESLint v5.10.0.
 
@@ -202,5 +204,6 @@ This rule was introduced in ESLint 1.4.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/require-jsdoc.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/require-jsdoc.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/require-jsdoc.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/require-jsdoc.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/require-jsdoc.md)

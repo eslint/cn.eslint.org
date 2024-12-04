@@ -1,14 +1,16 @@
 ---
 title: no-import-assign - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-import-assign.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-import-assign.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow assigning to imported bindings (no-import-assign)
+# no-import-assign
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows assigning to imported bindings.
 
 The updates of imported bindings by ES Modules cause runtime errors.
 
@@ -61,5 +63,6 @@ This rule was introduced in ESLint 6.4.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-import-assign.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-import-assign.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-import-assign.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-import-assign.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-import-assign.md)
