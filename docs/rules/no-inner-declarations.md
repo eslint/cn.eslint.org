@@ -1,7 +1,7 @@
 ---
 title: no-inner-declarations - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-inner-declarations.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-inner-declarations.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -66,7 +66,7 @@ function doSomething() {
 
 ## Rule Details
 
-This rule requires that function declarations and, optionally, variable declarations be in the root of a program or the body of a function.
+This rule requires that function declarations and, optionally, variable declarations be in the root of a program, or in the root of the body of a function, or in the root of the body of a class static block.
 
 ## Options
 
@@ -93,6 +93,14 @@ function doSomethingElse() {
 }
 
 if (foo) function f(){}
+
+class C {
+    static {
+        if (test) {
+            function doSomething() { }
+        }
+    }
+}
 ```
 
 Examples of **correct** code for this rule with the default `"functions"` option:
@@ -104,6 +112,12 @@ function doSomething() { }
 
 function doSomethingElse() {
     function doAnotherThing() { }
+}
+
+class C {
+    static {
+        function doSomething() { }
+    }
 }
 
 if (test) {
@@ -135,17 +149,23 @@ function doAnotherThing() {
     }
 }
 
-
 if (foo) var a;
 
 if (foo) function f(){}
+
+class C {
+    static {
+        if (test) {
+            var something;
+        }
+    }
+}
 ```
 
 Examples of **correct** code for this rule with the `"both"` option:
 
 ```js
 /*eslint no-inner-declarations: ["error", "both"]*/
-/*eslint-env es6*/
 
 var bar = 42;
 
@@ -155,6 +175,12 @@ if (test) {
 
 function doAnotherThing() {
     var baz = 81;
+}
+
+class C {
+    static {
+        var something;
+    }
 }
 ```
 
@@ -168,5 +194,6 @@ This rule was introduced in ESLint 0.6.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-inner-declarations.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-inner-declarations.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-inner-declarations.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-inner-declarations.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-inner-declarations.md)
