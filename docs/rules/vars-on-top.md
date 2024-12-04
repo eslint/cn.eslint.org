@@ -1,7 +1,7 @@
 ---
 title: vars-on-top - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/vars-on-top.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/vars-on-top.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -22,11 +22,10 @@ Examples of **incorrect** code for this rule:
 ```js
 /*eslint vars-on-top: "error"*/
 
-// Variable declarations in a block:
+// Variable declaration in a nested block, and a variable declaration after other statements:
 function doSomething() {
-    var first;
     if (true) {
-        first = true;
+        var first = true;
     }
     var second;
 }
@@ -40,9 +39,32 @@ function doSomething() {
 ```js
 /*eslint vars-on-top: "error"*/
 
-// Variables after other statements:
+// Variable declaration after other statements:
 f();
 var a;
+```
+
+```js
+/*eslint vars-on-top: "error"*/
+
+// Variables in class static blocks should be at the top of the static blocks.
+
+class C {
+
+    // Variable declaration in a nested block:
+    static {
+        if (something) {
+            var a = true;
+        }
+    }
+
+    // Variable declaration after other statements:
+    static {
+        f();
+        var a;
+    }
+
+}
 ```
 
 Examples of **correct** code for this rule:
@@ -69,6 +91,26 @@ function doSomething() {
 
 var a;
 f();
+```
+
+```js
+/*eslint vars-on-top: "error"*/
+
+class C {
+
+    static {
+        var a;
+        if (something) {
+            a = true;
+        }
+    }
+
+    static {
+        var a;
+        f();
+    }
+
+}
 ```
 
 ```js
@@ -101,5 +143,6 @@ This rule was introduced in ESLint 0.8.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/vars-on-top.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/vars-on-top.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/vars-on-top.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/vars-on-top.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/vars-on-top.md)

@@ -1,7 +1,7 @@
 ---
 title: semi-style - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/semi-style.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/semi-style.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -42,6 +42,13 @@ for (
 ) {
     foo()
 }
+
+class C {
+    static {
+        foo()
+        ;bar()
+    }
+}
 ```
 
 Examples of **correct** code for this rule with `"last"` option:
@@ -58,6 +65,13 @@ for (
     ++i
 ) {
     foo()
+}
+
+class C {
+    static {
+        foo();
+        bar()
+    }
 }
 ```
 
@@ -76,6 +90,13 @@ for (
 ) {
     foo()
 }
+
+class C {
+    static {
+        foo();
+        bar()
+    }
+}
 ```
 
 Examples of **correct** code for this rule with `"first"` option:
@@ -92,6 +113,13 @@ for (
     ++i
 ) {
     foo()
+}
+
+class C {
+    static {
+        foo()
+        ;bar()
+    }
 }
 ```
 
@@ -111,5 +139,6 @@ This rule was introduced in ESLint 4.0.0-beta.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/semi-style.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/semi-style.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/semi-style.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/semi-style.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/semi-style.md)
