@@ -1,14 +1,16 @@
 ---
 title: no-duplicate-case - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-duplicate-case.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-duplicate-case.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Rule to disallow a duplicate case label (no-duplicate-case)
+# no-duplicate-case
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows duplicate `case` labels.
 
 If a `switch` statement has duplicate test expressions in `case` clauses, it is likely that a programmer copied a `case` clause but forgot to change the test expression.
 
@@ -100,11 +102,27 @@ switch (a) {
 }
 ```
 
+## When Not To Use It
+
+In rare cases where identical test expressions in `case` clauses produce different values, which necessarily means that the expressions are causing and relying on side effects, you will have to disable this rule.
+
+```js
+switch (a) {
+    case i++:
+        foo();
+        break;
+    case i++: // eslint-disable-line no-duplicate-case
+        bar();
+        break;
+}
+```
+
 ## Version
 
 This rule was introduced in ESLint 0.17.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-duplicate-case.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-duplicate-case.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-duplicate-case.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-duplicate-case.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-duplicate-case.md)
