@@ -1,17 +1,18 @@
 ---
 title: no-process-env - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-process-env.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-process-env.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow process.env (no-process-env)
+# no-process-env
+
+Disallows the use of `process.env`.
 
 This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
 
 The `process.env` object in Node.js is used to store deployment/configuration parameters. Littering it through out a project could lead to maintenance issues as it's another kind of global dependency. As such, it could lead to merge conflicts in a multi-user setup and deployment issues in a multi-server setup. Instead, one of the best practices is to define all those parameters in a single configuration/settings file which could be accessed throughout the project.
-
 
 ## Rule Details
 
@@ -54,5 +55,6 @@ This rule was introduced in ESLint 0.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-process-env.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-process-env.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-process-env.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-process-env.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-process-env.md)
