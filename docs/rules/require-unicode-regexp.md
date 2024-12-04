@@ -1,12 +1,14 @@
 ---
 title: require-unicode-regexp - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/require-unicode-regexp.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/require-unicode-regexp.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce the use of `u` flag on RegExp (require-unicode-regexp)
+# require-unicode-regexp
+
+Enforces the use of `u` flag on RegExp.
 
 RegExp `u` flag has two effects:
 
@@ -68,5 +70,6 @@ This rule was introduced in ESLint 5.3.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/require-unicode-regexp.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/require-unicode-regexp.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/require-unicode-regexp.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/require-unicode-regexp.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/require-unicode-regexp.md)
