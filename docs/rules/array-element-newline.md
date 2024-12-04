@@ -1,14 +1,24 @@
 ---
-title: array-element-newline - Rules
+title: array-element-newline
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/array-element-newline.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/array-element-newline.md
 rule_type: layout
+related_rules:
+- array-bracket-spacing
+- array-bracket-newline
+- object-property-newline
+- object-curly-spacing
+- object-curly-newline
+- max-statements-per-line
+- block-spacing
+- brace-style
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce line breaks between array elements (array-element-newline)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces line breaks between array elements.
 
 A number of style guides require or disallow line breaks between array elements.
 
@@ -52,7 +62,12 @@ Examples of **incorrect** code for this rule with the default `"always"` option:
 
 var c = [1, 2];
 var d = [1, 2, 3];
-var e = [
+var e = [1, 2, 3
+];
+var f = [
+  1, 2, 3
+];
+var g = [
     function foo() {
         dosomething();
     }, function bar() {
@@ -73,6 +88,11 @@ var c = [1,
 var d = [1,
     2,
     3];
+var d = [
+  1, 
+  2, 
+  3
+];
 var e = [
     function foo() {
         dosomething();
@@ -119,6 +139,11 @@ var b = [1];
 var c = [1, 2];
 var d = [1, 2, 3];
 var e = [
+    1, 2, 3];
+var f = [
+  1, 2, 3
+];
+var g = [
     function foo() {
         dosomething();
     }, function bar() {
@@ -373,22 +398,12 @@ If you don't want to enforce linebreaks between array elements, don't enable thi
 
 * **JSCS:** [validateNewlineAfterArrayElements](https://jscs-dev.github.io/rule/validateNewlineAfterArrayElements)
 
-## Related Rules
-
-* [array-bracket-spacing](array-bracket-spacing)
-* [array-bracket-newline](array-bracket-newline)
-* [object-property-newline](object-property-newline)
-* [object-curly-spacing](object-curly-spacing)
-* [object-curly-newline](object-curly-newline)
-* [max-statements-per-line](max-statements-per-line)
-* [block-spacing](block-spacing)
-* [brace-style](brace-style)
-
 ## Version
 
 This rule was introduced in ESLint 4.0.0-rc.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/array-element-newline.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/array-element-newline.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/array-element-newline.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/array-element-newline.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/array-element-newline.md)

@@ -1,14 +1,19 @@
 ---
-title: no-extra-label - Rules
+title: no-extra-label
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-extra-label.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-extra-label.md
 rule_type: suggestion
+related_rules:
+- no-labels
+- no-label-var
+- no-unused-labels
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Unnecessary Labels (no-extra-label)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows unnecessary labels.
 
 If a loop contains no nested loops or switches, labeling the loop is unnecessary.
 
@@ -85,17 +90,12 @@ C: switch (a) {
 
 If you don't want to be notified about usage of labels, then it's safe to disable this rule.
 
-## Related Rules
-
-* [no-labels](./no-labels)
-* [no-label-var](./no-label-var)
-* [no-unused-labels](./no-unused-labels)
-
 ## Version
 
 This rule was introduced in ESLint 2.0.0-rc.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-extra-label.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-extra-label.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-extra-label.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-extra-label.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-extra-label.md)

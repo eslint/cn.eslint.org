@@ -1,14 +1,18 @@
 ---
-title: sort-vars - Rules
+title: sort-vars
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/sort-vars.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/sort-vars.md
 rule_type: suggestion
+related_rules:
+- sort-keys
+- sort-imports
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Variable Sorting (sort-vars)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires variables within the same declaration block to be sorted.
 
 When declaring multiple variables within the same block, some developers prefer to sort variable names alphabetically to be able to find necessary variable easier at the later time. Others feel that it adds complexity and becomes burden to maintain.
 
@@ -82,16 +86,12 @@ var a, B, c;
 
 This rule is a formatting preference and not following it won't negatively affect the quality of your code. If you alphabetizing variables isn't a part of your coding standards, then you can leave this rule off.
 
-## Related Rules
-
-* [sort-keys](sort-keys)
-* [sort-imports](sort-imports)
-
 ## Version
 
 This rule was introduced in ESLint 0.2.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/sort-vars.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/sort-vars.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/sort-vars.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/sort-vars.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/sort-vars.md)

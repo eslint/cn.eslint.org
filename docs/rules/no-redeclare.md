@@ -1,14 +1,17 @@
 ---
-title: no-redeclare - Rules
+title: no-redeclare
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-redeclare.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-redeclare.md
 rule_type: suggestion
+related_rules:
+- no-shadow
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow variable redeclaration (no-redeclare)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows variable redeclarations.
 
 In JavaScript, it's possible to redeclare the same variable name using `var`. This can lead to confusion as to where the variable is actually declared and initialized.
 
@@ -23,6 +26,18 @@ Examples of **incorrect** code for this rule:
 
 var a = 3;
 var a = 10;
+
+class C {
+    foo() {
+        var b = 3;
+        var b = 10;
+    }
+
+    static {
+        var c = 3;
+        var c = 10;
+    }
+}
 ```
 
 Examples of **correct** code for this rule:
@@ -31,8 +46,20 @@ Examples of **correct** code for this rule:
 /*eslint no-redeclare: "error"*/
 
 var a = 3;
-// ...
 a = 10;
+
+class C {
+    foo() {
+        var b = 3;
+        b = 10;
+    }
+
+    static {
+        var c = 3;
+        c = 10;
+    }
+}
+
 ```
 
 ## Options
@@ -65,15 +92,12 @@ The `browser` environment has many built-in global variables (for example, `top`
 
 Note that when using the `node` or `commonjs` environments (or `ecmaFeatures.globalReturn`, if using the default parser), the top scope of a program is not actually the global scope, but rather a "module" scope. When this is the case, declaring a variable named after a builtin global is not a redeclaration, but rather a shadowing of the global variable. In that case, the [`no-shadow`](no-shadow) rule with the `"builtinGlobals"` option should be used.
 
-## Related Rules
-
-* [no-shadow](no-shadow)
-
 ## Version
 
 This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-redeclare.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-redeclare.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-redeclare.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-redeclare.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-redeclare.md)

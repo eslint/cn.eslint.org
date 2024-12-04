@@ -1,14 +1,18 @@
 ---
-title: prefer-exponentiation-operator - Rules
+title: prefer-exponentiation-operator
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-exponentiation-operator.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/prefer-exponentiation-operator.md
 rule_type: suggestion
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation
+- https://bugs.chromium.org/p/v8/issues/detail?id=5848
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow the use of `Math.pow` in favor of the `**` operator (prefer-exponentiation-operator)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows the use of `Math.pow` in favor of the `**` operator.
 
 Introduced in ES2016, the infix exponentiation operator `**` is an alternative for the standard `Math.pow` function.
 
@@ -50,16 +54,12 @@ let quux = (-1) ** n;
 
 This rule should not be used unless ES2016 is supported in your codebase.
 
-## Further Reading
-
-* [MDN Arithmetic Operators - Exponentiation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Exponentiation)
-* [Issue 5848: Exponentiation operator ** has different results for numbers and variables from 50 upwards](https://bugs.chromium.org/p/v8/issues/detail?id=5848)
-
 ## Version
 
 This rule was introduced in ESLint 6.7.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-exponentiation-operator.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-exponentiation-operator.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-exponentiation-operator.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-exponentiation-operator.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/prefer-exponentiation-operator.md)

@@ -1,12 +1,13 @@
 ---
-title: no-useless-call - Rules
+title: no-useless-call
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-useless-call.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-useless-call.md
 rule_type: suggestion
+related_rules:
+- prefer-spread
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow unnecessary `.call()` and `.apply()`. (no-useless-call)
+Disallows unnecessary `.call()` and `.apply()`.
 
 The function invocation can be written by `Function.prototype.call()` and `Function.prototype.apply()`.
 But `Function.prototype.call()` and `Function.prototype.apply()` are slower than the normal function invocation.
@@ -76,15 +77,12 @@ a[++i].foo.call(a[i], 1, 2, 3);
 
 If you don't want to be notified about unnecessary `.call()` and `.apply()`, you can safely disable this rule.
 
-## Related Rules
-
-* [prefer-spread](prefer-spread)
-
 ## Version
 
 This rule was introduced in ESLint 1.0.0-rc-1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-useless-call.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-useless-call.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-useless-call.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-useless-call.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-useless-call.md)
