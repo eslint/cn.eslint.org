@@ -1,14 +1,16 @@
 ---
 title: no-confusing-arrow - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-confusing-arrow.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-confusing-arrow.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow arrow functions where they could be confused with comparisons (no-confusing-arrow)
+# no-confusing-arrow
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows arrow functions where they could be confused with comparisons.
 
 Arrow functions (`=>`) are similar in syntax to some comparison operators (`>`, `<`, `<=`, and `>=`). This rule warns against using the arrow function syntax in places where it could be confused with a comparison operator.
 
@@ -84,5 +86,6 @@ This rule was introduced in ESLint 2.0.0-alpha-2.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-confusing-arrow.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-confusing-arrow.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-confusing-arrow.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-confusing-arrow.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-confusing-arrow.md)
