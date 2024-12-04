@@ -1,7 +1,7 @@
 ---
 title: no-implicit-coercion - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-implicit-coercion.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-implicit-coercion.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -43,11 +43,11 @@ This rule is aimed to flag shorter notations for the type conversion, then sugge
 
 This rule has three main options and one override option to allow some coercions as required.
 
--   `"boolean"` (`true` by default) - When this is `true`, this rule warns shorter type conversions for `boolean` type.
--   `"number"` (`true` by default) - When this is `true`, this rule warns shorter type conversions for `number` type.
--   `"string"` (`true` by default) - When this is `true`, this rule warns shorter type conversions for `string` type.
--   `"disallowTemplateShorthand"` (`false` by default) - When this is `true`, this rule warns `string` type conversions using `${expression}` form.
--   `"allow"` (`empty` by default) - Each entry in this array can be one of `~`, `!!`, `+` or `*` that are to be allowed.
+* `"boolean"` (`true` by default) - When this is `true`, this rule warns shorter type conversions for `boolean` type.
+* `"number"` (`true` by default) - When this is `true`, this rule warns shorter type conversions for `number` type.
+* `"string"` (`true` by default) - When this is `true`, this rule warns shorter type conversions for `string` type.
+* `"disallowTemplateShorthand"` (`false` by default) - When this is `true`, this rule warns `string` type conversions using `${expression}` form.
+* `"allow"` (`empty` by default) - Each entry in this array can be one of `~`, `!!`, `+` or `*` that are to be allowed.
 
 Note that operator `+` in `allow` list would allow `+foo` (number coercion) as well as `"" + foo` (string coercion).
 
@@ -176,5 +176,6 @@ This rule was introduced in ESLint 1.0.0-rc-2.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-implicit-coercion.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-implicit-coercion.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-implicit-coercion.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-implicit-coercion.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-implicit-coercion.md)

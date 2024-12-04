@@ -1,7 +1,7 @@
 ---
 title: no-implicit-globals - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-implicit-globals.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-implicit-globals.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -222,16 +222,16 @@ and you also don't want this rule to warn you about the read-only globals, you c
 
 In the case of an ES module, if you don't want this rule to warn you about the read-only globals you can disable this rule.
 
+## Related Rules
+
+* [no-undef](no-undef)
+* [no-global-assign](no-global-assign)
+
 ## Further Reading
 
 * [Immediately-Invoked Function Expression (IIFE)](http://benalman.com/news/2010/11/immediately-invoked-function-expression/)
 * [ReferenceError: assignment to undeclared variable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Undeclared_var)
 * [Temporal Dead Zone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone)
-
-## Related Rules
-
-* [no-undef](no-undef)
-* [no-global-assign](no-global-assign)
 
 ## Version
 
@@ -239,5 +239,6 @@ This rule was introduced in ESLint 2.0.0-alpha-1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-implicit-globals.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-implicit-globals.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-implicit-globals.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-implicit-globals.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-implicit-globals.md)
