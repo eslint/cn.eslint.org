@@ -1,7 +1,7 @@
 ---
 title: Configuration Files
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configuring/configuration-files.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/user-guide/configuring/configuration-files.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -14,7 +14,7 @@ edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configur
 * [Cascading and Hierarchy](#cascading-and-hierarchy)
 * [Extending Configuration Files](#extending-configuration-files)
 * [Configuration Based on Glob Patterns](#configuration-based-on-glob-patterns)
-* [Personal Configuration Files](#personal-configuration-files)
+* [Personal Configuration Files](#personal-configuration-files-deprecated)
 
 ## Configuration File Formats
 
