@@ -1,14 +1,16 @@
 ---
 title: space-unary-ops - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/space-unary-ops.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/space-unary-ops.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require or disallow spaces before/after unary operators (space-unary-ops)
+# space-unary-ops
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallow spaces before/after unary operators.
 
 Some style guides require or disallow spaces before or after unary operators. This is mainly a stylistic issue, however, some JavaScript expressions can be written without spacing which makes it harder to read and maintain.
 
@@ -163,5 +165,6 @@ This rule was introduced in ESLint 0.10.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/space-unary-ops.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/space-unary-ops.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/space-unary-ops.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/space-unary-ops.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/space-unary-ops.md)

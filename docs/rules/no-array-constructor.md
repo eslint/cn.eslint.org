@@ -1,12 +1,14 @@
 ---
 title: no-array-constructor - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-array-constructor.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-array-constructor.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow `Array` constructors (no-array-constructor)
+# no-array-constructor
+
+Disallows `Array` constructors.
 
 Use of the `Array` constructor to construct a new array is generally
 discouraged in favor of array literal notation because of the single-argument
@@ -56,5 +58,6 @@ This rule was introduced in ESLint 0.4.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-array-constructor.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-array-constructor.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-array-constructor.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-array-constructor.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-array-constructor.md)

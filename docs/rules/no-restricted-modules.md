@@ -1,12 +1,14 @@
 ---
 title: no-restricted-modules - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-restricted-modules.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-restricted-modules.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Node.js modules (no-restricted-modules)
+# no-restricted-modules
+
+Disallows Node.js modules.
 
 This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
 
@@ -65,8 +67,7 @@ or like this:
 
 The custom message will be appended to the default error message. Please note that you may not specify custom error messages for restricted patterns as a particular module may match more than one pattern.
 
-
-To restrict the use of all Node.js core modules (via https://github.com/nodejs/node/tree/master/lib):
+To restrict the use of all Node.js core modules (via <https://github.com/nodejs/node/tree/master/lib>):
 
 ```json
 {
@@ -123,5 +124,6 @@ This rule was introduced in ESLint 0.6.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-restricted-modules.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-restricted-modules.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-restricted-modules.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-restricted-modules.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-restricted-modules.md)

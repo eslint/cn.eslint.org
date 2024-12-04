@@ -1,14 +1,16 @@
 ---
 title: no-with - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-with.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-with.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow `with` statements (no-with)
+# no-with
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows `with` statements.
 
 The `with` statement is potentially problematic because it adds members of an object to the current scope, making it impossible to tell what a variable inside the block actually refers to.
 
@@ -51,5 +53,6 @@ This rule was introduced in ESLint 0.0.2.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-with.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-with.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-with.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-with.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-with.md)

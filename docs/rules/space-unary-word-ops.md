@@ -1,12 +1,14 @@
 ---
 title: space-unary-word-ops - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/space-unary-word-ops.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/space-unary-word-ops.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# space-unary-word-ops: require spaces after unary word operators
+# space-unary-word-ops
+
+Requires spaces after unary word operators.
 
 (removed) This rule was **removed** in ESLint v0.10.0 and **replaced** by the [space-unary-ops](space-unary-ops) rule.
 
@@ -52,4 +54,4 @@ This rule was introduced in ESLint 0.1.4 and removed in 0.10.0.
 
 ## Resources
 
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/space-unary-word-ops.md)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/space-unary-word-ops.md)

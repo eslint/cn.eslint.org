@@ -1,12 +1,14 @@
 ---
 title: block-scoped-var - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/block-scoped-var.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/block-scoped-var.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Treat var as Block Scoped (block-scoped-var)
+# block-scoped-var
+
+Enforces treating `var` as block scoped.
 
 The `block-scoped-var` rule generates warnings when variables are used outside of the block in which they were defined. This emulates C-style block scope.
 
@@ -48,6 +50,15 @@ function doFor() {
         var y = f(x);
     }
     console.log(y);
+}
+
+class C {
+    static {
+        if (something) {
+            var build = true;
+        }
+        build = false;
+    }
 }
 ```
 
@@ -93,6 +104,15 @@ function doFor() {
         console.log(y);
     }
 }
+
+class C {
+    static {
+        var build = false;
+        if (something) {
+            build = true;
+        }
+    }
+}
 ```
 
 ## Further Reading
@@ -106,5 +126,6 @@ This rule was introduced in ESLint 0.1.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/block-scoped-var.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/block-scoped-var.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/block-scoped-var.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/block-scoped-var.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/block-scoped-var.md)

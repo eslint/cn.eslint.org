@@ -1,7 +1,7 @@
 ---
 title: Migrating to v5.0.0
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/migrating-to-5.0.0.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/migrating-to-5.0.0.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -12,7 +12,7 @@ ESLint v5.0.0 is the fifth major version release. We have made a few breaking ch
 
 The lists below are ordered roughly by the number of users each change is expected to affect, where the first items are expected to affect the most users.
 
-### Breaking changes for users
+## Breaking changes for users
 
 1. [Node.js 4 is no longer supported](#drop-node-4)
 1. [New rules have been added to `eslint:recommended`](#eslint-recommended-changes)
@@ -24,7 +24,7 @@ The lists below are ordered roughly by the number of users each change is expect
 1. [Plugins in scoped packages are now resolvable in configs](#scoped-plugins)
 1. [Multi-line `eslint-disable-line` directives are now reported as problems](#multiline-directives)
 
-### Breaking changes for plugin/custom rule developers
+## Breaking changes for plugin/custom rule developers
 
 1. [The `parent` property of AST nodes is now set before rules start running](#parent-before-rules)
 1. [When using the default parser, spread operators now have type `SpreadElement`](#spread-operators)
@@ -35,7 +35,7 @@ The lists below are ordered roughly by the number of users each change is expect
 1. [`RuleTester` now uses strict equality checks in its assertions](#rule-tester-equality)
 1. [Rules are now required to provide messages along with reports](#required-report-messages)
 
-### Breaking changes for integration developers
+## Breaking changes for integration developers
 
 1. [The `source` property is no longer available on individual linting messages](#source-property)
 1. [Fatal errors now result in an exit code of 2](#exit-code-two)
@@ -108,7 +108,7 @@ For compatibility, ESLint v5 will treat `ecmaFeatures: { experimentalObjectRestS
 Previous versions of ESLint silently ignored any nonexistent files and globs provided on the command line:
 
 ```bash
-$ eslint nonexistent-file.js 'nonexistent-folder/**/*.js' # exits without any errors in ESLint v4
+eslint nonexistent-file.js 'nonexistent-folder/**/*.js' # exits without any errors in ESLint v4
 ```
 
 Many users found this behavior confusing, because if they made a typo in a filename, ESLint would appear to lint that file successfully while actually not linting anything.
