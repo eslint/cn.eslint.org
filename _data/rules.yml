@@ -180,6 +180,11 @@ types:
         hasSuggestions: false
         name: no-const-assign
         recommended: true
+      - description: disallow expressions where the operation doesn't affect the value
+        fixable: false
+        hasSuggestions: false
+        name: no-constant-binary-expression
+        recommended: false
       - description: disallow constant expressions in conditions
         fixable: false
         hasSuggestions: false
@@ -284,7 +289,7 @@ types:
           disallow characters which are made with multiple code points in
           character class syntax
         fixable: false
-        hasSuggestions: false
+        hasSuggestions: true
         name: no-misleading-character-class
         recommended: true
       - description: disallow `new` operators with the `Symbol` object
@@ -383,6 +388,11 @@ types:
         hasSuggestions: false
         name: no-unsafe-optional-chaining
         recommended: true
+      - description: disallow unused private class members
+        fixable: false
+        hasSuggestions: false
+        name: no-unused-private-class-members
+        recommended: false
       - description: disallow unused variables
         fixable: false
         hasSuggestions: false
@@ -412,7 +422,7 @@ types:
         recommended: true
       - description: enforce comparing `typeof` expressions against valid strings
         fixable: false
-        hasSuggestions: false
+        hasSuggestions: true
         name: valid-typeof
         recommended: true
   - description: 'These rules suggest alternate ways of doing things:'
@@ -720,7 +730,9 @@ types:
         hasSuggestions: false
         name: no-inline-comments
         recommended: false
-      - description: disallow `this` keywords outside of classes or class-like objects
+      - description: >-
+          disallow use of `this` in contexts where the value of `this` is
+          `undefined`
         fixable: false
         hasSuggestions: false
         name: no-invalid-this
@@ -1067,6 +1079,13 @@ types:
         name: prefer-numeric-literals
         recommended: false
       - description: >-
+          disallow use of `Object.prototype.hasOwnProperty.call()` and prefer
+          use of `Object.hasOwn()`
+        fixable: true
+        hasSuggestions: false
+        name: prefer-object-has-own
+        recommended: false
+      - description: >-
           disallow using Object.assign with an object literal as the first
           argument and prefer the use of object spread instead.
         fixable: true
@@ -1082,7 +1101,7 @@ types:
           disallow use of the `RegExp` constructor in favor of regular
           expression literals
         fixable: false
-        hasSuggestions: false
+        hasSuggestions: true
         name: prefer-regex-literals
         recommended: false
       - description: require rest parameters instead of `arguments`

@@ -1,14 +1,18 @@
 ---
-title: no-irregular-whitespace - Rules
+title: no-irregular-whitespace
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-irregular-whitespace.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-irregular-whitespace.md
 rule_type: problem
+further_reading:
+- https://es5.github.io/#x7.2
+- https://web.archive.org/web/20200414142829/http://timelessrepo.com/json-isnt-a-javascript-subset
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow irregular whitespace (no-irregular-whitespace)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows irregular whitespace characters.
 
 Invalid or irregular whitespace causes issues with ECMAScript 5 parsers and also makes code harder to debug in a similar nature to mixed tabs and spaces.
 
@@ -41,7 +45,7 @@ This rule disallows the following characters except where the options allow:
     \u2001 - Em Quad
     \u2002 - En Space - <ENSP>
     \u2003 - Em Space - <EMSP>
-    \u2004 - Tree-Per-Em
+    \u2004 - Three-Per-Em
     \u2005 - Four-Per-Em
     \u2006 - Six-Per-Em
     \u2007 - Figure Space
@@ -176,16 +180,12 @@ function thing() {
 
 If you decide that you wish to use whitespace other than tabs and spaces outside of strings in your application.
 
-## Further Reading
-
-* [ECMA whitespace](https://es5.github.io/#x7.2)
-* [JSON whitespace issues](http://timelessrepo.com/json-isnt-a-javascript-subset)
-
 ## Version
 
 This rule was introduced in ESLint 0.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-irregular-whitespace.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-irregular-whitespace.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-irregular-whitespace.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-irregular-whitespace.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-irregular-whitespace.md)

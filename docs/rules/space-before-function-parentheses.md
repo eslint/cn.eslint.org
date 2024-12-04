@@ -1,12 +1,14 @@
 ---
-title: space-before-function-parentheses - Rules
+title: space-before-function-parentheses
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/space-before-function-parentheses.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/space-before-function-parentheses.md
 
+related_rules:
+- space-after-keywords
+- space-return-throw-case
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# space-before-function-parentheses: enforce consistent spacing before opening parenthesis in function definitions
+Enforces consistent spacing before opening parenthesis in function definitions.
 
 (removed) This rule was **removed** in ESLint v1.0 and **replaced** by the [space-before-function-paren](space-before-function-paren) rule. The name of the rule changed from "parentheses" to "paren" for consistency with the names of other rules.
 
@@ -262,15 +264,10 @@ var foo = {
 
 You can turn this rule off if you are not concerned with the consistency of spacing before function parenthesis.
 
-## Related Rules
-
-* [space-after-keywords](space-after-keywords)
-* [space-return-throw-case](space-return-throw-case)
-
 ## Version
 
 This rule was introduced in ESLint 0.15.0 and removed in 1.0.0-rc-1.
 
 ## Resources
 
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/space-before-function-parentheses.md)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/space-before-function-parentheses.md)

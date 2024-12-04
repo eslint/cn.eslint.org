@@ -1,14 +1,18 @@
 ---
-title: lines-around-directive - Rules
+title: lines-around-directive
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/lines-around-directive.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/lines-around-directive.md
 rule_type: layout
+related_rules:
+- lines-around-comment
+- padded-blocks
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require or disallow newlines around directives (lines-around-directive)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallow newlines around directives.
 
 This rule was **deprecated** in ESLint v4.0.0 and replaced by the [padding-line-between-statements](padding-line-between-statements) rule.
 
@@ -135,7 +139,6 @@ Examples of **incorrect** code for this rule with the `"never"` option:
 
 var foo;
 
-
 /* Top of file */
 // comment
 
@@ -144,14 +147,12 @@ var foo;
 
 var foo;
 
-
 function foo() {
   "use strict";
   "use asm";
 
   var bar;
 }
-
 
 function foo() {
   // comment
@@ -321,11 +322,6 @@ function foo() {
 
 You can safely disable this rule if you do not have any strict conventions about whether or not directive prologues should have blank newlines before or after them.
 
-## Related Rules
-
-* [lines-around-comment](lines-around-comment)
-* [padded-blocks](padded-blocks)
-
 ## Compatibility
 
 * **JSCS**: [requirePaddingNewLinesAfterUseStrict](https://jscs-dev.github.io/rule/requirePaddingNewLinesAfterUseStrict)
@@ -337,5 +333,6 @@ This rule was introduced in ESLint 3.5.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/lines-around-directive.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/lines-around-directive.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/lines-around-directive.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/lines-around-directive.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/lines-around-directive.md)

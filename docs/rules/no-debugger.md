@@ -1,14 +1,20 @@
 ---
-title: no-debugger - Rules
+title: no-debugger
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-debugger.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-debugger.md
 rule_type: problem
+related_rules:
+- no-alert
+- no-console
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow the use of `debugger` (no-debugger)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows the use of `debugger`.
 
 The `debugger` statement is used to tell the executing JavaScript environment to stop execution and start up a debugger at the current point in the code. This has fallen out of favor as a good practice with the advent of modern debugging and development tools. Production code should definitely not contain `debugger`, as it will cause the browser to stop executing code and open an appropriate debugger.
 
@@ -41,20 +47,12 @@ function isTruthy(x) {
 
 If your code is still very much in development and don't want to worry about stripping `debugger` statements, then turn this rule off. You'll generally want to turn it back on when testing code prior to deployment.
 
-## Further Reading
-
-* [Debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger)
-
-## Related Rules
-
-* [no-alert](no-alert)
-* [no-console](no-console)
-
 ## Version
 
 This rule was introduced in ESLint 0.0.2.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-debugger.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-debugger.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-debugger.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-debugger.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-debugger.md)

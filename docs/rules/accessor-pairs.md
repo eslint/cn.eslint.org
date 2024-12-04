@@ -1,12 +1,18 @@
 ---
-title: accessor-pairs - Rules
+title: accessor-pairs
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/accessor-pairs.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/accessor-pairs.md
 rule_type: suggestion
+related_rules:
+- no-dupe-keys
+- no-dupe-class-members
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforces getter/setter pairs in objects and classes (accessor-pairs)
+Enforces getter/setter pairs in objects and classes.
 
 It's a common mistake in JavaScript to create an object with just a setter for a property but never have a corresponding getter defined for it. Without a getter, you cannot read the property, so it ends up not being used.
 
@@ -240,7 +246,6 @@ const Quux = class {
 }
 ```
 
-
 ## Known Limitations
 
 Due to the limits of static analysis, this rule does not account for possible side effects and in certain cases
@@ -290,17 +295,12 @@ See [no-dupe-class-members](no-dupe-class-members) if you also want to disallow 
 
 You can turn this rule off if you are not concerned with the simultaneous presence of setters and getters on objects.
 
-## Further Reading
-
-* [Object Setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
-* [Object Getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
-* [Working with Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
-
 ## Version
 
 This rule was introduced in ESLint 0.22.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/accessor-pairs.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/accessor-pairs.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/accessor-pairs.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/accessor-pairs.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/accessor-pairs.md)

@@ -1,14 +1,20 @@
 ---
-title: object-curly-newline - Rules
+title: object-curly-newline
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/object-curly-newline.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/object-curly-newline.md
 rule_type: layout
+related_rules:
+- comma-spacing
+- key-spacing
+- object-curly-spacing
+- object-property-newline
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce consistent line breaks after opening and before closing braces (object-curly-newline)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces consistent line breaks after opening and before closing braces.
 
 A number of style guides require or disallow line breaks inside of object braces and other tokens.
 
@@ -379,7 +385,6 @@ Examples of **correct** code for this rule with the default `{ "consistent": tru
 /*eslint object-curly-newline: ["error", { "consistent": true }]*/
 /*eslint-env es6*/
 
-
 let empty1 = {};
 let empty2 = {
 };
@@ -541,21 +546,14 @@ export { foo, bar } from 'foo-bar';
 export { foo as f, bar } from 'foo-bar';
 ```
 
-## Compatibility
-
-* **JSCS**: [requirePaddingNewLinesInObjects](https://jscs-dev.github.io/rule/requirePaddingNewLinesInObjects)
-* **JSCS**: [disallowPaddingNewLinesInObjects](https://jscs-dev.github.io/rule/disallowPaddingNewLinesInObjects)
-
 ## When Not To Use It
 
 If you don't want to enforce consistent line breaks after opening and before closing braces, then it's safe to disable this rule.
 
-## Related Rules
+## Compatibility
 
-* [comma-spacing](comma-spacing)
-* [key-spacing](key-spacing)
-* [object-curly-spacing](object-curly-spacing)
-* [object-property-newline](object-property-newline)
+* **JSCS**: [requirePaddingNewLinesInObjects](https://jscs-dev.github.io/rule/requirePaddingNewLinesInObjects)
+* **JSCS**: [disallowPaddingNewLinesInObjects](https://jscs-dev.github.io/rule/disallowPaddingNewLinesInObjects)
 
 ## Version
 
@@ -563,5 +561,6 @@ This rule was introduced in ESLint 2.12.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/object-curly-newline.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/object-curly-newline.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/object-curly-newline.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/object-curly-newline.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/object-curly-newline.md)
