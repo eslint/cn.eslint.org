@@ -1,12 +1,11 @@
 ---
-title: no-unreachable-loop - Rules
+title: no-unreachable-loop
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-unreachable-loop.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-unreachable-loop.md
 rule_type: problem
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow loops with a body that allows only one iteration (no-unreachable-loop)
+Disallows loops with a body that allows only one iteration.
 
 A loop that can never reach the second iteration is a possible error in the code.
 
@@ -154,7 +153,7 @@ This rule has an object option, with one option:
 
 * `"ignore"` - an optional array of loop types that will be ignored by this rule.
 
-## ignore
+### ignore
 
 You can specify up to 5 different elements in the `"ignore"` array:
 
@@ -203,5 +202,6 @@ This rule was introduced in ESLint 7.3.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-unreachable-loop.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-unreachable-loop.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-unreachable-loop.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-unreachable-loop.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-unreachable-loop.md)

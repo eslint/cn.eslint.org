@@ -1,15 +1,13 @@
 ---
-title: no-template-curly-in-string - Rules
+title: no-template-curly-in-string
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-template-curly-in-string.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-template-curly-in-string.md
 rule_type: problem
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow template literal placeholder syntax in regular strings (no-template-curly-in-string)
+Disallows template literal placeholder syntax in regular strings.
 
 ECMAScript 6 allows programmers to create strings containing variable or expressions using template literals, instead of string concatenation, by writing expressions like `${variable}` between two backtick quotes (\`). It can be easy to use the wrong quotes when wanting to use template literals, by writing `"${variable}"`, and end up with the literal value `"${variable}"` instead of a string containing the value of the injected expressions.
-
 
 ## Rule Details
 
@@ -46,5 +44,6 @@ This rule was introduced in ESLint 3.3.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-template-curly-in-string.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-template-curly-in-string.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-template-curly-in-string.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-template-curly-in-string.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-template-curly-in-string.md)

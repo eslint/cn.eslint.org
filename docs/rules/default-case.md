@@ -1,12 +1,11 @@
 ---
-title: default-case - Rules
+title: default-case
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/default-case.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/default-case.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require Default Case in Switch Statements (default-case)
+Requires a `default` case in switch statements.
 
 Some code conventions require that all `switch` statements have a `default` case, even if the default case is empty, such as:
 
@@ -21,7 +20,7 @@ switch (foo) {
         break;
 
     default:
-        // do nothing
+    // do nothing
 }
 ```
 
@@ -76,7 +75,6 @@ switch (a) {
         /* code */
         break;
 }
-
 
 switch (a) {
     case 1:
@@ -139,5 +137,6 @@ This rule was introduced in ESLint 0.6.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/default-case.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/default-case.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/default-case.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/default-case.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/default-case.md)
