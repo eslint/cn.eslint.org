@@ -1,7 +1,7 @@
 ---
 title: default-case-last - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/default-case-last.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/default-case-last.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -124,13 +124,13 @@ if (foo !== 0) {
 doSomethingAnyway();
 ```
 
-## Further Reading
-
-* [MDN switch statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
-
 ## Related Rules
 
 * [default-case](default-case)
+
+## Further Reading
+
+* [MDN switch statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
 
 ## Version
 
@@ -138,5 +138,6 @@ This rule was introduced in ESLint 7.0.0-alpha.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/default-case-last.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/default-case-last.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/default-case-last.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/default-case-last.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/default-case-last.md)

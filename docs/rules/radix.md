@@ -1,7 +1,7 @@
 ---
 title: radix - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/radix.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/radix.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -38,7 +38,6 @@ There are two options for this rule:
 
 * `"always"` enforces providing a radix (default)
 * `"as-needed"` disallows providing the `10` radix
-
 
 ### always
 
@@ -110,5 +109,6 @@ This rule was introduced in ESLint 0.0.7.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/radix.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/radix.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/radix.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/radix.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/radix.md)
