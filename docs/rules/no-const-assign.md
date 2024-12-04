@@ -1,14 +1,15 @@
 ---
-title: no-const-assign - Rules
+title: no-const-assign
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-const-assign.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-const-assign.md
 rule_type: problem
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow modifying variables that are declared using `const` (no-const-assign)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows modifying variables that are declared using `const`.
 
 We cannot modify variables that are declared using `const` keyword.
 It will raise a runtime error.
@@ -83,5 +84,6 @@ This rule was introduced in ESLint 1.0.0-rc-1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-const-assign.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-const-assign.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-const-assign.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-const-assign.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-const-assign.md)

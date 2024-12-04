@@ -1,12 +1,11 @@
 ---
-title: no-mixed-requires - Rules
+title: no-mixed-requires
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-mixed-requires.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-mixed-requires.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow `require` calls to be mixed with regular variable declarations (no-mixed-requires)
+Disallows `require` calls to be mixed with regular variable declarations.
 
 This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
 
@@ -139,5 +138,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-mixed-requires.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-mixed-requires.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-mixed-requires.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-mixed-requires.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-mixed-requires.md)

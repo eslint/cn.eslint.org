@@ -1,14 +1,15 @@
 ---
-title: space-before-blocks - Rules
+title: space-before-blocks
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/space-before-blocks.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/space-before-blocks.md
 rule_type: layout
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require Or Disallow Space Before Blocks (space-before-blocks)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires Or disallows space before blocks.
 
 Consistency is an important part of any style guide.
 While it is a personal preference where to put the opening brace of blocks,
@@ -73,6 +74,9 @@ if (a) {
     c();
 }
 
+class C {
+    static{} /*no error. this is checked by `keyword-spacing` rule.*/
+}
 
 function a() {}
 
@@ -222,6 +226,7 @@ You can turn this rule off if you are not concerned with the consistency of spac
 * [keyword-spacing](keyword-spacing)
 * [arrow-spacing](arrow-spacing)
 * [switch-colon-spacing](switch-colon-spacing)
+* [block-spacing](block-spacing)
 * [brace-style](brace-style)
 
 ## Version
@@ -230,5 +235,6 @@ This rule was introduced in ESLint 0.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/space-before-blocks.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/space-before-blocks.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/space-before-blocks.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/space-before-blocks.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/space-before-blocks.md)

@@ -1,14 +1,15 @@
 ---
-title: prefer-destructuring - Rules
+title: prefer-destructuring
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-destructuring.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/prefer-destructuring.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Prefer destructuring from arrays and objects (prefer-destructuring)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires destructuring from arrays and/or objects.
 
 With JavaScript ES6, a new syntax was added for creating variables from an array index or object property, called [destructuring](#further-reading).  This rule enforces usage of destructuring instead of accessing a property through a member expression.
 
@@ -28,8 +29,8 @@ The rule has a second object with a single key, `enforceForRenamedProperties`, w
 
 **Note**: It is not possible to determine if a variable will be referring to an object or an array at runtime. This rule therefore guesses the assignment type by checking whether the key being accessed is an integer. This can lead to the following possibly confusing situations:
 
-- Accessing an object property whose key is an integer will fall under the category `array` destructuring.
-- Accessing an array element through a computed index will fall under the category `object` destructuring.
+* Accessing an object property whose key is an integer will fall under the category `array` destructuring.
+* Accessing an array element through a computed index will fall under the category `object` destructuring.
 
 The `--fix` option on the command line fixes only problems reported in variable declarations, and among them only those that fall under the category `object` destructuring. Furthermore, the name of the declared variable has to be the same as the name used for non-computed member access in the initializer. For example, `var foo = object.foo` can be automatically fixed by this rule. Problems that involve computed member access (e.g., `var foo = object[foo]`) or renamed properties (e.g., `var foo = object.bar`) are not automatically fixed.
 
@@ -189,13 +190,12 @@ var foo = $('body')[0];
 var [bar] = $('body'); // fails with a TypeError
 ```
 
-
 ## Further Reading
 
 If you want to learn more about destructuring, check out the links below:
 
-- [Destructuring Assignment (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
-- [Destructuring and parameter handling in ECMAScript 6 (2ality blog)](http://2ality.com/2015/01/es6-destructuring.html)
+* [Destructuring Assignment (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+* [Destructuring and parameter handling in ECMAScript 6 (2ality blog)](http://2ality.com/2015/01/es6-destructuring.html)
 
 ## Version
 
@@ -203,5 +203,6 @@ This rule was introduced in ESLint 3.13.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-destructuring.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-destructuring.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-destructuring.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-destructuring.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/prefer-destructuring.md)
