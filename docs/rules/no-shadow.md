@@ -1,12 +1,14 @@
 ---
 title: no-shadow - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-shadow.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-shadow.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow variable declarations from shadowing variables declared in the outer scope (no-shadow)
+# no-shadow
+
+Disallows variable declarations from shadowing variables declared in the outer scope.
 
 Shadowing is the process by which a local variable shares the same name as a variable in its containing scope. For example:
 
@@ -50,11 +52,11 @@ if (true) {
 
 ## Options
 
-This rule takes one option, an object, with properties `"builtinGlobals"`, `"hoist"` and `"allow"`.
+This rule takes one option, an object, with properties `"builtinGlobals"`, `"hoist"`, `"allow"` and `"ignoreOnInitialization"`.
 
 ```json
 {
-    "no-shadow": ["error", { "builtinGlobals": false, "hoist": "functions", "allow": [] }]
+    "no-shadow": ["error", { "builtinGlobals": false, "hoist": "functions", "allow": [], "ignoreOnInitialization": false }]
 }
 ```
 
@@ -172,13 +174,41 @@ foo(function (err, result) {
 });
 ```
 
-## Further Reading
+### ignoreOnInitialization
 
-* [Variable Shadowing](https://en.wikipedia.org/wiki/Variable_shadowing)
+The `ignoreOnInitialization` option is `false` by default. If it is `true`, it prevents reporting shadowing of variables in their initializers when the shadowed variable is presumably still uninitialized.
+
+The shadowed variable must be on the left side. The shadowing variable must be on the right side and declared in a callback function or in an IIFE.
+
+Examples of **incorrect** code for the `{ "ignoreOnInitialization": "true" }` option:
+
+```js
+/*eslint no-shadow: ["error", { "ignoreOnInitialization": true }]*/
+
+var x = x => x;
+```
+
+Because the shadowing variable `x` will shadow the already initialized shadowed variable `x`.
+
+Examples of **correct** code for the `{ "ignoreOnInitialization": true }` option:
+
+```js
+/*eslint no-shadow: ["error", { "ignoreOnInitialization": true }]*/
+
+var x = foo(x => x)
+
+var y = (y => y)()
+```
+
+The rationale for callback functions is the assumption that they will be called during the initialization, so that at the time when the shadowing variable will be used, the shadowed variable has not yet been initialized.
 
 ## Related Rules
 
 * [no-shadow-restricted-names](no-shadow-restricted-names)
+
+## Further Reading
+
+* [Variable Shadowing](https://en.wikipedia.org/wiki/Variable_shadowing)
 
 ## Version
 
@@ -186,5 +216,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-shadow.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-shadow.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-shadow.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-shadow.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-shadow.md)

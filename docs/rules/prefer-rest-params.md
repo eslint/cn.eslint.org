@@ -1,12 +1,14 @@
 ---
 title: prefer-rest-params - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-rest-params.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/prefer-rest-params.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Suggest using the rest parameters instead of `arguments` (prefer-rest-params)
+# prefer-rest-params
+
+Suggests using rest parameters instead of `arguments`.
 
 There are rest parameters in ES2015.
 We can use that feature for variadic functions instead of the `arguments` variable.
@@ -78,5 +80,6 @@ This rule was introduced in ESLint 2.0.0-alpha-1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-rest-params.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-rest-params.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-rest-params.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-rest-params.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/prefer-rest-params.md)
