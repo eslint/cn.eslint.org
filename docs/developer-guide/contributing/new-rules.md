@@ -1,7 +1,7 @@
 ---
 title: 新规则
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/contributing/new-rules.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/developer-guide/contributing/new-rules.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -27,7 +27,11 @@ ESLint 的核心就是规则。在这个项目生命周期的大部分时间里�
 
 ## 提出一项规则 {#proposing-a-rule}
 
+<<<<<<< HEAD
 如果你想提议一条新规则，请查看如何 [创建一个合并请求（pull request）](/docs/developer-guide/contributing/pull-requests)，或通过填写 [新规则模板](https://github.com/eslint/eslint/issues/new?template=NEW_RULE.md) 提交一个 issue。
+=======
+If you want to propose a new rule, please see how to [create a pull request](/docs/developer-guide/contributing/pull-requests) or submit an issue by filling out a [new rule template](https://github.com/eslint/eslint/issues/new/choose).
+>>>>>>> a08629681fcb5bff8ddce3ca4e798cf973b52017
 
 我们需要所有这些信息来判断它是否满足核心规则的候选要求。
 

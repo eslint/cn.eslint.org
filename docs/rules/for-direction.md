@@ -1,14 +1,16 @@
 ---
 title: for-direction - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/for-direction.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/for-direction.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce "for" loop update clause moving the counter in the right direction. (for-direction)
+# for-direction
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Enforces `for` loop update clause moving the counter in the right direction.
 
 ## Rule Details
 
@@ -22,6 +24,9 @@ for (var i = 0; i < 10; i--) {
 }
 
 for (var i = 10; i >= 0; i++) {
+}
+
+for (var i = 0; i > 10; i++) {
 }
 ```
 
@@ -39,5 +44,6 @@ This rule was introduced in ESLint 4.0.0-beta.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/for-direction.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/for-direction.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/for-direction.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/for-direction.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/for-direction.md)

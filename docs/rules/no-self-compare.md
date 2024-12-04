@@ -1,12 +1,14 @@
 ---
 title: no-self-compare - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-self-compare.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-self-compare.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Self Compare (no-self-compare)
+# no-self-compare
+
+Disallows comparisons where both sides are exactly the same.
 
 Comparing a variable against itself is usually an error, either a typo or refactoring error. It is confusing to the reader and may potentially introduce a runtime error.
 
@@ -33,5 +35,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-self-compare.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-self-compare.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-self-compare.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-self-compare.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-self-compare.md)

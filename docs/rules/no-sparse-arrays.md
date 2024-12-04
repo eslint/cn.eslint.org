@@ -1,14 +1,16 @@
 ---
 title: no-sparse-arrays - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-sparse-arrays.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-sparse-arrays.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow sparse arrays (no-sparse-arrays)
+# no-sparse-arrays
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows sparse arrays.
 
 Sparse arrays contain empty slots, most frequently due to multiple commas being used in an array literal, such as:
 
@@ -65,5 +67,6 @@ This rule was introduced in ESLint 0.4.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-sparse-arrays.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-sparse-arrays.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-sparse-arrays.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-sparse-arrays.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-sparse-arrays.md)

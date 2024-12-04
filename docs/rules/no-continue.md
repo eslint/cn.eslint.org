@@ -1,12 +1,14 @@
 ---
 title: no-continue - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-continue.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-continue.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow `continue` statements (no-continue)
+# no-continue
+
+Disallows `continue` statements.
 
 The `continue` statement terminates execution of the statements in the current iteration of the current or labeled loop, and continues execution of the loop with the next iteration. When used incorrectly it makes code less testable, less readable and less maintainable. Structured control flow statements such as `if` should be used instead.
 
@@ -84,5 +86,6 @@ This rule was introduced in ESLint 0.19.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-continue.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-continue.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-continue.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-continue.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-continue.md)

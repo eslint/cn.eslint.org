@@ -1,14 +1,16 @@
 ---
 title: func-call-spacing - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/func-call-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/func-call-spacing.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require or disallow spacing between function identifiers and their invocations (func-call-spacing)
+# func-call-spacing
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallows spacing between function identifiers and their invocations.
 
 When calling a function, developers may insert optional whitespace between the function's name and the parentheses that invoke it. The following pairs of function calls are equivalent:
 
@@ -27,12 +29,12 @@ new Date ();
 
 This rule requires or disallows spaces between the function name and the opening parenthesis that calls it.
 
-## options
+## Options
 
 This rule has a string option:
 
-- `"never"` (default) disallows space between the function name and the opening parenthesis.
-- `"always"` requires space between the function name and the opening parenthesis.
+* `"never"` (default) disallows space between the function name and the opening parenthesis.
+* `"always"` requires space between the function name and the opening parenthesis.
 
 Further, in `"always"` mode, a second object option is available that contains a single boolean `allowNewlines` property.
 
@@ -107,12 +109,12 @@ This rule can safely be turned off if your project does not care about enforcing
 
 ## Related Rules
 
-- [no-spaced-func](no-spaced-func) (deprecated)
+* [no-spaced-func](no-spaced-func) (deprecated)
 
 ## Compatibility
 
-- **JSCS**: [disallowSpacesInCallExpression](https://jscs-dev.github.io/rule/disallowSpacesInCallExpression)
-- **JSCS**: [requireSpacesInCallExpression](https://jscs-dev.github.io/rule/requireSpacesInCallExpression)
+* **JSCS**: [disallowSpacesInCallExpression](https://jscs-dev.github.io/rule/disallowSpacesInCallExpression)
+* **JSCS**: [requireSpacesInCallExpression](https://jscs-dev.github.io/rule/requireSpacesInCallExpression)
 
 ## Version
 
@@ -120,5 +122,6 @@ This rule was introduced in ESLint 3.3.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/func-call-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/func-call-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/func-call-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/func-call-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/func-call-spacing.md)

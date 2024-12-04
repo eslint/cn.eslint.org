@@ -1,12 +1,14 @@
 ---
 title: no-new-wrappers - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-new-wrappers.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-new-wrappers.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Primitive Wrapper Instances (no-new-wrappers)
+# no-new-wrappers
+
+Disallows `new` operators with the `String`, `Number`, and `Boolean` objects.
 
 There are three primitive types in JavaScript that have wrapper objects: string, number, and boolean. These are represented by the constructors `String`, `Number`, and `Boolean`, respectively. The primitive wrapper types are used whenever one of these primitive values is read, providing them with object-like capabilities such as methods. Behind the scenes, an object of the associated wrapper type is created and then destroyed, which is why you can call methods on primitive values, such as:
 
@@ -76,14 +78,14 @@ var object = new MyString();
 
 If you want to allow the use of primitive wrapper objects, then you can safely disable this rule.
 
-## Further Reading
-
-* [Wrapper objects](https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-3/wrapper-objects)
-
 ## Related Rules
 
 * [no-array-constructor](no-array-constructor)
 * [no-new-object](no-new-object)
+
+## Further Reading
+
+* [Wrapper objects](https://www.inkling.com/read/javascript-definitive-guide-david-flanagan-6th/chapter-3/wrapper-objects)
 
 ## Version
 
@@ -91,5 +93,6 @@ This rule was introduced in ESLint 0.0.6.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-new-wrappers.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-new-wrappers.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-new-wrappers.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-new-wrappers.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-new-wrappers.md)

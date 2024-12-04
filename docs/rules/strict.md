@@ -1,14 +1,16 @@
 ---
 title: strict - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/strict.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/strict.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require or disallow strict mode directives (strict)
+# strict
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallow strict mode directives.
 
 A strict mode directive is a `"use strict"` literal at the beginning of a script or function body. It enables strict mode semantics.
 
@@ -58,6 +60,8 @@ This rule disallows strict mode directives, no matter which option is specified,
 * `"impliedStrict": true` property in the `ecmaFeatures` object
 
 This rule disallows strict mode directives, no matter which option is specified, in functions with non-simple parameter lists (for example, parameter lists with default parameter values) because that is a syntax error in **ECMAScript 2016** and later. See the examples of the [function](#function) option.
+
+This rule does not apply to class static blocks, no matter which option is specified, because class static blocks do not have directives. Therefore, a `"use strict"` statement in a class static block is not a directive, and will be reported by the [no-unused-expressions](no-unused-expressions) rule.
 
 The `--fix` option on the command line does not insert new `"use strict"` statements, but only removes unneeded statements.
 
@@ -287,5 +291,6 @@ This rule was introduced in ESLint 0.1.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/strict.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/strict.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/strict.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/strict.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/strict.md)
