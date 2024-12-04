@@ -1,14 +1,15 @@
 ---
-title: no-case-declarations - Rules
+title: no-case-declarations
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-case-declarations.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-case-declarations.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow lexical declarations in case/default clauses (no-case-declarations)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows lexical declarations in case/default clauses.
 
 This rule disallows lexical declarations (`let`, `const`, `function` and `class`)
 in `case`/`default` clauses. The reason is that the lexical declaration is visible
@@ -90,5 +91,6 @@ This rule was introduced in ESLint 1.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-case-declarations.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-case-declarations.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-case-declarations.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-case-declarations.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-case-declarations.md)

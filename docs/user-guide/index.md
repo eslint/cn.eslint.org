@@ -1,12 +1,15 @@
 ---
 title: 用户指南
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/README.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/README.md
 
 ---
+<<<<<<< HEAD
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # 用户指南 {#user-guide}
+=======
+>>>>>>> e637d8a527251c86f6f6e534e1c8a4d480a2b225
 
 本指南面向 ESLint 的终端用户。如果你正在探索如何扩展 ESLint 或者使用 ESLint 的源代码，请参阅 [开发者指南](../developer-guide)。
 
@@ -38,6 +41,7 @@ ESLint 团队致力于使升级尽可能精简并无痛。本章节概述了团�
 
 如果你在使用早期版本的 ESLint，你可以通过阅读以下内容来获得版本过渡方面的帮助：
 
+<<<<<<< HEAD
 - [迁移至 v1.0.0](migrating-to-1.0.0)
 - [迁移至 v2.0.0](migrating-to-2.0.0)
 - [迁移至 v3.0.0](migrating-to-3.0.0)
@@ -45,3 +49,12 @@ ESLint 团队致力于使升级尽可能精简并无痛。本章节概述了团�
 - [迁移至 v5.0.0](migrating-to-5.0.0)
 - [迁移至 v6.0.0](migrating-to-6.0.0)
 - [迁移至 v7.0.0](migrating-to-7.0.0)
+=======
+* [migrating-to-1.0.0](migrating-to-1.0.0)
+* [migrating-to-2.0.0](migrating-to-2.0.0)
+* [migrating-to-3.0.0](migrating-to-3.0.0)
+* [migrating-to-4.0.0](migrating-to-4.0.0)
+* [migrating-to-5.0.0](migrating-to-5.0.0)
+* [migrating-to-6.0.0](migrating-to-6.0.0)
+* [migrating-to-7.0.0](migrating-to-7.0.0)
+>>>>>>> e637d8a527251c86f6f6e534e1c8a4d480a2b225

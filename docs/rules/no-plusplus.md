@@ -1,12 +1,11 @@
 ---
-title: no-plusplus - Rules
+title: no-plusplus
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-plusplus.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-plusplus.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow the unary operators `++` and `--` (no-plusplus)
+Disallows the unary operators `++` and `--`.
 
 Because the unary `++` and `--` operators are subject to automatic semicolon insertion, differences in whitespace can change semantics of source code.
 
@@ -113,5 +112,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-plusplus.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-plusplus.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-plusplus.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-plusplus.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-plusplus.md)
