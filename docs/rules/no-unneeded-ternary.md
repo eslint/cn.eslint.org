@@ -1,14 +1,15 @@
 ---
-title: no-unneeded-ternary - Rules
+title: no-unneeded-ternary
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-unneeded-ternary.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-unneeded-ternary.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow ternary operators when simpler alternatives exist (no-unneeded-ternary)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows ternary operators when simpler alternatives exist.
 
 It's a common mistake in JavaScript to use a conditional expression to select between two Boolean values instead of using ! to convert the test to a Boolean.
 Here are some examples:
@@ -19,7 +20,6 @@ var isYes = answer === 1 ? true : false;
 
 // Good
 var isYes = answer === 1;
-
 
 // Bad
 var isNo = answer === 1 ? false : true;
@@ -107,5 +107,6 @@ This rule was introduced in ESLint 0.21.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-unneeded-ternary.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-unneeded-ternary.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-unneeded-ternary.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-unneeded-ternary.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-unneeded-ternary.md)

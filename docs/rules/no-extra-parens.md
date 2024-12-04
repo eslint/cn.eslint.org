@@ -1,14 +1,15 @@
 ---
-title: no-extra-parens - Rules
+title: no-extra-parens
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-extra-parens.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-extra-parens.md
 rule_type: layout
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow unnecessary parentheses (no-extra-parens)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows unnecessary parentheses.
 
 This rule restricts the use of parentheses to only where they are necessary.
 
@@ -299,15 +300,15 @@ a = (b * c);
 typeof (a);
 ```
 
-## Further Reading
-
-* [MDN: Operator Precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
-
 ## Related Rules
 
 * [arrow-parens](arrow-parens)
 * [no-cond-assign](no-cond-assign)
 * [no-return-assign](no-return-assign)
+
+## Further Reading
+
+* [MDN: Operator Precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 
 ## Version
 
@@ -315,5 +316,6 @@ This rule was introduced in ESLint 0.1.4.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-extra-parens.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-extra-parens.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-extra-parens.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-extra-parens.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-extra-parens.md)
