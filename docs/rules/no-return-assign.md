@@ -1,12 +1,14 @@
 ---
 title: no-return-assign - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-return-assign.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-return-assign.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Assignment in return Statement (no-return-assign)
+# no-return-assign
+
+Disallows assignment operators in `return` statements.
 
 One of the interesting, and sometimes confusing, aspects of JavaScript is that assignment can happen at almost any point. Because of this, an errant equals sign can end up causing assignment when the true intent was to do a comparison. This is especially true when using a `return` statement. For example:
 
@@ -131,5 +133,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-return-assign.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-return-assign.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-return-assign.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-return-assign.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-return-assign.md)
