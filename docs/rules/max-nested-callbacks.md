@@ -1,7 +1,7 @@
 ---
 title: max-nested-callbacks - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/max-nested-callbacks.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/max-nested-callbacks.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -76,12 +76,6 @@ function handleFoo4() {
 }
 ```
 
-## Further Reading
-
-* [Control flow in Node.js](http://book.mixu.net/node/ch7.html)
-* [Control Flow in Node](https://howtonode.org/control-flow)
-* [Control Flow in Node Part II](https://howtonode.org/control-flow-part-ii)
-
 ## Related Rules
 
 * [complexity](complexity)
@@ -92,11 +86,18 @@ function handleFoo4() {
 * [max-params](max-params)
 * [max-statements](max-statements)
 
+## Further Reading
+
+* [Control flow in Node.js](http://book.mixu.net/node/ch7.html)
+* [Control Flow in Node](https://howtonode.org/control-flow)
+* [Control Flow in Node Part II](https://howtonode.org/control-flow-part-ii)
+
 ## Version
 
 This rule was introduced in ESLint 0.2.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/max-nested-callbacks.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/max-nested-callbacks.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/max-nested-callbacks.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/max-nested-callbacks.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/max-nested-callbacks.md)
