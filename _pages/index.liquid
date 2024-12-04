@@ -21,24 +21,18 @@ homepage: true
 </div>
 
 <hr class="hr-near-below">
-{% assign tiers = "platinum,gold,silver,bronze,backers" | split: "," %}
-{% assign monthlyTotal = 0 %}
-{% assign supportersCount = 0 %}
-{% for tier in tiers %}
-    {% if sponsors[tier].size > 0 %}
-        {% for sponsor in sponsors[tier] %}
-            {% assign supportersCount = supportersCount | plus: 1 %}
-            {% assign monthlyTotal = monthlyTotal | plus: sponsor.monthlyDonation %}
-        {% endfor %}
-    {% endif %}
-{% endfor %}
-{% assign monthlyTotal = monthlyTotal | divided_by: 100 %}
 
 <div class="sponsors row">
   <div class="col-sm-12">
+<<<<<<< HEAD
     <h2 class="text-center">赞助商</h2>
     <p class="sponsor-desc text-center">总数为 {{ supportersCount }} 的公司，组织和个人目前每月会捐赠 <b>${{ monthlyTotal }}</b> 以支持 ESLint 的持续维护与发展</p>
     <p class="sponsor-btn text-center"><a class="btn btn-default" href="https://opencollective.com/eslint">成为赞助商！</a></p>
+=======
+    <h2 class="text-center">Sponsors</h2>
+    <p class="sponsor-desc text-center">{{ sponsors.totals.sponsorCount }} companies, organizations, and individuals are currently contributing <b>${{ sponsors.totals.monthlyDonations }}</b> each month to support ESLint's ongoing maintenance and development.</p>
+    <p class="sponsor-btn text-center"><a class="btn btn-default" href="https://opencollective.com/eslint">Become a Sponsor today!</a></p>
+>>>>>>> 64116f193749252e22f86d6636b5035c96bce270
     <div class="sponsor-tiers">
       {% assign tiers = "platinum,gold,silver,bronze" | split: "," %}
       {% for tier in tiers %}
