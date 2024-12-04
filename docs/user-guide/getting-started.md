@@ -1,7 +1,7 @@
 ---
 title: 快速开始
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/getting-started.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/user-guide/getting-started.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -20,7 +20,7 @@ ESLint 是用来识别 ECMAScript/JavaScript 并按照规则给出报告的代�
 
 你可以通过 npm 或 yarn 来安装 ESLint：
 
-```
+```shell
 npm install eslint --save-dev
 
 # 或者
@@ -28,26 +28,34 @@ npm install eslint --save-dev
 yarn add eslint --dev
 ```
 
+<<<<<<< HEAD
 接着需要设置配置文件，最简单的方式就是使用 `--init` 选项来进行设置：
+=======
+You should then set up a configuration file, and the easiest way to do that is:
+>>>>>>> 3c9e9bcd1421c0e9e730b3db2094811995c12f6c
 
-```
-$ npx eslint --init
+```shell
+npm init @eslint/config
 
 # 或者
 
-$ yarn run eslint --init
+yarn create @eslint/config
 ```
 
+<<<<<<< HEAD
 **注意：** `--init` 会假设你已拥有 `package.json` 文件。如果没有此文件，请先执行 `npm init` 或者 `yarn init`。
+=======
+**Note:** `npm init @eslint/config` assumes you have a `package.json` file already. If you don't, make sure to run `npm init` or `yarn init` beforehand.
+>>>>>>> 3c9e9bcd1421c0e9e730b3db2094811995c12f6c
 
 接着，可以对任意文件或目录执行 ESLint：
 
-```
-$ npx eslint yourfile.js
+```shell
+npx eslint yourfile.js
 
 # 或者
 
-$ yarn run eslint yourfile.js
+yarn run eslint yourfile.js
 ```
 
 当然，你也可以在全局安装 ESLint（使用 `npm install eslint --global`），但是，不建议这样做，因为你所使用的任何插件或可共享的配置无论何种情况下都必须安装在本地。
@@ -56,7 +64,11 @@ $ yarn run eslint yourfile.js
 
 **注意：** 如果你之前使用的版本低于 1.0.0，请查看 [迁移指南](migrating-to-1.0.0)。
 
+<<<<<<< HEAD
 运行 `eslint --init`，你的文件目录下将会生成一个 `.eslintrc.{js,yml,json}` 文件。在该文件中，你会看到许多像下面这样的配置：
+=======
+After running `npm init @eslint/config`, you'll have a `.eslintrc.{js,yml,json}` file in your directory. In it, you'll see some rules configured like this:
+>>>>>>> 3c9e9bcd1421c0e9e730b3db2094811995c12f6c
 
 ```json
 {
