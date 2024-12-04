@@ -1,14 +1,15 @@
 ---
-title: no-unused-vars - Rules
+title: no-unused-vars
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-unused-vars.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-unused-vars.md
 rule_type: problem
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Unused Variables (no-unused-vars)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows unused variables.
 
 Variables that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring. Such variables take up space in the code and can lead to confusion by readers.
 
@@ -246,6 +247,43 @@ function foo(x, _y) {
 foo();
 ```
 
+### destructuredArrayIgnorePattern
+
+The `destructuredArrayIgnorePattern` option specifies exceptions not to check for usage: elements of array destructuring patterns whose names match a regexp pattern. For example, variables whose names begin with an underscore.
+
+Examples of **correct** code for the `{ "destructuredArrayIgnorePattern": "^_" }` option:
+
+```js
+/*eslint no-unused-vars: ["error", { "destructuredArrayIgnorePattern": "^_" }]*/
+
+const [a, _b, c] = ["a", "b", "c"];
+console.log(a+c);
+
+const { x: [_a, foo] } = bar;
+console.log(foo);
+
+function baz([_c, x]) {
+    x;
+}
+baz();
+
+function test({p: [_q, r]}) {
+    r;
+}
+test();
+
+let _m, n;
+foo.forEach(item => {
+    [_m, n] = item;
+    console.log(n);
+});
+
+let _o, p;
+_o = 1;
+[_o, p] = foo;
+p;
+```
+
 ### caughtErrors
 
 The `caughtErrors` option is used for `catch` block arguments validation.
@@ -303,7 +341,6 @@ try {
 }
 ```
 
-
 ## When Not To Use It
 
 If you don't want to be notified about unused variables or function arguments, you can safely turn this rule off.
@@ -314,5 +351,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-unused-vars.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-unused-vars.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-unused-vars.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-unused-vars.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-unused-vars.md)

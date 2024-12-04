@@ -1,14 +1,15 @@
 ---
-title: eol-last - Rules
+title: eol-last
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/eol-last.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/eol-last.md
 rule_type: layout
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require or disallow newline at the end of files (eol-last)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallows newline at the end of files.
 
 Trailing newlines in non-empty files are a common UNIX idiom. Benefits of
 trailing newlines include the ability to concatenate or append to files as well
@@ -61,5 +62,6 @@ This rule was introduced in ESLint 0.7.1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/eol-last.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/eol-last.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/eol-last.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/eol-last.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/eol-last.md)

@@ -1,14 +1,15 @@
 ---
-title: arrow-spacing - Rules
+title: arrow-spacing
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/arrow-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/arrow-spacing.md
 rule_type: layout
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require space before/after arrow function's arrow (arrow-spacing)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires space before/after arrow function's arrow.
 
 This rule normalize style of spacing before/after an arrow function's arrow(`=>`).
 
@@ -108,5 +109,6 @@ This rule was introduced in ESLint 1.0.0-rc-1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/arrow-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/arrow-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/arrow-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/arrow-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/arrow-spacing.md)
