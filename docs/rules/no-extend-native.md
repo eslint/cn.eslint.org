@@ -1,12 +1,14 @@
 ---
 title: no-extend-native - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-extend-native.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-extend-native.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Extending of Native Objects (no-extend-native)
+# no-extend-native
+
+Disallows extending of native objects.
 
 In JavaScript, you can extend any object, including builtin or "native" objects. Sometimes people change the behavior of these native objects in ways that break the assumptions made about them in other parts of the code.
 
@@ -88,5 +90,6 @@ This rule was introduced in ESLint 0.1.4.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-extend-native.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-extend-native.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-extend-native.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-extend-native.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-extend-native.md)

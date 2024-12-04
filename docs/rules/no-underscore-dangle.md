@@ -1,12 +1,14 @@
 ---
 title: no-underscore-dangle - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-underscore-dangle.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-underscore-dangle.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow dangling underscores in identifiers (no-underscore-dangle)
+# no-underscore-dangle
+
+Disallows dangling underscores in identifiers.
 
 As far as naming conventions for identifiers go, dangling underscores may be the most polarizing in JavaScript. Dangling underscores are underscores at either the beginning or end of an identifier, such as:
 
@@ -50,12 +52,12 @@ const foo = (_bar) => {};
 
 This rule has an object option:
 
--  `"allow"` allows specified identifiers to have dangling underscores
--  `"allowAfterThis": false` (default) disallows dangling underscores in members of the `this` object
--  `"allowAfterSuper": false` (default) disallows dangling underscores in members of the `super` object
--  `"allowAfterThisConstructor": false` (default) disallows dangling underscores in members of the `this.constructor` object
--  `"enforceInMethodNames": false` (default) allows dangling underscores in method names
--  `"allowFunctionParams": true` (default) allows dangling underscores in function parameter names
+* `"allow"` allows specified identifiers to have dangling underscores
+* `"allowAfterThis": false` (default) disallows dangling underscores in members of the `this` object
+* `"allowAfterSuper": false` (default) disallows dangling underscores in members of the `super` object
+* `"allowAfterThisConstructor": false` (default) disallows dangling underscores in members of the `this.constructor` object
+* `"enforceInMethodNames": false` (default) allows dangling underscores in method names
+* `"allowFunctionParams": true` (default) allows dangling underscores in function parameter names
 
 ### allow
 
@@ -155,5 +157,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-underscore-dangle.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-underscore-dangle.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-underscore-dangle.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-underscore-dangle.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-underscore-dangle.md)
