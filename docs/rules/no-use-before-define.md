@@ -1,7 +1,7 @@
 ---
 title: no-use-before-define - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-use-before-define.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-use-before-define.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -20,7 +20,6 @@ Examples of **incorrect** code for this rule:
 
 ```js
 /*eslint no-use-before-define: "error"*/
-/*eslint-env es6*/
 
 alert(a);
 var a = 10;
@@ -37,13 +36,29 @@ var b = 1;
     alert(c);
     let c = 1;
 }
+
+{
+    class C extends C {}
+}
+
+{
+    class C {
+        static x = "foo";
+        [C.x]() {}
+    }
+}
+
+{
+    const C = class {
+        static x = C;
+    }
+}
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
 /*eslint no-use-before-define: "error"*/
-/*eslint-env es6*/
 
 var a;
 a = 10;
@@ -60,6 +75,24 @@ function g() {
 {
     let c;
     c++;
+}
+
+{
+    class C {
+        static x = C;
+    }
+}
+
+{
+    const C = class C {
+        static x = C;
+    }
+}
+
+{
+    const C = class {
+        x = C;
+    }
 }
 ```
 
@@ -111,10 +144,25 @@ Examples of **incorrect** code for the `{ "classes": false }` option:
 
 ```js
 /*eslint no-use-before-define: ["error", { "classes": false }]*/
-/*eslint-env es6*/
 
 new A();
 class A {
+}
+
+{
+    class C extends C {}
+}
+
+{
+    class C extends D {}
+    class D {}
+}
+
+{
+    class C {
+        static x = "foo";
+        [C.x]() {}
+    }
 }
 ```
 
@@ -122,7 +170,6 @@ Examples of **correct** code for the `{ "classes": false }` option:
 
 ```js
 /*eslint no-use-before-define: ["error", { "classes": false }]*/
-/*eslint-env es6*/
 
 function foo() {
     return new A();
@@ -147,6 +194,19 @@ const f = () => {};
 
 g();
 const g = function() {};
+
+{
+    const C = class {
+        static x = C;
+    }
+}
+
+{
+    const C = class {
+        static x = foo;
+    }
+    const foo = 1;
+}
 ```
 
 Examples of **correct** code for the `{ "variables": false }` option:
@@ -166,6 +226,13 @@ const f = () => {};
 
 const e = function() { return g(); }
 const g = function() {}
+
+{
+    const C = class {
+        x = foo;
+    }
+    const foo = 1;
+}
 ```
 
 ## Version
@@ -174,5 +241,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-use-before-define.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-use-before-define.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-use-before-define.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-use-before-define.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-use-before-define.md)
