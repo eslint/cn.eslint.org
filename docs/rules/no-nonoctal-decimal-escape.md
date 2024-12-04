@@ -1,7 +1,7 @@
 ---
 title: no-nonoctal-decimal-escape - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-nonoctal-decimal-escape.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-nonoctal-decimal-escape.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -65,13 +65,13 @@ var baz = "Don't use \\8 and \\9 escapes.";
 var quux = "\0\u0038";
 ```
 
-## Further Reading
-
-* [NonOctalDecimalEscapeSequence](https://tc39.es/ecma262/#prod-annexB-NonOctalDecimalEscapeSequence) in ECMAScript specification
-
 ## Related Rules
 
 * [no-octal-escape](no-octal-escape)
+
+## Further Reading
+
+* [NonOctalDecimalEscapeSequence](https://tc39.es/ecma262/#prod-annexB-NonOctalDecimalEscapeSequence) in ECMAScript specification
 
 ## Version
 
@@ -79,5 +79,6 @@ This rule was introduced in ESLint 7.14.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-nonoctal-decimal-escape.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-nonoctal-decimal-escape.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-nonoctal-decimal-escape.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-nonoctal-decimal-escape.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-nonoctal-decimal-escape.md)

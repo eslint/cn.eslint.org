@@ -1,13 +1,12 @@
 ---
 title: Ignoring Code
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/configuring/ignoring-code.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/user-guide/configuring/ignoring-code.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
 # Ignoring Code
-
 
 * [`ignorePatterns` in Config Files](#ignorepatterns-in-config-files)
 * [The `.eslintignore` File](#the-eslintignore-file)

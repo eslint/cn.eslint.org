@@ -1,7 +1,7 @@
 ---
 title: no-invalid-this - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-invalid-this.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-invalid-this.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -26,13 +26,18 @@ This rule judges from following conditions whether or not the function is a meth
 
 * The function is on an object literal.
 * The function is assigned to a property.
-* The function is a method/getter/setter of ES2015 Classes. (excepts static methods)
+* The function is a method/getter/setter of ES2015 Classes.
 
 And this rule allows `this` keywords in functions below:
 
 * The `call/apply/bind` method of the function is called directly.
 * The function is a callback of array methods (such as `.forEach()`) if `thisArg` is given.
 * The function has `@this` tag in its JSDoc comment.
+
+And this rule always allows `this` keywords in the following contexts:
+
+* In class field initializers.
+* In class static blocks.
 
 Otherwise are considered problems.
 
@@ -174,6 +179,13 @@ Foo.prototype.foo = function foo() {
 };
 
 class Foo {
+
+    // OK, this is in a class field initializer.
+    a = this.b;
+
+    // OK, static initializers also have valid this.
+    static a = this.b;
+
     foo() {
         // OK, this is in a method.
         this.a = 0;
@@ -182,6 +194,12 @@ class Foo {
 
     static foo() {
         // OK, this is in a method (static methods also have valid this).
+        this.a = 0;
+        baz(() => this);
+    }
+
+    static {
+        // OK, static blocks also have valid this.
         this.a = 0;
         baz(() => this);
     }
@@ -264,5 +282,6 @@ This rule was introduced in ESLint 1.0.0-rc-2.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-invalid-this.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-invalid-this.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-invalid-this.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-invalid-this.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-invalid-this.md)
