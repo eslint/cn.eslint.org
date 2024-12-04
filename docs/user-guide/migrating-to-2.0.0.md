@@ -1,7 +1,7 @@
 ---
 title: Migrating to v2.0.0
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/user-guide/migrating-to-2.0.0.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/user-guide/migrating-to-2.0.0.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -293,7 +293,7 @@ if (variable) {
 }
 ```
 
-Further Reading: https://estools.github.io/escope/
+Further Reading: <https://estools.github.io/escope/>
 
 ## Default Changes When Using `eslint:recommended`
 
@@ -315,7 +315,7 @@ The rule `func-style` has a default configuration of `"expression"`, but in ESLi
 
 ESLint 2.0.0 removes these conflicting defaults, and so you may begin seeing linting errors related to these rules.
 
-**To address:**  If you would like to maintain the previous behavior, update your configuration for `no-multiple-empty-lines` by adding `{"max": 2}`, and change `func-style` to `"declaration"`. For example:
+**To address:** If you would like to maintain the previous behavior, update your configuration for `no-multiple-empty-lines` by adding `{"max": 2}`, and change `func-style` to `"declaration"`. For example:
 
 ```json
 {

@@ -1,14 +1,16 @@
 ---
 title: quotes - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/quotes.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/quotes.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce the consistent use of either backticks, double, or single quotes (quotes)
+# quotes
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces the consistent use of either backticks, double, or single quotes.
 
 JavaScript allows you to define strings in one of three ways: double quotes, single quotes, and backticks (as of ECMAScript 6). For example:
 
@@ -157,7 +159,7 @@ var single = 'single';
 var single = `single`;
 ```
 
-`{ "allowTemplateLiterals": false }` will not disallow the usage of all template literals. If you want to forbid any instance of template literals, use [no-restricted-syntax](https://eslint.org/docs/rules/no-restricted-syntax) and target the `TemplateLiteral` selector.
+`{ "allowTemplateLiterals": false }` will not disallow the usage of all template literals. If you want to forbid any instance of template literals, use [no-restricted-syntax](no-restricted-syntax) and target the `TemplateLiteral` selector.
 
 ## When Not To Use It
 
@@ -169,5 +171,6 @@ This rule was introduced in ESLint 0.0.7.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/quotes.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/quotes.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/quotes.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/quotes.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/quotes.md)

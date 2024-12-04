@@ -1,14 +1,16 @@
 ---
 title: no-useless-return - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-useless-return.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-useless-return.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow redundant return statements (no-useless-return)
+# no-useless-return
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Disallows redundant return statements.
 
 A `return;` statement with nothing after it is redundant, and has no effect on the runtime behavior of a function. This can be confusing, so it's better to disallow these redundant statements.
 
@@ -98,5 +100,6 @@ This rule was introduced in ESLint 3.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-useless-return.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-useless-return.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-useless-return.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-useless-return.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-useless-return.md)

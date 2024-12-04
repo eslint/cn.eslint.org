@@ -1,10 +1,16 @@
 ---
-title: "A year of paying contributors: Review"
+layout: post
+title: 'A year of paying contributors: Review'
+teaser: "As part of the goals of the ESLint Collective, we have been paying contributors over the past year. We share the different approaches we tried and their results. We value the time of our contributors and we are continuously finding better ways to reward their work."
 tags:
   - Sponsorships
   - Donations
   - Contributors
   - Sustainability
+authors:
+  - nzakas
+categories:
+  - Financials
 ---
 
 It was in February of 2019 that we announced the launch of the [ESLint Collective](https://eslint.org/blog/2019/02/funding-eslint-future) to fund ESLint's ongoing development. One of the primary reasons for seeking funding was due to the increasing amount of time required to maintain a project that, as of today, is downloaded over 13 million times each week. We waited until the last quarter of 2019 before we started paying contributors because we wanted to see what our monthly sponsorships would stabilize at and so we'd have some money saved to guarantee a certain amount would be available to pay contributors. Since then, we've tried a few different approaches with varying degrees of success and failure, and we'd like to share that experience.
