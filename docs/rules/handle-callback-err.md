@@ -1,12 +1,14 @@
 ---
-title: handle-callback-err - Rules
+title: handle-callback-err
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/handle-callback-err.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/handle-callback-err.md
 rule_type: suggestion
+further_reading:
+- https://github.com/maxogden/art-of-node#callbacks
+- https://web.archive.org/web/20171224042620/https://docs.nodejitsu.com/articles/errors/what-are-the-error-conventions/
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforce Callback Error Handling (handle-callback-err)
+Enforces callback error handling.
 
 This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
 
@@ -85,16 +87,12 @@ If the configured name of the error variable begins with a `^` it is considered 
 There are cases where it may be safe for your application to ignore errors, however only ignore errors if you are
 confident that some other form of monitoring will help you catch the problem.
 
-## Further Reading
-
-* [The Art Of Node: Callbacks](https://github.com/maxogden/art-of-node#callbacks)
-* [Nodejitsu: What are the error conventions?](https://docs.nodejitsu.com/articles/errors/what-are-the-error-conventions/)
-
 ## Version
 
 This rule was introduced in ESLint 0.4.5.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/handle-callback-err.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/handle-callback-err.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/handle-callback-err.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/handle-callback-err.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/handle-callback-err.md)

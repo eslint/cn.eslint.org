@@ -1,12 +1,14 @@
 ---
-title: sort-keys - Rules
+title: sort-keys
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/sort-keys.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/sort-keys.md
 rule_type: suggestion
+related_rules:
+- sort-imports
+- sort-vars
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require object keys to be sorted (sort-keys)
+Requires object keys to be sorted.
 
 When declaring multiple properties, some developers prefer to sort property names alphabetically to more easily find and/or diff necessary properties at a later time. Others feel that it adds complexity and becomes burden to maintain.
 
@@ -205,7 +207,7 @@ let obj = {
 Examples of **correct** code for the `{minKeys: 4}` option:
 
 ```js
-/*eslint sort-keys: ["error", "asc", {minKeys: 4}]*//
+/*eslint sort-keys: ["error", "asc", {minKeys: 4}]*/
 /*eslint-env es6*/
 
 // 3 keys
@@ -226,11 +228,6 @@ let obj = {
 
 If you don't want to notify about properties' order, then it's safe to disable this rule.
 
-## Related Rules
-
-* [sort-imports](sort-imports)
-* [sort-vars](sort-vars)
-
 ## Compatibility
 
 * **JSCS:** [validateOrderInObjectKeys](https://jscs-dev.github.io/rule/validateOrderInObjectKeys)
@@ -241,5 +238,6 @@ This rule was introduced in ESLint 3.3.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/sort-keys.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/sort-keys.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/sort-keys.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/sort-keys.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/sort-keys.md)

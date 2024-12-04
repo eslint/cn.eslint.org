@@ -1,14 +1,17 @@
 ---
-title: no-new-symbol - Rules
+title: no-new-symbol
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-new-symbol.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-new-symbol.md
 rule_type: problem
+further_reading:
+- https://www.ecma-international.org/ecma-262/6.0/#sec-symbol-objects
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Symbol Constructor (no-new-symbol)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows `new` operators with the `Symbol` object.
 
 `Symbol` is not intended to be used with the `new` operator, but to be called as a function.
 
@@ -41,7 +44,6 @@ Examples of **correct** code for this rule:
 
 var foo = Symbol('foo');
 
-
 // Ignores shadowed Symbol.
 function bar(Symbol) {
     const baz = new Symbol("baz");
@@ -53,15 +55,12 @@ function bar(Symbol) {
 
 This rule should not be used in ES3/5 environments.
 
-## Further Reading
-
-* [Symbol Objects specification](https://www.ecma-international.org/ecma-262/6.0/#sec-symbol-objects)
-
 ## Version
 
 This rule was introduced in ESLint 2.0.0-beta.1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-new-symbol.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-new-symbol.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-new-symbol.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-new-symbol.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-new-symbol.md)

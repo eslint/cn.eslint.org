@@ -1,12 +1,16 @@
 ---
-title: guard-for-in - Rules
+title: guard-for-in
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/guard-for-in.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/guard-for-in.md
 rule_type: suggestion
+related_rules:
+- no-prototype-builtins
+further_reading:
+- https://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/
+- https://2ality.com/2012/01/objects-as-maps.html
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require Guarding for-in (guard-for-in)
+Requires `for in` loops to include an `if` statement.
 
 Looping over objects with a `for in` loop will include properties that are inherited through the prototype chain. This behavior can lead to unexpected items in your for loop.
 
@@ -50,20 +54,12 @@ for (key in foo) {
 }
 ```
 
-## Related Rules
-
-* [no-prototype-builtins](no-prototype-builtins)
-
-## Further Reading
-
-* [Exploring JavaScript for-in loops](https://javascriptweblog.wordpress.com/2011/01/04/exploring-javascript-for-in-loops/)
-* [The pitfalls of using objects as maps in JavaScript](http://2ality.com/2012/01/objects-as-maps.html)
-
 ## Version
 
 This rule was introduced in ESLint 0.0.6.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/guard-for-in.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/guard-for-in.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/guard-for-in.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/guard-for-in.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/guard-for-in.md)

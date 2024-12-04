@@ -1,14 +1,18 @@
 ---
-title: quote-props - Rules
+title: quote-props
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/quote-props.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/quote-props.md
 rule_type: suggestion
+further_reading:
+- https://kangax.github.io/compat-table/es5/#Reserved_words_as_property_names
+- https://mathiasbynens.be/notes/javascript-properties
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require quotes around object literal property names (quote-props)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires quotes around object literal property names.
 
 Object literal property names can be defined in two ways: using literals or using strings. For example, these two objects are equivalent:
 
@@ -272,16 +276,12 @@ var x = {
 
 If you don't care if property names are consistently wrapped in quotes or not, and you don't target legacy ES3 environments, turn this rule off.
 
-## Further Reading
-
-* [Reserved words as property names](https://kangax.github.io/compat-table/es5/#Reserved_words_as_property_names)
-* [Unquoted property names / object keys in JavaScript](https://mathiasbynens.be/notes/javascript-properties)
-
 ## Version
 
 This rule was introduced in ESLint 0.0.6.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/quote-props.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/quote-props.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/quote-props.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/quote-props.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/quote-props.md)

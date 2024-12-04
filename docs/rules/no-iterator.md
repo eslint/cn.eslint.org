@@ -1,12 +1,15 @@
 ---
-title: no-iterator - Rules
+title: no-iterator
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-iterator.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-iterator.md
 rule_type: suggestion
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
+- https://kangax.github.io/es5-compat-table/es6/#Iterators
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#Object_methods
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Iterator (no-iterator)
+Disallows the use of the `__iterator__` property.
 
 The `__iterator__` property was a SpiderMonkey extension to JavaScript that could be used to create custom iterators that are compatible with JavaScript's `for in` and `for each` constructs. However, this property is now obsolete, so it should not be used. Here's an example of how this used to work:
 
@@ -45,17 +48,12 @@ Examples of **correct** code for this rule:
 var __iterator__ = foo; // Not using the `__iterator__` property.
 ```
 
-## Further Reading
-
-* [MDN - Iterators and Generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)
-* [ECMAScript 6 compatibility table - Iterators](https://kangax.github.io/es5-compat-table/es6/#Iterators)
-* [Deprecated and Obsolete Features](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#Object_methods)
-
 ## Version
 
 This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-iterator.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-iterator.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-iterator.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-iterator.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-iterator.md)
