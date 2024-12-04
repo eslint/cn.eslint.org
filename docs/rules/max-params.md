@@ -1,12 +1,14 @@
 ---
 title: max-params - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/max-params.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/max-params.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce a maximum number of parameters in function definitions (max-params)
+# max-params
+
+Enforces a maximum number of parameters in function definitions.
 
 Functions that take numerous parameters can be difficult to read and write because it requires the memorization of what each parameter is, its type, and the order they should appear in. As a result, many coders adhere to a convention that caps the number of parameters a function can take.
 
@@ -76,5 +78,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/max-params.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/max-params.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/max-params.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/max-params.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/max-params.md)

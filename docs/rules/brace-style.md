@@ -1,14 +1,16 @@
 ---
 title: brace-style - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/brace-style.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/brace-style.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require Brace Style (brace-style)
+# brace-style
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces consistent brace style for blocks.
 
 Brace style is closely related to [indent style](https://en.wikipedia.org/wiki/Indent_style) in programming and describes the placement of braces relative to their control statement and body. There are probably a dozen, if not more, brace styles in the world.
 
@@ -95,6 +97,14 @@ if (foo) {
 else {
   baz();
 }
+
+class C
+{
+    static
+    {
+        foo();
+    }
+}
 ```
 
 Examples of **correct** code for this rule with the default `"1tbs"` option:
@@ -120,6 +130,12 @@ try {
   somethingRisky();
 } catch(e) {
   handleError();
+}
+
+class C {
+    static {
+        foo();
+    }
 }
 
 // when there are no braces, there are no problems
@@ -160,6 +176,12 @@ if (foo) { baz(); } else if (bar) {
 try { somethingRisky(); } catch(e) {
   handleError();
 }
+
+class C {
+    static { foo(); }
+}
+
+class D { static { foo(); } }
 ```
 
 ### stroustrup
@@ -185,6 +207,14 @@ try
 } catch(e)
 {
   handleError();
+}
+
+class C
+{
+    static
+    {
+        foo();
+    }
 }
 
 if (foo) {
@@ -221,6 +251,12 @@ catch(e) {
   handleError();
 }
 
+class C {
+    static {
+        foo();
+    }
+}
+
 // when there are no braces, there are no problems
 if (foo) bar();
 else if (baz) boom();
@@ -240,6 +276,12 @@ else { baz(); }
 
 try { somethingRisky(); }
 catch(e) { handleError(); }
+
+class C {
+    static { foo(); }
+}
+
+class D { static { foo(); } }
 ```
 
 ### allman
@@ -263,6 +305,12 @@ try
 } catch(e)
 {
   handleError();
+}
+
+class C {
+    static {
+        foo();
+    }
 }
 
 if (foo) {
@@ -305,6 +353,14 @@ catch(e)
   handleError();
 }
 
+class C
+{
+    static
+    {
+        foo();
+    }
+}
+
 // when there are no braces, there are no problems
 if (foo) bar();
 else if (baz) boom();
@@ -324,11 +380,26 @@ else { baz(); }
 
 try { somethingRisky(); }
 catch(e) { handleError(); }
+
+class C
+{
+    static { foo(); }
+
+    static
+    { foo(); }
+}
+
+class D { static { foo(); } }
 ```
 
 ## When Not To Use It
 
 If you don't want to enforce a particular brace style, don't enable this rule.
+
+## Related Rules
+
+* [block-spacing](block-spacing)
+* [space-before-blocks](space-before-blocks)
 
 ## Further Reading
 
@@ -340,5 +411,6 @@ This rule was introduced in ESLint 0.0.7.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/brace-style.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/brace-style.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/brace-style.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/brace-style.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/brace-style.md)

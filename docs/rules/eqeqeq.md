@@ -1,14 +1,16 @@
 ---
 title: eqeqeq - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/eqeqeq.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/eqeqeq.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Require === and !== (eqeqeq)
+# eqeqeq
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires the use of `===` and `!==`.
 
 It is considered good practice to use the type-safe equality operators `===` and `!==` instead of their regular counterparts `==` and `!=`.
 
@@ -140,5 +142,6 @@ This rule was introduced in ESLint 0.0.2.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/eqeqeq.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/eqeqeq.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/eqeqeq.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/eqeqeq.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/eqeqeq.md)

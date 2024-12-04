@@ -1,16 +1,16 @@
 ---
 title: lines-around-comment - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/lines-around-comment.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/lines-around-comment.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require empty lines around comments (lines-around-comment)
+# lines-around-comment
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
-This rule was **deprecated** in ESLint v4.0.0 and replaced by the [`padding-line-between-statements`](padding-line-between-statements) rule.
+Requires empty lines around comments.
 
 Many style guides require empty lines before or after comments. The primary goal
 of these rules is to make the comments easier to read and improve readability of the code.
@@ -27,8 +27,8 @@ This rule has an object option:
 * `"afterBlockComment": true` requires an empty line after block comments
 * `"beforeLineComment": true` requires an empty line before line comments
 * `"afterLineComment": true` requires an empty line after line comments
-* `"allowBlockStart": true` allows comments to appear at the start of block statements
-* `"allowBlockEnd": true` allows comments to appear at the end of block statements
+* `"allowBlockStart": true` allows comments to appear at the start of block statements, function bodies, classes, and class static blocks
+* `"allowBlockEnd": true` allows comments to appear at the end of block statements, function bodies, classes, and class static blocks
 * `"allowObjectStart": true` allows comments to appear at the start of object literals
 * `"allowObjectEnd": true` allows comments to appear at the end of object literals
 * `"allowArrayStart": true` allows comments to appear at the start of array literals
@@ -37,7 +37,6 @@ This rule has an object option:
 * `"allowClassEnd": true` allows comments to appear at the end of classes
 * `"applyDefaultIgnorePatterns"` enables or disables the default comment patterns to be ignored by the rule
 * `"ignorePattern"` custom patterns to be ignored by the rule
-
 
 ### beforeBlockComment
 
@@ -145,6 +144,25 @@ function foo(){
     var day = "great"
     return day;
 }
+
+if (bar) {
+    // what a great and wonderful day
+    foo();
+}
+
+class C {
+    // what a great and wonderful day
+
+    method() {
+        // what a great and wonderful day
+        foo();
+    }
+
+    static {
+        // what a great and wonderful day
+        foo();
+    }
+}
 ```
 
 Examples of **correct** code for this rule with the `{ "beforeBlockComment": true, "allowBlockStart": true }` options:
@@ -156,6 +174,25 @@ function foo(){
     /* what a great and wonderful day */
     var day = "great"
     return day;
+}
+
+if (bar) {
+    /* what a great and wonderful day */
+    foo();
+}
+
+class C {
+    /* what a great and wonderful day */
+
+    method() {
+        /* what a great and wonderful day */
+        foo();
+    }
+
+    static {
+        /* what a great and wonderful day */
+        foo();
+    }
 }
 ```
 
@@ -171,6 +208,26 @@ function foo(){
     return day;
     // what a great and wonderful day
 }
+
+if (bar) {
+    foo();
+    // what a great and wonderful day
+}
+
+class C {
+
+    method() {
+        foo();
+        // what a great and wonderful day
+    }
+
+    static {
+        foo();
+        // what a great and wonderful day
+    }
+
+    // what a great and wonderful day
+}
 ```
 
 Examples of **correct** code for this rule with the `{ "afterBlockComment": true, "allowBlockEnd": true }` option:
@@ -181,6 +238,29 @@ Examples of **correct** code for this rule with the `{ "afterBlockComment": true
 function foo(){
     var day = "great"
     return day;
+
+    /* what a great and wonderful day */
+}
+
+if (bar) {
+    foo();
+
+    /* what a great and wonderful day */
+}
+
+class C {
+
+    method() {
+        foo();
+
+        /* what a great and wonderful day */
+    }
+
+    static {
+        foo();
+
+        /* what a great and wonderful day */
+    }
 
     /* what a great and wonderful day */
 }
@@ -446,7 +526,6 @@ const [
 ] = ["great", "not great"];
 ```
 
-
 ### ignorePattern
 
 By default this rule ignores comments starting with the following words: `eslint`, `jshint`, `jslint`, `istanbul`, `global`, `exported`, `jscs`. To ignore more comments in addition to the defaults, set the `ignorePattern` option to a string pattern that will be passed to the [`RegExp` constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp).
@@ -499,7 +578,6 @@ foo();
 
 ```
 
-
 ## When Not To Use It
 
 Many people enjoy a terser code style and don't mind comments bumping up against code. If you fall into that category this rule is not for you.
@@ -515,5 +593,6 @@ This rule was introduced in ESLint 0.22.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/lines-around-comment.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/lines-around-comment.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/lines-around-comment.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/lines-around-comment.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/lines-around-comment.md)
