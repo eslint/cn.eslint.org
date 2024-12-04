@@ -1,7 +1,7 @@
 ---
 title: block-scoped-var - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/block-scoped-var.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/block-scoped-var.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -49,6 +49,15 @@ function doFor() {
     }
     console.log(y);
 }
+
+class C {
+    static {
+        if (something) {
+            var build = true;
+        }
+        build = false;
+    }
+}
 ```
 
 Examples of **correct** code for this rule:
@@ -93,6 +102,15 @@ function doFor() {
         console.log(y);
     }
 }
+
+class C {
+    static {
+        var build = false;
+        if (something) {
+            build = true;
+        }
+    }
+}
 ```
 
 ## Further Reading
@@ -106,5 +124,6 @@ This rule was introduced in ESLint 0.1.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/block-scoped-var.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/block-scoped-var.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/block-scoped-var.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/block-scoped-var.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/block-scoped-var.md)
