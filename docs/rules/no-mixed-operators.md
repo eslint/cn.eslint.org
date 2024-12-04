@@ -1,12 +1,14 @@
 ---
 title: no-mixed-operators - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-mixed-operators.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-mixed-operators.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow mixes of different operators (no-mixed-operators)
+# no-mixed-operators
+
+Disallows mixes of different operators.
 
 Enclosing complex expressions by parentheses clarifies the developer's intention, which makes the code more readable.
 This rule warns when different operators are used consecutively without parentheses in an expression.
@@ -28,7 +30,7 @@ var foo = a && b || c || d;
 
 will generate
 
-```sh
+```shell
 1:13  Unexpected mix of '&&' and '||'. (no-mixed-operators)
 1:18  Unexpected mix of '&&' and '||'. (no-mixed-operators)
 ```
@@ -39,11 +41,10 @@ var foo = a && b ? c : d;
 
 will generate
 
-```sh
+```shell
 1:13  Unexpected mix of '&&' and '?:'. (no-mixed-operators)
 1:18  Unexpected mix of '&&' and '?:'. (no-mixed-operators)
 ```
-
 
 ## Rule Details
 
@@ -207,5 +208,6 @@ This rule was introduced in ESLint 2.12.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-mixed-operators.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-mixed-operators.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-mixed-operators.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-mixed-operators.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-mixed-operators.md)
