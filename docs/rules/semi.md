@@ -1,14 +1,16 @@
 ---
 title: semi - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/semi.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/semi.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require or disallow semicolons instead of ASI (semi)
+# semi
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Requires or disallows semicolons instead of ASI.
 
 JavaScript doesn't require semicolons at the end of each statement. In many cases, the JavaScript engine can determine that a semicolon should be in a certain spot and will automatically add it. This feature is known as **automatic semicolon insertion (ASI)** and is considered one of the more controversial features of JavaScript. For example, the following lines are both valid:
 
@@ -182,6 +184,14 @@ Examples of additional **correct** code for this rule with the `"always", { "omi
 if (foo) { bar() }
 
 if (foo) { bar(); baz() }
+
+function f() { bar(); baz() }
+
+class C {
+    foo() { bar(); baz() }
+
+    static { bar(); baz() }
+}
 ```
 
 #### beforeStatementContinuationChars
@@ -212,16 +222,16 @@ import a from "a"
 
 If you do not want to enforce semicolon usage (or omission) in any particular way, then you can turn this rule off.
 
-## Further Reading
-
-* [An Open Letter to JavaScript Leaders Regarding Semicolons](http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding)
-* [JavaScript Semicolon Insertion](http://inimino.org/~inimino/blog/javascript_semicolons)
-
 ## Related Rules
 
 * [no-extra-semi](no-extra-semi)
 * [no-unexpected-multiline](no-unexpected-multiline)
 * [semi-spacing](semi-spacing)
+
+## Further Reading
+
+* [An Open Letter to JavaScript Leaders Regarding Semicolons](http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding)
+* [JavaScript Semicolon Insertion](http://inimino.org/~inimino/blog/javascript_semicolons)
 
 ## Version
 
@@ -229,5 +239,6 @@ This rule was introduced in ESLint 0.0.6.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/semi.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/semi.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/semi.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/semi.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/semi.md)

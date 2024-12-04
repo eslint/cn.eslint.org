@@ -1,14 +1,16 @@
 ---
 title: comma-style - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/comma-style.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/comma-style.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Comma style (comma-style)
+# comma-style
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces consistent comma styles.
 
 The Comma Style rule enforces styles for comma-separated lists. There are two comma styles primarily used in JavaScript:
 
@@ -167,6 +169,9 @@ var o = {fst:1,
 
 This rule can safely be turned off if your project does not care about enforcing a consistent comma style.
 
+## Related Rules
+
+* [operator-linebreak](operator-linebreak)
 
 ## Further Reading
 
@@ -175,16 +180,12 @@ For more information on the Comma First style:
 * [A better coding convention for lists and object literals in JavaScript by isaacs](https://gist.github.com/isaacs/357981)
 * [npm coding style guideline](https://docs.npmjs.com/misc/coding-style)
 
-
-## Related Rules
-
-* [operator-linebreak](operator-linebreak)
-
 ## Version
 
 This rule was introduced in ESLint 0.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/comma-style.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/comma-style.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/comma-style.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/comma-style.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/comma-style.md)
