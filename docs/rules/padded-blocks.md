@@ -1,7 +1,7 @@
 ---
 title: padded-blocks - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/padded-blocks.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/padded-blocks.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -37,12 +37,12 @@ The second one is an object option, it can allow exceptions.
 
 String option:
 
-* `"always"` (default) requires empty lines at the beginning and ending of block statements and classes
-* `"never"` disallows empty lines at the beginning and ending of block statements and classes
+* `"always"` (default) requires empty lines at the beginning and ending of block statements, function bodies, class static blocks, classes, and `switch` statements.
+* `"never"` disallows empty lines at the beginning and ending of block statements, function bodies, class static blocks, classes, and `switch` statements.
 
 Object option:
 
-* `"blocks"` require or disallow padding within block statements
+* `"blocks"` require or disallow padding within block statements, function bodies, and class static blocks
 * `"classes"` require or disallow padding within classes
 * `"switches"` require or disallow padding within `switch` statements
 
@@ -78,6 +78,12 @@ if (a) {
     b();
 
 }
+
+class C {
+    static {
+        a();
+    }
+}
 ```
 
 Examples of **correct** code for this rule with the default `"always"` option:
@@ -102,6 +108,16 @@ if (a) {
 
     // comment
     b();
+
+}
+
+class C {
+
+    static {
+
+        a();
+
+    }
 
 }
 ```
@@ -135,6 +151,16 @@ if (a) {
     b();
 
 }
+
+class C {
+
+    static {
+
+        a();
+
+    }
+
+}
 ```
 
 Examples of **correct** code for this rule with the `"never"` option:
@@ -149,6 +175,12 @@ if (a) {
 if (a)
 {
     b();
+}
+
+class C {
+    static {
+        a();
+    }
 }
 ```
 
@@ -185,6 +217,14 @@ if (a) {
     b();
 
 }
+
+class C {
+
+    static {
+        a();
+    }
+
+}
 ```
 
 Examples of **correct** code for this rule with the `{ "blocks": "always" }` option:
@@ -209,6 +249,25 @@ if (a) {
 
     // comment
     b();
+
+}
+
+class C {
+
+    static {
+
+        a();
+
+    }
+
+}
+
+class D {
+    static {
+
+        a();
+
+    }
 
 }
 ```
@@ -240,6 +299,14 @@ if (a) {
     b();
 
 }
+
+class C {
+    static {
+
+        a();
+
+    }
+}
 ```
 
 Examples of **correct** code for this rule with the `{ "blocks": "never" }` option:
@@ -254,6 +321,20 @@ if (a) {
 if (a)
 {
     b();
+}
+
+class C {
+    static {
+        a();
+    }
+}
+
+class D {
+
+    static {
+        a();
+    }
+
 }
 ```
 
@@ -414,5 +495,6 @@ This rule was introduced in ESLint 0.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/padded-blocks.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/padded-blocks.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/padded-blocks.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/padded-blocks.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/padded-blocks.md)
