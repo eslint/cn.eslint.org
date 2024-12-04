@@ -1,15 +1,16 @@
 ---
 title: prefer-promise-reject-errors - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-promise-reject-errors.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/prefer-promise-reject-errors.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# require using Error objects as Promise rejection reasons (prefer-promise-reject-errors)
+# prefer-promise-reject-errors
+
+Requires using Error objects as Promise rejection reasons.
 
 It is considered good practice to only pass instances of the built-in `Error` object to the `reject()` function for user-defined errors in Promises. `Error` objects automatically store a stack trace, which can be used to debug an error by determining where it came from. If a Promise is rejected with a non-`Error` value, it can be difficult to determine where the rejection occurred.
-
 
 ## Rule Details
 
@@ -75,15 +76,18 @@ new Promise(function(resolve, reject) {
 
 Due to the limits of static analysis, this rule cannot guarantee that you will only reject Promises with `Error` objects. While the rule will report cases where it can guarantee that the rejection reason is clearly not an `Error`, it will not report cases where there is uncertainty about whether a given reason is an `Error`. For more information on this caveat, see the [similar limitations](no-throw-literal#known-limitations) in the `no-throw-literal` rule.
 
-To avoid conflicts between rules, this rule does not report non-error values used in `throw` statements in async functions, even though these lead to Promise rejections. To lint for these cases, use the [`no-throw-literal`](https://eslint.org/docs/rules/no-throw-literal) rule.
+To avoid conflicts between rules, this rule does not report non-error values used in `throw` statements in async functions, even though these lead to Promise rejections. To lint for these cases, use the [`no-throw-literal`](no-throw-literal) rule.
 
 ## When Not To Use It
 
 If you're using custom non-error values as Promise rejection reasons, you can turn off this rule.
 
+## Related Rules
+
+* [`no-throw-literal`](no-throw-literal)
+
 ## Further Reading
 
-* [`no-throw-literal`](https://eslint.org/docs/rules/no-throw-literal)
 * [Warning: a promise was rejected with a non-error](http://bluebirdjs.com/docs/warning-explanations.html#warning-a-promise-was-rejected-with-a-non-error)
 
 ## Version
@@ -92,5 +96,6 @@ This rule was introduced in ESLint 3.14.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-promise-reject-errors.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-promise-reject-errors.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-promise-reject-errors.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-promise-reject-errors.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/prefer-promise-reject-errors.md)
