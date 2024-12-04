@@ -1,7 +1,7 @@
 ---
 title: comma-spacing - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/comma-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/comma-spacing.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -120,12 +120,10 @@ var arr = [,2 ,3]
 
 If your project will not be following a consistent comma-spacing pattern, turn this rule off.
 
-
 ## Further Reading
 
 * [JavaScript](http://javascript.crockford.com/code.html)
 * [Dojo Style Guide](https://dojotoolkit.org/reference-guide/1.9/developer/styleguide.html)
-
 
 ## Related Rules
 
@@ -144,5 +142,6 @@ This rule was introduced in ESLint 0.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/comma-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/comma-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/comma-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/comma-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/comma-spacing.md)

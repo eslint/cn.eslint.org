@@ -1,7 +1,7 @@
 ---
 title: no-undefined - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-undefined.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-undefined.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -29,7 +29,6 @@ Because `undefined` can be overwritten or shadowed, reading `undefined` can give
 * Using the `void` operator to generate the value of `undefined` if necessary.
 
 As an alternative, you can use the [no-global-assign](no-global-assign) and [no-shadow-restricted-names](no-shadow-restricted-names) rules to prevent `undefined` from being shadowed or assigned a different value. This ensures that `undefined` will always hold its original, expected value.
-
 
 ## Rule Details
 
@@ -92,5 +91,6 @@ This rule was introduced in ESLint 0.7.1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-undefined.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-undefined.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-undefined.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-undefined.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-undefined.md)
