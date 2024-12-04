@@ -1,7 +1,7 @@
 ---
 title: 单元测试
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/unit-tests.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/developer-guide/unit-tests.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -44,4 +44,12 @@ ruleTester.run("my-rule", myRule, {
 
 ## 对单元测试的更多控制 {#more-control-on-unit-testing}
 
+<<<<<<< HEAD
 `npm run test:cli` 是 `./node_modules/.bin/mocha` 路径下的 Mocha cli 的别名。可以提供 [选项](https://mochajs.org/#command-line-usage)，以帮助更好地控制要运行的测试。
+=======
+`npm run test:cli` is an alias of the Mocha cli in `./node_modules/.bin/mocha`. [Options](https://mochajs.org/#command-line-usage) are available to be provided to help to better control the test to run.
+
+The default timeout for tests in `npm test` is 10000ms. You may change the timeout by providing `ESLINT_MOCHA_TIMEOUT` environment variable, for example:
+
+    ESLINT_MOCHA_TIMEOUT=20000 npm test
+>>>>>>> c3bf963020346898c7d13f516cd899e3a054f69e

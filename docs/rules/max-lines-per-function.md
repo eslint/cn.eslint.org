@@ -1,12 +1,14 @@
 ---
 title: max-lines-per-function - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/max-lines-per-function.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/max-lines-per-function.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# enforce a maximum function length (max-lines-per-function)
+# max-lines-per-function
+
+Enforces a maximum function length.
 
 Some people consider large functions a code smell. Large functions tend to do a lot of things and can make it hard following what's going on. Many coding style guides dictate a limit of the number of lines that a function can comprise of. This rule can help enforce that style.
 
@@ -14,11 +16,11 @@ Some people consider large functions a code smell. Large functions tend to do a 
 
 This rule enforces a maximum number of lines per function, in order to aid in maintainability and reduce complexity.
 
-## Why not use `max-statements` or other complexity measurement rules instead?
+### Why not use `max-statements` or other complexity measurement rules instead?
 
 Nested long method chains like the below example are often broken onto separate lines for readability:
 
-```
+```js
 function() {
     return m("div", [
         m("table", {className: "table table-striped latest-data"}, [
@@ -212,5 +214,6 @@ This rule was introduced in ESLint 5.0.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/max-lines-per-function.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/max-lines-per-function.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/max-lines-per-function.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/max-lines-per-function.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/max-lines-per-function.md)
