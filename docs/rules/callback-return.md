@@ -1,7 +1,7 @@
 ---
 title: callback-return - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/callback-return.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/callback-return.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -173,7 +173,6 @@ There are some cases where you might want to call a callback function more than 
  may lead to incorrect behavior. In those cases you may want to reserve a special name for those callbacks and
  not include that in the list of callbacks that trigger warnings.
 
-
 ## Further Reading
 
 * [The Art Of Node: Callbacks](https://github.com/maxogden/art-of-node#callbacks)
@@ -189,5 +188,6 @@ This rule was introduced in ESLint 1.0.0-rc-1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/callback-return.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/callback-return.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/callback-return.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/callback-return.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/callback-return.md)
