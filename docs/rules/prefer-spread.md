@@ -1,12 +1,14 @@
 ---
 title: prefer-spread - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-spread.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/prefer-spread.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Suggest using spread syntax instead of `.apply()`. (prefer-spread)
+# prefer-spread
+
+Suggests using spread syntax instead of `.apply()`.
 
 Before ES2015, one must use `Function.prototype.apply()` to call variadic functions.
 
@@ -91,5 +93,6 @@ This rule was introduced in ESLint 1.0.0-rc-1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-spread.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-spread.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-spread.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-spread.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/prefer-spread.md)

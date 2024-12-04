@@ -1,12 +1,14 @@
 ---
 title: no-duplicate-imports - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-duplicate-imports.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/no-duplicate-imports.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow duplicate imports (no-duplicate-imports)
+# no-duplicate-imports
+
+Disallows duplicate imports.
 
 Using a single `import` statement per module will make the code clearer because you can see everything being imported from that module on one line.
 
@@ -97,5 +99,6 @@ This rule was introduced in ESLint 2.5.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-duplicate-imports.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-duplicate-imports.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-duplicate-imports.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-duplicate-imports.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/no-duplicate-imports.md)
