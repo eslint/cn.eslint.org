@@ -1,11 +1,16 @@
 ---
-title: "Microsoft donates $10,000 to ESLint as first FOSS Fund recipient"
+layout: post
+title: Microsoft donates $10,000 to ESLint as first FOSS Fund recipient
 tags:
   - Open Source
   - Funding
   - Open Collective
   - Sponsors
   - Backers
+authors:
+  - nzakas
+categories:
+  - Sponsorships
 ---
 
 <p class="text-center">

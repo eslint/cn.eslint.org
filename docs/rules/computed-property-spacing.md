@@ -1,7 +1,7 @@
 ---
 title: computed-property-spacing - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/computed-property-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/computed-property-spacing.md
 rule_type: layout
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -58,6 +58,9 @@ obj[foo ]
 obj[ 'foo']
 var x = {[ b ]: a}
 obj[foo[ bar ]]
+
+const { [ a ]: someProp } = obj;
+({ [ b ]: anotherProp } = anotherObj);
 ```
 
 Examples of **correct** code for this rule with the default `"never"` option:
@@ -70,6 +73,9 @@ obj[foo]
 obj['foo']
 var x = {[b]: a}
 obj[foo[bar]]
+
+const { [a]: someProp } = obj;
+({ [b]: anotherProp } = anotherObj);
 ```
 
 ### always
@@ -86,6 +92,8 @@ obj[ foo]
 obj['foo' ]
 obj[foo[ bar ]]
 var x = {[ b]: a}
+const { [a]: someProp } = obj;
+({ [b ]: anotherProp } = anotherObj);
 ```
 
 Examples of **correct** code for this rule with the `"always"` option:
@@ -98,6 +106,8 @@ obj[ foo ]
 obj[ 'foo' ]
 var x = {[ b ]: a}
 obj[ foo[ bar ] ]
+const { [ a ]: someProp } = obj;
+({ [ b ]: anotherProp } = anotherObj);
 ```
 
 #### enforceForClassMembers
@@ -180,5 +190,6 @@ This rule was introduced in ESLint 0.23.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/computed-property-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/computed-property-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/computed-property-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/computed-property-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/computed-property-spacing.md)
