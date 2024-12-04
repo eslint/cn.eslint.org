@@ -1,12 +1,14 @@
 ---
 title: id-denylist - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/id-denylist.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/id-denylist.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow specified identifiers (id-denylist)
+# id-denylist
+
+Disallows specified identifiers.
 
 > "There are only two hard things in Computer Science: cache invalidation and naming things." — Phil Karlton
 
@@ -18,16 +20,16 @@ This rule disallows specified identifiers in assignments and `function` definiti
 
 This rule will catch disallowed identifiers that are:
 
-- variable declarations
-- function declarations
-- object properties assigned to during object creation
-- class fields
-- class methods
+* variable declarations
+* function declarations
+* object properties assigned to during object creation
+* class fields
+* class methods
 
 It will not catch disallowed identifiers that are:
 
-- function calls (so you can still use functions you do not have control over)
-- object properties (so you can still use objects you do not have control over)
+* function calls (so you can still use functions you do not have control over)
+* object properties (so you can still use objects you do not have control over)
 
 ## Options
 
@@ -129,5 +131,6 @@ This rule was introduced in ESLint 7.4.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/id-denylist.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/id-denylist.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/id-denylist.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/id-denylist.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/id-denylist.md)

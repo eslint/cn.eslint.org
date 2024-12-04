@@ -1,14 +1,16 @@
 ---
 title: no-useless-catch - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-useless-catch.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-useless-catch.md
 rule_type: suggestion
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow unnecessary catch clauses (no-useless-catch)
+# no-useless-catch
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows unnecessary catch clauses.
 
 A `catch` clause that only rethrows the original error is redundant, and has no effect on the runtime behavior of the program. These redundant clauses can be a source of confusion and code bloat, so it's better to disallow these unnecessary `catch` clauses.
 
@@ -71,5 +73,6 @@ This rule was introduced in ESLint 5.11.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-useless-catch.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-useless-catch.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-useless-catch.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-useless-catch.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-useless-catch.md)

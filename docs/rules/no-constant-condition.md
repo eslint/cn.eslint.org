@@ -1,14 +1,16 @@
 ---
 title: no-constant-condition - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-constant-condition.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-constant-condition.md
 rule_type: problem
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# disallow constant expressions in conditions (no-constant-condition)
+# no-constant-condition
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows constant expressions in conditions.
 
 A constant expression (for example, a literal) as a test condition might be a typo or development trigger for a specific behavior. For example, the following code looks as if it is not ready for production.
 
@@ -40,6 +42,22 @@ if (void x) {
 
 if (x &&= false) {
     doSomethingNever();
+}
+
+if (class {}) {
+    doSomethingAlways();
+}
+
+if (new Boolean(x)) {
+    doSomethingAlways();
+}
+
+if (Boolean(1)) {
+    doSomethingAlways();
+}
+
+if (undefined) {
+    doSomethingUnfinished();
 }
 
 if (x ||= true) {
@@ -124,5 +142,6 @@ This rule was introduced in ESLint 0.4.1.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-constant-condition.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-constant-condition.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-constant-condition.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-constant-condition.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-constant-condition.md)
