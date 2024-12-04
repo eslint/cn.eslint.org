@@ -1,11 +1,17 @@
 ---
-title: "Google Chrome becomes ESLint gold sponsor"
+layout: post
+title: Google Chrome becomes ESLint gold sponsor
+teaser: "We are happy to announce that Google Chrome is a gold sponsor of ESLint. It is an honor to be supported by Google Chrome. We are grateful to Addy Osmani, Senior Staff Engineering Manager, for recommending us for the sponsorship, and to the Chrome team."
 tags:
   - Open Source
   - Funding
   - Open Collective
   - Sponsors
   - Backers
+authors:
+  - nzakas
+categories:
+  - Sponsorships
 ---
 
 <p class="text-center">
