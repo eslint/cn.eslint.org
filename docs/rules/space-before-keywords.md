@@ -1,12 +1,14 @@
 ---
 title: space-before-keywords - Rules
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/space-before-keywords.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/rules/space-before-keywords.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# space-before-keywords: enforce consistent spacing before keywords
+# space-before-keywords
+
+Enforces consistent spacing before keywords.
 
 (removed) This rule was **removed** in ESLint v2.0 and **replaced** by the [keyword-spacing](keyword-spacing) rule.
 
@@ -127,4 +129,4 @@ This rule was introduced in ESLint 1.4.0 and removed in 2.0.0-beta.3.
 
 ## Resources
 
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/space-before-keywords.md)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/rules/space-before-keywords.md)
