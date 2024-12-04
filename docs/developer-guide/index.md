@@ -1,7 +1,7 @@
 ---
 title: 开发者指南
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/README.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/developer-guide/README.md
 
 ---
 <!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
@@ -40,7 +40,11 @@ ESLint 中的很多单元测试都是为了确保高质量的代码。本节会�
 
 ## 第 5 节：[使用插件](working-with-plugins) {#section-5-working-with-plugins}
 
+<<<<<<< HEAD
 你开发好了特定的 ESLint 规则，想要分享到社区。你可以在 npm 上将其发布成为一个 ESLint 插件。
+=======
+You've developed library-specific rules for ESLint and you want to share them with the community. You can publish an ESLint plugin on npm.
+>>>>>>> 47b92f6c9ad91fcf4c9c5f0dee5d960fca3792d5
 
 ## 第 6 节：[使用自定义解析器](working-with-custom-parsers) {#section-6-working-with-custom-parsers}
 
