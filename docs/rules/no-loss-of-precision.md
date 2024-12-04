@@ -1,14 +1,15 @@
 ---
-title: no-loss-of-precision - Rules
+title: no-loss-of-precision
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-loss-of-precision.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-loss-of-precision.md
 rule_type: problem
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Number Literals That Lose Precision (no-loss-of-precision)
+
 
 (recommended) The `"extends": "eslint:recommended"` property in a configuration file enables this rule.
+
+Disallows number literals that lose precision.
 
 This rule would disallow the use of number literals that immediately lose precision at runtime when converted to a JS `Number` due to 64-bit floating-point rounding.
 
@@ -49,5 +50,6 @@ This rule was introduced in ESLint 7.1.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-loss-of-precision.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-loss-of-precision.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-loss-of-precision.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-loss-of-precision.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-loss-of-precision.md)
