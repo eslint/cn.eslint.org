@@ -1,14 +1,15 @@
 ---
-title: comma-spacing - Rules
+title: comma-spacing
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/comma-spacing.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/comma-spacing.md
 rule_type: layout
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Enforces spacing around commas (comma-spacing)
+
 
 (fixable) The `--fix` option on the [command line](../user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
+Enforces spacing around commas.
 
 Spacing around commas improves readability of a list of items. Although most of the style guidelines for languages prescribe adding a space after a comma and not before it, it is subjective to the preferences of a project.
 
@@ -120,13 +121,6 @@ var arr = [,2 ,3]
 
 If your project will not be following a consistent comma-spacing pattern, turn this rule off.
 
-
-## Further Reading
-
-* [JavaScript](http://javascript.crockford.com/code.html)
-* [Dojo Style Guide](https://dojotoolkit.org/reference-guide/1.9/developer/styleguide.html)
-
-
 ## Related Rules
 
 * [array-bracket-spacing](array-bracket-spacing)
@@ -138,11 +132,17 @@ If your project will not be following a consistent comma-spacing pattern, turn t
 * [space-unary-ops](space-unary-ops)
 * [space-return-throw-case](space-return-throw-case)
 
+## Further Reading
+
+* [JavaScript](http://javascript.crockford.com/code.html)
+* [Dojo Style Guide](https://dojotoolkit.org/reference-guide/1.9/developer/styleguide.html)
+
 ## Version
 
 This rule was introduced in ESLint 0.9.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/comma-spacing.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/comma-spacing.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/comma-spacing.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/comma-spacing.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/comma-spacing.md)

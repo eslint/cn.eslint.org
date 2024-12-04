@@ -1,13 +1,11 @@
 ---
-title: prefer-named-capture-group - Rules
+title: prefer-named-capture-group
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/prefer-named-capture-group.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/prefer-named-capture-group.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Suggest using named capture group in regular expression (prefer-named-capture-group)
-
+Suggest using named capture group in regular expression.
 
 ## Rule Details
 
@@ -63,5 +61,6 @@ This rule was introduced in ESLint 5.15.0.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/prefer-named-capture-group.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/prefer-named-capture-group.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/prefer-named-capture-group.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/prefer-named-capture-group.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/prefer-named-capture-group.md)

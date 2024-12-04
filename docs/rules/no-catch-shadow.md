@@ -1,12 +1,11 @@
 ---
-title: no-catch-shadow - Rules
+title: no-catch-shadow
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/rules/no-catch-shadow.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/rules/no-catch-shadow.md
 rule_type: suggestion
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
 
-# Disallow Shadowing of Variables Inside of catch (no-catch-shadow)
+Disallows shadowing of variables inside of catch.
 
 This rule was **deprecated** in ESLint v5.1.0.
 
@@ -86,5 +85,6 @@ This rule was introduced in ESLint 0.0.9.
 
 ## Resources
 
-* [Rule source](https://github.com/eslint/eslint/tree/master/lib/rules/no-catch-shadow.js)
-* [Documentation source](https://github.com/eslint/eslint/tree/master/docs/rules/no-catch-shadow.md)
+* [Rule source](https://github.com/eslint/eslint/tree/HEAD/lib/rules/no-catch-shadow.js)
+* [Test source](https://github.com/eslint/eslint/tree/HEAD/tests/lib/rules/no-catch-shadow.js)
+* [Documentation source](https://github.com/eslint/eslint/tree/HEAD/docs/src/rules/no-catch-shadow.md)

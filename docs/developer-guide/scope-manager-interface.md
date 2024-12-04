@@ -1,12 +1,9 @@
 ---
 title: ScopeManager
 layout: doc
-edit_link: https://github.com/eslint/eslint/edit/master/docs/developer-guide/scope-manager-interface.md
+edit_link: https://github.com/eslint/eslint/edit/main/docs/src/developer-guide/scope-manager-interface.md
 
 ---
-<!-- Note: No pull requests accepted for this file. See README.md in the root directory for details. -->
-
-# ScopeManager
 
 This document was written based on the implementation of [eslint-scope](https://github.com/eslint/eslint-scope), a fork of [escope](https://github.com/estools/escope), and deprecates some members ESLint is not using.
 
@@ -85,7 +82,7 @@ Those members are defined but not used in ESLint.
 #### type
 
 * **Type:** `string`
-* **Description:** The type of this scope. This is one of `"block"`, `"catch"`, `"class"`, `"class-field-initializer"`, `"for"`, `"function"`, `"function-expression-name"`, `"global"`, `"module"`, `"switch"`, `"with"`.
+* **Description:** The type of this scope. This is one of `"block"`, `"catch"`, `"class"`, `"class-field-initializer"`, `"class-static-block"`, `"for"`, `"function"`, `"function-expression-name"`, `"global"`, `"module"`, `"switch"`, `"with"`.
 
 #### isStrict
 
@@ -105,9 +102,9 @@ Those members are defined but not used in ESLint.
 #### variableScope
 
 * **Type:** `Scope`
-* **Description:** The nearest ancestor whose `type` is one of `"class-field-initializer"`, `"function"`, `"module"`, or `"program"` . For the aforementioned scopes this is a self-reference.
+* **Description:** The nearest ancestor whose `type` is one of `"class-field-initializer"`, `"class-static-block"`, `"function"`, `"global"`, or `"module"`. For the aforementioned scopes this is a self-reference.
 
-> This represents the lowest enclosing function or top-level scope. Class field initializers are implicit functions. Historically, this was the scope which hosts variables that are defined by `var` declarations, and thus the name `variableScope`.
+> This represents the lowest enclosing function or top-level scope. Class field initializers and class static blocks are implicit functions. Historically, this was the scope which hosts variables that are defined by `var` declarations, and thus the name `variableScope`.
 
 #### block
 
@@ -211,6 +208,11 @@ Those members are defined but not used in ESLint.
 
 * **Type:** `string`
 * **Description:** The name of this variable.
+
+#### scope
+
+* **Type:** `Scope`
+* **Description:** The scope in which this variable is defined.
 
 #### identifiers
 
